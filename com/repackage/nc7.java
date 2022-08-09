@@ -1,95 +1,98 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class nc7 {
+public class nc7 extends bn<jc7, CardViewHolder<oc7>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, ok4> a;
+    public TbPageContext<?> a;
+    public b06 b;
+    public String c;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final nc7 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-161276207, "Lcom/repackage/nc7$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-161276207, "Lcom/repackage/nc7$b;");
-                    return;
-                }
-            }
-            a = new nc7(null);
-        }
-    }
-
-    public /* synthetic */ nc7(a aVar) {
-        this();
-    }
-
-    public static nc7 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (nc7) invokeV.objValue;
-    }
-
-    public void b(ok4 ok4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ok4Var) == null) {
-            c(ok4Var.a(), ok4Var);
-        }
-    }
-
-    public final void c(String str, ok4 ok4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, ok4Var) == null) {
-            this.a.put(str, ok4Var);
-        }
-    }
-
-    public void d(String str, HashMap<String, String> hashMap, pk4 pk4Var) {
-        ok4 ok4Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, hashMap, pk4Var) == null) || str == null || hashMap == null || hashMap.isEmpty() || pk4Var == null || (ok4Var = this.a.get(str)) == null) {
-            return;
-        }
-        ok4Var.b(hashMap, pk4Var);
-    }
-
-    public nc7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nc7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getContext(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
+        this.a = tbPageContext;
+    }
+
+    @Override // com.repackage.bn
+    public yn getOnAdapterItemClickListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? super.getOnAdapterItemClickListener() : (yn) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bn
+    /* renamed from: s */
+    public CardViewHolder<oc7> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            oc7 oc7Var = new oc7(this.a, viewGroup);
+            b06 b06Var = this.b;
+            if (b06Var != null) {
+                oc7Var.n(b06Var);
+            }
+            return new CardViewHolder<>(oc7Var);
+        }
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, jc7 jc7Var, CardViewHolder<oc7> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, jc7Var, cardViewHolder})) == null) {
+            if (jc7Var == null || cardViewHolder == null || cardViewHolder.a() == null) {
+                return null;
+            }
+            cardViewHolder.a().x(this.c);
+            cardViewHolder.a().i(jc7Var);
+            return cardViewHolder.getView();
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public void u(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void v(b06 b06Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, b06Var) == null) {
+            this.b = b06Var;
+        }
     }
 }

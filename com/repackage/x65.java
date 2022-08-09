@@ -1,43 +1,68 @@
 package com.repackage;
 
-import com.baidu.tbadk.mutiprocess.backbaidubox.BackBaiduBoxViewEvent;
+import android.content.Context;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.module.frs.Frs$From;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class x65 implements m65<BackBaiduBoxViewEvent> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface x65 {
+    public static final a a = a.a;
 
-    public x65() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ a a;
+        public static final ServiceReference b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(83397245, "Lcom/repackage/x65$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(83397245, "Lcom/repackage/x65$a;");
+                    return;
+                }
             }
+            a = new a();
+            b = new ServiceReference("Frs", "FrsService");
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public final ServiceReference a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (ServiceReference) invokeV.objValue;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.m65
-    /* renamed from: a */
-    public boolean onEvent(BackBaiduBoxViewEvent backBaiduBoxViewEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, backBaiduBoxViewEvent)) == null) {
-            if (backBaiduBoxViewEvent == null) {
-                return false;
-            }
-            ad5.m().u(backBaiduBoxViewEvent.isShow);
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
+    void a(TbPageContext<?> tbPageContext, long j);
+
+    void b(Context context, Frs$From frs$From, Long l, String str);
+
+    void c(Long l, String str);
 }

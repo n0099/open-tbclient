@@ -1,119 +1,71 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mz2;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class tt3 {
+public class tt3 extends et3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public mz2 a;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ boolean d;
-        public final /* synthetic */ DialogInterface.OnClickListener e;
-        public final /* synthetic */ tt3 f;
-
-        public a(tt3 tt3Var, Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755279266, "Lcom/repackage/tt3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tt3Var, activity, str, str2, Boolean.valueOf(z), onClickListener};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.f = tt3Var;
-            this.a = activity;
-            this.b = str;
-            this.c = str2;
-            this.d = z;
-            this.e = onClickListener;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f.a != null && this.f.a.isShowing()) {
-                    this.f.a.dismiss();
-                }
-                Activity activity = this.a;
-                if (activity == null || activity.isFinishing()) {
-                    return;
-                }
-                mz2.a d = this.f.d(this.a, this.b, this.c, this.d, this.e);
-                this.f.a = d.X();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755279266, "Lcom/repackage/tt3;");
+                return;
             }
         }
+        c = jh1.a;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public tt3() {
+        super("getSid");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    public final mz2.a d(Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.et3
+    public zs1 a(JSONObject jSONObject, de2 de2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{activity, str, str2, Boolean.valueOf(z), onClickListener})) == null) {
-            mz2.a aVar = new mz2.a(activity);
-            aVar.x(str);
-            aVar.a();
-            aVar.n(new qf3());
-            aVar.m(z);
-            aVar.Q(R.color.obfuscated_res_0x7f060a47);
-            aVar.f(true);
-            aVar.P(str2, onClickListener);
-            return aVar;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, de2Var)) == null) {
+            String k = gk2.g0().k();
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("sid", k);
+            } catch (JSONException e) {
+                if (c) {
+                    e.printStackTrace();
+                }
+            }
+            de2Var.a(jSONObject2);
+            return null;
         }
-        return (mz2.a) invokeCommon.objValue;
-    }
-
-    public void e() {
-        mz2 mz2Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (mz2Var = this.a) == null) {
-            return;
-        }
-        if (mz2Var.isShowing()) {
-            this.a.dismiss();
-        }
-        this.a = null;
-    }
-
-    public void f(Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, str, str2, Boolean.valueOf(z), onClickListener}) == null) {
-            ce3.a0(new a(this, activity, str, str2, z, onClickListener));
-        }
+        return (zs1) invokeLL.objValue;
     }
 }

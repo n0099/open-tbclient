@@ -1,142 +1,82 @@
 package com.repackage;
 
-import com.baidu.swan.apps.publisher.draft.DraftData;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.Iterator;
 /* loaded from: classes7.dex */
-public final class tx2 {
+public class tx2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            File file = new File(b(), "publisher_draft");
-            if (file.exists()) {
-                file.delete();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755275453, "Lcom/repackage/tx2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755275453, "Lcom/repackage/tx2;");
+                return;
             }
         }
+        a = jh1.a;
     }
 
-    public static final String b() {
-        InterceptResult invokeV;
+    public static void a(@Nullable Bundle bundle, @NonNull Class<? extends zw2> cls) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            i03 M = i03.M();
-            String v = q73.v(M != null ? M.b : null);
-            Intrinsics.checkNotNullExpressionValue(v, "StorageUtil.getSwanAppStoreDirectory(appId)");
-            return v;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:32:0x005b  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static final DraftData c() {
-        InterceptResult invokeV;
-        ObjectInputStream objectInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            File file = new File(b(), "publisher_draft");
-            ObjectInputStream objectInputStream2 = null;
-            try {
-                try {
-                    if (file.exists()) {
-                        objectInputStream = new ObjectInputStream(new FileInputStream(file));
-                        try {
-                            Object readObject = objectInputStream.readObject();
-                            if (readObject != null) {
-                                DraftData draftData = (DraftData) readObject;
-                                if (System.currentTimeMillis() - draftData.getTimeStamp() > 432000000) {
-                                    objectInputStream.close();
-                                    return null;
-                                }
-                                objectInputStream.close();
-                                return draftData;
-                            }
-                            throw new NullPointerException("null cannot be cast to non-null type com.baidu.swan.apps.publisher.draft.DraftData");
-                        } catch (Exception e) {
-                            e = e;
-                            e.printStackTrace();
-                            if (objectInputStream != null) {
-                                objectInputStream.close();
-                            }
-                            return null;
-                        }
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    objectInputStream2 = "publisher_draft";
-                    if (objectInputStream2 != null) {
-                        objectInputStream2.close();
-                    }
-                    throw th;
+        if (interceptable == null || interceptable.invokeLL(65537, null, bundle, cls) == null) {
+            Iterator<yx2> it = ay2.k().q().iterator();
+            while (it.hasNext()) {
+                yx2 next = it.next();
+                if (next != null && next.T()) {
+                    b(next.b, bundle, cls, null);
                 }
-            } catch (Exception e2) {
-                e = e2;
-                objectInputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-                if (objectInputStream2 != null) {
-                }
-                throw th;
             }
-            return null;
         }
-        return (DraftData) invokeV.objValue;
     }
 
-    public static final void d(DraftData draftData) {
-        ObjectOutputStream objectOutputStream;
+    public static void b(SwanAppProcessInfo swanAppProcessInfo, @Nullable Bundle bundle, @NonNull Class<? extends zw2> cls, @Nullable gx2 gx2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, draftData) == null) || draftData == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLLLL(65538, null, swanAppProcessInfo, bundle, cls, gx2Var) == null) {
+            if (a) {
+                Log.d("SwanAppMessageChannel", "sendMessageToClient: delegation: " + cls.getName());
+            }
+            Message obtain = Message.obtain((Handler) null, 125);
+            obtain.replyTo = ay2.k().d;
+            Bundle bundle2 = new Bundle();
+            bundle2.putString("ai_apps_delegation_name", cls.getName());
+            if (gx2Var != null) {
+                bundle2.putString("ai_apps_observer_id", gx2Var.b());
+                dx2.b().e(gx2Var);
+            }
+            if (bundle != null) {
+                bundle2.putBundle("ai_apps_data", bundle);
+            }
+            obtain.obj = bundle2;
+            px2 e = px2.e();
+            rx2 rx2Var = new rx2(obtain);
+            rx2Var.b(swanAppProcessInfo);
+            e.h(rx2Var);
         }
-        File file = new File(b(), "publisher_draft");
-        try {
-            if (file.exists()) {
-                file.delete();
-                file.createNewFile();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        ObjectOutputStream objectOutputStream2 = null;
-        try {
-            try {
-                objectOutputStream = new ObjectOutputStream(new FileOutputStream(file));
-            } catch (Exception e2) {
-                e = e2;
-            }
-        } catch (Throwable th) {
-            th = th;
-        }
-        try {
-            objectOutputStream.writeObject(draftData);
-            objectOutputStream.close();
-        } catch (Exception e3) {
-            e = e3;
-            objectOutputStream2 = objectOutputStream;
-            e.printStackTrace();
-            if (objectOutputStream2 != null) {
-                objectOutputStream2.close();
-            }
-        } catch (Throwable th2) {
-            th = th2;
-            objectOutputStream2 = objectOutputStream;
-            if (objectOutputStream2 != null) {
-                objectOutputStream2.close();
-            }
-            throw th;
+    }
+
+    public static void c(@Nullable Bundle bundle, @NonNull Class<? extends zw2> cls, @Nullable gx2 gx2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, bundle, cls, gx2Var) == null) {
+            ux2.Q().X(bundle, cls, gx2Var);
         }
     }
 }

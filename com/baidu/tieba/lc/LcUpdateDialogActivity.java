@@ -91,7 +91,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
                 if (DownloadManager.ACTION_DOWNLOAD_PROGRESS_CHANGE.equals(intent.getAction())) {
                     int intExtra = intent.getIntExtra("progress", 0);
                     this.this$0.j.setVisibility(0);
-                    this.this$0.j.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09b8), String.valueOf(intExtra)));
+                    this.this$0.j.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09cf), String.valueOf(intExtra)));
                 } else if (DownloadManager.ACTION_DOWNLOAD_STATUS_CHANGE.equals(intent.getAction())) {
                     LcUpdateDialogActivity lcUpdateDialogActivity2 = this.this$0;
                     TbadkCoreApplication.saveClientId(lcUpdateDialogActivity2, String.valueOf(lcUpdateDialogActivity2.m));
@@ -138,7 +138,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
 
     private void registerReceiver() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(DownloadManager.ACTION_DOWNLOAD_PROGRESS_CHANGE);
             intentFilter.addAction(DownloadManager.ACTION_DOWNLOAD_STATUS_CHANGE);
@@ -151,7 +151,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
     private boolean update() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             if (!FileHelper.checkSD()) {
                 showToast(FileHelper.getSdErrorString());
                 return false;
@@ -174,7 +174,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         return invokeV.booleanValue;
     }
 
-    public final void F1(Bundle bundle) {
+    public final void E1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             if (bundle != null) {
@@ -190,18 +190,18 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         }
     }
 
-    public final void G1() {
+    public final void F1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091242);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09123a);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091241);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09123f);
-            this.f = findViewById(R.id.obfuscated_res_0x7f09123e);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09123c);
-            this.h = findViewById(R.id.obfuscated_res_0x7f09123b);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09123d);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091240);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09129c);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091294);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09129b);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091299);
+            this.f = findViewById(R.id.obfuscated_res_0x7f091298);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091296);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091295);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091297);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09129a);
             this.b.setBackgroundColor(Color.parseColor("#A8000000"));
             ClientUpdateInfo clientUpdateInfo = this.k;
             if (clientUpdateInfo != null) {
@@ -257,7 +257,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
             if (view2 == this.g) {
                 finish();
             } else if (view2 == this.i && update()) {
-                showToast(R.string.obfuscated_res_0x7f0f04f1);
+                showToast(R.string.obfuscated_res_0x7f0f04fe);
                 finish();
             }
         }
@@ -270,8 +270,8 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setContentView(R.layout.obfuscated_res_0x7f0d003f);
-            F1(bundle);
-            G1();
+            E1(bundle);
+            F1();
             registerReceiver();
         }
     }

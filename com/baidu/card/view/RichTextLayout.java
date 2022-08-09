@@ -19,12 +19,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gx;
-import com.repackage.on4;
-import com.repackage.pi;
-import com.repackage.vr4;
+import com.repackage.fo4;
+import com.repackage.hx;
+import com.repackage.ms4;
+import com.repackage.qi;
 /* loaded from: classes.dex */
-public class RichTextLayout extends LinearLayout implements gx<on4>, View.OnClickListener {
+public class RichTextLayout extends LinearLayout implements hx<fo4>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -121,7 +121,7 @@ public class RichTextLayout extends LinearLayout implements gx<on4>, View.OnClic
                 return;
             }
         }
-        this.a = pi.k(TbadkCoreApplication.getInst()) - ((pi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + pi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+        this.a = qi.k(TbadkCoreApplication.getInst()) - ((qi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + qi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
         this.e = false;
         this.g = false;
         this.d = context;
@@ -131,39 +131,39 @@ public class RichTextLayout extends LinearLayout implements gx<on4>, View.OnClic
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0745, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d076c, (ViewGroup) this, true);
             setClipChildren(false);
             setClipToPadding(false);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092021);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09202f);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09211d);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09212b);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.gx
+    @Override // com.repackage.hx
     /* renamed from: d */
-    public void a(on4 on4Var) {
+    public void a(fo4 fo4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, on4Var) == null) || on4Var == null || on4Var.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fo4Var) == null) || fo4Var == null || fo4Var.getThreadData() == null) {
             return;
         }
-        ThreadData threadData = on4Var.getThreadData();
+        ThreadData threadData = fo4Var.getThreadData();
         OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
         if (originalThreadInfo != null && this.e) {
             this.b.setVisibility(8);
-            vr4 d = vr4.d(this.c);
+            ms4 d = ms4.d(this.c);
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X07);
-            if (!originalThreadInfo.m && !on4Var.getThreadData().shouldShowBlockedState()) {
+            if (!originalThreadInfo.m && !fo4Var.getThreadData().shouldShowBlockedState()) {
                 SpannableString c = originalThreadInfo.c();
                 ThreadCardUtils.setAbstract(this.c, this.b, c, threadData, this.a, this.e, this.g);
                 if (c != null) {
-                    TiePlusEventController.p(originalThreadInfo.g());
+                    TiePlusEventController.o(originalThreadInfo.g());
                 }
             } else {
-                ThreadCardUtils.setAbstract(this.c, this.b, new SpannableString(this.d.getString(R.string.obfuscated_res_0x7f0f0ce7)), threadData, this.a, this.e, this.g);
+                ThreadCardUtils.setAbstract(this.c, this.b, new SpannableString(this.d.getString(R.string.obfuscated_res_0x7f0f0d0d)), threadData, this.a, this.e, this.g);
                 SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
             }
         } else {
@@ -171,7 +171,7 @@ public class RichTextLayout extends LinearLayout implements gx<on4>, View.OnClic
             SpannableString abstractText = threadData.getAbstractText();
             ThreadCardUtils.setAbstract(this.c, this.b, abstractText, threadData, this.a, this.e, this.g);
             if (abstractText != null) {
-                TiePlusEventController.p(threadData.getTiePlusLinkOriginData());
+                TiePlusEventController.o(threadData.getTiePlusLinkOriginData());
             }
         }
         if (!this.e) {

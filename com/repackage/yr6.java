@@ -1,243 +1,94 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.R;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.view.NavigationBarCoverTip;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetMyGift.DataRes;
-import tbclient.GetMyGift.presentMoneyTxt;
-import tbclient.PresentMyList;
 /* loaded from: classes7.dex */
 public class yr6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public b c;
-    public c d;
-    public ArrayList<a> e;
-    public long f;
-    public zo4 g;
-    public int h;
+    public FrsFragment a;
+    public NavigationBarCoverTip b;
+    public TextView c;
+    public int d;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public String b;
-        public String c;
-        public String d;
-        public long e;
-        public long f;
-        public long g;
-        public int h;
-        public String i;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public yr6() {
+    public yr6(FrsFragment frsFragment, NavigationBarCoverTip navigationBarCoverTip) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsFragment, navigationBarCoverTip};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = frsFragment;
+        this.b = navigationBarCoverTip;
+        b();
     }
 
-    public ArrayList<a> a() {
-        InterceptResult invokeV;
+    public void a(String str) {
+        int i;
+        String str2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (ArrayList) invokeV.objValue;
-    }
-
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.longValue;
-    }
-
-    public b c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (b) invokeV.objValue;
-    }
-
-    public c d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (c) invokeV.objValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.longValue;
-    }
-
-    public void f(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, dataRes) == null) || dataRes == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || pi.isEmpty(str) || this.b == null || !this.a.isPrimary() || (i = this.d) > 0) {
             return;
         }
-        this.a = dataRes.total_num.intValue();
-        this.b = dataRes.money.intValue();
-        dataRes.scene_id.intValue();
-        this.f = dataRes.blue_diamond.intValue();
-        if (dataRes.blue_diamond_txt != null) {
-            zo4 zo4Var = new zo4();
-            this.g = zo4Var;
-            String str = dataRes.blue_diamond_txt.txt;
-            if (str != null) {
-                zo4Var.a = str;
+        this.d = i + 1;
+        if (str.length() < 20) {
+            str2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06c7) + "\n" + str;
+        } else if (str.length() < 34) {
+            str2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06c7) + str;
+        } else {
+            str2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06c7) + str.substring(0, 34);
+        }
+        this.c.setText(str2);
+        SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0101);
+        SkinManager.setBackgroundColor(this.b, R.color.cp_link_tip_a_alpha95);
+        this.b.m(this.a.getActivity(), this.c, 5000);
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d = 0;
+            this.c = new TextView(this.a.getActivity());
+            this.c.setLayoutParams(new LinearLayout.LayoutParams(-1, this.a.getResources().getDimensionPixelSize(R.dimen.tbds112)));
+            if (UtilHelper.canUseStyleImmersiveSticky()) {
+                this.c.setPadding(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0);
+                this.c.setGravity(3);
+            } else {
+                this.c.setPadding(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0);
+                this.c.setGravity(19);
             }
-            String str2 = dataRes.blue_diamond_txt.url;
-            if (str2 != null) {
-                this.g.b = str2;
-            }
-        }
-        if (dataRes.page != null) {
-            b bVar = new b();
-            this.c = bVar;
-            bVar.a = dataRes.page.cur_page.intValue();
-            this.c.b = dataRes.page.has_more.intValue();
-            this.c.c = dataRes.page.total.intValue();
-        }
-        if (dataRes.money_txt != null) {
-            c cVar = new c();
-            this.d = cVar;
-            presentMoneyTxt presentmoneytxt = dataRes.money_txt;
-            cVar.a = presentmoneytxt.txt;
-            cVar.b = presentmoneytxt.url;
-        }
-        List<PresentMyList> list = dataRes.gift_list;
-        if (list != null && list.size() > 0) {
-            this.e = new ArrayList<>();
-            for (int i = 0; i < dataRes.gift_list.size(); i++) {
-                PresentMyList presentMyList = dataRes.gift_list.get(i);
-                if (presentMyList != null) {
-                    a aVar = new a();
-                    aVar.h = i + 1;
-                    aVar.a = presentMyList.pay_userid.longValue();
-                    aVar.b = presentMyList.pay_username;
-                    aVar.c = presentMyList.portrait;
-                    presentMyList.gift_id.intValue();
-                    String str3 = presentMyList.gift_name;
-                    String str4 = presentMyList.play_url;
-                    aVar.d = presentMyList.thumbnail_url;
-                    aVar.e = presentMyList.create_time.intValue();
-                    aVar.f = presentMyList.num.intValue();
-                    presentMyList.currency_unit.intValue();
-                    String str5 = presentMyList.currency_type;
-                    aVar.g = presentMyList.present_scores.longValue();
-                    aVar.i = presentMyList.name_show;
-                    this.e.add(aVar);
-                }
-            }
-        }
-        this.h = dataRes.currency.intValue();
-    }
-
-    public void g(ArrayList<a> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) {
-            this.e = arrayList;
+            this.c.setTextSize(0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9));
+            this.c.setLineSpacing(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4), 1.0f);
+            this.c.setMaxLines(2);
+            this.c.setEllipsize(TextUtils.TruncateAt.END);
         }
     }
 
-    public void h(long j) {
+    public void c() {
+        NavigationBarCoverTip navigationBarCoverTip;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            this.a = j;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (navigationBarCoverTip = this.b) == null) {
+            return;
         }
-    }
-
-    public void i(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.c = bVar;
-        }
-    }
-
-    public void j(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
-            this.d = cVar;
-        }
-    }
-
-    public void k(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
-            this.b = j;
-        }
+        navigationBarCoverTip.i();
     }
 }

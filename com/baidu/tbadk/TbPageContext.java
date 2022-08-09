@@ -10,15 +10,15 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
+import com.repackage.ab;
 import com.repackage.d9;
-import com.repackage.sm4;
-import com.repackage.za;
-/* loaded from: classes2.dex */
+import com.repackage.jn4;
+/* loaded from: classes3.dex */
 public interface TbPageContext<T> extends d9<T> {
     @Override // com.repackage.d9
     /* synthetic */ Context getContext();
 
-    sm4 getLayoutMode();
+    jn4 getLayoutMode();
 
     @Override // com.repackage.d9
     /* synthetic */ T getOrignalPage();
@@ -37,12 +37,12 @@ public interface TbPageContext<T> extends d9<T> {
 
     /* synthetic */ void registerListener(int i, MessageListener<?> messageListener);
 
-    /* synthetic */ void registerListener(int i, za zaVar);
+    /* synthetic */ void registerListener(int i, ab abVar);
 
     @Override // com.repackage.d9
     /* synthetic */ void registerListener(MessageListener<?> messageListener);
 
-    /* synthetic */ void registerListener(za zaVar);
+    /* synthetic */ void registerListener(ab abVar);
 
     @Override // com.repackage.d9
     /* synthetic */ void sendMessage(Message<?> message);

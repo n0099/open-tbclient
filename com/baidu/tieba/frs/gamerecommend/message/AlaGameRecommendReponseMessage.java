@@ -16,15 +16,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fk6;
-import com.repackage.gk6;
+import com.repackage.yl6;
+import com.repackage.zl6;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaGameRecommendReponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fk6 mData;
+    public yl6 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaGameRecommendReponseMessage() {
@@ -52,9 +52,9 @@ public class AlaGameRecommendReponseMessage extends JsonHttpResponsedMessage {
             if (jSONObject == null || jSONObject.length() <= 0) {
                 return;
             }
-            fk6 fk6Var = new fk6();
-            this.mData = fk6Var;
-            fk6Var.a = jSONObject.optInt("recom_has_more") == 1;
+            yl6 yl6Var = new yl6();
+            this.mData = yl6Var;
+            yl6Var.a = jSONObject.optInt("recom_has_more") == 1;
             this.mData.b = jSONObject.optInt("card_max_floor");
             JSONArray optJSONArray = jSONObject.optJSONArray("recom_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -94,10 +94,10 @@ public class AlaGameRecommendReponseMessage extends JsonHttpResponsedMessage {
                 for (int i5 = 0; i5 < optJSONArray4.length(); i5++) {
                     JSONObject optJSONObject5 = optJSONArray4.optJSONObject(i5);
                     if (optJSONObject5 != null) {
-                        gk6 gk6Var = new gk6();
-                        gk6Var.b = optJSONObject5.optString("title");
+                        zl6 zl6Var = new zl6();
+                        zl6Var.b = optJSONObject5.optString("title");
                         optJSONObject5.optInt("type");
-                        gk6Var.c = Integer.valueOf(optJSONObject5.optInt("floor"));
+                        zl6Var.c = Integer.valueOf(optJSONObject5.optInt("floor"));
                         JSONArray optJSONArray5 = optJSONObject5.optJSONArray("sub_nodes");
                         if (optJSONArray5 != null && optJSONArray5.length() > 0) {
                             for (int i6 = 0; i6 < optJSONArray5.length(); i6++) {
@@ -105,11 +105,11 @@ public class AlaGameRecommendReponseMessage extends JsonHttpResponsedMessage {
                                 if (optJSONObject6 != null) {
                                     ThreadData threadData2 = new ThreadData();
                                     threadData2.parserJson(optJSONObject6);
-                                    gk6Var.a.add(threadData2);
+                                    zl6Var.a.add(threadData2);
                                 }
                             }
                         }
-                        this.mData.g.add(gk6Var);
+                        this.mData.g.add(zl6Var);
                     }
                 }
             }
@@ -144,9 +144,9 @@ public class AlaGameRecommendReponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public fk6 getData() {
+    public yl6 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (fk6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (yl6) invokeV.objValue;
     }
 }

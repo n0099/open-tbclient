@@ -1,23 +1,49 @@
 package com.repackage;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.ObjectInput;
-/* compiled from: lambda */
+import java.text.SimpleDateFormat;
+import java.util.Formatter;
+import java.util.Locale;
 /* loaded from: classes6.dex */
-public final /* synthetic */ class lc9 implements ki9 {
+public class lc9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ lc9 a = new lc9();
     public transient /* synthetic */ FieldHolder $fh;
 
-    private /* synthetic */ lc9() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755533745, "Lcom/repackage/lc9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755533745, "Lcom/repackage/lc9;");
+                return;
+            }
+        }
+        new SimpleDateFormat("yyyy年MM月dd HH时mm分ss秒");
     }
 
-    @Override // com.repackage.ki9
-    public final Object a(ObjectInput objectInput) {
+    public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objectInput)) == null) ? od9.c(objectInput) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? str == null || str.trim().length() == 0 : invokeL.booleanValue;
+    }
+
+    public static String b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i < 1000) {
+                i = 1000;
+            }
+            return new Formatter(new StringBuilder(), Locale.getDefault()).format("%ds", Integer.valueOf(i / 1000)).toString();
+        }
+        return (String) invokeI.objValue;
     }
 }

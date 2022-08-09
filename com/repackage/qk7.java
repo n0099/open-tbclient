@@ -1,66 +1,52 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetVipInfo.VipSpecialItem;
 /* loaded from: classes7.dex */
 public class qk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public TextView b;
 
-    public qk7() {
+    public qk7(VipSpecialItem vipSpecialItem) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vipSpecialItem};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        String str = vipSpecialItem.title;
+        String str2 = vipSpecialItem.desc;
+        String str3 = vipSpecialItem.img_url;
+        String str4 = vipSpecialItem.link;
+        String str5 = vipSpecialItem.update_time;
+        vipSpecialItem.id.intValue();
+        vipSpecialItem.type.intValue();
     }
 
-    public View a(Context context) {
-        InterceptResult invokeL;
+    public qk7(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d081a, (ViewGroup) null);
-            this.a = inflate;
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f70);
-            this.a.setTag(this);
-            return this.a;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    @SuppressLint({"ResourceAsColor"})
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setBackgroundResource(this.b, R.drawable.tail_tool_add_button_bg);
-            SkinManager.setViewTextColor(this.b, R.color.CAM_X0302, 1);
-        }
-    }
-
-    public void c(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.a.setOnClickListener(onClickListener);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 }

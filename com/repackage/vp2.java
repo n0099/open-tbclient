@@ -2,9 +2,6 @@ package com.repackage;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -16,11 +13,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class vp2 {
+public class vp2 extends bq2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,10 +35,12 @@ public abstract class vp2 {
                 return;
             }
         }
-        a = sg1.a;
+        b = jh1.a;
     }
 
-    public vp2(@NonNull String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vp2(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,55 +50,54 @@ public abstract class vp2 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    public abstract boolean a(qp2 qp2Var, sp2 sp2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var);
-
-    @Nullable
-    public qp2 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        gn2 f;
+    @Override // com.repackage.bq2
+    public boolean a(rp2 rp2Var, tp2 tp2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, z03 z03Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
-            if (TextUtils.isEmpty(str3) || (f = hn2.f(str, str2, str3)) == null || !(f.i() instanceof qp2)) {
-                return null;
-            }
-            return (qp2) f.i();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{rp2Var, tp2Var, context, unitedSchemeEntity, callbackHandler, z03Var})) == null) {
+            zx1.i("video", "fullscreen, video id:" + tp2Var.j + " slave id: " + tp2Var.c);
+            e(rp2Var, tp2Var.s, unitedSchemeEntity, callbackHandler);
+            return true;
         }
-        return (qp2) invokeLLLLL.objValue;
+        return invokeCommon.booleanValue;
     }
 
-    public boolean c(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
-        InterceptResult invokeLLLL;
+    public final int d(HashMap<String, String> hashMap) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
-            if (a) {
-                Log.d("VideoPlayerAction", "handle entity: " + unitedSchemeEntity.toString());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap)) == null) {
+            String str = hashMap.get("params");
+            if (TextUtils.isEmpty(str)) {
+                return -1;
             }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                ix1.c("vrvideo", "param is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            }
-            qp2 b = b(context, optParamsAsJo.optString("slaveId"), optParamsAsJo.optString("sanId"), optParamsAsJo.optString("videoId"), optParamsAsJo);
-            if (b != null && context != null) {
-                sp2 h = sp2.h(optParamsAsJo, b.d());
-                if (!h.isValid()) {
-                    ix1.c("vrvideo", "param is invalid");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
+            try {
+                return new JSONObject(str).optInt("direction", -1);
+            } catch (JSONException e) {
+                if (b) {
+                    e.printStackTrace();
+                    return -1;
                 }
-                return a(b, h, context, unitedSchemeEntity, callbackHandler, i03Var);
+                return -1;
             }
-            ix1.c("vrvideo", "player id is invalid or context is null");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            return false;
         }
-        return invokeLLLL.booleanValue;
+        return invokeL.intValue;
+    }
+
+    public final void e(rp2 rp2Var, boolean z, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        HashMap<String, String> params;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{rp2Var, Boolean.valueOf(z), unitedSchemeEntity, callbackHandler}) == null) || (params = unitedSchemeEntity.getParams()) == null || params.isEmpty()) {
+            return;
+        }
+        rp2Var.u(z, d(params));
+        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
 }

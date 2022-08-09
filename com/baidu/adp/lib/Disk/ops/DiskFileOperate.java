@@ -3,7 +3,6 @@ package com.baidu.adp.lib.Disk.ops;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,9 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mg;
-import com.repackage.ub;
+import com.repackage.ng;
 import com.repackage.vb;
+import com.repackage.wb;
 import java.io.File;
 import java.io.OutputStream;
 import org.apache.http.client.methods.HttpDelete;
@@ -22,7 +21,7 @@ public class DiskFileOperate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Action mAction;
-    public vb.b mCustomOperate;
+    public wb.b mCustomOperate;
     public volatile byte[] mData;
     public String mDesName;
     public String mDesPath;
@@ -78,7 +77,7 @@ public class DiskFileOperate {
             DELETE_FILES = new Action("DELETE_FILES", 6);
             INFO = new Action("INFO", 7);
             RENAME = new Action("RENAME", 8);
-            Action action = new Action(EngineName.CUSTOM_ENGINE, 9);
+            Action action = new Action("CUSTOM", 9);
             CUSTOM = action;
             $VALUES = new Action[]{READ, WRITE, WRITE_FORCE, APPEND, APPEND_MORE, DELETE, DELETE_FILES, INFO, RENAME, action};
         }
@@ -215,7 +214,7 @@ public class DiskFileOperate {
     public boolean asyncCall() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ub.f().a(this) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? vb.f().a(this) : invokeV.booleanValue;
     }
 
     public String buildDesPath() {
@@ -272,7 +271,7 @@ public class DiskFileOperate {
     public boolean call() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ub.f().call(this) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? vb.f().call(this) : invokeV.booleanValue;
     }
 
     public void callback(boolean z) {
@@ -284,7 +283,7 @@ public class DiskFileOperate {
     public void cancelAsyncCall() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            ub.f().d(this);
+            vb.f().d(this);
         }
     }
 
@@ -317,10 +316,10 @@ public class DiskFileOperate {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mAction : (Action) invokeV.objValue;
     }
 
-    public vb.b getCustomOperate() {
+    public wb.b getCustomOperate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mCustomOperate : (vb.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mCustomOperate : (wb.b) invokeV.objValue;
     }
 
     public byte[] getData() {
@@ -425,14 +424,14 @@ public class DiskFileOperate {
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
             synchronized (this) {
                 if (this.mOutputStream != null) {
-                    mg.d(this.mOutputStream);
+                    ng.d(this.mOutputStream);
                     this.mOutputStream = null;
                 }
             }
         }
     }
 
-    public void setCustomOperate(vb.b bVar) {
+    public void setCustomOperate(wb.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, bVar) == null) {
             this.mCustomOperate = bVar;

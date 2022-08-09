@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nj7;
-import com.repackage.rj7;
+import com.repackage.il7;
+import com.repackage.ll7;
 /* loaded from: classes3.dex */
 public class MemberPayFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
@@ -23,9 +23,11 @@ public class MemberPayFragment extends BaseFragment {
     public String c;
     public boolean d;
     public int e;
-    public nj7 f;
-    public rj7 g;
-    public View h;
+    public int f;
+    public String g;
+    public il7 h;
+    public ll7 i;
+    public View j;
 
     public MemberPayFragment() {
         Interceptable interceptable = $ic;
@@ -40,7 +42,7 @@ public class MemberPayFragment extends BaseFragment {
                 return;
             }
         }
-        this.g = null;
+        this.i = null;
     }
 
     public int getType() {
@@ -62,9 +64,9 @@ public class MemberPayFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            nj7 nj7Var = this.f;
-            if (nj7Var != null) {
-                nj7Var.p(i);
+            il7 il7Var = this.h;
+            if (il7Var != null) {
+                il7Var.q(i);
             }
         }
     }
@@ -75,11 +77,15 @@ public class MemberPayFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             Bundle arguments = getArguments();
-            this.a = arguments.getInt("member_type");
-            this.b = arguments.getString("member_refer_page");
-            this.c = arguments.getString("member_click_zone");
-            this.d = arguments.getBoolean("member_is_pay_dialog");
-            this.e = arguments.getInt("member_from_type");
+            if (arguments != null) {
+                this.a = arguments.getInt("member_type");
+                this.b = arguments.getString("member_refer_page");
+                this.c = arguments.getString("member_click_zone");
+                this.d = arguments.getBoolean("member_is_pay_dialog");
+                this.e = arguments.getInt("member_from_type");
+                this.f = arguments.getInt("member_from_scene");
+                this.g = arguments.getString("member_fid");
+            }
         }
     }
 
@@ -88,31 +94,31 @@ public class MemberPayFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.h = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d054a, viewGroup, false);
-            nj7 nj7Var = new nj7(getPageContext(), this.h, this.a, this.b, this.c, this.d, this.e);
-            this.f = nj7Var;
-            nj7Var.s(this.g);
-            return this.h;
+            this.j = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0565, viewGroup, false);
+            il7 il7Var = new il7(getPageContext(), this.j, this.a, this.b, this.c, this.d, this.e, this.f, this.g);
+            this.h = il7Var;
+            il7Var.t(this.i);
+            return this.j;
         }
         return (View) invokeLLL.objValue;
     }
 
-    public void s1(Boolean bool) {
-        nj7 nj7Var;
+    public void r1(Boolean bool) {
+        il7 il7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, bool) == null) || (nj7Var = this.f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, bool) == null) || (il7Var = this.h) == null) {
             return;
         }
-        nj7Var.q(bool.booleanValue());
+        il7Var.r(bool.booleanValue());
     }
 
-    public void t1(rj7 rj7Var) {
+    public void s1(ll7 ll7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, rj7Var) == null) {
-            this.g = rj7Var;
-            nj7 nj7Var = this.f;
-            if (nj7Var != null) {
-                nj7Var.s(rj7Var);
+        if (interceptable == null || interceptable.invokeL(1048582, this, ll7Var) == null) {
+            this.i = ll7Var;
+            il7 il7Var = this.h;
+            if (il7Var != null) {
+                il7Var.t(ll7Var);
             }
         }
     }

@@ -1,36 +1,36 @@
 package com.repackage;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
-import java.util.HashMap;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface q98 {
-    an<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId);
+public class q98 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final boolean a;
+    public final int b;
+    public final boolean c;
+    public final String d;
 
-    l98 b();
-
-    g98 c();
-
-    an<?, ?> d(p98 p98Var, BdUniqueId bdUniqueId);
-
-    void e();
-
-    List<AdvertAppInfo> f();
-
-    an<?, ?> g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str);
-
-    IAdBaseAsyncController h(@NonNull IAdBaseAsyncController.Type type, @Nullable IAdBaseAsyncController.a aVar);
-
-    n98 i();
-
-    void j(AdvertAppInfo advertAppInfo);
-
-    void k(HashMap<String, String> hashMap, Context context);
+    public q98(boolean z, int i, boolean z2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2), str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = z;
+        this.b = i;
+        this.c = z2;
+        this.d = str;
+    }
 }

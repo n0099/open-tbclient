@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q45;
-import com.repackage.xl4;
+import com.repackage.m55;
+import com.repackage.om4;
 import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
@@ -74,7 +74,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
     public interface b {
         void onFail(int i, String str);
 
-        void onSuccess(List<q45> list);
+        void onSuccess(List<m55> list);
     }
 
     public GetEmotionInfosModel() {
@@ -98,7 +98,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
         registerListener(this.b);
     }
 
-    public void C(List<String> list, b bVar) {
+    public void B(List<String> list, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, list, bVar) == null) {
             this.a = bVar;
@@ -117,7 +117,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
                 }
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_INFOS);
-            httpMessage.addParam("pic_urls", xl4.q(jSONArray.toString()));
+            httpMessage.addParam("pic_urls", om4.q(jSONArray.toString()));
             sendMessage(httpMessage);
         }
     }

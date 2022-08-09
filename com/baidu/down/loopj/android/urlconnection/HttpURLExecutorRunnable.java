@@ -38,7 +38,7 @@ public class HttpURLExecutorRunnable implements Runnable {
     public String mUrl;
     public boolean mUsingDNSProxy;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface OnWebRequestListener {
         void onFailed();
 

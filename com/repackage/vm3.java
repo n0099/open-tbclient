@@ -1,16 +1,14 @@
 package com.repackage;
 
+import android.content.Context;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
 @Service
 /* loaded from: classes7.dex */
-public class vm3 implements ll1 {
+public class vm3 implements dm1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,10 +26,11 @@ public class vm3 implements ll1 {
         }
     }
 
-    @Override // com.repackage.ll1
-    public uf4 l() {
-        InterceptResult invokeV;
+    @Override // com.repackage.dm1
+    public void a(String str, ar2 ar2Var, Context context) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new um3() : (uf4) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, ar2Var, context) == null) {
+            it2.e().a(str, ar2Var, context);
+        }
     }
 }

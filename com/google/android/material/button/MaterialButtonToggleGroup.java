@@ -42,7 +42,7 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.TreeMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MaterialButtonToggleGroup extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int DEF_STYLE_RES;
@@ -60,7 +60,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
     public boolean singleSelection;
     public boolean skipCheckedStateTracker;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class CheckedStateTracker implements MaterialButton.OnCheckedChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +100,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class CornerData {
         public static /* synthetic */ Interceptable $ic;
         public static final CornerSize noCorner;
@@ -203,12 +203,12 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface OnButtonCheckedListener {
         void onButtonChecked(MaterialButtonToggleGroup materialButtonToggleGroup, @IdRes int i, boolean z);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class PressedStateTracker implements MaterialButton.OnPressedChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -255,7 +255,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
             }
         }
         LOG_TAG = MaterialButtonToggleGroup.class.getSimpleName();
-        DEF_STYLE_RES = R.style.obfuscated_res_0x7f100364;
+        DEF_STYLE_RES = R.style.obfuscated_res_0x7f100368;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -803,7 +803,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MaterialButtonToggleGroup(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040452);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0404ab);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -885,7 +885,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
             }
         };
         this.skipCheckedStateTracker = false;
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, new int[]{R.attr.obfuscated_res_0x7f040129, R.attr.obfuscated_res_0x7f040587, R.attr.obfuscated_res_0x7f0405a7}, i, DEF_STYLE_RES, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, new int[]{R.attr.obfuscated_res_0x7f040134, R.attr.obfuscated_res_0x7f040609, R.attr.obfuscated_res_0x7f04062a}, i, DEF_STYLE_RES, new int[0]);
         setSingleSelection(obtainStyledAttributes.getBoolean(2, false));
         this.checkedId = obtainStyledAttributes.getResourceId(0, -1);
         this.selectionRequired = obtainStyledAttributes.getBoolean(1, false);

@@ -21,6 +21,7 @@ public final class PayDialogType {
     public static final PayDialogType PAY_RESULT_DIALOG;
     public static final PayDialogType PAY_SHOW_GIFT_DIALOG;
     public static final PayDialogType PAY_WAY_DIALOG;
+    public static final PayDialogType THIRD_PART_PAY_WAY_DIALOG;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,9 +43,10 @@ public final class PayDialogType {
         PAY_RESULT_DIALOG = new PayDialogType("PAY_RESULT_DIALOG", 3, 4);
         PAY_CONFIRM_FINISH_DIALOG = new PayDialogType("PAY_CONFIRM_FINISH_DIALOG", 4, 5);
         PAY_SHOW_GIFT_DIALOG = new PayDialogType("PAY_SHOW_GIFT_DIALOG", 5, 6);
-        PayDialogType payDialogType = new PayDialogType("PAY_NONE_DIALOG", 6, 7);
-        PAY_NONE_DIALOG = payDialogType;
-        $VALUES = new PayDialogType[]{PAY_AMOUNT_DIALOG, PAY_INPUT_DIALOG, PAY_WAY_DIALOG, PAY_RESULT_DIALOG, PAY_CONFIRM_FINISH_DIALOG, PAY_SHOW_GIFT_DIALOG, payDialogType};
+        PAY_NONE_DIALOG = new PayDialogType("PAY_NONE_DIALOG", 6, 7);
+        PayDialogType payDialogType = new PayDialogType("THIRD_PART_PAY_WAY_DIALOG", 7, 8);
+        THIRD_PART_PAY_WAY_DIALOG = payDialogType;
+        $VALUES = new PayDialogType[]{PAY_AMOUNT_DIALOG, PAY_INPUT_DIALOG, PAY_WAY_DIALOG, PAY_RESULT_DIALOG, PAY_CONFIRM_FINISH_DIALOG, PAY_SHOW_GIFT_DIALOG, PAY_NONE_DIALOG, payDialogType};
     }
 
     public PayDialogType(String str, int i, int i2) {

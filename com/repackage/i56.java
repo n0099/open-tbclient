@@ -1,48 +1,137 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.mvc.message.MvcHttpMessage;
+import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tbadk.mvc.model.NetModel;
+import com.baidu.tieba.downloadmanager.net.DownloadManagerHttpResponseMessage;
+import com.baidu.tieba.downloadmanager.net.DownloadManagerNetModel;
+import com.baidu.tieba.downloadmanager.net.DownloadManagerSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsTabInfo;
 /* loaded from: classes6.dex */
-public class i56 {
+public class i56 extends d56 implements NetModel.k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<h56> a;
+    public DownloadManagerNetModel b;
+    public j56 c;
+    public k56 d;
+    public g56 e;
 
-    public i56() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i56(BaseFragment baseFragment, int i) {
+        super(baseFragment, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragment, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((BaseFragment) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.c = new j56(1, i);
+        DownloadManagerNetModel downloadManagerNetModel = new DownloadManagerNetModel(baseFragment.getPageContext(), this.c);
+        this.b = downloadManagerNetModel;
+        downloadManagerNetModel.b0(this);
+        this.b.setUniqueId(baseFragment.getUniqueId());
+    }
+
+    @Override // com.repackage.d56
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c.c();
+            this.b.loadData();
         }
     }
 
-    public void a(List<FrsTabInfo> list) {
+    @Override // com.repackage.d56
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList<>();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c.b();
+            this.b.loadData();
+        }
+    }
+
+    @Override // com.repackage.d56
+    public void d(g56 g56Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, g56Var) == null) {
+            this.e = g56Var;
+        }
+    }
+
+    public final void e(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) || i == 0) {
+            return;
+        }
+        this.e.a(i, str);
+    }
+
+    public final boolean f(k56 k56Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, k56Var)) == null) {
+            if (k56Var == null) {
+                return false;
             }
-            this.a.clear();
-            if (list == null) {
-                return;
+            if (this.c.a() != 1) {
+                this.d.a(k56Var);
+            } else {
+                this.d = k56Var;
             }
-            for (FrsTabInfo frsTabInfo : list) {
-                if (frsTabInfo != null && !StringUtils.isNull(frsTabInfo.tab_code) && !StringUtils.isNull(frsTabInfo.tab_name)) {
-                    this.a.add(new h56(frsTabInfo));
-                }
-            }
+            g56 g56Var = this.e;
+            k56 k56Var2 = this.d;
+            g56Var.b(k56Var2.a, k56Var2.b, k56Var2.c.intValue());
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel.m
+    public void n(MvcSocketResponsedMessage mvcSocketResponsedMessage, MvcSocketMessage mvcSocketMessage, MvcNetMessage mvcNetMessage) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048581, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) || mvcSocketResponsedMessage == null) {
+            return;
+        }
+        k56 k56Var = null;
+        if (!mvcSocketResponsedMessage.hasError() && (mvcSocketResponsedMessage instanceof DownloadManagerSocketResponseMessage)) {
+            k56Var = ((DownloadManagerSocketResponseMessage) mvcSocketResponsedMessage).getData();
+        }
+        if (k56Var == null || !f(k56Var)) {
+            e(mvcSocketResponsedMessage.getError(), mvcSocketResponsedMessage.getErrorString());
+        }
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel.l
+    public void s(MvcHttpResponsedMessage mvcHttpResponsedMessage, MvcHttpMessage mvcHttpMessage, MvcNetMessage mvcNetMessage) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048582, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) || mvcHttpResponsedMessage == null) {
+            return;
+        }
+        k56 k56Var = null;
+        if (!mvcHttpResponsedMessage.hasError() && (mvcHttpResponsedMessage instanceof DownloadManagerHttpResponseMessage)) {
+            k56Var = (k56) ((DownloadManagerHttpResponseMessage) mvcHttpResponsedMessage).getData();
+        }
+        if (k56Var == null || !f(k56Var)) {
+            e(mvcHttpResponsedMessage.getError(), mvcHttpResponsedMessage.getErrorString());
         }
     }
 }

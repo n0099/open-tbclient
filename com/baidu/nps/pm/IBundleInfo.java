@@ -1,4 +1,6 @@
 package com.baidu.nps.pm;
+
+import java.util.List;
 /* loaded from: classes2.dex */
 public interface IBundleInfo {
     int getAbi();
@@ -6,6 +8,8 @@ public interface IBundleInfo {
     String getApkPath();
 
     String getDependence();
+
+    List<String> getDependency();
 
     String getDescription();
 
@@ -16,6 +20,8 @@ public interface IBundleInfo {
     String getExt();
 
     String getIconUrl();
+
+    String getMainBudble();
 
     String getMd5();
 
@@ -38,6 +44,8 @@ public interface IBundleInfo {
     int getSilenceUpdate();
 
     long getSize();
+
+    List<SubBundleInfo> getSubBundle();
 
     int getType();
 
@@ -65,7 +73,10 @@ public interface IBundleInfo {
 
     void setBroken(boolean z);
 
+    @Deprecated
     void setDependence(String str);
+
+    void setDependency(List<String> list);
 
     void setDescription(String str);
 
@@ -78,6 +89,8 @@ public interface IBundleInfo {
     void setForceUpdate(boolean z);
 
     void setIconUrl(String str);
+
+    void setMainBundle(String str);
 
     void setMd5(String str);
 
@@ -104,6 +117,8 @@ public interface IBundleInfo {
     void setSilenceUpdate(int i);
 
     void setSize(long j);
+
+    void setSubBundle(List<SubBundleInfo> list);
 
     void setType(int i);
 

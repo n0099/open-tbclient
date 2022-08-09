@@ -52,7 +52,7 @@ public final class a implements View.OnClickListener {
         if (viewGroup == null) {
             return;
         }
-        ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f091072);
+        ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f0910c8);
         this.pV = viewGroup2;
         if (viewGroup2 == null) {
             return;
@@ -63,9 +63,9 @@ public final class a implements View.OnClickListener {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.mTitle = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09106f);
-            this.CO = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091070);
-            ImageView imageView = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091071);
+            this.mTitle = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0910c5);
+            this.CO = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0910c6);
+            ImageView imageView = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0910c7);
             this.CP = imageView;
             imageView.setOnClickListener(this);
             this.CO.setOnClickListener(this);

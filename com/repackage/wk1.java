@@ -1,22 +1,48 @@
 package com.repackage;
 
+import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
-import java.io.File;
-import java.util.HashMap;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
 /* loaded from: classes7.dex */
 public interface wk1 {
 
     /* loaded from: classes7.dex */
     public interface a {
-        void onResult(String str);
+        void onFinish();
     }
 
-    void a(HashMap<String, String> hashMap, File file, a aVar, String str);
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(boolean z);
 
-    void b(Context context, String str, String str2, String str3);
+        void b(Exception exc);
+    }
 
-    void c(HashMap<String, String> hashMap, File file, a aVar);
+    /* loaded from: classes7.dex */
+    public interface c {
+        void a(boolean z);
 
-    void d(Bitmap bitmap, HashMap<String, String> hashMap, File[] fileArr, a aVar);
+        void b();
+    }
+
+    void a(a aVar);
+
+    void b(Activity activity, Bundle bundle, lh1 lh1Var);
+
+    void c(nh1 nh1Var);
+
+    String d(@NonNull Context context);
+
+    boolean e(Context context);
+
+    String f(@NonNull Context context);
+
+    void g(c cVar);
+
+    String h(Context context);
+
+    String i(@NonNull Context context);
+
+    void j(lh1 lh1Var);
 }

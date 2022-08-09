@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.t27;
+import com.repackage.n47;
 /* loaded from: classes3.dex */
 public abstract class ItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -33,13 +33,13 @@ public abstract class ItemViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public abstract void b(t27 t27Var);
+    public abstract void a(n47 n47Var);
 
-    public abstract ItemViewHolder c(View view2);
+    public abstract ItemViewHolder b(View view2);
 
-    public abstract void d(int i);
+    public abstract void c(int i);
 
-    public void e(View.OnClickListener onClickListener) {
+    public void d(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
             this.a = onClickListener;

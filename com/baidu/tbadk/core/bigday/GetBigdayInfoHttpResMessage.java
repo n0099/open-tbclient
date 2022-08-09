@@ -7,9 +7,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
-import com.repackage.jn4;
-import com.repackage.te;
+import com.repackage.ao4;
+import com.repackage.tr4;
+import com.repackage.ue;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.Error;
@@ -20,7 +20,7 @@ import tbclient.GetBigday.GetBigdayResIdl;
 public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<jn4> bigdayInfos;
+    public ArrayList<ao4> bigdayInfos;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetBigdayInfoHttpResMessage() {
@@ -49,8 +49,8 @@ public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
             if (bArr == null) {
                 return;
             }
-            cr4.f();
-            te<byte[]> d = cr4.d("tb.bigday_datas");
+            tr4.f();
+            ue<byte[]> d = tr4.d("tb.bigday_datas");
             d.remove("tb.bigday_datas");
             d.g("tb.bigday_datas", bArr);
         }
@@ -76,10 +76,10 @@ public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
         this.bigdayInfos = new ArrayList<>();
         for (BigdayInfo bigdayInfo : getBigdayResIdl.data.bigday_list) {
             if (bigdayInfo != null) {
-                jn4 jn4Var = new jn4();
-                jn4Var.b(bigdayInfo);
-                if (jn4Var.a()) {
-                    this.bigdayInfos.add(jn4Var);
+                ao4 ao4Var = new ao4();
+                ao4Var.b(bigdayInfo);
+                if (ao4Var.a()) {
+                    this.bigdayInfos.add(ao4Var);
                 }
             }
         }

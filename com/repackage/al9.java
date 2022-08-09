@@ -1,18 +1,25 @@
 package com.repackage;
 
-import android.app.PendingIntent;
-import android.os.Parcel;
-import android.os.Parcelable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
+import java.util.HashMap;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public final class al9 implements Parcelable.Creator<ConnectionResult> {
+public class al9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public mf9 a;
+    public final dg9 b;
+    public final HashMap<String, fg9> c;
+
+    /* loaded from: classes5.dex */
+    public interface a<E> {
+        void a(E e);
+
+        void b(E e);
+    }
 
     public al9() {
         Interceptable interceptable = $ic;
@@ -24,40 +31,23 @@ public final class al9 implements Parcelable.Creator<ConnectionResult> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = new dg9();
+        this.c = new HashMap<>();
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // android.os.Parcelable.Creator
-    public final /* bridge */ /* synthetic */ ConnectionResult createFromParcel(Parcel parcel) {
-        int q = SafeParcelReader.q(parcel);
-        PendingIntent pendingIntent = null;
-        String str = null;
-        int i = 0;
-        int i2 = 0;
-        while (parcel.dataPosition() < q) {
-            int k = SafeParcelReader.k(parcel);
-            int h = SafeParcelReader.h(k);
-            if (h == 1) {
-                i = SafeParcelReader.m(parcel, k);
-            } else if (h == 2) {
-                i2 = SafeParcelReader.m(parcel, k);
-            } else if (h == 3) {
-                pendingIntent = (PendingIntent) SafeParcelReader.c(parcel, k, PendingIntent.CREATOR);
-            } else if (h != 4) {
-                SafeParcelReader.p(parcel, k);
-            } else {
-                str = SafeParcelReader.d(parcel, k);
+    public final <E> void a(Set<E> set, Set<E> set2, a<E> aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, set, set2, aVar) == null) {
+            for (E e : set2) {
+                if (set == null || !set.contains(e)) {
+                    aVar.b(e);
+                } else {
+                    aVar.a(e);
+                }
             }
         }
-        SafeParcelReader.g(parcel, q);
-        return new ConnectionResult(i, i2, pendingIntent, str);
-    }
-
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
-    @Override // android.os.Parcelable.Creator
-    public final /* synthetic */ ConnectionResult[] newArray(int i) {
-        return new ConnectionResult[i];
     }
 }

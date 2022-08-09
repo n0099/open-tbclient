@@ -1,19 +1,17 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public class fy0 {
+public final class fy0 extends az0 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile fy0 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConcurrentHashMap<String, cy0> a;
+    public final gy0 a;
 
     public fy0() {
         Interceptable interceptable = $ic;
@@ -28,49 +26,149 @@ public class fy0 {
                 return;
             }
         }
-        this.a = new ConcurrentHashMap<>();
+        this.a = new gy0();
     }
 
-    public static fy0 a() {
+    @Override // com.repackage.az0
+    public zy0 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (fy0.class) {
-                    if (b == null) {
-                        b = new fy0();
-                    }
-                }
-            }
-            return b;
-        }
-        return (fy0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (zy0) invokeV.objValue;
     }
 
-    @NonNull
-    public cy0 b(String str) {
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.b.getValue() : (String) invokeV.objValue;
+    }
+
+    public fy0 d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str == null) {
-                str = "";
-            }
-            cy0 cy0Var = (cy0) zx0.b(this.a, str);
-            if (cy0Var == null) {
-                synchronized (fy0.class) {
-                    cy0Var = (cy0) zx0.b(this.a, str);
-                    if (cy0Var == null) {
-                        if (TextUtils.isEmpty(str)) {
-                            cy0Var = ey0.a().a();
-                        } else {
-                            cy0Var = ey0.a().b(str);
-                        }
-                        zx0.e(this.a, str, cy0Var);
-                    }
-                }
-            }
-            return cy0Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            this.a.m.setValue(str);
+            return this;
         }
-        return (cy0) invokeL.objValue;
+        return (fy0) invokeL.objValue;
+    }
+
+    public fy0 e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            this.a.n.setValue(str);
+            return this;
+        }
+        return (fy0) invokeL.objValue;
+    }
+
+    public fy0 f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            this.a.g.setValue(str);
+            return this;
+        }
+        return (fy0) invokeL.objValue;
+    }
+
+    public fy0 g(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+            this.a.k.setValue(j);
+            return this;
+        }
+        return (fy0) invokeJ.objValue;
+    }
+
+    public fy0 h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            this.a.b.setValue(str);
+            return this;
+        }
+        return (fy0) invokeL.objValue;
+    }
+
+    public fy0 i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            this.a.l.setValue(str);
+            return this;
+        }
+        return (fy0) invokeL.objValue;
+    }
+
+    public fy0 j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            this.a.e.setValue(str);
+            return this;
+        }
+        return (fy0) invokeL.objValue;
+    }
+
+    public fy0 k(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            this.a.h.setValue(i);
+            return this;
+        }
+        return (fy0) invokeI.objValue;
+    }
+
+    public fy0 l(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) {
+            this.a.j.setValue(j);
+            return this;
+        }
+        return (fy0) invokeJ.objValue;
+    }
+
+    public fy0 m(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
+            this.a.d.setValue(i);
+            return this;
+        }
+        return (fy0) invokeI.objValue;
+    }
+
+    public fy0 n(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+            this.a.c.setValue(i);
+            return this;
+        }
+        return (fy0) invokeI.objValue;
+    }
+
+    public fy0 o(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            this.a.f.setValue(str);
+            return this;
+        }
+        return (fy0) invokeL.objValue;
+    }
+
+    public fy0 p(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
+            this.a.i.setValue(i);
+            return this;
+        }
+        return (fy0) invokeI.objValue;
     }
 }

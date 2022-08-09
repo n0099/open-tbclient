@@ -1,45 +1,18 @@
 package com.repackage;
 
-import android.app.Activity;
-import androidx.annotation.UiThread;
-import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
-import com.baidu.swan.apps.core.SwanAppWebViewManager;
-import com.repackage.pm1;
+import java.util.concurrent.ExecutorService;
+import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public interface qm1<T extends pm1> extends TypedCallbackHandler {
-    SwanAppWebViewManager.d I();
+public interface qm1 {
+    ExecutorService d();
 
-    @UiThread
-    void P();
+    void e(String str, int i, JSONArray jSONArray);
 
-    void W(v12 v12Var);
+    void f(String str, int i);
 
-    String b();
+    void g(String str, String str2, int i, String str3, int i2);
 
-    void c(wy1 wy1Var);
+    void i(String str, int i, String str2);
 
-    String d0();
-
-    void destroy();
-
-    void e(Activity activity);
-
-    void g0();
-
-    String getUserAgent();
-
-    void loadUrl(String str);
-
-    void onJSLoaded();
-
-    void onPause();
-
-    void onResume();
-
-    @UiThread
-    void r();
-
-    T t();
-
-    void u(v12 v12Var);
+    void n(String str, String str2, int i, String str3, long j, int i2);
 }

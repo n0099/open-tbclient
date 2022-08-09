@@ -5,7 +5,5 @@ import com.baidu.bdtask.model.response.TaskResponseData;
 public interface mq {
     void a(TaskResponseData taskResponseData);
 
-    void b(nq nqVar);
-
-    void c(String str, int i);
+    void onError(int i, String str);
 }

@@ -1,47 +1,23 @@
 package com.repackage;
 
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTSplashAd;
+import com.repackage.sf9;
+/* compiled from: lambda */
 /* loaded from: classes6.dex */
-public class ef9 extends ne9<TTSplashAd> {
+public final /* synthetic */ class ef9 implements sf9.a {
     public static /* synthetic */ Interceptable $ic;
+    public static final /* synthetic */ ef9 a = new ef9();
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ef9(TTSplashAd tTSplashAd) {
-        super(tTSplashAd);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tTSplashAd};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
+    private /* synthetic */ ef9() {
     }
 
-    @Override // com.repackage.ne9
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.sf9.a
+    public final void a(qf9 qf9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.b.isEmpty()) {
-                this.b = (String) ((TTSplashAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
-            }
-            return this.b;
+        if (interceptable == null || interceptable.invokeL(1048576, this, qf9Var) == null) {
+            wf9.d(qf9Var);
         }
-        return (String) invokeV.objValue;
     }
 }

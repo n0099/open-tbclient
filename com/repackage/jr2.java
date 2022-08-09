@@ -1,22 +1,31 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public final class jr2 {
+public class jr2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final List<hr2> b;
+    public static final boolean j;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public boolean c;
+    public int d;
+    public long e;
+    public long f;
+    public int g;
+    public Rect h;
+    public boolean i;
 
     static {
         InterceptResult invokeClinit;
@@ -31,59 +40,90 @@ public final class jr2 {
                 return;
             }
         }
-        a = i03.v;
-        b = Arrays.asList(new hr2());
+        j = z03.v;
     }
 
-    public static JSONObject a() throws JSONException {
+    public jr2(String str, String str2, long j2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, Long.valueOf(j2), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.g = 0;
+        this.a = str;
+        this.b = str2;
+        this.e = System.currentTimeMillis();
+        this.f = j2;
+        this.d = 0;
+        this.i = z;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d = 2;
+        }
+    }
+
+    public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            JSONObject jSONObject = new JSONObject("{\"pages\":{},\"window\":{\"navigationBarBackgroundColor\":{},\"navigationBarTextStyle\":{},\"navigationBarTitleText\":{},\"navigationStyle\":{},\"backgroundColor\":{},\"backgroundTextStyle\":{},\"enablePullDownRefresh\":{},\"onReachBottomDistance\":{}},\"networkTimeout\":{\"request\":{},\"connectSocket\":{},\"uploadFile\":{},\"downloadFile\":{}},\"tabBar\":{\"color\":{},\"backgroundColor\":{},\"borderStyle\":{},\"list\":{},\"selectedColor\":{}},\"swanCookie\":{}}");
-            if (a) {
-                ix1.i("SwanNaUseMapManager", ">>> before intercept: " + jSONObject);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            long j2 = this.f;
+            if (j2 > 0) {
+                this.f = j2 - (System.currentTimeMillis() - this.e);
             }
-            c(jSONObject);
-            if (a) {
-                ix1.i("SwanNaUseMapManager", ">>> after intercept: " + jSONObject);
-            }
-            return jSONObject;
+            return this.f;
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    @NonNull
-    public static JSONObject b() {
-        JSONObject jSONObject;
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            try {
-                jSONObject = a();
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                    ix1.k("SwanNaUseMapManager", ">>> NAUseMapException: " + e.getMessage());
-                }
-                jSONObject = null;
-            }
-            return jSONObject != null ? jSONObject : new JSONObject();
-        }
-        return (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d == 2 : invokeV.booleanValue;
     }
 
-    public static void c(JSONObject jSONObject) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, jSONObject) == null) || jSONObject == null || jSONObject.length() == 0) {
-            return;
-        }
-        Iterator<String> keys = jSONObject.keys();
-        while (keys.hasNext()) {
-            for (hr2 hr2Var : b) {
-                if (hr2Var.a(keys.next())) {
-                    keys.remove();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            long j2 = this.f;
+            if (j2 > 0) {
+                this.f = j2 - (System.currentTimeMillis() - this.e);
+                if (j) {
+                    Log.d("SwanAppPageMonitor", "pause, left " + this.f + "ms");
                 }
             }
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.e = System.currentTimeMillis();
+        }
+    }
+
+    public void f(Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bitmap) == null) {
+            new WeakReference(bitmap);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.d = 1;
         }
     }
 }

@@ -12,9 +12,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
-import com.repackage.fk9;
-import com.repackage.jk9;
-/* loaded from: classes4.dex */
+import com.repackage.an9;
+import com.repackage.en9;
+/* loaded from: classes5.dex */
 public class RootTelemetryConfiguration extends AbstractSafeParcelable {
     public static /* synthetic */ Interceptable $ic;
     @NonNull
@@ -39,7 +39,7 @@ public class RootTelemetryConfiguration extends AbstractSafeParcelable {
                 return;
             }
         }
-        CREATOR = new jk9();
+        CREATOR = new en9();
     }
 
     public RootTelemetryConfiguration(int i, boolean z, boolean z2, int i2, int i3) {
@@ -98,13 +98,13 @@ public class RootTelemetryConfiguration extends AbstractSafeParcelable {
     public final void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i) == null) {
-            int a = fk9.a(parcel);
-            fk9.g(parcel, 1, getVersion());
-            fk9.c(parcel, 2, getMethodInvocationTelemetryEnabled());
-            fk9.c(parcel, 3, getMethodTimingTelemetryEnabled());
-            fk9.g(parcel, 4, getBatchPeriodMillis());
-            fk9.g(parcel, 5, getMaxMethodInvocationsInBatch());
-            fk9.b(parcel, a);
+            int a = an9.a(parcel);
+            an9.g(parcel, 1, getVersion());
+            an9.c(parcel, 2, getMethodInvocationTelemetryEnabled());
+            an9.c(parcel, 3, getMethodTimingTelemetryEnabled());
+            an9.g(parcel, 4, getBatchPeriodMillis());
+            an9.g(parcel, 5, getMaxMethodInvocationsInBatch());
+            an9.b(parcel, a);
         }
     }
 }

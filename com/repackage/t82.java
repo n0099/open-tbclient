@@ -1,196 +1,103 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.annotation.SuppressLint;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.collection.ArraySet;
-import androidx.core.util.Pair;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"SwanDebugLog"})
 /* loaded from: classes7.dex */
-public class t82 {
+public class t82 implements V8Engine.V8EngineConsole {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public h82 a;
+    public boolean b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755336957, "Lcom/repackage/t82;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755336957, "Lcom/repackage/t82;");
+    public t82(h82 h82Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {h82Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = sg1.a;
+        this.b = true;
+        this.a = h82Var;
     }
 
-    @Nullable
-    public static Set<String> a(int i, List<String> list) {
-        InterceptResult invokeIL;
+    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
+    public void onDebugConsole(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, list)) == null) {
-            if (list == null || list.isEmpty()) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (this.b) {
+                Log.d("V8Console", this.a.m0() + str);
             }
-            HashSet hashSet = new HashSet();
-            for (hx2 hx2Var : jx2.k().q()) {
-                String appId = hx2Var.getAppId();
-                if (TextUtils.isEmpty(appId)) {
-                    appId = hx2Var.N();
-                }
-                boolean z = hx2Var.E() || hx2Var.Q();
-                if (hx2Var.T() && z && list.contains(appId)) {
-                    yw2 e = yw2.e();
-                    ax2 ax2Var = new ax2(i);
-                    ax2Var.b(hx2Var.b);
-                    e.h(ax2Var);
-                    hashSet.add(appId);
-                    if (a) {
-                        Log.i("PurgerUtils", "sent msg(" + i + ") to active swan(" + appId + SmallTailInfo.EMOTION_SUFFIX);
-                    }
-                }
-            }
-            return hashSet;
-        }
-        return (Set) invokeIL.objValue;
-    }
-
-    public static void b(@NonNull File file, @NonNull String str, @NonNull String str2, Set<String> set, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{file, str, str2, set, Boolean.valueOf(z)}) == null) {
-            c(file, str, str2, set, z, null);
+            hk2.h().e(2, str);
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:43:0x0077  */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x008f  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00a6  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void c(@NonNull File file, @NonNull String str, @NonNull String str2, Set<String> set, boolean z, @Nullable qk3<Pair<String, File>> qk3Var) {
-        File[] listFiles;
+    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
+    public void onErrorConsole(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{file, str, str2, set, Boolean.valueOf(z), qk3Var}) == null) && file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
-            for (File file2 : listFiles) {
-                String name = file2.getName();
-                if (!name.isEmpty() && file2.isFile() && name.startsWith(str) && name.endsWith(str2)) {
-                    int length = name.length();
-                    int length2 = str.length();
-                    int length3 = str2.length();
-                    if (length >= length2 + length3) {
-                        String substring = name.substring(length2, length - length3);
-                        if (set == null) {
-                            set = Collections.emptySet();
-                        }
-                        if (!TextUtils.isEmpty(substring)) {
-                            if (z) {
-                                if (set.contains(substring)) {
-                                }
-                                if (a) {
-                                    Log.i("PurgerUtils", "clearByDeleteFiles : " + substring);
-                                }
-                                if (qk3Var == null) {
-                                    qk3Var.run(Pair.create(str + substring, file2));
-                                } else {
-                                    kg4.L(file2);
-                                }
-                            } else {
-                                if (!set.contains(substring)) {
-                                }
-                                if (a) {
-                                }
-                                if (qk3Var == null) {
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            hk2.h().e(4, str);
+            Log.e("V8Console", this.a.m0() + str);
+            yl1 p0 = gk2.p0();
+            p0.e("V8Console", this.a.m0() + str);
         }
     }
 
-    @Nullable
-    public static Set<String> d(List<String> list) {
-        InterceptResult invokeL;
+    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
+    public void onInfoConsole(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
-            if (list == null || list.isEmpty()) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (this.b) {
+                Log.i("V8Console", this.a.m0() + str);
             }
-            return a(106, list);
+            hk2.h().e(3, str);
         }
-        return (Set) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:43:0x0080  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00a8  */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x00ab A[SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static ArraySet<String> e(@NonNull File file, @NonNull String str, @NonNull String str2, Set<String> set, boolean z) {
-        InterceptResult invokeCommon;
-        File[] listFiles;
-        String J;
+    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
+    public void onLogConsole(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{file, str, str2, set, Boolean.valueOf(z)})) == null) {
-            ArraySet<String> arraySet = new ArraySet<>();
-            if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
-                for (File file2 : listFiles) {
-                    String name = file2.getName();
-                    if (!name.isEmpty() && file2.isFile() && name.startsWith(str) && name.endsWith(str2)) {
-                        int length = name.length();
-                        int length2 = str.length();
-                        int length3 = str2.length();
-                        if (length >= length2 + length3) {
-                            String substring = name.substring(length2, length - length3);
-                            if (set == null) {
-                                set = Collections.emptySet();
-                            }
-                            if (!TextUtils.isEmpty(substring)) {
-                                if (z) {
-                                    if (set.contains(substring)) {
-                                    }
-                                    J = kg4.J(file2);
-                                    if (a) {
-                                        Log.i("PurgerUtils", "originFile:" + file2.getAbsolutePath() + ", renameFile:" + J);
-                                    }
-                                    if (TextUtils.isEmpty(J)) {
-                                        arraySet.add(J);
-                                    }
-                                } else {
-                                    if (!set.contains(substring)) {
-                                    }
-                                    J = kg4.J(file2);
-                                    if (a) {
-                                    }
-                                    if (TextUtils.isEmpty(J)) {
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            if (this.b) {
+                Log.v("V8Console", this.a.m0() + str);
             }
-            return arraySet;
+            hk2.h().e(1, str);
         }
-        return (ArraySet) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
+    public void onTraceConsole(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            if (this.b) {
+                Log.d("V8Console", this.a.m0() + str);
+            }
+            hk2.h().e(6, str);
+        }
+    }
+
+    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
+    public void onWarnConsole(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            hk2.h().e(5, str);
+            Log.w("V8Console", this.a.m0() + str);
+            yl1 p0 = gk2.p0();
+            p0.w("V8Console", this.a.m0() + str);
+        }
     }
 }

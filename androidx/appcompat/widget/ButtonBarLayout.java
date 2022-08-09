@@ -81,7 +81,7 @@ public class ButtonBarLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeZ(65539, this, z) == null) {
             setOrientation(z ? 1 : 0);
             setGravity(z ? 5 : 80);
-            View findViewById = findViewById(R$id.obfuscated);
+            View findViewById = findViewById(R$id.spacer);
             if (findViewById != null) {
                 findViewById.setVisibility(z ? 8 : 4);
             }

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qb;
+import com.repackage.rb;
 /* loaded from: classes3.dex */
 public abstract class LazyBaseFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
@@ -64,7 +64,7 @@ public abstract class LazyBaseFragment extends BaseFragment {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.u1();
+                    this.a.a.t1();
                 }
             }
         }
@@ -98,10 +98,10 @@ public abstract class LazyBaseFragment extends BaseFragment {
                 LazyBaseFragment lazyBaseFragment = this.a;
                 if (lazyBaseFragment.d == null) {
                     lazyBaseFragment.c = true;
-                } else if (!qb.b().c()) {
+                } else if (!rb.b().c()) {
                     this.a.a.post(new RunnableC0187a(this));
                 } else {
-                    this.a.u1();
+                    this.a.t1();
                 }
             }
         }
@@ -144,18 +144,18 @@ public abstract class LazyBaseFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layoutInflater, viewGroup, bundle)) == null) {
             if (MainTabFragmentIdleSwitch.isOn()) {
-                View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d053c, viewGroup, false);
-                ViewStub viewStub = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f0913c7);
+                View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0557, viewGroup, false);
+                ViewStub viewStub = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f09146e);
                 this.d = viewStub;
-                viewStub.setLayoutResource(t1());
+                viewStub.setLayoutResource(s1());
                 if (this.c) {
-                    u1();
+                    t1();
                     return inflate;
                 }
                 return inflate;
             }
-            View inflate2 = layoutInflater.inflate(t1(), viewGroup, false);
-            v1(inflate2, bundle);
+            View inflate2 = layoutInflater.inflate(s1(), viewGroup, false);
+            u1(inflate2, bundle);
             return inflate2;
         }
         return (View) invokeLLL.objValue;
@@ -169,23 +169,23 @@ public abstract class LazyBaseFragment extends BaseFragment {
             if (!isPrimary() || this.b || getView() == null) {
                 return;
             }
-            u1();
+            t1();
         }
     }
 
-    public abstract int t1();
+    public abstract int s1();
 
-    public synchronized void u1() {
+    public synchronized void t1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             synchronized (this) {
                 if (!this.b && this.d != null) {
                     this.b = true;
-                    v1(this.d.inflate(), this.e);
+                    u1(this.d.inflate(), this.e);
                 }
             }
         }
     }
 
-    public abstract void v1(View view2, Bundle bundle);
+    public abstract void u1(View view2, Bundle bundle);
 }

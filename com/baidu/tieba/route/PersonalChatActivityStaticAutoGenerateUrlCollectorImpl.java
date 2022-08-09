@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class PersonalChatActivityStaticAutoGenerateUrlCollectorImpl implements ICmdRouter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +69,7 @@ public final class PersonalChatActivityStaticAutoGenerateUrlCollectorImpl implem
             arrayList.add("ReplyMeActivityConfig");
             arrayList.add("OfficialNotificationActivityConfig");
             arrayList.add(UrlSchemaHelper.GOTO_PERSONAL_CHAT);
-            arrayList.add("https://tieba.baidu.com/mo/q/chat");
+            arrayList.add(UrlSchemaHelper.JUMP_TO_CHAT);
             hashMap.put("com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic", arrayList);
             return hashMap;
         }

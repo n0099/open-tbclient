@@ -1,222 +1,112 @@
 package com.repackage;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.R;
+import com.baidu.tieba.ala.personcenter.privilege.AlaTDouBuyPrivilegeResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class dx5 implements cx5, View.OnClickListener {
+/* loaded from: classes6.dex */
+public class dx5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public TbPageContext b;
-    public LinearLayout c;
-    public ImageView d;
-    public ImageView e;
-    public ImageView f;
-    public ImageView g;
-    public ImageView h;
-    public RelativeLayout i;
-    public RelativeLayout j;
-    public RelativeLayout k;
-    public RelativeLayout l;
-    public RelativeLayout m;
-    public bx5 n;
-    public float o;
-    public float p;
+    public TbPageContext a;
+    public b b;
+    public HttpMessageListener c;
 
-    public dx5(TbPageContext tbPageContext, int i, int i2, bx5 bx5Var) {
+    /* loaded from: classes6.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dx5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(dx5 dx5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dx5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dx5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof AlaTDouBuyPrivilegeResponsedMessage)) {
+                AlaTDouBuyPrivilegeResponsedMessage alaTDouBuyPrivilegeResponsedMessage = (AlaTDouBuyPrivilegeResponsedMessage) httpResponsedMessage;
+                boolean z = alaTDouBuyPrivilegeResponsedMessage.getError() == 0;
+                String errorString = alaTDouBuyPrivilegeResponsedMessage.getErrorString();
+                if (this.a.b != null) {
+                    this.a.b.a(z, errorString);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(boolean z, String str);
+    }
+
+    public dx5(TbPageContext tbPageContext, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Integer.valueOf(i), Integer.valueOf(i2), bx5Var};
+            Object[] objArr = {tbPageContext, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = tbPageContext;
-        this.n = bx5Var;
-        float f = (i * 1.0f) / i2;
-        this.a = f;
-        this.o = f;
-        this.p = 0.0f;
-        e();
+        a aVar = new a(this, AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
+        this.c = aVar;
+        this.a = tbPageContext;
+        this.b = bVar;
+        tbPageContext.registerListener(aVar);
     }
 
-    @Override // com.repackage.cx5
-    public int a() {
-        InterceptResult invokeV;
+    public void b(String str, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c.getVisibility() : invokeV.intValue;
-    }
-
-    @Override // com.repackage.cx5
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.c.setVisibility(i);
+        if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+            HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
+            httpMessage.addParam("props_id", i);
+            httpMessage.addParam("effect_id", str);
+            httpMessage.addParam("buy_action", 0);
+            this.a.sendMessage(httpMessage);
         }
     }
 
-    @Override // com.repackage.cx5
-    public void c(int i) {
+    public void c(int i, int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.i.setVisibility(i);
-            if (i == 8) {
-                this.p = 1.7777778f;
-                f(1.7777778f);
-            }
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+            HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
+            httpMessage.addParam("props_id", i2);
+            httpMessage.addParam("mark_id", i);
+            httpMessage.addParam("buy_action", z ? 1 : 0);
+            this.a.sendMessage(httpMessage);
         }
-    }
-
-    @Override // com.repackage.cx5
-    public float d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.p : invokeV.floatValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            LinearLayout linearLayout = (LinearLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f09048b);
-            this.c = linearLayout;
-            vr4 d = vr4.d(linearLayout);
-            d.n(R.string.J_X05);
-            d.f(R.color.CAM_X0214);
-            this.d = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091a39);
-            this.i = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091a3a);
-            this.g = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091a37);
-            this.l = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091a38);
-            this.f = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091a35);
-            this.k = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091a36);
-            this.e = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091a31);
-            this.j = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091a32);
-            this.h = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091a33);
-            this.m = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091a34);
-            g();
-            this.i.setOnClickListener(this);
-            this.l.setOnClickListener(this);
-            this.k.setOnClickListener(this);
-            this.j.setOnClickListener(this);
-            this.m.setOnClickListener(this);
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
-            this.o = f;
-            bx5 bx5Var = this.n;
-            if (bx5Var != null) {
-                bx5Var.a(f);
-            }
-            g();
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.d.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080999));
-            this.g.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080998));
-            this.f.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080997));
-            this.e.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080995));
-            this.h.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080996));
-            float f = this.p;
-            if (f == 0.0f) {
-                this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080999, this.b.getResources().getColor(R.color.CAM_X0302), null));
-            } else if (f == 1.7777778f) {
-                this.g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080998, this.b.getResources().getColor(R.color.CAM_X0302), null));
-            } else if (f == 1.3333334f) {
-                this.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080997, this.b.getResources().getColor(R.color.CAM_X0302), null));
-            } else if (f == 0.5625f) {
-                this.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080995, this.b.getResources().getColor(R.color.CAM_X0302), null));
-            } else if (f == 1.0f) {
-                this.h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080996, this.b.getResources().getColor(R.color.CAM_X0302), null));
-            }
-        }
-    }
-
-    @Override // com.repackage.cx5
-    public float getRatio() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.o : invokeV.floatValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091a3a) {
-                this.p = 0.0f;
-                f(this.a);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091a38) {
-                this.p = 1.7777778f;
-                f(1.7777778f);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091a36) {
-                this.p = 1.3333334f;
-                f(1.3333334f);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091a32) {
-                this.p = 0.5625f;
-                f(0.5625f);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091a34) {
-                this.p = 1.0f;
-                f(1.0f);
-            }
-        }
-    }
-
-    @Override // com.repackage.cx5
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.p = 0.0f;
-            f(this.a);
-        }
-    }
-
-    public dx5(TbPageContext tbPageContext, bx5 bx5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bx5Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = tbPageContext;
-        this.n = bx5Var;
-        this.a = 1.7777778f;
-        this.o = 1.7777778f;
-        this.p = 0.0f;
-        e();
     }
 }

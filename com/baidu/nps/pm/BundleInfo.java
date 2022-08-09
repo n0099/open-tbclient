@@ -13,25 +13,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.q61;
 import com.tencent.open.SocialOperation;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class BundleInfo implements IBundleInfo {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String KEY_MAX_VERSION = "maxV";
+    public static final String KEY_MIN_VERSION = "minV";
+    public static final String KEY_PACKAGE = "package";
     public transient /* synthetic */ FieldHolder $fh;
     public int abi;
     public String apkPath;
     public boolean broken;
     public String dependence;
+    public List<String> dependency;
     public String description;
     public String downloadUrl;
     public String ext;
     public boolean forbidden;
     public boolean forceUpdate;
     public String iconUrl;
+    public boolean isMain;
+    public String mMainBundleName;
     public String md5;
     public int minVersion;
     public String name;
@@ -45,6 +57,7 @@ public class BundleInfo implements IBundleInfo {
     public int silence;
     public int silenceUpdate;
     public long size;
+    public List<SubBundleInfo> subBundleInfos;
     public int type;
     public long updateV;
     public int versionCode;
@@ -71,10 +84,76 @@ public class BundleInfo implements IBundleInfo {
         this.abi = -1;
     }
 
+    public static String dependency2Str(List<String> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) ? list != null ? TextUtils.join(ParamableElem.DIVIDE_PARAM, list) : "" : (String) invokeL.objValue;
+    }
+
+    public static List<String> parseDependencyStr(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            return Arrays.asList(TextUtils.split(str, ParamableElem.DIVIDE_PARAM));
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static List<SubBundleInfo> parseSubBundleStr(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    JSONObject jSONObject = (JSONObject) jSONArray.get(i);
+                    SubBundleInfo subBundleInfo = new SubBundleInfo();
+                    subBundleInfo.setPackageName(jSONObject.getString("package"));
+                    subBundleInfo.setMinVersion(jSONObject.getInt(KEY_MIN_VERSION));
+                    subBundleInfo.setMaxVersion(jSONObject.getInt(KEY_MAX_VERSION));
+                    arrayList.add(subBundleInfo);
+                }
+            } catch (JSONException unused) {
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static String subBundleList2Str(List<SubBundleInfo> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
+            if (list == null || list.isEmpty()) {
+                return "";
+            }
+            JSONArray jSONArray = new JSONArray();
+            try {
+                for (SubBundleInfo subBundleInfo : list) {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("package", subBundleInfo.getPackageName());
+                    jSONObject.put(KEY_MIN_VERSION, subBundleInfo.getMinVersion());
+                    jSONObject.put(KEY_MAX_VERSION, subBundleInfo.getMaxVersion());
+                    jSONArray.put(jSONObject);
+                }
+            } catch (JSONException unused) {
+            }
+            return jSONArray.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
     public static BundleInfo toBundleInfo(IBundleInfo iBundleInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iBundleInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, iBundleInfo)) == null) {
             BundleInfo bundleInfo = new BundleInfo();
             bundleInfo.setPackageName(iBundleInfo.getPackageName());
             bundleInfo.setVersionCode(iBundleInfo.getVersionCode());
@@ -104,9 +183,33 @@ public class BundleInfo implements IBundleInfo {
             bundleInfo.setPatchUrl(iBundleInfo.getPatchUrl());
             bundleInfo.setPatchMD5(iBundleInfo.getPatchMD5());
             bundleInfo.setNetworkStrategy(iBundleInfo.getNetworkStrategy());
+            bundleInfo.setSubBundle(iBundleInfo.getSubBundle());
+            bundleInfo.setDependency(iBundleInfo.getDependency());
+            bundleInfo.setMainBundle(iBundleInfo.getMainBudble());
             return bundleInfo;
         }
         return (BundleInfo) invokeL.objValue;
+    }
+
+    public static Map<String, BundleInfoGroup> toBundleInfoGroups(List<BundleInfo> list, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65544, null, list, j)) == null) {
+            HashMap hashMap = new HashMap();
+            if (list == null) {
+                return null;
+            }
+            for (BundleInfo bundleInfo : list) {
+                BundleInfoGroup bundleInfoGroup = (BundleInfoGroup) hashMap.get(bundleInfo.getPackageName());
+                if (bundleInfoGroup == null) {
+                    bundleInfoGroup = new BundleInfoGroup(j);
+                    hashMap.put(bundleInfo.getPackageName(), bundleInfoGroup);
+                }
+                bundleInfoGroup.updateBundleByType(bundleInfo.getType(), bundleInfo);
+            }
+            return hashMap;
+        }
+        return (Map) invokeLJ.objValue;
     }
 
     public static List<BundleInfo> toBundleInfoList(Cursor cursor) {
@@ -124,7 +227,7 @@ public class BundleInfo implements IBundleInfo {
         int i11;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cursor)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, cursor)) == null) {
             ArrayList arrayList2 = new ArrayList();
             if (cursor == null) {
                 return arrayList2;
@@ -159,24 +262,27 @@ public class BundleInfo implements IBundleInfo {
             int columnIndex26 = cursor.getColumnIndex("patch_url");
             int columnIndex27 = cursor.getColumnIndex("patch_md5");
             int columnIndex28 = cursor.getColumnIndex("network_strategy");
+            int columnIndex29 = cursor.getColumnIndex("sub_bundle");
+            int columnIndex30 = cursor.getColumnIndex("dependency");
+            int columnIndex31 = cursor.getColumnIndex("main_bundle");
             try {
                 if (cursor.moveToFirst()) {
-                    int i12 = columnIndex28;
+                    int i12 = columnIndex31;
                     while (true) {
                         String string = cursor.getString(columnIndex);
                         if (TextUtils.isEmpty(string)) {
                             i = columnIndex;
                             i2 = columnIndex3;
-                            arrayList = arrayList3;
                             i5 = columnIndex17;
                             i9 = columnIndex22;
+                            i11 = i12;
                             i4 = columnIndex15;
                             i10 = columnIndex20;
                             i8 = columnIndex19;
                             i7 = columnIndex18;
                             i6 = columnIndex16;
                             i3 = columnIndex2;
-                            i11 = i12;
+                            arrayList = arrayList3;
                         } else {
                             i = columnIndex;
                             BundleInfo bundleInfo = new BundleInfo();
@@ -235,8 +341,17 @@ public class BundleInfo implements IBundleInfo {
                             int i25 = columnIndex27;
                             bundleInfo.setPatchMD5(cursor.getString(i25));
                             columnIndex27 = i25;
+                            int i26 = columnIndex28;
+                            bundleInfo.setNetworkStrategy(cursor.getString(i26));
+                            int i27 = columnIndex29;
+                            columnIndex29 = i27;
+                            bundleInfo.setSubBundle(parseSubBundleStr(cursor.getString(i27)));
+                            int i28 = columnIndex30;
+                            columnIndex30 = i28;
+                            bundleInfo.setDependency(parseDependencyStr(cursor.getString(i28)));
+                            columnIndex28 = i26;
                             i11 = i12;
-                            bundleInfo.setNetworkStrategy(cursor.getString(i11));
+                            bundleInfo.setMainBundle(cursor.getString(i11));
                             arrayList = arrayList3;
                             try {
                                 arrayList.add(bundleInfo);
@@ -247,8 +362,8 @@ public class BundleInfo implements IBundleInfo {
                         if (!cursor.moveToNext()) {
                             return arrayList;
                         }
-                        arrayList3 = arrayList;
                         i12 = i11;
+                        arrayList3 = arrayList;
                         columnIndex22 = i9;
                         columnIndex2 = i3;
                         columnIndex16 = i6;
@@ -271,7 +386,7 @@ public class BundleInfo implements IBundleInfo {
     public static ContentValues toContentValues(BundleInfo bundleInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bundleInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, bundleInfo)) == null) {
             ContentValues contentValues = new ContentValues();
             String packageName = bundleInfo.getPackageName();
             if (TextUtils.isEmpty(packageName)) {
@@ -305,6 +420,9 @@ public class BundleInfo implements IBundleInfo {
             contentValues.put("patch_url", bundleInfo.getPatchUrl());
             contentValues.put("patch_md5", bundleInfo.getPatchMD5());
             contentValues.put("network_strategy", bundleInfo.getNetworkStrategy());
+            contentValues.put("sub_bundle", subBundleList2Str(bundleInfo.getSubBundle()));
+            contentValues.put("dependency", dependency2Str(bundleInfo.getDependency()));
+            contentValues.put("main_bundle", bundleInfo.getMainBudble());
             return contentValues;
         }
         return (ContentValues) invokeL.objValue;
@@ -312,7 +430,7 @@ public class BundleInfo implements IBundleInfo {
 
     public static void updateBundleInfoConfig(BundleInfo bundleInfo, BundleInfo bundleInfo2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65543, null, bundleInfo, bundleInfo2) == null) || bundleInfo == null || bundleInfo2 == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65548, null, bundleInfo, bundleInfo2) == null) || bundleInfo == null || bundleInfo2 == null) {
             return;
         }
         bundleInfo.setUpdateV(bundleInfo2.getUpdateV());
@@ -333,6 +451,9 @@ public class BundleInfo implements IBundleInfo {
         bundleInfo.setPatchUrl(bundleInfo2.getPatchUrl());
         bundleInfo.setPatchMD5(bundleInfo2.getPatchMD5());
         bundleInfo.setNetworkStrategy(bundleInfo2.getNetworkStrategy());
+        bundleInfo.setSubBundle(bundleInfo2.getSubBundle());
+        bundleInfo.setDependency(bundleInfo2.getDependency());
+        bundleInfo.setMainBundle(bundleInfo2.getMainBudble());
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
@@ -357,191 +478,244 @@ public class BundleInfo implements IBundleInfo {
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
+    public List<String> getDependency() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.dependency : (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.nps.pm.IBundleInfo
     public String getDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.description : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.description : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public int getDownloadType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (TextUtils.isEmpty(this.patchUrl) || TextUtils.isEmpty(this.patchMD5)) ? 1 : 2 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (TextUtils.isEmpty(this.patchUrl) || TextUtils.isEmpty(this.patchMD5)) ? 1 : 2 : invokeV.intValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public String getDownloadUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.downloadUrl : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.downloadUrl : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public String getExt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.ext : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.ext : (String) invokeV.objValue;
+    }
+
+    public String getGroupName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? q61.b().f(this.packageName) : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public String getIconUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.iconUrl : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.iconUrl : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.nps.pm.IBundleInfo
+    public String getMainBudble() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mMainBundleName : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public String getMd5() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.md5 : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.md5 : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public int getMinVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.minVersion : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.minVersion : invokeV.intValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.name : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.name : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public String getNetworkStrategy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.networkStrategy : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.networkStrategy : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public String getPackageName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.packageName : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.packageName : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public String getPatchMD5() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.patchMD5 : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.patchMD5 : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public String getPatchUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.patchUrl : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.patchUrl : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public String getSignature() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.signature : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.signature : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public int getSilence() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.silence : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.silence : invokeV.intValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public int getSilenceUpdate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.silenceUpdate : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.silenceUpdate : invokeV.intValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public long getSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.size : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.size : invokeV.longValue;
+    }
+
+    @Override // com.baidu.nps.pm.IBundleInfo
+    public List<SubBundleInfo> getSubBundle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.subBundleInfos : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.type : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.type : invokeV.intValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public long getUpdateV() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.updateV : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.updateV : invokeV.longValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public int getVersionCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.versionCode : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.versionCode : invokeV.intValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public int getWifiOnly() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.wifiOnly : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.wifiOnly : invokeV.intValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public boolean isBroken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.broken : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.broken : invokeV.booleanValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public boolean isForbidden() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.forbidden : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.forbidden : invokeV.booleanValue;
+    }
+
+    public boolean isMainBundle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            List<SubBundleInfo> subBundle = getSubBundle();
+            return (subBundle == null || subBundle.isEmpty() || isSubBundle()) ? false : true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isMultiBundle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? isMainBundle() || isSubBundle() : invokeV.booleanValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public boolean isNeedRemove() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.needRemove : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.needRemove : invokeV.booleanValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public boolean isRemovable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.removable : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.removable : invokeV.booleanValue;
+    }
+
+    public boolean isSubBundle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            List<String> dependency = getDependency();
+            return (dependency == null || dependency.isEmpty() || TextUtils.isEmpty(getMainBudble())) ? false : true;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public boolean isVisible() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.visible : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.visible : invokeV.booleanValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public boolean needForceUpdate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.forceUpdate : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.forceUpdate : invokeV.booleanValue;
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setAbi(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
             this.abi = i;
         }
     }
@@ -549,7 +723,7 @@ public class BundleInfo implements IBundleInfo {
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setApkPath(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048613, this, str) == null) {
             this.apkPath = str;
         }
     }
@@ -557,23 +731,32 @@ public class BundleInfo implements IBundleInfo {
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setBroken(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048614, this, z) == null) {
             this.broken = z;
         }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
+    @Deprecated
     public void setDependence(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048615, this, str) == null) {
             this.dependence = str;
+        }
+    }
+
+    @Override // com.baidu.nps.pm.IBundleInfo
+    public void setDependency(List<String> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048616, this, list) == null) {
+            this.dependency = list;
         }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setDescription(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048617, this, str) == null) {
             this.description = str;
         }
     }
@@ -581,7 +764,7 @@ public class BundleInfo implements IBundleInfo {
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setDownloadUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048618, this, str) == null) {
             this.downloadUrl = str;
         }
     }
@@ -589,7 +772,7 @@ public class BundleInfo implements IBundleInfo {
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setExt(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
             this.ext = str;
         }
     }
@@ -597,7 +780,7 @@ public class BundleInfo implements IBundleInfo {
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setForbidden(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048612, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048620, this, z) == null) {
             this.forbidden = z;
         }
     }
@@ -605,7 +788,7 @@ public class BundleInfo implements IBundleInfo {
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setForceUpdate(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048613, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048621, this, z) == null) {
             this.forceUpdate = z;
         }
     }
@@ -613,15 +796,23 @@ public class BundleInfo implements IBundleInfo {
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setIconUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048614, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048622, this, str) == null) {
             this.iconUrl = str;
+        }
+    }
+
+    @Override // com.baidu.nps.pm.IBundleInfo
+    public void setMainBundle(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048623, this, str) == null) {
+            this.mMainBundleName = str;
         }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setMd5(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048615, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048624, this, str) == null) {
             this.md5 = str;
         }
     }
@@ -629,7 +820,7 @@ public class BundleInfo implements IBundleInfo {
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setMinVersion(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048625, this, i) == null) {
             this.minVersion = i;
         }
     }
@@ -637,7 +828,7 @@ public class BundleInfo implements IBundleInfo {
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048626, this, str) == null) {
             this.name = str;
         }
     }
@@ -645,7 +836,7 @@ public class BundleInfo implements IBundleInfo {
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setNeedRemove(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048618, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048627, this, z) == null) {
             this.needRemove = z;
         }
     }
@@ -653,7 +844,7 @@ public class BundleInfo implements IBundleInfo {
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setNetworkStrategy(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048628, this, str) == null) {
             this.networkStrategy = str;
         }
     }
@@ -661,7 +852,7 @@ public class BundleInfo implements IBundleInfo {
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setPackageName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048620, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048629, this, str) == null) {
             this.packageName = str;
         }
     }
@@ -669,7 +860,7 @@ public class BundleInfo implements IBundleInfo {
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setPatchMD5(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048621, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048630, this, str) == null) {
             this.patchMD5 = str;
         }
     }
@@ -677,7 +868,7 @@ public class BundleInfo implements IBundleInfo {
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setPatchUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048631, this, str) == null) {
             this.patchUrl = str;
         }
     }
@@ -685,7 +876,7 @@ public class BundleInfo implements IBundleInfo {
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setRemovable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048623, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048632, this, z) == null) {
             this.removable = z;
         }
     }
@@ -693,7 +884,7 @@ public class BundleInfo implements IBundleInfo {
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setSignature(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048633, this, str) == null) {
             this.signature = str;
         }
     }
@@ -701,7 +892,7 @@ public class BundleInfo implements IBundleInfo {
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setSilence(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048625, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048634, this, i) == null) {
             this.silence = i;
         }
     }
@@ -709,7 +900,7 @@ public class BundleInfo implements IBundleInfo {
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setSilenceUpdate(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048626, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048635, this, i) == null) {
             this.silenceUpdate = i;
         }
     }
@@ -717,15 +908,23 @@ public class BundleInfo implements IBundleInfo {
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setSize(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048627, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048636, this, j) == null) {
             this.size = j;
+        }
+    }
+
+    @Override // com.baidu.nps.pm.IBundleInfo
+    public void setSubBundle(List<SubBundleInfo> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048637, this, list) == null) {
+            this.subBundleInfos = list;
         }
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048628, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048638, this, i) == null) {
             this.type = i;
         }
     }
@@ -733,7 +932,7 @@ public class BundleInfo implements IBundleInfo {
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setUpdateV(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048629, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048639, this, j) == null) {
             this.updateV = j;
         }
     }
@@ -741,7 +940,7 @@ public class BundleInfo implements IBundleInfo {
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setVersionCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048630, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048640, this, i) == null) {
             this.versionCode = i;
         }
     }
@@ -749,7 +948,7 @@ public class BundleInfo implements IBundleInfo {
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setVisible(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048631, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048641, this, z) == null) {
             this.visible = z;
         }
     }
@@ -757,30 +956,9 @@ public class BundleInfo implements IBundleInfo {
     @Override // com.baidu.nps.pm.IBundleInfo
     public void setWifiOnly(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048632, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048642, this, i) == null) {
             this.wifiOnly = i;
         }
-    }
-
-    public Map<String, BundleInfoGroup> toBundleInfoGroups(List<BundleInfo> list, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048633, this, list, j)) == null) {
-            HashMap hashMap = new HashMap();
-            if (list == null) {
-                return null;
-            }
-            for (BundleInfo bundleInfo : list) {
-                BundleInfoGroup bundleInfoGroup = (BundleInfoGroup) hashMap.get(bundleInfo.getPackageName());
-                if (bundleInfoGroup == null) {
-                    bundleInfoGroup = new BundleInfoGroup(j);
-                    hashMap.put(bundleInfo.getPackageName(), bundleInfoGroup);
-                }
-                bundleInfoGroup.updateBundleByType(bundleInfo.getType(), bundleInfo);
-            }
-            return hashMap;
-        }
-        return (Map) invokeLJ.objValue;
     }
 
     public BundleInfo(IBundleInfo iBundleInfo) {
@@ -827,12 +1005,13 @@ public class BundleInfo implements IBundleInfo {
         setPatchUrl(iBundleInfo.getPatchUrl());
         setPatchMD5(iBundleInfo.getPatchMD5());
         setNetworkStrategy(iBundleInfo.getNetworkStrategy());
+        setMainBundle(iBundleInfo.getMainBudble());
     }
 
     public static BundleInfo toBundleInfo(ContentValues contentValues) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, contentValues)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, contentValues)) == null) {
             BundleInfo bundleInfo = new BundleInfo();
             bundleInfo.setPackageName(contentValues.getAsString(EmotionResourceInfo.JSON_KEY_PKG_NAME));
             bundleInfo.setVersionCode(contentValues.getAsInteger("version_code").intValue());
@@ -862,6 +1041,9 @@ public class BundleInfo implements IBundleInfo {
             bundleInfo.setPatchUrl(contentValues.getAsString("patch_url"));
             bundleInfo.setPatchMD5(contentValues.getAsString("patch_md5"));
             bundleInfo.setNetworkStrategy(contentValues.getAsString("network_strategy"));
+            bundleInfo.setSubBundle(parseSubBundleStr(contentValues.getAsString("sub_bundle")));
+            bundleInfo.setDependency(parseDependencyStr(contentValues.getAsString("dependency")));
+            bundleInfo.setMainBundle(contentValues.getAsString("main_bundle"));
             return bundleInfo;
         }
         return (BundleInfo) invokeL.objValue;
@@ -870,7 +1052,7 @@ public class BundleInfo implements IBundleInfo {
     public static ContentValues toContentValues(IBundleInfo iBundleInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, iBundleInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, iBundleInfo)) == null) {
             ContentValues contentValues = new ContentValues();
             String packageName = iBundleInfo.getPackageName();
             if (TextUtils.isEmpty(packageName)) {
@@ -904,6 +1086,9 @@ public class BundleInfo implements IBundleInfo {
             contentValues.put("patch_url", iBundleInfo.getPatchUrl());
             contentValues.put("patch_md5", iBundleInfo.getPatchMD5());
             contentValues.put("network_strategy", iBundleInfo.getNetworkStrategy());
+            contentValues.put("sub_bundle", subBundleList2Str(iBundleInfo.getSubBundle()));
+            contentValues.put("dependency", dependency2Str(iBundleInfo.getDependency()));
+            contentValues.put("main_bundle", iBundleInfo.getMainBudble());
             return contentValues;
         }
         return (ContentValues) invokeL.objValue;

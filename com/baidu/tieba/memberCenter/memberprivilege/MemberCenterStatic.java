@@ -56,14 +56,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mk7;
-import com.repackage.ng;
-import com.repackage.nk7;
-import com.repackage.oi7;
-import com.repackage.pi;
-import com.repackage.se5;
-import com.repackage.v15;
-import com.repackage.wh8;
+import com.repackage.hm7;
+import com.repackage.im7;
+import com.repackage.jk7;
+import com.repackage.kk8;
+import com.repackage.og;
+import com.repackage.qi;
+import com.repackage.rf5;
+import com.repackage.s25;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class MemberCenterStatic {
@@ -90,14 +90,14 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<v15> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<s25> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2001342, new nk7(customMessage.getData(), 1));
+                return new CustomResponsedMessage<>(2001342, new im7(customMessage.getData(), 1));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -123,14 +123,14 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<v15> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<s25> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2001343, new mk7(customMessage.getData()));
+                return new CustomResponsedMessage<>(2001343, new hm7(customMessage.getData()));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -162,8 +162,8 @@ public class MemberCenterStatic {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof TbPageContext)) {
                     BubbleListModel bubbleListModel = new BubbleListModel(customMessage.getData());
-                    bubbleListModel.G();
-                    bubbleListModel.J(0, pi.k(customMessage.getData().getPageActivity()), pi.i(customMessage.getData().getPageActivity()));
+                    bubbleListModel.F();
+                    bubbleListModel.I(0, qi.k(customMessage.getData().getPageActivity()), qi.i(customMessage.getData().getPageActivity()));
                 }
                 return null;
             }
@@ -237,14 +237,14 @@ public class MemberCenterStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<v15> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<s25> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2001339, new oi7(customMessage.getData()));
+                return new CustomResponsedMessage<>(2001339, new jk7(customMessage.getData()));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -364,13 +364,13 @@ public class MemberCenterStatic {
                             } else if (queryParameter.equals(TbadkCoreStatisticKey.BUBBLE_PAY_MEMBER_SUCCESS)) {
                                 i = 7;
                             }
-                            MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) tbPageContext.getPageActivity(), vipStatus, false, i, ng.e(queryParameter4, 0));
+                            MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) tbPageContext.getPageActivity(), vipStatus, false, i, og.e(queryParameter4, 0));
                             memberPayActivityConfig.setReferPageClickZone(queryParameter2, queryParameter3);
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
                             return 0;
                         }
                         i = 0;
-                        MemberPayActivityConfig memberPayActivityConfig2 = new MemberPayActivityConfig((Context) tbPageContext.getPageActivity(), vipStatus, false, i, ng.e(queryParameter4, 0));
+                        MemberPayActivityConfig memberPayActivityConfig2 = new MemberPayActivityConfig((Context) tbPageContext.getPageActivity(), vipStatus, false, i, og.e(queryParameter4, 0));
                         memberPayActivityConfig2.setReferPageClickZone(queryParameter2, queryParameter3);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig2));
                         return 0;
@@ -409,8 +409,8 @@ public class MemberCenterStatic {
                 if (strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if ((str.equals(UrlSchemaHelper.SCHEMA_TYPE_GOTO_MEMBER_BUY) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_MEMBER_BUY_ASSIST)) && tbPageContext != null) {
-                        String d = se5.d(str, MemberPayStatistic.REFER_PAGE);
-                        String d2 = se5.d(str, MemberPayStatistic.CLICK_ZONE);
+                        String d = rf5.d(str, MemberPayStatistic.REFER_PAGE);
+                        String d2 = rf5.d(str, MemberPayStatistic.CLICK_ZONE);
                         MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(tbPageContext.getPageActivity(), 0);
                         memberPayActivityConfig.setReferPageClickZone(d, d2);
                         tbPageContext.sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
@@ -565,7 +565,7 @@ public class MemberCenterStatic {
                 UrlManager.getInstance().dealOneLink(tbPageContext, strArr);
                 return;
             } else {
-                pi.N(tbPageContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0e99);
+                qi.N(tbPageContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0ec6);
                 return;
             }
         }
@@ -584,8 +584,8 @@ public class MemberCenterStatic {
     public static void c(int i2, int i3, String str, Class<? extends HttpResponsedMessage> cls, Class<? extends SocketResponsedMessage> cls2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, cls, cls2}) == null) {
-            wh8.h(i3, cls2, false, false);
-            wh8.c(i3, i2, str, cls, false, false, false, false);
+            kk8.h(i3, cls2, false, false);
+            kk8.c(i3, i2, str, cls, false, false, false, false);
         }
     }
 

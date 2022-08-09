@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.i9;
-import com.repackage.ub;
+import com.repackage.vb;
 import java.util.Date;
 /* loaded from: classes2.dex */
 public class InitDiskTask extends LaunchTask {
@@ -68,7 +68,7 @@ public class InitDiskTask extends LaunchTask {
                     }
                 }
             });
-            ub.f().g(TbConfig.getTempDirName());
+            vb.f().g(TbConfig.getTempDirName());
         }
     }
 

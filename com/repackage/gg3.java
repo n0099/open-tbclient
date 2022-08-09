@@ -1,69 +1,76 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.swan.bdprivate.api.SwanApi$$ModulesProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-@Service
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gg3 implements yl3 {
+public class gg3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public gg3() {
+    public static JSONObject a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("slaveId", str);
+                jSONObject.put("type", str2);
+            } catch (JSONException e) {
+                if (jh1.a) {
+                    e.printStackTrace();
+                }
             }
+            return jSONObject;
+        }
+        return (JSONObject) invokeLL.objValue;
+    }
+
+    public static JSONObject b(String str, String str2, String str3, String str4, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, jSONObject)) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("id", str2);
+                jSONObject3.put("action", str4);
+                jSONObject3.put("e", jSONObject);
+                JSONObject jSONObject4 = new JSONObject();
+                jSONObject4.put("type", str3);
+                jSONObject4.put("params", jSONObject3);
+                jSONObject2.put("slaveId", str);
+                jSONObject2.put("type", "abilityMessage");
+                jSONObject2.put("value", jSONObject4);
+            } catch (JSONException e) {
+                if (jh1.a) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject2;
+        }
+        return (JSONObject) invokeLLLLL.objValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r4v1, types: [org.json.JSONObject, T] */
+    public static void c(String str, String str2, String str3, String str4, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65538, null, str, str2, str3, str4, jSONObject) == null) {
+            fb2 fb2Var = new fb2();
+            fb2Var.c = b(str, str2, str3, str4, jSONObject);
+            mm2.U().u(fb2Var);
         }
     }
 
-    @Override // com.repackage.zl3
-    public void a(f13 f13Var) {
+    /* JADX WARN: Type inference failed for: r5v1, types: [org.json.JSONObject, T] */
+    public static void d(String str, String str2, String str3, String str4, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, f13Var) == null) {
-            f13Var.b(new xh3(f13Var));
-            f13Var.b(new bi3(f13Var));
-            f13Var.b(new vi3(f13Var));
-            f13Var.b(new ui3(f13Var));
-            f13Var.b(new ki3(f13Var));
-            f13Var.b(new ci3(f13Var));
-            f13Var.b(new zh3(f13Var));
-            f13Var.b(new ii3(f13Var));
-            f13Var.b(new yh3(f13Var));
-            f13Var.b(new wh3(f13Var));
-            f13Var.b(new vh3(f13Var));
-            f13Var.b(new ai3(f13Var));
-            f13Var.b(new zi3(f13Var));
+        if (interceptable == null || interceptable.invokeLLLLL(65539, null, str, str2, str3, str4, jSONObject) == null) {
+            fb2 fb2Var = new fb2();
+            fb2Var.c = b(str, str2, str3, str4, jSONObject);
+            mm2.U().m(str, fb2Var);
         }
-    }
-
-    @Override // com.repackage.zl3
-    @Nullable
-    public Map<String, Object> b(@NonNull jo1 jo1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jo1Var)) == null) ? SwanApi$$ModulesProvider.getV8ApiModules(jo1Var) : (Map) invokeL.objValue;
-    }
-
-    @Override // com.repackage.zl3
-    @Nullable
-    public Map<String, Object> c(@NonNull jo1 jo1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jo1Var)) == null) ? SwanApi$$ModulesProvider.getWebviewApiModules(jo1Var) : (Map) invokeL.objValue;
     }
 }

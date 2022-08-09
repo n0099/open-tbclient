@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j60;
+import com.repackage.l60;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -336,7 +336,7 @@ public class ChatUserManagerImpl {
                     creatMethodIntent.putExtras(bundle);
                     creatMethodIntent.putExtra(Constants.EXTRA_SAVE_TO_DB, i);
                     try {
-                        j60.g(mContext).f(mContext, creatMethodIntent);
+                        l60.g(mContext).f(mContext, creatMethodIntent);
                         return;
                     } catch (Exception e) {
                         ListenerManager.getInstance().removeListener(addListener);
@@ -488,7 +488,7 @@ public class ChatUserManagerImpl {
                     bundle.putSerializable(Constants.EXTRA_UIDS, arrayList);
                     creatMethodIntent.putExtras(bundle);
                     try {
-                        j60.g(mContext).f(mContext, creatMethodIntent);
+                        l60.g(mContext).f(mContext, creatMethodIntent);
                         return;
                     } catch (Exception e) {
                         ListenerManager.getInstance().removeListener(addListener);

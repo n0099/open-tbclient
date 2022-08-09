@@ -175,14 +175,14 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
             if (i != -1) {
                 textView.setTextAppearance(this.mTextAppearanceContext, i);
             }
-            this.mShortcutView = (TextView) findViewById(R$id.obfuscated);
+            this.mShortcutView = (TextView) findViewById(R$id.shortcut);
             ImageView imageView = (ImageView) findViewById(R$id.submenuarrow);
             this.mSubMenuArrowView = imageView;
             if (imageView != null) {
                 imageView.setImageDrawable(this.mSubMenuArrow);
             }
             this.mGroupDivider = (ImageView) findViewById(R$id.group_divider);
-            this.mContent = (LinearLayout) findViewById(R$id.obfuscated);
+            this.mContent = (LinearLayout) findViewById(R$id.content);
         }
     }
 

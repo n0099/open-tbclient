@@ -927,7 +927,7 @@ public final class b extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onCreate();
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091195);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0911eb);
             this.hP = frameLayout;
             frameLayout.setVisibility(0);
         }

@@ -1,0 +1,1890 @@
+package com.baidu.searchbox.live.list.controller;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.net.Uri;
+import android.os.Handler;
+import android.text.TextUtils;
+import android.view.KeyEvent;
+import android.view.View;
+import androidx.core.app.NotificationCompat;
+import androidx.core.view.InputDeviceCompat;
+import androidx.lifecycle.Lifecycle;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.arch.ServiceLocator;
+import com.baidu.live.arch.api.IExtLifecycle;
+import com.baidu.live.arch.runtime.MiniShellRuntime;
+import com.baidu.live.arch.utils.MiniJsonUtils;
+import com.baidu.live.arch.utils.MiniPluginUtils;
+import com.baidu.live.arch.utils.MiniUiThreadUtil;
+import com.baidu.live.arch.utils.MiniUniqueId;
+import com.baidu.live.arch.utils.MixUriUtilKt;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.searchbox.live.action.AbstractEvent;
+import com.baidu.searchbox.live.action.MixMediaEvent;
+import com.baidu.searchbox.live.action.YYPluginEvent;
+import com.baidu.searchbox.live.component.service.LiveItemModelListService;
+import com.baidu.searchbox.live.data.constant.MixConstants;
+import com.baidu.searchbox.live.data.pojo.LiveTypeData;
+import com.baidu.searchbox.live.data.req.RoomEnterParams;
+import com.baidu.searchbox.live.data.resp.LiveRoomEnterRespData;
+import com.baidu.searchbox.live.eventbus.EventAction;
+import com.baidu.searchbox.live.eventbus.MixEventBus;
+import com.baidu.searchbox.live.frame.IntentData;
+import com.baidu.searchbox.live.frame.ListInfo;
+import com.baidu.searchbox.live.frame.PageInfo;
+import com.baidu.searchbox.live.interfaces.ILiveNPSPlugin;
+import com.baidu.searchbox.live.interfaces.mix.IMixActivityInterface;
+import com.baidu.searchbox.live.interfaces.service.AbConfigService;
+import com.baidu.searchbox.live.list.controller.ListController$mMixEventDispatcher$2;
+import com.baidu.searchbox.live.list.plugin.LiveRoomInfoStatPlugin;
+import com.baidu.searchbox.live.list.plugin.YYActivityLifeCyclePlugin;
+import com.baidu.searchbox.live.list.plugin.YYLoadPluginPlugin;
+import com.baidu.searchbox.live.model.MixModel;
+import com.baidu.searchbox.live.model.res.MixResult;
+import com.baidu.searchbox.live.model.res.MixResultStatData;
+import com.baidu.searchbox.live.model.res.OnMixDataLoaded;
+import com.baidu.searchbox.live.pluginmanager.MiniPluginManager;
+import com.baidu.searchbox.live.service.ILiveListState;
+import com.baidu.searchbox.live.service.MixListOperatorInterface;
+import com.baidu.searchbox.live.service.MixRequestService;
+import com.baidu.searchbox.live.service.MixRequestServiceLocator;
+import com.baidu.searchbox.live.shell.list.basic.AbstractMixFakeShell;
+import com.baidu.searchbox.live.shell.list.basic.MixYYFakeShell;
+import com.baidu.searchbox.live.ubc.LiveComponentLoadLogger;
+import com.baidu.searchbox.live.ubc.MediaLivePlayLogger;
+import com.baidu.searchbox.live.ubc.MediaLivePluginLogger;
+import com.baidu.searchbox.live.util.ListExtKt;
+import com.baidu.searchbox.live.util.ListLogKt;
+import com.baidu.searchbox.live.util.ListUbc;
+import com.baidu.searchbox.live.widget.LiveContainer;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.tbadk.core.atomData.GroupInfoActivityConfig;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidubce.auth.NTLMEngineImpl;
+import com.google.protobuf.CodedInputStream;
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import kotlin.Lazy;
+import kotlin.LazyKt__LazyJVMKt;
+import kotlin.Metadata;
+import kotlin.Pair;
+import kotlin.Result;
+import kotlin.ResultKt;
+import kotlin.TypeCastException;
+import kotlin.Unit;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.PropertyReference1Impl;
+import kotlin.jvm.internal.Ref;
+import kotlin.jvm.internal.Reflection;
+import kotlin.reflect.KProperty;
+import kotlin.text.StringsKt__StringsJVMKt;
+import kotlin.text.StringsKt__StringsKt;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000 \u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010!\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\b\n\u0002\u0010\t\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0010\u0011\n\u0000\n\u0002\u0010\u0015\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010$\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u000f\n\u0002\u0018\u0002\n\u0002\b\u0010\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006*\u0002\u0097\u0001\u0018\u0000 Ê\u00012\u00020\u00012\u00020\u00022\u00020\u0003:\u0002Ê\u0001B%\u0012\u0006\u0010c\u001a\u00020b\u0012\b\u0010°\u0001\u001a\u00030¯\u0001\u0012\b\u0010\u00ad\u0001\u001a\u00030¬\u0001¢\u0006\u0006\bÈ\u0001\u0010É\u0001J!\u0010\t\u001a\u00020\b2\b\u0010\u0005\u001a\u0004\u0018\u00010\u00042\u0006\u0010\u0007\u001a\u00020\u0006H\u0002¢\u0006\u0004\b\t\u0010\nJ\u0017\u0010\r\u001a\u00020\b2\u0006\u0010\f\u001a\u00020\u000bH\u0002¢\u0006\u0004\b\r\u0010\u000eJ\u0019\u0010\u0011\u001a\u00020\b2\b\u0010\u0010\u001a\u0004\u0018\u00010\u000fH\u0016¢\u0006\u0004\b\u0011\u0010\u0012J\u000f\u0010\u0013\u001a\u00020\bH\u0002¢\u0006\u0004\b\u0013\u0010\u0014J\r\u0010\u0016\u001a\u00020\u0015¢\u0006\u0004\b\u0016\u0010\u0017J+\u0010\u001b\u001a\u00020\b2\f\u0010\u0019\u001a\b\u0012\u0004\u0012\u00020\u00040\u00182\f\u0010\u001a\u001a\b\u0012\u0004\u0012\u00020\u00040\u0018H\u0002¢\u0006\u0004\b\u001b\u0010\u001cJ\u0015\u0010\u001f\u001a\u00020\b2\u0006\u0010\u001e\u001a\u00020\u001d¢\u0006\u0004\b\u001f\u0010 J\r\u0010!\u001a\u00020\b¢\u0006\u0004\b!\u0010\u0014JI\u0010*\u001a\u00020\b2\u0006\u0010\"\u001a\u00020\u00062\u0006\u0010#\u001a\u00020\u00062\u0006\u0010$\u001a\u00020\u00062\u0006\u0010%\u001a\u00020\u00062\u0006\u0010'\u001a\u00020&2\u0006\u0010(\u001a\u00020\u00062\b\b\u0002\u0010)\u001a\u00020\u0006H\u0002¢\u0006\u0004\b*\u0010+J\u000f\u0010,\u001a\u00020\bH\u0002¢\u0006\u0004\b,\u0010\u0014J\u000f\u0010-\u001a\u00020\bH\u0002¢\u0006\u0004\b-\u0010\u0014J)\u00102\u001a\u00020\b2\u0006\u0010.\u001a\u00020\u001d2\u0006\u0010/\u001a\u00020\u001d2\b\u00101\u001a\u0004\u0018\u000100H\u0016¢\u0006\u0004\b2\u00103J\u0017\u00104\u001a\u00020\b2\u0006\u0010\u001e\u001a\u00020\u001dH\u0016¢\u0006\u0004\b4\u0010 J\u0017\u00105\u001a\u00020\b2\u0006\u0010\u001e\u001a\u00020\u001dH\u0016¢\u0006\u0004\b5\u0010 J\u0017\u00108\u001a\u00020\b2\u0006\u00107\u001a\u000206H\u0016¢\u0006\u0004\b8\u00109J\r\u0010:\u001a\u00020\b¢\u0006\u0004\b:\u0010\u0014J\r\u0010;\u001a\u00020\b¢\u0006\u0004\b;\u0010\u0014J\u001f\u0010?\u001a\u00020>2\u0006\u0010<\u001a\u00020\u001d2\u0006\u0010\u0010\u001a\u00020=H\u0016¢\u0006\u0004\b?\u0010@J\u0017\u0010B\u001a\u00020\b2\u0006\u0010A\u001a\u000200H\u0016¢\u0006\u0004\bB\u0010CJ/\u0010H\u001a\u00020\b2\u0006\u0010.\u001a\u00020\u001d2\u000e\u0010E\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u00060D2\u0006\u0010G\u001a\u00020FH\u0016¢\u0006\u0004\bH\u0010IJ'\u0010M\u001a\u0012\u0012\u0004\u0012\u00020\u0006\u0012\u0006\u0012\u0004\u0018\u00010\u0006\u0018\u00010L2\u0006\u0010K\u001a\u00020JH\u0002¢\u0006\u0004\bM\u0010NJ!\u0010Q\u001a\u00020\u00062\u0006\u0010$\u001a\u00020\u00062\b\u0010P\u001a\u0004\u0018\u00010OH\u0002¢\u0006\u0004\bQ\u0010RJ\u000f\u0010S\u001a\u00020\bH\u0002¢\u0006\u0004\bS\u0010\u0014J\u000f\u0010T\u001a\u00020\bH\u0002¢\u0006\u0004\bT\u0010\u0014J\u000f\u0010U\u001a\u00020\bH\u0002¢\u0006\u0004\bU\u0010\u0014J\u000f\u0010V\u001a\u00020\bH\u0002¢\u0006\u0004\bV\u0010\u0014J\u000f\u0010W\u001a\u00020\bH\u0002¢\u0006\u0004\bW\u0010\u0014J-\u0010Z\u001a\u00020\b2\u0006\u0010X\u001a\u00020\u00062\u0006\u0010Y\u001a\u00020\u001d2\f\u00101\u001a\b\u0012\u0004\u0012\u00020\u00040\u0018H\u0002¢\u0006\u0004\bZ\u0010[J\u0017\u0010^\u001a\u00020\b2\u0006\u0010]\u001a\u00020\\H\u0002¢\u0006\u0004\b^\u0010_J\u000f\u0010`\u001a\u00020\bH\u0002¢\u0006\u0004\b`\u0010\u0014J\u000f\u0010a\u001a\u00020\bH\u0002¢\u0006\u0004\ba\u0010\u0014R\u0019\u0010c\u001a\u00020b8\u0006@\u0006¢\u0006\f\n\u0004\bc\u0010d\u001a\u0004\be\u0010fR$\u0010g\u001a\u0004\u0018\u00010\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bg\u0010h\u001a\u0004\bi\u0010j\"\u0004\bk\u0010lR\"\u0010m\u001a\u00020\u001d8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bm\u0010n\u001a\u0004\bo\u0010p\"\u0004\bq\u0010 R$\u0010s\u001a\u0004\u0018\u00010r8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bs\u0010t\u001a\u0004\bu\u0010v\"\u0004\bw\u0010xR\"\u0010y\u001a\u00020>8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\by\u0010z\u001a\u0004\by\u0010{\"\u0004\b|\u0010}R\u0016\u0010~\u001a\u00020>8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b~\u0010zR\"\u0010\u007f\u001a\b\u0012\u0004\u0012\u00020\u00040\u00188\u0006@\u0006¢\u0006\u000f\n\u0005\b\u007f\u0010\u0080\u0001\u001a\u0006\b\u0081\u0001\u0010\u0082\u0001R#\u0010\u0088\u0001\u001a\u00030\u0083\u00018B@\u0002X\u0082\u0084\u0002¢\u0006\u0010\n\u0006\b\u0084\u0001\u0010\u0085\u0001\u001a\u0006\b\u0086\u0001\u0010\u0087\u0001R\u0019\u0010\u0089\u0001\u001a\u00020&8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0089\u0001\u0010\u008a\u0001R\u0019\u0010\u008b\u0001\u001a\u00020&8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u008b\u0001\u0010\u008a\u0001R\u0018\u0010\u008c\u0001\u001a\u00020\u001d8\u0002@\u0002X\u0082D¢\u0006\u0007\n\u0005\b\u008c\u0001\u0010nR\u0018\u0010\u008d\u0001\u001a\u00020>8\u0002@\u0002X\u0082\u000e¢\u0006\u0007\n\u0005\b\u008d\u0001\u0010zR\u001c\u0010\u008f\u0001\u001a\u0005\u0018\u00010\u008e\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u008f\u0001\u0010\u0090\u0001R\u001c\u0010\u0092\u0001\u001a\u0005\u0018\u00010\u0091\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0092\u0001\u0010\u0093\u0001R\u001c\u0010\u0095\u0001\u001a\u0005\u0018\u00010\u0094\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0095\u0001\u0010\u0096\u0001R#\u0010\u009b\u0001\u001a\u00030\u0097\u00018B@\u0002X\u0082\u0084\u0002¢\u0006\u0010\n\u0006\b\u0098\u0001\u0010\u0085\u0001\u001a\u0006\b\u0099\u0001\u0010\u009a\u0001R\u001c\u0010\u009d\u0001\u001a\u0005\u0018\u00010\u009c\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u009d\u0001\u0010\u009e\u0001R,\u0010 \u0001\u001a\u0005\u0018\u00010\u009f\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0018\n\u0006\b \u0001\u0010¡\u0001\u001a\u0006\b¢\u0001\u0010£\u0001\"\u0006\b¤\u0001\u0010¥\u0001R\u001c\u0010§\u0001\u001a\u0005\u0018\u00010¦\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b§\u0001\u0010¨\u0001R\u001c\u0010ª\u0001\u001a\u0005\u0018\u00010©\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\bª\u0001\u0010«\u0001R\u001a\u0010\u00ad\u0001\u001a\u00030¬\u00018\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\b\u00ad\u0001\u0010®\u0001R\u001a\u0010°\u0001\u001a\u00030¯\u00018\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\b°\u0001\u0010±\u0001R\u001b\u0010²\u0001\u001a\u0004\u0018\u00010O8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b²\u0001\u0010³\u0001R,\u0010µ\u0001\u001a\u0005\u0018\u00010´\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0018\n\u0006\bµ\u0001\u0010¶\u0001\u001a\u0006\b·\u0001\u0010¸\u0001\"\u0006\b¹\u0001\u0010º\u0001R,\u0010¼\u0001\u001a\u0005\u0018\u00010»\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0018\n\u0006\b¼\u0001\u0010½\u0001\u001a\u0006\b¾\u0001\u0010¿\u0001\"\u0006\bÀ\u0001\u0010Á\u0001R\u0018\u0010Â\u0001\u001a\u00020>8\u0002@\u0002X\u0082\u0004¢\u0006\u0007\n\u0005\bÂ\u0001\u0010zR\u0018\u0010Ã\u0001\u001a\u00020>8\u0002@\u0002X\u0082\u000e¢\u0006\u0007\n\u0005\bÃ\u0001\u0010zR,\u0010Æ\u0001\u001a\u0010\u0012\f\u0012\n\u0012\u0005\u0012\u00030Å\u00010Ä\u00010\u00188\u0006@\u0006¢\u0006\u0010\n\u0006\bÆ\u0001\u0010\u0080\u0001\u001a\u0006\bÇ\u0001\u0010\u0082\u0001¨\u0006Ë\u0001"}, d2 = {"Lcom/baidu/searchbox/live/list/controller/ListController;", "Lcom/baidu/live/arch/api/IExtLifecycle;", "Lcom/baidu/searchbox/live/eventbus/EventAction;", "Lcom/baidu/searchbox/live/list/controller/IListListener;", "Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "model", "", "id", "", "bindHLReplayInfo", "(Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;Ljava/lang/String;)V", "Lorg/json/JSONArray;", "roomIdJSONArray", "cacheCloseRoomIdList", "(Lorg/json/JSONArray;)V", "Lcom/baidu/searchbox/live/action/AbstractEvent;", "event", NotificationCompat.CATEGORY_CALL, "(Lcom/baidu/searchbox/live/action/AbstractEvent;)V", "changeScrollState", "()V", "Landroid/view/View;", "createView", "()Landroid/view/View;", "", "origin", "addition", "distinct", "(Ljava/util/List;Ljava/util/List;)V", "", CriusAttrConstants.POSITION, "fetchMoreLiveIfNeed", "(I)V", "finish", ILiveNPSPlugin.PARAMS_ROOM_ID, AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, "scheme", "from", "", "clickTime", "clickFrom", "playUrl", "jumpToNewLiveRoom", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;)V", "loadLiveRoom", "logEventOnReach", GroupInfoActivityConfig.REQUEST_CODE, "resultCode", "Landroid/content/Intent;", "data", "onActivityResult", "(IILandroid/content/Intent;)V", "onAfterSelect", "onBeforeSelect", "Landroid/content/res/Configuration;", "newConfig", "onConfigurationChanged", "(Landroid/content/res/Configuration;)V", "onCreate", MissionEvent.MESSAGE_DESTROY, "keyCode", "Landroid/view/KeyEvent;", "", "onKeyDown", "(ILandroid/view/KeyEvent;)Z", IntentData.KEY, "onNewIntent", "(Landroid/content/Intent;)V", "", "permissions", "", "grantResults", "onRequestPermissionsResult", "(I[Ljava/lang/String;[I)V", "Lorg/json/JSONObject;", "input", "", "paramsJsonToMap", "(Lorg/json/JSONObject;)Ljava/util/Map;", "Lcom/baidu/searchbox/live/widget/LiveContainer$PlaySourceInfo;", "sourceInfo", "parseClickTime", "(Ljava/lang/String;Lcom/baidu/searchbox/live/widget/LiveContainer$PlaySourceInfo;)Ljava/lang/String;", "preReqRoomEnter", "queryLiveList", "registerMixRequestService", "registerYYLifeCyclePlugin", "reloadLiveRoom", "pageSession", "hasMore", "slideListSuccess", "(Ljava/lang/String;ILjava/util/List;)V", "Lcom/baidu/searchbox/live/data/pojo/LiveTypeData;", "itemLiveType", "templateIdSuccess", "(Lcom/baidu/searchbox/live/data/pojo/LiveTypeData;)V", "unBindHLReplayInfo", "unregisterMixRequestService", "Landroid/content/Context;", "context", "Landroid/content/Context;", "getContext", "()Landroid/content/Context;", "curRoomModel", "Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "getCurRoomModel", "()Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "setCurRoomModel", "(Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;)V", "currentPosition", "I", "getCurrentPosition", "()I", "setCurrentPosition", "Landroid/os/Handler;", "handler", "Landroid/os/Handler;", "getHandler", "()Landroid/os/Handler;", "setHandler", "(Landroid/os/Handler;)V", "isFromForward", "Z", "()Z", "setFromForward", "(Z)V", "isRegistYYActivityLifeCyclePlugin", "itemData", "Ljava/util/List;", "getItemData", "()Ljava/util/List;", "Lcom/baidu/searchbox/live/list/controller/IListManager;", "listManager$delegate", "Lkotlin/Lazy;", "getListManager", "()Lcom/baidu/searchbox/live/list/controller/IListManager;", "listManager", "listRequestDuration", "J", "listRequestTime", "loadMoreFraction", "localSwitchCanScroll", "Lcom/baidu/searchbox/live/frame/IntentData;", "mIntentData", "Lcom/baidu/searchbox/live/frame/IntentData;", "Lcom/baidu/searchbox/live/frame/ListInfo;", "mListInfo", "Lcom/baidu/searchbox/live/frame/ListInfo;", "Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin;", "mLiveRoomInfoStatPlugin", "Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin;", "com/baidu/searchbox/live/list/controller/ListController$mMixEventDispatcher$2$1", "mMixEventDispatcher$delegate", "getMMixEventDispatcher", "()Lcom/baidu/searchbox/live/list/controller/ListController$mMixEventDispatcher$2$1;", "mMixEventDispatcher", "Lcom/baidu/searchbox/live/model/MixModel;", "mNetModel", "Lcom/baidu/searchbox/live/model/MixModel;", "Lcom/baidu/searchbox/live/frame/PageInfo;", "mPageInfo", "Lcom/baidu/searchbox/live/frame/PageInfo;", "getMPageInfo", "()Lcom/baidu/searchbox/live/frame/PageInfo;", "setMPageInfo", "(Lcom/baidu/searchbox/live/frame/PageInfo;)V", "Lcom/baidu/searchbox/live/list/plugin/YYActivityLifeCyclePlugin;", "mYYLifeCyclePlugin", "Lcom/baidu/searchbox/live/list/plugin/YYActivityLifeCyclePlugin;", "Lcom/baidu/searchbox/live/list/plugin/YYLoadPluginPlugin;", "mYYLoadPluginPlugin", "Lcom/baidu/searchbox/live/list/plugin/YYLoadPluginPlugin;", "Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;", "mixActivity", "Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;", "Lcom/baidu/live/arch/utils/MiniUniqueId;", "mixUniqueId", "Lcom/baidu/live/arch/utils/MiniUniqueId;", "playSource", "Lcom/baidu/searchbox/live/widget/LiveContainer$PlaySourceInfo;", "Lcom/baidu/searchbox/live/data/resp/LiveRoomEnterRespData;", "preReqRoomEnterData", "Lcom/baidu/searchbox/live/data/resp/LiveRoomEnterRespData;", "getPreReqRoomEnterData", "()Lcom/baidu/searchbox/live/data/resp/LiveRoomEnterRespData;", "setPreReqRoomEnterData", "(Lcom/baidu/searchbox/live/data/resp/LiveRoomEnterRespData;)V", "Lcom/baidu/searchbox/live/model/res/MixResultStatData;", "preReqStatData", "Lcom/baidu/searchbox/live/model/res/MixResultStatData;", "getPreReqStatData", "()Lcom/baidu/searchbox/live/model/res/MixResultStatData;", "setPreReqStatData", "(Lcom/baidu/searchbox/live/model/res/MixResultStatData;)V", "prefetchEnterSwitch", "serverSwitchCanScroll", "Ljava/lang/ref/WeakReference;", "Lcom/baidu/searchbox/live/shell/list/basic/AbstractMixFakeShell;", "shellList", "getShellList", "<init>", "(Landroid/content/Context;Lcom/baidu/live/arch/utils/MiniUniqueId;Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;)V", "Companion", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+/* loaded from: classes2.dex */
+public final class ListController implements IExtLifecycle, EventAction<AbstractEvent>, IListListener {
+    public static final /* synthetic */ KProperty[] $$delegatedProperties;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final Companion Companion;
+    public static final String KEY_PARAMS = "params";
+    public transient /* synthetic */ FieldHolder $fh;
+    public final Context context;
+    public LiveContainer.LiveItemModel curRoomModel;
+    public int currentPosition;
+    public Handler handler;
+    public boolean isFromForward;
+    public boolean isRegistYYActivityLifeCyclePlugin;
+    public final List<LiveContainer.LiveItemModel> itemData;
+    public final Lazy listManager$delegate;
+    public long listRequestDuration;
+    public long listRequestTime;
+    public final int loadMoreFraction;
+    public boolean localSwitchCanScroll;
+    public IntentData mIntentData;
+    public ListInfo mListInfo;
+    public LiveRoomInfoStatPlugin mLiveRoomInfoStatPlugin;
+    public final Lazy mMixEventDispatcher$delegate;
+    public MixModel mNetModel;
+    public PageInfo mPageInfo;
+    public YYActivityLifeCyclePlugin mYYLifeCyclePlugin;
+    public YYLoadPluginPlugin mYYLoadPluginPlugin;
+    public final IMixActivityInterface mixActivity;
+    public final MiniUniqueId mixUniqueId;
+    public LiveContainer.PlaySourceInfo playSource;
+    public LiveRoomEnterRespData preReqRoomEnterData;
+    public MixResultStatData preReqStatData;
+    public final boolean prefetchEnterSwitch;
+    public boolean serverSwitchCanScroll;
+    public final List<WeakReference<AbstractMixFakeShell>> shellList;
+
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0004\u0010\u0005R\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003¨\u0006\u0006"}, d2 = {"Lcom/baidu/searchbox/live/list/controller/ListController$Companion;", "", "KEY_PARAMS", "Ljava/lang/String;", "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    /* loaded from: classes2.dex */
+    public static final class Companion {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public Companion() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1711405834, "Lcom/baidu/searchbox/live/list/controller/ListController;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1711405834, "Lcom/baidu/searchbox/live/list/controller/ListController;");
+                return;
+            }
+        }
+        $$delegatedProperties = new KProperty[]{Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(ListController.class), "listManager", "getListManager()Lcom/baidu/searchbox/live/list/controller/IListManager;")), Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(ListController.class), "mMixEventDispatcher", "getMMixEventDispatcher()Lcom/baidu/searchbox/live/list/controller/ListController$mMixEventDispatcher$2$1;"))};
+        Companion = new Companion(null);
+    }
+
+    public ListController(Context context, MiniUniqueId miniUniqueId, IMixActivityInterface iMixActivityInterface) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, miniUniqueId, iMixActivityInterface};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.context = context;
+        this.mixUniqueId = miniUniqueId;
+        this.mixActivity = iMixActivityInterface;
+        AbConfigService abConfigService = (AbConfigService) ServiceManager.getService(AbConfigService.Companion.getSERVICE_REFERENCE());
+        this.prefetchEnterSwitch = abConfigService != null ? abConfigService.getSwitch(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, false) : false;
+        this.loadMoreFraction = 3;
+        this.serverSwitchCanScroll = true;
+        this.localSwitchCanScroll = true;
+        this.itemData = new ArrayList();
+        this.shellList = new ArrayList();
+        this.listManager$delegate = LazyKt__LazyJVMKt.lazy(new ListController$listManager$2(this));
+        this.mMixEventDispatcher$delegate = LazyKt__LazyJVMKt.lazy(new ListController$mMixEventDispatcher$2(this));
+    }
+
+    private final void bindHLReplayInfo(LiveContainer.LiveItemModel liveItemModel, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65565, this, liveItemModel, str) == null) {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("nid", str);
+            if (liveItemModel != null) {
+                liveItemModel.setHlReplay(jSONObject);
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public final void cacheCloseRoomIdList(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65566, this, jSONArray) == null) || jSONArray == null) {
+            return;
+        }
+        ArrayList arrayList = new ArrayList();
+        int length = jSONArray.length();
+        for (int i = 0; i < length; i++) {
+            if (!TextUtils.isEmpty(jSONArray.optString(i))) {
+                arrayList.add(jSONArray.optString(i));
+            }
+        }
+        getListManager().onCloseRoom(arrayList);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public final void changeScrollState() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65567, this) == null) {
+            if (this.serverSwitchCanScroll) {
+                IListManager listManager = getListManager();
+                if (listManager != null) {
+                    listManager.setIsScrollable(this.localSwitchCanScroll);
+                    return;
+                }
+                return;
+            }
+            IListManager listManager2 = getListManager();
+            if (listManager2 != null) {
+                listManager2.setIsScrollable(false);
+            }
+        }
+    }
+
+    private final void distinct(List<LiveContainer.LiveItemModel> list, List<LiveContainer.LiveItemModel> list2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65568, this, list, list2) == null) {
+            for (LiveContainer.LiveItemModel liveItemModel : list) {
+                if (list2.contains(liveItemModel)) {
+                    list2.remove(liveItemModel);
+                }
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public final IListManager getListManager() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65569, this)) == null) {
+            Lazy lazy = this.listManager$delegate;
+            KProperty kProperty = $$delegatedProperties[0];
+            return (IListManager) lazy.getValue();
+        }
+        return (IListManager) invokeV.objValue;
+    }
+
+    private final ListController$mMixEventDispatcher$2.AnonymousClass1 getMMixEventDispatcher() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65570, this)) == null) {
+            Lazy lazy = this.mMixEventDispatcher$delegate;
+            KProperty kProperty = $$delegatedProperties[1];
+            return (ListController$mMixEventDispatcher$2.AnonymousClass1) lazy.getValue();
+        }
+        return (ListController$mMixEventDispatcher$2.AnonymousClass1) invokeV.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* JADX WARN: Removed duplicated region for block: B:100:0x0156  */
+    /* JADX WARN: Removed duplicated region for block: B:103:0x0160  */
+    /* JADX WARN: Removed duplicated region for block: B:107:0x01aa  */
+    /* JADX WARN: Removed duplicated region for block: B:111:0x01d9  */
+    /* JADX WARN: Removed duplicated region for block: B:113:0x01dc  */
+    /* JADX WARN: Removed duplicated region for block: B:117:0x01e5  */
+    /* JADX WARN: Removed duplicated region for block: B:121:0x01f5  */
+    /* JADX WARN: Removed duplicated region for block: B:124:0x01fe  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x009f  */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x00a2  */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x00c3  */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x00d3  */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x00f1  */
+    /* JADX WARN: Removed duplicated region for block: B:76:0x00fc  */
+    /* JADX WARN: Removed duplicated region for block: B:80:0x0108  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void jumpToNewLiveRoom(String str, String str2, String str3, String str4, long j, String str5, String str6) {
+        String str7;
+        String str8;
+        String str9;
+        String str10;
+        String str11;
+        String str12;
+        String str13;
+        IntentData.SchemeModel model;
+        String roomId;
+        Intent intent;
+        IntentData intentData;
+        IMixActivityInterface iMixActivityInterface;
+        IMixActivityInterface iMixActivityInterface2;
+        IntentData.SchemeModel schemeData;
+        String source;
+        String str14;
+        JSONObject ext;
+        JSONObject ext2;
+        JSONObject jSONObject;
+        JSONObject extLog;
+        JSONObject jSONObject2;
+        IntentData.SchemeModel copy;
+        String schemeParam;
+        String jSONObject3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65571, this, new Object[]{str, str2, str3, str4, Long.valueOf(j), str5, str6}) == null) {
+            IntentData intentData2 = this.mIntentData;
+            IntentData.SchemeModel schemeData2 = intentData2 != null ? intentData2.getSchemeData() : null;
+            boolean z = false;
+            try {
+                Result.Companion companion = Result.Companion;
+            } catch (Throwable th) {
+                th = th;
+                str7 = "";
+                str8 = str7;
+            }
+            if (!TextUtils.isEmpty(str3)) {
+                Uri uriScheme = Uri.parse(str3);
+                Intrinsics.checkExpressionValueIsNotNull(uriScheme, "uriScheme");
+                String query = uriScheme.getQuery();
+                if (query != null && StringsKt__StringsKt.contains$default((CharSequence) query, (CharSequence) "params", false, 2, (Object) null) && !TextUtils.isEmpty(uriScheme.getQueryParameter("params"))) {
+                    jSONObject3 = uriScheme.getQueryParameter("params");
+                    if (jSONObject3 == null) {
+                        Intrinsics.throwNpe();
+                    }
+                } else {
+                    JSONObject paramsToJson = MiniJsonUtils.INSTANCE.paramsToJson(str3);
+                    jSONObject3 = paramsToJson != null ? paramsToJson.toString() : null;
+                }
+                if (jSONObject3 != null) {
+                    IntentData.SchemeModel parseSchemeData = IntentData.Companion.parseSchemeData(jSONObject3);
+                    str7 = parseSchemeData.getTemplateId();
+                    try {
+                        str8 = parseSchemeData.getRoomType();
+                        try {
+                            str9 = parseSchemeData.getTitle();
+                            try {
+                                IntentData intentData3 = this.mIntentData;
+                                if (intentData3 != null) {
+                                    intentData3.setModel(parseSchemeData);
+                                }
+                                Result.m698constructorimpl(Unit.INSTANCE);
+                            } catch (Throwable th2) {
+                                th = th2;
+                                Result.Companion companion2 = Result.Companion;
+                                Result.m698constructorimpl(ResultKt.createFailure(th));
+                                str10 = str7;
+                                str11 = str8;
+                                str12 = str9;
+                                if (TextUtils.isEmpty(str)) {
+                                }
+                                intent = new Intent();
+                                intent.putExtra(ILiveNPSPlugin.PARAMS_ROOM_ID, str13);
+                                intentData = this.mIntentData;
+                                if (intentData != null) {
+                                }
+                                this.mIntentData = ListExtKt.parseLiveData(intent);
+                                iMixActivityInterface = this.mixActivity;
+                                if (iMixActivityInterface != null) {
+                                }
+                                iMixActivityInterface2 = this.mixActivity;
+                                if (iMixActivityInterface2 != null) {
+                                }
+                                reloadLiveRoom();
+                            }
+                        } catch (Throwable th3) {
+                            th = th3;
+                            str9 = "";
+                            Result.Companion companion22 = Result.Companion;
+                            Result.m698constructorimpl(ResultKt.createFailure(th));
+                            str10 = str7;
+                            str11 = str8;
+                            str12 = str9;
+                            if (TextUtils.isEmpty(str)) {
+                            }
+                            intent = new Intent();
+                            intent.putExtra(ILiveNPSPlugin.PARAMS_ROOM_ID, str13);
+                            intentData = this.mIntentData;
+                            if (intentData != null) {
+                            }
+                            this.mIntentData = ListExtKt.parseLiveData(intent);
+                            iMixActivityInterface = this.mixActivity;
+                            if (iMixActivityInterface != null) {
+                            }
+                            iMixActivityInterface2 = this.mixActivity;
+                            if (iMixActivityInterface2 != null) {
+                            }
+                            reloadLiveRoom();
+                        }
+                    } catch (Throwable th4) {
+                        th = th4;
+                        str8 = "";
+                        str9 = str8;
+                        Result.Companion companion222 = Result.Companion;
+                        Result.m698constructorimpl(ResultKt.createFailure(th));
+                        str10 = str7;
+                        str11 = str8;
+                        str12 = str9;
+                        if (TextUtils.isEmpty(str)) {
+                        }
+                        intent = new Intent();
+                        intent.putExtra(ILiveNPSPlugin.PARAMS_ROOM_ID, str13);
+                        intentData = this.mIntentData;
+                        if (intentData != null) {
+                        }
+                        this.mIntentData = ListExtKt.parseLiveData(intent);
+                        iMixActivityInterface = this.mixActivity;
+                        if (iMixActivityInterface != null) {
+                        }
+                        iMixActivityInterface2 = this.mixActivity;
+                        if (iMixActivityInterface2 != null) {
+                        }
+                        reloadLiveRoom();
+                    }
+                    str10 = str7;
+                    str11 = str8;
+                    str12 = str9;
+                    if (TextUtils.isEmpty(str)) {
+                        IntentData intentData4 = this.mIntentData;
+                        str13 = (intentData4 == null || (model = intentData4.getModel()) == null || (roomId = model.getRoomId()) == null) ? "" : roomId;
+                    } else {
+                        str13 = str;
+                    }
+                    intent = new Intent();
+                    intent.putExtra(ILiveNPSPlugin.PARAMS_ROOM_ID, str13);
+                    intentData = this.mIntentData;
+                    if (intentData != null && (schemeData = intentData.getSchemeData()) != null) {
+                        if (TextUtils.isEmpty(schemeData.getSource())) {
+                            source = schemeData.getSource();
+                        } else {
+                            if (!TextUtils.isEmpty(schemeData2 != null ? schemeData2.getSource() : null)) {
+                                source = schemeData2 != null ? schemeData2.getSource() : null;
+                                if (source == null) {
+                                    Intrinsics.throwNpe();
+                                }
+                            } else {
+                                str14 = "";
+                                if (schemeData.getExt() != null) {
+                                    JSONObject ext3 = schemeData.getExt();
+                                    if (ext3 == null) {
+                                        Intrinsics.throwNpe();
+                                    }
+                                    JSONObject optJSONObject = ext3.optJSONObject("ext");
+                                    if (optJSONObject == null) {
+                                        JSONObject ext4 = schemeData.getExt();
+                                        if (ext4 == null) {
+                                            Intrinsics.throwNpe();
+                                        }
+                                        ext4.put("ext", (schemeData2 == null || (ext2 = schemeData2.getExt()) == null) ? null : ext2.optJSONObject("ext"));
+                                    } else if (TextUtils.isEmpty(optJSONObject.optString("source"))) {
+                                        optJSONObject.put("source", str14);
+                                    }
+                                    ext = schemeData.getExt();
+                                } else if (schemeData2 != null) {
+                                    ext = schemeData2.getExt();
+                                } else {
+                                    jSONObject = null;
+                                    String liveBackScheme = schemeData.getLiveBackScheme();
+                                    JSONObject extRequest = schemeData.getExtRequest();
+                                    if (schemeData.getExtLog() == null) {
+                                        extLog = schemeData.getExtLog();
+                                    } else if (schemeData2 != null) {
+                                        extLog = schemeData2.getExtLog();
+                                    } else {
+                                        jSONObject2 = null;
+                                        copy = schemeData.copy((r50 & 1) != 0 ? schemeData.roomId : str13, (r50 & 2) != 0 ? schemeData.roomType : str11, (r50 & 4) != 0 ? schemeData.source : str14, (r50 & 8) != 0 ? schemeData.cover : str2, (r50 & 16) != 0 ? schemeData.playUrl : str6, (r50 & 32) != 0 ? schemeData.status : "", (r50 & 64) != 0 ? schemeData.format : "", (r50 & 128) != 0 ? schemeData.screen : "", (r50 & 256) != 0 ? schemeData.template : "", (r50 & 512) != 0 ? schemeData.liveBackScheme : liveBackScheme, (r50 & 1024) != 0 ? schemeData.ext : jSONObject, (r50 & 2048) != 0 ? schemeData.extRequest : extRequest, (r50 & 4096) != 0 ? schemeData.extLog : jSONObject2, (r50 & 8192) != 0 ? schemeData.query : null, (r50 & 16384) != 0 ? schemeData.extParams : schemeData.getExtParams(), (r50 & 32768) != 0 ? schemeData.askId : "", (r50 & 65536) != 0 ? schemeData.templateId : str10, (r50 & 131072) != 0 ? schemeData.otherParams : null, (r50 & 262144) != 0 ? schemeData.invokePop : null, (r50 & 524288) != 0 ? schemeData.searchIntoLiveJson : null, (r50 & 1048576) != 0 ? schemeData.hlReplyIntoLive : null, (r50 & 2097152) != 0 ? schemeData.shareUid : null, (r50 & 4194304) != 0 ? schemeData.shareTag : null, (r50 & 8388608) != 0 ? schemeData.avcUrl : null, (r50 & 16777216) != 0 ? schemeData.hevcUrl : null, (r50 & 33554432) != 0 ? schemeData.rtcUrl : null, (r50 & CodedInputStream.DEFAULT_SIZE_LIMIT) != 0 ? schemeData.title : str12, (r50 & 134217728) != 0 ? schemeData.shareTaskInfo : null, (r50 & LaunchTaskConstants.OTHER_PROCESS) != 0 ? schemeData.quic : null, (r50 & NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH) != 0 ? schemeData.inviterId : null, (r50 & 1073741824) != 0 ? schemeData.highlightUrl : null, (r50 & Integer.MIN_VALUE) != 0 ? schemeData.introduceTips : null);
+                                        intent.putExtra("params", copy.toSchemeParams());
+                                        String buildLiveScheme = MiniShellRuntime.INSTANCE.buildLiveScheme(str != null ? str : "", schemeData.getSource());
+                                        schemeParam = MixUriUtilKt.setSchemeParam(buildLiveScheme, CollectionsKt__CollectionsKt.listOf((Object[]) new Pair[]{new Pair("clickTime", String.valueOf(j)), new Pair("clickFrom", str5)}), true);
+                                        if (schemeParam == null) {
+                                            schemeParam = buildLiveScheme;
+                                        }
+                                        if (!((schemeParam != null || schemeParam.length() == 0) ? true : true)) {
+                                            buildLiveScheme = schemeParam;
+                                        }
+                                        intent.putExtra("scheme", buildLiveScheme);
+                                    }
+                                    jSONObject2 = extLog;
+                                    copy = schemeData.copy((r50 & 1) != 0 ? schemeData.roomId : str13, (r50 & 2) != 0 ? schemeData.roomType : str11, (r50 & 4) != 0 ? schemeData.source : str14, (r50 & 8) != 0 ? schemeData.cover : str2, (r50 & 16) != 0 ? schemeData.playUrl : str6, (r50 & 32) != 0 ? schemeData.status : "", (r50 & 64) != 0 ? schemeData.format : "", (r50 & 128) != 0 ? schemeData.screen : "", (r50 & 256) != 0 ? schemeData.template : "", (r50 & 512) != 0 ? schemeData.liveBackScheme : liveBackScheme, (r50 & 1024) != 0 ? schemeData.ext : jSONObject, (r50 & 2048) != 0 ? schemeData.extRequest : extRequest, (r50 & 4096) != 0 ? schemeData.extLog : jSONObject2, (r50 & 8192) != 0 ? schemeData.query : null, (r50 & 16384) != 0 ? schemeData.extParams : schemeData.getExtParams(), (r50 & 32768) != 0 ? schemeData.askId : "", (r50 & 65536) != 0 ? schemeData.templateId : str10, (r50 & 131072) != 0 ? schemeData.otherParams : null, (r50 & 262144) != 0 ? schemeData.invokePop : null, (r50 & 524288) != 0 ? schemeData.searchIntoLiveJson : null, (r50 & 1048576) != 0 ? schemeData.hlReplyIntoLive : null, (r50 & 2097152) != 0 ? schemeData.shareUid : null, (r50 & 4194304) != 0 ? schemeData.shareTag : null, (r50 & 8388608) != 0 ? schemeData.avcUrl : null, (r50 & 16777216) != 0 ? schemeData.hevcUrl : null, (r50 & 33554432) != 0 ? schemeData.rtcUrl : null, (r50 & CodedInputStream.DEFAULT_SIZE_LIMIT) != 0 ? schemeData.title : str12, (r50 & 134217728) != 0 ? schemeData.shareTaskInfo : null, (r50 & LaunchTaskConstants.OTHER_PROCESS) != 0 ? schemeData.quic : null, (r50 & NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH) != 0 ? schemeData.inviterId : null, (r50 & 1073741824) != 0 ? schemeData.highlightUrl : null, (r50 & Integer.MIN_VALUE) != 0 ? schemeData.introduceTips : null);
+                                    intent.putExtra("params", copy.toSchemeParams());
+                                    String buildLiveScheme2 = MiniShellRuntime.INSTANCE.buildLiveScheme(str != null ? str : "", schemeData.getSource());
+                                    schemeParam = MixUriUtilKt.setSchemeParam(buildLiveScheme2, CollectionsKt__CollectionsKt.listOf((Object[]) new Pair[]{new Pair("clickTime", String.valueOf(j)), new Pair("clickFrom", str5)}), true);
+                                    if (schemeParam == null) {
+                                    }
+                                    if (!((schemeParam != null || schemeParam.length() == 0) ? true : true)) {
+                                    }
+                                    intent.putExtra("scheme", buildLiveScheme2);
+                                }
+                                jSONObject = ext;
+                                String liveBackScheme2 = schemeData.getLiveBackScheme();
+                                JSONObject extRequest2 = schemeData.getExtRequest();
+                                if (schemeData.getExtLog() == null) {
+                                }
+                                jSONObject2 = extLog;
+                                copy = schemeData.copy((r50 & 1) != 0 ? schemeData.roomId : str13, (r50 & 2) != 0 ? schemeData.roomType : str11, (r50 & 4) != 0 ? schemeData.source : str14, (r50 & 8) != 0 ? schemeData.cover : str2, (r50 & 16) != 0 ? schemeData.playUrl : str6, (r50 & 32) != 0 ? schemeData.status : "", (r50 & 64) != 0 ? schemeData.format : "", (r50 & 128) != 0 ? schemeData.screen : "", (r50 & 256) != 0 ? schemeData.template : "", (r50 & 512) != 0 ? schemeData.liveBackScheme : liveBackScheme2, (r50 & 1024) != 0 ? schemeData.ext : jSONObject, (r50 & 2048) != 0 ? schemeData.extRequest : extRequest2, (r50 & 4096) != 0 ? schemeData.extLog : jSONObject2, (r50 & 8192) != 0 ? schemeData.query : null, (r50 & 16384) != 0 ? schemeData.extParams : schemeData.getExtParams(), (r50 & 32768) != 0 ? schemeData.askId : "", (r50 & 65536) != 0 ? schemeData.templateId : str10, (r50 & 131072) != 0 ? schemeData.otherParams : null, (r50 & 262144) != 0 ? schemeData.invokePop : null, (r50 & 524288) != 0 ? schemeData.searchIntoLiveJson : null, (r50 & 1048576) != 0 ? schemeData.hlReplyIntoLive : null, (r50 & 2097152) != 0 ? schemeData.shareUid : null, (r50 & 4194304) != 0 ? schemeData.shareTag : null, (r50 & 8388608) != 0 ? schemeData.avcUrl : null, (r50 & 16777216) != 0 ? schemeData.hevcUrl : null, (r50 & 33554432) != 0 ? schemeData.rtcUrl : null, (r50 & CodedInputStream.DEFAULT_SIZE_LIMIT) != 0 ? schemeData.title : str12, (r50 & 134217728) != 0 ? schemeData.shareTaskInfo : null, (r50 & LaunchTaskConstants.OTHER_PROCESS) != 0 ? schemeData.quic : null, (r50 & NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH) != 0 ? schemeData.inviterId : null, (r50 & 1073741824) != 0 ? schemeData.highlightUrl : null, (r50 & Integer.MIN_VALUE) != 0 ? schemeData.introduceTips : null);
+                                intent.putExtra("params", copy.toSchemeParams());
+                                String buildLiveScheme22 = MiniShellRuntime.INSTANCE.buildLiveScheme(str != null ? str : "", schemeData.getSource());
+                                schemeParam = MixUriUtilKt.setSchemeParam(buildLiveScheme22, CollectionsKt__CollectionsKt.listOf((Object[]) new Pair[]{new Pair("clickTime", String.valueOf(j)), new Pair("clickFrom", str5)}), true);
+                                if (schemeParam == null) {
+                                }
+                                if (!((schemeParam != null || schemeParam.length() == 0) ? true : true)) {
+                                }
+                                intent.putExtra("scheme", buildLiveScheme22);
+                            }
+                        }
+                        str14 = source;
+                        if (schemeData.getExt() != null) {
+                        }
+                        jSONObject = ext;
+                        String liveBackScheme22 = schemeData.getLiveBackScheme();
+                        JSONObject extRequest22 = schemeData.getExtRequest();
+                        if (schemeData.getExtLog() == null) {
+                        }
+                        jSONObject2 = extLog;
+                        copy = schemeData.copy((r50 & 1) != 0 ? schemeData.roomId : str13, (r50 & 2) != 0 ? schemeData.roomType : str11, (r50 & 4) != 0 ? schemeData.source : str14, (r50 & 8) != 0 ? schemeData.cover : str2, (r50 & 16) != 0 ? schemeData.playUrl : str6, (r50 & 32) != 0 ? schemeData.status : "", (r50 & 64) != 0 ? schemeData.format : "", (r50 & 128) != 0 ? schemeData.screen : "", (r50 & 256) != 0 ? schemeData.template : "", (r50 & 512) != 0 ? schemeData.liveBackScheme : liveBackScheme22, (r50 & 1024) != 0 ? schemeData.ext : jSONObject, (r50 & 2048) != 0 ? schemeData.extRequest : extRequest22, (r50 & 4096) != 0 ? schemeData.extLog : jSONObject2, (r50 & 8192) != 0 ? schemeData.query : null, (r50 & 16384) != 0 ? schemeData.extParams : schemeData.getExtParams(), (r50 & 32768) != 0 ? schemeData.askId : "", (r50 & 65536) != 0 ? schemeData.templateId : str10, (r50 & 131072) != 0 ? schemeData.otherParams : null, (r50 & 262144) != 0 ? schemeData.invokePop : null, (r50 & 524288) != 0 ? schemeData.searchIntoLiveJson : null, (r50 & 1048576) != 0 ? schemeData.hlReplyIntoLive : null, (r50 & 2097152) != 0 ? schemeData.shareUid : null, (r50 & 4194304) != 0 ? schemeData.shareTag : null, (r50 & 8388608) != 0 ? schemeData.avcUrl : null, (r50 & 16777216) != 0 ? schemeData.hevcUrl : null, (r50 & 33554432) != 0 ? schemeData.rtcUrl : null, (r50 & CodedInputStream.DEFAULT_SIZE_LIMIT) != 0 ? schemeData.title : str12, (r50 & 134217728) != 0 ? schemeData.shareTaskInfo : null, (r50 & LaunchTaskConstants.OTHER_PROCESS) != 0 ? schemeData.quic : null, (r50 & NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH) != 0 ? schemeData.inviterId : null, (r50 & 1073741824) != 0 ? schemeData.highlightUrl : null, (r50 & Integer.MIN_VALUE) != 0 ? schemeData.introduceTips : null);
+                        intent.putExtra("params", copy.toSchemeParams());
+                        String buildLiveScheme222 = MiniShellRuntime.INSTANCE.buildLiveScheme(str != null ? str : "", schemeData.getSource());
+                        schemeParam = MixUriUtilKt.setSchemeParam(buildLiveScheme222, CollectionsKt__CollectionsKt.listOf((Object[]) new Pair[]{new Pair("clickTime", String.valueOf(j)), new Pair("clickFrom", str5)}), true);
+                        if (schemeParam == null) {
+                        }
+                        if (!((schemeParam != null || schemeParam.length() == 0) ? true : true)) {
+                        }
+                        intent.putExtra("scheme", buildLiveScheme222);
+                    }
+                    this.mIntentData = ListExtKt.parseLiveData(intent);
+                    iMixActivityInterface = this.mixActivity;
+                    if (iMixActivityInterface != null) {
+                        iMixActivityInterface.setMixEventDispatcher(MixConstants.KEY_CLOSE_IM, null);
+                    }
+                    iMixActivityInterface2 = this.mixActivity;
+                    if (iMixActivityInterface2 != null) {
+                        iMixActivityInterface2.setMixEventDispatcher(MixConstants.KEY_NEW_INTENT, intent);
+                    }
+                    reloadLiveRoom();
+                }
+            }
+            str7 = "";
+            str8 = str7;
+            str9 = str8;
+            Result.m698constructorimpl(Unit.INSTANCE);
+            str10 = str7;
+            str11 = str8;
+            str12 = str9;
+            if (TextUtils.isEmpty(str)) {
+            }
+            intent = new Intent();
+            intent.putExtra(ILiveNPSPlugin.PARAMS_ROOM_ID, str13);
+            intentData = this.mIntentData;
+            if (intentData != null) {
+                if (TextUtils.isEmpty(schemeData.getSource())) {
+                }
+                str14 = source;
+                if (schemeData.getExt() != null) {
+                }
+                jSONObject = ext;
+                String liveBackScheme222 = schemeData.getLiveBackScheme();
+                JSONObject extRequest222 = schemeData.getExtRequest();
+                if (schemeData.getExtLog() == null) {
+                }
+                jSONObject2 = extLog;
+                copy = schemeData.copy((r50 & 1) != 0 ? schemeData.roomId : str13, (r50 & 2) != 0 ? schemeData.roomType : str11, (r50 & 4) != 0 ? schemeData.source : str14, (r50 & 8) != 0 ? schemeData.cover : str2, (r50 & 16) != 0 ? schemeData.playUrl : str6, (r50 & 32) != 0 ? schemeData.status : "", (r50 & 64) != 0 ? schemeData.format : "", (r50 & 128) != 0 ? schemeData.screen : "", (r50 & 256) != 0 ? schemeData.template : "", (r50 & 512) != 0 ? schemeData.liveBackScheme : liveBackScheme222, (r50 & 1024) != 0 ? schemeData.ext : jSONObject, (r50 & 2048) != 0 ? schemeData.extRequest : extRequest222, (r50 & 4096) != 0 ? schemeData.extLog : jSONObject2, (r50 & 8192) != 0 ? schemeData.query : null, (r50 & 16384) != 0 ? schemeData.extParams : schemeData.getExtParams(), (r50 & 32768) != 0 ? schemeData.askId : "", (r50 & 65536) != 0 ? schemeData.templateId : str10, (r50 & 131072) != 0 ? schemeData.otherParams : null, (r50 & 262144) != 0 ? schemeData.invokePop : null, (r50 & 524288) != 0 ? schemeData.searchIntoLiveJson : null, (r50 & 1048576) != 0 ? schemeData.hlReplyIntoLive : null, (r50 & 2097152) != 0 ? schemeData.shareUid : null, (r50 & 4194304) != 0 ? schemeData.shareTag : null, (r50 & 8388608) != 0 ? schemeData.avcUrl : null, (r50 & 16777216) != 0 ? schemeData.hevcUrl : null, (r50 & 33554432) != 0 ? schemeData.rtcUrl : null, (r50 & CodedInputStream.DEFAULT_SIZE_LIMIT) != 0 ? schemeData.title : str12, (r50 & 134217728) != 0 ? schemeData.shareTaskInfo : null, (r50 & LaunchTaskConstants.OTHER_PROCESS) != 0 ? schemeData.quic : null, (r50 & NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH) != 0 ? schemeData.inviterId : null, (r50 & 1073741824) != 0 ? schemeData.highlightUrl : null, (r50 & Integer.MIN_VALUE) != 0 ? schemeData.introduceTips : null);
+                intent.putExtra("params", copy.toSchemeParams());
+                String buildLiveScheme2222 = MiniShellRuntime.INSTANCE.buildLiveScheme(str != null ? str : "", schemeData.getSource());
+                schemeParam = MixUriUtilKt.setSchemeParam(buildLiveScheme2222, CollectionsKt__CollectionsKt.listOf((Object[]) new Pair[]{new Pair("clickTime", String.valueOf(j)), new Pair("clickFrom", str5)}), true);
+                if (schemeParam == null) {
+                }
+                if (!((schemeParam != null || schemeParam.length() == 0) ? true : true)) {
+                }
+                intent.putExtra("scheme", buildLiveScheme2222);
+            }
+            this.mIntentData = ListExtKt.parseLiveData(intent);
+            iMixActivityInterface = this.mixActivity;
+            if (iMixActivityInterface != null) {
+            }
+            iMixActivityInterface2 = this.mixActivity;
+            if (iMixActivityInterface2 != null) {
+            }
+            reloadLiveRoom();
+        }
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r3v25, resolved type: T */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v26, resolved type: T */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v27, resolved type: T */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v40, resolved type: T */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x0148  */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x019f  */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x0222  */
+    /* JADX WARN: Removed duplicated region for block: B:76:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private final void loadLiveRoom() {
+        LiveContainer.LiveItemModel liveItemModel;
+        String title;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65573, this) == null) {
+            ListLogKt.log("MixLiveCell_fake_list", "listComponent loadLiveRoom context:" + this.context.hashCode());
+            logEventOnReach();
+            IntentData intentData = this.mIntentData;
+            if (intentData != null) {
+                if (TextUtils.isEmpty(intentData.getId())) {
+                    MediaLivePluginLogger.Companion.getInstance().logListBeginSlideReqStart();
+                    queryLiveList();
+                    ListLogKt.log("MixLiveCell_fake_list", "listComponent room id is empty, request slidlist context:" + this.context.hashCode());
+                    return;
+                }
+                JSONObject jSONObject = null;
+                if (StringsKt__StringsKt.contains$default((CharSequence) intentData.getScheme(), (CharSequence) "//live/yylive/joinlive", false, 2, (Object) null)) {
+                    intentData.getModel().setRoomType("3");
+                }
+                if (this.prefetchEnterSwitch && Intrinsics.areEqual(intentData.getModel().getRoomType(), "0") && !MiniShellRuntime.INSTANCE.isTieba()) {
+                    preReqRoomEnter();
+                }
+                if (!TextUtils.isEmpty(intentData.getModel().getRoomType()) && (!Intrinsics.areEqual("0", intentData.getModel().getRoomType()) || !TextUtils.isEmpty(intentData.getModel().getTemplateId()))) {
+                    this.isFromForward = true;
+                    if (Intrinsics.areEqual(intentData.getModel().getRoomType(), "3")) {
+                        IntentData intentData2 = this.mIntentData;
+                        String scheme = intentData2 != null ? intentData2.getScheme() : null;
+                        if (scheme != null) {
+                            try {
+                                Map<String, String> stringToMap = MixUriUtilKt.stringToMap(MixUriUtilKt.getParamsStr(scheme));
+                                Ref.ObjectRef objectRef = new Ref.ObjectRef();
+                                boolean containsKey = stringToMap.containsKey("params");
+                                T t = stringToMap;
+                                if (containsKey) {
+                                    try {
+                                        t = paramsJsonToMap(new JSONObject(stringToMap.get("params")));
+                                    } catch (Exception unused) {
+                                        t = 0;
+                                    }
+                                }
+                                objectRef.element = t;
+                                if (t != null) {
+                                    JSONObject jSONObject2 = new JSONObject(MiniJsonUtils.INSTANCE.bundleToJsonStr((Map) t));
+                                    try {
+                                        Unit unit = Unit.INSTANCE;
+                                        jSONObject = jSONObject2;
+                                    } catch (Exception e) {
+                                        e = e;
+                                        jSONObject = jSONObject2;
+                                        e.printStackTrace();
+                                        Unit unit2 = Unit.INSTANCE;
+                                        String scheme2 = intentData.getScheme();
+                                        LiveContainer.PlaySourceInfo playSourceInfo = this.playSource;
+                                        liveItemModel = new LiveContainer.LiveItemModel();
+                                        liveItemModel.setRoomId(intentData.getId());
+                                        liveItemModel.setCover(intentData.getModel().getCover());
+                                        String roomType = intentData.getModel().getRoomType();
+                                        liveItemModel.setLiveType(roomType != null ? roomType : "0");
+                                        liveItemModel.setScheme(scheme2);
+                                        liveItemModel.setPlayUrl(intentData.getModel().getPlayUrl());
+                                        liveItemModel.setStatus(intentData.getModel().getStatus());
+                                        liveItemModel.setFormat(intentData.getModel().getFormat());
+                                        liveItemModel.setScreen(intentData.getModel().getScreen());
+                                        liveItemModel.setTemplate(intentData.getModel().getTemplate());
+                                        liveItemModel.setTemplateId(intentData.getModel().getTemplateId());
+                                        liveItemModel.setPlaySource(playSourceInfo);
+                                        title = intentData.getModel().getTitle();
+                                        if (title == null) {
+                                        }
+                                        liveItemModel.setTitle(title);
+                                        liveItemModel.setOtherParams(intentData.getModel().getOtherParams());
+                                        liveItemModel.setOriginJson(jSONObject);
+                                        liveItemModel.setAvcUrl(intentData.getModel().getAvcUrl());
+                                        liveItemModel.setHevcUrl(intentData.getModel().getHevcUrl());
+                                        liveItemModel.setRtcUrl(intentData.getModel().getRtcUrl());
+                                        liveItemModel.setQuic(intentData.getModel().getQuic());
+                                        liveItemModel.setHighlightUrl(intentData.getModel().getHighlightUrl());
+                                        liveItemModel.setExt(intentData.getModel().getExt());
+                                        liveItemModel.setSource(intentData.getModel().getSource());
+                                        liveItemModel.setShareTaskInfo(intentData.getModel().getShareTaskInfo());
+                                        liveItemModel.setKabrSpts(intentData.getModel().getKabrSpts());
+                                        this.itemData.add(liveItemModel);
+                                        if (this.itemData.indexOf(liveItemModel) < 0) {
+                                        }
+                                    }
+                                }
+                            } catch (Exception e2) {
+                                e = e2;
+                            }
+                        }
+                    }
+                    String scheme22 = intentData.getScheme();
+                    LiveContainer.PlaySourceInfo playSourceInfo2 = this.playSource;
+                    liveItemModel = new LiveContainer.LiveItemModel();
+                    liveItemModel.setRoomId(intentData.getId());
+                    liveItemModel.setCover(intentData.getModel().getCover());
+                    String roomType2 = intentData.getModel().getRoomType();
+                    liveItemModel.setLiveType(roomType2 != null ? roomType2 : "0");
+                    liveItemModel.setScheme(scheme22);
+                    liveItemModel.setPlayUrl(intentData.getModel().getPlayUrl());
+                    liveItemModel.setStatus(intentData.getModel().getStatus());
+                    liveItemModel.setFormat(intentData.getModel().getFormat());
+                    liveItemModel.setScreen(intentData.getModel().getScreen());
+                    liveItemModel.setTemplate(intentData.getModel().getTemplate());
+                    liveItemModel.setTemplateId(intentData.getModel().getTemplateId());
+                    liveItemModel.setPlaySource(playSourceInfo2);
+                    title = intentData.getModel().getTitle();
+                    if (title == null) {
+                        title = "";
+                    }
+                    liveItemModel.setTitle(title);
+                    liveItemModel.setOtherParams(intentData.getModel().getOtherParams());
+                    liveItemModel.setOriginJson(jSONObject);
+                    liveItemModel.setAvcUrl(intentData.getModel().getAvcUrl());
+                    liveItemModel.setHevcUrl(intentData.getModel().getHevcUrl());
+                    liveItemModel.setRtcUrl(intentData.getModel().getRtcUrl());
+                    liveItemModel.setQuic(intentData.getModel().getQuic());
+                    liveItemModel.setHighlightUrl(intentData.getModel().getHighlightUrl());
+                    liveItemModel.setExt(intentData.getModel().getExt());
+                    liveItemModel.setSource(intentData.getModel().getSource());
+                    liveItemModel.setShareTaskInfo(intentData.getModel().getShareTaskInfo());
+                    liveItemModel.setKabrSpts(intentData.getModel().getKabrSpts());
+                    this.itemData.add(liveItemModel);
+                    if (this.itemData.indexOf(liveItemModel) < 0) {
+                        this.curRoomModel = liveItemModel;
+                        getListManager().resetCurRoom(liveItemModel);
+                        LiveRoomInfoStatPlugin liveRoomInfoStatPlugin = this.mLiveRoomInfoStatPlugin;
+                        if (liveRoomInfoStatPlugin != null) {
+                            liveRoomInfoStatPlugin.dispatchFirstLiveItemModelAction(liveItemModel);
+                        }
+                        queryLiveList();
+                        ListLogKt.log("MixLiveCell_fake_list", "listComponent enter first, request slidlist context:" + this.context.hashCode());
+                        MediaLivePluginLogger.Companion.getInstance().logListLoadRoomAndNextListAddItem();
+                        return;
+                    }
+                    return;
+                }
+                MediaLivePluginLogger.Companion.getInstance().logListBeginGetLiveTypeStart();
+                MixModel mixModel = this.mNetModel;
+                if (mixModel != null) {
+                    mixModel.reqLiveType();
+                }
+                ListLogKt.log("MixLiveCell_fake_list", "listComponent room type=" + intentData.getModel().getRoomType() + " || templateId=" + intentData.getModel().getTemplateId() + " is empty, request livetype context:" + this.context.hashCode());
+            }
+        }
+    }
+
+    private final void logEventOnReach() {
+        IntentData.SchemeModel model;
+        IntentData.SchemeModel model2;
+        IntentData.SchemeModel model3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65574, this) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                IntentData intentData = this.mIntentData;
+                jSONObject.put(MixYYFakeShell.ROOM_ID_YY, intentData != null ? intentData.getId() : null);
+                IntentData intentData2 = this.mIntentData;
+                jSONObject.put(ILiveNPSPlugin.PARAMS_ROOM_ID, intentData2 != null ? intentData2.getId() : null);
+                IntentData intentData3 = this.mIntentData;
+                jSONObject.put("screen", (intentData3 == null || (model3 = intentData3.getModel()) == null) ? null : model3.getScreen());
+                IntentData intentData4 = this.mIntentData;
+                jSONObject.put("roomType", (intentData4 == null || (model2 = intentData4.getModel()) == null) ? null : model2.getRoomType());
+                IntentData intentData5 = this.mIntentData;
+                jSONObject.put("templateID", (intentData5 == null || (model = intentData5.getModel()) == null) ? null : model.getTemplateId());
+                jSONObject.put("live_version", String.valueOf(MiniPluginUtils.INSTANCE.getComponentInstalledVersion("com.baidu.searchbox.livenps")));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            ListUbc listUbc = ListUbc.getInstance();
+            IntentData intentData6 = this.mIntentData;
+            listUbc.reportReachEvent(ListUbc.KEY_ID_REACH_LIVEROOM, ListUbc.UBC_TYPE_REACH, "", "", intentData6 != null ? intentData6.getSource() : null, jSONObject);
+        }
+    }
+
+    private final Map<String, String> paramsJsonToMap(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65575, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            Iterator<String> keys = jSONObject.keys();
+            Intrinsics.checkExpressionValueIsNotNull(keys, "input.keys()");
+            while (keys.hasNext()) {
+                String key = keys.next();
+                Object opt = jSONObject.opt(key);
+                if (opt instanceof String) {
+                    Intrinsics.checkExpressionValueIsNotNull(key, "key");
+                    linkedHashMap.put(key, opt);
+                } else {
+                    Intrinsics.checkExpressionValueIsNotNull(key, "key");
+                    linkedHashMap.put(key, opt != null ? opt.toString() : null);
+                }
+            }
+            return linkedHashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:33:0x004a  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x004f  */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x0052  */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x0062  */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x00bb  */
+    /* JADX WARN: Removed duplicated region for block: B:62:0x00c0  */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x00c5  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private final String parseClickTime(String str, LiveContainer.PlaySourceInfo playSourceInfo) {
+        InterceptResult invokeLL;
+        Uri uri;
+        Long valueOf;
+        String clickFrom;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65576, this, str, playSourceInfo)) == null) {
+            if (str == null || str.length() == 0) {
+                return str;
+            }
+            String str2 = null;
+            try {
+                uri = Uri.parse(str);
+            } catch (Exception e) {
+                e.printStackTrace();
+                uri = null;
+            }
+            Integer valueOf2 = playSourceInfo != null ? Integer.valueOf(playSourceInfo.getFirstJump()) : null;
+            String queryParameter = uri != null ? uri.getQueryParameter("clickTime") : null;
+            if (queryParameter != null) {
+                try {
+                    valueOf = Long.valueOf(Long.parseLong(queryParameter));
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                String queryParameter2 = uri == null ? uri.getQueryParameter("clickFrom") : null;
+                if (valueOf != null) {
+                    valueOf = playSourceInfo != null ? playSourceInfo.getClickTime() : null;
+                    if (playSourceInfo != null) {
+                        str2 = playSourceInfo.getClickFrom();
+                    }
+                } else {
+                    valueOf2 = 1;
+                    if (queryParameter2 == null) {
+                        if (playSourceInfo == null || (clickFrom = playSourceInfo.getClickFrom()) == null || !StringsKt__StringsJVMKt.endsWith$default(clickFrom, "_unknow", false, 2, null)) {
+                            StringBuilder sb = new StringBuilder();
+                            sb.append(playSourceInfo != null ? playSourceInfo.getClickFrom() : null);
+                            sb.append("_unknow");
+                            queryParameter2 = sb.toString();
+                        } else {
+                            queryParameter2 = playSourceInfo.getClickFrom();
+                        }
+                    }
+                    Uri uriParam = MixUriUtilKt.setUriParam(uri, CollectionsKt__CollectionsKt.listOf((Object[]) new Pair[]{new Pair("clickTime", null), new Pair("clickFrom", null)}), true);
+                    if (uriParam != null) {
+                        str = uriParam.toString();
+                        Intrinsics.checkExpressionValueIsNotNull(str, "newUri.toString()");
+                    }
+                    str2 = queryParameter2;
+                }
+                if (playSourceInfo != null) {
+                    playSourceInfo.setClickTime(valueOf);
+                }
+                if (playSourceInfo != null) {
+                    playSourceInfo.setClickFrom(str2);
+                }
+                if (valueOf2 != null) {
+                    int intValue = valueOf2.intValue();
+                    if (playSourceInfo != null) {
+                        playSourceInfo.setFirstJump(intValue);
+                    }
+                }
+                return str;
+            }
+            valueOf = null;
+            if (uri == null) {
+            }
+            if (valueOf != null) {
+            }
+            if (playSourceInfo != null) {
+            }
+            if (playSourceInfo != null) {
+            }
+            if (valueOf2 != null) {
+            }
+            return str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r0v7, resolved type: com.baidu.searchbox.live.model.MixModel */
+    /* JADX WARN: Multi-variable type inference failed */
+    private final void preReqRoomEnter() {
+        IntentData intentData;
+        String jSONObject;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65577, this) == null) || (intentData = this.mIntentData) == null) {
+            return;
+        }
+        String id = intentData.getId();
+        String source = intentData.getSource();
+        JSONObject searchIntoLiveJson = intentData.getModel().getSearchIntoLiveJson();
+        String optString = searchIntoLiveJson != null ? searchIntoLiveJson.optString("question") : null;
+        JSONObject hlReplyIntoLive = intentData.getModel().getHlReplyIntoLive();
+        String str = "";
+        String optString2 = hlReplyIntoLive != null ? hlReplyIntoLive.optString("nid", "") : null;
+        JSONObject ext = intentData.getModel().getExt();
+        if (ext != null && (jSONObject = ext.toString()) != null) {
+            str = jSONObject;
+        }
+        RoomEnterParams roomEnterParams = new RoomEnterParams(id, source, optString, optString2, str, false, 32, null);
+        roomEnterParams.setAudio(Boolean.valueOf(Intrinsics.areEqual(intentData.getModel().getTemplateId(), "5")));
+        MixModel mixModel = this.mNetModel;
+        if (mixModel != 0) {
+            mixModel.reqRoomEnter(roomEnterParams, new OnMixDataLoaded<MixResult<? extends LiveRoomEnterRespData>>(this) { // from class: com.baidu.searchbox.live.list.controller.ListController$preReqRoomEnter$$inlined$let$lambda$1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ ListController this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+                @Override // com.baidu.searchbox.live.model.res.OnMixDataLoaded
+                public /* bridge */ /* synthetic */ void onMixDataLoaded(MixResult<? extends LiveRoomEnterRespData> mixResult) {
+                    onMixDataLoaded2((MixResult<LiveRoomEnterRespData>) mixResult);
+                }
+
+                /* renamed from: onMixDataLoaded  reason: avoid collision after fix types in other method */
+                public void onMixDataLoaded2(MixResult<LiveRoomEnterRespData> mixResult) {
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, mixResult) == null) && (mixResult instanceof MixResult.MixSuccess)) {
+                        MixResult.MixSuccess mixSuccess = (MixResult.MixSuccess) mixResult;
+                        this.this$0.setPreReqRoomEnterData((LiveRoomEnterRespData) mixSuccess.getData());
+                        this.this$0.setPreReqStatData(mixSuccess.getStatData());
+                    }
+                }
+            });
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public final void queryLiveList() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65578, this) == null) {
+            this.listRequestTime = System.currentTimeMillis();
+            this.listRequestDuration = 0L;
+            MixModel mixModel = this.mNetModel;
+            if (mixModel != null) {
+                mixModel.queryLiveList();
+            }
+        }
+    }
+
+    private final void registerMixRequestService() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65579, this) == null) || MiniShellRuntime.INSTANCE.isTieba()) {
+            return;
+        }
+        MixRequestServiceLocator.Companion.registerGlobalServices(MixRequestService.class, new ListController$registerMixRequestService$1(this));
+    }
+
+    private final void registerYYLifeCyclePlugin() {
+        Lifecycle lifeCycle;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65580, this) == null) || this.isRegistYYActivityLifeCyclePlugin) {
+            return;
+        }
+        this.mYYLifeCyclePlugin = new YYActivityLifeCyclePlugin(this.context);
+        IMixActivityInterface iMixActivityInterface = this.mixActivity;
+        if (iMixActivityInterface != null && (lifeCycle = iMixActivityInterface.getLifeCycle()) != null) {
+            YYActivityLifeCyclePlugin yYActivityLifeCyclePlugin = this.mYYLifeCyclePlugin;
+            if (yYActivityLifeCyclePlugin == null) {
+                Intrinsics.throwNpe();
+            }
+            lifeCycle.addObserver(yYActivityLifeCyclePlugin);
+        }
+        this.isRegistYYActivityLifeCyclePlugin = true;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public final void reloadLiveRoom() {
+        IntentData intentData;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65581, this) == null) || (intentData = this.mIntentData) == null || intentData.getSchemeData() == null) {
+            return;
+        }
+        int size = this.itemData.size();
+        if (size > 0) {
+            this.itemData.clear();
+            getListManager().clear(size);
+        }
+        loadLiveRoom();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public final void slideListSuccess(String str, int i, List<LiveContainer.LiveItemModel> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65582, this, str, i, list) == null) {
+            final int size = this.itemData.size();
+            distinct(this.itemData, list);
+            this.itemData.addAll(list);
+            MediaLivePlayLogger.Companion.getInstance().logLiveRoomEndSlideParseAddItem();
+            MiniUiThreadUtil.INSTANCE.runOnUiThread(new Runnable(this, size) { // from class: com.baidu.searchbox.live.list.controller.ListController$slideListSuccess$1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ int $size;
+                public final /* synthetic */ ListController this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, Integer.valueOf(size)};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.$size = size;
+                }
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    IListManager listManager;
+                    long j;
+                    long j2;
+                    IListManager listManager2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        MediaLivePluginLogger.Companion.getInstance().logListSlideEndAndAddItem();
+                        listManager = this.this$0.getListManager();
+                        listManager.onListChange(this.$size);
+                        if (this.this$0.getCurRoomModel() == null && this.this$0.getItemData().size() > 0) {
+                            ListController listController = this.this$0;
+                            listController.setCurRoomModel(listController.getItemData().get(0));
+                            listManager2 = this.this$0.getListManager();
+                            LiveContainer.LiveItemModel curRoomModel = this.this$0.getCurRoomModel();
+                            if (curRoomModel == null) {
+                                Intrinsics.throwNpe();
+                            }
+                            listManager2.resetCurRoom(curRoomModel);
+                        }
+                        j = this.this$0.listRequestTime;
+                        if (j > 0) {
+                            ListController listController2 = this.this$0;
+                            long currentTimeMillis = System.currentTimeMillis();
+                            j2 = this.this$0.listRequestTime;
+                            listController2.listRequestDuration = currentTimeMillis - j2;
+                        }
+                        MediaLivePluginLogger.Companion.getInstance().logListLoadRoomAndNextListAddItem();
+                    }
+                }
+            });
+            ListLogKt.log("MixLiveCell_fake_list", "listComponent slidlist request success size:" + this.itemData.size() + " context:" + this.context.hashCode());
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public final void templateIdSuccess(LiveTypeData liveTypeData) {
+        IntentData intentData;
+        String nidFromHLReplay;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65583, this, liveTypeData) == null) || (intentData = this.mIntentData) == null) {
+            return;
+        }
+        MediaLivePlayLogger.startLaunchInfoSigleLine$default(MediaLivePlayLogger.Companion.getInstance(), intentData.getId(), "precreate", false, 4, null);
+        if (this.playSource == null) {
+            LiveContainer.PlaySourceInfo playSourceInfo = new LiveContainer.PlaySourceInfo();
+            playSourceInfo.setClickTime(Long.valueOf(System.currentTimeMillis()));
+            playSourceInfo.setClickFrom("precreate");
+            this.playSource = playSourceInfo;
+        }
+        String parseClickTime = parseClickTime(intentData.getScheme(), this.playSource);
+        if (!(parseClickTime == null || parseClickTime.length() == 0)) {
+            intentData.setScheme(parseClickTime);
+        }
+        MediaLivePluginLogger.Companion.getInstance().logGetLiveTypeEndAndItem();
+        this.isFromForward = true;
+        String scheme = intentData.getScheme();
+        LiveContainer.PlaySourceInfo playSourceInfo2 = this.playSource;
+        LiveContainer.LiveItemModel liveItemModel = new LiveContainer.LiveItemModel();
+        liveItemModel.setRoomId(intentData.getId());
+        liveItemModel.setCover(intentData.getModel().getCover());
+        String liveType = liveTypeData.getLiveType();
+        if (liveType == null) {
+            liveType = "0";
+        }
+        liveItemModel.setLiveType(liveType);
+        liveItemModel.setScheme(scheme);
+        liveItemModel.setPlayUrl(intentData.getModel().getPlayUrl());
+        liveItemModel.setStatus(intentData.getModel().getStatus());
+        liveItemModel.setFormat(intentData.getModel().getFormat());
+        liveItemModel.setScreen(intentData.getModel().getScreen());
+        liveItemModel.setTemplate(intentData.getModel().getTemplate());
+        liveItemModel.setTemplateId(liveTypeData.getTemplateId());
+        liveItemModel.setPlaySource(playSourceInfo2);
+        String title = intentData.getModel().getTitle();
+        String str = "";
+        if (title == null) {
+            title = "";
+        }
+        liveItemModel.setTitle(title);
+        liveItemModel.setIntroduceTips(intentData.getModel().getIntroduceTips());
+        liveItemModel.setShareTaskInfo(intentData.getModel().getShareTaskInfo());
+        if (intentData.isHLReplay()) {
+            IntentData intentData2 = this.mIntentData;
+            if (intentData2 != null && (nidFromHLReplay = intentData2.getNidFromHLReplay()) != null) {
+                str = nidFromHLReplay;
+            }
+            bindHLReplayInfo(liveItemModel, str);
+        }
+        this.itemData.add(liveItemModel);
+        if (this.itemData.indexOf(liveItemModel) >= 0) {
+            this.curRoomModel = liveItemModel;
+            getListManager().resetCurRoom(liveItemModel);
+            LiveRoomInfoStatPlugin liveRoomInfoStatPlugin = this.mLiveRoomInfoStatPlugin;
+            if (liveRoomInfoStatPlugin != null) {
+                liveRoomInfoStatPlugin.dispatchFirstLiveItemModelAction(liveItemModel);
+            }
+            MediaLivePluginLogger.Companion.getInstance().logListLoadRoomAndNextListAddItem();
+            queryLiveList();
+            ListLogKt.log("MixLiveCell_fake_list", "livetype request success, enter, request slidlist context:" + this.context.hashCode());
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public final void unBindHLReplayInfo() {
+        IntentData intentData;
+        IntentData.SchemeModel schemeData;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65584, this) == null) || (intentData = this.mIntentData) == null || (schemeData = intentData.getSchemeData()) == null) {
+            return;
+        }
+        schemeData.setHlReplyIntoLive(null);
+    }
+
+    private final void unregisterMixRequestService() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65585, this) == null) {
+            MixRequestServiceLocator.Companion.unregisterGlobalService(MixRequestService.class);
+        }
+    }
+
+    public final View createView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? getListManager().createView() : (View) invokeV.objValue;
+    }
+
+    public final void fetchMoreLiveIfNeed(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || i < this.itemData.size() - this.loadMoreFraction) {
+            return;
+        }
+        queryLiveList();
+    }
+
+    public final void finish() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            ServiceLocator.Companion.unregisterGlobalService(ILiveListState.class);
+            ServiceLocator.Companion.unregisterGlobalService(LiveItemModelListService.class);
+            ServiceLocator.Companion.unregisterGlobalService(MixListOperatorInterface.class);
+            Handler handler = this.handler;
+            if (handler != null) {
+                handler.removeCallbacksAndMessages(null);
+            }
+            unregisterMixRequestService();
+            MixModel mixModel = this.mNetModel;
+            if (mixModel != null) {
+                mixModel.removeReqEnterIdCallbacks(null);
+            }
+            this.preReqRoomEnterData = null;
+            this.preReqStatData = null;
+        }
+    }
+
+    public final Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.context : (Context) invokeV.objValue;
+    }
+
+    public final LiveContainer.LiveItemModel getCurRoomModel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.curRoomModel : (LiveContainer.LiveItemModel) invokeV.objValue;
+    }
+
+    public final int getCurrentPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.currentPosition : invokeV.intValue;
+    }
+
+    public final Handler getHandler() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.handler : (Handler) invokeV.objValue;
+    }
+
+    public final List<LiveContainer.LiveItemModel> getItemData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.itemData : (List) invokeV.objValue;
+    }
+
+    public final PageInfo getMPageInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mPageInfo : (PageInfo) invokeV.objValue;
+    }
+
+    public final LiveRoomEnterRespData getPreReqRoomEnterData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.preReqRoomEnterData : (LiveRoomEnterRespData) invokeV.objValue;
+    }
+
+    public final MixResultStatData getPreReqStatData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.preReqStatData : (MixResultStatData) invokeV.objValue;
+    }
+
+    public final List<WeakReference<AbstractMixFakeShell>> getShellList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.shellList : (List) invokeV.objValue;
+    }
+
+    public final boolean isFromForward() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.isFromForward : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.live.arch.api.IExtLifecycle
+    public void onActivityResult(int i, int i2, Intent intent) {
+        List<WeakReference<AbstractMixFakeShell>> list;
+        AbstractMixFakeShell abstractMixFakeShell;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIIL(1048591, this, i, i2, intent) == null) || (list = this.shellList) == null) {
+            return;
+        }
+        Iterator<T> it = list.iterator();
+        while (it.hasNext()) {
+            WeakReference weakReference = (WeakReference) it.next();
+            if (weakReference != null && (abstractMixFakeShell = (AbstractMixFakeShell) weakReference.get()) != null) {
+                abstractMixFakeShell.onActivityResult(i, i2, intent);
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.list.controller.IListListener
+    public void onAfterSelect(int i) {
+        LiveRoomInfoStatPlugin liveRoomInfoStatPlugin;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.isFromForward = false;
+            fetchMoreLiveIfNeed(i);
+            List<LiveContainer.LiveItemModel> list = this.itemData;
+            if (list == null || i < 0 || i >= list.size() || (liveRoomInfoStatPlugin = this.mLiveRoomInfoStatPlugin) == null) {
+                return;
+            }
+            liveRoomInfoStatPlugin.dispatchLiveItemModelSelectedAction(this.itemData.get(i));
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.list.controller.IListListener
+    public void onBeforeSelect(int i) {
+        String templateId;
+        String roomId;
+        LiveContainer.LiveItemModel liveItemModel;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            LiveContainer.LiveItemModel liveItemModel2 = this.curRoomModel;
+            String str = "";
+            if (liveItemModel2 != null && (roomId = liveItemModel2.getRoomId()) != null) {
+                LiveContainer.LiveItemModel liveItemModel3 = this.curRoomModel;
+                if (liveItemModel3 != null && !liveItemModel3.isYYLive() && (liveItemModel = this.curRoomModel) != null && !liveItemModel.isAudioLive()) {
+                    LiveComponentLoadLogger companion = LiveComponentLoadLogger.Companion.getInstance();
+                    LiveContainer.LiveItemModel liveItemModel4 = this.curRoomModel;
+                    companion.launchMediaCompLoadFlow(roomId, (liveItemModel4 == null || (r3 = liveItemModel4.getTemplateId()) == null) ? "" : "", !this.isFromForward);
+                } else {
+                    LiveComponentLoadLogger.Companion.getInstance().cancelCurrentComponentFlow(roomId);
+                }
+            }
+            if (this.isFromForward) {
+                MediaLivePluginLogger companion2 = MediaLivePluginLogger.Companion.getInstance();
+                LiveContainer.LiveItemModel liveItemModel5 = this.curRoomModel;
+                String liveType = liveItemModel5 != null ? liveItemModel5.getLiveType() : null;
+                LiveContainer.LiveItemModel liveItemModel6 = this.curRoomModel;
+                companion2.updateStartPageInfoIntentRoomInfo(liveType, liveItemModel6 != null ? liveItemModel6.getTemplateId() : null, this.isFromForward);
+                LiveComponentLoadLogger companion3 = LiveComponentLoadLogger.Companion.getInstance();
+                LiveContainer.LiveItemModel liveItemModel7 = this.curRoomModel;
+                String roomId2 = liveItemModel7 != null ? liveItemModel7.getRoomId() : null;
+                IntentData intentData = this.mIntentData;
+                String source = intentData != null ? intentData.getSource() : null;
+                LiveContainer.LiveItemModel liveItemModel8 = this.curRoomModel;
+                if (liveItemModel8 != null && (templateId = liveItemModel8.getTemplateId()) != null) {
+                    str = templateId;
+                }
+                companion3.bindRoomIdToExternalEnterFlow(roomId2, source, str);
+            }
+            this.mPageInfo = new PageInfo(true, i, this.isFromForward, this.listRequestDuration);
+        }
+    }
+
+    @Override // com.baidu.live.arch.api.IExtLifecycle
+    public void onConfigurationChanged(Configuration configuration) {
+        List<WeakReference<AbstractMixFakeShell>> list;
+        AbstractMixFakeShell abstractMixFakeShell;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, configuration) == null) || (list = this.shellList) == null) {
+            return;
+        }
+        Iterator<T> it = list.iterator();
+        while (it.hasNext()) {
+            WeakReference weakReference = (WeakReference) it.next();
+            if (weakReference != null && (abstractMixFakeShell = (AbstractMixFakeShell) weakReference.get()) != null) {
+                abstractMixFakeShell.onConfigurationChanged(configuration);
+            }
+        }
+    }
+
+    public final void onCreate() {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            this.mixActivity.setMixInvokeAbility(getMMixEventDispatcher());
+            MediaLivePluginLogger.Companion.getInstance().logListOnCreateStart();
+            Context context = this.context;
+            if (context != null) {
+                Activity activity = (Activity) context;
+                this.mIntentData = (activity == null || (intent = activity.getIntent()) == null) ? null : ListExtKt.parseLiveData(intent);
+                ServiceLocator.Companion.registerGlobalServices(ILiveListState.class, new ILiveListState(this) { // from class: com.baidu.searchbox.live.list.controller.ListController$onCreate$1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ ListController this$0;
+
+                    /* JADX DEBUG: Incorrect args count in method signature: ()V */
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                    }
+
+                    @Override // com.baidu.searchbox.live.service.ILiveListState
+                    public IntentData getIntent() {
+                        InterceptResult invokeV;
+                        IntentData intentData;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                            intentData = this.this$0.mIntentData;
+                            return intentData;
+                        }
+                        return (IntentData) invokeV.objValue;
+                    }
+
+                    @Override // com.baidu.searchbox.live.service.ILiveListState
+                    public ListInfo getListInfo() {
+                        InterceptResult invokeV;
+                        ListInfo listInfo;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                            listInfo = this.this$0.mListInfo;
+                            return listInfo;
+                        }
+                        return (ListInfo) invokeV.objValue;
+                    }
+
+                    @Override // com.baidu.searchbox.live.service.ILiveListState
+                    public PageInfo getPageInfo() {
+                        InterceptResult invokeV;
+                        Interceptable interceptable2 = $ic;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.this$0.getMPageInfo() : (PageInfo) invokeV.objValue;
+                    }
+                });
+                ServiceLocator.Companion.registerGlobalServices(LiveItemModelListService.class, new LiveItemModelListService(this) { // from class: com.baidu.searchbox.live.list.controller.ListController$onCreate$2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ ListController this$0;
+
+                    /* JADX DEBUG: Incorrect args count in method signature: ()V */
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                    }
+
+                    @Override // com.baidu.searchbox.live.component.service.LiveItemModelListService
+                    public int getCurrentPosition() {
+                        InterceptResult invokeV;
+                        Interceptable interceptable2 = $ic;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.this$0.getCurrentPosition() : invokeV.intValue;
+                    }
+
+                    @Override // com.baidu.searchbox.live.component.service.LiveItemModelListService
+                    public List<LiveContainer.LiveItemModel> getLiveItemModels() {
+                        InterceptResult invokeV;
+                        Interceptable interceptable2 = $ic;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.this$0.getItemData() : (List) invokeV.objValue;
+                    }
+                });
+                ServiceLocator.Companion.registerGlobalServices(MixListOperatorInterface.class, new MixListOperatorInterface(this) { // from class: com.baidu.searchbox.live.list.controller.ListController$onCreate$3
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ ListController this$0;
+
+                    /* JADX DEBUG: Incorrect args count in method signature: ()V */
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                    }
+
+                    @Override // com.baidu.searchbox.live.service.MixListOperatorInterface
+                    public void commonEvent(String str, Object obj) {
+                        IntentData intentData;
+                        Interceptable interceptable2 = $ic;
+                        if ((interceptable2 == null || interceptable2.invokeLL(1048576, this, str, obj) == null) && str.hashCode() == -500901780 && str.equals(MixConstants.KEY_ROOM_INFO_RES_SUCCESS)) {
+                            if (!(obj instanceof JSONObject)) {
+                                obj = null;
+                            }
+                            JSONObject jSONObject = (JSONObject) obj;
+                            if (jSONObject != null) {
+                                String optString = jSONObject.optString("templateId");
+                                int optInt = jSONObject.optInt("roomType");
+                                String optString2 = jSONObject.optString(ILiveNPSPlugin.PARAMS_ROOM_ID);
+                                if (this.this$0.getCurrentPosition() < 0 || this.this$0.getCurrentPosition() >= this.this$0.getItemData().size()) {
+                                    return;
+                                }
+                                LiveContainer.LiveItemModel liveItemModel = this.this$0.getItemData().get(this.this$0.getCurrentPosition());
+                                ListLogKt.log("MixLiveCell_fake_list", "item model : roomId = " + liveItemModel.getRoomId() + ", roomType= " + liveItemModel.getLiveType() + ", templateId=" + liveItemModel.getTemplateId() + ", response : roomId = " + optString2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + "roomType=" + optInt + ", templateId=" + optString);
+                                if (Intrinsics.areEqual(optString2, liveItemModel.getRoomId())) {
+                                    intentData = this.this$0.mIntentData;
+                                    if (intentData != null) {
+                                        intentData.getModel().setRoomType(String.valueOf(optInt));
+                                        intentData.getModel().setTemplateId(optString);
+                                    }
+                                    liveItemModel.setLiveType(String.valueOf(optInt));
+                                    liveItemModel.setTemplateId(optString);
+                                }
+                            }
+                        }
+                    }
+
+                    @Override // com.baidu.searchbox.live.service.MixListOperatorInterface
+                    public void doJumpNewLiveRoom(JSONObject jSONObject) {
+                        IntentData intentData;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+                            intentData = this.this$0.mIntentData;
+                            if (intentData != null && intentData.isHLReplay()) {
+                                this.this$0.unBindHLReplayInfo();
+                            }
+                            if (jSONObject != null) {
+                                ListController listController = this.this$0;
+                                String optString = jSONObject.optString(ILiveNPSPlugin.PARAMS_ROOM_ID, "");
+                                Intrinsics.checkExpressionValueIsNotNull(optString, "it.optString(\"roomId\", \"\")");
+                                String optString2 = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, "");
+                                Intrinsics.checkExpressionValueIsNotNull(optString2, "it.optString(\"cover\", \"\")");
+                                String optString3 = jSONObject.optString("scheme", "");
+                                Intrinsics.checkExpressionValueIsNotNull(optString3, "it.optString(\"scheme\", \"\")");
+                                String optString4 = jSONObject.optString("from", "");
+                                Intrinsics.checkExpressionValueIsNotNull(optString4, "it.optString(\"from\", \"\")");
+                                long optLong = jSONObject.optLong("clickTime", 0L);
+                                String optString5 = jSONObject.optString("clickFrom", "");
+                                Intrinsics.checkExpressionValueIsNotNull(optString5, "it.optString(\"clickFrom\", \"\")");
+                                String optString6 = jSONObject.optString("playUrl", "");
+                                Intrinsics.checkExpressionValueIsNotNull(optString6, "it.optString(\"playUrl\", \"\")");
+                                listController.jumpToNewLiveRoom(optString, optString2, optString3, optString4, optLong, optString5, optString6);
+                            }
+                        }
+                    }
+
+                    @Override // com.baidu.searchbox.live.service.MixListOperatorInterface
+                    public List<LiveContainer.LiveItemModel> getListData() {
+                        InterceptResult invokeV;
+                        Interceptable interceptable2 = $ic;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.this$0.getItemData() : (List) invokeV.objValue;
+                    }
+
+                    @Override // com.baidu.searchbox.live.service.MixListOperatorInterface
+                    public void insertRoom(int i, JSONObject jSONObject) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeIL(1048579, this, i, jSONObject) == null) {
+                        }
+                    }
+
+                    @Override // com.baidu.searchbox.live.service.MixListOperatorInterface
+                    public void reloadLiveRoom(Object obj) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048580, this, obj) == null) {
+                            this.this$0.reloadLiveRoom();
+                        }
+                    }
+
+                    @Override // com.baidu.searchbox.live.service.MixListOperatorInterface
+                    public void reloadSlideList(Object obj) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048581, this, obj) == null) {
+                            ListController listController = this.this$0;
+                            listController.fetchMoreLiveIfNeed(listController.getCurrentPosition());
+                        }
+                    }
+
+                    @Override // com.baidu.searchbox.live.service.MixListOperatorInterface
+                    public void removeRoom(JSONObject jSONObject) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048582, this, jSONObject) == null) {
+                            jSONObject.optString("source");
+                            JSONArray roomIdJSONArray = jSONObject.optJSONArray("room_ids");
+                            ListController listController = this.this$0;
+                            Intrinsics.checkExpressionValueIsNotNull(roomIdJSONArray, "roomIdJSONArray");
+                            listController.cacheCloseRoomIdList(roomIdJSONArray);
+                        }
+                    }
+
+                    @Override // com.baidu.searchbox.live.service.MixListOperatorInterface
+                    public void scrollToNextLiveRoom() {
+                        IListManager listManager;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048583, this) == null) {
+                            listManager = this.this$0.getListManager();
+                            listManager.scrollToNextLiveRoom();
+                        }
+                    }
+
+                    @Override // com.baidu.searchbox.live.service.MixListOperatorInterface
+                    public void scrollToPreLiveRoom() {
+                        IListManager listManager;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                            listManager = this.this$0.getListManager();
+                            listManager.scrollToPreLiveRoom();
+                        }
+                    }
+
+                    @Override // com.baidu.searchbox.live.service.MixListOperatorInterface
+                    public void switchLiveListScrollable(boolean z, boolean z2) {
+                        IListManager listManager;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+                            if (z2) {
+                                this.this$0.serverSwitchCanScroll = z;
+                                this.this$0.changeScrollState();
+                                return;
+                            }
+                            listManager = this.this$0.getListManager();
+                            listManager.setIsScrollable(z);
+                            this.this$0.localSwitchCanScroll = z;
+                            this.this$0.changeScrollState();
+                        }
+                    }
+                });
+                registerMixRequestService();
+                MixModel mixModel = new MixModel(this.mixUniqueId);
+                mixModel.setOnMixDataLoadedCallBack(new MixModel.OnMixDataLoadedCallBack(this) { // from class: com.baidu.searchbox.live.list.controller.ListController$onCreate$$inlined$apply$lambda$1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ ListController this$0;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                    }
+
+                    @Override // com.baidu.searchbox.live.model.MixModel.OnMixDataLoadedCallBack
+                    public void onSlideListFail(Exception exc, Integer num) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLL(1048576, this, exc, num) == null) {
+                        }
+                    }
+
+                    @Override // com.baidu.searchbox.live.model.MixModel.OnMixDataLoadedCallBack
+                    public void onSlideListSuccess(String str, int i, List<LiveContainer.LiveItemModel> list) {
+                        IMixActivityInterface iMixActivityInterface;
+                        LiveRoomInfoStatPlugin liveRoomInfoStatPlugin;
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, list) == null) {
+                            this.this$0.mListInfo = new ListInfo(str, i);
+                            iMixActivityInterface = this.this$0.mixActivity;
+                            if (iMixActivityInterface != null) {
+                                JSONObject jSONObject = new JSONObject();
+                                jSONObject.put("pageSession", str);
+                                jSONObject.put("hasMore", i);
+                                iMixActivityInterface.setMixEventDispatcher(MixConstants.KEY_LIST_INFO, jSONObject);
+                            }
+                            liveRoomInfoStatPlugin = this.this$0.mLiveRoomInfoStatPlugin;
+                            if (liveRoomInfoStatPlugin != null) {
+                                liveRoomInfoStatPlugin.dispatchListResult(str, i, list);
+                            }
+                            this.this$0.slideListSuccess(str, i, list);
+                        }
+                    }
+
+                    @Override // com.baidu.searchbox.live.model.MixModel.OnMixDataLoadedCallBack
+                    public void onTemplateIdFail() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                        }
+                    }
+
+                    @Override // com.baidu.searchbox.live.model.MixModel.OnMixDataLoadedCallBack
+                    public void onTemplateIdSuccess(LiveTypeData liveTypeData) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048579, this, liveTypeData) == null) {
+                            this.this$0.templateIdSuccess(liveTypeData);
+                        }
+                    }
+                });
+                this.mNetModel = mixModel;
+                MediaLivePluginLogger.Companion.getInstance().logListOnCreateEndAndNextToLoadRoom();
+                loadLiveRoom();
+                MixEventBus.getInstance().register(this, YYPluginEvent.StartLoadYYPluginEvent.class, this);
+                MixEventBus.getInstance().register(this, YYPluginEvent.LoadYYPluginRes.class, this);
+                MixEventBus.getInstance().register(this, MixMediaEvent.YYGoBackPopUp.class, this);
+                if (MiniPluginManager.INSTANCE.isYYPluginAvailable()) {
+                    registerYYLifeCyclePlugin();
+                }
+                LiveRoomInfoStatPlugin liveRoomInfoStatPlugin = new LiveRoomInfoStatPlugin(this.context, this.mixUniqueId);
+                this.mLiveRoomInfoStatPlugin = liveRoomInfoStatPlugin;
+                if (liveRoomInfoStatPlugin != null) {
+                    liveRoomInfoStatPlugin.onCreate();
+                    return;
+                }
+                return;
+            }
+            throw new TypeCastException("null cannot be cast to non-null type android.app.Activity");
+        }
+    }
+
+    public final void onDestroy() {
+        IMixActivityInterface iMixActivityInterface;
+        Lifecycle lifeCycle;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            MixEventBus.getInstance().unRegister(this);
+            YYActivityLifeCyclePlugin yYActivityLifeCyclePlugin = this.mYYLifeCyclePlugin;
+            if (yYActivityLifeCyclePlugin != null && (iMixActivityInterface = this.mixActivity) != null && (lifeCycle = iMixActivityInterface.getLifeCycle()) != null) {
+                lifeCycle.removeObserver(yYActivityLifeCyclePlugin);
+            }
+            LiveRoomInfoStatPlugin liveRoomInfoStatPlugin = this.mLiveRoomInfoStatPlugin;
+            if (liveRoomInfoStatPlugin != null) {
+                liveRoomInfoStatPlugin.onDestroy();
+            }
+            this.shellList.clear();
+            YYLoadPluginPlugin yYLoadPluginPlugin = this.mYYLoadPluginPlugin;
+            if (yYLoadPluginPlugin != null) {
+                yYLoadPluginPlugin.onDestroy();
+            }
+            getListManager().onDestroy();
+        }
+    }
+
+    @Override // com.baidu.live.arch.api.IExtLifecycle
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048597, this, i, keyEvent)) == null) {
+            Iterator<WeakReference<AbstractMixFakeShell>> it = this.shellList.iterator();
+            while (it.hasNext()) {
+                WeakReference<AbstractMixFakeShell> next = it.next();
+                if ((next != null ? next.get() : null) != null) {
+                    AbstractMixFakeShell abstractMixFakeShell = next.get();
+                    if (abstractMixFakeShell == null) {
+                        Intrinsics.throwNpe();
+                    }
+                    if (abstractMixFakeShell.onKeyDown(i, keyEvent)) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeIL.booleanValue;
+    }
+
+    @Override // com.baidu.live.arch.api.IExtLifecycle
+    public void onNewIntent(Intent intent) {
+        AbstractMixFakeShell abstractMixFakeShell;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, intent) == null) {
+            this.mIntentData = ListExtKt.parseLiveData(intent);
+            reloadLiveRoom();
+            List<WeakReference<AbstractMixFakeShell>> list = this.shellList;
+            if (list != null) {
+                Iterator<T> it = list.iterator();
+                while (it.hasNext()) {
+                    WeakReference weakReference = (WeakReference) it.next();
+                    if (weakReference != null && (abstractMixFakeShell = (AbstractMixFakeShell) weakReference.get()) != null) {
+                        abstractMixFakeShell.onNewIntent(intent);
+                    }
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.live.arch.api.IExtLifecycle
+    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
+        List<WeakReference<AbstractMixFakeShell>> list;
+        AbstractMixFakeShell abstractMixFakeShell;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeILL(1048599, this, i, strArr, iArr) == null) || (list = this.shellList) == null) {
+            return;
+        }
+        Iterator<T> it = list.iterator();
+        while (it.hasNext()) {
+            WeakReference weakReference = (WeakReference) it.next();
+            if (weakReference != null && (abstractMixFakeShell = (AbstractMixFakeShell) weakReference.get()) != null) {
+                abstractMixFakeShell.onRequestPermissionsResult(i, strArr, iArr);
+            }
+        }
+    }
+
+    public final void setCurRoomModel(LiveContainer.LiveItemModel liveItemModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, liveItemModel) == null) {
+            this.curRoomModel = liveItemModel;
+        }
+    }
+
+    public final void setCurrentPosition(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+            this.currentPosition = i;
+        }
+    }
+
+    public final void setFromForward(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
+            this.isFromForward = z;
+        }
+    }
+
+    public final void setHandler(Handler handler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, handler) == null) {
+            this.handler = handler;
+        }
+    }
+
+    public final void setMPageInfo(PageInfo pageInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048604, this, pageInfo) == null) {
+            this.mPageInfo = pageInfo;
+        }
+    }
+
+    public final void setPreReqRoomEnterData(LiveRoomEnterRespData liveRoomEnterRespData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048605, this, liveRoomEnterRespData) == null) {
+            this.preReqRoomEnterData = liveRoomEnterRespData;
+        }
+    }
+
+    public final void setPreReqStatData(MixResultStatData mixResultStatData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, mixResultStatData) == null) {
+            this.preReqStatData = mixResultStatData;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.live.eventbus.EventAction
+    public void call(AbstractEvent abstractEvent) {
+        IMixActivityInterface iMixActivityInterface;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, abstractEvent) == null) && abstractEvent != null && abstractEvent.getUniqueId() == this.mixUniqueId.getId()) {
+            if (abstractEvent instanceof YYPluginEvent.StartLoadYYPluginEvent) {
+                if (this.mYYLoadPluginPlugin == null) {
+                    YYLoadPluginPlugin yYLoadPluginPlugin = new YYLoadPluginPlugin(this.context, this.mixUniqueId);
+                    this.mYYLoadPluginPlugin = yYLoadPluginPlugin;
+                    if (yYLoadPluginPlugin != null) {
+                        yYLoadPluginPlugin.onCreate();
+                    }
+                }
+            } else if (abstractEvent instanceof YYPluginEvent.LoadYYPluginRes) {
+                YYPluginEvent.LoadYYPluginRes loadYYPluginRes = (YYPluginEvent.LoadYYPluginRes) abstractEvent;
+                if (loadYYPluginRes.getRes() == 1) {
+                    registerYYLifeCyclePlugin();
+                } else if (loadYYPluginRes.getRes() == 2) {
+                    registerYYLifeCyclePlugin();
+                }
+            } else if (!(abstractEvent instanceof MixMediaEvent.YYGoBackPopUp) || (iMixActivityInterface = this.mixActivity) == null) {
+            } else {
+                iMixActivityInterface.setMixEventDispatcher(MixConstants.KEY_YYGoBackPopUp, ((MixMediaEvent.YYGoBackPopUp) abstractEvent).getRoomId());
+            }
+        }
+    }
+}

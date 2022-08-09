@@ -4,8 +4,10 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.LiveFeedPageSdk;
+import com.baidu.live.business.Live4Ratio5BannerItemView;
+import com.baidu.live.business.model.data.LiveFeedConfig;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,7 +19,23 @@ public abstract class LiveBaseItemView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public float b;
-    public boolean c;
+    public String c;
+    public LiveFeedConfig d;
+    public Live4Ratio5BannerItemView.c e;
+    public a f;
+    public b g;
+
+    /* loaded from: classes2.dex */
+    public interface a {
+        void a(String str);
+    }
+
+    /* loaded from: classes2.dex */
+    public interface b {
+        void a(int i);
+
+        void b(int i);
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LiveBaseItemView(Context context) {
@@ -39,7 +57,7 @@ public abstract class LiveBaseItemView extends RelativeLayout {
         }
         this.a = false;
         this.b = 1.0f;
-        this.c = false;
+        this.c = LiveFeedPageSdk.HOST_LIVE_TAB;
     }
 
     public void a() {
@@ -78,25 +96,55 @@ public abstract class LiveBaseItemView extends RelativeLayout {
         }
     }
 
-    public abstract void setData(LiveRoomEntity liveRoomEntity, int i);
-
-    public void setIsImmersion(boolean z) {
+    public void setBannerClickListener(Live4Ratio5BannerItemView.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
+            this.e = cVar;
         }
     }
 
+    public abstract void setData(LiveRoomEntity liveRoomEntity, int i);
+
+    public void setFeedConfig(LiveFeedConfig liveFeedConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, liveFeedConfig) == null) {
+            this.d = liveFeedConfig;
+        }
+    }
+
+    public abstract void setIsCurViewing(boolean z);
+
     public void setNeedRatio(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             this.a = z;
+        }
+    }
+
+    public void setOnLabelClickListener(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
+            this.f = aVar;
+        }
+    }
+
+    public void setOnTopicItemClickListener(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
+            this.g = bVar;
+        }
+    }
+
+    public void setScene(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.c = str;
         }
     }
 
     public void setUiMode(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
         }
     }
 
@@ -121,7 +169,7 @@ public abstract class LiveBaseItemView extends RelativeLayout {
         }
         this.a = false;
         this.b = 1.0f;
-        this.c = false;
+        this.c = LiveFeedPageSdk.HOST_LIVE_TAB;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -145,6 +193,6 @@ public abstract class LiveBaseItemView extends RelativeLayout {
         }
         this.a = false;
         this.b = 1.0f;
-        this.c = false;
+        this.c = LiveFeedPageSdk.HOST_LIVE_TAB;
     }
 }

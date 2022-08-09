@@ -1,91 +1,201 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.res.ui.FloatButton;
+import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class p33 extends f23 {
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class p33 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
+    @SuppressLint({"StaticFieldLeak"})
+    public static volatile p33 g;
     public transient /* synthetic */ FieldHolder $fh;
+    public Activity a;
+    public FloatButton b;
+    public String c;
+    public JSONObject d;
+    public String e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p33(f13 f13Var) {
-        super(f13Var, "/swanAPI/startPullDownRefresh");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {f13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755460895, "Lcom/repackage/p33;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755460895, "Lcom/repackage/p33;");
                 return;
             }
         }
+        f = jh1.a;
     }
 
-    @Override // com.repackage.f23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
-        InterceptResult invokeLLLL;
+    public p33() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
-            if (i03Var != null) {
-                i03Var.B().I(i03Var.getAppId());
-            }
-            if (i03Var != null && i03Var.n0()) {
-                if (f23.b) {
-                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
-                return false;
-            }
-            rz1 V = vl2.U().V();
-            if (V == null) {
-                ix1.c("startPullDownRefresh", "manager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (!(V.m() instanceof qz1)) {
-                ix1.c("startPullDownRefresh", "top fragment error");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else {
-                qz1 qz1Var = (qz1) V.m();
-                if (qz1Var.j0() == null) {
-                    ix1.c("startPullDownRefresh", "view is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                }
-                PullToRefreshBaseWebView j0 = qz1Var.j0();
-                if (j0 == null) {
-                    ix1.c("startPullDownRefresh", "view is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else if (j0.N()) {
-                    ix1.c("startPullDownRefresh", "prevent pull to refresh");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else {
-                    ix1.i("startPullDownRefresh", "start pull refresh");
-                    qz1Var.j0().k(true, 100L);
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                    return true;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return invokeLLLL.booleanValue;
+        this.e = "";
+    }
+
+    public static p33 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (g == null) {
+                synchronized (p33.class) {
+                    if (g == null) {
+                        g = new p33();
+                    }
+                }
+            }
+            return g;
+        }
+        return (p33) invokeV.objValue;
+    }
+
+    public static void h() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || g == null) {
+            return;
+        }
+        g = null;
+    }
+
+    public final FloatButton a(Context context, ViewGroup viewGroup) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, viewGroup)) == null) {
+            if (context == null || viewGroup == null) {
+                return null;
+            }
+            FloatButton e = e(context);
+            viewGroup.addView(e);
+            return e;
+        }
+        return (FloatButton) invokeLL.objValue;
+    }
+
+    public void b(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) || intent == null || this.b == null) {
+            return;
+        }
+        String dataString = intent.getDataString();
+        if (TextUtils.isEmpty(dataString)) {
+            return;
+        }
+        String substring = dataString.substring(8);
+        if (TextUtils.isEmpty(substring) || !substring.equals(this.e)) {
+            return;
+        }
+        if (TextUtils.equals(PackageChangedReceiver.ACTION_INSTALL, intent.getAction())) {
+            this.c = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f01e1);
+        } else if (TextUtils.equals(PackageChangedReceiver.ACTION_UNINSTALL, intent.getAction())) {
+            this.c = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f123a);
+        }
+        this.b.setFloatButtonText(this.c);
+    }
+
+    public FloatButton c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (FloatButton) invokeV.objValue;
+    }
+
+    public final FloatButton e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            return (FloatButton) LayoutInflater.from(context.getApplicationContext()).inflate(R.layout.obfuscated_res_0x7f0d07f3, (ViewGroup) null);
+        }
+        return (FloatButton) invokeL.objValue;
+    }
+
+    public FloatButton f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            Activity activity = this.a;
+            if (activity instanceof SwanAppActivity) {
+                if (this.b == null) {
+                    this.b = a(activity, (ViewGroup) activity.findViewById(16908290));
+                }
+                this.b.setFloatButtonText(this.c);
+                this.b.setFloatButtonDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08111e));
+                this.b.setFloatButtonDefaultPosition();
+                this.b.setFloatButtonStyle(this.d);
+                this.b.setVisibility(0);
+                return this.b;
+            }
+            return null;
+        }
+        return (FloatButton) invokeV.objValue;
+    }
+
+    public void g(Activity activity, JSONObject jSONObject) {
+        String string;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048581, this, activity, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        if (f) {
+            Log.i("FloatButtonGuideManager", jSONObject.toString());
+        }
+        this.a = activity;
+        String optString = jSONObject.optString("name");
+        this.e = optString;
+        if (te3.F(activity, optString)) {
+            string = activity.getString(R.string.obfuscated_res_0x7f0f01e1);
+        } else {
+            string = activity.getString(R.string.obfuscated_res_0x7f0f123a);
+        }
+        this.c = string;
+        this.d = jSONObject.optJSONObject("style");
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void j(FloatButton floatButton) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, floatButton) == null) {
+            this.b = floatButton;
+        }
     }
 }

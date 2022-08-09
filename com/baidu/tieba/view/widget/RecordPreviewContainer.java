@@ -20,9 +20,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
-import com.repackage.n99;
-import com.repackage.pi;
-import com.repackage.qu8;
+import com.repackage.gx8;
+import com.repackage.ic9;
+import com.repackage.qi;
 /* loaded from: classes4.dex */
 public class RecordPreviewContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -263,11 +263,11 @@ public class RecordPreviewContainer extends FrameLayout {
             if (motionEvent.getAction() == 1) {
                 int x = (int) motionEvent.getX();
                 int y = (int) motionEvent.getY();
-                if (y > this.c || x < n99.k(R.dimen.obfuscated_res_0x7f070258)) {
+                if (y > this.c || x < ic9.k(R.dimen.obfuscated_res_0x7f070258)) {
                     return true;
                 }
-                int a2 = qu8.a(x, Cea708Decoder.COMMAND_DF2, this.d - Cea708Decoder.COMMAND_DF2);
-                int a3 = qu8.a(y, Cea708Decoder.COMMAND_DF2, this.c - Cea708Decoder.COMMAND_DF2);
+                int a2 = gx8.a(x, Cea708Decoder.COMMAND_DF2, this.d - Cea708Decoder.COMMAND_DF2);
+                int a3 = gx8.a(y, Cea708Decoder.COMMAND_DF2, this.c - Cea708Decoder.COMMAND_DF2);
                 e eVar = this.u;
                 if (eVar != null) {
                     eVar.b(motionEvent, 308, 308, a2, a3);
@@ -275,8 +275,8 @@ public class RecordPreviewContainer extends FrameLayout {
                 if (this.r == null) {
                     k();
                 }
-                int k = pi.k(getContext());
-                int i = pi.i(getContext());
+                int k = qi.k(getContext());
+                int i = qi.i(getContext());
                 this.r.setTranslationX(motionEvent.getX() - (k * 0.5f));
                 this.r.setTranslationY(motionEvent.getY() - (i * 0.5f));
                 this.r.d();
@@ -366,7 +366,7 @@ public class RecordPreviewContainer extends FrameLayout {
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.s == null) {
             ImageView imageView = new ImageView(getContext());
             this.s = imageView;
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080a19);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080a3e);
             if (this.s != null) {
                 int width = getWidth();
                 int width2 = this.s.getWidth();
@@ -407,9 +407,9 @@ public class RecordPreviewContainer extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onFinishInflate();
             this.n = ViewConfiguration.get(getContext()).getScaledPagingTouchSlop();
-            this.d = pi.k(getContext());
-            this.c = pi.i(getContext());
-            this.t = (AspectGLSurfaceView) findViewById(R.id.obfuscated_res_0x7f09049b);
+            this.d = qi.k(getContext());
+            this.c = qi.i(getContext());
+            this.t = (AspectGLSurfaceView) findViewById(R.id.obfuscated_res_0x7f0904b6);
             this.o = new Handler();
             postDelayed(new a(this), 4000L);
         }

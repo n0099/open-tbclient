@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.x55;
+import com.repackage.t65;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.VideoRedIcon.DataRes;
 import tbclient.VideoRedIcon.RedIcon;
 import tbclient.VideoRedIcon.VideoRedIconResIdl;
 /* loaded from: classes3.dex */
-public class VideoRedIconSocketResponse extends SocketResponsedMessage implements x55 {
+public class VideoRedIconSocketResponse extends SocketResponsedMessage implements t65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public VideoRedIconResIdl mData;
@@ -62,14 +62,14 @@ public class VideoRedIconSocketResponse extends SocketResponsedMessage implement
         return invokeIL.objValue;
     }
 
-    @Override // com.repackage.x55
+    @Override // com.repackage.t65
     public List<RedIcon> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.redIcons : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.x55
+    @Override // com.repackage.t65
     public VideoRedIconResIdl getResData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

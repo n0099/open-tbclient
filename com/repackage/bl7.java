@@ -1,153 +1,76 @@
 package com.repackage;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.personExtra.RecommendGodHttpResponseMessage;
-import com.baidu.tieba.personExtra.RecommendGodReqMsg;
-import com.baidu.tieba.personExtra.RecommendGodSocketResponseMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetVipInfo.VipTaskItem;
+import tbclient.GetVipInfo.VipTaskList;
 /* loaded from: classes5.dex */
-public class bl7 {
+public class bl7 implements on {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public u48 b;
-    public b c;
-    public int d;
-    public boolean e;
-    public za f;
+    public ok7 a;
+    public List<cl7> b;
 
-    /* loaded from: classes5.dex */
-    public class a extends za {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bl7 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(bl7 bl7Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755823068, "Lcom/repackage/bl7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bl7Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = bl7Var;
-        }
-
-        @Override // com.repackage.za
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.b = null;
-                if (responsedMessage == null) {
-                    return;
-                }
-                if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == this.a.a) {
-                    if (responsedMessage instanceof RecommendGodSocketResponseMessage) {
-                        this.a.b = ((RecommendGodSocketResponseMessage) responsedMessage).recommendGodData;
-                    } else if (responsedMessage instanceof RecommendGodHttpResponseMessage) {
-                        this.a.b = ((RecommendGodHttpResponseMessage) responsedMessage).recommendGodData;
-                    }
-                    if (this.a.b != null) {
-                        bl7 bl7Var = this.a;
-                        bl7Var.d = bl7Var.b.a;
-                    }
-                    int error = responsedMessage.getError();
-                    if (error != 0 || this.a.b == null) {
-                        error = 1;
-                    } else if (ListUtils.isEmpty(this.a.b.b)) {
-                        error = this.a.e ? 3 : 2;
-                    }
-                    if (this.a.c != null) {
-                        this.a.c.a(this.a.b, error);
-                    }
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755823068, "Lcom/repackage/bl7;");
+                return;
             }
         }
+        c = BdUniqueId.gen();
     }
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(u48 u48Var, int i);
-    }
-
-    public bl7(BdUniqueId bdUniqueId) {
+    public bl7(VipTaskList vipTaskList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {vipTaskList};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = 0;
-        a aVar = new a(this, CmdConfigHttp.CMD_GET_RECOMMEND_GOD_LIST, 309684);
-        this.f = aVar;
-        this.a = bdUniqueId;
-        aVar.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f);
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().removeMessage(this.a);
-            MessageManager.getInstance().unRegisterListener(this.a);
+        if (vipTaskList == null || vipTaskList.item == null) {
+            return;
+        }
+        String str = vipTaskList.card_id;
+        ok7 ok7Var = new ok7();
+        this.a = ok7Var;
+        ok7Var.e(3);
+        this.a.d(vipTaskList.class_name);
+        this.a.f(vipTaskList.class_url_name);
+        this.a.g(vipTaskList.class_url);
+        this.b = new ArrayList();
+        for (VipTaskItem vipTaskItem : vipTaskList.item) {
+            this.b.add(new cl7(vipTaskItem));
         }
     }
 
-    public void h(String str) {
+    @Override // com.repackage.on
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            RecommendGodReqMsg recommendGodReqMsg = new RecommendGodReqMsg();
-            recommendGodReqMsg.portrait = str;
-            if (this.d == 0) {
-                this.e = false;
-            } else {
-                this.e = true;
-            }
-            recommendGodReqMsg.pageNum = this.d + 1;
-            recommendGodReqMsg.setTag(this.a);
-            MessageManager.getInstance().sendMessage(recommendGodReqMsg);
-        }
-    }
-
-    public void i(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
-            this.d = i;
-            h(str);
-        }
-    }
-
-    public void j(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.c = bVar;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
     }
 }

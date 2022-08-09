@@ -3,7 +3,6 @@ package com.baidu.tieba.ala.frsgamelive.message;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,7 +53,7 @@ public class AlaFrsStoryLiveGatherRequestMessage extends HttpMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             addParam("forum_id", this.forumId);
-            addParam(Config.PACKAGE_NAME, this.pn);
+            addParam("pn", this.pn);
             addParam("ps", this.ps);
             addParam("sort_type", this.sortType);
             addParam("need_recommend", this.needRecommend);

@@ -1,79 +1,25 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.util.atomic.LinkedQueueNode;
+import javax.annotation.Nullable;
+import org.webrtc.VideoDecoder;
+import org.webrtc.VideoDecoderFactory;
+/* compiled from: VideoDecoderFactory.java */
 /* loaded from: classes6.dex */
-public final class ku9<E> extends hu9<E> {
+public final /* synthetic */ class ku9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ku9() {
+    @Nullable
+    @Deprecated
+    public static VideoDecoder $default$createDecoder(VideoDecoderFactory videoDecoderFactory, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, videoDecoderFactory, str)) == null) {
+            throw new UnsupportedOperationException("Deprecated and not implemented.");
         }
-        LinkedQueueNode<E> linkedQueueNode = new LinkedQueueNode<>();
-        f(linkedQueueNode);
-        e(linkedQueueNode);
-        linkedQueueNode.soNext(null);
-    }
-
-    @Override // java.util.Queue
-    public boolean offer(E e) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
-            if (e != null) {
-                LinkedQueueNode<E> linkedQueueNode = new LinkedQueueNode<>(e);
-                b().soNext(linkedQueueNode);
-                f(linkedQueueNode);
-                return true;
-            }
-            throw new NullPointerException("null elements not allowed");
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // java.util.Queue
-    public E peek() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            LinkedQueueNode<E> lvNext = a().lvNext();
-            if (lvNext != null) {
-                return lvNext.lpValue();
-            }
-            return null;
-        }
-        return (E) invokeV.objValue;
-    }
-
-    @Override // java.util.Queue
-    public E poll() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            LinkedQueueNode<E> lvNext = a().lvNext();
-            if (lvNext != null) {
-                E andNullValue = lvNext.getAndNullValue();
-                e(lvNext);
-                return andNullValue;
-            }
-            return null;
-        }
-        return (E) invokeV.objValue;
+        return (VideoDecoder) invokeLL.objValue;
     }
 }

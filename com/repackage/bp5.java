@@ -1,54 +1,48 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class bp5 {
+public class bp5 implements gm1 {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<Integer, Integer> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755819286, "Lcom/repackage/bp5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755819286, "Lcom/repackage/bp5;");
-                return;
-            }
-        }
-        a = new HashMap<>();
-    }
-
-    public static void a(int i) {
+    public bp5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
-            if (a.containsKey(Integer.valueOf(i))) {
-                a.put(Integer.valueOf(i), Integer.valueOf(a.get(Integer.valueOf(i)).intValue() + 1));
-            } else {
-                a.put(Integer.valueOf(i), 2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static int b(int i) {
-        InterceptResult invokeI;
+    @Override // com.repackage.gm1
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (a.containsKey(Integer.valueOf(i))) {
-                return a.get(Integer.valueOf(i)).intValue();
-            }
-            a.put(Integer.valueOf(i), 1);
-            return 1;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
         }
-        return invokeI.intValue;
+    }
+
+    @Override // com.repackage.gm1
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

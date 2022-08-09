@@ -1,6 +1,9 @@
 package com.repackage;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.framework.utils.DebugTrace;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,14 +11,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.fr;
+import com.repackage.gr;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
+import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public final class hr {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
+    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
+    public final gr a;
+    public final byte[] b;
+    public final int c;
+    public final byte[] d;
+    public final List<fr> e;
 
     /* loaded from: classes6.dex */
     public static final class a {
@@ -36,34 +51,55 @@ public final class hr {
             }
         }
 
-        public final <T extends kr> JSONArray a(List<T> list) {
+        @JvmStatic
+        public final hr a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-                JSONArray jSONArray = new JSONArray();
-                if (list != null) {
-                    for (T t : list) {
-                        jSONArray.put(t.c());
-                    }
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                if (str == null || TextUtils.isEmpty(str)) {
+                    return null;
                 }
-                return jSONArray;
+                DebugTrace debugTrace = DebugTrace.a;
+                debugTrace.a("get raw data:" + str);
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    gr.b bVar = gr.c;
+                    String optString = jSONObject.optString("Random");
+                    Intrinsics.checkExpressionValueIsNotNull(optString, "dataObj.optString(\"Random\")");
+                    gr b = bVar.b(optString);
+                    String optString2 = jSONObject.optString("CipherSuite");
+                    int optInt = jSONObject.optInt("LifeTime");
+                    String optString3 = jSONObject.optString("SKR");
+                    LinkedList linkedList = new LinkedList();
+                    JSONArray optJSONArray = jSONObject.optJSONArray("Extensions");
+                    if (optJSONArray != null) {
+                        int length = optJSONArray.length();
+                        for (int i = 0; i < length; i++) {
+                            String item = optJSONArray.optString(i);
+                            fr.b bVar2 = fr.c;
+                            Intrinsics.checkExpressionValueIsNotNull(item, "item");
+                            fr b2 = bVar2.b(item);
+                            if (b2 != null) {
+                                linkedList.add(b2);
+                            }
+                        }
+                    }
+                    return new hr(b, gt.b(optString2), optInt, gt.b(optString3), linkedList);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    DebugTrace debugTrace2 = DebugTrace.a;
+                    debugTrace2.a("can not parse server hello:" + e.getMessage());
+                    return null;
+                }
             }
-            return (JSONArray) invokeL.objValue;
+            return (hr) invokeL.objValue;
         }
 
-        public final JSONArray b(List<byte[]> list) {
+        @JvmStatic
+        public final hr b(byte[] bArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-                JSONArray jSONArray = new JSONArray();
-                if (list != null) {
-                    for (byte[] bArr : list) {
-                        jSONArray.put(ft.a(bArr));
-                    }
-                }
-                return jSONArray;
-            }
-            return (JSONArray) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) ? a(gt.a(bArr)) : (hr) invokeL.objValue;
         }
 
         public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
@@ -84,6 +120,103 @@ public final class hr {
                 return;
             }
         }
-        a = new a(null);
+        f = new a(null);
+    }
+
+    public hr(gr grVar, byte[] bArr, int i, byte[] bArr2, List<fr> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {grVar, bArr, Integer.valueOf(i), bArr2, list};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = grVar;
+        this.b = bArr;
+        this.c = i;
+        this.d = bArr2;
+        this.e = list;
+    }
+
+    @JvmStatic
+    public static final hr a(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? f.b(bArr) : (hr) invokeL.objValue;
+    }
+
+    public final List<fr> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (List) invokeV.objValue;
+    }
+
+    public final int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public final byte[] d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? gt.d(this.b) : (byte[]) invokeV.objValue;
+    }
+
+    public final byte[] e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? gt.d(this.d) : (byte[]) invokeV.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof hr) {
+                    hr hrVar = (hr) obj;
+                    if (Intrinsics.areEqual(this.a, hrVar.a) && Intrinsics.areEqual(this.b, hrVar.b)) {
+                        if (!(this.c == hrVar.c) || !Intrinsics.areEqual(this.d, hrVar.d) || !Intrinsics.areEqual(this.e, hrVar.e)) {
+                        }
+                    }
+                }
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            gr grVar = this.a;
+            int hashCode = (grVar != null ? grVar.hashCode() : 0) * 31;
+            byte[] bArr = this.b;
+            int hashCode2 = (((hashCode + (bArr != null ? Arrays.hashCode(bArr) : 0)) * 31) + this.c) * 31;
+            byte[] bArr2 = this.d;
+            int hashCode3 = (hashCode2 + (bArr2 != null ? Arrays.hashCode(bArr2) : 0)) * 31;
+            List<fr> list = this.e;
+            return hashCode3 + (list != null ? list.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "ServerHello(random=" + this.a + ", cipherSuiteBytes=" + Arrays.toString(this.b) + ", lifeTime=" + this.c + ", SKRBytes=" + Arrays.toString(this.d) + ", extensions=" + this.e + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class BdListViewHelper {
     public static /* synthetic */ Interceptable $ic;
@@ -141,7 +141,7 @@ public class BdListViewHelper {
                 return;
             }
         }
-        a = pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f07029e);
+        a = qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f07029e);
     }
 
     public static int a(HeadType headType) {
@@ -154,15 +154,15 @@ public class BdListViewHelper {
                 if (i != 2) {
                     if (i != 3) {
                         if (i != 4) {
-                            return UtilHelper.getLightStatusBarHeight() + pi.f(context, R.dimen.obfuscated_res_0x7f070306);
+                            return UtilHelper.getLightStatusBarHeight() + qi.f(context, R.dimen.obfuscated_res_0x7f070306);
                         }
-                        return pi.f(context, R.dimen.obfuscated_res_0x7f0702dd);
+                        return qi.f(context, R.dimen.obfuscated_res_0x7f0702dd);
                     }
-                    return UtilHelper.getLightStatusBarHeight() + pi.f(context, R.dimen.obfuscated_res_0x7f070257);
+                    return UtilHelper.getLightStatusBarHeight() + qi.f(context, R.dimen.obfuscated_res_0x7f070257);
                 }
-                return UtilHelper.getLightStatusBarHeight() + pi.f(context, R.dimen.obfuscated_res_0x7f07025d);
+                return UtilHelper.getLightStatusBarHeight() + qi.f(context, R.dimen.obfuscated_res_0x7f07025d);
             }
-            return UtilHelper.getLightStatusBarHeight() + pi.f(context, R.dimen.obfuscated_res_0x7f070306);
+            return UtilHelper.getLightStatusBarHeight() + qi.f(context, R.dimen.obfuscated_res_0x7f070306);
         }
         return invokeL.intValue;
     }
@@ -179,10 +179,10 @@ public class BdListViewHelper {
             }
             if (HeadType.DEFAULT == headType) {
                 lightStatusBarHeight = UtilHelper.getLightStatusBarHeight();
-                f = pi.f(context, R.dimen.obfuscated_res_0x7f07025a);
+                f = qi.f(context, R.dimen.obfuscated_res_0x7f07025a);
             } else {
                 lightStatusBarHeight = UtilHelper.getLightStatusBarHeight();
-                f = pi.f(context, R.dimen.obfuscated_res_0x7f070283);
+                f = qi.f(context, R.dimen.obfuscated_res_0x7f070283);
             }
             return lightStatusBarHeight + f;
         }
@@ -195,15 +195,17 @@ public class BdListViewHelper {
             return;
         }
         Context context = TbadkCoreApplication.getInst().getContext();
-        AbsListView.LayoutParams layoutParams = (AbsListView.LayoutParams) view2.getLayoutParams();
-        if (z) {
-            layoutParams.height = a(headType);
-        } else if (HeadType.DEFAULT == headType) {
-            layoutParams.height = UtilHelper.getLightStatusBarHeight() + pi.f(context, R.dimen.obfuscated_res_0x7f07025a);
-        } else {
-            layoutParams.height = UtilHelper.getLightStatusBarHeight() + pi.f(context, R.dimen.obfuscated_res_0x7f070283);
+        if (view2.getLayoutParams() instanceof AbsListView.LayoutParams) {
+            AbsListView.LayoutParams layoutParams = (AbsListView.LayoutParams) view2.getLayoutParams();
+            if (z) {
+                layoutParams.height = a(headType);
+            } else if (HeadType.DEFAULT == headType) {
+                layoutParams.height = UtilHelper.getLightStatusBarHeight() + qi.f(context, R.dimen.obfuscated_res_0x7f07025a);
+            } else {
+                layoutParams.height = UtilHelper.getLightStatusBarHeight() + qi.f(context, R.dimen.obfuscated_res_0x7f070283);
+            }
+            view2.setLayoutParams(layoutParams);
         }
-        view2.setLayoutParams(layoutParams);
     }
 
     public static View d(Context context, BdListView bdListView, HeadType headType) {

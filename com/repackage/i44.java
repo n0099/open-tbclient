@@ -1,57 +1,75 @@
 package com.repackage;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.res.Resources;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.f44;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class i44 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public volatile float height;
+    @V8JavascriptField
+    public volatile float left;
+    @V8JavascriptField
+    public volatile float top;
+    @V8JavascriptField
+    public volatile float width;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755668440, "Lcom/repackage/i44;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755668440, "Lcom/repackage/i44;");
-                return;
-            }
-        }
-        a = sg1.a;
+    /* loaded from: classes6.dex */
+    public interface a {
     }
 
-    public static void a(@NonNull i03 i03Var, @NonNull f44.e eVar) {
+    public i44() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, i03Var, eVar) == null) {
-            long l = i03Var.W().l("launch_time", 0L);
-            if (l <= 0) {
-                if (a) {
-                    Log.d("GameWebViewStatistic", "doH5GameLoadingFinishStats: launchTime is invalid.");
-                    return;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            k73 k73Var = new k73();
-            k73Var.a = b73.n(i03Var.W().G());
-            k73Var.f = i03Var.getAppId();
-            k73Var.c = i03Var.W().T();
-            k73Var.b = "startup";
-            k73Var.g = eVar.a;
-            k73Var.e = eVar.b;
-            k73Var.a("na_start", Long.valueOf(l));
-            k73Var.a("h5_start", Long.valueOf(eVar.c));
-            k73Var.a("h5_finish", Long.valueOf(eVar.d));
-            b73.x("1235", k73Var);
         }
+        Resources resources = gk2.c() != null ? gk2.c().getResources() : null;
+        this.left = a(resources, R.dimen.obfuscated_res_0x7f07070c);
+        this.top = a(resources, R.dimen.obfuscated_res_0x7f07070d);
+        this.width = a(resources, R.dimen.obfuscated_res_0x7f07070e);
+        this.height = a(resources, R.dimen.obfuscated_res_0x7f07070b);
+    }
+
+    public final float a(Resources resources, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, resources, i)) == null) {
+            if (resources == null || i == 0) {
+                return 0.0f;
+            }
+            return o34.b(resources.getDimension(i));
+        }
+        return invokeLI.floatValue;
+    }
+
+    public void b(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "{left=" + this.left + ", top=" + this.top + ", width=" + this.width + ", height=" + this.height + "}";
+        }
+        return (String) invokeV.objValue;
     }
 }

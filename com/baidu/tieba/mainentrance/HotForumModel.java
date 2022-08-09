@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ab;
 import com.repackage.d9;
-import com.repackage.df7;
-import com.repackage.ef7;
-import com.repackage.za;
+import com.repackage.yg7;
+import com.repackage.zg7;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class HotForumModel extends BdBaseModel {
@@ -22,13 +22,13 @@ public class HotForumModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public d9 a;
     public b b;
-    public List<df7> c;
+    public List<yg7> c;
     public HotSearchInfoData d;
-    public List<ef7> e;
+    public List<zg7> e;
     public String f;
 
     /* loaded from: classes3.dex */
-    public class a extends za {
+    public class a extends ab {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotForumModel a;
@@ -55,15 +55,15 @@ public class HotForumModel extends BdBaseModel {
             this.a = hotForumModel;
         }
 
-        @Override // com.repackage.za
+        @Override // com.repackage.ab
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 boolean z = responsedMessage instanceof HotForumSocketResponseMessage;
                 if (!z && !(responsedMessage instanceof HotForumHttpResponseMessage)) {
-                    this.a.b.F(this.a.a.getString(R.string.obfuscated_res_0x7f0f0c17));
+                    this.a.b.D(this.a.a.getString(R.string.obfuscated_res_0x7f0f0c3c));
                 } else if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof HotForumNetMessage)) {
-                    this.a.b.F(this.a.a.getString(R.string.obfuscated_res_0x7f0f0c17));
+                    this.a.b.D(this.a.a.getString(R.string.obfuscated_res_0x7f0f0c3c));
                 } else if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
                     if (responsedMessage instanceof HotForumHttpResponseMessage) {
                         HotForumHttpResponseMessage hotForumHttpResponseMessage = (HotForumHttpResponseMessage) responsedMessage;
@@ -71,7 +71,7 @@ public class HotForumModel extends BdBaseModel {
                         this.a.e = hotForumHttpResponseMessage.getTopicInfoList();
                         this.a.d = hotForumHttpResponseMessage.getHotSearchInfo();
                         this.a.f = hotForumHttpResponseMessage.getTopicInfoTitle();
-                        this.a.b.s(this.a.c, this.a.e, this.a.d, this.a.f);
+                        this.a.b.r(this.a.c, this.a.e, this.a.d, this.a.f);
                     }
                     if (z) {
                         HotForumSocketResponseMessage hotForumSocketResponseMessage = (HotForumSocketResponseMessage) responsedMessage;
@@ -79,12 +79,12 @@ public class HotForumModel extends BdBaseModel {
                         this.a.e = hotForumSocketResponseMessage.getTopicInfoList();
                         this.a.d = hotForumSocketResponseMessage.getSearchInfo();
                         this.a.f = hotForumSocketResponseMessage.getTopicInfoTitle();
-                        this.a.b.s(this.a.c, this.a.e, this.a.d, this.a.f);
+                        this.a.b.r(this.a.c, this.a.e, this.a.d, this.a.f);
                     }
                 } else if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                    this.a.b.F(responsedMessage.getErrorString());
+                    this.a.b.D(responsedMessage.getErrorString());
                 } else {
-                    this.a.b.F(this.a.a.getString(R.string.obfuscated_res_0x7f0f0c17));
+                    this.a.b.D(this.a.a.getString(R.string.obfuscated_res_0x7f0f0c3c));
                 }
             }
         }
@@ -92,9 +92,9 @@ public class HotForumModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void F(String str);
+        void D(String str);
 
-        void s(List<df7> list, List<ef7> list2, HotSearchInfoData hotSearchInfoData, String str);
+        void r(List<yg7> list, List<zg7> list2, HotSearchInfoData hotSearchInfoData, String str);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -117,17 +117,17 @@ public class HotForumModel extends BdBaseModel {
         }
         this.a = d9Var;
         this.b = bVar;
-        K();
+        J();
     }
 
-    public final void K() {
+    public final void J() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             registerListener(new a(this, CmdConfigHttp.CMD_HTTP_GET_HOTFORUM, 303116));
         }
     }
 
-    public void L() {
+    public void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             sendMessage(new HotForumNetMessage());

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.di5;
+import com.repackage.rj5;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -59,7 +59,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
             if (jSONObject == null) {
                 return;
             }
-            di5.a().n(jSONObject);
+            rj5.a().n(jSONObject);
         }
     }
 
@@ -240,7 +240,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.statistics : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lego.card.model.ICardInfo, com.repackage.nn
+    @Override // com.baidu.tieba.lego.card.model.ICardInfo, com.repackage.on
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

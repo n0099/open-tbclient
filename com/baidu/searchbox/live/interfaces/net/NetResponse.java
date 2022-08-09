@@ -22,6 +22,7 @@ public class NetResponse {
     public String realHost;
     public int responseCode;
     public byte[] retBytes;
+    public NetStatData statData;
 
     public NetResponse() {
         Interceptable interceptable = $ic;

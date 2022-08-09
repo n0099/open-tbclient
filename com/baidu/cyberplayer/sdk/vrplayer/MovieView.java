@@ -29,7 +29,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class MovieView extends FrameLayout implements ICyberVideoView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -88,41 +88,41 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
     public a y;
     public e z;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface b {
         void a();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface c {
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface d {
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface e {
         void a();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface f {
         void a();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface g {
         void a();
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static final class h {
         public static /* synthetic */ Interceptable $ic;
         public static final h a;
@@ -192,7 +192,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static final class i {
         public static /* synthetic */ Interceptable $ic;
         public static final i a;

@@ -1,78 +1,31 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jk0 extends Handler implements hk0 {
+public final class jk0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConcurrentLinkedQueue<b<?>> a;
-    public boolean b;
+    public final by0 a;
+    public final Map<String, String> b;
+    @NonNull
+    public final Map<String, Map<String, String>> c;
+    public volatile boolean d;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final jk0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-268613211, "Lcom/repackage/jk0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-268613211, "Lcom/repackage/jk0$a;");
-                    return;
-                }
-            }
-            a = new jk0();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b<T extends fk0> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final ik0<T> a;
-        public final T b;
-
-        public b(kk0 kk0Var, ik0<T> ik0Var, T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kk0Var, ik0Var, t};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ik0Var;
-            this.b = t;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public jk0() {
-        super(Looper.getMainLooper());
+        String[] a;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -80,63 +33,114 @@ public class jk0 extends Handler implements hk0 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ConcurrentLinkedQueue<>();
-        this.b = false;
+        this.b = new ConcurrentHashMap(128);
+        this.c = new ConcurrentHashMap(8);
+        this.a = ey0.a().b("nad.cold.launch.config");
+        for (String str : qk0.a().a()) {
+            String string = this.a.getString(str, null);
+            if (string != null) {
+                yx0.e(this.b, str, string);
+            }
+        }
     }
 
-    public static hk0 b() {
+    @NonNull
+    public Map<String, String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (hk0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Map) invokeV.objValue;
     }
 
-    @Override // com.repackage.hk0
-    public <T extends fk0> void a(kk0 kk0Var, ik0<T> ik0Var, T t) {
+    @NonNull
+    public Map<String, Map<String, String>> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, kk0Var, ik0Var, t) == null) {
-            if (uh0.a()) {
-                ik0Var.onEvent(t);
-                return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (Map) invokeV.objValue;
+    }
+
+    public final void c(@NonNull JSONObject jSONObject) {
+        String[] a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            this.b.clear();
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                yx0.e(this.b, next, jSONObject.optString(next));
             }
-            synchronized (this) {
-                this.a.offer(new b<>(kk0Var, ik0Var, t));
-                if (!this.b) {
-                    sendMessage(Message.obtain());
+            SharedPreferences.Editor edit = this.a.edit();
+            edit.clear();
+            for (String str : qk0.a().a()) {
+                String str2 = (String) yx0.b(this.b, str);
+                if (str2 != null) {
+                    edit.putString(str, str2);
+                }
+            }
+            edit.apply();
+            SharedPreferences.Editor edit2 = ey0.a().b("nad.launch.config.global").edit();
+            edit2.clear();
+            for (String str3 : this.b.keySet()) {
+                String str4 = (String) yx0.b(this.b, str3);
+                if (str4 != null) {
+                    edit2.putString(str3, str4);
+                }
+            }
+            edit2.apply();
+        }
+    }
+
+    public final void d(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
+            this.c.clear();
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                String optString = jSONObject.optString(next);
+                HashMap hashMap = null;
+                if (!TextUtils.isEmpty(optString)) {
+                    hashMap = new HashMap(8);
+                    JSONObject c = xx0.c(optString);
+                    Iterator<String> keys2 = c.keys();
+                    while (keys2.hasNext()) {
+                        String next2 = keys2.next();
+                        yx0.e(hashMap, next2, c.optString(next2));
+                    }
+                }
+                if (hashMap != null) {
+                    yx0.e(this.c, next, hashMap);
+                    ey0 a = ey0.a();
+                    SharedPreferences.Editor edit = a.b("nad.launch.config." + next).edit();
+                    edit.clear();
+                    for (String str : hashMap.keySet()) {
+                        String str2 = (String) hashMap.get(str);
+                        if (str2 != null) {
+                            edit.putString(str, str2);
+                        }
+                    }
+                    edit.apply();
                 }
             }
         }
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(@NonNull Message message) {
+    public void update(@NonNull JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
-            try {
-                long currentTimeMillis = System.currentTimeMillis();
-                do {
-                    b<?> poll = this.a.poll();
-                    if (poll == null) {
-                        synchronized (this) {
-                            poll = this.a.poll();
-                            if (poll == null) {
-                                this.b = false;
-                                return;
-                            }
-                        }
-                    }
-                    poll.a.onEvent(poll.b);
-                } while (System.currentTimeMillis() - currentTimeMillis < 5);
-                sendMessage(Message.obtain());
-                this.b = true;
-            } finally {
-                this.b = false;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
+            String optString = jSONObject.optString("global");
+            if (!TextUtils.isEmpty(optString)) {
+                c(xx0.c(optString));
             }
+            String optString2 = jSONObject.optString("place_conf");
+            if (TextUtils.isEmpty(optString2)) {
+                return;
+            }
+            d(xx0.c(optString2));
         }
     }
 }

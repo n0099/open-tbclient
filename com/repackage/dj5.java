@@ -1,173 +1,294 @@
 package com.repackage;
 
-import android.content.Intent;
-import android.content.res.Configuration;
-import android.os.Build;
-import android.os.Bundle;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.arplay.core.message.ARPMessageType;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.atomData.LogoActivityConfig;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class dj5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean d = true;
+import java.text.ParseException;
+import java.util.Calendar;
+/* loaded from: classes6.dex */
+public class dj5 extends cj5 implements View.OnClickListener {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public ej5 b;
-    public BaseFragmentActivity c;
+    public fj5 q;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755765470, "Lcom/repackage/dj5;")) == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public class a implements ui5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dj5 a;
+
+        public a(dj5 dj5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dj5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dj5Var;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755765470, "Lcom/repackage/dj5;");
+
+        @Override // com.repackage.ui5
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.a.e.b.a(fj5.y.parse(this.a.q.o()));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
-    public dj5(BaseFragmentActivity baseFragmentActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dj5(si5 si5Var) {
+        super(si5Var.A);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {si5Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = -1L;
-        this.c = baseFragmentActivity;
+        this.e = si5Var;
+        y(si5Var.A);
     }
 
-    public final void a(Intent intent) {
+    public void A() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, intent) == null) || intent == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.e.a == null) {
             return;
         }
-        if (intent.getBooleanExtra(FrsActivityConfig.FROM_SHORT_CUT, false)) {
-            Intent intent2 = new Intent();
-            intent2.putExtra(DealIntentService.KEY_CLASS, 2);
-            intent2.putExtra("fname", intent.getStringExtra("fname"));
-            intent2.putExtra(FrsActivityConfig.FROM_SHORT_CUT, true);
-            intent2.putExtra("back_special", true);
-            intent2.putExtra("from", "short_cut");
-            intent.putExtra(LogoActivityConfig.EXTRAINTENT, intent2);
+        try {
+            this.e.a.a(fj5.y.parse(this.q.o()), this.m);
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
-        TbadkCoreApplication.setIntent((Intent) intent.getParcelableExtra(LogoActivityConfig.EXTRAINTENT));
     }
 
-    public final void b(Bundle bundle) {
+    public final void B() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            if (te8.a(this.c.getIntent())) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016560));
-            }
-            if (bundle != null) {
-                LogoActivityConfig.isFirst = bundle.getBoolean("is_first", true);
-            } else {
-                LogoActivityConfig.isFirst = true;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            fj5 fj5Var = this.q;
+            si5 si5Var = this.e;
+            fj5Var.E(si5Var.f, si5Var.g);
+            x();
         }
     }
 
-    public final void c() {
+    public final void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c.setIsAddSwipeBackLayout(false);
-            this.c.setUseStyleImmersiveSticky(false);
-            this.c.getWindow().setFlags(1024, 1024);
-            if (Build.VERSION.SDK_INT > 16) {
-                this.c.getWindow().getDecorView().setSystemUiVisibility(ARPMessageType.MSG_TYPE_VIDEO_STOP_RES);
+            this.q.I(this.e.h);
+            this.q.x(this.e.i);
+        }
+    }
+
+    public final void D() {
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        int i5;
+        int i6;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Calendar calendar = Calendar.getInstance();
+            Calendar calendar2 = this.e.e;
+            if (calendar2 == null) {
+                calendar.setTimeInMillis(System.currentTimeMillis());
+                i = calendar.get(1);
+                i2 = calendar.get(2);
+                i3 = calendar.get(5);
+                i4 = calendar.get(11);
+                i5 = calendar.get(12);
+                i6 = calendar.get(13);
+            } else {
+                i = calendar2.get(1);
+                i2 = this.e.e.get(2);
+                i3 = this.e.e.get(5);
+                i4 = this.e.e.get(11);
+                i5 = this.e.e.get(12);
+                i6 = this.e.e.get(13);
             }
-            this.c.setContentView(R.layout.obfuscated_res_0x7f0d0536);
+            int i7 = i4;
+            int i8 = i3;
+            int i9 = i2;
+            fj5 fj5Var = this.q;
+            fj5Var.D(i, i9, i8, i7, i5, i6);
         }
     }
 
-    public void d(Configuration configuration) {
-        ej5 ej5Var;
+    @Override // com.repackage.cj5
+    public boolean o() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, configuration) == null) || (ej5Var = this.b) == null) {
-            return;
-        }
-        ej5Var.d(configuration);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e.R : invokeV.booleanValue;
     }
 
-    public void e(Bundle bundle) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
-            this.a = System.currentTimeMillis();
-            if ("MuMu".equals(Build.MODEL) && "6.0.1".equals(Build.VERSION.RELEASE)) {
-                this.c.finish();
+        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
+            if (((String) view2.getTag()).equals("submit")) {
+                A();
+            }
+            f();
+        }
+    }
+
+    public final void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            si5 si5Var = this.e;
+            if (si5Var.f != null && si5Var.g != null) {
+                Calendar calendar = si5Var.e;
+                if (calendar == null || calendar.getTimeInMillis() < this.e.f.getTimeInMillis() || this.e.e.getTimeInMillis() > this.e.g.getTimeInMillis()) {
+                    si5 si5Var2 = this.e;
+                    si5Var2.e = si5Var2.f;
+                    return;
+                }
                 return;
             }
-            c();
-            b(bundle);
-            if (!te8.a(this.c.getIntent()) && (te8.b(this.c.getIntent()) || this.c.isTaskRoot())) {
-                a(this.c.getIntent());
+            si5 si5Var3 = this.e;
+            Calendar calendar2 = si5Var3.f;
+            if (calendar2 != null) {
+                si5Var3.e = calendar2;
+                return;
             }
-            pg8.g().i(this.c.getUniqueId());
-            ej5 ej5Var = new ej5(this.c);
-            this.b = ej5Var;
-            ej5Var.i(d);
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            pg8.g().k(this.c.getUniqueId());
-            d = false;
-            ej5 ej5Var = this.b;
-            if (ej5Var != null) {
-                ej5Var.g();
+            Calendar calendar3 = si5Var3.g;
+            if (calendar3 != null) {
+                si5Var3.e = calendar3;
             }
         }
     }
 
-    public void g() {
-        ej5 ej5Var;
+    public final void y(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (ej5Var = this.b) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
+            r();
+            n();
+            m();
+            ti5 ti5Var = this.e.c;
+            if (ti5Var == null) {
+                LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d071e, this.b);
+                TextView textView = (TextView) i(R.id.obfuscated_res_0x7f0922fe);
+                RelativeLayout relativeLayout = (RelativeLayout) i(R.id.obfuscated_res_0x7f091c4f);
+                Button button = (Button) i(R.id.obfuscated_res_0x7f090414);
+                Button button2 = (Button) i(R.id.obfuscated_res_0x7f090410);
+                button.setTag("submit");
+                button2.setTag("cancel");
+                button.setOnClickListener(this);
+                button2.setOnClickListener(this);
+                button.setText(TextUtils.isEmpty(this.e.B) ? context.getResources().getString(R.string.obfuscated_res_0x7f0f0e81) : this.e.B);
+                button2.setText(TextUtils.isEmpty(this.e.C) ? context.getResources().getString(R.string.obfuscated_res_0x7f0f0e7b) : this.e.C);
+                textView.setText(TextUtils.isEmpty(this.e.D) ? "" : this.e.D);
+                button.setTextColor(this.e.E);
+                button2.setTextColor(this.e.F);
+                textView.setTextColor(this.e.G);
+                relativeLayout.setBackgroundColor(this.e.I);
+                button.setTextSize(this.e.J);
+                button2.setTextSize(this.e.J);
+                textView.setTextSize(this.e.K);
+            } else {
+                ti5Var.a(LayoutInflater.from(context).inflate(this.e.x, this.b));
+            }
+            LinearLayout linearLayout = (LinearLayout) i(R.id.obfuscated_res_0x7f092194);
+            linearLayout.setBackgroundColor(this.e.H);
+            z(linearLayout);
         }
-        ej5Var.e();
     }
 
-    public void h() {
+    public final void z(LinearLayout linearLayout) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (LogoActivityConfig.isFirst && this.a >= 0) {
-                t95.b().v(System.currentTimeMillis() - this.a);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, linearLayout) == null) {
+            si5 si5Var = this.e;
+            fj5 fj5Var = new fj5(linearLayout, si5Var.d, si5Var.z, si5Var.L);
+            this.q = fj5Var;
+            if (this.e.b != null) {
+                fj5Var.G(new a(this));
             }
-            ej5 ej5Var = this.b;
-            if (ej5Var != null) {
-                ej5Var.f();
+            this.q.C(this.e.k);
+            si5 si5Var2 = this.e;
+            int i2 = si5Var2.h;
+            if (i2 != 0 && (i = si5Var2.i) != 0 && i2 <= i) {
+                C();
             }
+            si5 si5Var3 = this.e;
+            Calendar calendar = si5Var3.f;
+            if (calendar != null && si5Var3.g != null) {
+                if (calendar.getTimeInMillis() <= this.e.g.getTimeInMillis()) {
+                    B();
+                } else {
+                    throw new IllegalArgumentException("startDate can't be later than endDate");
+                }
+            } else {
+                si5 si5Var4 = this.e;
+                Calendar calendar2 = si5Var4.f;
+                if (calendar2 != null) {
+                    if (calendar2.get(1) >= 1900) {
+                        B();
+                    } else {
+                        throw new IllegalArgumentException("The startDate can not as early as 1900");
+                    }
+                } else {
+                    Calendar calendar3 = si5Var4.g;
+                    if (calendar3 != null) {
+                        if (calendar3.get(1) <= 2100) {
+                            B();
+                        } else {
+                            throw new IllegalArgumentException("The endDate should not be later than 2100");
+                        }
+                    } else {
+                        B();
+                    }
+                }
+            }
+            D();
+            fj5 fj5Var2 = this.q;
+            si5 si5Var5 = this.e;
+            fj5Var2.y(si5Var5.l, si5Var5.m, si5Var5.n, si5Var5.o, si5Var5.p, si5Var5.q);
+            fj5 fj5Var3 = this.q;
+            si5 si5Var6 = this.e;
+            fj5Var3.N(si5Var6.r, si5Var6.s, si5Var6.t, si5Var6.u, si5Var6.v, si5Var6.w);
+            t(this.e.S);
+            this.q.s(this.e.j);
+            this.q.u(this.e.O);
+            this.q.w(this.e.U);
+            this.q.A(this.e.Q);
+            this.q.M(this.e.M);
+            this.q.K(this.e.N);
+            this.q.p(this.e.T);
         }
     }
 }

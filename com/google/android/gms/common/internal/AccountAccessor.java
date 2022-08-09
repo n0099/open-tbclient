@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.google.android.gms.common.internal.IAccountAccessor;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AccountAccessor extends IAccountAccessor.Stub {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

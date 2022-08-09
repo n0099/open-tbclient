@@ -1,20 +1,16 @@
 package com.repackage;
 
-import android.app.Application;
-import android.util.Log;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.nps.interfa.IHostAppRuntime;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.interfa.IAlertManager;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
 @Service
 /* loaded from: classes6.dex */
-public class hl implements IHostAppRuntime {
+public class hl implements IAlertManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,14 +28,17 @@ public class hl implements IHostAppRuntime {
         }
     }
 
-    @Override // com.baidu.nps.interfa.IHostAppRuntime
-    public Application getApplication() {
-        InterceptResult invokeV;
+    @Override // com.baidu.nps.interfa.IAlertManager
+    public void onAlert(String str, String str2, View.OnClickListener onClickListener, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Log.e("TAG", "" + BdBaseApplication.getInst());
-            return BdBaseApplication.getInst();
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, onClickListener, str3) == null) {
         }
-        return (Application) invokeV.objValue;
+    }
+
+    @Override // com.baidu.nps.interfa.IAlertManager
+    public void onAlert(String str, String str2, View.OnClickListener onClickListener, String str3, View.OnClickListener onClickListener2, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, onClickListener, str3, onClickListener2, str4}) == null) {
+        }
     }
 }

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sb1;
+import com.repackage.jc1;
 import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
@@ -283,7 +283,7 @@ public class FileUploadStrategy implements IUpload {
                 if (applicationContext != null) {
                     appContext = applicationContext;
                 }
-                return new File(new File(appContext.getFilesDir(), BASE_ATTACHMENT_UPLOAD_FILE_PATH), sb1.b().replace(":", "_"));
+                return new File(new File(appContext.getFilesDir(), BASE_ATTACHMENT_UPLOAD_FILE_PATH), jc1.b().replace(":", "_"));
             }
             return (File) invokeV.objValue;
         }
@@ -657,7 +657,7 @@ public class FileUploadStrategy implements IUpload {
     public void upload(@NonNull List<File> list, @NonNull String str, @NonNull String str2) {
         File createAttachZipFile;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, list, str, str2) == null) || (createAttachZipFile = createAttachZipFile(list, FileName.createFileID(str, System.currentTimeMillis()), sb1.b(), str2)) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, list, str, str2) == null) || (createAttachZipFile = createAttachZipFile(list, FileName.createFileID(str, System.currentTimeMillis()), jc1.b(), str2)) == null) {
             return;
         }
         this.mUploadExecutor.execute(new Runnable(this, createAttachZipFile, str) { // from class: com.baidu.searchbox.aperf.bosuploader.uploadstrategy.FileUploadStrategy.1

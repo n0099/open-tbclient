@@ -1,39 +1,27 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.TimeUnit;
+import com.google.protobuf.CodedInputStream;
 /* loaded from: classes7.dex */
 public class w01 {
     public static /* synthetic */ Interceptable $ic;
-    public static final long a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755255303, "Lcom/repackage/w01;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755255303, "Lcom/repackage/w01;");
-                return;
-            }
-        }
-        TimeUnit.DAYS.toMillis(1L);
-        TimeUnit.HOURS.toMillis(1L);
-        a = TimeUnit.MINUTES.toMillis(1L);
-        TimeUnit.SECONDS.toMillis(1L);
-    }
-
-    public static boolean a(long j, long j2, int i) {
+    public static PendingIntent a(Context context, int i, Intent intent, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)})) == null) ? j - j2 > ((long) i) * a : invokeCommon.booleanValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, Integer.valueOf(i), intent, Integer.valueOf(i2)})) == null) {
+            if (Build.VERSION.SDK_INT >= 31) {
+                return PendingIntent.getBroadcast(context, i, intent, i2 | CodedInputStream.DEFAULT_SIZE_LIMIT);
+            }
+            return PendingIntent.getBroadcast(context, i, intent, i2);
+        }
+        return (PendingIntent) invokeCommon.objValue;
     }
 }

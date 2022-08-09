@@ -1,36 +1,45 @@
 package com.repackage;
 
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.frs.ForumWriteData;
-import com.baidu.tieba.frs.commontab.FrsCommonTabFragment;
-import com.baidu.tieba.frs.view.FrsTopItemInfoView;
-import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ItemInfo;
 /* loaded from: classes5.dex */
 public class ae6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragment a;
-    public FrsTopItemInfoView b;
+    public TbPageContext a;
+    public final View b;
+    public final RelativeLayout c;
+    public final EditText d;
+    public final ImageView e;
+    public final TextView f;
+    public final BdTypeListView g;
+    public final ImageView h;
+    public int i;
 
-    public ae6(BaseFragment baseFragment) {
-        FrsViewData frsViewData;
+    public ae6(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragment};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,44 +49,53 @@ public class ae6 {
                 return;
             }
         }
-        if (baseFragment == null) {
-            return;
-        }
-        this.a = baseFragment;
-        this.b = new FrsTopItemInfoView(baseFragment.getContext());
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
-        this.b.setLayoutParams(layoutParams);
-        b();
-        BaseFragment baseFragment2 = this.a;
-        if (!(baseFragment2 instanceof FrsCommonTabFragment) || (frsViewData = ((FrsCommonTabFragment) baseFragment2).d) == null || frsViewData.getForum() == null) {
-            return;
-        }
-        ForumData forum = frsViewData.getForum();
-        this.b.setForumWriteData(new ForumWriteData(forum.getId(), forum.getName(), forum.getPrefixData(), frsViewData.getAnti()));
+        this.i = 3;
+        this.a = tbPageContext;
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02c3, (ViewGroup) null);
+        this.b = inflate;
+        this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091d8b);
+        this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091d8e);
+        this.d = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f090d6e);
+        this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090d5e);
+        this.d.setHint(R.string.obfuscated_res_0x7f0f10b6);
+        TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090d5d);
+        this.f = textView;
+        textView.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0370));
+        this.g = (BdTypeListView) this.b.findViewById(R.id.obfuscated_res_0x7f091d8f);
+        a();
+        b(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public View a() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (View) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
+            layoutParams.height = qi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070306);
+            int f = qi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070302);
+            layoutParams.rightMargin = f;
+            layoutParams.leftMargin = f;
+            int immersiveStickyBarHeight = UtilHelper.getImmersiveStickyBarHeight();
+            if (immersiveStickyBarHeight > 0) {
+                layoutParams.topMargin = immersiveStickyBarHeight;
+            }
+            this.c.setLayoutParams(layoutParams);
+        }
     }
 
-    public void b() {
-        FrsTopItemInfoView frsTopItemInfoView;
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (frsTopItemInfoView = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.i == i) {
             return;
         }
-        frsTopItemInfoView.e();
-    }
-
-    public void c(ItemInfo itemInfo) {
-        FrsTopItemInfoView frsTopItemInfoView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, itemInfo) == null) || (frsTopItemInfoView = this.b) == null) {
-            return;
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+        SkinManager.setViewTextColor(this.f, R.color.CAM_X0302, 1);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f0809c0, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        if (i == 2) {
+            this.d.setHintTextColor(SkinManager.getColor(R.color.s_navbar_title_color));
+        } else {
+            this.d.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
         }
-        frsTopItemInfoView.setData(itemInfo);
+        SkinManager.setNavbarTitleColor(this.d, R.color.CAM_X0105, R.color.s_navbar_title_color);
+        this.i = i;
     }
 }

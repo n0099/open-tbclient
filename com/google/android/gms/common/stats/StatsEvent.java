@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.internal.ReflectedParcelable;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class StatsEvent extends AbstractSafeParcelable implements ReflectedParcelable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

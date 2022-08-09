@@ -22,8 +22,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bz5;
-import com.repackage.pi;
+import com.repackage.qi;
+import com.repackage.t06;
 import java.util.List;
 import tbclient.AlaLiveInfo;
 import tbclient.AlaUserInfo;
@@ -110,20 +110,20 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d038b, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d038d, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.c = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f090219);
+            this.c = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f090225);
             AlaRecommendListAdapter alaRecommendListAdapter = new AlaRecommendListAdapter(this.a);
             this.d = alaRecommendListAdapter;
             this.c.setAdapter(alaRecommendListAdapter);
             this.c.setClipChildren(false);
             this.c.setLayoutManager(new LinearLayoutManager(this.a, 0, false));
             this.c.setItemAnimator(new DefaultItemAnimator());
-            int f = pi.f(this.a, R.dimen.M_W_X006);
-            this.c.addItemDecoration(new CommonSpaceItemDecoration(f, pi.f(this.a, R.dimen.M_W_X004), f));
+            int f = qi.f(this.a, R.dimen.M_W_X006);
+            this.c.addItemDecoration(new CommonSpaceItemDecoration(f, qi.f(this.a, R.dimen.M_W_X004), f));
             BdRecyclerView bdRecyclerView = this.c;
-            bdRecyclerView.setPadding(bdRecyclerView.getPaddingLeft(), pi.f(this.c.getContext(), R.dimen.tbds25), this.c.getPaddingRight(), pi.f(this.c.getContext(), R.dimen.M_H_X005));
+            bdRecyclerView.setPadding(bdRecyclerView.getPaddingLeft(), qi.f(this.c.getContext(), R.dimen.tbds25), this.c.getPaddingRight(), qi.f(this.c.getContext(), R.dimen.M_H_X005));
         }
     }
 
@@ -166,12 +166,12 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
         }
     }
 
-    public void setData(bz5 bz5Var) {
+    public void setData(t06 t06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bz5Var) == null) {
-            if (bz5Var != null && !ListUtils.isEmpty(bz5Var.c())) {
-                this.e = bz5Var.c();
-                this.f = bz5Var.d();
+        if (interceptable == null || interceptable.invokeL(1048581, this, t06Var) == null) {
+            if (t06Var != null && !ListUtils.isEmpty(t06Var.c())) {
+                this.e = t06Var.c();
+                this.f = t06Var.f();
                 setVisibility(0);
                 d();
                 return;

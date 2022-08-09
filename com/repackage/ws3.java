@@ -1,131 +1,68 @@
 package com.repackage;
 
-import android.app.AppOpsManager;
-import android.app.usage.UsageStats;
-import android.app.usage.UsageStatsManager;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.os.Process;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.app.NotificationCompat;
+import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Calendar;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ws3 extends ns3 {
+public class ws3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755190854, "Lcom/repackage/ws3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755190854, "Lcom/repackage/ws3;");
-                return;
-            }
-        }
-        c = sg1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ws3() {
-        super("GetAppUseDuration");
+    public static void a(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLI(65536, null, context, i) == null) {
+            ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).cancel(i);
         }
     }
 
-    @Override // com.repackage.ns3
-    public is1 a(@NonNull JSONObject jSONObject, @NonNull md2 md2Var) {
-        InterceptResult invokeLL;
+    public static final Bitmap b(Drawable drawable) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, md2Var)) == null) {
-            if (jSONObject == null) {
-                md2Var.onFail(202, "params may be error");
-                return null;
-            }
-            if (c) {
-                Log.e("GetAppUseDuration", "params is " + jSONObject.toString());
-            }
-            String optString = jSONObject.optString("packageName");
-            if (TextUtils.isEmpty(optString)) {
-                md2Var.onFail(202, "params may be error");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, drawable)) == null) {
+            Bitmap createBitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), drawable.getOpacity() != -1 ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565);
+            Canvas canvas = new Canvas(createBitmap);
+            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            drawable.draw(canvas);
+            return createBitmap;
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public static void c(Context context, int i, String str, String str2, Bitmap bitmap, long j, PendingIntent pendingIntent, String str3, String str4) {
+        NotificationCompat.Builder builder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, Integer.valueOf(i), str, str2, bitmap, Long.valueOf(j), pendingIntent, str3, str4}) == null) {
+            NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
+            if (Build.VERSION.SDK_INT >= 26) {
+                notificationManager.createNotificationChannel(new NotificationChannel(String.valueOf(i), "swan_game_center", 4));
+                builder = new NotificationCompat.Builder(context, String.valueOf(i));
             } else {
-                b(optString, md2Var);
+                builder = new NotificationCompat.Builder(context);
             }
-            return null;
-        }
-        return (is1) invokeLL.objValue;
-    }
-
-    public final void b(String str, @NonNull md2 md2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, md2Var) == null) {
-            try {
-                if (c()) {
-                    PackageInfo packageInfo = AppRuntime.getAppContext().getPackageManager().getPackageInfo(str, 0);
-                    if (packageInfo != null) {
-                        List<UsageStats> queryUsageStats = ((UsageStatsManager) AppRuntime.getAppContext().getSystemService("usagestats")).queryUsageStats(3, packageInfo.firstInstallTime, Calendar.getInstance().getTimeInMillis());
-                        if (queryUsageStats.size() == 0) {
-                            md2Var.onFail(101, "noPermission");
-                            return;
-                        }
-                        for (UsageStats usageStats : queryUsageStats) {
-                            if (TextUtils.equals(usageStats.getPackageName(), str)) {
-                                JSONObject jSONObject = new JSONObject();
-                                JSONObject jSONObject2 = new JSONObject();
-                                jSONObject2.put("appUseDuration", usageStats.getTotalTimeInForeground());
-                                jSONObject.put("data", jSONObject2);
-                                md2Var.a(jSONObject);
-                                return;
-                            }
-                        }
-                        md2Var.onFail(31016, "no package info");
-                        return;
-                    }
-                    md2Var.onFail(31016, "no package info");
-                    return;
-                }
-                md2Var.onFail(101, "noPermission");
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                md2Var.onFail(31011, "app is not installed");
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            if (!TextUtils.isEmpty(str3)) {
+                zs3.c("notifyShow", str3, str4);
             }
+            if (pendingIntent != null) {
+                builder.setContentIntent(pendingIntent);
+            }
+            NotificationCompat.Builder smallIcon = builder.setContentTitle(str).setContentText(str2).setWhen(j).setSmallIcon(R.drawable.obfuscated_res_0x7f080168);
+            if (bitmap == null) {
+                bitmap = b(AppRuntime.getAppContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080168));
+            }
+            notificationManager.notify(i, smallIcon.setLargeIcon(bitmap).setAutoCancel(true).build());
         }
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((AppOpsManager) AppRuntime.getAppContext().getSystemService("appops")).checkOpNoThrow("android:get_usage_stats", Process.myUid(), AppRuntime.getAppContext().getPackageName()) == 0 : invokeV.booleanValue;
     }
 }

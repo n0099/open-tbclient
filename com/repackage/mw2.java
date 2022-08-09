@@ -1,69 +1,32 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public class mw2 {
+public abstract class mw2 extends nw2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static volatile mw2 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<String, nw2<lw2>> a;
-    public ConcurrentHashMap<String, Runnable> b;
-    public a c;
 
     /* loaded from: classes6.dex */
-    public static class a extends Handler {
+    public class a implements lh1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jw2 a;
+        public final /* synthetic */ l22 b;
+        public final /* synthetic */ mw2 c;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Looper looper) {
-            super(looper);
+        public a(mw2 mw2Var, jw2 jw2Var, l22 l22Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference<mw2> a;
-        public String b;
-
-        public b(mw2 mw2Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mw2Var, str};
+                Object[] objArr = {mw2Var, jw2Var, l22Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -73,186 +36,145 @@ public class mw2 {
                     return;
                 }
             }
-            this.a = new WeakReference<>(mw2Var);
-            this.b = str;
+            this.c = mw2Var;
+            this.a = jw2Var;
+            this.b = l22Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            mw2 mw2Var;
+        @Override // com.repackage.lh1
+        public void onResult(int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (mw2Var = this.a.get()) == null) {
-                return;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i != 0) {
+                    kw2 kw2Var = new kw2(this.a.f);
+                    kw2Var.a = this.a.e;
+                    this.b.a(kw2Var);
+                    return;
+                }
+                this.c.o(this.a, this.b);
             }
-            if (mw2.d) {
-                Log.d("MDelegate-Observe", "run: observer timeout " + this.b);
-            }
-            lw2 lw2Var = new lw2(this.b);
-            lw2Var.setResult(null);
-            mw2Var.c(lw2Var);
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755484951, "Lcom/repackage/mw2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class b implements sf3<l63> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z03 a;
+        public final /* synthetic */ SwanAppActivity b;
+        public final /* synthetic */ jw2 c;
+        public final /* synthetic */ l22 d;
+        public final /* synthetic */ mw2 e;
+
+        public b(mw2 mw2Var, z03 z03Var, SwanAppActivity swanAppActivity, jw2 jw2Var, l22 l22Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mw2Var, z03Var, swanAppActivity, jw2Var, l22Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755484951, "Lcom/repackage/mw2;");
-                return;
+            this.e = mw2Var;
+            this.a = z03Var;
+            this.b = swanAppActivity;
+            this.c = jw2Var;
+            this.d = l22Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.sf3
+        /* renamed from: b */
+        public void a(l63 l63Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l63Var) == null) {
+                this.e.p(this.b, this.a.O(), this.c, l63Var, this.d);
             }
         }
-        d = sg1.a;
     }
 
     public mw2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new ConcurrentHashMap<>();
-        this.b = new ConcurrentHashMap<>();
-        this.c = new a(Looper.getMainLooper());
     }
 
-    public static mw2 b() {
+    @Override // com.repackage.nw2
+    public iw2 f(jw2 jw2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jw2Var)) == null) {
+            return null;
+        }
+        return (iw2) invokeL.objValue;
+    }
+
+    @Override // com.repackage.nw2
+    public zs1 j(String str, jw2 jw2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jw2Var)) == null) ? new zs1(0) : (zs1) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.nw2
+    public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (e == null) {
-                synchronized (mw2.class) {
-                    if (e == null) {
-                        e = new mw2();
-                    }
-                }
-            }
-            return e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
         }
-        return (mw2) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void c(@NonNull lw2 lw2Var) {
+    @Override // com.repackage.nw2
+    public zs1 m(jw2 jw2Var, l22<kw2> l22Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, lw2Var) == null) {
-            nw2<lw2> nw2Var = this.a.get(lw2Var.b());
-            if (nw2Var == null) {
-                if (d) {
-                    Log.e("MDelegate-Observe", "notify a null observer");
-                    return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, jw2Var, l22Var)) == null) {
+            if (jw2Var == null || TextUtils.isEmpty(jw2Var.a)) {
+                return new zs1(1001, "get fun page info, provider appKey is empty");
+            }
+            if (l22Var == null) {
+                return new zs1(1001, "get fun page info, cb is null");
+            }
+            z03 q = y03.K().q();
+            SwanAppActivity w = q.w();
+            if (w != null && !w.isFinishing()) {
+                if (!q.N().e(q)) {
+                    q.N().f(w, null, new a(this, jw2Var, l22Var));
+                    return new zs1(1001, "not login");
                 }
-                return;
+                o(jw2Var, l22Var);
+                return new zs1(0);
             }
-            String b2 = nw2Var.b();
-            if (d) {
-                Log.d("MDelegate-Observe", "notify observer: " + b2);
-            }
-            nw2Var.onEvent(lw2Var);
-            if (this.b.containsKey(b2)) {
-                if (d) {
-                    Log.d("MDelegate-Observe", "remove observer: " + b2 + " timeout runnable");
-                }
-                this.c.removeCallbacks(this.b.get(b2));
-                this.b.remove(b2);
-            }
-            if (nw2Var.c()) {
-                if (d) {
-                    Log.d("MDelegate-Observe", "auto unregister disposable observer: " + b2);
-                }
-                f(nw2Var);
-            }
+            return new zs1(1001, "get fun page info, master has dead");
+        }
+        return (zs1) invokeLL.objValue;
+    }
+
+    public final void o(jw2 jw2Var, l22<kw2> l22Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, jw2Var, l22Var) == null) {
+            rw2.b("start get open data");
+            z03 q = y03.K().q();
+            SwanAppActivity w = q.w();
+            l63.B(w, g(), jw2Var.a, true, h(), new b(this, q, w, jw2Var, l22Var));
         }
     }
 
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (d) {
-                Log.d("MDelegate-Observe", "release observable");
-            }
-            if (e == null) {
-                return;
-            }
-            this.a.clear();
-            for (Map.Entry<String, Runnable> entry : this.b.entrySet()) {
-                if (d) {
-                    Log.d("MDelegate-Observe", "remove observer: " + entry.getKey() + " timeout runnable");
-                }
-                this.c.removeCallbacks(entry.getValue());
-            }
-            this.b.clear();
-            e = null;
-        }
-    }
-
-    public void e(nw2<lw2> nw2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nw2Var) == null) {
-            if (nw2Var == null) {
-                if (d) {
-                    Log.e("MDelegate-Observe", "register a null observer");
-                    return;
-                }
-                return;
-            }
-            String b2 = nw2Var.b();
-            if (this.a.containsKey(b2)) {
-                if (d) {
-                    Log.e("MDelegate-Observe", "multiple register observer：" + b2);
-                    return;
-                }
-                return;
-            }
-            if (d) {
-                Log.d("MDelegate-Observe", "register observer: " + b2);
-            }
-            this.a.put(b2, nw2Var);
-            long a2 = nw2Var.a();
-            if (a2 <= 0 || !nw2Var.c()) {
-                return;
-            }
-            if (d) {
-                Log.d("MDelegate-Observe", "post observer: " + b2 + " " + a2 + "ms timeout runnable");
-            }
-            b bVar = new b(this, b2);
-            this.b.put(b2, bVar);
-            this.c.postDelayed(bVar, a2);
-        }
-    }
-
-    public void f(nw2<lw2> nw2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, nw2Var) == null) {
-            if (nw2Var == null) {
-                if (d) {
-                    Log.e("MDelegate-Observe", "unregister a null observer");
-                    return;
-                }
-                return;
-            }
-            String b2 = nw2Var.b();
-            if (!this.a.containsKey(b2)) {
-                if (d) {
-                    Log.e("MDelegate-Observe", "unregister a nonexistent observer");
-                    return;
-                }
-                return;
-            }
-            if (d) {
-                Log.d("MDelegate-Observe", "unregister observer: " + b2);
-            }
-            this.a.remove(b2);
-        }
-    }
+    public abstract void p(SwanAppActivity swanAppActivity, String str, jw2 jw2Var, l63 l63Var, l22<kw2> l22Var);
 }

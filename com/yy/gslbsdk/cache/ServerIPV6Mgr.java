@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.db.DBAccessMgr;
 import com.yy.gslbsdk.db.ServerV6TB;
+import com.yy.gslbsdk.device.DeviceMgr;
 import com.yy.gslbsdk.protocol.UpdateServerInfo;
 import com.yy.gslbsdk.protocol.UpdateServerProtocolMgr;
 import com.yy.gslbsdk.thread.AsynTaskMgr;
@@ -59,7 +60,7 @@ public class ServerIPV6Mgr {
             }
         }
         SERVER_IP_CTL = new String[]{"240E:E9:5005:11FF::7", "240e:83:600:100:9::2"};
-        SERVER_IP_CNC = new String[]{"2408:873D:2012:200:FF::7", "2408:8706:0:102:9::2"};
+        SERVER_IP_CNC = new String[]{"2408:873D:2012:200:FF::7", "2408:8706:0:7a02:9::4"};
         SERVER_IP_CMC = new String[]{"2409:8C20:1831:307:FF::7", "2409:8C00:8401:2:9::2"};
         SERVER_IP_EDU = new String[0];
         SERVER_IP_PUBLIC = new String[0];
@@ -367,7 +368,7 @@ public class ServerIPV6Mgr {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, str) == null) {
             curLocalDNSIp = RuntimeTools.execCmd(GlobalTools.CMD_GET_LOCALDNS_IP);
-            initUsedIsp(str);
+            initUsedIsp(str, context);
             ConcurrentMap<Integer, ArrayList<ServerV6TB>> concurrentMap = this.mIspServerIpCache;
             if (concurrentMap == null || concurrentMap.isEmpty()) {
                 List<ServerV6TB> allServerV6 = DBAccessMgr.getInstance(context).getAllServerV6();
@@ -461,9 +462,9 @@ public class ServerIPV6Mgr {
         }
     }
 
-    public void initUsedIsp(String str) {
+    public void initUsedIsp(String str, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048585, this, str, context) == null) {
             List<Integer> list = this.mListUsedIsp;
             if (list == null) {
                 this.mListUsedIsp = new LinkedList();
@@ -476,6 +477,11 @@ public class ServerIPV6Mgr {
                 this.mListUsedIsp.add(3);
                 this.mListUsedIsp.add(4);
                 this.mListUsedIsp.add(5);
+                int isp = DeviceMgr.getISP(context);
+                if (isp == 0 || !this.mListUsedIsp.remove(Integer.valueOf(isp))) {
+                    return;
+                }
+                this.mListUsedIsp.add(0, Integer.valueOf(isp));
                 return;
             }
             this.mListUsedIsp.add(6);

@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ms4;
-import com.repackage.yt4;
+import com.repackage.dt4;
+import com.repackage.ru4;
 @ModifyClass
 /* loaded from: classes3.dex */
 public class MainTabDataSwitch extends BaseNormalSwitch {
@@ -61,7 +61,7 @@ public class MainTabDataSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             if (type > 2) {
-                type = yt4.k().l("key_launch_up_main_tab_data", 1);
+                type = ru4.k().l("key_launch_up_main_tab_data", 1);
             }
             if (UbsABTestHelper.isMainTabDataCache()) {
                 type = 2;
@@ -78,7 +78,7 @@ public class MainTabDataSwitch extends BaseNormalSwitch {
     public static boolean isCacheOpen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? type == 2 && ms4.a().b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? type == 2 && dt4.a().b : invokeV.booleanValue;
     }
 
     public static boolean isOff() {
@@ -93,7 +93,7 @@ public class MainTabDataSwitch extends BaseNormalSwitch {
         return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? type == 1 : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.repackage.af
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.repackage.bf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

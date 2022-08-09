@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import com.ss.android.download.api.config.k;
 import com.ss.android.download.api.download.DownloadModel;
 import com.ss.android.download.api.model.b;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a implements k {
     @Override // com.ss.android.download.api.config.k
     public void a(int i, @Nullable Context context, DownloadModel downloadModel, String str, Drawable drawable, int i2) {
@@ -30,17 +30,17 @@ public class a implements k {
         AlertDialog show = new AlertDialog.Builder(bVar.a).setTitle(bVar.b).setMessage(bVar.c).setPositiveButton(bVar.d, new DialogInterface.OnClickListener() { // from class: com.ss.android.download.api.a.a.2
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                b.InterfaceC0642b interfaceC0642b = com.ss.android.download.api.model.b.this.h;
-                if (interfaceC0642b != null) {
-                    interfaceC0642b.a(dialogInterface);
+                b.InterfaceC0647b interfaceC0647b = com.ss.android.download.api.model.b.this.h;
+                if (interfaceC0647b != null) {
+                    interfaceC0647b.a(dialogInterface);
                 }
             }
         }).setNegativeButton(bVar.e, new DialogInterface.OnClickListener() { // from class: com.ss.android.download.api.a.a.1
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                b.InterfaceC0642b interfaceC0642b = com.ss.android.download.api.model.b.this.h;
-                if (interfaceC0642b != null) {
-                    interfaceC0642b.b(dialogInterface);
+                b.InterfaceC0647b interfaceC0647b = com.ss.android.download.api.model.b.this.h;
+                if (interfaceC0647b != null) {
+                    interfaceC0647b.b(dialogInterface);
                 }
             }
         }).show();
@@ -48,9 +48,9 @@ public class a implements k {
         show.setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.ss.android.download.api.a.a.3
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                b.InterfaceC0642b interfaceC0642b = com.ss.android.download.api.model.b.this.h;
-                if (interfaceC0642b != null) {
-                    interfaceC0642b.c(dialogInterface);
+                b.InterfaceC0647b interfaceC0647b = com.ss.android.download.api.model.b.this.h;
+                if (interfaceC0647b != null) {
+                    interfaceC0647b.c(dialogInterface);
                 }
             }
         });

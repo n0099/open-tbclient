@@ -39,9 +39,9 @@ import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.dumper.CrashCallback;
-import com.repackage.jw;
 import com.repackage.kw;
-import com.repackage.ow;
+import com.repackage.lw;
+import com.repackage.pw;
 import java.io.File;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
@@ -70,7 +70,7 @@ public final class BdSailorPlatform implements INoProGuard {
     public b mNetworkChangedReciever;
     public int mNetworkType;
     public HashMap<String, com.baidu.browser.sailor.feature.a> mSailorFeatureMap;
-    public kw mSailorStatic;
+    public lw mSailorStatic;
     public BdWebkitManager mWebkitMgr;
     public boolean mWebkitTimerPaused;
     public String mWorkspace;
@@ -112,7 +112,7 @@ public final class BdSailorPlatform implements INoProGuard {
                 }
                 try {
                     Log.d(BdSailorPlatform.TAG, "do pause");
-                    this.a.mWebkitTimerPaused = ow.a().c();
+                    this.a.mWebkitTimerPaused = pw.a().c();
                     CookieSyncManager createInstance = CookieSyncManager.createInstance(this.a.mContext);
                     if (createInstance != null) {
                         createInstance.stopSync();
@@ -198,7 +198,7 @@ public final class BdSailorPlatform implements INoProGuard {
         this.mHasInit = false;
         this.mIsNeedUpdateKernel = true;
         Log.d(TAG, "BdSailorPlatform");
-        this.mSailorStatic = new kw();
+        this.mSailorStatic = new lw();
         this.mWebkitMgr = new BdWebkitManager();
         this.mSailorFeatureMap = new HashMap<>(4);
     }
@@ -252,10 +252,10 @@ public final class BdSailorPlatform implements INoProGuard {
         return (BdSailorPlatform) invokeV.objValue;
     }
 
-    public static kw getStatic() {
+    public static lw getStatic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? getInstance().mSailorStatic : (kw) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? getInstance().mSailorStatic : (lw) invokeV.objValue;
     }
 
     public static BdWebkitManager getWebkitManager() {
@@ -431,7 +431,7 @@ public final class BdSailorPlatform implements INoProGuard {
     public final void clearCache(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            ow a2 = ow.a();
+            pw a2 = pw.a();
             try {
                 a2.e();
                 a2.b.clearCache(z);
@@ -451,8 +451,8 @@ public final class BdSailorPlatform implements INoProGuard {
                     this.mHandler.removeMessages(1);
                     this.mHandler = null;
                 }
-                jw.a();
-                ow.b();
+                kw.a();
+                pw.b();
                 WebKitFactory.destroy();
                 this.mContext = null;
             } catch (Exception e) {
@@ -574,11 +574,11 @@ public final class BdSailorPlatform implements INoProGuard {
             WebKitFactory.getLoadErrorCode().trace(LoadErrorCode.MSG_WEBKIT_MANAGER_IS_NULL);
         }
         long currentTimeMillis = System.currentTimeMillis();
-        ow a2 = ow.a();
+        pw a2 = pw.a();
         Context appContext = getAppContext();
         if (a2.a == null) {
             a2.a = appContext.getApplicationContext();
-            Log.d(ow.d, "in BdWebViewSingleton, init");
+            Log.d(pw.d, "in BdWebViewSingleton, init");
         }
         this.mIsWebkitInited = true;
         long currentTimeMillis2 = System.currentTimeMillis();
@@ -672,7 +672,7 @@ public final class BdSailorPlatform implements INoProGuard {
                     this.mHandler.removeMessages(1);
                     if (this.mWebkitTimerPaused) {
                         Log.d(TAG, "do resume");
-                        ow.a().d();
+                        pw.a().d();
                         CookieSyncManager createInstance = CookieSyncManager.createInstance(this.mContext);
                         if (createInstance != null) {
                             createInstance.startSync();

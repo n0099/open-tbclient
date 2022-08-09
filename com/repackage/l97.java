@@ -1,52 +1,58 @@
 package com.repackage;
 
-import android.os.Build;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class l97 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile l97 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    public static boolean a(BaseFragmentActivity baseFragmentActivity, int i) {
-        InterceptResult invokeLI;
+    public l97() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, baseFragmentActivity, i)) == null) {
-            if (TbadkCoreApplication.getInst().appResponseToCmd(i)) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            c(baseFragmentActivity);
-            return false;
         }
-        return invokeLI.booleanValue;
     }
 
-    public static boolean b(BaseFragmentActivity baseFragmentActivity, Class<?> cls) {
-        InterceptResult invokeLL;
+    public static l97 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, baseFragmentActivity, cls)) == null) {
-            if (TbadkCoreApplication.getInst().appResponseToIntentClass(cls)) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (l97.class) {
+                    if (b == null) {
+                        b = new l97();
+                    }
+                }
             }
-            c(baseFragmentActivity);
-            return false;
+            return b;
         }
-        return invokeLL.booleanValue;
+        return (l97) invokeV.objValue;
     }
 
-    public static void c(BaseFragmentActivity baseFragmentActivity) {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, baseFragmentActivity) == null) || baseFragmentActivity == null) {
-            return;
-        }
-        if (Build.VERSION.SDK_INT <= 10) {
-            baseFragmentActivity.showToast(R.string.obfuscated_res_0x7f0f0e7f);
-        } else {
-            baseFragmentActivity.showToast(R.string.obfuscated_res_0x7f0f0e7e);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
+    }
+
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.a = z;
         }
     }
 }

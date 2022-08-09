@@ -1,18 +1,17 @@
 package com.repackage;
 
-import android.view.MotionEvent;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes7.dex */
-public final class qw3 {
+public abstract class qw3 implements ic2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q72 a;
 
     public qw3() {
         Interceptable interceptable = $ic;
@@ -28,48 +27,37 @@ public final class qw3 {
         }
     }
 
-    public boolean a(MotionEvent motionEvent) {
-        InterceptResult invokeL;
+    @Override // com.repackage.ic2
+    @NonNull
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            q72 q72Var = this.a;
-            if (q72Var == null) {
-                return false;
-            }
-            boolean f = rw3.f(q72Var.o());
-            boolean f2 = rw3.f(this.a.y());
-            JSEvent jSEvent = null;
-            if (f || f2) {
-                jSEvent = rw3.j(motionEvent);
-            }
-            boolean dispatchEvent = f ? this.a.dispatchEvent(jSEvent) : false;
-            if (f2 && this.a.v0()) {
-                this.a.y().dispatchEvent(jSEvent);
-            }
-            rw3.g(true);
-            return dispatchEvent;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "aigames/extcore/game-extension-core.zip" : (String) invokeV.objValue;
     }
 
-    public void b(int i, int i2) {
+    @Override // com.repackage.ic2
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            rw3.m(i, i2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 1;
         }
+        return invokeV.intValue;
     }
 
-    public void c(q72 q72Var) {
+    @Override // com.repackage.ic2
+    @NonNull
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, q72Var) == null) {
-            this.a = q72Var;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "aigames/extcore/game-extension-config.json" : (String) invokeV.objValue;
     }
 
-    public void d(int i, int i2) {
+    @Override // com.repackage.ic2
+    @NonNull
+    public File f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            rw3.l(i, i2);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new File(ox3.d(), "extension_core") : (File) invokeV.objValue;
     }
 }

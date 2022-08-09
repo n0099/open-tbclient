@@ -1,64 +1,190 @@
 package com.repackage;
 
+import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.searchbox.v8engine.console.DebugConsole;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class ow3 implements DebugConsole {
+import com.repackage.e63;
+import com.repackage.vj2;
+import java.io.File;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class ow3 extends w23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755425338, "Lcom/repackage/ow3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements sf3<c63<e63.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ Context c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ ow3 e;
+
+        public a(ow3 ow3Var, CallbackHandler callbackHandler, String str, Context context, String str2) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ow3Var, callbackHandler, str, context, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755425338, "Lcom/repackage/ow3;");
-                return;
+            this.e = ow3Var;
+            this.a = callbackHandler;
+            this.b = str;
+            this.c = context;
+            this.d = str2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.sf3
+        /* renamed from: b */
+        public void a(c63<e63.e> c63Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c63Var) == null) {
+                if (x53.h(c63Var)) {
+                    this.e.l(this.c, this.d, this.b, this.a);
+                } else {
+                    x53.q(c63Var, this.a, this.b);
+                }
             }
         }
-        b = sg1.a;
     }
 
-    public ow3() {
+    /* loaded from: classes7.dex */
+    public class b implements vj2.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ String c;
+
+        public b(ow3 ow3Var, Context context, CallbackHandler callbackHandler, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ow3Var, context, callbackHandler, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = callbackHandler;
+            this.c = str;
+        }
+
+        @Override // com.repackage.vj2.c
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            }
+        }
+
+        @Override // com.repackage.vj2.c
+        public void onFailed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                r03.f(this.a, R.string.obfuscated_res_0x7f0f012e).G();
+                this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
+            }
+        }
+
+        @Override // com.repackage.vj2.c
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                File c = cx3.c();
+                File b = cx3.b();
+                if (w23.b) {
+                    Log.d("replaceGameCore", "gameCoreZipFile: " + c + " gameCoreDir: " + b);
+                }
+                if (c.exists() && bh4.U(c.getPath(), b.getPath())) {
+                    yw2.L(true);
+                    r03.f(this.a, R.string.obfuscated_res_0x7f0f012f).G();
+                    this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                    return;
+                }
+                r03.f(this.a, R.string.obfuscated_res_0x7f0f012e).G();
+                this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ow3(w13 w13Var) {
+        super(w13Var, "/swanAPI/debug/replaceGameCore");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {w13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.searchbox.v8engine.console.DebugConsole
-    public void onReceiveInfo(int i, String str) {
+    @Override // com.repackage.w23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, z03 z03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && b && !e14.d()) {
-            if (i == 0) {
-                Log.d("arConsole", String.format("%s: %s %s", "queue event", "", str));
-            } else if (i == 1) {
-                this.a = System.currentTimeMillis();
-                Log.d("arConsole", String.format("%s: %s %s", "run event start", "", str));
-            } else if (i != 2) {
-            } else {
-                Log.d("arConsole", String.format("%s: %s %s", "run event end", Long.valueOf(System.currentTimeMillis() - this.a), str));
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, z03Var)) == null) {
+            JSONObject a2 = w23.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                r03.f(context, R.string.obfuscated_res_0x7f0f0131).G();
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "params is null");
+                return false;
             }
+            String optString = a2.optString("url");
+            String optString2 = a2.optString("cb");
+            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
+                z03Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, optString2, context, optString));
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
+            }
+            r03.f(context, R.string.obfuscated_res_0x7f0f0132).G();
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "game core url or cb is null");
+            return false;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final void l(Context context, String str, String str2, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, callbackHandler) == null) {
+            ox3.g(str, new b(this, context, callbackHandler, str2));
         }
     }
 }

@@ -1,15 +1,22 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.download.exception.DownloadException;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes6.dex */
-public abstract class n69 {
+public final class n69 {
     public static /* synthetic */ Interceptable $ic;
+    public static n69 c;
+    public static SQLiteOpenHelper d;
     public transient /* synthetic */ FieldHolder $fh;
+    public AtomicInteger a;
+    public SQLiteDatabase b;
 
     public n69() {
         Interceptable interceptable = $ic;
@@ -21,55 +28,54 @@ public abstract class n69 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new AtomicInteger();
+    }
+
+    public static synchronized n69 a() {
+        InterceptResult invokeV;
+        n69 n69Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (n69.class) {
+                if (c == null) {
+                    b(i69.h().getContext());
+                }
+                n69Var = c;
+            }
+            return n69Var;
+        }
+        return (n69) invokeV.objValue;
+    }
+
+    public static synchronized void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+            synchronized (n69.class) {
+                if (c == null) {
+                    c = new n69();
+                    d = new l69(context);
+                }
             }
         }
     }
 
-    public void a(String str) {
+    public final synchronized SQLiteDatabase c() {
+        InterceptResult invokeV;
+        SQLiteDatabase sQLiteDatabase;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.a.incrementAndGet() == 1) {
+                    j79.a("***************新建立了 一个数据库的实例****************");
+                    this.b = d.getWritableDatabase();
+                }
+                sQLiteDatabase = this.b;
+            }
+            return sQLiteDatabase;
         }
-    }
-
-    public void b(long j, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    public void f(DownloadException downloadException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, downloadException) == null) {
-        }
-    }
-
-    public void g(long j, long j2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
+        return (SQLiteDatabase) invokeV.objValue;
     }
 }

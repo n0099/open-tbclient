@@ -23,8 +23,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
-import com.repackage.ni;
-import com.repackage.pi;
+import com.repackage.oi;
+import com.repackage.qi;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -100,7 +100,7 @@ public class VideoChannelModel extends BdBaseModel {
                         this.a.b.b(arrayList);
                     }
                 }
-                VideoChannelModel.B(this.a);
+                VideoChannelModel.A(this.a);
             }
         }
     }
@@ -140,14 +140,14 @@ public class VideoChannelModel extends BdBaseModel {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            if (!ni.z()) {
-                pi.L(this.a.a.getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c17));
+            if (!oi.z()) {
+                qi.L(this.a.a.getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c3c));
                 return;
             }
             Object data = customResponsedMessage.getData();
             if ((data instanceof Integer) && ((Integer) data).intValue() == this.a.e && !this.a.d) {
                 this.a.d = true;
-                this.a.I();
+                this.a.H();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921575, Integer.valueOf(this.a.e)));
             }
         }
@@ -191,43 +191,43 @@ public class VideoChannelModel extends BdBaseModel {
         registerListener(this.g);
     }
 
-    public static /* synthetic */ int B(VideoChannelModel videoChannelModel) {
+    public static /* synthetic */ int A(VideoChannelModel videoChannelModel) {
         int i = videoChannelModel.c;
         videoChannelModel.c = i + 1;
         return i;
     }
 
-    public final HttpMessage H(int i) {
+    public final HttpMessage G(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_HTTP_VIDEO_CHANNEL_FEED);
-            httpMessage.addParam("scr_w", pi.k(TbadkCoreApplication.getInst()));
-            httpMessage.addParam("scr_h", pi.i(TbadkCoreApplication.getInst()));
-            httpMessage.addParam("scr_dip", Float.valueOf(pi.h(TbadkCoreApplication.getInst())));
-            httpMessage.addParam("new_net_type", ni.I());
+            httpMessage.addParam("scr_w", qi.k(TbadkCoreApplication.getInst()));
+            httpMessage.addParam("scr_h", qi.i(TbadkCoreApplication.getInst()));
+            httpMessage.addParam("scr_dip", Float.valueOf(qi.h(TbadkCoreApplication.getInst())));
+            httpMessage.addParam("new_net_type", oi.I());
             httpMessage.addParam("load_type", i);
             return httpMessage;
         }
         return (HttpMessage) invokeI.objValue;
     }
 
-    public void I() {
+    public void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.c = 1;
-            sendMessage(H(1));
+            sendMessage(G(1));
         }
     }
 
-    public void J(int i) {
+    public void I(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             this.e = i;
         }
     }
 
-    public void K(c cVar) {
+    public void J(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
             this.b = cVar;
@@ -240,7 +240,7 @@ public class VideoChannelModel extends BdBaseModel {
             if (this.c < 2) {
                 this.c = 2;
             }
-            sendMessage(H(2));
+            sendMessage(G(2));
         }
     }
 

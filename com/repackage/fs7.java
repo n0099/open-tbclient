@@ -1,76 +1,57 @@
 package com.repackage;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.os.CountDownTimer;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.pb.ejection.value.Direction;
-import com.baidu.tieba.pb.ejection.value.LifeCycleState;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Random;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class fs7 {
+public class fs7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public float h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public float m;
-    public Direction n;
-    public Direction o;
-    public int p;
-    public int q;
-    public int r;
-    public int s;
-    public int t;
-    public Paint u;
-    public LifeCycleState v;
-    public CountDownTimer w;
-    public Random x;
-    public int y;
 
-    public fs7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static String a = "c12585";
+        public static String b = "c12586";
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-375533110, "Lcom/repackage/fs7$a;")) == null) {
                 return;
             }
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-375533110, "Lcom/repackage/fs7$a;");
+            }
         }
-        this.g = 255;
-        this.h = 2.0f;
-        this.i = 0;
-        this.j = 0;
-        this.k = 90;
-        this.l = 0;
-        this.m = -0.4f;
-        this.n = Direction.TOP;
-        this.o = Direction.RIGHT;
-        this.t = 0;
-        this.v = LifeCycleState.ACTIVE;
-        this.u = new Paint(1);
-        this.x = new Random();
-        this.y = TbadkCoreApplication.getInst().getSkinType();
     }
 
-    public abstract void a();
-
-    public abstract void b(Canvas canvas);
+    public static CustomDialogData a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("tb_hudong")) != null && !TextUtils.isEmpty(optJSONObject.optString("content"))) {
+                try {
+                    return CustomDialogData.praseJSON(new JSONObject(Uri.decode(optJSONObject.optString("content"))));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            return null;
+        }
+        return (CustomDialogData) invokeL.objValue;
+    }
 }

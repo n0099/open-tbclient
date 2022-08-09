@@ -7,9 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.v75;
+import com.repackage.t85;
 /* loaded from: classes3.dex */
-public abstract class MvcHttpResponsedMessage<D extends v75> extends TbHttpResponsedMessage {
+public abstract class MvcHttpResponsedMessage<D extends t85> extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public D data;

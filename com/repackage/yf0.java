@@ -1,22 +1,41 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.app.Application;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.utils.LruCache;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class yf0 implements Application.ActivityLifecycleCallbacks {
+public class yf0 {
     public static /* synthetic */ Interceptable $ic;
-    public static yf0 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public zf0 a;
+    public final LruCache<String, String> a;
+
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final yf0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(156206449, "Lcom/repackage/yf0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(156206449, "Lcom/repackage/yf0$a;");
+                    return;
+                }
+            }
+            a = new yf0();
+        }
+    }
 
     public yf0() {
         Interceptable interceptable = $ic;
@@ -28,91 +47,21 @@ public final class yf0 implements Application.ActivityLifecycleCallbacks {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new LruCache<>(8);
     }
 
     public static yf0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (yf0.class) {
-                    if (b == null) {
-                        b = new yf0();
-                    }
-                }
-            }
-            return b;
-        }
-        return (yf0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (yf0) invokeV.objValue;
     }
 
-    public void b(zf0 zf0Var) {
+    public String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, zf0Var) == null) {
-            synchronized (zf0.class) {
-                if (this.a != null) {
-                    return;
-                }
-                this.a = zf0Var;
-            }
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bundle) == null) {
-            this.a.onActivityCreated(activity, bundle);
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityDestroyed(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-            this.a.onActivityDestroyed(activity);
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityPaused(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            this.a.onActivityPaused(activity);
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityResumed(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {
-            this.a.onActivityResumed(activity);
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, activity, bundle) == null) {
-            this.a.onActivitySaveInstanceState(activity, bundle);
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStarted(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
-            this.a.onActivityStarted(activity);
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStopped(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
-            this.a.onActivityStopped(activity);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.a.get(str) : (String) invokeL.objValue;
     }
 }

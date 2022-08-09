@@ -1,60 +1,55 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.zxing.client.result.ResultParser;
-import java.io.Closeable;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.StringWriter;
+import java.util.Enumeration;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipException;
+import java.util.zip.ZipFile;
 /* loaded from: classes6.dex */
-public class fe0 {
+public final class fe0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Closeable closeable) {
+    public static void a(File file, File file2) throws ZipException, IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, closeable) == null) || closeable == null) {
-            return;
-        }
-        try {
-            closeable.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static String b(InputStream inputStream) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) ? c(inputStream, null) : (String) invokeL.objValue;
-    }
-
-    public static String c(InputStream inputStream, String str) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, inputStream, str)) == null) {
-            if (inputStream != null) {
-                if (TextUtils.isEmpty(str)) {
-                    str = System.getProperty("file.encoding", IMAudioTransRequest.CHARSET);
-                }
-                InputStreamReader inputStreamReader = new InputStreamReader(inputStream, str);
-                StringWriter stringWriter = new StringWriter();
-                char[] cArr = new char[4096];
-                for (int read = inputStreamReader.read(cArr); read > 0; read = inputStreamReader.read(cArr)) {
-                    stringWriter.write(cArr, 0, read);
-                }
-                String stringWriter2 = stringWriter.toString();
-                inputStreamReader.close();
-                stringWriter.close();
-                return (IMAudioTransRequest.CHARSET.equalsIgnoreCase(str) && stringWriter2.startsWith(ResultParser.BYTE_ORDER_MARK)) ? stringWriter2.substring(1) : stringWriter2;
+        if (interceptable == null || interceptable.invokeLL(65536, null, file, file2) == null) {
+            if (!file2.exists()) {
+                file2.mkdirs();
             }
-            throw new IllegalArgumentException("stream may not be null.");
+            String absolutePath = file2.getAbsolutePath();
+            ZipFile zipFile = new ZipFile(file);
+            Enumeration<? extends ZipEntry> entries = zipFile.entries();
+            while (entries.hasMoreElements()) {
+                ZipEntry nextElement = entries.nextElement();
+                String name = nextElement.getName();
+                if (!"./".equals(name) && !".".equals(name) && !name.endsWith("/")) {
+                    InputStream inputStream = zipFile.getInputStream(nextElement);
+                    File file3 = new File(absolutePath + File.separator + name);
+                    if (!file3.exists()) {
+                        File parentFile = file3.getParentFile();
+                        if (!parentFile.exists()) {
+                            parentFile.mkdirs();
+                        }
+                        file3.createNewFile();
+                    }
+                    FileOutputStream fileOutputStream = new FileOutputStream(file3);
+                    byte[] bArr = new byte[10240];
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read <= 0) {
+                            break;
+                        }
+                        fileOutputStream.write(bArr, 0, read);
+                    }
+                    inputStream.close();
+                    fileOutputStream.close();
+                }
+            }
         }
-        return (String) invokeLL.objValue;
     }
 }

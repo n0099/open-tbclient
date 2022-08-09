@@ -1,597 +1,203 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Log;
-import android.view.View;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.StringRes;
-import androidx.core.view.InputDeviceCompat;
+import android.os.Bundle;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.res.widget.toast.ToastLocation;
-import com.baidu.swan.apps.res.widget.toast.ToastRightAreaStyle;
-import com.baidu.swan.apps.res.widget.toast.ToastTemplate;
+import com.baidu.swan.apps.res.ui.BdMultiPicker;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.e03;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class a03 {
+public class a03 extends e03 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean u;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public CharSequence b;
-    public CharSequence c;
-    public CharSequence d;
-    public Drawable e;
-    public Drawable f;
-    public Uri g;
-    public int h;
-    public int i;
-    public c j;
-    public int k;
-    public b l;
-    public boolean m;
-    public View n;
-    public ToastRightAreaStyle o;
-    public CharSequence p;
-    public CharSequence q;
-    public ToastLocation r;
-    public ToastTemplate s;
-    public boolean t;
+    public BdMultiPicker c;
+    public JSONArray d;
+    public JSONArray e;
+    public BdMultiPicker.b f;
+    public boolean g;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public static class a extends e03.a {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
+        public JSONArray e;
+        public JSONArray f;
+        public boolean g;
+        public BdMultiPicker.b h;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-580673936, "Lcom/repackage/a03$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-580673936, "Lcom/repackage/a03$a;");
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Context context) {
+            super(context);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Context) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[ToastTemplate.values().length];
-            a = iArr;
-            try {
-                iArr[ToastTemplate.T1.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
+        }
+
+        @Override // com.repackage.e03.a
+        public e03 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                a03 a03Var = (a03) super.a();
+                a03Var.g(this.e);
+                a03Var.h(this.f);
+                a03Var.j(this.g);
+                a03Var.i(this.h);
+                return a03Var;
             }
-            try {
-                a[ToastTemplate.T2.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
+            return (e03) invokeV.objValue;
+        }
+
+        @Override // com.repackage.e03.a
+        public e03 b(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? new a03(context) : (e03) invokeL.objValue;
+        }
+
+        public a l(JSONArray jSONArray) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {
+                this.e = jSONArray;
+                return this;
             }
-            try {
-                a[ToastTemplate.T3.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
+            return (a) invokeL.objValue;
+        }
+
+        public a m(JSONArray jSONArray) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
+                this.f = jSONArray;
+                return this;
             }
-            try {
-                a[ToastTemplate.T4.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
+            return (a) invokeL.objValue;
+        }
+
+        public a n(BdMultiPicker.b bVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bVar)) == null) {
+                this.h = bVar;
+                return this;
             }
+            return (a) invokeL.objValue;
+        }
+
+        public a o(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+                this.g = z;
+                return this;
+            }
+            return (a) invokeZ.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void onDismiss();
-    }
-
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a();
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755910643, "Lcom/repackage/a03;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755910643, "Lcom/repackage/a03;");
-                return;
-            }
-        }
-        u = sg1.a;
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a03(Context context) {
+        super(context, R.style.obfuscated_res_0x7f1001a8);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = 2;
-        this.o = ToastRightAreaStyle.JUMP;
-        this.r = ToastLocation.MIDDLE;
-        this.s = ToastTemplate.T1;
-        this.t = false;
-        this.a = context;
-        this.h = 2;
     }
 
-    public static void a() {
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            wz2.d();
-            b03.h();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c = new BdMultiPicker(getContext());
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+            layoutParams.gravity = 1;
+            this.c.setLayoutParams(layoutParams);
+            this.c.setMultiWheelData(this.d, this.e);
+            if (this.g) {
+                return;
+            }
+            this.c.setMultiSelectedListener(this.f);
         }
     }
 
-    public static int c(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? zd3.t() + ((int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070159)) : invokeL.intValue;
-    }
-
-    public static boolean d() {
+    public JSONArray f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? wz2.e() || b03.k() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c.getCurrentIndex() : (JSONArray) invokeV.objValue;
     }
 
-    public static a03 e(@NonNull Context context) {
-        InterceptResult invokeL;
+    public void g(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? new a03(context) : (a03) invokeL.objValue;
-    }
-
-    public static a03 f(@NonNull Context context, @StringRes int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, context, i)) == null) {
-            a03 a03Var = new a03(context);
-            a03Var.b = context.getText(i);
-            return a03Var;
-        }
-        return (a03) invokeLI.objValue;
-    }
-
-    public static a03 g(@NonNull Context context, @NonNull CharSequence charSequence) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, charSequence)) == null) {
-            a03 a03Var = new a03(context);
-            a03Var.b = charSequence;
-            return a03Var;
-        }
-        return (a03) invokeLL.objValue;
-    }
-
-    public void A(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && b()) {
-            a();
-            if (!z) {
-                Context context = this.a;
-                if (context instanceof Activity) {
-                    b03.m((Activity) context, this.b, this.h, this.m);
-                    return;
-                }
-            }
-            wz2.i(this.a, this.b, this.h, this.m);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray) == null) {
+            this.d = jSONArray;
         }
     }
 
-    public void B() {
+    public void h(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            C(false);
+        if (interceptable == null || interceptable.invokeL(1048579, this, jSONArray) == null) {
+            this.e = jSONArray;
         }
     }
 
-    public void C(boolean z) {
+    public void i(BdMultiPicker.b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && b()) {
-            a();
-            if (!z) {
-                Context context = this.a;
-                if (context instanceof Activity) {
-                    b03.n((Activity) context, this.b, this.e, this.n, this.h, this.m);
-                    return;
-                }
-            }
-            wz2.j(this.a, this.b, this.e, this.n, this.h, this.m);
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+            this.f = bVar;
         }
     }
 
-    @Deprecated
-    public void D() {
+    public void j(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            E(false);
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.g = z;
         }
     }
 
-    @Deprecated
-    public void E(boolean z) {
+    public void k(int i, JSONArray jSONArray, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && b()) {
-            a();
-            if (z) {
-                y(this.a, this.c);
-            } else if (this.a instanceof Activity) {
-                b bVar = this.l;
-                if (bVar != null) {
-                    b03.l(bVar);
-                    this.l = null;
-                }
-                if (1 == this.k) {
-                    this.o = ToastRightAreaStyle.JUMP;
-                } else {
-                    this.o = ToastRightAreaStyle.BUTTON;
-                }
-                if (TextUtils.isEmpty(this.d)) {
-                    b03.o((Activity) this.a, null, null, null, this.b, null, this.h, this.r, this.j, this.m);
-                    return;
-                }
-                CharSequence charSequence = this.c;
-                CharSequence charSequence2 = this.b;
-                if (TextUtils.isEmpty(charSequence) && !TextUtils.isEmpty(this.b)) {
-                    charSequence = this.b;
-                    charSequence2 = "";
-                }
-                b03.p((Activity) this.a, this.g, null, null, charSequence, charSequence2, this.d, this.o, this.h, false, this.j);
-            } else {
-                b bVar2 = this.l;
-                if (bVar2 != null) {
-                    wz2.f(bVar2);
-                    this.l = null;
-                }
-                y(this.a, this.c);
-            }
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), jSONArray, Integer.valueOf(i2)}) == null) {
+            this.c.j(i, jSONArray, i2);
         }
     }
 
-    public void F() {
+    @Override // android.app.Dialog
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && b()) {
-            a();
-            wz2.h(this.a, this.b, this.h, false, this.i, this.m);
-        }
-    }
-
-    public void G() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            H(false);
-        }
-    }
-
-    public void H(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && b()) {
-            a();
-            if (!z && (this.a instanceof Activity)) {
-                if (u) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("给View set 的mOnDismissListener是不是空?");
-                    sb.append(this.l == null);
-                    Log.w("UniversalToast", sb.toString());
-                }
-                b bVar = this.l;
-                if (bVar != null) {
-                    b03.l(bVar);
-                    this.l = null;
-                }
-                b03.o((Activity) this.a, null, null, null, this.b, null, this.h, this.r, this.j, this.m);
-                return;
-            }
-            b bVar2 = this.l;
-            if (bVar2 != null) {
-                wz2.f(bVar2);
-                this.l = null;
-            }
-            y(this.a, this.b);
-        }
-    }
-
-    public void I() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            J(false);
-        }
-    }
-
-    public void J(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && b()) {
-            a();
-            if (!z) {
-                Context context = this.a;
-                if (context instanceof Activity) {
-                    b03.o((Activity) context, null, null, null, this.b, null, this.h, ToastLocation.BOTTOM, this.j, this.m);
-                    return;
-                }
-            }
-            y(this.a, this.b);
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.a == null) {
-                if (u) {
-                    throw new IllegalArgumentException("UniversalToast mContext is null!!!");
-                }
-                return false;
-            } else if (this.b == null) {
-                if (u) {
-                    throw new IllegalArgumentException("UniversalToast toast text is null!!!");
-                }
-                return false;
-            } else {
-                return true;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Deprecated
-    public a03 h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) ? this : (a03) invokeI.objValue;
-    }
-
-    public a03 i(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) ? this : (a03) invokeI.objValue;
-    }
-
-    @Deprecated
-    public a03 j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
-            this.k = i;
-            return this;
-        }
-        return (a03) invokeI.objValue;
-    }
-
-    public a03 k(@NonNull CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, charSequence)) == null) {
-            this.d = charSequence;
-            return this;
-        }
-        return (a03) invokeL.objValue;
-    }
-
-    public a03 l(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
-            this.h = Math.max(i, 1);
-            return this;
-        }
-        return (a03) invokeI.objValue;
-    }
-
-    public a03 m(@DrawableRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
-            Context context = this.a;
-            if (context != null && context.getResources() != null) {
-                this.e = this.a.getResources().getDrawable(i);
-            }
-            return this;
-        }
-        return (a03) invokeI.objValue;
-    }
-
-    public a03 n(@NonNull Drawable drawable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, drawable)) == null) {
-            this.e = drawable;
-            return this;
-        }
-        return (a03) invokeL.objValue;
-    }
-
-    public a03 o(@NonNull Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, uri)) == null) {
-            this.g = uri;
-            return this;
-        }
-        return (a03) invokeL.objValue;
-    }
-
-    public a03 p(ToastLocation toastLocation) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, toastLocation)) == null) {
-            this.r = toastLocation;
-            return this;
-        }
-        return (a03) invokeL.objValue;
-    }
-
-    public a03 q(@NonNull int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
-            this.i = i;
-            return this;
-        }
-        return (a03) invokeI.objValue;
-    }
-
-    public a03 r(@NonNull CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, charSequence)) == null) {
-            this.b = charSequence;
-            return this;
-        }
-        return (a03) invokeL.objValue;
-    }
-
-    public a03 s(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048598, this, z)) == null) {
-            this.m = z;
-            return this;
-        }
-        return (a03) invokeZ.objValue;
-    }
-
-    public a03 t(@NonNull CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, charSequence)) == null) {
-            this.c = charSequence;
-            return this;
-        }
-        return (a03) invokeL.objValue;
-    }
-
-    public a03 u(c cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, cVar)) == null) {
-            this.j = cVar;
-            return this;
-        }
-        return (a03) invokeL.objValue;
-    }
-
-    public void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            if (this.a != null && (!TextUtils.isEmpty(this.b) || !TextUtils.isEmpty(this.c))) {
-                a();
-                if (this.a instanceof Activity) {
-                    int i = a.a[this.s.ordinal()];
-                    if (i == 2) {
-                        if (TextUtils.isEmpty(this.b)) {
-                            return;
-                        }
-                        b03.o((Activity) this.a, this.g, this.f, this.n, this.b, this.q, this.h, this.r, this.j, this.m);
-                        return;
-                    } else if (i == 3) {
-                        if (TextUtils.isEmpty(this.q) && !TextUtils.isEmpty(this.b)) {
-                            b03.o((Activity) this.a, this.g, this.f, this.n, this.b, this.q, this.h, this.r, this.j, this.m);
-                            return;
-                        } else if (TextUtils.isEmpty(this.c)) {
-                            return;
-                        } else {
-                            b03.p((Activity) this.a, this.g, this.f, this.n, this.c, this.p, this.q, this.o, this.h, this.t, this.j);
-                            return;
-                        }
-                    } else if (i != 4) {
-                        if (TextUtils.isEmpty(this.b)) {
-                            return;
-                        }
-                        b03.o((Activity) this.a, null, null, null, this.b, null, this.h, this.r, null, this.m);
-                        return;
-                    } else if (TextUtils.isEmpty(this.b)) {
-                        return;
-                    } else {
-                        b03.n((Activity) this.a, this.b, this.e, this.n, this.h, this.m);
-                        return;
-                    }
-                } else if (a.a[this.s.ordinal()] != 4) {
-                    y(this.a, TextUtils.isEmpty(this.b) ? this.c : this.b);
-                    return;
-                } else if (TextUtils.isEmpty(this.b)) {
-                    return;
-                } else {
-                    wz2.j(this.a, this.b, this.e, this.n, this.h, this.m);
-                    return;
-                }
-            }
-            zz2.h("has no mToastText or mTitleText");
-        }
-    }
-
-    @Deprecated
-    public void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            x(false, false);
-        }
-    }
-
-    @Deprecated
-    public void x(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && b()) {
-            a();
-            if (!z && (this.a instanceof Activity)) {
-                b bVar = this.l;
-                if (bVar != null) {
-                    b03.l(bVar);
-                    this.l = null;
-                }
-                if (TextUtils.isEmpty(this.d)) {
-                    this.d = pj2.c().getResources().getText(R.string.obfuscated_res_0x7f0f0111);
-                }
-                b03.o((Activity) this.a, null, null, null, this.b, this.d, this.h, ToastLocation.BOTTOM, this.j, this.m);
-                return;
-            }
-            b bVar2 = this.l;
-            if (bVar2 != null) {
-                wz2.f(bVar2);
-                this.l = null;
-            }
-            y(this.a, this.b);
-        }
-    }
-
-    public final void y(Context context, CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048604, this, context, charSequence) == null) || TextUtils.isEmpty(charSequence)) {
-            return;
-        }
-        wz2.k(context, null, null, null, charSequence, null, this.h, this.r, null, this.m);
-    }
-
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            A(false);
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
+            e();
+            b().j(this.c);
         }
     }
 }

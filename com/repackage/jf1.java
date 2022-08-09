@@ -1,14 +1,14 @@
 package com.repackage;
 
-import android.content.Context;
-import android.os.Build;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.IMConstants;
+import com.baidu.mapapi.UIMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import com.repackage.xe1;
+import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class jf1 {
@@ -16,406 +16,149 @@ public class jf1 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a extends of1 {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int b;
+        public final /* synthetic */ xe1.a a;
+        public final /* synthetic */ String b;
         public final /* synthetic */ int c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ Context e;
+        public final /* synthetic */ ArrayList d;
 
-        public a(int i, int i2, String str, Context context) {
+        /* renamed from: com.repackage.jf1$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class C0511a extends fg1 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ xe1.a b;
+            public final /* synthetic */ a c;
+
+            public C0511a(a aVar, xe1.a aVar2) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, aVar2};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.c = aVar;
+                this.b = aVar2;
+            }
+
+            @Override // com.repackage.fg1
+            public void b() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.b.onFinish(this.c.b);
+                }
+            }
+        }
+
+        public a(xe1.a aVar, String str, int i, ArrayList arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str, context};
+                Object[] objArr = {aVar, str, Integer.valueOf(i), arrayList};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = i;
-            this.c = i2;
-            this.d = str;
-            this.e = context;
+            this.a = aVar;
+            this.b = str;
+            this.c = i;
+            this.d = arrayList;
         }
 
-        @Override // com.repackage.of1
-        public void b() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    JSONArray jSONArray = new JSONArray();
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("0", this.b);
-                    jSONObject.put("1", System.currentTimeMillis());
-                    jSONObject.put("2", this.c);
-                    jSONObject.put("3", this.d);
-                    jSONObject.put("4", "1");
-                    jSONArray.put(jSONObject);
-                    hf1.c(this.e).f(jSONArray.toString(), "1077112", 2);
-                } catch (Throwable th) {
-                    tf1.d(th);
+                xe1.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onFinish(this.b);
                 }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b extends of1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ long c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ int e;
-        public final /* synthetic */ String f;
-        public final /* synthetic */ Context g;
-
-        public b(int i, long j, int i2, int i3, String str, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), str, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                if (this.c != 1 || this.d == null) {
                     return;
                 }
-            }
-            this.b = i;
-            this.c = j;
-            this.d = i2;
-            this.e = i3;
-            this.f = str;
-            this.g = context;
-        }
-
-        @Override // com.repackage.of1
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = "";
-                try {
-                    JSONArray jSONArray = new JSONArray();
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("0", this.b);
-                    jSONObject.put("1", "");
-                    jSONObject.put("2", Build.VERSION.SDK_INT);
-                    jSONObject.put("3", this.c);
-                    jSONObject.put("4", this.d);
-                    jSONObject.put("5", this.e);
-                    if (!TextUtils.isEmpty(this.f)) {
-                        str = this.f;
+                for (int i = 0; i < this.d.size(); i++) {
+                    xe1.a aVar2 = (xe1.a) this.d.get(i);
+                    if (aVar2 != null) {
+                        hg1.c().b(new C0511a(this, aVar2));
                     }
-                    jSONObject.put("6", str);
-                    jSONArray.put(jSONObject);
-                    hf1.c(this.g).f(jSONArray.toString(), "1077128", 2);
-                } catch (Throwable th) {
-                    tf1.d(th);
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class c extends of1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ Context c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ int e;
-        public final /* synthetic */ String f;
-
-        public c(int i, Context context, int i2, int i3, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), context, Integer.valueOf(i2), Integer.valueOf(i3), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = i;
-            this.c = context;
-            this.d = i2;
-            this.e = i3;
-            this.f = str;
-        }
-
-        @Override // com.repackage.of1
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("0", this.b);
-                    jSONObject.put("3", System.currentTimeMillis());
-                    int Z = he1.f(this.c).Z();
-                    if (Z != -1) {
-                        jSONObject.put("4", Z);
-                    }
-                    jSONObject.put("5", he1.f(this.c).a0());
-                    jSONObject.put("7", this.d);
-                    if (this.e != -1) {
-                        jSONObject.put("8", this.e);
-                    }
-                    jSONObject.put("9", this.f);
-                    jSONObject.put("10", 1);
-                    jSONObject.put("11", qe1.q);
-                    jSONObject.put("12", "1");
-                    new df1(this.c, null).h(jSONObject);
-                } catch (Throwable th) {
-                    tf1.d(th);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class d extends of1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ Context c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ int e;
-        public final /* synthetic */ String f;
-
-        public d(int i, Context context, int i2, int i3, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), context, Integer.valueOf(i2), Integer.valueOf(i3), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = i;
-            this.c = context;
-            this.d = i2;
-            this.e = i3;
-            this.f = str;
-        }
-
-        @Override // com.repackage.of1
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    JSONArray jSONArray = new JSONArray();
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("0", this.b);
-                    jSONObject.put("3", System.currentTimeMillis());
-                    int d0 = he1.f(this.c).d0();
-                    if (d0 != -1) {
-                        jSONObject.put("4", d0);
-                    }
-                    jSONObject.put("5", he1.f(this.c).e0());
-                    jSONObject.put("7", this.d);
-                    if (this.e != -1) {
-                        jSONObject.put("8", this.e);
-                    }
-                    jSONObject.put("9", this.f);
-                    jSONObject.put("10", 1);
-                    jSONObject.put("11", qe1.r);
-                    jSONObject.put("12", "1");
-                    jSONArray.put(jSONObject);
-                    hf1.c(this.c).f(jSONArray.toString(), "1077122", 2);
-                } catch (Throwable th) {
-                    tf1.d(th);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class e extends of1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ int e;
-        public final /* synthetic */ int f;
-        public final /* synthetic */ Context g;
-
-        public e(int i, int i2, String str, int i3, int i4, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), Integer.valueOf(i4), context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = i;
-            this.c = i2;
-            this.d = str;
-            this.e = i3;
-            this.f = i4;
-            this.g = context;
-        }
-
-        @Override // com.repackage.of1
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    JSONArray jSONArray = new JSONArray();
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("0", System.currentTimeMillis());
-                    jSONObject.put("1", this.e);
-                    jSONObject.put("2", this.b);
-                    if (this.c != -1) {
-                        jSONObject.put("3", this.c);
-                    }
-                    if (!TextUtils.isEmpty(this.d)) {
-                        jSONObject.put("4", this.d);
-                    }
-                    jSONObject.put("5", 1);
-                    jSONObject.put("6", qe1.q);
-                    jSONObject.put("7", this.f);
-                    jSONObject.put("8", "1");
-                    jSONArray.put(jSONObject);
-                    hf1.c(this.g).f(jSONArray.toString(), "1077105", 2);
-                } catch (Throwable th) {
-                    tf1.d(th);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class f extends of1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ int e;
-        public final /* synthetic */ int f;
-        public final /* synthetic */ Context g;
-
-        public f(int i, int i2, String str, int i3, int i4, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), Integer.valueOf(i4), context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = i;
-            this.c = i2;
-            this.d = str;
-            this.e = i3;
-            this.f = i4;
-            this.g = context;
-        }
-
-        @Override // com.repackage.of1
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    JSONArray jSONArray = new JSONArray();
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("0", System.currentTimeMillis());
-                    jSONObject.put("1", this.e);
-                    jSONObject.put("2", this.b);
-                    if (this.c != -1) {
-                        jSONObject.put("3", this.c);
-                    }
-                    if (!TextUtils.isEmpty(this.d)) {
-                        jSONObject.put("4", this.d);
-                    }
-                    jSONObject.put("5", 1);
-                    jSONObject.put("6", qe1.r);
-                    jSONObject.put("7", this.f);
-                    jSONObject.put("8", "1");
-                    jSONArray.put(jSONObject);
-                    hf1.c(this.g).f(jSONArray.toString(), "1077123", 2);
-                } catch (Throwable th) {
-                    tf1.d(th);
-                }
-            }
-        }
-    }
-
-    public static void a(Context context, int i, int i2, int i3, int i4, String str) {
+    public static int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str}) == null) {
-            qf1.c().b(new e(i3, i4, str, i, i2, context));
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i == 1) {
+                return 2010;
+            }
+            if (i == 2) {
+                return IMConstants.IM_MSG_TYPE_SHIELD;
+            }
+            if (i == 3) {
+                return IMConstants.IM_MSG_TYPE_SHIELD_ME;
+            }
+            if (i == 4) {
+                return 2013;
+            }
+            if (i == 5) {
+                return 2014;
+            }
+            if (i == 6) {
+                return 2015;
+            }
+            return UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE;
         }
+        return invokeI.intValue;
     }
 
-    public static void b(Context context, int i, int i2, int i3, String str) {
+    public static void b(xe1.a aVar, gf1 gf1Var, int i, ArrayList<xe1.a> arrayList, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) {
-            qf1.c().b(new c(i, context, i3, i2, str));
+        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{aVar, gf1Var, Integer.valueOf(i), arrayList, Boolean.valueOf(z)}) == null) || gf1Var == null) {
+            return;
         }
-    }
-
-    public static void c(Context context, int i, int i2, long j, int i3, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Integer.valueOf(i3), str}) == null) {
-            qf1.c().b(new b(i, j, i3, i2, str, context));
-        }
-    }
-
-    public static void d(Context context, int i, int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), str}) == null) {
-            qf1.c().b(new a(i, i2, str, context));
-        }
-    }
-
-    public static void e(Context context, int i, int i2, int i3, int i4, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str}) == null) {
-            qf1.c().b(new f(i3, i4, str, i, i2, context));
-        }
-    }
-
-    public static void f(Context context, int i, int i2, int i3, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) {
-            qf1.c().b(new d(i, context, i3, i2, str));
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("0", gf1Var.a);
+            jSONObject.put("1", gf1Var.b);
+            jSONObject.put("2", String.valueOf(gf1Var.c));
+            jSONObject.put("3", gf1Var.d);
+            String jSONObject2 = jSONObject.toString();
+            if (i == 1) {
+                if (z) {
+                    df1.c().f(false);
+                }
+            } else if (i == 2) {
+                if (z) {
+                    df1.c().d(false);
+                }
+            } else if (i == 3) {
+                if (z) {
+                    df1.c().j(false);
+                }
+            } else if (z) {
+                df1.c().n(false);
+            }
+            new Thread(new a(aVar, jSONObject2, i, arrayList)).start();
+        } catch (Throwable th) {
+            kg1.d(th);
         }
     }
 }

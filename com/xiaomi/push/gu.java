@@ -21,7 +21,7 @@ public class gu {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map<String, Object> f448a;
+    public Map<String, Object> f449a;
     public Map<String, Object> b;
 
     public gu() {
@@ -37,7 +37,7 @@ public class gu {
                 return;
             }
         }
-        this.f448a = new ConcurrentHashMap();
+        this.f449a = new ConcurrentHashMap();
         this.b = new ConcurrentHashMap();
         m377a();
     }
@@ -98,7 +98,7 @@ public class gu {
     public Object m376a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? this.f448a.get(a(str, str2)) : invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? this.f449a.get(a(str, str2)) : invokeLL.objValue;
     }
 
     /* JADX DEBUG: Null dom frontier in handler: Exception -> 0x0103 */
@@ -166,14 +166,14 @@ public class gu {
                                     newPullParser.next();
                                     String nextText6 = newPullParser.nextText();
                                     String a3 = a(nextText4, nextText5);
-                                    if (!this.f448a.containsKey(a3)) {
+                                    if (!this.f449a.containsKey(a3)) {
                                         try {
                                             Class<?> cls2 = Class.forName(nextText6);
                                             if (gt.class.isAssignableFrom(cls2)) {
-                                                map = this.f448a;
+                                                map = this.f449a;
                                                 obj = cls2.newInstance();
                                             } else if (go.class.isAssignableFrom(cls2)) {
-                                                map = this.f448a;
+                                                map = this.f449a;
                                                 obj = cls2;
                                             }
                                             map.put(a3, obj);
@@ -208,7 +208,7 @@ public class gu {
             if (!(obj instanceof gt) && !(obj instanceof Class)) {
                 throw new IllegalArgumentException("Provider must be a PacketExtensionProvider or a Class instance.");
             }
-            this.f448a.put(a(str, str2), obj);
+            this.f449a.put(a(str, str2), obj);
         }
     }
 }

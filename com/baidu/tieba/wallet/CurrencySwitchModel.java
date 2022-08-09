@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d9;
-import com.repackage.pi;
+import com.repackage.qi;
 /* loaded from: classes4.dex */
 public class CurrencySwitchModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -137,7 +137,7 @@ public class CurrencySwitchModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (this.isSending) {
-                pi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f154a);
+                qi.N(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f1591);
                 return;
             }
             this.isSending = true;

@@ -1,5 +1,5 @@
 package com.ss.android.socialbase.downloader.impls;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b implements com.ss.android.socialbase.downloader.downloader.g {
     @Override // com.ss.android.socialbase.downloader.downloader.g
     public int a(int i, com.ss.android.socialbase.downloader.network.l lVar) {

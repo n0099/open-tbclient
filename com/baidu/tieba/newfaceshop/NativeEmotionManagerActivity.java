@@ -28,13 +28,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bo7;
-import com.repackage.do7;
-import com.repackage.pi;
+import com.repackage.qi;
+import com.repackage.wp7;
+import com.repackage.yp7;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class NativeEmotionManagerActivity extends BaseFragmentActivity implements do7<Boolean> {
+public class NativeEmotionManagerActivity extends BaseFragmentActivity implements yp7<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FragmentPagerAdapter a;
@@ -147,7 +147,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
                     return;
                 }
                 this.a.o = i;
-                this.a.w0();
+                this.a.L0();
             }
         }
     }
@@ -171,12 +171,85 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         this.o = 0;
     }
 
+    public final void L0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.o == 0 && this.n) {
+                this.i.setVisibility(0);
+            } else {
+                this.i.setVisibility(4);
+            }
+        }
+    }
+
+    public final void M0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.j = getIntent().getIntExtra(NativeEmotionManagerActivityConfig.KEY, 0);
+            this.k = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0908b8);
+            this.d.add("我的表情");
+            MyEmotionManagerFragment myEmotionManagerFragment = new MyEmotionManagerFragment();
+            this.l = myEmotionManagerFragment;
+            myEmotionManagerFragment.x1(this);
+            this.b.add(this.l);
+            if (this.j == 1) {
+                this.d.add("单吧表情");
+                SingleThreadEmotionFragment singleThreadEmotionFragment = new SingleThreadEmotionFragment();
+                this.m = singleThreadEmotionFragment;
+                this.b.add(singleThreadEmotionFragment);
+            }
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            TextView textView = new TextView(getPageContext().getPageActivity());
+            this.i = textView;
+            textView.setPadding(0, qi.f(this, R.dimen.obfuscated_res_0x7f0701d5), qi.f(this, R.dimen.obfuscated_res_0x7f07029b), qi.f(this, R.dimen.obfuscated_res_0x7f0701d5));
+            this.i.setClickable(true);
+            this.i.setLayoutParams(layoutParams);
+            this.i.setText(R.string.obfuscated_res_0x7f0f0560);
+            this.i.setOnClickListener(this);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0302);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091634);
+            this.e = navigationBar;
+            navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.i, (View.OnClickListener) null);
+            this.g = this.e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0259, (View.OnClickListener) null);
+            CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = (CommonPagerSlidingTabStrip) this.e.findViewById(R.id.obfuscated_res_0x7f0908ad);
+            this.f = commonPagerSlidingTabStrip;
+            commonPagerSlidingTabStrip.k(qi.f(this, R.dimen.obfuscated_res_0x7f070207), qi.f(this, R.dimen.obfuscated_res_0x7f0701e8), qi.f(this, R.dimen.obfuscated_res_0x7f0701e8), qi.f(this, R.dimen.obfuscated_res_0x7f0701e8), qi.f(this, R.dimen.obfuscated_res_0x7f0701e8), qi.f(this, R.dimen.obfuscated_res_0x7f070302), qi.f(this, R.dimen.obfuscated_res_0x7f070261), R.color.CAM_X0107, R.color.CAM_X0105);
+            BdBaseViewPager bdBaseViewPager = (BdBaseViewPager) findViewById(R.id.obfuscated_res_0x7f0908b0);
+            this.h = bdBaseViewPager;
+            bdBaseViewPager.setmDisallowSlip(true);
+            this.h.setOffscreenPageLimit(1);
+            a aVar = new a(this, getSupportFragmentManager());
+            this.a = aVar;
+            this.h.setAdapter(aVar);
+            this.f.setViewPager(this.h);
+            this.f.setOnPageChangeListener(new b(this));
+            this.c = new CreateNewEmotionFragment();
+            Bundle bundle = new Bundle();
+            bundle.putInt(NativeEmotionManagerActivityConfig.KEY, this.j);
+            this.c.setArguments(bundle);
+            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0908ac, this.c).commit();
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.yp7
+    /* renamed from: N0 */
+    public void onUpdate(Boolean bool) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) || bool == null) {
+            return;
+        }
+        this.n = bool.booleanValue();
+        L0();
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             this.mSkinType = i;
-            getLayoutMode().k(i == 1);
+            getLayoutMode().l(i == 1);
             CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = this.f;
             if (commonPagerSlidingTabStrip != null) {
                 commonPagerSlidingTabStrip.n(i);
@@ -195,15 +268,15 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             super.onClick(view2);
             if (view2 == this.i) {
-                boolean z = !bo7.b().a();
-                bo7.b().d(z);
+                boolean z = !wp7.b().a();
+                wp7.b().d(z);
                 if (z) {
-                    this.i.setText(R.string.obfuscated_res_0x7f0f0553);
+                    this.i.setText(R.string.obfuscated_res_0x7f0f0561);
                 } else {
-                    this.i.setText(R.string.obfuscated_res_0x7f0f0552);
+                    this.i.setText(R.string.obfuscated_res_0x7f0f0560);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921310));
             }
@@ -213,84 +286,11 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            setContentView(R.layout.obfuscated_res_0x7f0d0254);
-            x0();
+            setContentView(R.layout.obfuscated_res_0x7f0d0256);
+            M0();
         }
-    }
-
-    public final void w0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.o == 0 && this.n) {
-                this.i.setVisibility(0);
-            } else {
-                this.i.setVisibility(4);
-            }
-        }
-    }
-
-    public final void x0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.j = getIntent().getIntExtra(NativeEmotionManagerActivityConfig.KEY, 0);
-            this.k = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090881);
-            this.d.add("我的表情");
-            MyEmotionManagerFragment myEmotionManagerFragment = new MyEmotionManagerFragment();
-            this.l = myEmotionManagerFragment;
-            myEmotionManagerFragment.y1(this);
-            this.b.add(this.l);
-            if (this.j == 1) {
-                this.d.add("单吧表情");
-                SingleThreadEmotionFragment singleThreadEmotionFragment = new SingleThreadEmotionFragment();
-                this.m = singleThreadEmotionFragment;
-                this.b.add(singleThreadEmotionFragment);
-            }
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            TextView textView = new TextView(getPageContext().getPageActivity());
-            this.i = textView;
-            textView.setPadding(0, pi.f(this, R.dimen.obfuscated_res_0x7f0701d5), pi.f(this, R.dimen.obfuscated_res_0x7f07029b), pi.f(this, R.dimen.obfuscated_res_0x7f0701d5));
-            this.i.setClickable(true);
-            this.i.setLayoutParams(layoutParams);
-            this.i.setText(R.string.obfuscated_res_0x7f0f0552);
-            this.i.setOnClickListener(this);
-            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0302);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091577);
-            this.e = navigationBar;
-            navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.i, (View.OnClickListener) null);
-            this.g = this.e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0257, (View.OnClickListener) null);
-            CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = (CommonPagerSlidingTabStrip) this.e.findViewById(R.id.obfuscated_res_0x7f090876);
-            this.f = commonPagerSlidingTabStrip;
-            commonPagerSlidingTabStrip.k(pi.f(this, R.dimen.obfuscated_res_0x7f070207), pi.f(this, R.dimen.obfuscated_res_0x7f0701e8), pi.f(this, R.dimen.obfuscated_res_0x7f0701e8), pi.f(this, R.dimen.obfuscated_res_0x7f0701e8), pi.f(this, R.dimen.obfuscated_res_0x7f0701e8), pi.f(this, R.dimen.obfuscated_res_0x7f070302), pi.f(this, R.dimen.obfuscated_res_0x7f070261), R.color.CAM_X0107, R.color.CAM_X0105);
-            BdBaseViewPager bdBaseViewPager = (BdBaseViewPager) findViewById(R.id.obfuscated_res_0x7f090879);
-            this.h = bdBaseViewPager;
-            bdBaseViewPager.setmDisallowSlip(true);
-            this.h.setOffscreenPageLimit(1);
-            a aVar = new a(this, getSupportFragmentManager());
-            this.a = aVar;
-            this.h.setAdapter(aVar);
-            this.f.setViewPager(this.h);
-            this.f.setOnPageChangeListener(new b(this));
-            this.c = new CreateNewEmotionFragment();
-            Bundle bundle = new Bundle();
-            bundle.putInt(NativeEmotionManagerActivityConfig.KEY, this.j);
-            this.c.setArguments(bundle);
-            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f090875, this.c).commit();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.do7
-    /* renamed from: y0 */
-    public void onUpdate(Boolean bool) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, bool) == null) || bool == null) {
-            return;
-        }
-        this.n = bool.booleanValue();
-        w0();
     }
 }

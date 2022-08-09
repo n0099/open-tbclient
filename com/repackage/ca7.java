@@ -1,113 +1,29 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.R;
-import com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.DelReplyAtMsgResMsg;
+import com.baidu.tieba.im.message.LoadHistoryMessage;
+import com.baidu.tieba.im.message.LoadHistoryResponsedMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.or4;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
 /* loaded from: classes5.dex */
-public class ca7 {
+public class ca7 implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mr4 a;
-    public or4 b;
-    public List<kr4> c;
-    public kr4 d;
-    public ba7 e;
-    public c f;
-    public or4.d g;
+    public o77 a;
+    public int b;
 
-    /* loaded from: classes5.dex */
-    public class a implements or4.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ca7 a;
-
-        public a(ca7 ca7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ca7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ca7Var;
-        }
-
-        @Override // com.repackage.or4.c
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.d();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements or4.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ca7 a;
-
-        public b(ca7 ca7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ca7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ca7Var;
-        }
-
-        @Override // com.repackage.or4.d
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c();
-                if (this.a.f != null) {
-                    this.a.f.a();
-                }
-                this.a.d();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a();
-    }
-
-    public ca7(d9 d9Var) {
+    public ca7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {d9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -117,82 +33,60 @@ public class ca7 {
                 return;
             }
         }
-        this.g = new b(this);
-        this.b = new or4(d9Var.getPageActivity());
-        kr4 kr4Var = new kr4(d9Var.getString(R.string.obfuscated_res_0x7f0f049e), this.b);
-        this.d = kr4Var;
-        kr4Var.m(this.g);
-        ArrayList arrayList = new ArrayList();
-        this.c = arrayList;
-        arrayList.add(this.d);
-        this.b.m(new a(this));
-        this.b.j(this.c);
-        this.a = new mr4(d9Var, this.b);
-        e();
-        f();
+        b(o77.h(), 2001145);
     }
 
-    public final void c() {
+    public final LoadHistoryResponsedMessage a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.e == null) {
-            return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
+            loadHistoryResponsedMessage.setError(-18);
+            return loadHistoryResponsedMessage;
         }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_DEL_REPLY_AT_MSG);
-        httpMessage.addParam("type", this.e.a);
-        httpMessage.addParam("thread_id", this.e.b);
-        httpMessage.addParam("post_id", this.e.c);
-        httpMessage.addParam("ori_ugc_nid", this.e.d);
-        MessageManager.getInstance().sendMessage(httpMessage);
+        return (LoadHistoryResponsedMessage) invokeI.objValue;
     }
 
-    public void d() {
-        mr4 mr4Var;
+    public final void b(o77 o77Var, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (mr4Var = this.a) != null && mr4Var.isShowing()) {
-            this.a.dismiss();
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o77Var, i) == null) {
+            this.a = o77Var;
+            this.b = i;
         }
     }
 
-    public void e() {
-        or4 or4Var;
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<LoadHistoryMessage.a> customMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (or4Var = this.b) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, customMessage)) == null) {
+            if (customMessage != null && (customMessage instanceof LoadHistoryMessage)) {
+                if (this.a == null) {
+                    return a(this.b);
+                }
+                LoadHistoryMessage.a data = customMessage.getData();
+                LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(this.b);
+                LinkedList<ChatMessage> g = this.a.g(data.d, data.a, data.b, data.c);
+                if (g == null) {
+                    return a(this.b);
+                }
+                LoadHistoryResponsedMessage.a aVar = new LoadHistoryResponsedMessage.a();
+                if (data.a == null) {
+                    aVar.c = true;
+                } else {
+                    aVar.c = false;
+                }
+                aVar.b = g;
+                aVar.a = data.d;
+                try {
+                    loadHistoryResponsedMessage.decodeInBackGround(2001105, aVar);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return loadHistoryResponsedMessage;
+            }
+            return a(this.b);
         }
-        or4Var.i();
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_DEL_REPLY_AT_MSG, TbConfig.SERVER_ADDRESS + TbConfig.URL_DELETE_REPLY_AT_MSG);
-            tbHttpMessageTask.setResponsedClass(DelReplyAtMsgResMsg.class);
-            tbHttpMessageTask.setIsNeedTbs(true);
-            messageManager.registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public void g(ba7 ba7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ba7Var) == null) {
-            this.e = ba7Var;
-        }
-    }
-
-    public void h(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.f = cVar;
-        }
-    }
-
-    public void i() {
-        mr4 mr4Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (mr4Var = this.a) == null) {
-            return;
-        }
-        mr4Var.show();
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

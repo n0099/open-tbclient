@@ -12,9 +12,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.om;
-import com.repackage.qm;
+import com.repackage.pm;
 import com.repackage.rm;
+import com.repackage.sm;
 /* loaded from: classes.dex */
 public class TitanDownloadService extends Service {
     public static /* synthetic */ Interceptable $ic = null;
@@ -28,15 +28,15 @@ public class TitanDownloadService extends Service {
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ om a;
+        public final /* synthetic */ pm a;
         public final /* synthetic */ TitanDownloadService b;
 
-        public a(TitanDownloadService titanDownloadService, om omVar) {
+        public a(TitanDownloadService titanDownloadService, pm pmVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {titanDownloadService, omVar};
+                Object[] objArr = {titanDownloadService, pmVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,20 +47,20 @@ public class TitanDownloadService extends Service {
                 }
             }
             this.b = titanDownloadService;
-            this.a = omVar;
+            this.a = pmVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                rm.f(this.b.mContext, "com.baidu.titan.patch", this.a);
+                sm.f(this.b.mContext, "com.baidu.titan.patch", this.a);
             }
         }
     }
 
     /* loaded from: classes.dex */
-    public class b implements om {
+    public class b implements pm {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -85,8 +85,8 @@ public class TitanDownloadService extends Service {
             this.a = i;
         }
 
-        @Override // com.repackage.om
-        public void a(String str, int i, String str2) {
+        @Override // com.repackage.pm
+        public void onResult(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
                 if (i == -1) {
@@ -119,7 +119,7 @@ public class TitanDownloadService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
             Log.d(TAG, "start service");
-            qm d = qm.d();
+            rm d = rm.d();
             d.g();
             if (d.e() == 0) {
                 Log.d(TAG, "startServiceIfNeeded last update time = 0");

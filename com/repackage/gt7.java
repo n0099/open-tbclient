@@ -1,189 +1,127 @@
 package com.repackage;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.pb.pb.foldcomment.FoldCommentActivity;
-import com.baidu.tieba.pb.pb.sub.adapter.SubPbReplyAdapter;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.resourceLoaderProc.BigImageLoaderProc;
+import com.baidu.tbadk.coreExtra.view.ImageUrlData;
+import com.baidu.tbadk.widget.richText.TbRichTextData;
+import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
+import com.baidu.tieba.pb.pb.main.AbsPbActivity;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
 public class gt7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FoldCommentActivity a;
-    public BdTypeListView b;
-    public rw7 c;
-    public tw7 d;
-    public View.OnClickListener e;
-    public View.OnClickListener f;
-    public TbRichTextView.y g;
-    public ls7 h;
-    public View.OnLongClickListener i;
-    public SubPbReplyAdapter j;
-    public ht7 k;
-    public List<an> l;
-    public jr7 m;
-    public ArrayList<nn> n;
 
-    public gt7(FoldCommentActivity foldCommentActivity, BdTypeListView bdTypeListView) {
+    public static String a(TbRichTextData tbRichTextData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {foldCommentActivity, bdTypeListView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbRichTextData)) == null) {
+            if (tbRichTextData == null) {
+                return null;
             }
+            StringBuilder sb = new StringBuilder(150);
+            TbRichTextImageInfo F = tbRichTextData.F();
+            if (F != null) {
+                if (!StringUtils.isNull(F.z())) {
+                    return F.z();
+                }
+                if (F.getHeight() * F.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
+                    double sqrt = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / (F.getHeight() * F.getWidth()));
+                    sb.append(BigImageLoaderProc.NCDN_PER);
+                    sb.append(String.valueOf((int) (F.getWidth() * sqrt)));
+                    sb.append("&height=");
+                    sb.append(String.valueOf((int) (F.getHeight() * sqrt)));
+                } else {
+                    double width = F.getWidth() / F.getHeight();
+                    double sqrt2 = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / width);
+                    sb.append(BigImageLoaderProc.NCDN_PER);
+                    sb.append(String.valueOf((int) (width * sqrt2)));
+                    sb.append("&height=");
+                    sb.append(String.valueOf((int) sqrt2));
+                }
+                sb.append("&src=");
+                sb.append(pi.getUrlEncode(F.F()));
+                return sb.toString();
+            }
+            return null;
         }
-        this.l = new ArrayList();
-        this.n = new ArrayList<>();
-        this.a = foldCommentActivity;
-        this.b = bdTypeListView;
+        return (String) invokeL.objValue;
     }
 
-    public void a() {
+    public static void b(PostData postData, AbsPbActivity.e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SubPbReplyAdapter subPbReplyAdapter = new SubPbReplyAdapter(this.a, wx7.b);
-            this.j = subPbReplyAdapter;
-            subPbReplyAdapter.b0(false);
-            this.l.add(this.j);
-            FoldCommentActivity foldCommentActivity = this.a;
-            ht7 ht7Var = new ht7(foldCommentActivity, PostData.A0, foldCommentActivity.getPageContext());
-            this.k = ht7Var;
-            ht7Var.J0(this.c);
-            this.k.K0(this.d);
-            this.k.M0(this.a);
-            this.k.l(this.e);
-            this.k.e(this.f);
-            this.k.o(this.g);
-            this.k.L0(this.h);
-            this.k.d(this.i);
-            this.l.add(this.k);
-            this.b.a(this.l);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.b.getAdapter2() == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, postData, eVar) == null) || postData == null || postData.V() == null || postData.V().B() == null || eVar == null || eVar.a == null || eVar.b == null || postData.V().B().size() == 0) {
             return;
         }
-        this.b.getAdapter2().notifyDataSetChanged();
-    }
-
-    public void c(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.f = onClickListener;
-        }
-    }
-
-    public void d(boolean z) {
-        ht7 ht7Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (ht7Var = this.k) == null) {
+        String str = (String) ListUtils.getItem(eVar.a, eVar.j);
+        if (StringUtils.isNull(str)) {
             return;
         }
-        ht7Var.setFromCDN(z);
-    }
-
-    public void e(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.e = onClickListener;
-        }
-    }
-
-    public void f(TbRichTextView.y yVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, yVar) == null) {
-            this.g = yVar;
-        }
-    }
-
-    public void g(View.OnLongClickListener onLongClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, onLongClickListener) == null) {
-            this.i = onLongClickListener;
-        }
-    }
-
-    public void h(jr7 jr7Var) {
-        ht7 ht7Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, jr7Var) == null) {
-            this.m = jr7Var;
-            ht7 ht7Var2 = this.k;
-            if (ht7Var2 != null) {
-                ht7Var2.s(jr7Var);
-            }
-            this.n.clear();
-            jr7 jr7Var2 = this.m;
-            if (jr7Var2 != null && jr7Var2.F() != null && this.m.F().size() > 0) {
-                wx7 wx7Var = new wx7();
-                wx7Var.b(jr7Var.F().size());
-                this.n.add(wx7Var);
-                Iterator<PostData> it = this.m.F().iterator();
-                while (it.hasNext()) {
-                    PostData next = it.next();
-                    if (next.getType() != PostData.z0) {
-                        this.n.add(next);
-                    }
+        eVar.a = new ArrayList<>();
+        ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = eVar.b;
+        eVar.b = new ConcurrentHashMap<>();
+        Iterator<TbRichTextData> it = postData.V().B().iterator();
+        while (it.hasNext()) {
+            TbRichTextData next = it.next();
+            if (next != null && next.getType() == 8) {
+                String a = a(next);
+                if (!StringUtils.isNull(a) && concurrentHashMap.get(a) != null) {
+                    eVar.a.add(a);
+                    eVar.b.put(a, concurrentHashMap.get(a));
                 }
             }
-            if (jr7Var.O() != null && jr7Var.O().getAuthor() != null && (ht7Var = this.k) != null) {
-                ht7Var.p(jr7Var.O().getAuthor().getUserId());
+        }
+        eVar.j = ListUtils.getPosition(eVar.a, str);
+    }
+
+    public static PostData c(ft7 ft7Var, boolean z, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{ft7Var, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            if (z) {
+                if (ft7Var == null || ft7Var.F() == null || ft7Var.F().size() <= 0) {
+                    return null;
+                }
+                PostData postData = ft7Var.F().get(0);
+                return postData.B() != 1 ? d(ft7Var) : postData;
             }
-            if (this.m != null) {
-                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_HAS_FOLD_ICON_SHOW);
-                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem.param("fid", this.m.m());
-                statisticItem.param("fname", this.m.n());
-                statisticItem.param("tid", this.m.Q());
-                TiebaStatic.log(statisticItem);
+            return d(ft7Var);
+        }
+        return (PostData) invokeCommon.objValue;
+    }
+
+    public static PostData d(ft7 ft7Var) {
+        InterceptResult invokeL;
+        MetaData metaData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, ft7Var)) == null) {
+            if (ft7Var == null || ft7Var.O() == null || ft7Var.O().getAuthor() == null) {
+                return null;
             }
-            this.b.setData(this.n);
-            this.b.getAdapter2().notifyDataSetChanged();
+            PostData postData = new PostData();
+            MetaData author = ft7Var.O().getAuthor();
+            String userId = author.getUserId();
+            HashMap<String, MetaData> userMap = ft7Var.O().getUserMap();
+            if (userMap != null && (metaData = userMap.get(userId)) != null && metaData.getUserId() != null) {
+                author = metaData;
+            }
+            postData.C0(1);
+            postData.I0(ft7Var.O().getFirstPostId());
+            postData.Z0(ft7Var.O().getTitle());
+            postData.Y0(ft7Var.O().getCreateTime());
+            postData.A0(author);
+            return postData;
         }
-    }
-
-    public void i(rw7 rw7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rw7Var) == null) {
-            this.c = rw7Var;
-        }
-    }
-
-    public void j(tw7 tw7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, tw7Var) == null) {
-            this.d = tw7Var;
-        }
-    }
-
-    public void k(ls7 ls7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, ls7Var) == null) {
-            this.h = ls7Var;
-        }
+        return (PostData) invokeL.objValue;
     }
 }

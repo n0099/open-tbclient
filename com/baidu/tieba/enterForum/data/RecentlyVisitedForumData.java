@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.pi;
 import java.io.Serializable;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -42,7 +42,7 @@ public class RecentlyVisitedForumData extends OrmObject implements Serializable 
                 Iterator<VisitedForumData> it = linkedList.iterator();
                 while (it.hasNext()) {
                     VisitedForumData next = it.next();
-                    if (!oi.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(next.getForumId())) {
+                    if (!pi.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(next.getForumId())) {
                         return true;
                     }
                 }
@@ -64,7 +64,7 @@ public class RecentlyVisitedForumData extends OrmObject implements Serializable 
                 break;
             }
             VisitedForumData next = it.next();
-            if (!oi.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(next.getForumId())) {
+            if (!pi.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(next.getForumId())) {
                 visitedForumData2 = next;
                 break;
             }
@@ -90,7 +90,7 @@ public class RecentlyVisitedForumData extends OrmObject implements Serializable 
                     break;
                 }
                 VisitedForumData visitedForumData2 = this.mForumData.get(i2);
-                if (!oi.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(visitedForumData2.getForumId())) {
+                if (!pi.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(visitedForumData2.getForumId())) {
                     i = i2;
                     break;
                 }

@@ -1,22 +1,16 @@
 package com.repackage;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
 /* loaded from: classes7.dex */
-public class sw3 {
+public class sw3 extends qw3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public tw3[] changedTouches;
-    @V8JavascriptField
-    public long timeStamp;
-    @V8JavascriptField
-    public tw3[] touches;
 
     public sw3() {
         Interceptable interceptable = $ic;
@@ -32,12 +26,19 @@ public class sw3 {
         }
     }
 
-    public String toString() {
+    @Override // com.repackage.ic2
+    @NonNull
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SwanGameTouchData{touches=" + Arrays.toString(this.touches) + ", changedTouches=" + Arrays.toString(this.changedTouches) + ", timeStamp=" + this.timeStamp + '}';
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "key_cur_remote_games_extension_core_ver" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ic2
+    @NonNull
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "key_cur_remote_games_extension_core_ver_name" : (String) invokeV.objValue;
     }
 }

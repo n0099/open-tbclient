@@ -1,64 +1,51 @@
 package com.repackage;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class c92 {
+public class c92 implements k82 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755842443, "Lcom/repackage/c92;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755842443, "Lcom/repackage/c92;");
-                return;
+    public c92() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = sg1.a;
     }
 
-    public static String a(int i, String str) {
-        InterceptResult invokeIL;
+    @Override // com.repackage.k82
+    @SuppressLint({"BDThrowableCheck"})
+    public p82 a(o82 o82Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
-            return "frame_type_" + i + "_" + str;
-        }
-        return (String) invokeIL.objValue;
-    }
-
-    public static long b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            long j = w83.a().getLong(a(i, "launch_time"), 0L);
-            if (a) {
-                Log.d("LaunchRecorder", "frame_type : " + i + " , launch time : " + j);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, o82Var)) == null) {
+            int type = o82Var.getType();
+            if (type != 1) {
+                if (type != 2) {
+                    if (type != 3) {
+                        if (!jh1.a) {
+                            return new f92();
+                        }
+                        throw new IllegalArgumentException("invalid model object:" + o82Var);
+                    }
+                    return new t22();
+                }
+                return hk2.b();
             }
-            return j;
+            return new f92();
         }
-        return invokeI.longValue;
-    }
-
-    public static void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
-            String a2 = a(i, "launch_time");
-            long currentTimeMillis = System.currentTimeMillis();
-            w83.a().putLong(a2, currentTimeMillis);
-            if (a) {
-                Log.d("LaunchRecorder", "frame_type : " + i + " , launch time : " + currentTimeMillis);
-            }
-        }
+        return (p82) invokeL.objValue;
     }
 }

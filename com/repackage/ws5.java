@@ -1,87 +1,91 @@
 package com.repackage;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.ala.alasquare.special_forum.subtab.view.ConcernTabLiveItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class ws5 {
+public class ws5 extends bn<ft5, ConcernTabLiveItemView.ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d9 a;
-    public BdTypeListView b;
-    public final List<an> c;
-    public vs5 d;
-    public ss5 e;
-    public qs5 f;
-    public rs5 g;
+    public TbPageContext a;
+    public String b;
+    public String c;
 
-    public ws5(d9 d9Var, BdTypeListView bdTypeListView, boolean z) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ws5(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), ft5.d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d9Var, bdTypeListView, Boolean.valueOf(z)};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.a = d9Var;
-        this.b = bdTypeListView;
-        a(z);
+        this.b = "";
+        this.c = "";
+        this.a = tbPageContext;
     }
 
-    public final void a(boolean z) {
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            if (z) {
-                ss5 ss5Var = new ss5((TbPageContext) this.a, mt5.c);
-                this.e = ss5Var;
-                this.c.add(ss5Var);
-            } else {
-                vs5 vs5Var = new vs5((TbPageContext) this.a, mt5.c);
-                this.d = vs5Var;
-                this.c.add(vs5Var);
-            }
-            this.f = new qs5((TbPageContext) this.a, ys5.a);
-            this.g = new rs5((TbPageContext) this.a, zs5.a);
-            this.c.add(this.f);
-            this.c.add(this.g);
-            this.b.a(this.c);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.c = str;
         }
     }
 
-    public void b(mo5 mo5Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bn
+    /* renamed from: s */
+    public ConcernTabLiveItemView.ViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mo5Var) == null) {
-            vs5 vs5Var = this.d;
-            if (vs5Var != null) {
-                vs5Var.b0(mo5Var);
-            }
-            ss5 ss5Var = this.e;
-            if (ss5Var != null) {
-                ss5Var.b0(mo5Var);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            ConcernTabLiveItemView concernTabLiveItemView = new ConcernTabLiveItemView(this.a, viewGroup);
+            concernTabLiveItemView.u(this.b);
+            concernTabLiveItemView.a(this.c);
+            concernTabLiveItemView.getClass();
+            return new ConcernTabLiveItemView.ViewHolder(concernTabLiveItemView, concernTabLiveItemView);
         }
+        return (ConcernTabLiveItemView.ViewHolder) invokeL.objValue;
     }
 
-    public void c(List<nn> list) {
-        BdTypeListView bdTypeListView;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ft5 ft5Var, ConcernTabLiveItemView.ViewHolder viewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (bdTypeListView = this.b) == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ft5Var, viewHolder})) == null) {
+            if (viewHolder == null || ft5Var == null) {
+                return null;
+            }
+            viewHolder.a.i(ft5Var);
+            return viewHolder.getView();
         }
-        bdTypeListView.setData(list);
+        return (View) invokeCommon.objValue;
+    }
+
+    public void u(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.b = str;
+        }
     }
 }

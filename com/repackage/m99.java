@@ -1,24 +1,27 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.ugc.download.exception.DownloadException;
 /* loaded from: classes6.dex */
-public class m99 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface m99 extends Runnable {
 
-    public static Object a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            try {
-                return Class.forName(str).newInstance();
-            } catch (Exception e) {
-                e.printStackTrace(System.out);
-                return null;
-            }
-        }
-        return invokeL.objValue;
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(DownloadException downloadException);
+
+        void onDownloadCanceled();
+
+        void onDownloadCompleted(String str);
+
+        void onDownloadPaused();
+
+        void onDownloadProgress(long j, long j2);
     }
+
+    void cancel();
+
+    boolean isComplete();
+
+    boolean isDownloading();
+
+    void pause();
 }

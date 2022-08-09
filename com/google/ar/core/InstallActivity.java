@@ -24,13 +24,13 @@ import com.google.ar.core.exceptions.FatalException;
 import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException;
 import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 import com.google.protobuf.CodedInputStream;
-import com.repackage.dm9;
-import com.repackage.fm9;
-import com.repackage.hm9;
-import com.repackage.im9;
-import com.repackage.jm9;
-import com.repackage.km9;
-import com.repackage.mm9;
+import com.repackage.ap9;
+import com.repackage.cp9;
+import com.repackage.dp9;
+import com.repackage.ep9;
+import com.repackage.fp9;
+import com.repackage.hp9;
+import com.repackage.yo9;
 import java.util.concurrent.atomic.AtomicReference;
 @TargetApi(24)
 /* loaded from: classes5.dex */
@@ -63,26 +63,26 @@ public class InstallActivity extends Activity {
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.repackage.mm9.a(com.google.ar.core.p):void, com.repackage.mm9.b(java.lang.Exception):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.repackage.hp9.a(com.google.ar.core.p):void, com.repackage.hp9.b(java.lang.Exception):void] */
     public static /* synthetic */ void a(InstallActivity installActivity, Exception exc) {
         installActivity.j(exc);
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.repackage.mm9.a(com.google.ar.core.p):void, com.repackage.mm9.b(java.lang.Exception):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.repackage.hp9.a(com.google.ar.core.p):void, com.repackage.hp9.b(java.lang.Exception):void] */
     public static /* synthetic */ p e(InstallActivity installActivity, p pVar) {
         installActivity.d = pVar;
         return pVar;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.repackage.mm9.a(com.google.ar.core.p):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.repackage.hp9.a(com.google.ar.core.p):void] */
     public static /* synthetic */ boolean f(InstallActivity installActivity) {
         return installActivity.g;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.repackage.mm9.a(com.google.ar.core.p):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.repackage.hp9.a(com.google.ar.core.p):void] */
     public static /* synthetic */ void g(InstallActivity installActivity) {
         installActivity.i();
     }
@@ -107,8 +107,8 @@ public class InstallActivity extends Activity {
             getWindow().getDecorView().setMinimumWidth(i);
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
             ofFloat.setDuration(300L);
-            ofFloat.addUpdateListener(new jm9(this, width, i, height));
-            ofFloat.addListener(new km9(this));
+            ofFloat.addUpdateListener(new ep9(this, width, i, height));
+            ofFloat.addListener(new fp9(this));
             ofFloat.start();
         }
     }
@@ -123,8 +123,8 @@ public class InstallActivity extends Activity {
     public final void j(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
-            fm9.d().a = exc;
-            fm9.d().g();
+            ap9.d().a = exc;
+            ap9.d().g();
             this.e = true;
             super.finish();
         }
@@ -140,11 +140,11 @@ public class InstallActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             setContentView(R.layout.__arcore_education);
-            findViewById(R.id.__arcore_cancelButton).setOnClickListener(new hm9(this));
+            findViewById(R.id.__arcore_cancelButton).setOnClickListener(new cp9(this));
             if (!k()) {
                 findViewById(R.id.__arcore_cancelButton).setVisibility(8);
             }
-            findViewById(R.id.__arcore_continueButton).setOnClickListener(new im9(this));
+            findViewById(R.id.__arcore_continueButton).setOnClickListener(new dp9(this));
             TextView textView = (TextView) findViewById(R.id.__arcore_messageText);
             if (this.b.ordinal() != 1) {
                 textView.setText(R.string.__arcore_install_app);
@@ -186,7 +186,7 @@ public class InstallActivity extends Activity {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.f = true;
             this.d = p.b;
-            fm9.d().e(this).c(this, new mm9(this));
+            ap9.d().e(this).c(this, new hp9(this));
         }
     }
 
@@ -224,7 +224,7 @@ public class InstallActivity extends Activity {
                         return;
                     }
                     AtomicReference atomicReference = new AtomicReference(ArCoreApk.Availability.UNKNOWN_CHECKING);
-                    fm9.d().e(this).e(this, new dm9(atomicReference));
+                    ap9.d().e(this).e(this, new yo9(atomicReference));
                     int ordinal = ((ArCoreApk.Availability) atomicReference.get()).ordinal();
                     if (ordinal == 0) {
                         Log.w("ARCore-InstallActivity", "Preliminary compatibility check failed.");
@@ -248,7 +248,7 @@ public class InstallActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             if (!this.e) {
-                fm9.d().g();
+                ap9.d().g();
             }
             super.onDestroy();
         }
@@ -278,7 +278,7 @@ public class InstallActivity extends Activity {
                     } else if (this.d == p.a) {
                         this.g = true;
                     } else {
-                        j(fm9.d().a);
+                        j(ap9.d().a);
                     }
                 }
             }

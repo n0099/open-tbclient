@@ -1,206 +1,106 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Typeface;
-import android.text.SpannableStringBuilder;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.text.TextPaint;
 import android.text.TextUtils;
-import android.util.Log;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.GravityCompat;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.uv1;
+import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public abstract class tv1<V extends TextView, M extends uv1> extends vv1<V, M> {
+public class tv1 extends fu1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
+    public int c;
+    public float d;
+    public float e;
+    public float f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tv1(@Nullable Context context, @NonNull M m) {
-        super(context, m);
+    public tv1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, m};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (wv1) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.d = -1.0f;
+        this.e = 0.0f;
+        this.f = 1.0f;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.vv1, com.repackage.xv1
-    @NonNull
-    /* renamed from: S */
-    public ax1 k(@NonNull M m, @NonNull M m2) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.fu1
+    public void a(gu1 gu1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, m, m2)) == null) {
-            ax1 k = super.k(m, m2);
-            if (!TextUtils.equals(m.t, m2.t)) {
-                k.b(6);
-            }
-            return k;
-        }
-        return (ax1) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.vv1
-    /* renamed from: T */
-    public void O(@NonNull V v, @NonNull M m, @NonNull ax1 ax1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, v, m, ax1Var) == null) {
-            super.C(v, m, ax1Var);
-            if (ax1Var.a(6)) {
-                U(v, m);
-            }
-            if (ax1Var.a(4)) {
-                V(v, m);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r4v1, resolved type: android.text.SpannableStringBuilder */
-    /* JADX WARN: Multi-variable type inference failed */
-    public void U(@NonNull V v, @NonNull M m) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, v, m) == null) {
-            if (xv1.h) {
-                Log.d("Component-TextView", "renderText");
-            }
-            boolean z = !TextUtils.isEmpty(m.t) && m.x >= 0;
-            String str = m.t;
-            if (z) {
-                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-                spannableStringBuilder.setSpan(new sv1(m.x), 0, str.length(), 33);
-                str = spannableStringBuilder;
-            }
-            v.setIncludeFontPadding(!z);
-            v.setText(str);
-        }
-    }
-
-    public final void V(@NonNull V v, @NonNull M m) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, v, m) == null) || m.j == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, gu1Var, canvas) == null) || TextUtils.isEmpty(this.a)) {
             return;
         }
-        if (xv1.h) {
-            Log.d("Component-TextView", "renderTextStyle");
-        }
-        if (m.v) {
-            v.setTextColor(m.u);
-        }
-        float f = (float) m.w;
-        if (f > 0.0f) {
-            v.setTextSize(1, f);
-        }
-        X(v, m);
-        W(v, m);
-        String str = m.B;
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1039745817) {
-            if (hashCode == -1039592053 && str.equals("nowrap")) {
-                c = 1;
-            }
-        } else if (str.equals("normal")) {
-            c = 0;
-        }
-        if (c == 0) {
-            v.setSingleLine(false);
-        } else if (c == 1) {
-            v.setSingleLine(true);
-        }
-        if ("ellipsis".equals(m.C)) {
-            v.setEllipsize(TextUtils.TruncateAt.END);
-        }
-    }
-
-    public void W(@NonNull V v, @NonNull M m) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048583, this, v, m) == null) || m.j == null) {
-            return;
-        }
-        if (xv1.h) {
-            Log.d("Component-TextView", "renderTextStyleFontWeight");
-        }
-        String str = m.A;
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1039745817) {
-            if (hashCode == 3029637 && str.equals("bold")) {
-                c = 1;
-            }
-        } else if (str.equals("normal")) {
-            c = 0;
-        }
-        if (c == 0) {
-            v.setTypeface(Typeface.SANS_SERIF, 0);
-        } else if (c != 1) {
-            ix1.o("Component-TextView", "invalid font weight : " + m.A);
-            v.setTypeface(Typeface.SANS_SERIF, 0);
-        } else {
-            v.setTypeface(Typeface.SANS_SERIF, 1);
-        }
-    }
-
-    public void X(@NonNull V v, @NonNull M m) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v, m) == null) {
-            Y(v, m, 48);
-        }
-    }
-
-    public final void Y(@NonNull V v, @NonNull M m, int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048585, this, v, m, i) == null) || m.j == null) {
-            return;
-        }
-        if (xv1.h) {
-            Log.d("Component-TextView", "renderTextStyleTextAlign");
-        }
-        String str = m.z;
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1364013995) {
-            if (hashCode != 3317767) {
-                if (hashCode == 108511772 && str.equals("right")) {
-                    c = 1;
+        TextPaint textPaint = gu1Var.e;
+        int i = gu1Var.k;
+        Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
+        float f = fontMetrics.top;
+        int i2 = this.c;
+        float f2 = i2 + f;
+        float f3 = fontMetrics.ascent + i2;
+        float f4 = fontMetrics.bottom;
+        float f5 = i != 1 ? i != 2 ? i != 3 ? i2 : i2 - (f3 - f2) : (i2 + ((f4 - f) / 2.0f)) - f4 : i2 + (((i2 + f4) - f2) / 2.0f) + (f3 - f2);
+        if (this.e == 0.0d) {
+            Rect rect = new Rect();
+            String str = this.a;
+            textPaint.getTextBounds(str, 0, str.length(), rect);
+            if (this.d != -1.0f) {
+                float f6 = this.d;
+                if (rect.width() > f6) {
+                    this.e = f6 / rect.width();
                 }
-            } else if (str.equals("left")) {
-                c = 0;
             }
-        } else if (str.equals("center")) {
-            c = 2;
+            this.e = 1.0f;
         }
-        if (c != 0) {
-            if (c == 1) {
-                i2 = 8388613 | i;
-            } else if (c != 2) {
-                ix1.o("Component-TextView", "invalid text align: " + m.z);
-            } else {
-                i2 = i | 1;
+        canvas.save();
+        int alpha = textPaint.getAlpha();
+        int color = textPaint.getColor();
+        textPaint.setStyle(Paint.Style.STROKE);
+        textPaint.setStrokeWidth(this.f);
+        textPaint.setColor(gu1Var.m);
+        gu1Var.c(textPaint);
+        canvas.scale(this.e, 1.0f);
+        canvas.drawText(this.a, this.b, f5, textPaint);
+        textPaint.setStyle(Paint.Style.FILL);
+        textPaint.setAlpha(alpha);
+        textPaint.setColor(color);
+        canvas.restore();
+    }
+
+    @Override // com.repackage.fu1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() > 2) {
+                    this.a = jSONArray.optString(0);
+                    this.b = qe3.g((float) jSONArray.optDouble(1));
+                    this.c = qe3.g((float) jSONArray.optDouble(2));
+                    if (jSONArray.length() > 3) {
+                        this.d = qe3.g((float) jSONArray.optDouble(3));
+                    }
+                    this.f = qe3.g(1.0f);
+                }
+            } catch (Exception e) {
+                if (jh1.a) {
+                    e.printStackTrace();
+                }
             }
-            v.setGravity(i2);
         }
-        i2 = i | GravityCompat.START;
-        v.setGravity(i2);
     }
 }

@@ -1,105 +1,60 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.BDPTask;
-import com.baidu.bdtask.component.dialog.TaskDialogViewData;
-import com.baidu.bdtask.ui.components.dialog.DoubleBtnDialog;
-import com.baidu.bdtask.ui.components.dialog.SingleBtnDialog;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.JvmStatic;
 /* loaded from: classes7.dex */
-public final class wu extends ns<qp> {
+public final class wu {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static final class a<T> implements ss<TaskDialogViewData> {
-        public static /* synthetic */ Interceptable $ic;
-        public static final a a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1936033590, "Lcom/repackage/wu$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1936033590, "Lcom/repackage/wu$a;");
-                    return;
-                }
-            }
-            a = new a();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964023577, "Lcom/repackage/wu;")) == null) {
+            return;
         }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ss
-        /* renamed from: a */
-        public final void onChanged(TaskDialogViewData taskDialogViewData) {
-            yr h;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, taskDialogViewData) == null) || taskDialogViewData == null) {
-                return;
-            }
-            yt v = BDPTask.m.v();
-            Context appContext = (v == null || (h = v.h()) == null) ? null : h.getAppContext();
-            Intent intent = new Intent(appContext, taskDialogViewData.getShowType() == 1 ? SingleBtnDialog.class : DoubleBtnDialog.class);
-            Bundle bundle = new Bundle();
-            bundle.putSerializable("data", taskDialogViewData);
-            intent.putExtras(bundle);
-            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-            if (appContext != null) {
-                appContext.startActivity(intent);
-            }
-        }
-    }
-
-    public wu() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1964023577, "Lcom/repackage/wu;");
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.os
-    /* renamed from: b */
-    public void a(qp qpVar) {
+    @JvmStatic
+    @JvmOverloads
+    public static final gs a(Class<? extends os<rp>> cls) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qpVar) == null) {
-            qpVar.a().l(a.a);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) ? new gs(cls, rp.class) : (gs) invokeL.objValue;
+    }
+
+    @JvmStatic
+    @JvmOverloads
+    public static final hs b(Class<? extends ws<vp>> cls, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, cls, z)) == null) ? new hs(cls, vp.class, z) : (hs) invokeLZ.objValue;
+    }
+
+    @JvmStatic
+    public static final gs c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a(xu.class) : (gs) invokeV.objValue;
+    }
+
+    @JvmStatic
+    public static final hs d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? b(yu.class, true) : (hs) invokeV.objValue;
     }
 }

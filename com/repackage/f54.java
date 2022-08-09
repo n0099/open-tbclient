@@ -1,116 +1,39 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.PorterDuff;
-import android.graphics.RectF;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
+import com.baidu.mapapi.CoordType;
+import com.baidu.mapapi.SDKInitializer;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cn2;
 /* loaded from: classes6.dex */
 public class f54 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r54 a;
-        public final /* synthetic */ cn2 b;
-
-        public a(r54 r54Var, cn2 cn2Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755756852, "Lcom/repackage/f54;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r54Var, cn2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = r54Var;
-            this.b = cn2Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                m54.a(this.a, this.b);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755756852, "Lcom/repackage/f54;");
+                return;
             }
         }
+        SDKInitializer.initialize(AppRuntime.getAppContext());
+        SDKInitializer.setCoordType(CoordType.GCJ02);
+        SDKInitializer.setHttpsEnable(true);
     }
 
-    public static View a(r54 r54Var, cn2 cn2Var) {
-        InterceptResult invokeLL;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, r54Var, cn2Var)) == null) {
-            ix1.i("map", "creatCallout start");
-            Paint paint = new Paint();
-            paint.setAntiAlias(true);
-            paint.setStyle(Paint.Style.FILL_AND_STROKE);
-            paint.setColor(cn2Var.i.b);
-            paint.setTextSize(cn2Var.i.c);
-            cn2.b bVar = cn2Var.i;
-            float f = bVar.e;
-            float f2 = bVar.f;
-            Paint paint2 = new Paint();
-            paint2.setAntiAlias(true);
-            paint2.setStyle(Paint.Style.FILL_AND_STROKE);
-            paint2.setColor(cn2Var.i.h);
-            String str = cn2Var.i.a;
-            int g = zd3.g(6.0f);
-            float f3 = f * 2.0f;
-            float measureText = paint.measureText(str) + f3;
-            float f4 = paint.getFontMetrics().bottom - paint.getFontMetrics().top;
-            float f5 = g + f4 + f3;
-            if (f5 > 0.0f && measureText > 0.0f) {
-                Bitmap createBitmap = Bitmap.createBitmap((int) measureText, (int) f5, Bitmap.Config.ARGB_8888);
-                createBitmap.eraseColor(Color.argb(0, 0, 0, 0));
-                Canvas canvas = new Canvas(createBitmap);
-                canvas.drawColor(0, PorterDuff.Mode.CLEAR);
-                RectF rectF = new RectF();
-                rectF.left = 0.0f;
-                rectF.top = 0.0f;
-                float f6 = f4 + f3;
-                rectF.bottom = f6;
-                rectF.right = measureText;
-                canvas.drawRoundRect(rectF, f2, f2, paint2);
-                Path path = new Path();
-                float f7 = measureText / 2.0f;
-                float f8 = g / 2;
-                path.moveTo(f7 - f8, f6);
-                path.lineTo(f7, f5);
-                path.lineTo(f7 + f8, f6);
-                path.close();
-                canvas.drawPath(path, paint2);
-                canvas.drawText(str, f, (-paint.getFontMetrics().top) + f, paint);
-                ImageView imageView = new ImageView(AppRuntime.getAppContext());
-                imageView.setLayoutParams(new ViewGroup.LayoutParams(createBitmap.getWidth(), createBitmap.getHeight()));
-                imageView.setImageBitmap(createBitmap);
-                imageView.setOnClickListener(new a(r54Var, cn2Var));
-                ix1.i("map", "creatCallout end");
-                return imageView;
-            }
-            ix1.o("map", "callout height or wodth is 0");
-            return new ImageView(AppRuntime.getAppContext());
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
         }
-        return (View) invokeLL.objValue;
     }
 }

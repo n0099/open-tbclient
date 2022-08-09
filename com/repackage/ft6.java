@@ -1,81 +1,47 @@
 package com.repackage;
 
-import android.content.Context;
+import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.funad.view.FunAdAgreeView;
+import com.baidu.tieba.pb.ejection.EjectionAnimationView;
+import com.baidu.tieba.view.WaterRippleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cy;
-import com.repackage.ny;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ft6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
+public class ft6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId i;
-    public TbPageContext<?> j;
-    public String k;
-    public boolean l;
-    public tn m;
-    public jy5<vy5> n;
+    public final Activity a;
+    public int b;
+    public FrameLayout c;
+    public WaterRippleView d;
+    public EjectionAnimationView e;
+    public PopupWindow f;
 
     /* loaded from: classes6.dex */
-    public class a extends jy5<vy5> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ft6 b;
-
-        public a(ft6 ft6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ft6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ft6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jy5
-        /* renamed from: d */
-        public void a(View view2, vy5 vy5Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, vy5Var) == null) || view2 == null || vy5Var == null || vy5Var.getThreadData() == null || StringUtils.isNull(vy5Var.getThreadData().getTid())) {
-                return;
-            }
-            this.b.d0(view2, vy5Var);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements xn {
+    public class a implements eu7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ft6 a;
 
-        public b(ft6 ft6Var) {
+        public a(ft6 ft6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,124 +59,152 @@ public class ft6 extends an<vy5, ThreadCardViewHolder<vy5>> implements ck5 {
             this.a = ft6Var;
         }
 
-        @Override // com.repackage.xn
-        public void b(View view2, nn nnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // com.repackage.eu7
+        public /* synthetic */ void onStart() {
+            du7.a(this);
+        }
+
+        @Override // com.repackage.eu7
+        public void onStop() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, nnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (nnVar instanceof vy5) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                vy5 vy5Var = (vy5) nnVar;
-                vy5Var.f = 1;
-                if (this.a.n != null) {
-                    this.a.n.a(threadCardViewHolder.a(), vy5Var);
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.e.setVisibility(8);
+                if (this.a.f == null || !this.a.f.isShowing()) {
+                    return;
                 }
-                ThreadCardUtils.jumpToPB((on4) vy5Var, view2.getContext(), 1, false);
-                threadCardViewHolder.b().o(new ny.a(1));
+                tg.d(this.a.f, this.a.a);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ft6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public ft6(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = true;
-        this.n = new a(this);
-        this.j = tbPageContext;
+        this.b = 0;
+        this.a = activity;
+        e();
+        f();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: b0 */
-    public ThreadCardViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            cy.b bVar = new cy.b(this.j.getPageActivity(), false);
-            px pxVar = new px(this.j.getPageActivity());
-            pxVar.r(ImageViewerConfig.FROM_CONCERN);
-            pxVar.s(this.l);
-            bVar.n(pxVar);
-            cy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.m);
-            k.r(1);
-            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
-            threadCardViewHolder.j(this.i);
-            V(new b(this));
-            return threadCardViewHolder;
-        }
-        return (ThreadCardViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? UtilHelper.getImmersiveStickyBarHeight() + UtilHelper.getScreenHeight(this.a) : invokeV.intValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: c0 */
-    public View S(int i, View view2, ViewGroup viewGroup, vy5 vy5Var, ThreadCardViewHolder<vy5> threadCardViewHolder) {
-        InterceptResult invokeCommon;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vy5Var, threadCardViewHolder})) == null) {
-            if (vy5Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || vy5Var.a == null) {
-                return null;
-            }
-            vy5Var.I(vy5Var.position + 1);
-            cy5.b().a(vy5Var.d("c12351"));
-            threadCardViewHolder.b().q(i);
-            if (threadCardViewHolder.b() instanceof bk5) {
-                threadCardViewHolder.b().b(this.k);
-            }
-            threadCardViewHolder.f(vy5Var);
-            threadCardViewHolder.b().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.b().p(this.n);
-            px pxVar = (px) threadCardViewHolder.b().g();
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) pxVar.f.d.getLayoutParams();
-            layoutParams.width = vy5Var.j;
-            layoutParams.height = vy5Var.k;
-            if (pxVar.f.d.getVisibility() != 8) {
-                pxVar.f.d.setLayoutParams(layoutParams);
-            }
-            return threadCardViewHolder.a();
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public final void d0(View view2, vy5 vy5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, view2, vy5Var) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f09202e) {
-                vs6.b(view2, vy5Var, 2);
-            } else if (view2 instanceof TbImageView) {
-                vs6.b(view2, vy5Var, 3);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09202f || view2.getId() == R.id.obfuscated_res_0x7f092021) {
-                vs6.b(view2, vy5Var, 2);
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = new FrameLayout(this.a);
+            this.e = new EjectionAnimationView(this.a);
+            this.c.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
+            this.e.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            this.e.setEjectionAnimationViewCallback(new a(this));
+            this.c.addView(this.e);
         }
     }
 
-    public void e0(tn tnVar) {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, tnVar) == null) {
-            this.m = tnVar;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            PopupWindow popupWindow = new PopupWindow();
+            this.f = popupWindow;
+            popupWindow.setContentView(this.c);
+            this.f.setHeight(d());
+            this.f.setWidth(-1);
+            this.f.setOutsideTouchable(false);
+            this.f.setFocusable(false);
+            this.f.setTouchable(false);
         }
     }
 
-    @Override // com.repackage.ck5
-    public void g(String str) {
+    public final void g(View view2, Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.k = str;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, view2, rect) == null) && tg.m(this.f, view2, this.b, 0, 0)) {
+            this.e.setAnchorPosition((rect.right + rect.left) / 2, (rect.bottom + rect.top) / 2);
+            this.e.k();
+        }
+    }
+
+    public void h(FunAdAgreeView funAdAgreeView) {
+        WaterRippleView waterRippleView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, funAdAgreeView) == null) || funAdAgreeView == null || (waterRippleView = this.d) == null) {
+            return;
+        }
+        ViewParent parent = waterRippleView.getParent();
+        if (parent instanceof ViewGroup) {
+            ((ViewGroup) parent).removeView(this.d);
+        }
+    }
+
+    public void i(boolean z) {
+        PopupWindow popupWindow;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (popupWindow = this.f) == null) {
+            return;
+        }
+        popupWindow.setClippingEnabled(z);
+    }
+
+    public void j(View view2, List<Bitmap> list, Rect rect) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, view2, list, rect) == null) {
+            this.e.setVisibility(0);
+            this.e.setBitmaps(list);
+            g(view2, rect);
+        }
+    }
+
+    public void k(LinearLayout linearLayout, FunAdAgreeView funAdAgreeView) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048583, this, linearLayout, funAdAgreeView) == null) || linearLayout == null || funAdAgreeView == null) {
+            return;
+        }
+        if (funAdAgreeView.getWidth() != 0 && funAdAgreeView.getHeight() != 0) {
+            WaterRippleView waterRippleView = this.d;
+            if (waterRippleView == null) {
+                this.d = new WaterRippleView(this.a);
+            } else {
+                ViewParent parent = waterRippleView.getParent();
+                if (parent instanceof ViewGroup) {
+                    ((ViewGroup) parent).removeView(this.d);
+                }
+            }
+            linearLayout.getGlobalVisibleRect(new Rect());
+            Rect rect = new Rect();
+            funAdAgreeView.getImgAgree().getGlobalVisibleRect(rect);
+            int centerX = rect.centerX();
+            int centerY = rect.centerY();
+            int f = qi.f(this.a, R.dimen.tbds166);
+            int i = centerX - f;
+            int i2 = centerY - f;
+            int i3 = f * 2;
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i3, i3);
+            layoutParams.addRule(13, -1);
+            layoutParams.setMargins(i, i2, 0, 0);
+            this.c.addView(this.d, layoutParams);
+            return;
+        }
+        BdLog.e("FunAdAgreeView not measured");
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.e.l();
         }
     }
 }

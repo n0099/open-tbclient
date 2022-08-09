@@ -15,7 +15,7 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import com.ss.android.socialbase.downloader.model.DownloadTask;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static volatile d a;
     public volatile SparseArray<Boolean> b = new SparseArray<>();

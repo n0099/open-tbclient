@@ -1,15 +1,17 @@
 package com.repackage;
 
+import android.view.MotionEvent;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class pe3 extends ne3 {
+/* loaded from: classes7.dex */
+public class pe3 implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
+    public View a;
 
     public pe3() {
         Interceptable interceptable = $ic;
@@ -23,5 +25,34 @@ public class pe3 extends ne3 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (action == 0) {
+                View view3 = this.a;
+                if (view3 == null) {
+                    view2.setAlpha(gk2.M().a() ? 0.5f : 0.2f);
+                    return false;
+                }
+                view3.setAlpha(gk2.M().a() ? 0.5f : 0.2f);
+                return false;
+            } else if (action != 2) {
+                View view4 = this.a;
+                if (view4 == null) {
+                    view2.setAlpha(1.0f);
+                    return false;
+                }
+                view4.setAlpha(1.0f);
+                return false;
+            } else {
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 }

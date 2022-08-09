@@ -1,113 +1,154 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.ads.nativ.NativeExpressADView;
-import com.qq.e.ads.nativ.NativeExpressMediaListener;
-import com.qq.e.comm.util.AdError;
-/* loaded from: classes5.dex */
-public class dg9 implements NativeExpressMediaListener {
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.repackage.ag9;
+import com.repackage.cg9;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+/* loaded from: classes6.dex */
+public class dg9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final HashMap<String, Deque<c>> a;
 
-    public dg9(cg9 cg9Var) {
+    /* loaded from: classes6.dex */
+    public static class a implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final cg9 a;
+        public final HashSet<Ssp.Pid> b;
+
+        public a(cg9 cg9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cg9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cg9Var;
+            this.b = new HashSet<>();
+            for (cg9.c cVar : cg9Var.e) {
+                for (cg9.b bVar : cVar.b) {
+                    this.b.add(bVar.c);
+                }
+            }
+        }
+
+        @Override // com.repackage.dg9.c
+        public Set<Ssp.Pid> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Set) invokeV.objValue;
+        }
+
+        @Override // com.repackage.dg9.c
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.d : invokeV.intValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final ag9 a;
+        public final HashSet<Ssp.Pid> b;
+
+        public b(ag9 ag9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ag9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ag9Var;
+            this.b = new HashSet<>();
+            for (ag9.b bVar : ag9Var.b) {
+                for (ag9.a aVar : bVar.b) {
+                    this.b.add(aVar.c);
+                }
+            }
+        }
+
+        @Override // com.repackage.dg9.c
+        public Set<Ssp.Pid> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Set) invokeV.objValue;
+        }
+
+        @Override // com.repackage.dg9.c
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.c : invokeV.intValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface c {
+        Set<Ssp.Pid> a();
+
+        int b();
+    }
+
+    public dg9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cg9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap<>();
     }
 
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoCached(NativeExpressADView nativeExpressADView) {
+    public final Deque<c> a(String str) {
+        InterceptResult invokeL;
+        Deque<c> deque;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, nativeExpressADView) == null) {
-            LogPrinter.d();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            synchronized (this.a) {
+                deque = this.a.get(str);
+                if (deque == null) {
+                    deque = new ArrayDeque<>();
+                    this.a.put(str, deque);
+                }
+            }
+            return deque;
         }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoComplete(NativeExpressADView nativeExpressADView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nativeExpressADView) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoError(NativeExpressADView nativeExpressADView, AdError adError) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, nativeExpressADView, adError) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoInit(NativeExpressADView nativeExpressADView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, nativeExpressADView) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoLoading(NativeExpressADView nativeExpressADView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, nativeExpressADView) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoPageClose(NativeExpressADView nativeExpressADView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, nativeExpressADView) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoPageOpen(NativeExpressADView nativeExpressADView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, nativeExpressADView) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoPause(NativeExpressADView nativeExpressADView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, nativeExpressADView) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoReady(NativeExpressADView nativeExpressADView, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, nativeExpressADView, j) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoStart(NativeExpressADView nativeExpressADView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, nativeExpressADView) == null) {
-            LogPrinter.d();
-        }
+        return (Deque) invokeL.objValue;
     }
 }

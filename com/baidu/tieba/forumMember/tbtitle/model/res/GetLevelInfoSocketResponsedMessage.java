@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pb6;
+import com.repackage.hd6;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetLevelInfo.DataRes;
@@ -72,8 +72,8 @@ public class GetLevelInfoSocketResponsedMessage extends SocketResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             GetLevelInfoRequestMessage getLevelInfoRequestMessage = (getOrginalMessage() == null || getOrginalMessage().getExtra() == null) ? null : (GetLevelInfoRequestMessage) getOrginalMessage().getExtra();
             if (getLevelInfoRequestMessage != null) {
-                pb6 pb6Var = new pb6();
-                pb6Var.c(getLevelInfoRequestMessage.getForumId() + "", bArr);
+                hd6 hd6Var = new hd6();
+                hd6Var.c(getLevelInfoRequestMessage.getForumId() + "", bArr);
             }
         }
     }

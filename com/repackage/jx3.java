@@ -1,63 +1,22 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rt3;
-import com.repackage.xs2;
-@Service
+import java.util.Arrays;
 /* loaded from: classes6.dex */
-public class jx3 implements oh1 {
+public class jx3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public class a implements rt3.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xs2.k a;
-
-        public a(jx3 jx3Var, xs2.k kVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jx3Var, kVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = kVar;
-        }
-
-        @Override // com.repackage.rt3.d
-        public void onFail(String str) {
-            xs2.k kVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (kVar = this.a) == null) {
-                return;
-            }
-            kVar.onFail(str);
-        }
-
-        @Override // com.repackage.rt3.d
-        public void onSuccess() {
-            xs2.k kVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (kVar = this.a) == null) {
-                return;
-            }
-            kVar.onSuccess();
-        }
-    }
+    @V8JavascriptField
+    public kx3[] changedTouches;
+    @V8JavascriptField
+    public long timeStamp;
+    @V8JavascriptField
+    public kx3[] touches;
 
     public jx3() {
         Interceptable interceptable = $ic;
@@ -73,11 +32,12 @@ public class jx3 implements oh1 {
         }
     }
 
-    @Override // com.repackage.oh1
-    public void a(String str, xs2.k kVar) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, kVar) == null) {
-            ut3.o().j(str, new a(this, kVar));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "SwanGameTouchData{touches=" + Arrays.toString(this.touches) + ", changedTouches=" + Arrays.toString(this.changedTouches) + ", timeStamp=" + this.timeStamp + '}';
         }
+        return (String) invokeV.objValue;
     }
 }

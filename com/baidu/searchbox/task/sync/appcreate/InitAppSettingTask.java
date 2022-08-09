@@ -10,11 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.od5;
-import com.repackage.qy4;
-import com.repackage.t95;
-import com.repackage.xy4;
-import com.repackage.xz4;
+import com.repackage.lz4;
+import com.repackage.ne5;
+import com.repackage.ra5;
+import com.repackage.s05;
+import com.repackage.sz4;
 import com.repackage.z8;
 /* loaded from: classes2.dex */
 public class InitAppSettingTask extends LaunchTask {
@@ -40,8 +40,8 @@ public class InitAppSettingTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             TbadkCoreApplication.getInst().mVoiceHeadsetMode = TbadkSettings.getInst().loadInt("voice_headset_mode", 0);
-            od5.c();
-            t95.b().r(System.currentTimeMillis() - currentTimeMillis);
+            ne5.c();
+            ra5.b().r(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
@@ -54,8 +54,8 @@ public class InitAppSettingTask extends LaunchTask {
             initSettings();
             TbadkCoreApplication.getInst().initSetting();
             long currentTimeMillis = System.currentTimeMillis();
-            qy4.d().o();
-            t95.b().y(System.currentTimeMillis() - currentTimeMillis);
+            lz4.d().p();
+            ra5.b().y(System.currentTimeMillis() - currentTimeMillis);
             z8.g().r(20);
         }
     }
@@ -84,14 +84,14 @@ public class InitAppSettingTask extends LaunchTask {
             if (TextUtils.isEmpty(loadString)) {
                 return;
             }
-            xy4 xy4Var = new xy4();
-            xy4Var.e(loadString);
-            xz4 a = xz4.a();
-            a.g(xy4Var.b() == 1);
-            a.h(xy4Var.c());
-            a.i(xy4Var.d() * 1000);
-            if (xy4Var.a() != null) {
-                a.j(xy4Var.a());
+            sz4 sz4Var = new sz4();
+            sz4Var.e(loadString);
+            s05 a = s05.a();
+            a.g(sz4Var.b() == 1);
+            a.h(sz4Var.c());
+            a.i(sz4Var.d() * 1000);
+            if (sz4Var.a() != null) {
+                a.j(sz4Var.a());
             }
         }
     }

@@ -1,72 +1,75 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.message.ResponseUnLoginMessage;
-import com.baidu.tieba.im.push.PushResponseMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class g77 extends xa {
+public class g77 implements on {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public int c;
+    public int d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755725046, "Lcom/repackage/g77;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755725046, "Lcom/repackage/g77;");
+                return;
+            }
+        }
+        e = BdUniqueId.gen();
+    }
+
     public g77() {
-        super(202009);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ua
-    /* renamed from: c */
-    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
-        InterceptResult invokeL;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
-            if (socketResponsedMessage instanceof PushResponseMessage) {
-                if (socketResponsedMessage.getError() == 110000) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new ResponseUnLoginMessage());
-                }
-                PushResponseMessage pushResponseMessage = (PushResponseMessage) socketResponsedMessage;
-                if (pushResponseMessage.getNotificationData() != null && TbadkCoreApplication.getInst().isInBackground()) {
-                    CustomMessage customMessage = new CustomMessage(2012100);
-                    customMessage.setData(pushResponseMessage.getNotificationData());
-                    MessageManager.getInstance().sendMessage(customMessage);
-                    return null;
-                }
-                List<GroupMsgData> groupMsg = pushResponseMessage.getGroupMsg();
-                if (groupMsg != null && groupMsg.size() > 0) {
-                    for (GroupMsgData groupMsgData : groupMsg) {
-                        if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-                            MessageManager.getInstance().dispatchResponsedMessage(groupMsgData);
-                        }
-                    }
-                }
-                return socketResponsedMessage;
-            }
-            return null;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return (SocketResponsedMessage) invokeL.objValue;
+        this.a = jSONObject.optString("pid");
+        this.b = jSONObject.optString("url");
+    }
+
+    @Override // com.repackage.on
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? e : (BdUniqueId) invokeV.objValue;
+    }
+
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (StringUtils.isNull(this.a) || StringUtils.isNull(this.b)) ? false : true : invokeV.booleanValue;
     }
 }

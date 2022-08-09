@@ -135,7 +135,7 @@ public class YYLiveUtil {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0218).equals(str) || TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0219).equals(str);
+            return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f021b).equals(str) || TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f021c).equals(str);
         }
         return invokeL.booleanValue;
     }

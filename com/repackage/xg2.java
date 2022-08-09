@@ -1,21 +1,17 @@
 package com.repackage;
 
-import com.baidu.mobstat.Config;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes7.dex */
-public class xg2 {
+public class xg2 extends te2<kh2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public int d;
 
     public xg2() {
         Interceptable interceptable = $ic;
@@ -31,21 +27,26 @@ public class xg2 {
         }
     }
 
-    public JSONObject a() {
+    @Override // com.repackage.te2
+    @NonNull
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("userId", this.a);
-                jSONObject.put("displayName", this.b);
-                jSONObject.put(Config.EVENT_ATTR, this.c);
-                jSONObject.put("role", this.d);
-                return jSONObject;
-            } catch (JSONException unused) {
-                return null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setEnlargeEye" : (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.te2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull kh2 kh2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, kh2Var) == null) {
+            String str = command.what;
+            d(kh2Var, str, "" + command.obj, true);
+            Object obj = command.obj;
+            if (obj instanceof Integer) {
+                kh2Var.e(((Integer) obj).intValue());
             }
         }
-        return (JSONObject) invokeV.objValue;
     }
 }

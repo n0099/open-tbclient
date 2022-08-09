@@ -1,93 +1,174 @@
 package com.repackage;
 
-import android.content.Context;
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.storage.PathType;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class p13 extends f23 {
+import com.repackage.r13;
+import java.io.File;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+/* loaded from: classes7.dex */
+public class p13 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public r13.d a;
+    public r13.d b;
+    public Map<String, r13.d> c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p13(f13 f13Var) {
-        super(f13Var, "/swanAPI/getLocalImgData");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {f13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755462817, "Lcom/repackage/p13;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755462817, "Lcom/repackage/p13;");
                 return;
             }
         }
+        d = jh1.a;
     }
 
-    @Override // com.repackage.f23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
-        InterceptResult invokeLLLL;
+    public p13() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
-            if (i03Var == null) {
-                ix1.c("GetLocalImgDataAction", "illegal swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
-                return false;
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                ix1.c("SwanAppAction", "illegal params");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            String optString = optParamsAsJo.optString("filePath");
-            if (TextUtils.isEmpty(optString)) {
-                ix1.c("GetLocalImgDataAction", "GetLocalImgDataAction bdfile path null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            } else if (q73.s(optString) != PathType.BD_FILE) {
-                ix1.c("GetLocalImgDataAction", "invalid path : " + optString);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(null, 2006, c13.a(2006));
-                return false;
-            } else {
-                String M = q73.M(optString, i03Var.b);
-                if (TextUtils.isEmpty(M)) {
-                    ix1.c("GetLocalImgDataAction", "GetLocalImgDataAction realPath null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("filePath", M);
-                    ix1.i("GetLocalImgDataAction", "getLocalImgData success");
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                    return true;
-                } catch (JSONException e) {
-                    ix1.c("GetLocalImgDataAction", "getLocalImgData failed");
-                    if (f23.b) {
-                        e.printStackTrace();
-                    }
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return invokeLLLL.booleanValue;
+        this.c = new ConcurrentHashMap();
+    }
+
+    public static boolean a(r13.d dVar, String str) {
+        InterceptResult invokeLL;
+        List<String> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, dVar, str)) == null) {
+            if ((dVar == null || (list = dVar.b) == null || list.isEmpty()) ? false : true) {
+                File file = new File(str);
+                if (file.exists() && file.lastModified() == dVar.c) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public List<String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? r13.d() : (List) invokeV.objValue;
+    }
+
+    public r13.d c(String str, String str2, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z)) == null) {
+            r13.d dVar = this.c.get(str2);
+            if (a(dVar, r13.i(str))) {
+                zx1.k("SwanAppWebSafe", "read from cache: serverDomains.data=" + dVar.b);
+                return dVar;
+            }
+            if (dVar != null) {
+                dVar.c();
+            } else {
+                dVar = new r13.d();
+            }
+            r13.h(z, str, str2, dVar);
+            this.c.put(str2, dVar);
+            return dVar;
+        }
+        return (r13.d) invokeLLZ.objValue;
+    }
+
+    public List<String> d(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            if (a(this.b, r13.j())) {
+                zx1.k("SwanAppWebSafe", "read from cache: webActions.data=" + this.b.b);
+                return this.b.b;
+            }
+            r13.d dVar = this.b;
+            if (dVar != null) {
+                dVar.c();
+            } else {
+                this.b = new r13.d();
+            }
+            r13.k(z, this.b);
+            return this.b.b;
+        }
+        return (List) invokeZ.objValue;
+    }
+
+    public List<String> e(@NonNull String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
+            if (a(this.a, r13.m(str))) {
+                zx1.k("SwanAppWebSafe", "read from cache: webDomains.data=" + this.a.b);
+                return this.a.b;
+            }
+            r13.d dVar = this.a;
+            if (dVar != null) {
+                dVar.c();
+            } else {
+                this.a = new r13.d();
+            }
+            r13.l(z, str, this.a);
+            return this.a.b;
+        }
+        return (List) invokeLZ.objValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                if (d) {
+                    throw new RuntimeException("appId can not be empty");
+                }
+                return;
+            }
+            d(true);
+            e(str, true);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            r13.d dVar = this.a;
+            if (dVar != null) {
+                dVar.c();
+                this.a = null;
+            }
+            r13.d dVar2 = this.b;
+            if (dVar2 != null) {
+                dVar2.c();
+                this.b = null;
+            }
+            zx1.k("SwanAppWebSafe", "release cache done");
+        }
     }
 }

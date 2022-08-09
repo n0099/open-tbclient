@@ -1,119 +1,120 @@
 package com.repackage;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-/* loaded from: classes6.dex */
-public class p86 extends ImageSpan {
+import java.util.ArrayList;
+import tbclient.GeneralResource;
+import tbclient.HotUserRankEntry;
+import tbclient.Tabfeedlist.DataRes;
+import tbclient.ThreadInfo;
+/* loaded from: classes7.dex */
+public class p86 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Drawable> a;
-    public int b;
+    public ArrayList<on> a;
+    public ArrayList<br4> b;
+    public vq4 c;
+    public r86 d;
+    public boolean e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p86(@NonNull Drawable drawable, int i) {
-        super(drawable, i);
+    public p86() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawable, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public final Drawable a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: a */
+    public p86 clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Drawable> weakReference = this.a;
-            Drawable drawable = weakReference != null ? weakReference.get() : null;
-            if (drawable == null) {
-                Drawable drawable2 = getDrawable();
-                this.a = new WeakReference<>(drawable2);
-                return drawable2;
-            }
-            return drawable;
+            p86 p86Var = new p86();
+            p86Var.a = this.a;
+            p86Var.b = this.b;
+            p86Var.c = this.c;
+            p86Var.d = this.d;
+            p86Var.e = this.e;
+            return p86Var;
         }
-        return (Drawable) invokeV.objValue;
+        return (p86) invokeV.objValue;
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+    public r86 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            Drawable a = a();
-            canvas.save();
-            Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
-            int i6 = fontMetricsInt.descent;
-            canvas.translate(f, ((i4 + i6) - ((i6 - fontMetricsInt.ascent) / 2)) - ((a.getBounds().bottom - a.getBounds().top) / 2));
-            a.draw(canvas);
-            canvas.restore();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (r86) invokeV.objValue;
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
+    public vq4 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            Rect bounds = getDrawable().getBounds();
-            if (fontMetricsInt != null) {
-                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-                int i3 = fontMetricsInt2.descent;
-                int i4 = fontMetricsInt2.ascent;
-                int i5 = i4 + ((i3 - i4) / 2);
-                int i6 = (bounds.bottom - bounds.top) / 2;
-                int i7 = i5 - i6;
-                fontMetricsInt.ascent = i7;
-                fontMetricsInt.top = i7;
-                int i8 = i5 + i6;
-                fontMetricsInt.bottom = i8;
-                fontMetricsInt.descent = i8;
-            }
-            return bounds.right + this.b;
-        }
-        return invokeCommon.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (vq4) invokeV.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p86(@NonNull Drawable drawable, int i, int i2) {
-        super(drawable, i);
+    public ArrayList<br4> d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawable, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (ArrayList) invokeV.objValue;
+    }
+
+    public ArrayList<on> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : invokeV.booleanValue;
+    }
+
+    public void g(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, dataRes) == null) || dataRes == null) {
+            return;
+        }
+        this.a = new ArrayList<>(ListUtils.getCount(dataRes.thread_list));
+        for (ThreadInfo threadInfo : dataRes.thread_list) {
+            ThreadData threadData = new ThreadData();
+            threadData.parserProtobuf(threadInfo);
+            threadData.insertItemToTitleOrAbstractText();
+            this.a.add(threadData);
+        }
+        this.b = new ArrayList<>();
+        if (!ListUtils.isEmpty(dataRes.resource_list)) {
+            for (GeneralResource generalResource : dataRes.resource_list) {
+                br4 br4Var = new br4();
+                br4Var.c(generalResource);
+                this.b.add(br4Var);
             }
         }
-        this.b = i2;
+        vq4 vq4Var = new vq4();
+        this.c = vq4Var;
+        vq4Var.j(dataRes.recommend_forum_info);
+        if (dataRes.hot_userrank_entry != null) {
+            r86 r86Var = new r86();
+            this.d = r86Var;
+            HotUserRankEntry hotUserRankEntry = dataRes.hot_userrank_entry;
+            r86Var.a = hotUserRankEntry.hot_user;
+            r86Var.b = hotUserRankEntry.module_name;
+            r86Var.c = hotUserRankEntry.module_icon;
+        }
+        this.e = dataRes.is_new_url.intValue() == 1;
     }
 }

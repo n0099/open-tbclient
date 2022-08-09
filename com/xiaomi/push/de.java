@@ -34,21 +34,21 @@ public class de {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f201a;
+    public int f202a;
     @SuppressLint({"SimpleDateFormat"})
 
     /* renamed from: a  reason: collision with other field name */
-    public final SimpleDateFormat f202a;
+    public final SimpleDateFormat f203a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ArrayList<File> f203a;
+    public ArrayList<File> f204a;
 
     /* renamed from: a  reason: collision with other field name */
-    public boolean f204a;
+    public boolean f205a;
     public int b;
 
     /* renamed from: b  reason: collision with other field name */
-    public String f205b;
+    public String f206b;
     public String c;
 
     static {
@@ -79,9 +79,9 @@ public class de {
                 return;
             }
         }
-        this.f202a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        this.f203a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         this.b = 2097152;
-        this.f203a = new ArrayList<>();
+        this.f204a = new ArrayList<>();
     }
 
     private void a(BufferedReader bufferedReader, BufferedWriter bufferedWriter, Pattern pattern) {
@@ -100,28 +100,28 @@ public class de {
                         break;
                     }
                     int start = matcher.start();
-                    String substring = str.substring(start, this.f205b.length() + start);
-                    if (this.f204a) {
+                    String substring = str.substring(start, this.f206b.length() + start);
+                    if (this.f205a) {
                         if (substring.compareTo(this.c) > 0) {
                             read = start;
                             z = true;
                             break;
                         }
-                    } else if (substring.compareTo(this.f205b) >= 0) {
-                        this.f204a = true;
+                    } else if (substring.compareTo(this.f206b) >= 0) {
+                        this.f205a = true;
                         i2 = start;
                     }
                     int indexOf = str.indexOf(10, start);
                     if (indexOf == -1) {
-                        indexOf = this.f205b.length();
+                        indexOf = this.f206b.length();
                     }
                     i = start + indexOf;
                 }
-                if (this.f204a) {
+                if (this.f205a) {
                     int i3 = read - i2;
-                    this.f201a += i3;
+                    this.f202a += i3;
                     bufferedWriter.write(cArr, i2, i3);
-                    if (z || this.f201a > this.b) {
+                    if (z || this.f202a > this.b) {
                         return;
                     }
                 }
@@ -144,8 +144,8 @@ public class de {
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
                 try {
                     bufferedWriter.write("model :" + Build.MODEL + "; os :" + Build.VERSION.INCREMENTAL + "; uid :" + com.xiaomi.push.service.bv.m648a() + "; lng :" + Locale.getDefault().toString() + "; sdk :48; andver :" + Build.VERSION.SDK_INT + "\n");
-                    this.f201a = 0;
-                    Iterator<File> it = this.f203a.iterator();
+                    this.f202a = 0;
+                    Iterator<File> it = this.f204a.iterator();
                     while (it.hasNext()) {
                         bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(it.next())));
                         try {
@@ -210,7 +210,7 @@ public class de {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
             if (file.exists()) {
-                this.f203a.add(file);
+                this.f204a.add(file);
             }
             return this;
         }
@@ -223,11 +223,11 @@ public class de {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, date, date2)) == null) {
             if (date.after(date2)) {
-                this.f205b = this.f202a.format(date2);
-                format = this.f202a.format(date);
+                this.f206b = this.f203a.format(date2);
+                format = this.f203a.format(date);
             } else {
-                this.f205b = this.f202a.format(date);
-                format = this.f202a.format(date2);
+                this.f206b = this.f203a.format(date);
+                format = this.f203a.format(date2);
             }
             this.c = format;
             return this;

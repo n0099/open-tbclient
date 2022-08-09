@@ -10,11 +10,11 @@ import androidx.annotation.MainThread;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public Application a;
     public c b;
-    public final List<InterfaceC0660a> c;
+    public final List<InterfaceC0665a> c;
     public int d;
     public WeakReference<Activity> e;
     public volatile int f;
@@ -22,8 +22,8 @@ public class a {
     public final Application.ActivityLifecycleCallbacks h;
 
     /* renamed from: com.ss.android.socialbase.downloader.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0660a {
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0665a {
         @MainThread
         void b();
 
@@ -31,12 +31,12 @@ public class a {
         void c();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b {
         public static final a a = new a();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface c {
     }
 
@@ -54,7 +54,7 @@ public class a {
         Object[] d = d();
         if (d != null) {
             for (Object obj : d) {
-                ((InterfaceC0660a) obj).b();
+                ((InterfaceC0665a) obj).b();
             }
         }
     }
@@ -65,7 +65,7 @@ public class a {
         Object[] d = d();
         if (d != null) {
             for (Object obj : d) {
-                ((InterfaceC0660a) obj).c();
+                ((InterfaceC0665a) obj).c();
             }
         }
     }
@@ -151,7 +151,7 @@ public class a {
         };
     }
 
-    /* JADX WARN: Type inference failed for: r0v2, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r0v2, types: [boolean, int] */
     public boolean b() {
         int i = this.f;
         int i2 = i;
@@ -171,9 +171,9 @@ public class a {
         return b.a;
     }
 
-    public void b(InterfaceC0660a interfaceC0660a) {
+    public void b(InterfaceC0665a interfaceC0665a) {
         synchronized (this.c) {
-            this.c.remove(interfaceC0660a);
+            this.c.remove(interfaceC0665a);
         }
     }
 
@@ -193,13 +193,13 @@ public class a {
         this.b = cVar;
     }
 
-    public void a(InterfaceC0660a interfaceC0660a) {
-        if (interfaceC0660a == null) {
+    public void a(InterfaceC0665a interfaceC0665a) {
+        if (interfaceC0665a == null) {
             return;
         }
         synchronized (this.c) {
-            if (!this.c.contains(interfaceC0660a)) {
-                this.c.add(interfaceC0660a);
+            if (!this.c.contains(interfaceC0665a)) {
+                this.c.add(interfaceC0665a);
             }
         }
     }

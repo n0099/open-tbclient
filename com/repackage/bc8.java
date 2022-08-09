@@ -1,193 +1,271 @@
 package com.repackage;
 
+import android.content.Context;
+import android.os.Bundle;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.setting.forbiddenforum.ForbiddenForumHttpResMsg;
-import com.baidu.tieba.setting.forbiddenforum.ForbiddenForumReqMsg;
-import com.baidu.tieba.setting.forbiddenforum.ForbiddenForumSocketResMsg;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.activity.AdWebVideoActivity;
+import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bc8 {
+public class bc8 implements xb8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public int b;
-    public cc8 c;
-    public b d;
-    public za e;
+    public List<AdvertAppInfo> a;
 
     /* loaded from: classes5.dex */
-    public class a extends za {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bc8 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(bc8 bc8Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bc8Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-504796259, "Lcom/repackage/bc8$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-504796259, "Lcom/repackage/bc8$a;");
                     return;
                 }
             }
-            this.a = bc8Var;
-        }
-
-        @Override // com.repackage.za
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            cc8 pageData;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
-                return;
+            int[] iArr = new int[IAdBaseAsyncController.Type.values().length];
+            a = iArr;
+            try {
+                iArr[IAdBaseAsyncController.Type.PIC_PAGE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
             }
-            if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == this.a.a) {
-                if (responsedMessage instanceof ForbiddenForumHttpResMsg) {
-                    pageData = ((ForbiddenForumHttpResMsg) responsedMessage).getPageData();
-                } else {
-                    pageData = responsedMessage instanceof ForbiddenForumSocketResMsg ? ((ForbiddenForumSocketResMsg) responsedMessage).getPageData() : null;
-                }
-                if (responsedMessage.getError() == 0) {
-                    if (this.a.b == 1 && (pageData == null || ListUtils.isEmpty(pageData.a))) {
-                        if (this.a.d != null) {
-                            this.a.d.a(null);
-                        }
-                    } else if (pageData != null) {
-                        this.a.c.a.addAll(pageData.a);
-                        if (ListUtils.isEmpty(pageData.a)) {
-                            this.a.c.b = false;
-                        } else {
-                            this.a.c.b = pageData.b;
-                            bc8.c(this.a);
-                        }
-                        if (this.a.d != null) {
-                            this.a.d.a(pageData);
-                        }
-                    }
-                } else if (this.a.d != null) {
-                    this.a.d.onError(responsedMessage.getError(), responsedMessage.getErrorString());
-                }
+            try {
+                a[IAdBaseAsyncController.Type.VIDEO_FLOW.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(cc8 cc8Var);
-
-        void onError(int i, String str);
-    }
-
-    public bc8(BdUniqueId bdUniqueId) {
+    public bc8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = 1;
-        a aVar = new a(this, CmdConfigHttp.CMD_GET_FORBIDDEN_FORUM, 309692);
-        this.e = aVar;
-        this.a = bdUniqueId;
-        aVar.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.e);
-        i();
-        h();
-        this.c = new cc8();
     }
 
-    public static /* synthetic */ int c(bc8 bc8Var) {
-        int i = bc8Var.b;
-        bc8Var.b = i + 1;
-        return i;
-    }
-
-    public void f(String str) {
-        cc8 cc8Var;
-        String str2;
+    @Override // com.repackage.xb8
+    public bn<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (cc8Var = this.c) == null || ListUtils.isEmpty(cc8Var.a)) {
-            return;
-        }
-        for (ac8 ac8Var : this.c.a) {
-            if (ac8Var != null && (str2 = ac8Var.c) != null && str2.equals(str)) {
-                this.c.a.remove(ac8Var);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, baseFragmentActivity, bdUniqueId)) == null) {
+            if (baseFragmentActivity == null) {
+                return null;
             }
+            if (bdUniqueId == AdvertAppInfo.z) {
+                return new hc8(baseFragmentActivity, bdUniqueId);
+            }
+            if (bdUniqueId == AdvertAppInfo.x) {
+                return new gc8(baseFragmentActivity, bdUniqueId);
+            }
+            return null;
         }
+        return (bn) invokeLL.objValue;
     }
 
-    public cc8 g() {
+    @Override // com.repackage.xb8
+    public sb8 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (cc8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? hb8.t() : (sb8) invokeV.objValue;
     }
 
-    public final void h() {
+    @Override // com.repackage.xb8
+    public nb8 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FORBIDDEN_FORUM, wh8.a(TbConfig.URL_GET_FORBIDDEN_FORUM, 309692));
-            tbHttpMessageTask.setIsNeedAddCommenParam(false);
-            tbHttpMessageTask.setResponsedClass(ForbiddenForumHttpResMsg.class);
-            tbHttpMessageTask.setPriority(4);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? am5.l() : (nb8) invokeV.objValue;
+    }
+
+    @Override // com.repackage.xb8
+    public bn<?, ?> d(wb8 wb8Var, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, wb8Var, bdUniqueId)) == null) {
+            if (wb8Var == null || bdUniqueId == null) {
+                return null;
+            }
+            if (bdUniqueId == AdvertAppInfo.w) {
+                return new ec8(wb8Var, bdUniqueId);
+            }
+            return new fc8(wb8Var, bdUniqueId, null);
+        }
+        return (bn) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.xb8
+    public void e() {
+        List<AdvertAppInfo> list;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (list = this.a) == null) {
+            return;
+        }
+        StringUtils.string(Integer.valueOf(list.size()));
+    }
+
+    @Override // com.repackage.xb8
+    public List<AdvertAppInfo> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.a == null) {
+                this.a = new ArrayList();
+            }
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.repackage.xb8
+    public bn<?, ?> g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, tbPageContext, bdUniqueId, str)) == null) {
+            if (bdUniqueId == AdvertAppInfo.y) {
+                return new cc8(tbPageContext, bdUniqueId, str);
+            }
+            if (bdUniqueId != null) {
+                return new dc8(tbPageContext, bdUniqueId, str);
+            }
+            return null;
+        }
+        return (bn) invokeLLL.objValue;
+    }
+
+    @Override // com.repackage.xb8
+    @Nullable
+    public IAdBaseAsyncController h(IAdBaseAsyncController.Type type, IAdBaseAsyncController.a aVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, type, aVar)) == null) {
+            int i = a.a[type.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    return null;
+                }
+                return new td8(aVar);
+            }
+            return new jd8(aVar);
+        }
+        return (IAdBaseAsyncController) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.xb8
+    public ub8 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? hb8.t() : (ub8) invokeV.objValue;
+    }
+
+    @Override // com.repackage.xb8
+    public void j(AdvertAppInfo advertAppInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, advertAppInfo) == null) {
+            AdWebVideoActivity.f2(advertAppInfo, 0, "DETAIL");
         }
     }
 
-    public final void i() {
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r13v0, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r5v14 */
+    @Override // com.repackage.xb8
+    public void k(@NonNull HashMap<String, String> hashMap, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            na5 na5Var = new na5(309692);
-            na5Var.setResponsedClass(ForbiddenForumSocketResMsg.class);
-            na5Var.g(true);
-            na5Var.setPriority(4);
-            MessageManager.getInstance().registerTask(na5Var);
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ForbiddenForumReqMsg forbiddenForumReqMsg = new ForbiddenForumReqMsg();
-            forbiddenForumReqMsg.pageSize = 20;
-            forbiddenForumReqMsg.pageNum = this.b;
-            forbiddenForumReqMsg.setTag(this.a);
-            MessageManager.getInstance().sendMessage(forbiddenForumReqMsg);
-        }
-    }
-
-    public void k(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.d = bVar;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, hashMap, context) == null) {
+            Bundle bundle = new Bundle();
+            JSONObject jSONObject = null;
+            try {
+                JSONObject jSONObject2 = hashMap.get(WriteActivityConfig.VIDEO_INFO) != null ? new JSONObject(hashMap.get(WriteActivityConfig.VIDEO_INFO)) : null;
+                if (jSONObject2 != null) {
+                    bundle.putString("video_url", jSONObject2.optString("video_url", ""));
+                    bundle.putString(AdWebVideoActivityConfig.KEY_VIDEO_THUMB_URL, jSONObject2.optString("poster_image", ""));
+                    float floatValue = Float.valueOf(jSONObject2.optString("video_aspect_ratio", "1")).floatValue();
+                    bundle.putFloat(AdWebVideoActivityConfig.KEY_VIDEO_RATIO, floatValue);
+                    if (floatValue < 1.0f) {
+                        bundle.putInt(AdWebVideoActivityConfig.KEY_GOOD_STYLE, 14);
+                    } else {
+                        bundle.putInt(AdWebVideoActivityConfig.KEY_GOOD_STYLE, 7);
+                    }
+                    bundle.putInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, jSONObject2.optInt("duration", 0));
+                    bundle.putString(WebViewActivityConfig.TAG_AD_DEEPLINK_URL, jSONObject2.optString("page_url", ""));
+                    String str = hashMap.get("url");
+                    try {
+                        if (TextUtils.isEmpty(str)) {
+                            str = jSONObject2.optString("page_url", "");
+                        }
+                        JSONObject jSONObject3 = jSONObject2.get(AdWebVideoActivityConfig.KEY_TAIL_FRAME) != null ? new JSONObject(jSONObject2.optString(AdWebVideoActivityConfig.KEY_TAIL_FRAME)) : null;
+                        JSONObject jSONObject4 = hashMap.get("download") != null ? new JSONObject(hashMap.get("download")) : null;
+                        if (jSONObject4 != null) {
+                            bundle.putString(WebViewActivityConfig.TAG_DOWNLOAD_AD_ID, jSONObject4.optString("key", ""));
+                            jSONObject = new JSONObject();
+                            jSONObject.put("pkgname", jSONObject4.optString("key", ""));
+                            jSONObject.put("download_url", jSONObject4.optString("download_url", ""));
+                        }
+                        if (jSONObject3 != null) {
+                            jSONObject3.put("style", TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                            jSONObject3.put("button_scheme", jSONObject3.optString("button_scheme", ""));
+                            jSONObject3.put("scheme", jSONObject2.optString("page_url", ""));
+                            jSONObject3.put("ext_data", jSONObject);
+                            if (jSONObject4 != null) {
+                                jSONObject3.put("pkgname", jSONObject4.optString("key", ""));
+                                jSONObject3.put("style", "apk_download");
+                            }
+                        }
+                        cd8 cd8Var = new cd8();
+                        cd8Var.b(jSONObject3);
+                        bundle.putString(AdWebVideoActivityConfig.KEY_TAIL_FRAME, cd8Var.d());
+                        jSONObject = str;
+                    } catch (JSONException e) {
+                        e = e;
+                        jSONObject = str;
+                        e.printStackTrace();
+                        bundle.putString(WebViewActivityConfig.TAG_AD_EXT_INFO, hashMap.get("ext_info"));
+                        AdWebVideoActivity.e2(new AdWebVideoActivityConfig(context, "", jSONObject, true, true, true, bundle));
+                    }
+                }
+            } catch (JSONException e2) {
+                e = e2;
+            }
+            bundle.putString(WebViewActivityConfig.TAG_AD_EXT_INFO, hashMap.get("ext_info"));
+            AdWebVideoActivity.e2(new AdWebVideoActivityConfig(context, "", jSONObject, true, true, true, bundle));
         }
     }
 }

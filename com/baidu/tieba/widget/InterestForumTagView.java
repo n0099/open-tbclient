@@ -17,11 +17,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hx;
-import com.repackage.pi;
-import com.repackage.vr4;
+import com.repackage.ix;
+import com.repackage.ms4;
+import com.repackage.qi;
 /* loaded from: classes4.dex */
-public class InterestForumTagView extends LinearLayout implements hx {
+public class InterestForumTagView extends LinearLayout implements ix {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -100,15 +100,15 @@ public class InterestForumTagView extends LinearLayout implements hx {
         this.d = selectForumData;
         SymbolEMTextView symbolEMTextView = this.b;
         if (symbolEMTextView != null) {
-            symbolEMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f08f6, selectForumData.forumName));
+            symbolEMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f090c, selectForumData.forumName));
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int f = pi.f(getContext(), R.dimen.M_W_X004);
-            int f2 = pi.f(getContext(), R.dimen.M_H_X002);
+            int f = qi.f(getContext(), R.dimen.M_W_X004);
+            int f2 = qi.f(getContext(), R.dimen.M_H_X002);
             setPadding(f, f2, 0, f2);
             setOrientation(0);
             setGravity(16);
@@ -117,11 +117,11 @@ public class InterestForumTagView extends LinearLayout implements hx {
             symbolEMTextView.setMaxLines(1);
             this.b.setEllipsize(TextUtils.TruncateAt.END);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            int f3 = pi.f(getContext(), R.dimen.tbds5);
-            layoutParams.setMargins(0, pi.f(getContext(), R.dimen.tbds3), f3, 0);
+            int f3 = qi.f(getContext(), R.dimen.tbds5);
+            layoutParams.setMargins(0, qi.f(getContext(), R.dimen.tbds3), f3, 0);
             addView(this.b, layoutParams);
             this.c = new ImageView(getContext());
-            int f4 = pi.f(getContext(), R.dimen.tbds42);
+            int f4 = qi.f(getContext(), R.dimen.tbds42);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(f4, f4);
             layoutParams2.setMargins(0, 0, f3 * 3, 0);
             addView(this.c, layoutParams2);
@@ -144,18 +144,18 @@ public class InterestForumTagView extends LinearLayout implements hx {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             int i = this.a;
             SymbolEMTextView symbolEMTextView = this.b;
-            return symbolEMTextView != null ? i + pi.E(symbolEMTextView.getPaint(), this.b.getText().toString()).right : i;
+            return symbolEMTextView != null ? i + qi.E(symbolEMTextView.getPaint(), this.b.getText().toString()).right : i;
         }
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.hx
+    @Override // com.repackage.ix
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
             SymbolEMTextView symbolEMTextView = this.b;
             if (symbolEMTextView != null) {
-                vr4 d = vr4.d(symbolEMTextView);
+                ms4 d = ms4.d(symbolEMTextView);
                 d.z(R.dimen.T_X09);
                 d.v(R.color.CAM_X0107);
                 d.w(R.dimen.tbds0);
@@ -165,7 +165,7 @@ public class InterestForumTagView extends LinearLayout implements hx {
             if (imageView != null) {
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_close22, R.color.CAM_X0108, WebPManager.ResourceStateType.NORMAL);
             }
-            vr4 d2 = vr4.d(this);
+            ms4 d2 = ms4.d(this);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0202);
         }
@@ -220,7 +220,7 @@ public class InterestForumTagView extends LinearLayout implements hx {
                 return;
             }
         }
-        this.a = pi.f(getContext(), R.dimen.M_W_X004) + pi.f(getContext(), R.dimen.M_W_X013);
+        this.a = qi.f(getContext(), R.dimen.M_W_X004) + qi.f(getContext(), R.dimen.M_W_X013);
         c();
     }
 }

@@ -1,78 +1,84 @@
 package com.repackage;
 
+import android.graphics.PointF;
+import android.graphics.RectF;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.r0;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class u26 {
+public final class u26 extends o26 {
     public static /* synthetic */ Interceptable $ic;
-    public static final u26 a;
-    public static final r0 b;
-    public static final Class<? extends w06>[] c;
-    public static final r0 d;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755312808, "Lcom/repackage/u26;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755312808, "Lcom/repackage/u26;");
-                return;
-            }
-        }
-        a = new u26();
-        r0 b2 = r0.d(b16.class).b();
-        Intrinsics.checkNotNullExpressionValue(b2, "all(ItemDataComponent::class.java).get()");
-        b = b2;
-        c = new Class[]{b16.class, a16.class};
-        r0.b d2 = r0.d(b16.class, a16.class);
-        d2.c(c16.class, e16.class);
-        r0 b3 = d2.b();
-        Intrinsics.checkNotNullExpressionValue(b3, "all(\n        ItemDataCom…t::class.java\n    ).get()");
-        d = b3;
-    }
+    public boolean b;
+    public PointF c;
+    public RectF d;
 
     public u26() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.c = new PointF();
+        this.d = new RectF();
+    }
+
+    public final PointF c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (PointF) invokeV.objValue;
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
+    public final void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.b = z;
         }
     }
 
-    public final r0 a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.o26, com.repackage.z7.a
+    public void reset() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (r0) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.reset();
+            this.b = false;
+            this.c = new PointF();
+            this.d = new RectF();
+        }
     }
 
-    public final Class<? extends w06>[] b() {
-        InterceptResult invokeV;
+    public final u26 update(boolean z, int i, PointF position, RectF rect, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c : (Class[]) invokeV.objValue;
-    }
-
-    public final r0 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? d : (r0) invokeV.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), position, rect, Integer.valueOf(i2)})) == null) {
+            Intrinsics.checkNotNullParameter(position, "position");
+            Intrinsics.checkNotNullParameter(rect, "rect");
+            this.b = z;
+            if (!Intrinsics.areEqual(this.c, position)) {
+                this.c.set(position);
+            }
+            if (!Intrinsics.areEqual(this.d, rect)) {
+                this.d.set(rect);
+            }
+            return this;
+        }
+        return (u26) invokeCommon.objValue;
     }
 }

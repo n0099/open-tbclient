@@ -1,191 +1,305 @@
 package com.repackage;
 
+import android.content.SharedPreferences;
 import android.text.TextUtils;
-import com.baidu.swan.pms.model.PMSPkgStatus;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.ETAG;
-import java.util.ArrayList;
-import org.json.JSONArray;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class zc4 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile zc4 a;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String c = "PageTipsManager";
+    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public c a;
+    public Map<String, String> b;
+
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final zc4 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(182184232, "Lcom/repackage/zc4$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(182184232, "Lcom/repackage/zc4$b;");
+                    return;
+                }
+            }
+            a = new zc4(null);
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c extends hh4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c() {
+            super("updatecore_node_page_tips");
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755116826, "Lcom/repackage/zc4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755116826, "Lcom/repackage/zc4;");
+        }
+    }
+
+    public /* synthetic */ zc4(a aVar) {
+        this();
+    }
+
+    public static String a(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return str + "_btn_cmd";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return str + "_btn_text";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            return str + "_btn_cmd_btn_url";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            return str + "_tips";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static zc4 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? b.a : (zc4) invokeV.objValue;
+    }
+
+    @NonNull
+    public static JSONObject j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new JSONObject();
+            }
+            try {
+                return new JSONObject(str);
+            } catch (JSONException e) {
+                if (d) {
+                    Log.w(c, "JSONObject parsed error!!", e);
+                }
+                return new JSONObject();
+            }
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static String l(@NonNull Map<String, String> map, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, map, str)) == null) ? map == null ? "" : map.get(a(str)) : (String) invokeLL.objValue;
+    }
+
+    public static String m(@NonNull Map<String, String> map, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, map, str)) == null) ? map == null ? "" : map.get(b(str)) : (String) invokeLL.objValue;
+    }
+
+    public static String n(@NonNull Map<String, String> map, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, map, str)) == null) ? map == null ? "" : map.get(c(str)) : (String) invokeLL.objValue;
+    }
+
+    public static String o(@NonNull Map<String, String> map, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, map, str)) == null) ? map == null ? "" : map.get(d(str)) : (String) invokeLL.objValue;
+    }
+
+    public final void e() {
+        Map<String, String> map;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (map = this.b) == null) {
+            return;
+        }
+        map.clear();
+        this.b = null;
+    }
+
+    public Map<String, String> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Map<String, String> map = this.b;
+            if (map == null || map.size() < 1) {
+                p();
+            }
+            return this.b;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getString("version", "0") : (String) invokeV.objValue;
+    }
+
+    public final void i(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        this.b = new HashMap();
+        Iterator<String> keys = jSONObject.keys();
+        while (keys.hasNext()) {
+            String next = keys.next();
+            JSONObject optJSONObject = jSONObject.optJSONObject(next);
+            if (optJSONObject != null) {
+                this.b.put(d(next), optJSONObject.optString("tips"));
+                JSONObject optJSONObject2 = optJSONObject.optJSONObject(NativeConstants.ID_BUTTON);
+                if (optJSONObject2 != null) {
+                    String optString = optJSONObject2.optString("cmd");
+                    if (!TextUtils.isEmpty(optString)) {
+                        this.b.put(a(next), optString);
+                    }
+                    String optString2 = optJSONObject2.optString("text");
+                    if (!TextUtils.isEmpty(optString2)) {
+                        this.b.put(b(next), optString2);
+                    }
+                    String optString3 = optJSONObject2.optString("url");
+                    if (!TextUtils.isEmpty(optString3)) {
+                        this.b.put(c(next), optString3);
+                    }
+                }
+            }
+        }
+    }
+
+    public void k(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString("version");
+        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
+            return;
+        }
+        e();
+        i(optJSONObject);
+        q(optJSONObject.toString(), optString);
+    }
+
+    public synchronized void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            synchronized (this) {
+                JSONObject j = j(this.a.getString("page_error_tips", ""));
+                e();
+                i(j);
+            }
+        }
+    }
+
+    public void q(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) || str == null || str.isEmpty() || TextUtils.isEmpty(str2)) {
+            return;
+        }
+        SharedPreferences.Editor edit = this.a.edit();
+        edit.clear();
+        edit.putString("version", str2);
+        edit.putString("page_error_tips", str);
+        edit.apply();
+        if (d) {
+            Log.d(c, "write success");
+        }
+    }
 
     public zc4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    public static zc4 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (zc4.class) {
-                    if (a == null) {
-                        a = new zc4();
-                    }
-                }
-            }
-            return a;
-        }
-        return (zc4) invokeV.objValue;
-    }
-
-    public static void b(e94 e94Var, od4 od4Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, e94Var, od4Var) == null) || e94Var == null) {
-            return;
-        }
-        od4Var.a(e94Var, PMSPkgStatus.WAIT);
-    }
-
-    public void c(JSONArray jSONArray, b84 b84Var, b84 b84Var2, b84 b84Var3) {
-        char c;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, jSONArray, b84Var, b84Var2, b84Var3) == null) || jSONArray == null || jSONArray.length() == 0) {
-            return;
-        }
-        yc4 yc4Var = new yc4();
-        yc4 yc4Var2 = new yc4();
-        yc4 yc4Var3 = new yc4();
-        od4 od4Var = new od4();
-        od4 od4Var2 = new od4();
-        od4 od4Var3 = new od4();
-        ad4 w = b84Var3 != null ? b84Var3.w("so") : null;
-        for (int i = 0; i < jSONArray.length(); i++) {
-            try {
-                JSONObject jSONObject = jSONArray.getJSONObject(i);
-                String string = jSONObject.getString("type");
-                if (!TextUtils.isEmpty(string)) {
-                    JSONObject jSONObject2 = jSONObject.getJSONObject("data");
-                    if (!TextUtils.isEmpty(jSONObject2.getString("version_name"))) {
-                        switch (string.hashCode()) {
-                            case -612557761:
-                                if (string.equals(ETAG.KEY_EXTENSION)) {
-                                    c = 2;
-                                    break;
-                                }
-                                c = 65535;
-                                break;
-                            case 3676:
-                                if (string.equals("so")) {
-                                    c = 4;
-                                    break;
-                                }
-                                c = 65535;
-                                break;
-                            case 99308:
-                                if (string.equals("ddl")) {
-                                    c = 5;
-                                    break;
-                                }
-                                c = 65535;
-                                break;
-                            case 54573042:
-                                if (string.equals("extension_game")) {
-                                    c = 3;
-                                    break;
-                                }
-                                c = 65535;
-                                break;
-                            case 714512640:
-                                if (string.equals("bbasp_core")) {
-                                    c = 0;
-                                    break;
-                                }
-                                c = 65535;
-                                break;
-                            case 714618195:
-                                if (string.equals("bbasp_game")) {
-                                    c = 1;
-                                    break;
-                                }
-                                c = 65535;
-                                break;
-                            default:
-                                c = 65535;
-                                break;
-                        }
-                        if (c == 0) {
-                            d94 d94Var = (d94) nd4.j(jSONObject2, new d94());
-                            if (d94Var != null) {
-                                b(d94Var, od4Var);
-                                yc4Var.b = d94Var;
-                            }
-                        } else if (c == 1) {
-                            d94 d94Var2 = (d94) nd4.j(jSONObject2, new d94());
-                            if (d94Var2 != null) {
-                                b(d94Var2, od4Var2);
-                                yc4Var2.a = d94Var2;
-                            }
-                        } else if (c == 2) {
-                            b94 b94Var = (b94) nd4.j(jSONObject2, new b94());
-                            if (b94Var != null) {
-                                b(b94Var, od4Var);
-                                yc4Var.c = b94Var;
-                            }
-                        } else if (c == 3) {
-                            b94 b94Var2 = (b94) nd4.j(jSONObject2, new b94());
-                            if (b94Var2 != null) {
-                                b(b94Var2, od4Var2);
-                                yc4Var2.c = b94Var2;
-                            }
-                        } else if (c != 4) {
-                            if (c == 5) {
-                                if (yc4Var3.e == null) {
-                                    yc4Var3.e = new ArrayList();
-                                }
-                                h94 h94Var = (h94) nd4.j(jSONObject2, new h94());
-                                b(h94Var, od4Var3);
-                                yc4Var3.e.add(h94Var);
-                            }
-                        } else if (w != null) {
-                            w.l(jSONObject2);
-                        }
-                    }
-                }
-            } catch (JSONException unused) {
-            }
-        }
-        if (b84Var != null) {
-            if (od4Var.n() == 0) {
-                b84Var.F();
-            } else {
-                b84Var.G(od4Var);
-                r94.e(yc4Var, b84Var);
-            }
-        }
-        if (b84Var2 != null) {
-            if (od4Var2.n() == 0) {
-                b84Var2.F();
-            } else {
-                b84Var2.G(od4Var2);
-                r94.e(yc4Var2, b84Var2);
-            }
-        }
-        if (w != null) {
-            w.o();
-        }
-        if (od4Var3.n() <= 0 || r74.b() == null) {
-            return;
-        }
-        r74.b().t(yc4Var3, od4Var3);
+        this.a = new c();
     }
 }

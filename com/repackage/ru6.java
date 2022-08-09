@@ -1,201 +1,98 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.account.contants.AccountConstants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.R;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import com.repackage.dy;
 /* loaded from: classes7.dex */
-public class ru6 {
+public class ru6 extends bn<tv6, ThreadCardViewHolder<tv6>> implements pl5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public final List<sx4> c;
-    public final List<sx4> d;
-    public boolean e;
+    public BdUniqueId a;
+    public TbPageContext<?> b;
+    public un c;
 
-    public ru6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ru6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 1;
-        this.b = "https://boxnovel.baidu.com/boxnovel/haokan";
-        this.c = new ArrayList();
-        this.d = new ArrayList();
-        j();
+        this.b = tbPageContext;
     }
 
-    public sx4 a(int i, String str, String str2, String str3) {
+    @Override // com.repackage.pl5
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bn
+    /* renamed from: s */
+    public ThreadCardViewHolder<tv6> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            dy.b bVar = new dy.b(this.b.getPageActivity(), false);
+            bVar.n(new g17(this.b, this.a));
+            bVar.l().c(0);
+            bVar.l().f(0);
+            bVar.l().e(0);
+            bVar.l().h(0);
+            ThreadCardViewHolder<tv6> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.c));
+            threadCardViewHolder.i(this.a);
+            return threadCardViewHolder;
+        }
+        return (ThreadCardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, tv6 tv6Var, ThreadCardViewHolder<tv6> threadCardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, str3})) == null) {
-            sx4 sx4Var = new sx4();
-            sx4Var.a = i;
-            sx4Var.b = str;
-            sx4Var.c = str2;
-            sx4Var.d = str3;
-            return sx4Var;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, tv6Var, threadCardViewHolder})) == null) {
+            if (tv6Var == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null) {
+                return null;
+            }
+            threadCardViewHolder.e(tv6Var);
+            threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
+            uz5.b().a(o17.k("c13620", 2));
+            return threadCardViewHolder.getView();
         }
-        return (sx4) invokeCommon.objValue;
+        return (View) invokeCommon.objValue;
     }
 
-    public sx4 b(int i, String str, String str2) {
-        InterceptResult invokeILL;
+    public void u(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, str2)) == null) {
-            sx4 sx4Var = new sx4();
-            sx4Var.a = i;
-            sx4Var.b = str;
-            sx4Var.c = str2;
-            return sx4Var;
-        }
-        return (sx4) invokeILL.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.e) {
-                return false;
-            }
-            List<sx4> i = i();
-            int size = i.size();
-            if (size != this.c.size()) {
-                return true;
-            }
-            for (int i2 = 0; i2 < size; i2++) {
-                if (i.get(i2) != null && !i.get(i2).equals(this.c.get(i2))) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final List<sx4> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(b(5, g(R.string.obfuscated_res_0x7f0f1315), ""));
-            arrayList.add(b(6, g(R.string.obfuscated_res_0x7f0f1311), ""));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f1310), "game"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f130d), "digital"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f130e), "entertainment"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f130f), "films"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f130b), "campus"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f130a), "animes"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f1314), "sports"));
-            arrayList.add(a(202, g(R.string.obfuscated_res_0x7f0f1312), AccountConstants.LOGIN_TYPE_NATIVE_SRC_NOVEL, this.b));
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    @NonNull
-    public List<sx4> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : (List) invokeV.objValue;
-    }
-
-    public final String g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? TbadkCoreApplication.getInst().getString(i) : (String) invokeI.objValue;
-    }
-
-    public List<sx4> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : (List) invokeV.objValue;
-    }
-
-    public final List<sx4> i() {
-        InterceptResult invokeV;
-        JSONArray jSONArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            try {
-                jSONArray = new JSONArray(yt4.k().q("key_index_tab_info_list", "[]"));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (jSONArray.length() == 0) {
-                this.e = true;
-                return d();
-            }
-            this.e = false;
-            boolean isHomeTabModifyABTestA = UbsABTestHelper.isHomeTabModifyABTestA();
-            for (int i = 0; i < jSONArray.length(); i++) {
-                sx4 sx4Var = new sx4();
-                sx4Var.h(jSONArray.getJSONObject(i));
-                if (!sx4Var.e()) {
-                    if (isHomeTabModifyABTestA) {
-                        if (sx4Var.f() && arrayList.size() < 2) {
-                            arrayList.add(sx4Var);
-                        } else {
-                            this.d.add(sx4Var);
-                        }
-                    } else {
-                        arrayList.add(sx4Var);
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            List<sx4> i = i();
-            if (ListUtils.isEmpty(i)) {
-                return;
-            }
-            this.c.addAll(i);
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            List<sx4> list = this.c;
-            if (list != null) {
-                list.clear();
-            }
-            j();
+        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
+            this.a = bdUniqueId;
         }
     }
 }

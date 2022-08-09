@@ -1,14 +1,19 @@
 package com.repackage;
 
-import android.net.Uri;
+import android.content.Context;
+import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.SchemeConfig;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.searchbox.v8engine.InspectorNativeChannel;
-import com.baidu.searchbox.v8engine.InspectorNativeClient;
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
+import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,36 +21,47 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jy1;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.concurrent.LinkedBlockingQueue;
+import com.repackage.vj2;
+import com.repackage.wk1;
+import com.repackage.xl2;
+import java.io.File;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import okhttp3.Response;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class my1 implements jy1.c {
+public class my1 extends w23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
+    public static Set<String> g;
+    public static Set<String> h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final jy1.b a;
-    public dp9 b;
-    public InspectorNativeClient c;
-    public q72 d;
-    public LinkedBlockingQueue<String> e;
-    public String f;
+    public oy1 c;
+    public ExecutorService d;
+    public int e;
+    public xl2.a f;
 
     /* loaded from: classes6.dex */
-    public class a extends InspectorNativeChannel {
+    public class a implements wk1.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ my1 a;
+        public final /* synthetic */ UnitedSchemeEntity a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ CallbackHandler c;
+        public final /* synthetic */ my1 d;
 
-        public a(my1 my1Var) {
+        public a(my1 my1Var, UnitedSchemeEntity unitedSchemeEntity, Context context, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {my1Var};
+                Object[] objArr = {my1Var, unitedSchemeEntity, context, callbackHandler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -55,259 +71,78 @@ public class my1 implements jy1.c {
                     return;
                 }
             }
-            this.a = my1Var;
+            this.d = my1Var;
+            this.a = unitedSchemeEntity;
+            this.b = context;
+            this.c = callbackHandler;
         }
 
-        @Override // com.baidu.searchbox.v8engine.InspectorNativeChannel
-        public String awaitMessage() {
-            InterceptResult invokeV;
+        @Override // com.repackage.wk1.b
+        public void a(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (my1.g) {
-                    Log.d("V8InspectorClient", "getInspectorMessage");
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                if (z) {
+                    zx1.c("DebuggerLaunchAction", "Authentication Success");
+                    my1.h.add(this.d.o(this.b));
+                    this.d.p(this.b, this.a, this.c);
+                    return;
                 }
-                try {
-                    return (String) this.a.e.take();
-                } catch (InterruptedException e) {
-                    if (my1.g) {
-                        Log.e("V8InspectorClient", "awaitMessage on Debugger", e);
-                        return "";
-                    }
-                    return "";
-                }
+                zx1.c("DebuggerLaunchAction", "Authentication Fail : Not developer");
+                this.a.result = UnitedSchemeUtility.wrapCallbackParams(401);
+                this.d.v(this.b, TbEnum.SystemMessage.EVENT_ID_APPLY_FRIEND);
             }
-            return (String) invokeV.objValue;
         }
 
-        @Override // com.baidu.searchbox.v8engine.InspectorNativeChannel
-        public void sendMessage(String str) {
+        @Override // com.repackage.wk1.b
+        public void b(Exception exc) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                try {
-                    if (this.a.b != null) {
-                        this.a.b.send(str);
-                    }
-                } catch (Exception unused) {
-                    if (my1.g) {
-                        Log.d("V8InspectorClient", "V8 send message fail, try to check if websocket has opened");
-                    }
-                }
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                zx1.d("DebuggerLaunchAction", "onFail : Authentication exception :", exc);
+                this.a.result = UnitedSchemeUtility.wrapCallbackParams(401);
+                this.d.v(this.b, TbEnum.SystemMessage.EVENT_ID_APPLY_FRIEND);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b extends dp9 {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ my1 a;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ File c;
+        public final /* synthetic */ UnitedSchemeEntity d;
+        public final /* synthetic */ CallbackHandler e;
+        public final /* synthetic */ my1 f;
 
-        /* loaded from: classes6.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    String str = (String) this.a.a.e.poll();
-                    while (str != null) {
-                        this.a.a.c.dispatchProtocolMessage(str);
-                        this.a.c(str);
-                        this.a.d(str);
-                        str = (String) this.a.a.e.poll();
-                    }
-                }
-            }
-        }
-
-        /* renamed from: com.repackage.my1$b$b  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class RunnableC0527b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public RunnableC0527b(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.a.onConnected();
-                }
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(my1 my1Var, URI uri) {
-            super(uri);
+        public b(my1 my1Var, Context context, String str, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {my1Var, uri};
+                Object[] objArr = {my1Var, context, str, file, unitedSchemeEntity, callbackHandler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((URI) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = my1Var;
+            this.f = my1Var;
+            this.a = context;
+            this.b = str;
+            this.c = file;
+            this.d = unitedSchemeEntity;
+            this.e = callbackHandler;
         }
 
-        public final void c(String str) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str) || this.a.a == null) {
-                return;
-            }
-            try {
-                if (TextUtils.equals(new JSONObject(str).optString("method"), "Debugger.enable")) {
-                    h03 K = h03.K();
-                    SwanAppActivity w = K.w();
-                    if (K.E() && w != null) {
-                        w.runOnUiThread(new RunnableC0527b(this));
-                    }
-                }
-            } catch (JSONException e) {
-                if (my1.g) {
-                    Log.e("V8InspectorClient", "message is not a Json object", e);
-                }
-            }
-        }
-
-        /* JADX WARN: Code restructure failed: missing block: B:22:0x0045, code lost:
-            if (r2 == 1) goto L20;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:23:0x0047, code lost:
-            com.repackage.ix1.c("V8InspectorClient", "Undefined command");
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:24:0x004d, code lost:
-            com.repackage.ix1.i("V8InspectorClient", "v8 inspector close");
-            com.repackage.dy1.d();
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:41:?, code lost:
-            return;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:42:?, code lost:
-            return;
-         */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public final void d(String str) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.isEmpty(str)) {
-                return;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString("command");
-                if (TextUtils.isEmpty(optString)) {
-                    return;
-                }
-                char c = 65535;
-                int hashCode = optString.hashCode();
-                if (hashCode != -934641255) {
-                    if (hashCode == 94756344 && optString.equals("close")) {
-                        c = 1;
-                    }
-                } else if (optString.equals("reload")) {
-                    c = 0;
-                }
-                ix1.i("V8InspectorClient", "v8 inspector reload");
-                String optString2 = jSONObject.optString("value");
-                if (!TextUtils.isEmpty(optString2) && TextUtils.equals(Uri.parse(optString2).getHost(), "swanAPI")) {
-                    SchemeRouter.invoke(AppRuntime.getAppContext(), optString2);
-                }
-            } catch (JSONException e) {
-                if (my1.g) {
-                    Log.e("V8InspectorClient", "message is not a json object", e);
-                }
-            }
-        }
-
-        @Override // com.repackage.dp9
-        public void onClose(int i, String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
-                ix1.i("V8InspectorClient", "V8 inspector closed");
-            }
-        }
-
-        @Override // com.repackage.dp9
-        public void onError(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
-                ix1.d("V8InspectorClient", "V8 inspector error", exc);
-            }
-        }
-
-        @Override // com.repackage.dp9
-        public void onMessage(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.a.e.offer(str);
-                this.a.d.postOnJSThread(new a(this));
-            }
-        }
-
-        @Override // com.repackage.dp9
-        public void onOpen(xp9 xp9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, xp9Var) == null) {
-                ix1.i("V8InspectorClient", "V8 inspector opened");
-                e22 W = c72.U().W();
-                if (W instanceof i22) {
-                    this.a.d = (q72) W.g();
-                }
-                if (this.a.d == null) {
-                    ix1.i("V8InspectorClient", "inner error, V8 mEngine is null");
-                    close();
-                    return;
-                }
-                my1 my1Var = this.a;
-                my1Var.c = my1Var.d.s0(new a(this.a));
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f.w(this.a, this.b, this.c, this.d, this.e);
             }
         }
     }
@@ -325,51 +160,236 @@ public class my1 implements jy1.c {
                 return;
             }
         }
-        g = sg1.a;
+        h = new HashSet();
     }
 
-    public my1(String str, jy1.b bVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public my1(w13 w13Var) {
+        super(w13Var, "/swanAPI/debuggerlaunch");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, bVar};
+            Object[] objArr = {w13Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.e = new LinkedBlockingQueue<>();
-        this.f = str;
-        this.a = bVar;
     }
 
-    @Override // com.repackage.jy1.c
-    public void start() {
+    @Override // com.repackage.w23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, z03 z03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                b bVar = new b(this, new URI(this.f));
-                this.b = bVar;
-                bVar.connect();
-            } catch (URISyntaxException e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, z03Var)) == null) {
+            boolean equals = TextUtils.equals(n93.a().getString("enableSwitch", "1"), "1");
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo != null && optParamsAsJo.length() > 0 && equals) {
+                oy1 b2 = oy1.b(optParamsAsJo);
+                this.c = b2;
+                if (b2 == null) {
+                    if (w23.b) {
+                        Log.e("DebuggerLaunchAction", "Remote Debug params is invalid");
+                    }
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                } else if (!u()) {
+                    v(context, "404");
+                    return false;
+                } else if (!SwanAppAllianceLoginHelper.d.f() && !t().contains(gk2.h0().h(context)) && !h.contains(o(context))) {
+                    mh1.b(this.c.a, new a(this, unitedSchemeEntity, context, callbackHandler));
+                    return true;
+                } else {
+                    p(context, unitedSchemeEntity, callbackHandler);
+                    return true;
+                }
+            }
+            zx1.c("DebuggerLaunchAction", "param is null");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+            return false;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final String o(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            return gk2.h0().h(context) + this.c.a;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler) == null) {
+            py1.j(r());
+            File b2 = vj2.f.b();
+            if (b2.exists()) {
+                b2.delete();
+            }
+            this.d = Executors.newFixedThreadPool(4);
+            this.e = 0;
+            for (int i = 0; i < this.c.b.length(); i++) {
+                String a2 = this.c.a(i);
+                if (TextUtils.isEmpty(a2)) {
+                    int i2 = this.e + 1;
+                    this.e = i2;
+                    if (i2 >= this.c.b.length()) {
+                        zx1.c("DebuggerLaunchAction", "IPs are invalid");
+                        v(context, "404");
+                    }
+                } else {
+                    this.d.execute(new b(this, context, a2, b2, unitedSchemeEntity, callbackHandler));
+                }
             }
         }
     }
 
-    @Override // com.repackage.jy1.c
-    public void stop() {
-        dp9 dp9Var;
+    public final String q(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (dp9Var = this.b) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            try {
+                return URLEncoder.encode(str, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return str;
+            }
         }
-        dp9Var.close();
-        this.b = null;
+        return (String) invokeL.objValue;
+    }
+
+    public final xl2.a r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.f == null && this.c != null) {
+                this.f = (xl2.a) ((xl2.a) ((xl2.a) ((xl2.a) ((xl2.a) new xl2.a().v0(this.c.a)).A0(false)).R0(this.c.d)).K0("baiduboxapp://swan/" + this.c.a)).P0("1");
+            }
+            return this.f;
+        }
+        return (xl2.a) invokeV.objValue;
+    }
+
+    public final String s(String str) {
+        InterceptResult invokeL;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            int hashCode = str.hashCode();
+            if (hashCode != 51509) {
+                if (hashCode == 51512 && str.equals("404")) {
+                    c = 1;
+                }
+                c = 65535;
+            } else {
+                if (str.equals(TbEnum.SystemMessage.EVENT_ID_APPLY_FRIEND)) {
+                    c = 0;
+                }
+                c = 65535;
+            }
+            if (c == 0) {
+                return "authorization fail " + str;
+            } else if (c != 1) {
+                return "";
+            } else {
+                return "IPs are invalid " + str;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final Set<String> t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (g == null) {
+                g = new HashSet();
+                try {
+                    JSONArray jSONArray = new JSONArray(n93.a().getString("authWlist", ""));
+                    for (int i = 0; i < jSONArray.length(); i++) {
+                        g.add(jSONArray.optString(i));
+                    }
+                } catch (JSONException unused) {
+                    if (w23.b) {
+                        Log.d("DebuggerLaunchAction", "Cloud White List is invalid");
+                    }
+                }
+            }
+            return g;
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public final boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            JSONArray jSONArray = this.c.b;
+            return (jSONArray == null || jSONArray.length() <= 0 || TextUtils.isEmpty(this.c.c)) ? false : true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void v(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, str) == null) {
+            String string = n93.a().getString("errorURL", "");
+            if (TextUtils.isEmpty(string)) {
+                r03.g(context, s(str)).G();
+                return;
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append(SchemeConfig.getSchemeHead());
+            sb.append("://v1/easybrowse/open?url=");
+            sb.append(q(string + "?" + str));
+            SchemeRouter.invoke(context, sb.toString());
+        }
+    }
+
+    public final void w(Context context, String str, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048585, this, context, str, file, unitedSchemeEntity, callbackHandler) == null) {
+            xl2.a r = r();
+            py1.l();
+            py1.g().h("downloadstart");
+            try {
+                s74 request = b84.g().getRequest();
+                Response executeSync = request.url(str + "/app.zip").connectionTimeout(3000).build().executeSync();
+                if (executeSync != null && executeSync.code() == 200 && executeSync.body() != null) {
+                    eh4.a(executeSync.body().byteStream(), file);
+                    Intent g1 = xl2.g1(context, r);
+                    g1.putExtra("remoteDebugUrl", str);
+                    context.startActivity(g1);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    if (this.d != null) {
+                        this.d.shutdownNow();
+                        this.d = null;
+                    }
+                    py1.m(r);
+                    py1.g().h("downloadsuccess");
+                }
+                if (executeSync != null) {
+                    executeSync.close();
+                }
+            } catch (IOException unused) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                int i = this.e + 1;
+                this.e = i;
+                if (i >= this.c.b.length()) {
+                    zx1.c("DebuggerLaunchAction", "IPs are invalid");
+                    v(context, "404");
+                    py1.g().h("downloadfail");
+                }
+            }
+        }
     }
 }

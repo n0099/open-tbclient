@@ -1,5 +1,5 @@
 package com.ss.android.socialbase.downloader.constants;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public enum a {
     ASYNC_HANDLE_NONE,
     ASYNC_HANDLE_WAITING,

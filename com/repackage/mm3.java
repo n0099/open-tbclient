@@ -1,27 +1,38 @@
 package com.repackage;
 
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes6.dex */
-public class mm3 {
+public class mm3 implements pk1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile lm3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized lm3 a() {
-        InterceptResult invokeV;
-        lm3 lm3Var;
+    public mm3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (mm3.class) {
-                if (a == null) {
-                    a = new lm3();
-                }
-                lm3Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return lm3Var;
         }
-        return (lm3) invokeV.objValue;
+    }
+
+    @Override // com.repackage.pk1
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

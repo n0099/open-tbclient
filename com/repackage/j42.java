@@ -1,34 +1,34 @@
 package com.repackage;
 
-import android.util.Pair;
-import androidx.annotation.NonNull;
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import com.repackage.ga4;
+import java.util.HashMap;
+import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class j42 extends lo1 {
+public abstract class j42 extends h13 implements n42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j42(@NonNull jo1 jo1Var) {
-        super(jo1Var);
+    public j42(y03 y03Var) {
+        super(y03Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jo1Var};
+            Object[] objArr = {y03Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((jo1) newInitContext.callArgs[0]);
+                super((c13) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -36,43 +36,49 @@ public class j42 extends lo1 {
         }
     }
 
-    @Override // com.repackage.lo1
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Prefetch" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.lo1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "SwanPrefetchResourcesApi" : (String) invokeV.objValue;
-    }
-
-    public is1 x(String str) {
+    public static final Map<String, String> I(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#prefetchResources params=" + str, false);
-            Pair<is1, JSONObject> s = s(str);
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (jSONObject == null) {
-                return (is1) s.first;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bundle)) == null) {
+            HashMap hashMap = new HashMap();
+            if (bundle != null && !bundle.isEmpty()) {
+                for (String str : bundle.keySet()) {
+                    hashMap.put(str, bundle.getString(str));
+                }
             }
-            if (!SwanAppNetworkUtils.i(pj2.c())) {
-                return new is1(1001, "network disconnected");
-            }
-            JSONArray c = id3.c(jSONObject, "video");
-            if (c != null && c.length() > 0) {
-                pj2.U().a(c);
-            }
-            JSONArray c2 = id3.c(jSONObject, "image");
-            if (c2 != null && c2.length() > 0) {
-                pj2.U().c(c2);
-            }
-            return is1.f();
+            return hashMap;
         }
-        return (is1) invokeL.objValue;
+        return (Map) invokeL.objValue;
+    }
+
+    public static final Bundle J(Map<String, String> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
+            Bundle bundle = new Bundle();
+            if (map != null && !map.isEmpty()) {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    bundle.putString(entry.getKey(), entry.getValue());
+                }
+            }
+            return bundle;
+        }
+        return (Bundle) invokeL.objValue;
+    }
+
+    @Override // com.repackage.ga4
+    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, ga4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
+            gk2.r0().b(str, map, map2, jSONObject, aVar);
+        }
+    }
+
+    @Override // com.repackage.ga4
+    public void z(String str, Map<String, String> map, Map<String, String> map2, ga4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, map2, aVar) == null) {
+            gk2.r0().z(str, map, map2, aVar);
+        }
     }
 }

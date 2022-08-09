@@ -1,50 +1,13 @@
 package com.repackage;
 
-import android.content.SharedPreferences;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.FunAdSdk;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qd9 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final SharedPreferences a;
-    public static final SharedPreferences.Editor b;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface qd9 {
+    void a(String str, JSONObject jSONObject);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755383829, "Lcom/repackage/qd9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755383829, "Lcom/repackage/qd9;");
-                return;
-            }
-        }
-        SharedPreferences sharedPreferences = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk_price", 0);
-        a = sharedPreferences;
-        b = sharedPreferences.edit();
-    }
+    void b(String str, JSONObject jSONObject);
 
-    public static double a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Double.longBitsToDouble(a.getLong("key_price_by_baseprice", 0L)) : invokeV.doubleValue;
-    }
+    void c(String str, int i, String str2, JSONObject jSONObject);
 
-    public static double b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            SharedPreferences sharedPreferences = a;
-            return Double.longBitsToDouble(sharedPreferences.getLong(str + "_", 0L));
-        }
-        return invokeL.doubleValue;
-    }
+    void d(String str, String str2, JSONObject jSONObject);
 }

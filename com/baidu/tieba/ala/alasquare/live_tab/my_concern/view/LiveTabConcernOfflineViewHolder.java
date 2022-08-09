@@ -6,21 +6,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.iq5;
+import com.repackage.as5;
 /* loaded from: classes3.dex */
 public class LiveTabConcernOfflineViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public iq5 a;
+    public as5 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LiveTabConcernOfflineViewHolder(iq5 iq5Var) {
-        super(iq5Var.h());
+    public LiveTabConcernOfflineViewHolder(as5 as5Var) {
+        super(as5Var.h());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {iq5Var};
+            Object[] objArr = {as5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,6 +31,6 @@ public class LiveTabConcernOfflineViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = iq5Var;
+        this.a = as5Var;
     }
 }

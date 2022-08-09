@@ -15,9 +15,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.el7;
-import com.repackage.kl7;
-import com.repackage.ol7;
+import com.repackage.fn7;
+import com.repackage.jn7;
+import com.repackage.zm7;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 /* loaded from: classes4.dex */
@@ -33,7 +33,7 @@ public class VideoEncoderCore {
     public long mLastFrameSyncTime;
     public MediaMuxerWrapper mMuxer;
     public boolean mMuxerStarted;
-    public kl7 mPostMonitorManager;
+    public fn7 mPostMonitorManager;
     public boolean mRequestStop;
     public int mTrackIndex;
     public Bundle params;
@@ -56,10 +56,10 @@ public class VideoEncoderCore {
         this.params = new Bundle();
         this.mLastFrameSyncTime = 0L;
         this.mRequestStop = false;
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, ol7.class);
-        ol7 ol7Var = runTask != null ? (ol7) runTask.getData() : null;
-        if (ol7Var != null) {
-            this.mPostMonitorManager = ol7Var.get();
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, jn7.class);
+        jn7 jn7Var = runTask != null ? (jn7) runTask.getData() : null;
+        if (jn7Var != null) {
+            this.mPostMonitorManager = jn7Var.get();
         }
         this.mBufferInfo = new MediaCodec.BufferInfo();
         MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", i, i2);
@@ -180,9 +180,9 @@ public class VideoEncoderCore {
                 try {
                     mediaMuxerWrapper.stop();
                 } catch (IllegalStateException e) {
-                    kl7 kl7Var = this.mPostMonitorManager;
-                    if (kl7Var != null) {
-                        kl7Var.b(17, el7.a(e));
+                    fn7 fn7Var = this.mPostMonitorManager;
+                    if (fn7Var != null) {
+                        fn7Var.b(17, zm7.a(e));
                     }
                 }
                 this.mMuxer = null;

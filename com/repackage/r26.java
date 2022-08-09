@@ -1,80 +1,142 @@
 package com.repackage;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.Comparable;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import kotlin.collections.CollectionsKt__MutableCollectionsJVMKt;
+import kotlin.collections.CollectionsKt__MutableCollectionsKt;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.properties.ReadWriteProperty;
-import kotlin.reflect.KProperty;
 /* loaded from: classes7.dex */
-public final class r26<T extends Comparable<? super T>> implements ReadWriteProperty<Object, T> {
+public abstract class r26 extends p26 implements p0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function1<T, Unit> a;
-    public T b;
+    public final r0 e;
+    public final Comparator<o0> f;
+    public final List<o0> g;
+    public boolean h;
 
-    public r26(T initial, Function1<? super T, Unit> onChange) {
+    public /* synthetic */ r26(m26 m26Var, r0 r0Var, Comparator comparator, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(m26Var, r0Var, (i & 4) != 0 ? new q26() : comparator);
+    }
+
+    public void a(o0 entity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, entity) == null) {
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            this.g.remove(entity);
+            this.h = true;
+        }
+    }
+
+    @Override // com.repackage.p0
+    public void b(o0 entity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entity) == null) {
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            this.g.add(entity);
+            this.h = true;
+        }
+    }
+
+    @Override // com.repackage.q0
+    public void c(n0 engine) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, engine) == null) {
+            Intrinsics.checkNotNullParameter(engine, "engine");
+            this.g.clear();
+            y0<o0> newEntities = engine.j(this.e);
+            if (newEntities.size() > 0) {
+                List<o0> list = this.g;
+                Intrinsics.checkNotNullExpressionValue(newEntities, "newEntities");
+                CollectionsKt__MutableCollectionsKt.addAll(list, newEntities);
+            }
+            CollectionsKt__MutableCollectionsJVMKt.sortWith(this.g, this.f);
+            this.h = false;
+            engine.f(this.e, this);
+        }
+    }
+
+    @Override // com.repackage.p26, com.repackage.q0
+    public void g(n0 engine) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, engine) == null) {
+            Intrinsics.checkNotNullParameter(engine, "engine");
+            super.g(engine);
+            engine.o(this);
+            this.g.clear();
+            this.h = false;
+        }
+    }
+
+    @Override // com.repackage.p26
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    public final List<o0> k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            m();
+            return this.g;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public abstract void l(o0 o0Var, float f);
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.h) {
+            CollectionsKt__MutableCollectionsJVMKt.sortWith(this.g, this.f);
+            this.h = false;
+        }
+    }
+
+    @Override // com.repackage.q0
+    public void update(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) {
+            m();
+            for (o0 o0Var : this.g) {
+                l(o0Var, f);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r26(m26 context, r0 family, Comparator<o0> comparator) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {initial, onChange};
+            Object[] objArr = {context, family, comparator};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((m26) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(initial, "initial");
-        Intrinsics.checkNotNullParameter(onChange, "onChange");
-        this.a = onChange;
-        this.b = initial;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // kotlin.properties.ReadWriteProperty, kotlin.properties.ReadOnlyProperty
-    /* renamed from: a */
-    public T getValue(Object thisRef, KProperty<?> property) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, thisRef, property)) == null) {
-            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
-            Intrinsics.checkNotNullParameter(property, "property");
-            return this.b;
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // kotlin.properties.ReadWriteProperty
-    /* renamed from: b */
-    public void setValue(Object thisRef, KProperty<?> property, T value) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thisRef, property, value) == null) {
-            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
-            Intrinsics.checkNotNullParameter(property, "property");
-            Intrinsics.checkNotNullParameter(value, "value");
-            T t = this.b;
-            this.b = value;
-            if (Intrinsics.areEqual(t, value)) {
-                return;
-            }
-            this.a.invoke(value);
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b.toString() : (String) invokeV.objValue;
+        Intrinsics.checkNotNullParameter(context, "context");
+        Intrinsics.checkNotNullParameter(family, "family");
+        Intrinsics.checkNotNullParameter(comparator, "comparator");
+        this.e = family;
+        this.f = comparator;
+        this.g = new ArrayList();
     }
 }

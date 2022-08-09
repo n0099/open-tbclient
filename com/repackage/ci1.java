@@ -1,16 +1,20 @@
 package com.repackage;
 
-import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Autowired
 /* loaded from: classes5.dex */
-public class ci1 implements xj1 {
+public class ci1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public zk1 a;
 
     public ci1() {
         Interceptable interceptable = $ic;
@@ -26,18 +30,23 @@ public class ci1 implements xj1 {
         }
     }
 
-    @Override // com.repackage.xj1
-    public void a(Context context, int i) {
+    @NonNull
+    public zk1 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
-            w83.a().putInt("fontSizeLevel", i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a == null) {
+                this.a = b();
+            }
+            return this.a;
         }
+        return (zk1) invokeV.objValue;
     }
 
-    @Override // com.repackage.xj1
-    public int b(Context context) {
-        InterceptResult invokeL;
+    @Inject(force = false)
+    public zk1 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? w83.a().getInt("fontSizeLevel", 1) : invokeL.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new th3() : (zk1) invokeV.objValue;
     }
 }

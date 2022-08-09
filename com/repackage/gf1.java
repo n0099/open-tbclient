@@ -1,59 +1,54 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.HandlerThread;
+import com.baidu.sapi2.activity.LoginActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gf1 extends HandlerThread {
+public class gf1 {
     public static /* synthetic */ Interceptable $ic;
-    public static gf1 a;
-    public static Handler b;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public String d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gf1() {
-        super("BackgroundThread", 10);
+    public gf1(int i, int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], ((Integer) objArr[1]).intValue());
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = -1;
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
+        this.d = str;
     }
 
-    public static Handler a() {
+    public static gf1 a() {
         InterceptResult invokeV;
-        Handler handler;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (gf1.class) {
-                b();
-                handler = b;
-            }
-            return handler;
-        }
-        return (Handler) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new gf1(3, LoginActivity.REQUEST_SHARE_V2_LOGIN, -1, "No Authorized User Privacy Agreement") : (gf1) invokeV.objValue;
     }
 
-    public static void b() {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && a == null) {
-            gf1 gf1Var = new gf1();
-            a = gf1Var;
-            gf1Var.start();
-            b = new Handler(a.getLooper());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "CallBackMsg{status=" + this.a + ", subStatus=" + this.b + ", op='" + this.c + "', data='" + this.d + "'}";
         }
+        return (String) invokeV.objValue;
     }
 }

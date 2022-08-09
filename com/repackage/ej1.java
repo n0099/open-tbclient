@@ -1,17 +1,13 @@
 package com.repackage;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class ej1 implements ol1 {
+public class ej1 implements il1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,27 +25,20 @@ public class ej1 implements ol1 {
         }
     }
 
-    @Override // com.repackage.ol1
-    public void a(@NonNull JSONArray jSONArray) {
+    @Override // com.repackage.il1
+    public float a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0.0f;
         }
+        return invokeV.floatValue;
     }
 
-    @Override // com.repackage.ol1
-    public l42 b(Context context, File file, long j) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.il1
+    public String processUrl(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, file, Long.valueOf(j)})) == null) {
-            return null;
-        }
-        return (l42) invokeCommon.objValue;
-    }
-
-    @Override // com.repackage.ol1
-    public void c(@NonNull JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray) == null) {
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? vx1.w(str, true) : (String) invokeL.objValue;
     }
 }

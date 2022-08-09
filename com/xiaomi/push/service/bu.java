@@ -44,18 +44,18 @@ public class bu implements ServiceConnection {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
             synchronized (this.a) {
-                this.a.f836b = new Messenger(iBinder);
-                this.a.f837b = false;
-                list = this.a.f834a;
+                this.a.f837b = new Messenger(iBinder);
+                this.a.f838b = false;
+                list = this.a.f835a;
                 for (Message message : list) {
                     try {
-                        messenger = this.a.f836b;
+                        messenger = this.a.f837b;
                         messenger.send(message);
                     } catch (RemoteException e) {
                         com.xiaomi.channel.commonutils.logger.b.a(e);
                     }
                 }
-                list2 = this.a.f834a;
+                list2 = this.a.f835a;
                 list2.clear();
             }
         }
@@ -65,8 +65,8 @@ public class bu implements ServiceConnection {
     public void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            this.a.f836b = null;
-            this.a.f837b = false;
+            this.a.f837b = null;
+            this.a.f838b = false;
         }
     }
 }

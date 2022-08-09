@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
-import com.repackage.gb0;
-import com.repackage.w70;
-import com.repackage.x70;
+import com.repackage.a80;
+import com.repackage.cb0;
 import com.repackage.y70;
+import com.repackage.z70;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
@@ -25,17 +25,17 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes2.dex */
 public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
     public static /* synthetic */ Interceptable $ic;
-    public static final w70 k;
+    public static final y70 k;
     public static final e l;
     public transient /* synthetic */ FieldHolder $fh;
     public final f<ParamsT, ResultT> a;
-    public final x70<ResultT> b;
+    public final z70<ResultT> b;
     public final AtomicBoolean c;
     public final AtomicBoolean d;
     public volatile BdAsyncTaskStatus e;
     public int f;
     public int g;
-    public y70 h;
+    public a80 h;
     public boolean i;
     public boolean j;
 
@@ -144,7 +144,7 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
     }
 
     /* loaded from: classes2.dex */
-    public class b extends x70<ResultT> {
+    public class b extends z70<ResultT> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdAsyncTask b;
@@ -171,7 +171,7 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
             this.b = bdAsyncTask;
         }
 
-        @Override // com.repackage.x70
+        @Override // com.repackage.z70
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -336,7 +336,7 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
                 return;
             }
         }
-        k = w70.e();
+        k = y70.e();
         l = new e(Looper.getMainLooper());
     }
 
@@ -439,10 +439,10 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
         }
     }
 
-    public y70 j() {
+    public a80 j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.h : (y70) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.h : (a80) invokeV.objValue;
     }
 
     public int k() {
@@ -515,12 +515,12 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
         return (ResultT) invokeL.objValue;
     }
 
-    public synchronized void v(y70 y70Var) {
+    public synchronized void v(a80 a80Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, y70Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, a80Var) == null) {
             synchronized (this) {
                 if (this.e == BdAsyncTaskStatus.PENDING) {
-                    this.h = y70Var;
+                    this.h = a80Var;
                 } else {
                     throw new IllegalStateException("the task is already running");
                 }
@@ -546,16 +546,16 @@ public abstract class BdAsyncTask<ParamsT, ProgressT, ResultT> {
         return invokeI.intValue;
     }
 
-    public synchronized int x(gb0 gb0Var) {
+    public synchronized int x(cb0 cb0Var) {
         InterceptResult invokeL;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, gb0Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, cb0Var)) == null) {
             synchronized (this) {
                 if (this.e == BdAsyncTaskStatus.PENDING) {
                     i = this.g;
-                    if (gb0Var != null) {
-                        this.g = gb0Var.b();
+                    if (cb0Var != null) {
+                        this.g = cb0Var.b();
                     }
                 } else {
                     throw new IllegalStateException("the task is already running");

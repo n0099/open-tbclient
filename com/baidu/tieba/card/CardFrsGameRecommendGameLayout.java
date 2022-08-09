@@ -17,13 +17,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eg;
+import com.repackage.fg;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class CardFrsGameRecommendGameLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public eg<CardFrsGameRecommendGameItemView> a;
+    public fg<CardFrsGameRecommendGameItemView> a;
     public int b;
     public int c;
     public int d;
@@ -123,7 +123,7 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardFrsGameRecommendGameItemView, featureCardGameSubNode) == null) || featureCardGameSubNode == null) {
             return;
         }
-        cardFrsGameRecommendGameItemView.getGamePicView().J(featureCardGameSubNode.image, 10, false);
+        cardFrsGameRecommendGameItemView.getGamePicView().K(featureCardGameSubNode.image, 10, false);
         cardFrsGameRecommendGameItemView.getGameNameView().setText(featureCardGameSubNode.name);
         cardFrsGameRecommendGameItemView.getGameDscView().setText(featureCardGameSubNode.title);
         cardFrsGameRecommendGameItemView.setTag(featureCardGameSubNode.url);
@@ -206,10 +206,10 @@ public class CardFrsGameRecommendGameLayout extends LinearLayout {
         }
     }
 
-    public void setViewPool(eg<CardFrsGameRecommendGameItemView> egVar) {
+    public void setViewPool(fg<CardFrsGameRecommendGameItemView> fgVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, egVar) == null) {
-            this.a = egVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, fgVar) == null) {
+            this.a = fgVar;
         }
     }
 

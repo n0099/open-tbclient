@@ -1,72 +1,98 @@
 package com.repackage;
 
-import android.app.Activity;
 import android.view.View;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class bx6 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755811567, "Lcom/repackage/bx6;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755811567, "Lcom/repackage/bx6;");
+    public static void a(View view2, Object obj, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(65536, null, view2, obj, i, str) == null) {
+            if (obj instanceof sx6) {
+                sx6 sx6Var = (sx6) obj;
+                if (sx6Var.e) {
+                    StatisticItem statisticItem = new StatisticItem("c13736");
+                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+                    statisticItem.eventStat();
+                    return;
+                }
+                StatisticItem statisticItem2 = new StatisticItem("c13735");
+                statisticItem2.param("obj_locate", str);
+                statisticItem2.param("topic_id", sx6Var.a);
+                statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
+                statisticItem2.eventStat();
+            } else if (obj instanceof ux6) {
+                ThreadData threadData = ((ux6) obj).f;
+                StatisticItem statisticItem3 = new StatisticItem("c13738");
+                statisticItem3.param("obj_type", str);
+                statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccount());
+                if (threadData != null) {
+                    statisticItem3.param("tid", threadData.getTid());
+                    statisticItem3.param("fid", threadData.getFid());
+                }
+                statisticItem3.eventStat();
+            } else if (obj instanceof fo4) {
+                d(view2);
+                if (c(view2)) {
+                    ThreadData threadData2 = ((fo4) obj).getThreadData();
+                    StatisticItem statisticItem4 = new StatisticItem("c13738");
+                    statisticItem4.param("obj_type", str);
+                    statisticItem4.param("uid", TbadkCoreApplication.getCurrentAccount());
+                    if (threadData2 != null) {
+                        statisticItem4.param("tid", threadData2.getTid());
+                        statisticItem4.param("fid", threadData2.getFid());
+                    }
+                    statisticItem4.eventStat();
+                }
+            }
         }
     }
 
-    public static boolean a(Activity activity) {
+    public static void b(View view2, Object obj, String str) {
+        ThreadData threadData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65537, null, view2, obj, str) == null) {
+            StatisticItem statisticItem = new StatisticItem("c13825");
+            statisticItem.param("obj_type", str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            if (obj instanceof ux6) {
+                threadData = ((ux6) obj).f;
+            } else {
+                threadData = obj instanceof fo4 ? ((fo4) obj).getThreadData() : null;
+            }
+            if (threadData != null) {
+                statisticItem.param("tid", threadData.getTid());
+                statisticItem.param("fid", threadData.getFid());
+            }
+            statisticItem.eventStat();
+        }
+    }
+
+    public static boolean c(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            if (activity != null) {
-                try {
-                    return activity.isInMultiWindowMode();
-                } catch (Throwable unused) {
-                    return false;
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            int id = view2.getId();
+            return id == R.id.obfuscated_res_0x7f09212a || id == R.id.obfuscated_res_0x7f09213e;
         }
         return invokeL.booleanValue;
     }
 
-    public static void b(BdTypeRecyclerView bdTypeRecyclerView) {
+    public static void d(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, bdTypeRecyclerView) == null) || bdTypeRecyclerView == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(65539, null, view2) == null) && (view2 instanceof TbImageView)) {
+            new StatisticItem("c14675").addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam(TiebaStatic.Params.OBJ_TO, UbsABTestHelper.isImgClickToPb() ? 1 : 2).eventStat();
         }
-        int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition();
-        View childAt = bdTypeRecyclerView.getChildAt(0);
-        int top = childAt != null ? childAt.getTop() : 0;
-        a = firstVisiblePosition;
-        b = top;
-    }
-
-    public static void c(BdTypeRecyclerView bdTypeRecyclerView) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, bdTypeRecyclerView) == null) || bdTypeRecyclerView == null || !(bdTypeRecyclerView.getLayoutManager() instanceof LinearLayoutManager) || a > bdTypeRecyclerView.getCount() - 1) {
-            return;
-        }
-        bdTypeRecyclerView.requestFocusFromTouch();
-        ((LinearLayoutManager) bdTypeRecyclerView.getLayoutManager()).scrollToPositionWithOffset(a, b);
-        a = 0;
-        b = 0;
     }
 }

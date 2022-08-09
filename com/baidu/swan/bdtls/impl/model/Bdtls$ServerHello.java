@@ -21,15 +21,15 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.MessageLiteOrBuilder;
 import com.google.protobuf.Parser;
-import com.repackage.lj3;
-import com.repackage.mj3;
+import com.repackage.ck3;
+import com.repackage.dk3;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Bdtls$ServerHello extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CIPHERSUITE_FIELD_NUMBER = 2;
@@ -50,7 +50,7 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
     public Bdtls$Random random_;
     public ByteString sKR_;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends AbstractParser<Bdtls$ServerHello> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +79,7 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class b extends GeneratedMessageLite.Builder<Bdtls$ServerHello, b> implements Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -280,7 +280,7 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-                Bdtls$ServerHello bdtls$ServerHello = new Bdtls$ServerHello(this, (lj3) null);
+                Bdtls$ServerHello bdtls$ServerHello = new Bdtls$ServerHello(this, (ck3) null);
                 int i = this.a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 bdtls$ServerHello.random_ = this.b;
@@ -469,7 +469,7 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
         bdtls$ServerHello.initFields();
     }
 
-    public /* synthetic */ Bdtls$ServerHello(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, lj3 lj3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$ServerHello(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, ck3 ck3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -533,13 +533,13 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.extensions_ : (List) invokeV.objValue;
     }
 
-    public mj3 getExtensionsOrBuilder(int i) {
+    public dk3 getExtensionsOrBuilder(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? this.extensions_.get(i) : (mj3) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? this.extensions_.get(i) : (dk3) invokeI.objValue;
     }
 
-    public List<? extends mj3> getExtensionsOrBuilderList() {
+    public List<? extends dk3> getExtensionsOrBuilderList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.extensions_ : (List) invokeV.objValue;
@@ -689,7 +689,7 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
         }
     }
 
-    public /* synthetic */ Bdtls$ServerHello(GeneratedMessageLite.Builder builder, lj3 lj3Var) {
+    public /* synthetic */ Bdtls$ServerHello(GeneratedMessageLite.Builder builder, ck3 ck3Var) {
         this(builder);
     }
 

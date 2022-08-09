@@ -1,113 +1,80 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PaysSettingInfo;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.model.ThemeColorConfig;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class sy9 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static PaysSettingInfo a = null;
-    public static String b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
-    public static String c = "https://web.yy.com/yy_wallet/wallet.html?";
-    public static String d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
+public class sy9<T> extends vu9<T> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final qu9<T> e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755304066, "Lcom/repackage/sy9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public sy9(vu9<? super T> vu9Var) {
+        this(vu9Var, true);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755304066, "Lcom/repackage/sy9;");
-        }
-    }
-
-    public static String a(String str, PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, payUIKitConfig)) == null) {
-            if (payUIKitConfig == null || payUIKitConfig.revenueConfig == null) {
-                return str;
-            }
-            StringBuilder sb = new StringBuilder(str);
-            sb.append("&uid=" + payUIKitConfig.revenueConfig.getUid());
-            sb.append("&hostId=" + payUIKitConfig.revenueConfig.getHostId());
-            sb.append("&appid=" + payUIKitConfig.revenueConfig.getAppId());
-            sb.append("&usedChannel=" + payUIKitConfig.revenueConfig.getUseChannel());
-            sb.append("&authType=" + payUIKitConfig.revenueConfig.getAuthType());
-            sb.append("&clientVersion=" + payUIKitConfig.revenueConfig.getVersion());
-            sb.append("&sdkVersion=4.3.9-bdpay212004-SNAPSHOT");
-            int i = 0;
-            ThemeColorConfig themeColorConfig = payUIKitConfig.themeColorConfig;
-            if (themeColorConfig != null && themeColorConfig.getThemeResId().intValue() == R.style.obfuscated_res_0x7f100150) {
-                i = 1;
-            }
-            sb.append("&theme=" + i);
-            return sb.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String b(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, payUIKitConfig)) == null) {
-            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-                return a(d, payUIKitConfig);
-            }
-            return d;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, payUIKitConfig)) == null) {
-            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-                return a(c, payUIKitConfig);
-            }
-            return c;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, payUIKitConfig)) == null) {
-            if (payUIKitConfig == null && payUIKitConfig.revenueConfig == null) {
-                return b;
-            }
-            return a(b, payUIKitConfig);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
-            if (z) {
-                b = "https://webtest.yy.com/yy_wallet/pay-protocol.html?";
-                c = "https://webtest.yy.com/yy_wallet/wallet.html?";
-                d = "https://webtest.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vu9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((vu9) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            b = "https://web.yy.com/yy_wallet/pay-protocol.html?";
-            c = "https://web.yy.com/yy_wallet/wallet.html?";
-            d = "https://web.yy.com/yy_wallet/pay-success.html?&orderId=${orderId}";
         }
+    }
+
+    @Override // com.repackage.qu9
+    public void onCompleted() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e.onCompleted();
+        }
+    }
+
+    @Override // com.repackage.qu9
+    public void onError(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+            this.e.onError(th);
+        }
+    }
+
+    @Override // com.repackage.qu9
+    public void onNext(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+            this.e.onNext(t);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sy9(vu9<? super T> vu9Var, boolean z) {
+        super(vu9Var, z);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vu9Var, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((vu9) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.e = new ry9(vu9Var);
     }
 }

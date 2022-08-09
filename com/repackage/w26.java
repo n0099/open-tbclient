@@ -1,95 +1,114 @@
 package com.repackage;
 
+import android.graphics.Matrix;
 import android.graphics.PointF;
-import android.graphics.RectF;
-import androidx.core.util.Pools;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.danmu.ui.DanmakuPlayer;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.a7;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class w26 {
+public final class w26 extends o26 {
     public static /* synthetic */ Interceptable $ic;
-    public static final w26 a;
-    public static final Pools.SimplePool<RectF> b;
-    public static final Pools.SimplePool<PointF> c;
-    public static final Pools.SimplePool<p06> d;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755253226, "Lcom/repackage/w26;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755253226, "Lcom/repackage/w26;");
-                return;
-            }
-        }
-        a = new w26();
-        b = new Pools.SimplePool<>(200);
-        c = new Pools.SimplePool<>(200);
-        d = new Pools.SimplePool<>(1000);
-    }
+    public final a7<v26> b;
+    public final PointF c;
+    public float d;
+    public final PointF e;
+    public float f;
 
     public w26() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = new a7<>(0);
+        this.c = new PointF();
+        this.e = new PointF(1.0f, 1.0f);
+        this.f = 1.0f;
+    }
+
+    public final void c(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            g();
+            a7.b<v26> it = this.b.iterator();
+            Intrinsics.checkNotNullExpressionValue(it, "actions.iterator()");
+            while (it.hasNext()) {
+                it.next().a(j);
             }
         }
     }
 
-    public final p06 a(q06 data, DanmakuPlayer player) {
-        InterceptResult invokeLL;
+    public final void d(v26 action) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, data, player)) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            Intrinsics.checkNotNullParameter(player, "player");
-            p06 acquire = d.acquire();
-            if (acquire == null) {
-                acquire = null;
-            } else {
-                acquire.l(data);
-                acquire.p(player.m().w());
-            }
-            return acquire == null ? new p06(data, player) : acquire;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, action) == null) {
+            Intrinsics.checkNotNullParameter(action, "action");
+            action.c(this);
+            action.b();
+            this.b.a(action);
         }
-        return (p06) invokeLL.objValue;
     }
 
-    public final PointF b() {
+    public final float e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            PointF acquire = c.acquire();
-            return acquire == null ? new PointF() : acquire;
-        }
-        return (PointF) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : invokeV.floatValue;
     }
 
-    public final RectF c() {
+    public final PointF f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            RectF acquire = b.acquire();
-            return acquire == null ? new RectF() : acquire;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (PointF) invokeV.objValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            a().f().u();
+            this.c.set(0.0f, 0.0f);
+            this.d = 0.0f;
+            this.e.set(1.0f, 1.0f);
+            this.f = 1.0f;
         }
-        return (RectF) invokeV.objValue;
+    }
+
+    public final void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+        }
+    }
+
+    public final void i(Matrix matrix) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, matrix) == null) {
+            Intrinsics.checkNotNullParameter(matrix, "matrix");
+            PointF pointF = this.e;
+            matrix.setScale(pointF.x, pointF.y);
+            matrix.postRotate(this.d);
+            PointF pointF2 = this.c;
+            matrix.postTranslate(pointF2.x, pointF2.y);
+        }
+    }
+
+    @Override // com.repackage.o26, com.repackage.z7.a
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.reset();
+            g();
+            this.b.clear();
+        }
     }
 }

@@ -1,171 +1,219 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.bdutil.cuid.sdk.AppCuidRuntime;
+import android.view.View;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.view.RoundTbImageView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.recapp.widget.CountDownTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes7.dex */
-public class qd8 implements e10, ILokiIdentityContext, z00 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "";
+public class qd8 extends sd8 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public RelativeLayout h;
+    public RoundTbImageView i;
+    public TextView j;
+    public TextView k;
+    public TextView l;
+    public TextView m;
+    public CountDownTextView n;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755383860, "Lcom/repackage/qd8;")) == null) {
-            return;
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(qd8 qd8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qd8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755383860, "Lcom/repackage/qd8;");
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            }
         }
     }
 
-    public qd8() {
+    /* loaded from: classes7.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qd8 a;
+
+        public b(qd8 qd8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qd8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qd8Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            View.OnClickListener onClickListener;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (onClickListener = this.a.g) == null) {
+                return;
+            }
+            onClickListener.onClick(view2);
+            this.a.n.c();
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cd8 a;
+        public final /* synthetic */ qd8 b;
+
+        public c(qd8 qd8Var, cd8 cd8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qd8Var, cd8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = qd8Var;
+            this.a = cd8Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                cd8 cd8Var = this.a;
+                String str = cd8Var.d;
+                if (!ah0.n(cd8Var.j) ? zg0.b(this.b.e.getPageActivity(), this.b.c.p) : false) {
+                    i = 3;
+                } else {
+                    AdvertAppInfo advertAppInfo = this.b.c;
+                    i = ac8.b(this.b.e, str, advertAppInfo.h() ? this.b.c.getDownloadId() : this.b.c.a, advertAppInfo.g, this.a.j);
+                }
+                if (i == 0) {
+                    return;
+                }
+                ClogBuilder clogBuilder = new ClogBuilder();
+                clogBuilder.y(ClogBuilder.LogType.CLICK).v("VIDEO_FLOW_TAIL").q(String.valueOf(this.b.c.position + 1)).p(this.b.c.g);
+                hy0.b(clogBuilder);
+                we7.c(this.b.c);
+                this.b.n.c();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qd8(View view2, String str) {
+        super(view2, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((View) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        l();
     }
 
-    @Override // com.repackage.e10
-    public String a(String str, boolean z) {
-        InterceptResult invokeLZ;
+    @Override // com.repackage.sd8
+    public void c(cd8 cd8Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) ? str : (String) invokeLZ.objValue;
-    }
-
-    @Override // com.repackage.z00
-    public String getAppName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "tieba" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.e10, com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-    public String getBDVCInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.e10, com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-    public String getC3Aid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (hasPrivacyAuthority()) {
-                return TbadkCoreApplication.getInst().getCuidGalaxy3();
+        if (interceptable == null || interceptable.invokeL(1048576, this, cd8Var) == null) {
+            super.c(cd8Var);
+            if (cd8Var == null) {
+                return;
             }
-            return null;
+            this.i.K(cd8Var.c, 30, false);
+            this.j.setText(cd8Var.b);
+            this.k.setText(cd8Var.i);
+            this.l.setText(cd8Var.e);
+            this.m.setOnClickListener(new b(this));
+            this.n.setFormatString(this.e.getResources().getString(R.string.obfuscated_res_0x7f0f00b7));
+            this.h.setOnClickListener(new c(this, cd8Var));
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.e10, com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-    public String getCfrom() {
-        InterceptResult invokeV;
+    @Override // com.repackage.sd8
+    public void d() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? TbConfig.getCurrentFrom() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.e10
-    public String getDeviceId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (hasPrivacyAuthority()) {
-                return AppCuidRuntime.getAppCuidManager().getCuid();
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.d();
+            this.n.update(5);
+            this.n.e();
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(ClogBuilder.LogType.FREE_SHOW).v("VIDEO_FLOW_TAIL").q(String.valueOf(this.c.position + 1)).p(this.c.g);
+            hy0.b(clogBuilder);
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-    public String getDeviceScore() {
-        InterceptResult invokeV;
+    @Override // com.repackage.sd8
+    public void j(CountDownTextView.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
+            super.j(cVar);
+            this.n.setTimeoutListener(cVar);
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.e10, com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-    public String getFrom() {
-        InterceptResult invokeV;
+    public final void l() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? TbConfig.getFrom() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-    public String getIID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b.setOnClickListener(new a(this));
+            this.h = (RelativeLayout) a(R.id.obfuscated_res_0x7f090099);
+            this.i = (RoundTbImageView) a(R.id.obfuscated_res_0x7f092438);
+            this.j = (TextView) a(R.id.obfuscated_res_0x7f09244f);
+            this.k = (TextView) a(R.id.obfuscated_res_0x7f092428);
+            this.l = (TextView) a(R.id.obfuscated_res_0x7f0922c7);
+            this.m = (TextView) a(R.id.obfuscated_res_0x7f091b8f);
+            this.n = (CountDownTextView) a(R.id.obfuscated_res_0x7f0906f2);
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.e10, com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-    public String getSchemeHeader() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.e10, com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-    public String getSid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? TbSingleton.getInstance().getSampleId() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.e10, com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-    public String getZid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? a : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-    public boolean hasPrivacyAuthority() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? PermissionUtil.isAgreePrivacyPolicy() : invokeV.booleanValue;
     }
 }

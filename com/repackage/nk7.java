@@ -1,46 +1,88 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
-import com.baidu.tieba.memberCenter.tail.tool.TailToolController;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetVipInfo.VipBasicList;
+import tbclient.GetVipInfo.VipSpecialItem;
 /* loaded from: classes6.dex */
-public class nk7 extends v15 {
+public class nk7 implements on {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
+    public ok7 a;
+    public List<VipSpecialItem> b;
+    public int c;
+    public String d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nk7(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f132a), 16, i);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755466537, "Lcom/repackage/nk7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755466537, "Lcom/repackage/nk7;");
+                return;
+            }
+        }
+        e = BdUniqueId.gen();
+    }
+
+    public nk7(VipBasicList vipBasicList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+            Object[] objArr = {vipBasicList};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f0807ef;
-        this.e = R.drawable.obfuscated_res_0x7f0807ef;
-        this.h = R.drawable.icon_pure_post_more_tail64;
-        this.r = R.drawable.obfuscated_res_0x7f080971;
-        this.i = false;
-        this.j = true;
-        this.m = new TailToolController(context);
-        this.o = true;
-        this.n = 6;
-        this.p = new int[]{1};
+        this.c = 0;
+        this.d = "";
+        if (vipBasicList == null || vipBasicList.item.size() <= 0) {
+            return;
+        }
+        this.d = vipBasicList.card_id;
+        this.c = vipBasicList.card_type.intValue();
+        ok7 ok7Var = new ok7();
+        this.a = ok7Var;
+        ok7Var.e(5);
+        this.a.d(vipBasicList.class_name);
+        this.a.f(vipBasicList.class_url_name);
+        this.a.g(vipBasicList.class_url);
+        this.b = new ArrayList();
+        for (VipSpecialItem vipSpecialItem : vipBasicList.item) {
+            this.b.add(vipSpecialItem);
+        }
+    }
+
+    public List<VipSpecialItem> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (List) invokeV.objValue;
+    }
+
+    @Override // com.repackage.on
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? e : (BdUniqueId) invokeV.objValue;
     }
 }

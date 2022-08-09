@@ -10,7 +10,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.PurchaseStatus;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.HiidoReport;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IEventReporter;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayEventStatistics;
 import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
 import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
 import com.yy.mobile.framework.revenuesdk.payapi.PayType;
@@ -18,7 +18,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.PollingModeInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PurchaseInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.request.ChargeCurrencyReqParams;
 import com.yy.mobile.framework.revenuesdk.payservice.utils.JsonDataParerUtil;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayEventType;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayFlowEventType;
 /* loaded from: classes8.dex */
 public class PayCallbackProxy implements IPayCallback<PurchaseInfo> {
     public static /* synthetic */ Interceptable $ic;
@@ -26,7 +26,7 @@ public class PayCallbackProxy implements IPayCallback<PurchaseInfo> {
     public final String TAG;
     public IAppPayService appPayService;
     public IPayCallback iPayCallback;
-    public IEventReporter mEventReporter;
+    public IPayEventStatistics mPayEventReporter;
     public String orderId;
     public ChargeCurrencyReqParams params;
     public String payLoad;
@@ -36,12 +36,12 @@ public class PayCallbackProxy implements IPayCallback<PurchaseInfo> {
     public HiidoReport.CReportResponse reportResponse;
     public long requestTime;
 
-    public PayCallbackProxy(PayType payType, String str, ChargeCurrencyReqParams chargeCurrencyReqParams, String str2, PollingModeInfo pollingModeInfo, String str3, IEventReporter iEventReporter, IAppPayService iAppPayService, IPayServiceCallback iPayServiceCallback, IPayCallback iPayCallback) {
+    public PayCallbackProxy(PayType payType, String str, ChargeCurrencyReqParams chargeCurrencyReqParams, String str2, PollingModeInfo pollingModeInfo, IPayEventStatistics iPayEventStatistics, IAppPayService iAppPayService, IPayServiceCallback iPayServiceCallback, IPayCallback iPayCallback) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {payType, str, chargeCurrencyReqParams, str2, pollingModeInfo, str3, iEventReporter, iAppPayService, iPayServiceCallback, iPayCallback};
+            Object[] objArr = {payType, str, chargeCurrencyReqParams, str2, pollingModeInfo, iPayEventStatistics, iAppPayService, iPayServiceCallback, iPayCallback};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -62,7 +62,7 @@ public class PayCallbackProxy implements IPayCallback<PurchaseInfo> {
         this.iPayCallback = iPayCallback;
         this.payLoad = str2;
         this.pollingModeInfo = pollingModeInfo;
-        this.mEventReporter = iEventReporter;
+        this.mPayEventReporter = iPayEventStatistics;
         this.payServiceCallback = iPayServiceCallback;
         this.appPayService = iAppPayService;
         HiidoReport.CReportResponse cReportResponse = new HiidoReport.CReportResponse();
@@ -72,7 +72,6 @@ public class PayCallbackProxy implements IPayCallback<PurchaseInfo> {
         HiidoReport.CReportResponse cReportResponse2 = this.reportResponse;
         cReportResponse2.mOrderId = this.orderId;
         cReportResponse2.mPayTraceId = chargeCurrencyReqParams.getTraceid();
-        this.reportResponse.mPageId = str3;
     }
 
     private void failCallBackInternal(int i, String str, PayCallBackBean payCallBackBean) {
@@ -81,20 +80,20 @@ public class PayCallbackProxy implements IPayCallback<PurchaseInfo> {
             if (this.iPayCallback != null) {
                 PayCallBackBean payCallBackBean2 = new PayCallBackBean(this.orderId, this.params.getProductId(), "", this.requestTime, null, this.payLoad, null, null, PurchaseStatus.PAY_FAIL, this.params.getAppClientExpand());
                 this.iPayCallback.onPayStatus(PurchaseStatus.PAY_FAIL, payCallBackBean2);
-                this.iPayCallback.onFail(i, "failed " + str, payCallBackBean2);
+                this.iPayCallback.onFail(i, " " + str, payCallBackBean2);
             }
-            IEventReporter iEventReporter = this.mEventReporter;
-            if (iEventReporter != null) {
-                iEventReporter.reportPayFlow(PayEventType.payingaddpaymentrespone, i + "", "pay failed reason:" + str, this.orderId, "" + this.requestTime, this.params.getProductId(), this.payType.getChannel(), this.params.getTraceid());
+            IPayEventStatistics iPayEventStatistics = this.mPayEventReporter;
+            if (iPayEventStatistics != null) {
+                iPayEventStatistics.reportPayFlowEvent(PayFlowEventType.payingaddpaymentrespone, i + "", "pay failed reason:" + str, this.orderId, "" + this.requestTime, this.params.getProductId(), this.payType.getChannel(), this.params.getTraceid());
             }
             IAppPayService iAppPayService = this.appPayService;
-            if (iAppPayService != null && iAppPayService.getPayRepoter() != null) {
+            if (iAppPayService != null && iAppPayService.getPayServiceStatistics() != null) {
                 HiidoReport.CReportResponse cReportResponse = this.reportResponse;
                 cReportResponse.mEventId = "5";
                 cReportResponse.mEventaliae = EventAlias.PayEventAlias.PAY_FAIL;
                 cReportResponse.mErrCode = i + "";
                 this.reportResponse.mErrMsg = "pay failed reason:" + str;
-                this.appPayService.getPayRepoter().onPayResult(this.reportResponse);
+                this.appPayService.getPayServiceStatistics().onPayResult(this.reportResponse);
             }
             RLog.info("PayCallbackProxy", "payingaddpaymentrespone pay fail! failReason:" + str + " code:" + i + " orderId:" + this.orderId);
         }
@@ -143,20 +142,20 @@ public class PayCallbackProxy implements IPayCallback<PurchaseInfo> {
             if (iPayCallback != null) {
                 iPayCallback.onPayStatus(PurchaseStatus.PAY_SUCCESS, payCallBackBean);
             }
-            this.payServiceCallback.pollingPayResult(this.params, this.orderId, this.pollingModeInfo);
-            IEventReporter iEventReporter = this.mEventReporter;
-            if (iEventReporter != null) {
+            this.payServiceCallback.requestPayOrderResult(this.params, this.orderId, this.pollingModeInfo);
+            IPayEventStatistics iPayEventStatistics = this.mPayEventReporter;
+            if (iPayEventStatistics != null) {
                 String str = this.orderId;
-                iEventReporter.reportPayFlow(PayEventType.payingaddpaymentrespone, "0", "pay success!", str, "" + this.requestTime, this.params.getProductId(), this.payType.getChannel(), this.params.getTraceid());
+                iPayEventStatistics.reportPayFlowEvent(PayFlowEventType.payingaddpaymentrespone, "0", "pay success!", str, "" + this.requestTime, this.params.getProductId(), this.payType.getChannel(), this.params.getTraceid());
             }
             IAppPayService iAppPayService = this.appPayService;
-            if (iAppPayService != null && iAppPayService.getPayRepoter() != null) {
+            if (iAppPayService != null && iAppPayService.getPayServiceStatistics() != null) {
                 HiidoReport.CReportResponse cReportResponse = this.reportResponse;
                 cReportResponse.mEventId = "4";
                 cReportResponse.mEventaliae = EventAlias.PayEventAlias.PAY_SUCCESS;
-                cReportResponse.mErrCode = "0";
+                cReportResponse.mErrCode = "1";
                 cReportResponse.mErrMsg = "pay success";
-                this.appPayService.getPayRepoter().onPayResult(this.reportResponse);
+                this.appPayService.getPayServiceStatistics().onPayResult(this.reportResponse);
             }
             RLog.info("PayCallbackProxy", "payingaddpaymentrespone pay success! orderId=" + this.orderId);
         }

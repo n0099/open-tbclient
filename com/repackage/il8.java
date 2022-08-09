@@ -1,150 +1,138 @@
 package com.repackage;
 
-import android.app.Application;
-import android.text.TextUtils;
-import android.text.format.DateFormat;
-import android.text.format.Time;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.message.RemindRecommendMessage;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Calendar;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.GetClientConfig.DataRes;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class il8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public wg a;
+    public String b;
+    public boolean c;
 
-    public static RemindRecommendMessage a(String str) {
-        InterceptResult invokeL;
+    public il8(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                RemindRecommendMessage remindRecommendMessage = new RemindRecommendMessage();
-                JSONObject jSONObject = new JSONObject(str);
-                remindRecommendMessage.title = jSONObject.optString("title");
-                remindRecommendMessage.url = jSONObject.optString("url");
-                remindRecommendMessage.picture = jSONObject.optString("picture");
-                remindRecommendMessage.name = jSONObject.optString("name");
-                remindRecommendMessage.isLocal = false;
-                return remindRecommendMessage;
-            } catch (JSONException unused) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (RemindRecommendMessage) invokeL.objValue;
+        this.b = null;
+        this.c = false;
+        e(str, false);
     }
 
-    public static long b() {
+    public void a() {
+        ll8 c;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null || (c = c()) == null || c.f == null) {
+            return;
+        }
+        long e = this.a.e();
+        if (e > 3000) {
+            kl8 kl8Var = c.f;
+            kl8Var.a += e;
+            kl8Var.b++;
+            jl8.b(c, 10);
+        }
+    }
+
+    public void b(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
+        ll8 c;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) || this.a == null || (c = c()) == null) {
+            return;
+        }
+        if (z) {
+            kl8 kl8Var = c.d;
+            if (kl8Var == null) {
+                return;
+            }
+            kl8Var.b++;
+            if (z2) {
+                kl8Var.a += j2;
+                kl8Var.d += j;
+            } else {
+                kl8Var.c++;
+            }
+        } else {
+            kl8 kl8Var2 = c.e;
+            if (kl8Var2 == null) {
+                return;
+            }
+            kl8Var2.b++;
+            if (z2) {
+                kl8Var2.a += j3;
+                kl8Var2.d += j;
+            } else {
+                kl8Var2.c++;
+            }
+            j2 = j3;
+        }
+        this.a = null;
+        if (z2) {
+            jl8.b(c, 10);
+        }
+        if (this.b == "frsStat") {
+            if (!z2 || j2 > 3000) {
+                wg wgVar = new wg("dbg");
+                wgVar.b("act", "frs");
+                wgVar.b(TiebaStatic.LogFields.RESULT, z2 ? "0" : "1");
+                wgVar.b("isHttp", z ? "1" : "0");
+                wgVar.b("timeCost", String.valueOf(j2));
+                wgVar.b(StatConstants.KEY_EXT_ERR_CODE, String.valueOf(i));
+                wgVar.b(StatConstants.KEY_EXT_ERR_MSG, str);
+                wgVar.b("down", String.valueOf(j));
+                BdStatisticsManager.getInstance().debug("frs", wgVar);
+            }
+        }
+    }
+
+    public final ll8 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? c(System.currentTimeMillis()) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? jl8.e(this.b, d(), this.c) : (ll8) invokeV.objValue;
     }
 
-    public static long c(long j) {
-        InterceptResult invokeJ;
-        int i;
-        int i2;
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
-            String loadString = TbadkSettings.getInst().loadString(TbadkCoreApplication.getCurrentAccount() + "remind_recommend_dialog_time", "12:05:00");
-            String[] split = (TextUtils.isEmpty(loadString) ? "12:05:00" : loadString).split(":");
-            int i4 = 5;
-            if (split == null || split.length != 3) {
-                i = 0;
-                i2 = 12;
-                i3 = 5;
-            } else {
-                i2 = ng.e(split[0], 12);
-                i3 = ng.e(split[1], 5);
-                i = ng.e(split[2], 0);
-            }
-            if (i2 < 0 || i2 > 23 || i3 < 0 || i3 > 59 || i < 0 || i > 59) {
-                i = 0;
-                i2 = 12;
-            } else {
-                i4 = i3;
-            }
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(j);
-            calendar.set(12, i4);
-            calendar.set(13, i);
-            Application app = TbadkCoreApplication.getInst().getApp();
-            if (app != null && app.getContentResolver() != null && DateFormat.is24HourFormat(app)) {
-                calendar.set(11, i2);
-            } else {
-                if (i2 >= 12) {
-                    i2 -= 12;
-                    calendar.set(9, 1);
-                } else {
-                    calendar.set(9, 0);
-                }
-                calendar.set(10, i2);
-            }
-            return calendar.getTimeInMillis();
-        }
-        return invokeJ.longValue;
-    }
-
-    public static boolean d() {
+    public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(TbadkCoreApplication.getCurrentAccount());
-            sb.append("remind_recommend_server_switch");
-            return TbadkSettings.getInst().loadInt(sb.toString(), 1) == 1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int I = oi.I();
+            return I == 0 ? "N" : I == 1 ? "WIFI" : I == 3 ? "3G" : I == 2 ? "2G" : "N";
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public static boolean e() {
-        InterceptResult invokeV;
+    public void e(String str, boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? yt4.k().l("sync_local_dialog", 1) == 1 : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) {
+            this.b = str;
+            this.c = z;
+            this.a = new wg("dbg");
+            jl8.c(str, d(), z);
+        }
     }
 
-    public static boolean f(long j) {
-        InterceptResult invokeJ;
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j)) == null) {
-            Time time = new Time();
-            time.set(j);
-            int i = time.year;
-            int i2 = time.month;
-            int i3 = time.monthDay;
-            time.set(System.currentTimeMillis());
-            return i == time.year && i2 == time.month && i3 == time.monthDay;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a.g();
         }
-        return invokeJ.booleanValue;
-    }
-
-    public static String g(DataRes dataRes) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, dataRes)) == null) {
-            if (dataRes != null && dataRes.local_dialog != null) {
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("title", dataRes.local_dialog.title);
-                    jSONObject.put("picture", dataRes.local_dialog.picture);
-                    jSONObject.put("url", dataRes.local_dialog.url);
-                    jSONObject.put("name", dataRes.local_dialog.name);
-                    return jSONObject.toString();
-                } catch (JSONException unused) {
-                }
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
     }
 }

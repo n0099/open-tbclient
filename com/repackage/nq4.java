@@ -1,31 +1,31 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.SimpleForum;
-import tbclient.ThemeColorInfo;
 /* loaded from: classes6.dex */
-public class nq4 implements bv4 {
+public class nq4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public boolean d;
-    public boolean e;
-    public int f;
-    public to4 g;
+    public ArrayList<UserData> a;
+    public ArrayList<UserData> b;
+    public gq4 c;
+    public int d;
+    public int e;
+    public boolean f;
+    public String g;
     public int h;
-    public int i;
-    public String j;
-    public ThemeColorInfo k;
+    public String i;
+    public int j;
 
     public nq4() {
         Interceptable interceptable = $ic;
@@ -37,140 +37,94 @@ public class nq4 implements bv4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList<>();
+        this.b = new ArrayList<>();
+        this.c = new gq4();
     }
 
-    public String a() {
+    public ArrayList<UserData> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (ArrayList) invokeV.objValue;
     }
 
-    public int b() {
+    public ArrayList<UserData> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
     }
 
-    @Override // com.repackage.bv4
-    public String c() {
-        InterceptResult invokeV;
+    public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.bv4
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.bv4
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.e = z;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : invokeV.booleanValue;
-    }
-
-    public ArrayList<Integer> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ThemeColorInfo themeColorInfo = this.k;
-            if (themeColorInfo == null || themeColorInfo.day == null || themeColorInfo.night == null || themeColorInfo.dark == null) {
-                return null;
+        try {
+            boolean z = true;
+            if (jSONObject.optJSONObject("page") != null) {
+                JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        UserData userData = new UserData();
+                        userData.parserJson(optJSONArray.getJSONObject(i));
+                        this.a.add(userData);
+                    }
+                }
+                if (optJSONArray2 != null) {
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        UserData userData2 = new UserData();
+                        userData2.parserJson(optJSONArray2.getJSONObject(i2));
+                        userData2.mAttentionType = 1;
+                        this.b.add(userData2);
+                    }
+                }
+                this.c.i(jSONObject.optJSONObject("page"));
+                if (this.c != null) {
+                    this.d = this.c.a();
+                    this.e = this.c.f();
+                    if (this.c.b() != 1) {
+                        z = false;
+                    }
+                    this.f = z;
+                }
+                jSONObject.optInt("tafriendnum", 0);
+                jSONObject.optInt("commonfriendnum", 0);
+            } else {
+                JSONArray optJSONArray3 = jSONObject.optJSONArray("follow_list");
+                JSONArray optJSONArray4 = jSONObject.optJSONArray("common_follow_list");
+                if (optJSONArray3 != null) {
+                    for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
+                        UserData userData3 = new UserData();
+                        userData3.parserJson(optJSONArray3.getJSONObject(i3));
+                        this.a.add(userData3);
+                    }
+                }
+                if (optJSONArray4 != null) {
+                    for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
+                        UserData userData4 = new UserData();
+                        userData4.parserJson(optJSONArray4.getJSONObject(i4));
+                        userData4.mAttentionType = 1;
+                        userData4.setHave_attention(1);
+                        this.b.add(userData4);
+                    }
+                }
+                this.d = jSONObject.optInt("pn");
+                this.e = jSONObject.optInt(PersonListActivityConfig.TOTLEFOLLOWNUM, 0);
+                if (jSONObject.optInt("has_more", 0) != 1) {
+                    z = false;
+                }
+                this.f = z;
+                this.j = jSONObject.optInt("follow_list_switch", 0);
             }
-            ArrayList<Integer> arrayList = new ArrayList<>();
-            arrayList.add(Integer.valueOf(hd7.b(this.k.day.light_color)));
-            arrayList.add(Integer.valueOf(hd7.b(this.k.day.dark_color)));
-            arrayList.add(Integer.valueOf(hd7.b(this.k.night.light_color)));
-            arrayList.add(Integer.valueOf(hd7.b(this.k.night.dark_color)));
-            arrayList.add(Integer.valueOf(hd7.b(this.k.dark.light_color)));
-            arrayList.add(Integer.valueOf(hd7.b(this.k.dark.dark_color)));
-            return arrayList;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    @Override // com.repackage.yu4
-    public boolean getIsLike() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public ThemeColorInfo h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.k : (ThemeColorInfo) invokeV.objValue;
-    }
-
-    public void i(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        this.a = String.valueOf(jSONObject.optLong("id", 0L));
-        this.b = jSONObject.optString("name");
-        this.c = jSONObject.optString("avatar");
-        this.f = jSONObject.optInt("level_id");
-        JSONObject optJSONObject = jSONObject.optJSONObject("multi_forum_perm");
-        if (optJSONObject != null) {
-            to4 to4Var = new to4();
-            this.g = to4Var;
-            to4Var.a(optJSONObject);
-        }
-        int optInt = jSONObject.optInt("memberNum", 0);
-        this.i = optInt;
-        if (optInt == 0) {
-            this.i = jSONObject.optInt("member_num", 0);
-        }
-        this.h = jSONObject.optInt("post_num", 0);
-    }
-
-    public void j(SimpleForum simpleForum) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, simpleForum) == null) || simpleForum == null) {
-            return;
-        }
-        this.a = String.valueOf(simpleForum.id);
-        this.b = simpleForum.name;
-        this.c = simpleForum.avatar;
-        this.d = simpleForum.is_liked.intValue() == 1;
-        this.f = simpleForum.level_id.intValue();
-        if (simpleForum.multi_forum_perm != null) {
-            to4 to4Var = new to4();
-            this.g = to4Var;
-            to4Var.b(simpleForum.multi_forum_perm);
-        }
-        simpleForum.is_brand_forum.intValue();
-        this.i = simpleForum.member_num.intValue();
-        this.h = simpleForum.post_num.intValue();
-        this.j = simpleForum.first_class;
-        this.k = simpleForum.theme_color;
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    @Override // com.repackage.yu4
-    public void setIsLike(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.d = z;
+            this.i = jSONObject.optString("tips_text");
+            this.h = jSONObject.optInt("type", 0);
+            this.g = jSONObject.optString("block_text");
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
     }
 }

@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.util.Util;
 @TargetApi(16)
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class VideoFrameReleaseTimeHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long CHOREOGRAPHER_SAMPLE_DELAY_MILLIS = 500;
@@ -45,7 +45,7 @@ public final class VideoFrameReleaseTimeHelper {
     public final WindowManager windowManager;
 
     @TargetApi(17)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public final class DefaultDisplayListener implements DisplayManager.DisplayListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -108,7 +108,7 @@ public final class VideoFrameReleaseTimeHelper {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class VSyncSampler implements Choreographer.FrameCallback, Handler.Callback {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CREATE_CHOREOGRAPHER = 0;

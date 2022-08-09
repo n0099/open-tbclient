@@ -1,9 +1,11 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
 import android.os.Bundle;
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.map.WinRound;
 import com.baidu.mapapi.model.inner.Point;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -158,8 +160,8 @@ public class ab {
                 this.c = -45;
             }
             Bundle bundle = new Bundle();
-            bundle.putDouble("level", this.a);
-            bundle.putDouble("rotation", this.b);
+            bundle.putDouble(PollingModel.LEVEL, this.a);
+            bundle.putDouble(Key.ROTATION, this.b);
             bundle.putDouble("overlooking", this.c);
             bundle.putDouble("centerptx", this.d);
             bundle.putDouble("centerpty", this.e);
@@ -200,8 +202,8 @@ public class ab {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            this.a = (float) bundle.getDouble("level");
-            this.b = (int) bundle.getDouble("rotation");
+            this.a = (float) bundle.getDouble(PollingModel.LEVEL);
+            this.b = (int) bundle.getDouble(Key.ROTATION);
             this.c = (int) bundle.getDouble("overlooking");
             this.d = bundle.getDouble("centerptx");
             this.e = bundle.getDouble("centerpty");

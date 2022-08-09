@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.view.View;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public Context a;
     public String b;
@@ -13,11 +13,11 @@ public class b {
     public String e;
     public boolean f;
     public Drawable g;
-    public InterfaceC0642b h;
+    public InterfaceC0647b h;
     public View i;
     public int j;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class a {
         public View a;
         public int b;
@@ -28,7 +28,7 @@ public class b {
         public String g;
         public boolean h;
         public Drawable i;
-        public InterfaceC0642b j;
+        public InterfaceC0647b j;
 
         public a(Context context) {
             this.c = context;
@@ -64,8 +64,8 @@ public class b {
             return this;
         }
 
-        public a a(InterfaceC0642b interfaceC0642b) {
-            this.j = interfaceC0642b;
+        public a a(InterfaceC0647b interfaceC0647b) {
+            this.j = interfaceC0647b;
             return this;
         }
 
@@ -80,8 +80,8 @@ public class b {
     }
 
     /* renamed from: com.ss.android.download.api.model.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC0642b {
+    /* loaded from: classes8.dex */
+    public interface InterfaceC0647b {
         void a(DialogInterface dialogInterface);
 
         void b(DialogInterface dialogInterface);

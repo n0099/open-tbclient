@@ -1,181 +1,135 @@
 package com.repackage;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.data.IconStampData;
-import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.view.NewUserRewardDialogView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.coreExtra.data.ChannelIconConfigFinalData;
+import com.baidu.tbadk.coreExtra.message.ChannelConfigResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class qz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public zx4 a;
+    public b b;
+    public int c;
+    public int d;
+    public ChannelIconConfigFinalData e;
+    public HttpMessageListener f;
 
     /* loaded from: classes7.dex */
-    public static class a implements View.OnClickListener {
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ NewUserRewardDialogView a;
-        public final /* synthetic */ dr4 b;
+        public final /* synthetic */ qz4 a;
 
-        public a(NewUserRewardDialogView newUserRewardDialogView, dr4 dr4Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(qz4 qz4Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newUserRewardDialogView, dr4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = newUserRewardDialogView;
-            this.b = dr4Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.d();
-                this.b.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-        public final /* synthetic */ dr4 b;
-        public final /* synthetic */ int c;
-
-        public b(TbPageContext tbPageContext, dr4 dr4Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tbPageContext, dr4Var, Integer.valueOf(i)};
+                Object[] objArr = {qz4Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = tbPageContext;
-            this.b = dr4Var;
-            this.c = i;
+            this.a = qz4Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                UrlManager.getInstance().dealOneLink(this.a, new String[]{"https://tieba.baidu.com/mo/q/icon/panelIcon?opacity=0&user_id=" + TbadkCoreApplication.getCurrentAccount()});
-                this.b.dismiss();
-                qz4.d(this.c);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof ChannelConfigResponseMessage)) {
+                ChannelConfigResponseMessage channelConfigResponseMessage = (ChannelConfigResponseMessage) httpResponsedMessage;
+                this.a.a = channelConfigResponseMessage.getData();
+                if (this.a.b != null) {
+                    this.a.b.a(channelConfigResponseMessage.isSuccess(), channelConfigResponseMessage.getData());
+                }
+                if (channelConfigResponseMessage.isSuccess()) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921493, null));
+                }
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PostWriteCallBackData a;
-        public final /* synthetic */ TbPageContext b;
+    public interface b {
+        void a(boolean z, zx4 zx4Var);
+    }
 
-        public c(PostWriteCallBackData postWriteCallBackData, TbPageContext tbPageContext) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {postWriteCallBackData, tbPageContext};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = postWriteCallBackData;
-            this.b = tbPageContext;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                fg8 fg8Var = new fg8();
-                PostWriteCallBackData postWriteCallBackData = this.a;
-                if (postWriteCallBackData != null) {
-                    IconStampData iconStampData = postWriteCallBackData.getIconStampData();
-                    fg8Var.f(iconStampData.stampType);
-                    fg8Var.h(iconStampData.stampTitle);
-                }
-                new eg8(this.b.getPageActivity(), fg8Var).a();
-                qz4.f();
+    public qz4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.f = new a(this, CmdConfigHttp.CMD_GET_CHANNEL_CONFIG);
+        MessageManager.getInstance().registerListener(this.f);
+        this.c = ru4.k().l("key_common_category_version", 0);
+        this.d = ru4.k().l("key_special_category_version", 0);
     }
 
-    public static void c(TbPageContext tbPageContext, PostWriteCallBackData postWriteCallBackData, int i) {
+    public ChannelIconConfigFinalData c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(65538, null, tbPageContext, postWriteCallBackData, i) == null) && postWriteCallBackData != null && pz4.a(postWriteCallBackData.getIconStampData())) {
-            NewUserRewardDialogView newUserRewardDialogView = new NewUserRewardDialogView(tbPageContext.getPageActivity());
-            newUserRewardDialogView.setData(postWriteCallBackData.getIconStampData());
-            dr4 dr4Var = new dr4(tbPageContext.getPageActivity());
-            dr4Var.setContentViewSize(5);
-            dr4Var.setContentView(newUserRewardDialogView);
-            dr4Var.setCanceledOnTouchOutside(false);
-            dr4Var.setAnimRes(R.style.obfuscated_res_0x7f1003cc);
-            dr4Var.create(tbPageContext).show();
-            newUserRewardDialogView.setCloseListener(new a(newUserRewardDialogView, dr4Var));
-            newUserRewardDialogView.getNewsUserDialogLookView().setOnClickListener(new b(tbPageContext, dr4Var, i));
-            newUserRewardDialogView.getNewUserDialogShareView().setOnClickListener(new c(postWriteCallBackData, tbPageContext));
-            e(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ChannelIconConfigFinalData channelIconConfigFinalData = this.e;
+            if (channelIconConfigFinalData != null) {
+                return channelIconConfigFinalData;
+            }
+            if (this.a == null) {
+                return null;
+            }
+            ChannelIconConfigFinalData channelIconConfigFinalData2 = new ChannelIconConfigFinalData();
+            zx4 zx4Var = this.a;
+            if (zx4Var != null && zx4Var.b() != null && this.d < this.a.b().e()) {
+                channelIconConfigFinalData2.setIcon(this.a.b().a());
+                channelIconConfigFinalData2.setPopText(this.a.b().b());
+                channelIconConfigFinalData2.setTabCode(this.a.b().c());
+                channelIconConfigFinalData2.setTid(this.a.b().d());
+                channelIconConfigFinalData2.setChannelConfigDataType(ChannelIconConfigFinalData.FRAG_TIP_SPECIAL);
+            } else {
+                zx4 zx4Var2 = this.a;
+                if (zx4Var2 != null && zx4Var2.a() > 0 && this.c < this.a.a()) {
+                    channelIconConfigFinalData2.setChannelConfigDataType(ChannelIconConfigFinalData.FRAG_TIP_COMMON);
+                } else {
+                    channelIconConfigFinalData2.setChannelConfigDataType(ChannelIconConfigFinalData.FRAG_TIP_NONE);
+                }
+            }
+            this.e = channelIconConfigFinalData2;
+            return channelIconConfigFinalData2;
         }
+        return (ChannelIconConfigFinalData) invokeV.objValue;
     }
 
-    public static void d(int i) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_STAMP_SHARE_DIALOG).param("obj_type", 2).param("obj_source", 2).param("obj_locate", i));
-        }
-    }
-
-    public static void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_STAMP_SHARE_DIALOG).param("obj_type", 1).param("obj_source", 2).param("obj_locate", i));
-        }
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CLICK).param("obj_locate", 31));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_CHANNEL_CONFIG));
         }
     }
 }

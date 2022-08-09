@@ -1,35 +1,116 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.widget.ActivityChooserModel;
+import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.KVStorageFactory;
-import com.baidu.android.util.KVStorageRuntime;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Map;
-import java.util.Set;
-@SuppressLint({"StaticFieldLeak"})
+import com.xiaomi.mipush.sdk.Constants;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qg4 implements ig4 {
+public class qg4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final SharedPreferences a;
-    public String b;
-    public final Context c;
+    public a a;
+    public b b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
+    public String n;
+    public String o;
+    public String p;
+    public String q;
+    public String r;
+    public String s;
+    public String t;
+    public String u;
+
+    /* loaded from: classes7.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+        public String d;
+        public int e;
+        public String f;
+        public String g;
+        public int h;
+
+        public a(qg4 qg4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qg4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = "Android";
+            this.b = Build.VERSION.RELEASE;
+            this.c = Build.MANUFACTURER;
+            this.e = Build.VERSION.SDK_INT;
+            this.f = Build.MODEL;
+            Context appContext = AppRuntime.getAppContext();
+            WindowManager windowManager = (WindowManager) appContext.getSystemService("window");
+            this.g = windowManager.getDefaultDisplay().getWidth() + "_" + windowManager.getDefaultDisplay().getHeight();
+            this.h = appContext.getResources().getDisplayMetrics().densityDpi;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+
+        public b(qg4 qg4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qg4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dg4.g().u(AppRuntime.getAppContext());
+        }
+    }
 
     public qg4(String str) {
         Interceptable interceptable = $ic;
@@ -46,249 +127,166 @@ public class qg4 implements ig4 {
                 return;
             }
         }
-        this.c = AppRuntime.getAppContext();
-        String str2 = (TextUtils.isEmpty(str) || str.indexOf(File.separatorChar) >= 0) ? "default" : str;
-        this.b = str2;
-        if ("default".equals(str2)) {
-            this.a = PreferenceManager.getDefaultSharedPreferences(this.c);
-            this.b = this.c.getPackageName() + "_preferences";
+        this.a = new a(this);
+        this.b = new b(this);
+        this.i = ug4.c();
+        this.o = "";
+        Context appContext = AppRuntime.getAppContext();
+        try {
+            PackageInfo packageInfo = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0);
+            this.c = packageInfo.versionName;
+            this.e = packageInfo.packageName;
+        } catch (PackageManager.NameNotFoundException unused) {
+        }
+        TelephonyManager telephonyManager = (TelephonyManager) AppRuntime.getAppContext().getSystemService("phone");
+        if (telephonyManager != null && (Build.VERSION.SDK_INT < 23 || appContext.checkSelfPermission(com.kuaishou.weapon.p0.h.c) == 0)) {
+            this.j = telephonyManager.getSimOperator();
+        }
+        this.f = dg4.g().getDeviceId(appContext);
+        this.g = dg4.g().o(appContext);
+        this.h = dg4.g().a();
+        this.n = dg4.g().b();
+        this.q = dg4.g().s();
+        this.r = str;
+    }
+
+    public static void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, jSONObject) == null) {
+            JSONObject e = new qg4(jSONObject.optString("bizId")).e();
+            Iterator<String> keys = e.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                if (!jSONObject.has(next)) {
+                    try {
+                        jSONObject.putOpt(next, e.opt(next));
+                    } catch (JSONException unused) {
+                    }
+                }
+            }
+        }
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (dg4.g() == null) {
+                return str;
+            }
+            try {
+                if (TextUtils.isEmpty(str)) {
+                    jSONObject = new JSONObject();
+                } else {
+                    jSONObject = new JSONObject(str);
+                }
+                return c(jSONObject);
+            } catch (JSONException unused) {
+                return str;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+            kg4 g = dg4.g();
+            String str = "";
+            if (jSONObject == null || g == null) {
+                return "";
+            }
+            try {
+                if (g.k() == 0) {
+                    str = "swan";
+                } else if (g.k() == 1) {
+                    str = SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME;
+                }
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.putOpt("smartAppId", g.getAppId());
+                jSONObject2.putOpt("smartAppVersion", g.getAppVersion());
+                jSONObject2.putOpt("swanCoreVersion", g.m());
+                jSONObject2.putOpt("swanNativeVersion", g.b());
+                jSONObject2.putOpt("swanType", str);
+                jSONObject.putOpt(DI.APP_INFO_NAME, jSONObject2);
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("source", g.getScene());
+                jSONObject.put("propagation", jSONObject3);
+                return jSONObject.toString();
+            } catch (JSONException unused) {
+                return jSONObject.toString();
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void d(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONArray) == null) || jSONArray == null || jSONArray.length() < 1) {
             return;
         }
-        this.a = KVStorageFactory.getSharedPreferences(str, 0);
+        for (int i = 0; i < jSONArray.length(); i++) {
+            try {
+                JSONObject jSONObject = jSONArray.getJSONObject(i);
+                JSONObject jSONObject2 = jSONObject.getJSONObject("content");
+                JSONObject jSONObject3 = jSONObject2.getJSONObject(DI.APP_INFO_NAME);
+                Iterator<String> keys = jSONObject3.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    jSONObject.putOpt(next, jSONObject3.optString(next));
+                }
+                jSONObject2.remove(DI.APP_INFO_NAME);
+            } catch (JSONException unused) {
+            }
+        }
     }
 
-    public static String d() {
+    public JSONObject e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            String kVStoragePath = KVStorageRuntime.getKVStorageControl().getKVStoragePath();
-            return kVStoragePath == null ? "" : kVStoragePath;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.putOpt("os", this.a.a);
+                jSONObject2.putOpt("osversion", this.a.b);
+                jSONObject2.putOpt("model", this.a.f);
+                jSONObject2.putOpt("deviceType", this.a.d);
+                jSONObject2.putOpt("sdk", this.a.e + "");
+                jSONObject2.putOpt(Constants.PHONE_BRAND, this.a.c);
+                jSONObject2.putOpt("screen", this.a.g);
+                jSONObject2.putOpt("density", this.a.h + "");
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.putOpt("passId", this.b.a);
+                jSONObject.putOpt("userInfo", jSONObject3);
+                jSONObject.putOpt("system", jSONObject2);
+                jSONObject.putOpt("appVersion", this.c);
+                jSONObject.putOpt("appBranch", this.d);
+                jSONObject.putOpt("appPackageName", this.e);
+                jSONObject.putOpt("cuid", this.f);
+                jSONObject.putOpt("uuid", this.g);
+                jSONObject.putOpt("hostName", this.h);
+                jSONObject.putOpt("net", this.i);
+                jSONObject.putOpt("operator", this.j);
+                jSONObject.putOpt("smartAppId", this.k);
+                jSONObject.putOpt("smartAppVersion", this.l);
+                jSONObject.putOpt("swanCoreVersion", this.m);
+                jSONObject.putOpt("swanNativeVersion", this.n);
+                jSONObject.putOpt("swanType", this.o);
+                jSONObject.putOpt("swanId", this.p);
+                jSONObject.putOpt("bizId", this.r);
+                jSONObject.putOpt("eventType", this.s);
+                jSONObject.putOpt("eventName", this.t);
+                jSONObject.putOpt("content", this.u);
+                if (!TextUtils.isEmpty(this.q)) {
+                    jSONObject.putOpt("appClientId", this.q);
+                }
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static File e(@NonNull Context context, @NonNull String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            String str2 = context.getApplicationInfo().dataDir;
-            return new File(str2, "shared_prefs/" + str + ActivityChooserModel.HISTORY_FILE_EXTENSION);
-        }
-        return (File) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.ig4
-    public Set<String> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getAll().keySet() : (Set) invokeV.objValue;
-    }
-
-    @Override // android.content.SharedPreferences.Editor
-    public void apply() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            edit().apply();
-        }
-    }
-
-    @Override // com.repackage.ig4
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.ig4
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? getFile().length() : invokeV.longValue;
-    }
-
-    @Override // android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor clear() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            this.a.edit().clear().apply();
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeV.objValue;
-    }
-
-    @Override // android.content.SharedPreferences.Editor
-    public boolean commit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? edit().commit() : invokeV.booleanValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public boolean contains(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? this.a.contains(str) : invokeL.booleanValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public SharedPreferences.Editor edit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a.edit() : (SharedPreferences.Editor) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ig4, android.content.SharedPreferences
-    public Map<String, ?> getAll() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a.getAll() : (Map) invokeV.objValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public boolean getBoolean(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048585, this, str, z)) == null) ? this.a.getBoolean(str, z) : invokeLZ.booleanValue;
-    }
-
-    @Override // com.repackage.ig4
-    @NonNull
-    public File getFile() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? e(this.c, this.b) : (File) invokeV.objValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public float getFloat(String str, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(1048587, this, str, f)) == null) ? this.a.getFloat(str, f) : invokeLF.floatValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public int getInt(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, str, i)) == null) ? this.a.getInt(str, i) : invokeLI.intValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public long getLong(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048589, this, str, j)) == null) ? this.a.getLong(str, j) : invokeLJ.longValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public String getString(String str, @Nullable String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, str2)) == null) ? this.a.getString(str, str2) : (String) invokeLL.objValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    @Nullable
-    public Set<String> getStringSet(String str, @Nullable Set<String> set) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, str, set)) == null) ? this.a.getStringSet(str, set) : (Set) invokeLL.objValue;
-    }
-
-    @Override // android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putBoolean(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048592, this, str, z)) == null) {
-            this.a.edit().putBoolean(str, z).apply();
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeLZ.objValue;
-    }
-
-    @Override // android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putFloat(String str, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048593, this, str, f)) == null) {
-            this.a.edit().putFloat(str, f).apply();
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeLF.objValue;
-    }
-
-    @Override // android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putInt(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048594, this, str, i)) == null) {
-            this.a.edit().putInt(str, i).apply();
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeLI.objValue;
-    }
-
-    @Override // android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putLong(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048595, this, str, j)) == null) {
-            this.a.edit().putLong(str, j).apply();
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeLJ.objValue;
-    }
-
-    @Override // android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putString(String str, @Nullable String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, str, str2)) == null) {
-            this.a.edit().putString(str, str2).apply();
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeLL.objValue;
-    }
-
-    @Override // android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putStringSet(String str, @Nullable Set<String> set) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048597, this, str, set)) == null) {
-            this.a.edit().putStringSet(str, set).apply();
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.ig4, android.content.SharedPreferences
-    public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, onSharedPreferenceChangeListener) == null) {
-            this.a.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
-        }
-    }
-
-    @Override // android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor remove(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
-            this.a.edit().remove(str).apply();
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeL.objValue;
-    }
-
-    @Override // com.repackage.ig4, android.content.SharedPreferences
-    public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, onSharedPreferenceChangeListener) == null) {
-            this.a.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
-        }
+        return (JSONObject) invokeV.objValue;
     }
 }

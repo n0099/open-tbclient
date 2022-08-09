@@ -1,62 +1,69 @@
 package com.repackage;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.TbErrInfo;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-/* loaded from: classes7.dex */
+import java.io.File;
+/* loaded from: classes8.dex */
 public class zw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static List<String> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String q = yt4.k().q("scheme_white_list", null);
-            if (StringUtils.isNull(q)) {
-                return null;
-            }
-            try {
-                return b(new JSONArray(q));
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public static List<String> b(JSONArray jSONArray) {
+    public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONArray)) == null) {
-            if (jSONArray == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return false;
             }
-            ArrayList arrayList = new ArrayList();
-            int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                String optString = jSONArray.optString(i);
-                if (!StringUtils.isNull(optString)) {
-                    arrayList.add(optString);
+            File file = new File(str);
+            try {
+                if (file.exists()) {
+                    return file.delete();
                 }
+                return false;
+            } catch (Throwable th) {
+                BdLog.e(th.getMessage());
+                TiebaStatic.voiceError(TbErrInfo.ERR_VOI_FILE, "FileHelper DelFile error: " + th.getMessage(), str);
+                return false;
             }
-            return arrayList;
         }
-        return (List) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static void c(JSONArray jSONArray) {
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, jSONArray) == null) {
-            if (jSONArray == null) {
-                yt4.k().y("scheme_white_list", "");
-            } else {
-                yt4.k().y("scheme_white_list", jSONArray.toString());
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? FileHelper.getStoreFile(str, 1) : (String) invokeL.objValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
             }
+            return "tb/voice/" + str;
         }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? ki.s(c(str)) : (String) invokeL.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? ti.a() : (String) invokeV.objValue;
     }
 }

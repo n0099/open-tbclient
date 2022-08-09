@@ -1,187 +1,126 @@
 package com.repackage;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import android.view.View;
+import android.view.ViewGroup;
+import android.webkit.JsPromptResult;
+import android.webkit.JsResult;
+import android.webkit.WebChromeClient;
+import android.webkit.WebStorage;
+import android.webkit.WebView;
+import android.widget.FrameLayout;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class im6 extends qm6 {
+public class im6 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CustomMessageListener h;
-    public final c9 i;
-    public final c9 j;
+    public d9 a;
+    public ql8 b;
 
-    /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ im6 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(im6 im6Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {im6Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = im6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof oh8)) {
-                this.a.b((oh8) customResponsedMessage.getData());
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends c9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(im6 im6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {im6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.c9
-        public void c(Object obj) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (obj instanceof Boolean)) {
-                ((Boolean) obj).booleanValue();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends c9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ im6 a;
-
-        public c(im6 im6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {im6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = im6Var;
-        }
-
-        @Override // com.repackage.c9
-        public void c(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if (obj instanceof Boolean ? ((Boolean) obj).booleanValue() : false) {
-                    return;
-                }
-                this.a.b.refresh();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public im6(FrsFragment frsFragment) {
-        super(frsFragment);
+    public im6(d9 d9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment};
+            Object[] objArr = {d9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((FrsFragment) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.h = new a(this, 2001266);
-        this.i = new b(this);
-        this.j = new c(this);
-        frsFragment.registerListener(this.h);
+        this.a = d9Var;
     }
 
-    public final void b(oh8 oh8Var) {
+    public void a(ql8 ql8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, oh8Var) == null) || oh8Var == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ql8Var) == null) {
+            this.b = ql8Var;
         }
-        FrsViewData Q0 = this.b.Q0();
-        if (this.e == null || this.d == null || this.a == null || Q0 == null || Q0.getForum() == null || oh8Var.g() == null) {
-            return;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public View getVideoLoadingProgressView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            FrameLayout frameLayout = new FrameLayout(this.a.getPageActivity());
+            frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            return frameLayout;
         }
-        boolean z = oh8Var.n() == 1;
-        if (oh8Var.g().equals(Q0.getForum().getId())) {
-            Q0.getForum().setLike(oh8Var.n());
-            if (!StringUtils.isNULL(oh8Var.h())) {
-                Q0.getForum().setLevelName(oh8Var.h());
+        return (View) invokeV.objValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
+            super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
+            quotaUpdater.updateQuota(j2 * 2);
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, webView, str, str2, jsResult)) == null) {
+            d9 d9Var = this.a;
+            if (d9Var == null || !tg.f(d9Var)) {
+                return true;
             }
-            if (oh8Var.m() >= 0) {
-                Q0.getForum().setUser_level(oh8Var.m());
+            return super.onJsAlert(webView, str, str2, jsResult);
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
+            d9 d9Var = this.a;
+            if (d9Var == null || !tg.f(d9Var)) {
+                return true;
             }
-            if (z) {
-                this.d.i0(Q0, false);
-                TbadkCoreApplication.getInst().addLikeForum(this.b.c());
-                return;
+            return super.onJsBeforeUnload(webView, str, str2, jsResult);
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, webView, str, str2, jsResult)) == null) {
+            d9 d9Var = this.a;
+            if (d9Var == null || !tg.f(d9Var)) {
+                return true;
             }
-            ug8.i().n(this.b.c(), false);
-            Q0.getForum().setLike(0);
-            this.d.l0();
-            TbadkCoreApplication.getInst().delLikeForum(this.b.c());
-            return;
+            return super.onJsConfirm(webView, str, str2, jsResult);
         }
-        if (oh8Var.n() == 1) {
-            Q0.deleteLikeFeedForum(oh8Var.g());
-            this.d.U(Q0);
-            this.c.d(Q0, this.e.V());
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        d9 d9Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            ql8 ql8Var = this.b;
+            if ((ql8Var == null || !ql8Var.onJsPrompt(str2, jsPromptResult)) && (d9Var = this.a) != null && tg.f(d9Var)) {
+                return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
+            }
+            return true;
         }
-        if (Q0.getForum().getBannerListData() != null) {
-            Q0.getForum().getBannerListData().setFeedForumLiked(oh8Var.g(), oh8Var.n());
-        }
-        this.a.J0();
+        return invokeLLLLL.booleanValue;
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
@@ -19,7 +19,7 @@ public class g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;

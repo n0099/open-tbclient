@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ud5;
+import com.repackage.te5;
 import tbclient.GetForumSquare.DataReq;
 import tbclient.GetForumSquare.GetForumSquareReqIdl;
 /* loaded from: classes4.dex */
@@ -51,7 +51,7 @@ public class ForumSquareRequestMessage extends NetMessage {
                 builder.rn = 20;
                 builder.user_id = Long.valueOf(TbadkCoreApplication.getCurrentAccountId());
                 if (z) {
-                    ud5.a(builder, true);
+                    te5.a(builder, true);
                 }
                 GetForumSquareReqIdl.Builder builder2 = new GetForumSquareReqIdl.Builder();
                 builder2.data = builder.build(false);

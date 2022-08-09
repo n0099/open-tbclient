@@ -15,10 +15,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.editvideo.addfilter.VideoKeyFrameModel;
 import com.baidu.ugc.editvideo.magicmusic.VideoEffectData;
-import com.repackage.b99;
-import com.repackage.k99;
-import com.repackage.q99;
-import com.repackage.w89;
+import com.repackage.fc9;
+import com.repackage.lc9;
+import com.repackage.rb9;
+import com.repackage.wb9;
 import java.io.Closeable;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -50,7 +50,7 @@ public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements 
             }
         }
         this.mPath = null;
-        this.isUseMediacodec = k99.a();
+        this.isUseMediacodec = fc9.a();
     }
 
     @NonNull
@@ -70,7 +70,7 @@ public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements 
     private boolean isUseMediacodec() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.isUseMediacodec && !q99.a(this.mPath) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.isUseMediacodec && !lc9.a(this.mPath) : invokeV.booleanValue;
     }
 
     @Override // android.media.MediaMetadataRetriever, java.lang.AutoCloseable, java.io.Closeable
@@ -169,7 +169,7 @@ public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements 
 
     public void getFrameAtTimeList(List<Long> list, int i, int i2, VideoKeyFrameModel.OnDecodeFrameAvailableListener onDecodeFrameAvailableListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{list, Integer.valueOf(i), Integer.valueOf(i2), onDecodeFrameAvailableListener}) == null) || b99.e(list) || onDecodeFrameAvailableListener == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{list, Integer.valueOf(i), Integer.valueOf(i2), onDecodeFrameAvailableListener}) == null) || wb9.e(list) || onDecodeFrameAvailableListener == null) {
             return;
         }
         if (isUseMediacodec()) {
@@ -216,7 +216,7 @@ public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements 
                     this.mPath = str;
                 }
             } catch (Exception e) {
-                w89.g(e);
+                rb9.g(e);
             }
         }
     }

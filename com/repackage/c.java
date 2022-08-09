@@ -31,7 +31,7 @@ public class c {
     public volatile int h;
     public volatile float i;
     public volatile float j;
-    public t00 k;
+    public u00 k;
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
@@ -307,10 +307,10 @@ public class c {
         }
     }
 
-    public void k(t00 t00Var) {
+    public void k(u00 u00Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, t00Var) == null) {
-            this.k = t00Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, u00Var) == null) {
+            this.k = u00Var;
         }
     }
 

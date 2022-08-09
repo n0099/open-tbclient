@@ -9,9 +9,9 @@ import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
 import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.lang.reflect.Field;
+import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class pg9 extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,36 +36,103 @@ public class pg9 extends BaseAdRipper {
         }
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:42:0x00bc A[Catch: Exception -> 0x0121, TryCatch #0 {Exception -> 0x0121, blocks: (B:5:0x0005, B:7:0x0017, B:10:0x0020, B:11:0x0023, B:14:0x0032, B:17:0x003f, B:20:0x0045, B:22:0x004d, B:24:0x0055, B:26:0x0069, B:28:0x0078, B:34:0x0089, B:36:0x0091, B:42:0x00bc, B:44:0x00c4, B:45:0x00cc, B:37:0x00a3, B:39:0x00ab), top: B:54:0x0005 }] */
     @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public RippedAd getRippedAdInternal(Object obj) {
         InterceptResult invokeL;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        String optString;
+        String str5;
+        JSONObject optJSONObject;
+        JSONObject optJSONObject2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj == null) {
-                return null;
-            }
             try {
-                Field declaredField = obj.getClass().getDeclaredField("a");
-                declaredField.setAccessible(true);
-                Object obj2 = declaredField.get(obj);
-                if (obj2 == null) {
+                A a = ((ih9) obj).a;
+                String[] strArr = {"com.bytedance.sdk.openadsdk.core.r.w", "com.bytedance.sdk.openadsdk.core.s.y"};
+                Object obj2 = null;
+                for (int i = 0; i < 2; i++) {
+                    obj2 = ReflectionUtils.findField(strArr[i], a);
+                    if (obj2 != null) {
+                        break;
+                    }
+                }
+                String[] strArr2 = {"bY", "ce", "ca"};
+                JSONObject jSONObject = null;
+                for (int i2 = 0; i2 < 3 && (jSONObject = (JSONObject) ReflectionUtils.invoke(obj2, strArr2[i2], null, new Object[0])) == null; i2++) {
+                }
+                if (jSONObject == null) {
                     return null;
                 }
-                Field declaredField2 = obj2.getClass().getDeclaredField("c");
-                declaredField2.setAccessible(true);
-                Object obj3 = declaredField2.get(obj2);
-                if (obj3 == null) {
-                    return null;
+                JSONObject optJSONObject3 = jSONObject.optJSONObject("icon");
+                String optString2 = optJSONObject3 != null ? optJSONObject3.optString("url") : null;
+                String combineStrWithComma = RippedAd.combineStrWithComma(jSONObject.optJSONArray("image"), ng9.a);
+                JSONObject optJSONObject4 = jSONObject.optJSONObject("video");
+                if (optJSONObject4 != null) {
+                    str2 = optJSONObject4.optString("video_url");
+                    str = optJSONObject4.optString("cover_url");
+                } else {
+                    str = null;
+                    str2 = null;
                 }
-                Field declaredField3 = obj3.getClass().getSuperclass().getDeclaredField("L");
-                declaredField3.setAccessible(true);
-                Object obj4 = declaredField3.get(obj3);
-                if (obj4 instanceof JSONObject) {
-                    return rf9.a((JSONObject) obj4);
+                int optInt = jSONObject.optInt("interaction_type", -1);
+                if (optInt == 3) {
+                    JSONObject optJSONObject5 = jSONObject.optJSONObject("deep_link");
+                    if (optJSONObject5 != null) {
+                        str3 = null;
+                        str4 = null;
+                        optString = optJSONObject5.optString("deeplink_url");
+                        str5 = null;
+                        if (str3 == null) {
+                        }
+                        RippedAd.Builder builder = new RippedAd.Builder();
+                        builder.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str3).setAppPkg(str4).setAppUrl(str5).setIconUrl(optString2).setImageUrl(combineStrWithComma).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
+                        return builder.build();
+                    }
+                    str5 = null;
+                    optString = null;
+                    str3 = null;
+                    str4 = null;
+                    if (str3 == null) {
+                    }
+                    RippedAd.Builder builder2 = new RippedAd.Builder();
+                    builder2.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str3).setAppPkg(str4).setAppUrl(str5).setIconUrl(optString2).setImageUrl(combineStrWithComma).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
+                    return builder2.build();
                 }
-                return null;
-            } catch (Exception unused) {
-                LogPrinter.e();
+                if (optInt == 4 && (optJSONObject2 = jSONObject.optJSONObject("app")) != null) {
+                    String optString3 = optJSONObject2.optString("app_name");
+                    String optString4 = optJSONObject2.optString("package_name");
+                    str5 = optJSONObject2.optString("download_url");
+                    str4 = optString4;
+                    str3 = optString3;
+                    optString = null;
+                    if (str3 == null && (optJSONObject = jSONObject.optJSONObject("app_manage")) != null) {
+                        str3 = optJSONObject.optString("app_name");
+                        str4 = optJSONObject.optString("package_name");
+                    }
+                    RippedAd.Builder builder22 = new RippedAd.Builder();
+                    builder22.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str3).setAppPkg(str4).setAppUrl(str5).setIconUrl(optString2).setImageUrl(combineStrWithComma).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
+                    return builder22.build();
+                }
+                str5 = null;
+                optString = null;
+                str3 = null;
+                str4 = null;
+                if (str3 == null) {
+                    str3 = optJSONObject.optString("app_name");
+                    str4 = optJSONObject.optString("package_name");
+                }
+                RippedAd.Builder builder222 = new RippedAd.Builder();
+                builder222.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str3).setAppPkg(str4).setAppUrl(str5).setIconUrl(optString2).setImageUrl(combineStrWithComma).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
+                return builder222.build();
+            } catch (Exception e) {
+                LogPrinter.e(e);
                 return null;
             }
         }

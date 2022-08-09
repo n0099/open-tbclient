@@ -86,8 +86,8 @@ public final class a extends Dialog {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            View inflate = LayoutInflater.from(Wrapper.wrapContextIfNeed(getContext())).inflate(R.layout.obfuscated_res_0x7f0d047f, (ViewGroup) null, false);
-            inflate.findViewById(R.id.obfuscated_res_0x7f09103b).setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.widget.a.1
+            View inflate = LayoutInflater.from(Wrapper.wrapContextIfNeed(getContext())).inflate(R.layout.obfuscated_res_0x7f0d0482, (ViewGroup) null, false);
+            inflate.findViewById(R.id.obfuscated_res_0x7f091091).setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.widget.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a Ha;
@@ -118,7 +118,7 @@ public final class a extends Dialog {
                     }
                 }
             });
-            inflate.findViewById(R.id.obfuscated_res_0x7f09103a).setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.widget.a.2
+            inflate.findViewById(R.id.obfuscated_res_0x7f091090).setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.widget.a.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a Ha;
@@ -148,7 +148,7 @@ public final class a extends Dialog {
                     }
                 }
             });
-            inflate.findViewById(R.id.obfuscated_res_0x7f0911cd).setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.widget.a.3
+            inflate.findViewById(R.id.obfuscated_res_0x7f091223).setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.widget.a.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a Ha;
@@ -179,7 +179,7 @@ public final class a extends Dialog {
                     }
                 }
             });
-            inflate.findViewById(R.id.obfuscated_res_0x7f0911cc).setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.widget.a.4
+            inflate.findViewById(R.id.obfuscated_res_0x7f091222).setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.core.page.widget.a.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a Ha;
@@ -210,7 +210,7 @@ public final class a extends Dialog {
                     }
                 }
             });
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091039);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09108f);
             if (!TextUtils.isEmpty(this.GZ)) {
                 textView.setText(this.GZ);
             }

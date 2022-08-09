@@ -1,9 +1,19 @@
 package com.repackage;
 
-import android.os.Bundle;
+import android.app.Activity;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
+import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.publisher.emoji.adapter.NoHorizontalScrollerVPAdapter;
+import com.baidu.swan.apps.publisher.emoji.view.EmojiBagLayout;
+import com.baidu.swan.apps.publisher.view.SPSwitchPanelLinearLayout;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,154 +21,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public final class oy2 {
+import java.io.File;
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+/* loaded from: classes7.dex */
+public class oy2 {
     public static /* synthetic */ Interceptable $ic;
-    public static a a;
-    public static boolean b;
-    public static final oy2 c;
+    public static final boolean b;
+    public static oy2 c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(String str, String str2, String str3);
-
-        void b(String str, String str2, String str3);
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b<MsgType> implements bf3<l53<JSONObject>> {
-        public static /* synthetic */ Interceptable $ic;
-        public static final b a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-112478549, "Lcom/repackage/oy2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-112478549, "Lcom/repackage/oy2$b;");
-                    return;
-                }
-            }
-            a = new b();
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.bf3
-        /* renamed from: b */
-        public final void a(l53<JSONObject> it) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, it) == null) {
-                Intrinsics.checkNotNullExpressionValue(it, "it");
-                if (it.c()) {
-                    JSONObject jSONObject = it.a;
-                    JSONObject optJSONObject = jSONObject != null ? jSONObject.optJSONObject("data") : null;
-                    a b = oy2.c.b();
-                    if (optJSONObject != null) {
-                        String openId = optJSONObject.optString("openid");
-                        if (b == null || !ProcessUtils.isMainProcess()) {
-                            oy2.c.d(null, openId);
-                            return;
-                        }
-                        Intrinsics.checkNotNullExpressionValue(openId, "openId");
-                        h03 K = h03.K();
-                        Intrinsics.checkNotNullExpressionValue(K, "Swan.get()");
-                        String appId = K.getAppId();
-                        ul1 n = pj2.n();
-                        Intrinsics.checkNotNullExpressionValue(n, "SwanAppRuntime.getConfig()");
-                        b.a(openId, appId, n.a());
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class c<MsgType> implements bf3<l53<JSONObject>> {
-        public static /* synthetic */ Interceptable $ic;
-        public static final c a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-112478518, "Lcom/repackage/oy2$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-112478518, "Lcom/repackage/oy2$c;");
-                    return;
-                }
-            }
-            a = new c();
-        }
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.bf3
-        /* renamed from: b */
-        public final void a(l53<JSONObject> it) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, it) == null) {
-                Intrinsics.checkNotNullExpressionValue(it, "it");
-                if (it.c()) {
-                    JSONObject jSONObject = it.a;
-                    JSONObject optJSONObject = jSONObject != null ? jSONObject.optJSONObject("data") : null;
-                    a b = oy2.c.b();
-                    if (optJSONObject != null) {
-                        String swanId = optJSONObject.optString("swanid");
-                        if (b == null || !ProcessUtils.isMainProcess()) {
-                            oy2.c.d(swanId, null);
-                            return;
-                        }
-                        Intrinsics.checkNotNullExpressionValue(swanId, "swanId");
-                        h03 K = h03.K();
-                        Intrinsics.checkNotNullExpressionValue(K, "Swan.get()");
-                        String appId = K.getAppId();
-                        ul1 n = pj2.n();
-                        Intrinsics.checkNotNullExpressionValue(n, "SwanAppRuntime.getConfig()");
-                        b.b(swanId, appId, n.a());
-                    }
-                }
-            }
-        }
-    }
+    public WeakReference<Activity> a;
 
     static {
         InterceptResult invokeClinit;
@@ -173,7 +45,7 @@ public final class oy2 {
                 return;
             }
         }
-        c = new oy2();
+        b = jh1.a;
     }
 
     public oy2() {
@@ -190,62 +62,74 @@ public final class oy2 {
         }
     }
 
-    public final a b() {
+    public static oy2 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a : (a) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (oy2.class) {
+                    if (c == null) {
+                        c = new oy2();
+                    }
+                }
+            }
+            return c;
+        }
+        return (oy2) invokeV.objValue;
     }
 
-    public final boolean c() {
-        InterceptResult invokeV;
+    public final View a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b : invokeV.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            EmojiBagLayout emojiBagLayout = new EmojiBagLayout(context);
+            emojiBagLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070138)));
+            emojiBagLayout.setEmotionList(my2.c().b());
+            return emojiBagLayout;
+        }
+        return (View) invokeL.objValue;
     }
 
-    public final void d(String str, String str2) {
+    public boolean c(Activity activity, ViewGroup viewGroup, View view2, String str, String str2, String str3) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            h03 K = h03.K();
-            Intrinsics.checkNotNullExpressionValue(K, "Swan.get()");
-            dx2 y = K.y();
-            if (y != null) {
-                Bundle bundle = new Bundle();
-                bundle.putString("swanId", str);
-                bundle.putString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_OPEN_ID, str2);
-                h03 K2 = h03.K();
-                Intrinsics.checkNotNullExpressionValue(K2, "Swan.get()");
-                bundle.putString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, K2.getAppId());
-                ul1 n = pj2.n();
-                Intrinsics.checkNotNullExpressionValue(n, "SwanAppRuntime.getConfig()");
-                bundle.putString("hostName", n.a());
-                y.W(bundle, ny2.class);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, viewGroup, view2, str, str2, str3})) == null) {
+            IllegalArgumentException illegalArgumentException = !(viewGroup instanceof SPSwitchPanelLinearLayout) ? new IllegalArgumentException("panelLayout must be SPSwitchLinearLayout") : null;
+            if (!(view2 instanceof EditText)) {
+                illegalArgumentException = new IllegalArgumentException("focus view must be EditText");
+            }
+            if (illegalArgumentException != null) {
+                if (b) {
+                    throw illegalArgumentException;
+                }
+                return false;
+            } else if (TextUtils.isEmpty(str)) {
+                return false;
+            } else {
+                if (b) {
+                    Log.d("EmojiPanelManager", "start loading emoji " + str);
+                }
+                this.a = new WeakReference<>(activity);
+                if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+                    File v = vj2.v(str2, str3, false, null, null);
+                    my2.c().f(v.getAbsolutePath() + File.separator + str);
+                    ViewPager viewPager = (ViewPager) viewGroup.findViewById(R.id.obfuscated_res_0x7f09087a);
+                    ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090879);
+                    if (imageView != null) {
+                        imageView.setImageBitmap(my2.c().d());
+                    }
+                    ArrayList arrayList = new ArrayList();
+                    arrayList.add(a(activity.getApplicationContext()));
+                    viewPager.setAdapter(new NoHorizontalScrollerVPAdapter(arrayList));
+                    EditText editText = (EditText) view2;
+                    if (this.a.get() != null) {
+                        ly2.g(this.a.get().getApplicationContext()).f(editText);
+                        return true;
+                    }
+                }
+                return false;
             }
         }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            h03 K = h03.K();
-            Intrinsics.checkNotNullExpressionValue(K, "Swan.get()");
-            lh1 x = K.x();
-            Intrinsics.checkNotNullExpressionValue(x, "Swan.get().adaptationProducer");
-            p53 f = x.a().b().f(h03.K());
-            f.o(b.a);
-            f.call();
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            h03 K = h03.K();
-            Intrinsics.checkNotNullExpressionValue(K, "Swan.get()");
-            lh1 x = K.x();
-            Intrinsics.checkNotNullExpressionValue(x, "Swan.get().adaptationProducer");
-            q53 e = x.a().b().e(h03.K());
-            e.o(c.a);
-            e.call();
-        }
+        return invokeCommon.booleanValue;
     }
 }

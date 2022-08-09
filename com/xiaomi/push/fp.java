@@ -20,13 +20,13 @@ public class fp {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public byte f389a;
+    public byte f390a;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f390a;
+    public int f391a;
 
     /* renamed from: a  reason: collision with other field name */
-    public short f391a;
+    public short f392a;
     public byte[] b;
 
     /* loaded from: classes8.dex */
@@ -35,7 +35,7 @@ public class fp {
         public static final c a;
 
         /* renamed from: a  reason: collision with other field name */
-        public static final d f392a;
+        public static final d f393a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -52,13 +52,13 @@ public class fp {
                 }
             }
             a = new c();
-            f392a = new d();
+            f393a = new d();
         }
 
         public static byte[] a(byte[] bArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) ? a(bArr, f392a) : (byte[]) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) ? a(bArr, f393a) : (byte[]) invokeL.objValue;
         }
 
         public static byte[] a(byte[] bArr, b bVar) {
@@ -67,7 +67,7 @@ public class fp {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, bVar)) == null) {
                 if (fp.m346a(bArr)) {
                     fp a2 = fp.a(bArr);
-                    return (a2.f389a == 0 || a2.f389a != bVar.a()) ? a2.b : bVar.a(a2.b, a2.f390a);
+                    return (a2.f390a == 0 || a2.f390a != bVar.a()) ? a2.b : bVar.a(a2.b, a2.f391a);
                 }
                 return bArr;
             }
@@ -229,10 +229,10 @@ public class fp {
                 return;
             }
         }
-        this.f391a = (short) 1;
-        this.f391a = s;
-        this.f389a = b2;
-        this.f390a = i;
+        this.f392a = (short) 1;
+        this.f392a = s;
+        this.f390a = b2;
+        this.f391a = i;
         this.b = bArr;
     }
 

@@ -1,5 +1,19 @@
 package com.repackage;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.swan.apps.SwanAppActivity;
 /* loaded from: classes7.dex */
 public interface wl1 {
-    boolean a();
+    void a(String str);
+
+    void b();
+
+    void c(String str);
+
+    void d(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable wl2 wl2Var);
+
+    void e(String str);
+
+    void f(String str);
 }

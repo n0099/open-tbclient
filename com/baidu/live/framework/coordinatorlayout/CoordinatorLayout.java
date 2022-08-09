@@ -31,9 +31,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.VisibleForTesting;
-import androidx.coordinatorlayout.R$attr;
-import androidx.coordinatorlayout.R$style;
-import androidx.coordinatorlayout.R$styleable;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.util.ObjectsCompat;
@@ -50,6 +47,7 @@ import androidx.customview.view.AbsSavedState;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.framework.appbar.AppBarLayout;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,8 +56,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
+import com.repackage.u90;
 import com.repackage.v90;
-import com.repackage.w90;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.reflect.Constructor;
@@ -79,7 +77,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     public static final Pools.Pool<Rect> y;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<View> a;
-    public final v90<View> b;
+    public final u90<View> b;
     public final List<View> c;
     public final List<View> d;
     public Paint e;
@@ -1260,7 +1258,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     public void n(View view2, Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048612, this, view2, rect) == null) {
-            w90.a(this, view2, rect);
+            v90.a(this, view2, rect);
         }
     }
 
@@ -2048,7 +2046,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CoordinatorLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R$attr.coordinatorLayoutStyle);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040446);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2196,25 +2194,25 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             }
         }
         this.a = new ArrayList();
-        this.b = new v90<>();
+        this.b = new u90<>();
         this.c = new ArrayList();
         this.d = new ArrayList();
         this.f = new int[2];
         this.g = new int[2];
         this.t = new NestedScrollingParentHelper(this);
         if (i == 0) {
-            obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.CoordinatorLayout, 0, R$style.Widget_Support_CoordinatorLayout);
+            obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040482, R.attr.obfuscated_res_0x7f040492}, 0, R.style.obfuscated_res_0x7f100121);
         } else {
-            obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.CoordinatorLayout, i, 0);
+            obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040482, R.attr.obfuscated_res_0x7f040492}, i, 0);
         }
         if (Build.VERSION.SDK_INT >= 29) {
             if (i == 0) {
-                saveAttributeDataForStyleable(context, R$styleable.CoordinatorLayout, attributeSet, obtainStyledAttributes, 0, R$style.Widget_Support_CoordinatorLayout);
+                saveAttributeDataForStyleable(context, new int[]{R.attr.obfuscated_res_0x7f040482, R.attr.obfuscated_res_0x7f040492}, attributeSet, obtainStyledAttributes, 0, R.style.obfuscated_res_0x7f100121);
             } else {
-                saveAttributeDataForStyleable(context, R$styleable.CoordinatorLayout, attributeSet, obtainStyledAttributes, i, 0);
+                saveAttributeDataForStyleable(context, new int[]{R.attr.obfuscated_res_0x7f040482, R.attr.obfuscated_res_0x7f040492}, attributeSet, obtainStyledAttributes, i, 0);
             }
         }
-        int resourceId = obtainStyledAttributes.getResourceId(R$styleable.CoordinatorLayout_keylines, 0);
+        int resourceId = obtainStyledAttributes.getResourceId(0, 0);
         if (resourceId != 0) {
             Resources resources = context.getResources();
             this.j = resources.getIntArray(resourceId);
@@ -2225,7 +2223,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
                 iArr[i4] = (int) (iArr[i4] * f2);
             }
         }
-        this.q = obtainStyledAttributes.getDrawable(R$styleable.CoordinatorLayout_statusBarBackground);
+        this.q = obtainStyledAttributes.getDrawable(1);
         obtainStyledAttributes.recycle();
         R();
         super.setOnHierarchyChangeListener(new d(this));
@@ -2714,14 +2712,14 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             this.g = 0;
             this.h = 0;
             this.q = new Rect();
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.CoordinatorLayout_Layout);
-            this.c = obtainStyledAttributes.getInteger(R$styleable.CoordinatorLayout_Layout_android_layout_gravity, 0);
-            this.f = obtainStyledAttributes.getResourceId(R$styleable.CoordinatorLayout_Layout_layout_anchor, -1);
-            this.d = obtainStyledAttributes.getInteger(R$styleable.CoordinatorLayout_Layout_layout_anchorGravity, 0);
-            this.e = obtainStyledAttributes.getInteger(R$styleable.CoordinatorLayout_Layout_layout_keyline, -1);
-            this.g = obtainStyledAttributes.getInt(R$styleable.CoordinatorLayout_Layout_layout_insetEdge, 0);
-            this.h = obtainStyledAttributes.getInt(R$styleable.CoordinatorLayout_Layout_layout_dodgeInsetEdges, 0);
-            boolean hasValue = obtainStyledAttributes.hasValue(R$styleable.CoordinatorLayout_Layout_layout_behavior);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16842931, R.attr.obfuscated_res_0x7f040483, R.attr.obfuscated_res_0x7f040484, R.attr.obfuscated_res_0x7f040485, R.attr.obfuscated_res_0x7f040486, R.attr.obfuscated_res_0x7f040487, R.attr.obfuscated_res_0x7f040488});
+            this.c = obtainStyledAttributes.getInteger(0, 0);
+            this.f = obtainStyledAttributes.getResourceId(1, -1);
+            this.d = obtainStyledAttributes.getInteger(2, 0);
+            this.e = obtainStyledAttributes.getInteger(6, -1);
+            this.g = obtainStyledAttributes.getInt(5, 0);
+            this.h = obtainStyledAttributes.getInt(4, 0);
+            boolean hasValue = obtainStyledAttributes.hasValue(3);
             this.b = hasValue;
             if (hasValue) {
                 this.a = CoordinatorLayout.E(context, attributeSet, AppBarLayout.ScrollingViewBehavior.class.getName());

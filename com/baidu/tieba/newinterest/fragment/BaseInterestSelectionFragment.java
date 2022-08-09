@@ -11,24 +11,24 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ep7;
-import com.repackage.oo7;
-import com.repackage.xo7;
+import com.repackage.jq7;
+import com.repackage.sq7;
+import com.repackage.zq7;
 import java.util.List;
 /* loaded from: classes3.dex */
-public abstract class BaseInterestSelectionFragment extends BaseFragment implements oo7.a {
+public abstract class BaseInterestSelectionFragment extends BaseFragment implements jq7.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
     public TBSpecificationBtn b;
-    public oo7 c;
+    public jq7 c;
     public View d;
     public int e;
     public String[] f;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void a(List<xo7> list);
+        void a(List<sq7> list);
     }
 
     public BaseInterestSelectionFragment() {
@@ -65,40 +65,40 @@ public abstract class BaseInterestSelectionFragment extends BaseFragment impleme
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onResume();
             if (getFragmentManager().getFragments().size() == 1) {
-                ep7.c(1, this.e);
+                zq7.c(1, this.e);
             }
         }
     }
 
-    @Override // com.repackage.oo7.a
-    public void q1(int i) {
+    @Override // com.repackage.jq7.a
+    public void p1(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             if (i > 0 && !this.b.isEnabled()) {
                 this.b.setEnabled(true);
-                this.b.setText(getString(R.string.obfuscated_res_0x7f0f0c22));
+                this.b.setText(getString(R.string.obfuscated_res_0x7f0f0c47));
             } else if (i == 0) {
                 this.b.setEnabled(false);
-                this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f10b6));
+                this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f10ef));
             }
         }
     }
 
-    public void s1() {
+    public void r1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.c.b(this);
         }
     }
 
-    public void t1() {
+    public void s1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             hideLoadingView(this.d);
         }
     }
 
-    public void u1(String str) {
+    public void t1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             hideLoadingView(this.d);
@@ -106,7 +106,7 @@ public abstract class BaseInterestSelectionFragment extends BaseFragment impleme
         }
     }
 
-    public void v1(a aVar) {
+    public void u1(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             this.a = aVar;

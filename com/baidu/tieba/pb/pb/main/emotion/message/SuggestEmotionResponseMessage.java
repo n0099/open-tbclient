@@ -12,17 +12,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mw7;
+import com.repackage.my7;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mw7 mData;
+    public my7 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SuggestEmotionResponseMessage(int i) {
@@ -116,17 +116,17 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
             if (statusCode != 200 || error != 0 || jSONObject == null || jSONObject == null) {
                 return;
             }
-            mw7 mw7Var = new mw7();
-            this.mData = mw7Var;
-            mw7Var.d(parseImageData(jSONObject.optJSONArray("memes")));
+            my7 my7Var = new my7();
+            this.mData = my7Var;
+            my7Var.d(parseImageData(jSONObject.optJSONArray("memes")));
             this.mData.e(parseHotWordsData(jSONObject.optJSONArray("topwords")));
             this.mData.f(parseSingleForumRecommend(jSONObject.optJSONObject("forum_pkg")));
         }
     }
 
-    public mw7 getData() {
+    public my7 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (mw7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (my7) invokeV.objValue;
     }
 }

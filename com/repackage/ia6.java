@@ -1,156 +1,245 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import android.database.Cursor;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.forbidden.fans.GetForbiddenFansResponse;
+import com.baidu.tbadk.TiebaDatabase;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.EmotionUtil;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.img.UploadedImageInfo;
+import com.baidu.tieba.faceshop.MyEmotionGroupData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.io.File;
+import java.io.InputStream;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class ia6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ia6 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public pp4 a;
-    public ArrayList<ha6> b;
-    public b c;
-    public HttpMessageListener d;
 
-    /* loaded from: classes6.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ia6 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ia6 ia6Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755625133, "Lcom/repackage/ia6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ia6Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = ia6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof GetForbiddenFansResponse)) {
-                GetForbiddenFansResponse getForbiddenFansResponse = (GetForbiddenFansResponse) httpResponsedMessage;
-                this.a.a = getForbiddenFansResponse.getPageData();
-                if (this.a.b == null) {
-                    this.a.b = new ArrayList();
-                }
-                if (this.a.a != null) {
-                    if (this.a.a.a() == 1) {
-                        this.a.b.clear();
-                    }
-                    if (getForbiddenFansResponse.getFansList() != null) {
-                        this.a.b.addAll(getForbiddenFansResponse.getFansList());
-                    }
-                }
-                if (this.a.c != null) {
-                    this.a.c.a(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), this.a.b);
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755625133, "Lcom/repackage/ia6;");
+                return;
             }
         }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(int i, String str, ArrayList<ha6> arrayList);
+        a = new ia6();
     }
 
     public ia6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.d = new a(this, CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS, TbConfig.SERVER_ADDRESS + TbConfig.GET_FORBIDDEN_FANS);
-        tbHttpMessageTask.setIsNeedLogin(true);
-        tbHttpMessageTask.setIsNeedTbs(true);
-        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
-        tbHttpMessageTask.setResponsedClass(GetForbiddenFansResponse.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.d);
     }
 
-    public boolean f() {
+    public static ia6 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            pp4 pp4Var = this.a;
-            return pp4Var != null && pp4Var.b() == 1;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (ia6) invokeV.objValue;
     }
 
-    public void g() {
+    public final boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
-            httpMessage.addParam("rn", 20);
-            httpMessage.addParam(Config.PACKAGE_NAME, 1);
-            MessageManager.getInstance().sendMessage(httpMessage);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? new File(TbadkCoreApplication.getInst().getFilesDir(), str).exists() : invokeL.booleanValue;
     }
 
-    public void h() {
+    public boolean b(MyEmotionGroupData myEmotionGroupData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            pp4 pp4Var = this.a;
-            if (pp4Var == null || pp4Var.b() == 1) {
-                pp4 pp4Var2 = this.a;
-                int a2 = pp4Var2 != null ? 1 + pp4Var2.a() : 1;
-                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
-                httpMessage.addParam("rn", 20);
-                httpMessage.addParam(Config.PACKAGE_NAME, a2);
-                MessageManager.getInstance().sendMessage(httpMessage);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, myEmotionGroupData)) == null) {
+            if (myEmotionGroupData == null) {
+                return false;
+            }
+            j9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            try {
+                mainDBDatabaseManager.f().delete(EmotionUtil.TABLE_NAME_USER_EMOTIONS, "uid = ? and groupId = ?", new String[]{myEmotionGroupData.uid, myEmotionGroupData.groupId});
+                return true;
+            } catch (Throwable th) {
+                mainDBDatabaseManager.i(th, "EmotionsDBManager.deleteMyEmotion");
+                return false;
             }
         }
+        return invokeL.booleanValue;
     }
 
-    public void i() {
+    public MyEmotionGroupData d(String str, String str2) {
+        InterceptResult invokeLL;
+        Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.d);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return null;
+            }
+            j9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            try {
+                cursor = mainDBDatabaseManager.f().rawQuery("SELECT * FROM user_emotions where uid = ? and groupId = ? ", new String[]{str, str2});
+                try {
+                    if (cursor.moveToNext()) {
+                        return i(cursor);
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    try {
+                        mainDBDatabaseManager.i(th, "EmotionsDBManager.getMyEmotion");
+                        return null;
+                    } finally {
+                        ri.a(cursor);
+                    }
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                cursor = null;
+            }
+            return null;
         }
+        return (MyEmotionGroupData) invokeLL.objValue;
     }
 
-    public void j(b bVar) {
+    public boolean e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.c = bVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            j9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            Cursor cursor = null;
+            try {
+                cursor = mainDBDatabaseManager.f().rawQuery("SELECT * FROM user_emotions where uid = ? and groupId = ? ", new String[]{TbadkCoreApplication.getCurrentAccount(), str});
+                return cursor.moveToNext();
+            } catch (Throwable th) {
+                try {
+                    mainDBDatabaseManager.i(th, "EmotionsDBManager.hasEmotionByPckID");
+                    return false;
+                } finally {
+                    ri.a(cursor);
+                }
+            }
         }
+        return invokeL.booleanValue;
+    }
+
+    public int f(lp7 lp7Var) {
+        InterceptResult invokeL;
+        List<mp7> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, lp7Var)) == null) {
+            if (lp7Var == null || (list = lp7Var.e) == null || list.size() == 0) {
+                return 0;
+            }
+            String str = ".emotions/" + lp7Var.a;
+            qa6 o = qa6.o();
+            List<mp7> list2 = lp7Var.e;
+            int i = 0;
+            for (int i2 = 0; i2 < list2.size(); i2++) {
+                mp7 mp7Var = list2.get(i2);
+                if (a(str + "/" + mp7Var.c)) {
+                    if (a(str + "/" + mp7Var.d)) {
+                        StringBuilder sb = new StringBuilder(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT);
+                        sb.append(lp7Var.a + "_" + mp7Var.b);
+                        sb.append(",");
+                        sb.append(mp7Var.f);
+                        sb.append(",");
+                        sb.append(mp7Var.e);
+                        sb.append(",");
+                        String str2 = SmallTailInfo.EMOTION_PREFIX + sb.toString() + wi.c(sb.toString() + UploadedImageInfo.MD5_KEY).toLowerCase() + SmallTailInfo.EMOTION_SUFFIX;
+                        boolean isGifImage = FileHelper.isGifImage(w65.b.e(lp7Var.a, mp7Var.c));
+                        ja6.g(lp7Var.a, mp7Var.d, ja6.c(str2, true, false));
+                        ja6.g(lp7Var.a, mp7Var.c, ja6.c(str2, false, isGifImage));
+                        if (o.f(str2, lp7Var.a, i2 + 1)) {
+                            i++;
+                        }
+                    }
+                }
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    public int g(String str, InputStream inputStream) throws Exception {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, inputStream)) == null) {
+            qa6 o = qa6.o();
+            List<String> a2 = ja6.a(str, inputStream);
+            int i = 0;
+            int i2 = 0;
+            while (i < a2.size()) {
+                i++;
+                if (o.f(a2.get(i), str, i)) {
+                    i2++;
+                }
+            }
+            return i2;
+        }
+        return invokeLL.intValue;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, CONST_STR, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
+    public List<MyEmotionGroupData> h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            LinkedList linkedList = new LinkedList();
+            if (TextUtils.isEmpty(str)) {
+                return linkedList;
+            }
+            Cursor cursor = null;
+            try {
+                cursor = TiebaDatabase.getInstance().getMainDBDatabaseManager().f().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{str});
+                while (cursor.moveToNext()) {
+                    linkedList.add(i(cursor));
+                }
+            } finally {
+                try {
+                    return linkedList;
+                } finally {
+                }
+            }
+            return linkedList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public MyEmotionGroupData i(Cursor cursor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cursor)) == null) {
+            MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
+            myEmotionGroupData.id = cursor.getInt(cursor.getColumnIndex("id"));
+            myEmotionGroupData.uid = cursor.getString(cursor.getColumnIndex("uid"));
+            myEmotionGroupData.groupId = cursor.getString(cursor.getColumnIndex(TbEnum.SystemMessage.KEY_GROUP_ID));
+            myEmotionGroupData.updateTime = cursor.getLong(cursor.getColumnIndex("updateTime"));
+            return myEmotionGroupData;
+        }
+        return (MyEmotionGroupData) invokeL.objValue;
     }
 }

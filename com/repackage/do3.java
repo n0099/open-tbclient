@@ -1,13 +1,13 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.ad.downloader.exception.DownloadException;
-import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,165 +15,236 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class do3 implements mo3 {
+import com.baidubce.Protocol;
+import com.baidubce.auth.DefaultBceSessionCredentials;
+import com.baidubce.services.bos.BosClient;
+import com.baidubce.services.bos.BosClientConfiguration;
+import com.baidubce.services.bos.model.PutObjectRequest;
+import com.baidubce.services.bos.model.PutObjectResponse;
+import com.repackage.bd3;
+import java.io.File;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import okhttp3.internal.http.HttpDate;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+@Singleton
+@Service
+/* loaded from: classes6.dex */
+public class do3 implements bd3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Handler a;
-    public final jo3 b;
 
-    /* loaded from: classes5.dex */
-    public class a extends Handler {
+    /* loaded from: classes6.dex */
+    public class a extends ResponseCallback<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bd3.a a;
+        public final /* synthetic */ String b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(do3 do3Var, Looper looper) {
-            super(looper);
+        public a(do3 do3Var, bd3.a aVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {do3Var, looper};
+                Object[] objArr = {do3Var, aVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = aVar;
+            this.b = str;
         }
 
-        @Override // android.os.Handler
-        public void handleMessage(@NonNull Message message) {
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            bd3.a aVar;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                super.handleMessage(message);
-                DownloadInfo downloadInfo = (DownloadInfo) message.obj;
-                int status = downloadInfo.getStatus();
-                if (downloadInfo.getDownloadListener() == null) {
-                    return;
-                }
-                switch (b.a[DownloadState.convert(status).ordinal()]) {
-                    case 1:
-                        downloadInfo.getDownloadListener().e(downloadInfo.getProgress(), downloadInfo.getSize());
-                        return;
-                    case 2:
-                        downloadInfo.getDownloadListener().onStart();
-                        return;
-                    case 3:
-                        downloadInfo.getDownloadListener().d();
-                        return;
-                    case 4:
-                        downloadInfo.getDownloadListener().f(downloadInfo.getProgress(), downloadInfo.getSize());
-                        return;
-                    case 5:
-                        downloadInfo.getDownloadListener().a();
-                        return;
-                    case 6:
-                        downloadInfo.getDownloadListener().b(downloadInfo.getException());
-                        return;
-                    case 7:
-                        downloadInfo.getDownloadListener().c();
-                        return;
-                    default:
-                        return;
-                }
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, exc) == null) || (aVar = this.a) == null) {
+                return;
             }
+            aVar.c(null, null);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(JSONObject jSONObject, int i) {
+            bd3.a aVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) || (aVar = this.a) == null) {
+                return;
+            }
+            aVar.c(jSONObject, this.b);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public JSONObject parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
+                if (response == null || response.body() == null) {
+                    return null;
+                }
+                String string = response.body().string();
+                do3.f(response, System.currentTimeMillis());
+                return new JSONObject(string);
+            }
+            return (JSONObject) invokeLI.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-436604629, "Lcom/repackage/do3$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-436604629, "Lcom/repackage/do3$b;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755760727, "Lcom/repackage/do3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            int[] iArr = new int[DownloadState.values().length];
-            a = iArr;
-            try {
-                iArr[DownloadState.DOWNLOADING.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[DownloadState.PREPARE_DOWNLOAD.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[DownloadState.WAIT.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[DownloadState.DOWNLOAD_PAUSED.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                a[DownloadState.DOWNLOADED.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                a[DownloadState.DOWNLOAD_FAILED.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
-            }
-            try {
-                a[DownloadState.DELETED.ordinal()] = 7;
-            } catch (NoSuchFieldError unused7) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755760727, "Lcom/repackage/do3;");
+                return;
             }
         }
+        a = jh1.a;
     }
 
-    public do3(jo3 jo3Var) {
+    public do3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jo3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static String c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            return dh4.d((str + System.currentTimeMillis() + str2).getBytes(), false);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            return context.getExternalCacheDir() + File.separator + "favor_screenshot" + File.separator;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static RequestBody e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            jSONArray.put(str);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("oname_list", jSONArray);
+                return RequestBody.create(gs2.a, jSONObject.toString());
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (RequestBody) invokeL.objValue;
+    }
+
+    public static void f(Response response, long j) {
+        Date parse;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65541, null, response, j) == null) {
+            String header = response.header("Date");
+            if (TextUtils.isEmpty(header) || (parse = HttpDate.parse(header)) == null) {
                 return;
             }
-        }
-        this.b = jo3Var;
-        this.a = new a(this, Looper.getMainLooper());
-    }
-
-    @Override // com.repackage.mo3
-    public void a(DownloadException downloadException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, downloadException) == null) {
-        }
-    }
-
-    @Override // com.repackage.mo3
-    public void b(DownloadInfo downloadInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo) == null) {
-            if (downloadInfo.getStatus() != DownloadState.DELETED.value()) {
-                this.b.a(downloadInfo);
+            long time = parse.getTime();
+            if (time >= 1) {
+                long j2 = j - time;
+                n93.a().putLong("server_time_delta", j2);
+                if (a) {
+                    Log.i("getServerTimeDelta", "deltaTime sDate:" + parse + "  sTime:" + time + "   diff:" + j2);
+                }
             }
-            Message obtainMessage = this.a.obtainMessage(downloadInfo.getId().hashCode());
-            obtainMessage.obj = downloadInfo;
-            obtainMessage.sendToTarget();
         }
+    }
+
+    @Override // com.repackage.bd3
+    public boolean a(String str, tq2 tq2Var) {
+        InterceptResult invokeLL;
+        PutObjectResponse putObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, tq2Var)) == null) {
+            if (!TextUtils.isEmpty(str) && tq2Var != null && !TextUtils.isEmpty(tq2Var.a) && !TextUtils.isEmpty(tq2Var.b) && !TextUtils.isEmpty(tq2Var.c) && !TextUtils.isEmpty(tq2Var.f)) {
+                try {
+                    BosClientConfiguration bosClientConfiguration = new BosClientConfiguration();
+                    bosClientConfiguration.setCredentials(new DefaultBceSessionCredentials(tq2Var.a, tq2Var.b, tq2Var.c));
+                    bosClientConfiguration.setEndpoint("bj.bcebos.com");
+                    bosClientConfiguration.setProtocol(Protocol.HTTPS);
+                    BosClient bosClient = new BosClient(bosClientConfiguration);
+                    File file = new File(str);
+                    if (file.exists() && (putObject = bosClient.putObject(new PutObjectRequest(tq2Var.d, tq2Var.f, file))) != null) {
+                        if (!TextUtils.isEmpty(putObject.getETag())) {
+                            return true;
+                        }
+                    }
+                } catch (Exception e) {
+                    if (a) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.repackage.bd3
+    public void b(Context context, String str, bd3.a aVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, aVar) == null) || context == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        String v = vx1.v(gk2.o().e());
+        HashMap hashMap = new HashMap();
+        hashMap.put("Content-Type", "application/json");
+        for (Map.Entry<String, String> entry : ux1.b().d.entrySet()) {
+            v = re3.a(v, entry.getKey(), entry.getValue());
+        }
+        String c = c(d(context), str.substring(str.lastIndexOf(".")));
+        RequestBody e = e(c);
+        if (e == null) {
+            return;
+        }
+        a84 a84Var = new a84(v, e, new a(this, aVar, c));
+        if (b84.g().c()) {
+            a84Var.f = true;
+        }
+        a84Var.g = false;
+        a84Var.c = hashMap;
+        b84.g().e(a84Var);
     }
 }

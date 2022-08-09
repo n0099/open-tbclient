@@ -1,30 +1,7 @@
 package com.repackage;
+/* loaded from: classes7.dex */
+public interface p61 {
+    void onProgress(long j, long j2);
 
-import com.baidu.nps.utils.ContextHolder;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class p61 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755458074, "Lcom/repackage/p61;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755458074, "Lcom/repackage/p61;");
-                return;
-            }
-        }
-        a = ContextHolder.getApplicationContext().getPackageName() + ".nps.process.kill";
-    }
+    void onResult(int i, String str);
 }

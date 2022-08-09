@@ -2,8 +2,6 @@ package com.baidu.live.business.view.banner;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.business.model.data.LiveBannerEntity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,16 +13,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class BannerEntity implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<BannerEntity> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String bannerId;
-    public boolean hasPreLoad;
     public List<LiveBannerEntity> mBannerList;
     public double mBannerWH;
     public int mBroadcastInterval;
@@ -101,60 +95,6 @@ public class BannerEntity implements Parcelable {
         this.mSelected = 0;
         this.mBannerList = new ArrayList();
         this.mBroadcastInterval = 1000;
-    }
-
-    public static BannerEntity parseBannerEntity(JSONObject jSONObject) throws JSONException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
-            BannerEntity bannerEntity = new BannerEntity();
-            bannerEntity.bannerId = jSONObject.optString("banner_id", "1234567890");
-            bannerEntity.mBannerWH = jSONObject.optDouble("banner_wh", 5.223d);
-            try {
-                bannerEntity.mBroadcastInterval = Integer.parseInt(jSONObject.getString("broadcast_interval")) * 1000;
-            } catch (Exception e) {
-                bannerEntity.mBroadcastInterval = 1000;
-                e.printStackTrace();
-            }
-            JSONArray jSONArray = jSONObject.getJSONArray("banner_list");
-            for (int i = 0; i < jSONArray.length(); i++) {
-                JSONObject jSONObject2 = jSONArray.getJSONObject(i);
-                LiveBannerEntity liveBannerEntity = new LiveBannerEntity();
-                liveBannerEntity.parserJson(jSONObject2);
-                bannerEntity.mBannerList.add(liveBannerEntity);
-            }
-            bannerEntity.mSelected = bannerEntity.mBannerList.size() * 1000;
-            bannerEntity.mLogExt = jSONObject.optString("log_ext", StringUtil.EMPTY_ARRAY);
-            return bannerEntity;
-        }
-        return (BannerEntity) invokeL.objValue;
-    }
-
-    public static BannerEntity parseMineBannerEntity(JSONObject jSONObject) throws JSONException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
-            BannerEntity bannerEntity = new BannerEntity();
-            bannerEntity.bannerId = jSONObject.optString("banner_id", "1234567890");
-            bannerEntity.mBannerWH = jSONObject.optDouble("banner_wh", 5.223d);
-            try {
-                bannerEntity.mBroadcastInterval = Integer.parseInt(jSONObject.getString("broadcast_interval")) * 1000;
-            } catch (Exception e) {
-                bannerEntity.mBroadcastInterval = 1000;
-                e.printStackTrace();
-            }
-            JSONArray jSONArray = jSONObject.getJSONArray("banner_list");
-            for (int i = 0; i < jSONArray.length(); i++) {
-                JSONObject jSONObject2 = jSONArray.getJSONObject(i);
-                LiveBannerEntity liveBannerEntity = new LiveBannerEntity();
-                liveBannerEntity.parserJson(jSONObject2);
-                bannerEntity.mBannerList.add(liveBannerEntity);
-            }
-            bannerEntity.mSelected = bannerEntity.mBannerList.size() * 1000;
-            bannerEntity.mLogExt = jSONObject.optString("log_ext", StringUtil.EMPTY_ARRAY);
-            return bannerEntity;
-        }
-        return (BannerEntity) invokeL.objValue;
     }
 
     @Override // android.os.Parcelable

@@ -10,6 +10,7 @@ import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.animation.PathInterpolatorCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -249,7 +250,7 @@ public final class o extends a implements com.kwad.components.ad.reward.d.e, e.a
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{Boolean.valueOf(z), Float.valueOf(f), Integer.valueOf(i), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
             com.kwad.sdk.core.e.b.d("RewardPreEndCardPresenter", "getUpAnimator: translationY0: " + f + ", videoTargetHeight: " + i);
             if (z) {
-                ofFloat = ObjectAnimator.ofFloat(this.qA, "translationY", f);
+                ofFloat = ObjectAnimator.ofFloat(this.qA, Key.TRANSLATION_Y, f);
             } else {
                 int height = this.qA.getHeight();
                 ViewGroup.LayoutParams layoutParams = this.qA.getLayoutParams();
@@ -289,7 +290,7 @@ public final class o extends a implements com.kwad.components.ad.reward.d.e, e.a
                     }
                 });
             }
-            ObjectAnimator ofFloat2 = z2 ? ObjectAnimator.ofFloat(this.ln, "alpha", 0.0f, 255.0f) : null;
+            ObjectAnimator ofFloat2 = z2 ? ObjectAnimator.ofFloat(this.ln, Key.ALPHA, 0.0f, 255.0f) : null;
             ValueAnimator a = this.qB.a(this.mAdTemplate, i, new ValueAnimator.AnimatorUpdateListener(this, this.px.getLayoutParams()) { // from class: com.kwad.components.ad.reward.presenter.o.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -433,7 +434,7 @@ public final class o extends a implements com.kwad.components.ad.reward.d.e, e.a
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65553, this)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.qD, "alpha", 255.0f, 0.0f);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.qD, Key.ALPHA, 255.0f, 0.0f);
             ofFloat.setInterpolator(PathInterpolatorCompat.create(0.25f, 0.1f, 0.25f, 1.0f));
             ofFloat.setDuration(200L);
             return ofFloat;
@@ -535,12 +536,12 @@ public final class o extends a implements com.kwad.components.ad.reward.d.e, e.a
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onCreate();
-            this.qA = findViewById(R.id.obfuscated_res_0x7f09108b);
-            this.qB = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f0911b6);
-            this.ln = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091183);
-            this.px = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ffc);
-            this.qD = findViewById(R.id.obfuscated_res_0x7f0910ab);
-            this.qE = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09108c);
+            this.qA = findViewById(R.id.obfuscated_res_0x7f0910e4);
+            this.qB = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f09120c);
+            this.ln = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0911d9);
+            this.px = (ImageView) findViewById(R.id.obfuscated_res_0x7f091052);
+            this.qD = findViewById(R.id.obfuscated_res_0x7f091104);
+            this.qE = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0910e5);
         }
     }
 

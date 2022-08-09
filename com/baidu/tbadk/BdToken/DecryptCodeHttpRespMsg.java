@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi4;
+import com.repackage.hj4;
 import com.squareup.wire.Wire;
 import tbclient.DecryptCode.DecryptCodeResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DecryptCodeHttpRespMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qi4 decryptData;
+    public hj4 decryptData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DecryptCodeHttpRespMsg(int i) {
@@ -37,10 +37,10 @@ public class DecryptCodeHttpRespMsg extends HttpResponsedMessage {
         }
     }
 
-    public qi4 getDecryptData() {
+    public hj4 getDecryptData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.decryptData : (qi4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.decryptData : (hj4) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -51,9 +51,9 @@ public class DecryptCodeHttpRespMsg extends HttpResponsedMessage {
             try {
                 DecryptCodeResIdl decryptCodeResIdl = (DecryptCodeResIdl) new Wire(new Class[0]).parseFrom(bArr, DecryptCodeResIdl.class);
                 if (decryptCodeResIdl != null) {
-                    qi4 qi4Var = new qi4();
-                    this.decryptData = qi4Var;
-                    qi4Var.h(decryptCodeResIdl.data);
+                    hj4 hj4Var = new hj4();
+                    this.decryptData = hj4Var;
+                    hj4Var.h(decryptCodeResIdl.data);
                 }
             } catch (Throwable th) {
                 BdLog.e(th);

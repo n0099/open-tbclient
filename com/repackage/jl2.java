@@ -1,368 +1,105 @@
 package com.repackage;
 
-import android.os.Bundle;
-import android.os.Parcelable;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.searchbox.unitedscheme.SchemeConfig;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
+import com.baidu.swan.apps.core.container.NgWebView;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q63;
-import java.util.ConcurrentModificationException;
+import com.tencent.connect.common.Constants;
+import java.util.Collection;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public interface jl2 {
-    public static final kl2<Boolean> a = new d(Boolean.FALSE);
-    public static final kl2<Integer> b = new e(0);
-    public static final kl2<Long> c = new f(0L);
-    public static final kl2<Float> d = new g(Float.valueOf(0.0f));
-    public static final kl2<String> e = new h();
-    public static final kl2<String[]> f = new a();
-    public static final kl2<Bundle> g = new b();
-    public static final kl2<Parcelable> h = new c();
+public class jl2 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a extends kl2<String[]> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755584895, "Lcom/repackage/jl2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755584895, "Lcom/repackage/jl2;");
+                return;
             }
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.kl2
-        /* renamed from: f */
-        public String[] c(Bundle bundle, String str, String[] strArr) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, strArr)) == null) ? bundle.getStringArray(str) : (String[]) invokeLLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.kl2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, String[] strArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, strArr) == null) {
-                bundle.putStringArray(str, strArr);
-            }
-        }
+        a = jh1.a;
     }
 
-    /* loaded from: classes6.dex */
-    public static class b extends kl2<Bundle> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.kl2
-        /* renamed from: f */
-        public Bundle c(Bundle bundle, String str, Bundle bundle2) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, bundle2)) == null) ? bundle.getBundle(str) : (Bundle) invokeLLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.kl2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, Bundle bundle2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, bundle2) == null) {
-                bundle.putBundle(str, bundle2);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c extends kl2<Parcelable> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.kl2
-        /* renamed from: f */
-        public Parcelable c(Bundle bundle, String str, Parcelable parcelable) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, parcelable)) == null) ? bundle.getParcelable(str) : (Parcelable) invokeLLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.kl2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, Parcelable parcelable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, parcelable) == null) {
-                bundle.putParcelable(str, parcelable);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class d extends kl2<Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(Boolean bool) {
-            super(bool);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bool};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.kl2
-        /* renamed from: f */
-        public Boolean c(Bundle bundle, String str, Boolean bool) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, bool)) == null) ? Boolean.valueOf(bundle.getBoolean(str, bool.booleanValue())) : (Boolean) invokeLLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.kl2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, Boolean bool) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, bool) == null) {
-                bundle.putBoolean(str, bool.booleanValue());
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class e extends kl2<Integer> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(Integer num) {
-            super(num);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {num};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.kl2
-        /* renamed from: f */
-        public Integer c(Bundle bundle, String str, Integer num) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, num)) == null) ? Integer.valueOf(bundle.getInt(str, num.intValue())) : (Integer) invokeLLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.kl2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, Integer num) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, num) == null) {
+    @NonNull
+    @SuppressLint({"BDThrowableCheck"})
+    public static String a(xz1 xz1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, xz1Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (xz1Var != null) {
                 try {
-                    bundle.putInt(str, num.intValue());
-                } catch (ConcurrentModificationException e) {
-                    q63.b bVar = new q63.b(10011);
-                    bVar.h(i03.M() == null ? "null appKey" : i03.M().O());
-                    bVar.k(str);
-                    bVar.i(Log.getStackTraceString(e));
-                    bVar.m();
+                    jSONObject.put("containerId", xz1Var.getContainerId());
+                    jSONObject.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, BdZeusUtil.isWebkitLoaded());
+                } catch (JSONException e) {
+                    if (!a) {
+                        e.printStackTrace();
+                    } else {
+                        throw new RuntimeException(e);
+                    }
                 }
             }
+            jSONObject.put("scheme", SchemeConfig.getSchemeHead());
+            String b = b(t72.U().T());
+            zx1.k("SwanAppNativeSwanUtils", "getEnvVariables extensionAvailable:" + mc2.r(b));
+            jSONObject.put("sdkExtension", b);
+            jSONObject.put("gameSdkExtension", b(hk2.i().s()));
+            jSONObject.put("isDebugSdk", a);
+            if ((xz1Var instanceof NgWebView) && ((NgWebView) xz1Var).isSwanWebMode()) {
+                jSONObject.put("ctsEnabled", n93.a().getInt("aiapps_web_mode_cts_use_key", 0));
+            }
+            String string = n93.a().getString("ctsUrl", "");
+            if (!TextUtils.isEmpty(string) && yw2.s()) {
+                jSONObject.put("ctsJsAddress", new JSONObject(string));
+            }
+            String i = gk2.o().i();
+            if (!TextUtils.isEmpty(i)) {
+                jSONObject.put("hostName", i);
+            }
+            jSONObject.put(Constants.PARAM_PLATFORM, "android");
+            JSONObject a2 = fa3.a();
+            a2.put("swanswitch_common_sys_info_binding", true);
+            a2.put("swanswitch_ab_sync_auth", true);
+            jSONObject.put("abTestSwitch", a2);
+            jSONObject.put("userDataPath", wc2.USER_DATA_PATH);
+            jSONObject.put("preloadId", t72.U().a0());
+            jSONObject.put("isBaiduSeries", SwanAppAllianceLoginHelper.d.h());
+            jSONObject.put("ttsExtractJSUrl", gd4.b().a());
+            jSONObject.put("coreJSPath", t72.U().c0());
+            if (jq1.d()) {
+                jSONObject.put("pendingList", new JSONArray((Collection) us1.d()));
+            }
+            jSONObject.put("swanNativeVersion", kh1.a());
+            String jSONObject2 = jSONObject.toString();
+            return TextUtils.isEmpty(jSONObject2) ? "" : jSONObject2;
         }
+        return (String) invokeL.objValue;
     }
 
-    /* loaded from: classes6.dex */
-    public static class f extends kl2<Long> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public f(Long l) {
-            super(l);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.kl2
-        /* renamed from: f */
-        public Long c(Bundle bundle, String str, Long l) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, l)) == null) ? Long.valueOf(bundle.getLong(str, l.longValue())) : (Long) invokeLLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.kl2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, Long l) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, l) == null) {
-                bundle.putLong(str, l.longValue());
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class g extends kl2<Float> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public g(Float f) {
-            super(f);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.kl2
-        /* renamed from: f */
-        public Float c(Bundle bundle, String str, Float f) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, f)) == null) ? Float.valueOf(bundle.getFloat(str, f.floatValue())) : (Float) invokeLLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.kl2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, Float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, f) == null) {
-                bundle.putFloat(str, f.floatValue());
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class h extends kl2<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public h() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.kl2
-        /* renamed from: f */
-        public String c(Bundle bundle, String str, String str2) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, str2)) == null) ? bundle.getString(str, str2) : (String) invokeLLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.kl2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, str2) == null) {
-                bundle.putString(str, str2);
-            }
-        }
+    public static String b(ExtensionCore extensionCore) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, extensionCore)) == null) ? (extensionCore == null || TextUtils.isEmpty(extensionCore.extensionCorePath)) ? "" : extensionCore.extensionCorePath : (String) invokeL.objValue;
     }
 }

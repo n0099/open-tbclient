@@ -1,144 +1,113 @@
 package com.repackage;
 
-import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ala.alasquare.subtablist.view.AlaSubListGameDoubleViewHolder;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class as5 extends an<cs5, AlaSubListGameDoubleViewHolder> {
+public class as5 extends bz5<rr5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> i;
-    public ls5 j;
-    public boolean k;
-    public gs5 l;
-    public int m;
-    public int n;
+    public TextView i;
+    public TextView j;
+    public HeadImageView k;
+    public TextView l;
+    public View m;
+    public rr5 n;
+    public RelativeLayout o;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public as5(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), cs5.c);
+    public as5(TbPageContext tbPageContext, ViewGroup viewGroup) {
+        super(tbPageContext, viewGroup);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = false;
-        this.i = tbPageContext;
+        this.m = h();
+        this.o = (RelativeLayout) h().findViewById(R.id.obfuscated_res_0x7f090e43);
+        this.i = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090e41);
+        this.j = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090e40);
+        HeadImageView headImageView = (HeadImageView) h().findViewById(R.id.obfuscated_res_0x7f090e3f);
+        this.k = headImageView;
+        headImageView.setAutoChangeStyle(true);
+        this.k.setIsRound(true);
+        this.k.setDrawBorder(true);
+        this.k.setPlaceHolder(1);
+        this.k.setBorderWidth(qi.f(tbPageContext.getPageActivity(), R.dimen.tbds1));
+        this.k.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.l = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090e42);
+        this.o.setOnClickListener(this);
+        j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public final void Z(cs5 cs5Var) {
+    @Override // com.repackage.bz5
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cs5Var) == null) || cs5Var == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0834 : invokeV.intValue;
+    }
+
+    @Override // com.repackage.bz5
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundResource(this.m, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0108);
+            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0108);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || e() == null) {
             return;
         }
-        int i = this.n;
-        if (i == 1) {
-            if (cs5Var.a != null) {
-                vq5 c = vq5.c();
-                vq5 c2 = vq5.c();
-                int i2 = this.m;
-                qo5 qo5Var = cs5Var.a;
-                c.a(c2.e(i2, "c12117", qo5Var.a, qo5Var.b, qo5Var.getThreadData()));
-            }
-            if (cs5Var.b != null) {
-                vq5 c3 = vq5.c();
-                vq5 c4 = vq5.c();
-                int i3 = this.m;
-                qo5 qo5Var2 = cs5Var.b;
-                c3.a(c4.e(i3, "c12117", qo5Var2.a, qo5Var2.b, qo5Var2.getThreadData()));
-            }
-        } else if (i == 2) {
-            qo5 qo5Var3 = cs5Var.a;
-            if (qo5Var3 != null && qo5Var3.getThreadData() != null && cs5Var.a.getThreadData().getThreadAlaInfo() != null) {
-                ThreadData threadData = cs5Var.a.getThreadData();
-                TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData.getThreadAlaInfo().appId).param("locate_type", cs5Var.a.b));
-            }
-            qo5 qo5Var4 = cs5Var.b;
-            if (qo5Var4 == null || qo5Var4.getThreadData() == null || cs5Var.b.getThreadData().getThreadAlaInfo() == null) {
-                return;
-            }
-            ThreadData threadData2 = cs5Var.b.getThreadData();
-            TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData2.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData2.getThreadAlaInfo().appId).param("locate_type", cs5Var.b.b));
-        }
+        e().a(view2, this.n);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: a0 */
-    public AlaSubListGameDoubleViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.repackage.bz5
+    /* renamed from: r */
+    public void i(rr5 rr5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            this.l = new gs5(this.i, this.k);
-            return new AlaSubListGameDoubleViewHolder(this.l);
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, rr5Var) == null) || rr5Var == null) {
+            return;
         }
-        return (AlaSubListGameDoubleViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: b0 */
-    public View S(int i, View view2, ViewGroup viewGroup, cs5 cs5Var, AlaSubListGameDoubleViewHolder alaSubListGameDoubleViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, cs5Var, alaSubListGameDoubleViewHolder})) == null) {
-            Z(cs5Var);
-            alaSubListGameDoubleViewHolder.a.i(cs5Var);
-            alaSubListGameDoubleViewHolder.a.s(this.j);
-            return alaSubListGameDoubleViewHolder.a();
+        this.n = rr5Var;
+        String str = rr5Var.c;
+        if (StringUtils.isNull(str)) {
+            str = StringUtils.isNull(rr5Var.b) ? "" : rr5Var.b;
         }
-        return (View) invokeCommon.objValue;
-    }
-
-    public void c0(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.n = i;
-        }
-    }
-
-    public void d0(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.m = i;
-        }
-    }
-
-    public void e0(ls5 ls5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, ls5Var) == null) {
-            this.j = ls5Var;
-        }
-    }
-
-    public void f0(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.k = z;
-        }
+        this.i.setText(str);
+        this.j.setText(StringUtils.isNull(rr5Var.e) ? "" : rr5Var.e);
+        this.k.K(rr5Var.d, 10, false);
+        this.l.setText(StringUtils.isNull(rr5Var.f) ? "" : rr5Var.f);
     }
 }

@@ -1,162 +1,19 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
-import android.util.LruCache;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.app.Activity;
+import android.content.Context;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class bl2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final LruCache<String, Object> a;
+public interface bl2 {
+    void a(Activity activity, String str, String str2);
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    boolean b(Context context);
 
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final bl2 a;
-        public transient /* synthetic */ FieldHolder $fh;
+    void c(Activity activity, String str, w71 w71Var);
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-496663285, "Lcom/repackage/bl2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-496663285, "Lcom/repackage/bl2$b;");
-                    return;
-                }
-            }
-            a = new bl2(null);
-        }
-    }
+    void d(Context context, JSONObject jSONObject, w71 w71Var);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755823223, "Lcom/repackage/bl2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755823223, "Lcom/repackage/bl2;");
-                return;
-            }
-        }
-        b = sg1.a;
-    }
+    void e(Activity activity, String str, w71 w71Var);
 
-    public /* synthetic */ bl2(a aVar) {
-        this();
-    }
-
-    public static bl2 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (bl2) invokeV.objValue;
-    }
-
-    public synchronized void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                if (this.a != null) {
-                    this.a.evictAll();
-                }
-            }
-        }
-    }
-
-    public synchronized <RESULT> RESULT b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            synchronized (this) {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                RESULT result = (RESULT) this.a.get(str);
-                if (result == null) {
-                    if (b) {
-                        Log.d("SwanAppLaunchCache", "doesn't hit the cache result, key = " + str);
-                    }
-                    return null;
-                }
-                try {
-                    if (b) {
-                        Log.d("SwanAppLaunchCache", "hit the cache result, key = " + str);
-                    }
-                    return result;
-                } catch (Exception e) {
-                    if (b) {
-                        Log.e("SwanAppLaunchCache", Log.getStackTraceString(e));
-                    }
-                    return null;
-                }
-            }
-        }
-        return (RESULT) invokeL.objValue;
-    }
-
-    public synchronized <RESULT> void d(String str, RESULT result) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, result) == null) {
-            synchronized (this) {
-                if (!TextUtils.isEmpty(str) && result != null) {
-                    if (b) {
-                        Log.d("SwanAppLaunchCache", "putConfig key: " + str);
-                    }
-                    this.a.put(str, result);
-                }
-            }
-        }
-    }
-
-    public synchronized void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            synchronized (this) {
-                if (TextUtils.isEmpty(str)) {
-                    return;
-                }
-                if (b) {
-                    Log.d("SwanAppLaunchCache", "removeConfig key: " + str);
-                }
-                this.a.remove(str);
-            }
-        }
-    }
-
-    public bl2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new LruCache<>(10);
-    }
+    void f(Activity activity, String str, h81<JSONObject> h81Var);
 }

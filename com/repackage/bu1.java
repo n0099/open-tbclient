@@ -1,73 +1,145 @@
 package com.repackage;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.text.TextPaint;
+import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.canvas.view.CanvasView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bu1 extends ot1 {
+public class bu1 extends wt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
 
-    public bu1() {
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ aw1 a;
+        public final /* synthetic */ CanvasView b;
+        public final /* synthetic */ CallbackHandler c;
+        public final /* synthetic */ bu1 d;
+
+        public a(bu1 bu1Var, aw1 aw1Var, CanvasView canvasView, CallbackHandler callbackHandler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bu1Var, aw1Var, canvasView, callbackHandler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = bu1Var;
+            this.a = aw1Var;
+            this.b = canvasView;
+            this.c = callbackHandler;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            JSONObject wrapCallbackParams;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int h = this.a.h();
+                if (h != 0) {
+                    wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(h, this.d.n(h));
+                } else {
+                    wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(0);
+                    this.b.c(this.a.i(), this.a.j());
+                    this.b.postInvalidate();
+                }
+                String str = this.a.e;
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                this.c.handleSchemeDispatchCallback(str, wrapCallbackParams.toString());
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bu1(w13 w13Var) {
+        super(w13Var, "/swanAPI/canvas/putImageData");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {w13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((w13) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.repackage.ot1
-    public void a(pt1 pt1Var, Canvas canvas) {
+    @Override // com.repackage.w23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, z03 z03Var) {
+        InterceptResult invokeLLLL;
+        h02 H;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, pt1Var, canvas) == null) || TextUtils.isEmpty(this.a)) {
-            return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, z03Var)) == null) {
+            aw1 o = o(unitedSchemeEntity);
+            if (o == null) {
+                zx1.c("SwanAppCanvas", "CanvasPutImageData action parse model is null");
+                unitedSchemeEntity.result = l(201);
+                return false;
+            }
+            if (TextUtils.isEmpty(o.c) && (H = mm2.U().H()) != null) {
+                o.c = H.t3();
+            }
+            if (!TextUtils.isEmpty(o.c) && !TextUtils.isEmpty(o.b)) {
+                CanvasView a2 = ax1.a(o);
+                if (a2 == null) {
+                    zx1.c("SwanAppCanvas", "CanvasPutImageData canvas view is null");
+                    unitedSchemeEntity.result = l(201);
+                    return false;
+                }
+                td3.k(new a(this, o, a2, callbackHandler), "CanvasPutImageDataAction");
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
+            }
+            zx1.c("SwanAppCanvas", "CanvasPutImageData slave id = " + o.c + " ; canvas id = " + o.b);
+            unitedSchemeEntity.result = l(201);
+            return false;
         }
-        TextPaint textPaint = pt1Var.e;
-        int i = pt1Var.k;
-        Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
-        float f = fontMetrics.top;
-        int i2 = this.c;
-        float f2 = i2 + f;
-        float f3 = fontMetrics.ascent + i2;
-        float f4 = fontMetrics.bottom;
-        float f5 = i != 1 ? i != 2 ? i != 3 ? i2 : i2 - (f3 - f2) : (i2 + ((f4 - f) / 2.0f)) - f4 : i2 + (((i2 + f4) - f2) / 2.0f) + (f3 - f2);
-        int alpha = textPaint.getAlpha();
-        pt1Var.c(textPaint);
-        canvas.drawText(this.a, this.b, f5, textPaint);
-        textPaint.setAlpha(alpha);
+        return invokeLLLL.booleanValue;
     }
 
-    @Override // com.repackage.ot1
-    public void b(JSONArray jSONArray) {
+    public final String n(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() > 2) {
-                    this.a = jSONArray.optString(0);
-                    this.b = zd3.g((float) jSONArray.optDouble(1));
-                    this.c = zd3.g((float) jSONArray.optDouble(2));
-                }
-            } catch (Exception e) {
-                if (sg1.a) {
-                    e.printStackTrace();
-                }
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? i != 2001 ? i != 2002 ? "error draw on canvas" : "width / height must > 0" : "data length invalid" : (String) invokeI.objValue;
+    }
+
+    public aw1 o(UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity)) == null) {
+            String str = unitedSchemeEntity.getParams().get("params");
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
+            return new aw1(str);
         }
+        return (aw1) invokeL.objValue;
     }
 }

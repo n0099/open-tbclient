@@ -1,85 +1,128 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.text.TextUtils;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.sapi2.ecommerce.activity.AddressEditActivity;
+import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import okhttp3.Response;
+import org.json.JSONException;
 import org.json.JSONObject;
-@Deprecated
 /* loaded from: classes6.dex */
-public class e83 extends f23 {
+public class e83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e83(f13 f13Var) {
-        super(f13Var, "/swanAPI/setStorage");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {f13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ SwanInterfaceType e;
+
+        public a(int i, String str, String str2, String str3, SwanInterfaceType swanInterfaceType) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), str, str2, str3, swanInterfaceType};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+            this.b = str;
+            this.c = str2;
+            this.d = str3;
+            this.e = swanInterfaceType;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int i = this.a;
+                boolean z = (i == 2000 || i == 0) ? false : true;
+                String n = s73.n(y03.K().k());
+                JSONObject jSONObject = new JSONObject();
+                zd3.f(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, y03.K().getAppId());
+                zd3.f(jSONObject, "hostName", gk2.n().a());
+                zd3.f(jSONObject, "network", yg4.e());
+                zd3.f(jSONObject, "launchid", y03.K().q().W().V());
+                if (z) {
+                    zd3.f(jSONObject, "response", this.b);
+                    zd3.f(jSONObject, "statusCode", this.c);
+                    zd3.f(jSONObject, "request_url", this.d);
+                }
+                e83.d(n, this.e.getClassify(), this.e.getInterfaceName(), this.a, jSONObject, z);
             }
         }
     }
 
-    @Override // com.repackage.f23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
-        InterceptResult invokeLLLL;
+    public static void a(SwanInterfaceType swanInterfaceType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
-            if (i03Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
-                return false;
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
-                return false;
-            }
-            String Q = jq1.Q(optParamsAsJo);
-            if (Q == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            } else if (r73.b(Q)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exceed storage key max length");
-                return false;
+        if (interceptable == null || interceptable.invokeL(65536, null, swanInterfaceType) == null) {
+            c(swanInterfaceType, 2000, null, null);
+        }
+    }
+
+    public static void b(SwanInterfaceType swanInterfaceType, int i, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{swanInterfaceType, Integer.valueOf(i), str, str2, str3}) == null) {
+            td3.j(new a(i, str3, str2, str, swanInterfaceType), "onInterfaceStabilityStatistic");
+        }
+    }
+
+    public static void c(SwanInterfaceType swanInterfaceType, int i, String str, Response response) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(65538, null, swanInterfaceType, i, str, response) == null) {
+            String str3 = null;
+            if (response != null) {
+                String valueOf = String.valueOf(response.code());
+                str3 = response.request().url().toString();
+                str2 = valueOf;
             } else {
-                String P = jq1.P(optParamsAsJo);
-                if (P == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                } else if (r73.c(P)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exceed storage item max length");
-                    return false;
-                } else {
-                    r73 f0 = i03Var.f0();
-                    if (f0.m(Q, P)) {
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1003, "exceed storage max length");
-                        return false;
-                    }
-                    f0.g().putString(Q, P);
-                    ec3.h.update();
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                    return true;
+                str2 = null;
+            }
+            b(swanInterfaceType, i, str3, str2, str);
+        }
+    }
+
+    public static void d(String str, String str2, String str3, int i, JSONObject jSONObject, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, str2, str3, Integer.valueOf(i), jSONObject, Boolean.valueOf(z)}) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("from", str);
+                jSONObject2.put("type", str2);
+                if (!TextUtils.isEmpty(str3)) {
+                    jSONObject2.put("page", str3);
+                }
+                jSONObject2.put("value", String.valueOf(i));
+                if (jSONObject != null) {
+                    jSONObject2.put("ext", jSONObject);
+                }
+                g73.k("874", jSONObject2);
+                if (z) {
+                    g73.i("2486", AddressEditActivity.CHINA_REGION_CODE, jSONObject2);
+                }
+            } catch (JSONException e) {
+                if (z03.v) {
+                    e.printStackTrace();
                 }
             }
         }
-        return invokeLLLL.booleanValue;
     }
 }

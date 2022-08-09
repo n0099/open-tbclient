@@ -1,45 +1,57 @@
 package com.repackage;
 
-import android.view.View;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.play.TbVideoViewContainer;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
-public interface x68 extends View.OnClickListener, CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnSeekCompleteListener, TbVideoViewContainer.a {
-    void changeRenderViewMode(int i);
+public class x68 extends BaseCardInfo {
+    public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
+    public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public List<on> b;
 
-    int getCurrentPosition();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755219529, "Lcom/repackage/x68;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755219529, "Lcom/repackage/x68;");
+                return;
+            }
+        }
+        c = BdUniqueId.gen();
+    }
 
-    View getMainView();
+    public x68() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
-    boolean isFullScreen();
-
-    boolean isPlaying();
-
-    boolean onBackPress();
-
-    boolean onBackground(boolean z);
-
-    void onScroll();
-
-    boolean onVolumeUp();
-
-    void setAfterClickListener(View.OnClickListener onClickListener);
-
-    void setData(ThreadData threadData);
-
-    void setFrom(String str);
-
-    void setJumpToPbClickListener(View.OnClickListener onClickListener);
-
-    void setStageType(String str);
-
-    void setStatistic(s68 s68Var);
-
-    void setUniqueId(BdUniqueId bdUniqueId);
-
-    void startPlay();
-
-    void stopPlay();
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.on
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
+    }
 }

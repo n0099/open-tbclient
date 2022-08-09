@@ -6,11 +6,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bz4;
+import com.repackage.wz4;
 import java.io.Serializable;
 import java.util.Comparator;
 /* loaded from: classes3.dex */
-public class ContactComparator implements Comparator<bz4>, Serializable {
+public class ContactComparator implements Comparator<wz4>, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LAST_KEY = "#";
     public static final long serialVersionUID = 5856247139420779621L;
@@ -32,18 +32,18 @@ public class ContactComparator implements Comparator<bz4>, Serializable {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Comparator
-    public int compare(bz4 bz4Var, bz4 bz4Var2) {
+    public int compare(wz4 wz4Var, wz4 wz4Var2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bz4Var, bz4Var2)) == null) {
-            if (bz4Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, wz4Var, wz4Var2)) == null) {
+            if (wz4Var == null) {
                 return -1;
             }
-            if (bz4Var2 == null) {
+            if (wz4Var2 == null) {
                 return 1;
             }
-            String a = bz4Var.a();
-            String a2 = bz4Var2.a();
+            String a = wz4Var.a();
+            String a2 = wz4Var2.a();
             if (!TextUtils.isEmpty(a) && !TextUtils.isEmpty(a2) && !a.equals(a2)) {
                 if ("#".equals(a)) {
                     return 1;
@@ -53,16 +53,16 @@ public class ContactComparator implements Comparator<bz4>, Serializable {
                 }
                 return a.compareToIgnoreCase(a2);
             }
-            String e = bz4Var.e();
-            String e2 = bz4Var2.e();
+            String e = wz4Var.e();
+            String e2 = wz4Var2.e();
             if (TextUtils.isEmpty(e)) {
                 return -1;
             }
             if (TextUtils.isEmpty(e2)) {
                 return 1;
             }
-            String c = bz4Var.c();
-            String c2 = bz4Var2.c();
+            String c = wz4Var.c();
+            String c2 = wz4Var2.c();
             if (TextUtils.isEmpty(c) || TextUtils.isEmpty(c2)) {
                 return 0;
             }

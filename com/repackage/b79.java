@@ -1,92 +1,91 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.r69;
-import java.io.File;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class b79 extends x69 {
-    public static /* synthetic */ Interceptable $ic;
+public final class b79 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
+    public static long b = 30000;
+    public static long c;
+    public static long d;
+    public static boolean e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b79(u69 u69Var, c79 c79Var, r69.a aVar) {
-        super(u69Var, c79Var, aVar);
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755873939, "Lcom/repackage/b79;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u69Var, c79Var, aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((u69) objArr2[0], (c79) objArr2[1], (r69.a) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755873939, "Lcom/repackage/b79;");
         }
     }
 
-    @Override // com.repackage.x69
-    public RandomAccessFile e(File file, String str, long j) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, str, Long.valueOf(j)})) == null) {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(new File(file, str), "rwd");
-            randomAccessFile.seek(0L);
-            return randomAccessFile;
-        }
-        return (RandomAccessFile) invokeCommon.objValue;
-    }
-
-    @Override // com.repackage.x69
-    public Map<String, String> f(c79 c79Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c79Var)) == null) {
-            return null;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    @Override // com.repackage.x69
-    public int g() {
+    public static long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 200;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? b : invokeV.longValue;
     }
 
-    @Override // com.repackage.x69
-    public String h() {
+    public static void b(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65538, null, j) == null) {
+            b = j;
+        }
+    }
+
+    public static long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? b79.class.getSimpleName() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c : invokeV.longValue;
     }
 
-    @Override // com.repackage.x69
-    public void j(c79 c79Var) {
+    public static boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, c79Var) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a : invokeV.booleanValue;
+    }
+
+    public static long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? d : invokeV.longValue;
+    }
+
+    public static void f(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65542, null, j) == null) {
+            c = j;
         }
     }
 
-    @Override // com.repackage.x69
-    public void n(c79 c79Var) {
+    public static void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, c79Var) == null) {
+        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
+            e = z;
         }
+    }
+
+    public static void h(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65544, null, j) == null) {
+            d = j;
+        }
+    }
+
+    public static boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? e : invokeV.booleanValue;
     }
 }

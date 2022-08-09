@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sb6;
-import com.repackage.tb6;
+import com.repackage.kd6;
+import com.repackage.ld6;
 /* loaded from: classes3.dex */
 public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sb6 a;
+    public kd6 a;
 
     public ForumSquareActivity() {
         Interceptable interceptable = $ic;
@@ -30,27 +30,21 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         }
     }
 
-    public sb6 A1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (sb6) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.w85
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.u95
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "a073" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "a073" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            tb6 tb6Var = this.a.d;
-            if (tb6Var != null) {
-                tb6Var.a(i);
+            ld6 ld6Var = this.a.d;
+            if (ld6Var != null) {
+                ld6Var.a(i);
             }
         }
     }
@@ -58,13 +52,19 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            sb6 sb6Var = new sb6(this, getPageContext());
-            this.a = sb6Var;
-            sb6Var.k(getIntent());
+            kd6 kd6Var = new kd6(this, getPageContext());
+            this.a = kd6Var;
+            kd6Var.k(getIntent());
             setContentView(this.a.d.e());
             this.a.m();
         }
+    }
+
+    public kd6 z1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (kd6) invokeV.objValue;
     }
 }

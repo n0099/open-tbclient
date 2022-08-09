@@ -117,10 +117,10 @@ public final class CSJNativeAdGroupImgView extends g0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900ac);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900a9);
-            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900aa);
-            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ab);
+            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900b1);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ae);
+            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900af);
+            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900b0);
         }
     }
 

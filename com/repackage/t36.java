@@ -1,55 +1,88 @@
 package com.repackage;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.downloadmanager.ui.adapter.ItemCardViewWrapperAdapter;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.repackage.c46;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class t36 {
+public abstract class t36 implements v36 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragment a;
-    public BdTypeRecyclerView b;
-    public ItemCardViewWrapperAdapter c;
-    public List<an> d;
-    public int e;
-    public int f;
+    public final c46 a;
+    public final c46.a b;
 
-    public t36(BaseFragment baseFragment, BdTypeRecyclerView bdTypeRecyclerView, int i, int i2) {
+    public t36(c46 retainer, c46.a locator) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragment, bdTypeRecyclerView, Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {retainer, locator};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new ArrayList();
-        this.a = baseFragment;
-        this.b = bdTypeRecyclerView;
-        this.e = i;
-        this.f = i2;
-        a();
+        Intrinsics.checkNotNullParameter(retainer, "retainer");
+        Intrinsics.checkNotNullParameter(locator, "locator");
+        this.a = retainer;
+        this.b = locator;
     }
 
-    public final void a() {
+    @Override // com.repackage.v36
+    public void a(h26 item, long j, h46 displayer, b26 config) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ItemCardViewWrapperAdapter itemCardViewWrapperAdapter = new ItemCardViewWrapperAdapter(this.a.getContext(), j36.e, this.e, this.b, this.f);
-            this.c = itemCardViewWrapperAdapter;
-            this.d.add(itemCardViewWrapperAdapter);
-            this.b.a(this.d);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{item, Long.valueOf(j), displayer, config}) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            this.b.a(item, j, displayer, config);
         }
+    }
+
+    @Override // com.repackage.v36
+    public void b(h26 item) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            this.a.b(item);
+        }
+    }
+
+    @Override // com.repackage.v36
+    public void c(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            this.a.update(i, i2);
+        }
+    }
+
+    @Override // com.repackage.v36
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.clear();
+        }
+    }
+
+    @Override // com.repackage.v36
+    public boolean d(h26 item, long j, h46 displayer, b26 config) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{item, Long.valueOf(j), displayer, config})) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            item.f().B(this.a.a(item, j, displayer, config));
+            return item.f().p();
+        }
+        return invokeCommon.booleanValue;
     }
 }

@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.am4;
-import com.repackage.pi;
+import com.repackage.qi;
+import com.repackage.rm4;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class HkMWebView extends BaseWebView {
@@ -107,7 +107,7 @@ public class HkMWebView extends BaseWebView {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) {
                 Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
                 if (this.b.getPackageManager().resolveActivity(intent, 0) == null) {
-                    pi.P(this.b, "您的手机未安装任何浏览器应用，无法完成下载", 0);
+                    qi.P(this.b, "您的手机未安装任何浏览器应用，无法完成下载", 0);
                 } else {
                     this.b.startActivity(intent);
                 }
@@ -164,7 +164,7 @@ public class HkMWebView extends BaseWebView {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, renderProcessGoneDetail)) == null) {
-                am4.a("HkMWebView", webView);
+                rm4.a("HkMWebView", webView);
                 return true;
             }
             return invokeLL.booleanValue;

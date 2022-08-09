@@ -25,10 +25,10 @@ public class df {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f206a;
+    public Context f207a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final ConcurrentLinkedQueue<b> f207a;
+    public final ConcurrentLinkedQueue<b> f208a;
 
     /* loaded from: classes8.dex */
     public class a extends b {
@@ -124,20 +124,20 @@ public class df {
         public int a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final /* synthetic */ df f208a;
+        public final /* synthetic */ df f209a;
 
         /* renamed from: a  reason: collision with other field name */
-        public File f209a;
+        public File f210a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f210a;
+        public String f211a;
 
         /* renamed from: a  reason: collision with other field name */
-        public boolean f211a;
+        public boolean f212a;
         public String b;
 
         /* renamed from: b  reason: collision with other field name */
-        public boolean f212b;
+        public boolean f213b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(df dfVar, String str, String str2, File file, boolean z) {
@@ -157,11 +157,11 @@ public class df {
                     return;
                 }
             }
-            this.f208a = dfVar;
-            this.f210a = str;
+            this.f209a = dfVar;
+            this.f211a = str;
             this.b = str2;
-            this.f209a = file;
-            this.f212b = z;
+            this.f210a = file;
+            this.f213b = z;
         }
 
         private boolean c() {
@@ -170,7 +170,7 @@ public class df {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
                 int i2 = 0;
-                SharedPreferences sharedPreferences = this.f208a.f206a.getSharedPreferences("log.timestamp", 0);
+                SharedPreferences sharedPreferences = this.f209a.f207a.getSharedPreferences("log.timestamp", 0);
                 String string = sharedPreferences.getString("log.requst", "");
                 long currentTimeMillis = System.currentTimeMillis();
                 try {
@@ -204,7 +204,7 @@ public class df {
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? bj.e(this.f208a.f206a) || (this.f212b && bj.b(this.f208a.f206a)) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? bj.e(this.f209a.f207a) || (this.f213b && bj.b(this.f209a.f207a)) : invokeV.booleanValue;
         }
 
         @Override // com.xiaomi.push.df.b, com.xiaomi.push.ao.b
@@ -216,10 +216,10 @@ public class df {
                         HashMap hashMap = new HashMap();
                         hashMap.put("uid", com.xiaomi.push.service.bv.m648a());
                         hashMap.put("token", this.b);
-                        hashMap.put("net", bj.m194a(this.f208a.f206a));
-                        bj.a(this.f210a, hashMap, this.f209a, "file");
+                        hashMap.put("net", bj.m194a(this.f209a.f207a));
+                        bj.a(this.f211a, hashMap, this.f210a, "file");
                     }
-                    this.f211a = true;
+                    this.f212a = true;
                 } catch (IOException unused) {
                 }
             }
@@ -230,17 +230,17 @@ public class df {
         public void mo265c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (!this.f211a) {
+                if (!this.f212a) {
                     int i = this.a + 1;
                     this.a = i;
                     if (i < 3) {
-                        this.f208a.f207a.add(this);
+                        this.f209a.f208a.add(this);
                     }
                 }
-                if (this.f211a || this.a >= 3) {
-                    this.f209a.delete();
+                if (this.f212a || this.a >= 3) {
+                    this.f210a.delete();
                 }
-                this.f208a.a((1 << this.a) * 1000);
+                this.f209a.a((1 << this.a) * 1000);
             }
         }
     }
@@ -276,8 +276,8 @@ public class df {
             }
         }
         ConcurrentLinkedQueue<b> concurrentLinkedQueue = new ConcurrentLinkedQueue<>();
-        this.f207a = concurrentLinkedQueue;
-        this.f206a = context;
+        this.f208a = concurrentLinkedQueue;
+        this.f207a = context;
         concurrentLinkedQueue.add(new a(this));
         b(0L);
     }
@@ -293,7 +293,7 @@ public class df {
                     }
                 }
             }
-            a.f206a = context;
+            a.f207a = context;
             return a;
         }
         return (df) invokeL.objValue;
@@ -303,7 +303,7 @@ public class df {
     public void a(long j) {
         b peek;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(65541, this, j) == null) && (peek = this.f207a.peek()) != null && peek.a()) {
+        if ((interceptable == null || interceptable.invokeJ(65541, this, j) == null) && (peek = this.f208a.peek()) != null && peek.a()) {
             b(j);
         }
     }
@@ -315,7 +315,7 @@ public class df {
             return;
         }
         try {
-            File file = new File(this.f206a.getExternalFilesDir(null) + "/.logcache");
+            File file = new File(this.f207a.getExternalFilesDir(null) + "/.logcache");
             if (file.exists() && file.isDirectory()) {
                 for (File file2 : file.listFiles()) {
                     file2.delete();
@@ -327,7 +327,7 @@ public class df {
 
     private void b(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65545, this, j) == null) || this.f207a.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeJ(65545, this, j) == null) || this.f208a.isEmpty()) {
             return;
         }
         gz.a(new dh(this), j);
@@ -336,14 +336,14 @@ public class df {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            while (!this.f207a.isEmpty()) {
-                b peek = this.f207a.peek();
+            while (!this.f208a.isEmpty()) {
+                b peek = this.f208a.peek();
                 if (peek != null) {
-                    if (!peek.b() && this.f207a.size() <= 6) {
+                    if (!peek.b() && this.f208a.size() <= 6) {
                         return;
                     }
                     com.xiaomi.channel.commonutils.logger.b.c("remove Expired task");
-                    this.f207a.remove(peek);
+                    this.f208a.remove(peek);
                 }
             }
         }
@@ -360,7 +360,7 @@ public class df {
     public void a(String str, String str2, Date date, Date date2, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, date, date2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            this.f207a.add(new dg(this, i, date, date2, str, str2, z));
+            this.f208a.add(new dg(this, i, date, date2, str, str2, z));
             b(0L);
         }
     }

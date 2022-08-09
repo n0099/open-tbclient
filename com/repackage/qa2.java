@@ -1,14 +1,11 @@
 package com.repackage;
 
-import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.swan.pms.utils.AbiType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,108 +13,70 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.pa2;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qa2 extends ua2<vb2, yb2> {
+public final class qa2 implements hc4<JSONArray> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static volatile qa2 e;
-    public static boolean f;
+    public static final boolean k;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ra2 a;
+    public final String b;
+    public z94 c;
+    public z94 d;
+    public sc3 e;
+    public boolean f;
+    public boolean g;
+    public final Collection<sf3<qa2>> h;
+    public final Collection<sf3<qa2>> i;
+    public pa2.b j;
 
     /* loaded from: classes7.dex */
-    public static class a extends ProviderDelegation {
+    public class a implements Function1<sc3, Unit> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qa2 a;
 
-        public a() {
+        public a(qa2 qa2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qa2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = qa2Var;
         }
 
-        public final ExtensionCore c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (d() == null) {
-                    return null;
-                }
-                ExtensionCore d = d().d();
-                if (d.isAvailable()) {
-                    return d;
-                }
-                d().h();
-                return d().d();
-            }
-            return (ExtensionCore) invokeV.objValue;
-        }
-
-        public final ua2 d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ra2.f(e()) : (ua2) invokeV.objValue;
-        }
-
-        public int e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-        public Bundle execCall(Bundle bundle) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // kotlin.jvm.functions.Function1
+        /* renamed from: a */
+        public Unit invoke(sc3 sc3Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bundle)) == null) {
-                Bundle bundle2 = new Bundle();
-                bundle2.putParcelable("aiapps_extension_core", c());
-                return bundle2;
-            }
-            return (Bundle) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b extends ProviderDelegation {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sc3Var)) == null) {
+                if (qa2.k) {
+                    Log.i("SoUpdating", "install: " + this.a.k() + " onCallback");
                 }
+                this.a.i(sc3Var);
+                this.a.f = false;
+                return null;
             }
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-        public Bundle execCall(Bundle bundle) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-                Bundle bundle2 = new Bundle();
-                bundle2.putBoolean("swan_preset_extension", qa2.f);
-                ix1.k("ExtCore-AppsManager", "is extension file exists : " + qa2.f);
-                return bundle2;
-            }
-            return (Bundle) invokeL.objValue;
+            return (Unit) invokeL.objValue;
         }
     }
 
@@ -134,114 +93,293 @@ public class qa2 extends ua2<vb2, yb2> {
                 return;
             }
         }
-        d = sg1.a;
-        f = m();
+        k = jh1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qa2() {
-        super(l(), new yb2());
+    public qa2(@NonNull ra2 ra2Var, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ra2Var, str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((ub2) objArr[0], (xb2) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = false;
+        this.g = false;
+        this.h = new HashSet();
+        this.i = new HashSet();
+        this.j = null;
+        this.a = ra2Var;
+        this.b = str;
     }
 
-    public static boolean j() {
+    public final synchronized void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.h.clear();
+                this.i.clear();
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.hc4
+    /* renamed from: f */
+    public void a(@NonNull JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray) == null) {
+            z94 l = l();
+            if (k) {
+                Log.i("SoUpdating", "decorateParams libName=" + this.b + " localSo=" + l);
+            }
+            try {
+                Iterator<AbiType> it = AbiType.currentAbi().getCompatible().iterator();
+                while (it.hasNext()) {
+                    AbiType next = it.next();
+                    if (k) {
+                        Log.i("SoUpdating", "decorateParams loop abi=" + next);
+                    }
+                    if (next != null) {
+                        vd4 d = vd4.d(this.b, next);
+                        if (k) {
+                            Log.i("SoUpdating", "decorateParams loop bundleId=" + d);
+                        }
+                        if (d != null) {
+                            JSONObject jSONObject = new JSONObject();
+                            boolean z = l != null && next == l.q;
+                            long j = (l == null || !z) ? 0L : l.i;
+                            String str = "0";
+                            String str2 = (l == null || !z) ? "0" : l.j;
+                            if (!TextUtils.isEmpty(str2)) {
+                                str = str2;
+                            }
+                            jSONObject.put("type", "so");
+                            jSONObject.put("bundle_id", d.b);
+                            jSONObject.put("version_code", j);
+                            jSONObject.put("version_name", str);
+                            if (k) {
+                                Log.i("SoUpdating", "decorate abi=" + next + " jo=" + jSONObject);
+                            }
+                            jSONArray.put(jSONObject);
+                        }
+                    }
+                }
+            } catch (JSONException e) {
+                if (k) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public synchronized qa2 g(sf3<qa2> sf3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sf3Var)) == null) {
+            synchronized (this) {
+                this.h.remove(sf3Var);
+            }
+            return this;
+        }
+        return (qa2) invokeL.objValue;
+    }
+
+    public synchronized qa2 h(sf3<qa2> sf3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sf3Var)) == null) {
+            synchronized (this) {
+                this.i.remove(sf3Var);
+            }
+            return this;
+        }
+        return (qa2) invokeL.objValue;
+    }
+
+    public final synchronized qa2 i(sc3 sc3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, sc3Var)) == null) {
+            synchronized (this) {
+                if (k) {
+                    Log.i("SoUpdating", "finish: " + k() + " finished=" + this.g + " error=" + sc3Var);
+                }
+                if (this.g) {
+                    return this;
+                }
+                this.g = true;
+                this.e = sc3Var;
+                if (sc3Var == null) {
+                    oa2.d.v(k(), System.currentTimeMillis());
+                }
+                oa2.d.f(k());
+                t();
+                e();
+                return this;
+            }
+        }
+        return (qa2) invokeL.objValue;
+    }
+
+    public z94 j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                ix1.k("ExtCore-AppsManager", "MainProcess mPresetExtension: " + f);
-                return f;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (z94) invokeV.objValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public z94 l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.c == null && !TextUtils.isEmpty(this.b)) {
+                this.c = u84.i().t(this.b);
             }
-            xw2 c = vw2.c(b.class, null);
-            boolean z = true;
-            if (c.a() && !c.a.getBoolean("swan_preset_extension", true)) {
-                z = false;
-            }
-            ix1.k("ExtCore-AppsManager", "swanProcess mPresetExtension: " + z);
-            return z;
+            return this.c;
+        }
+        return (z94) invokeV.objValue;
+    }
+
+    public pa2.b m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.j : (pa2.b) invokeV.objValue;
+    }
+
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.g : invokeV.booleanValue;
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? n() && (this.e == null || oa2.d.k(k())) : invokeV.booleanValue;
+    }
+
+    public boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            z94 z94Var = this.d;
+            return (z94Var == null || z94Var == this.c) ? false : true;
         }
         return invokeV.booleanValue;
     }
 
-    public static qa2 k() {
+    public synchronized void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            synchronized (this) {
+                if (k) {
+                    Log.i("SoUpdating", "install: " + k() + " finished=" + this.g + " installing=" + this.f);
+                }
+                if (!this.g && !this.f) {
+                    this.f = true;
+                    if (k) {
+                        Log.i("SoUpdating", "install: " + k());
+                    }
+                    oa2.d.x(k(), new a(this));
+                }
+            }
+        }
+    }
+
+    public boolean r(ra2 ra2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, ra2Var)) == null) ? ra2Var != null && ra2Var == this.a : invokeL.booleanValue;
+    }
+
+    public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (e == null) {
-                synchronized (qa2.class) {
-                    if (e == null) {
-                        e = new qa2();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? !n() && this.f : invokeV.booleanValue;
+    }
+
+    public final synchronized void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            synchronized (this) {
+                if (k) {
+                    Log.i("SoUpdating", "notifyFinish: " + k() + " mCallbacks=" + this.h.size());
+                }
+                this.g = true;
+                for (sf3<qa2> sf3Var : this.h) {
+                    if (sf3Var != null) {
+                        sf3Var.a(this);
                     }
                 }
             }
-            return e;
         }
-        return (qa2) invokeV.objValue;
     }
 
-    public static vb2 l() {
-        InterceptResult invokeV;
+    public synchronized qa2 u(sf3<qa2> sf3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? j() ? new vb2() : new wb2() : (vb2) invokeV.objValue;
-    }
-
-    public static boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            pb2 pb2Var = new pb2();
-            boolean z = tc3.a(AppRuntime.getAppContext(), pb2Var.d()) && tc3.a(AppRuntime.getAppContext(), pb2Var.a());
-            ix1.k("ExtCore-AppsManager", "preset extension isFileExists : " + z);
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.ua2
-    public String b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i != 1) {
-                return za2.b().getPath();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, sf3Var)) == null) {
+            synchronized (this) {
+                this.h.add(sf3Var);
             }
-            return null;
+            return this;
         }
-        return (String) invokeI.objValue;
+        return (qa2) invokeL.objValue;
     }
 
-    @Override // com.repackage.ua2
-    @Nullable
-    public ExtensionCore c() {
-        InterceptResult invokeV;
-        ExtensionCore extensionCore;
+    public synchronized qa2 v(sf3<qa2> sf3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                extensionCore = d();
-            } else {
-                Bundle bundle = vw2.c(a.class, null).a;
-                bundle.setClassLoader(ExtensionCore.class.getClassLoader());
-                extensionCore = (ExtensionCore) bundle.getParcelable("aiapps_extension_core");
-                if (d) {
-                    Log.d("ExtCore-AppsManager", "getExtensionCore:" + ProcessUtils.getCurProcessName() + " extension core: " + extensionCore);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, sf3Var)) == null) {
+            synchronized (this) {
+                this.i.add(sf3Var);
+            }
+            return this;
+        }
+        return (qa2) invokeL.objValue;
+    }
+
+    public qa2 w(ra2 ra2Var, z94 z94Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, ra2Var, z94Var)) == null) {
+            if (r(ra2Var)) {
+                this.d = z94Var;
+            }
+            return this;
+        }
+        return (qa2) invokeLL.objValue;
+    }
+
+    public synchronized void x(pa2.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, bVar) == null) {
+            synchronized (this) {
+                if (!this.g && bVar != null && 0 != bVar.b) {
+                    this.j = bVar;
+                    for (sf3<qa2> sf3Var : this.i) {
+                        if (sf3Var != null) {
+                            sf3Var.a(this);
+                        }
+                    }
                 }
             }
-            return (extensionCore == null || !hw2.Y() || extensionCore.extensionCoreVersionCode >= 4294967297L) ? extensionCore : hw2.a(extensionCore);
         }
-        return (ExtensionCore) invokeV.objValue;
     }
 }

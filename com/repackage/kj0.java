@@ -1,14 +1,16 @@
 package com.repackage;
 
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import java.io.File;
 /* loaded from: classes6.dex */
-public interface kj0<VIEW extends View> {
-    void b(@NonNull ViewGroup viewGroup);
+public interface kj0 {
+    void a(int i, long j, long j2);
 
-    @NonNull
-    VIEW getRealView();
+    void b(long j, File file);
 
-    void update(String str, @NonNull si0 si0Var);
+    void c(int i, int i2);
+
+    void d(@Nullable wi0 wi0Var);
+
+    void onSuccess(int i);
 }

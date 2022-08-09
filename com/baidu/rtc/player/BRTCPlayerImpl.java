@@ -35,7 +35,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mr9;
+import com.repackage.hu9;
 import java.lang.ref.WeakReference;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
@@ -266,7 +266,7 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
         };
         this.mContext = context.getApplicationContext();
         this.mLocalUserId = Long.valueOf(CommonUtils.randomNumber(10)).longValue();
-        this.mRootEglBase = mr9.a();
+        this.mRootEglBase = hu9.a();
         this.mReportHandler = RtcReportHandle.getInstance(this.mContext);
         RtcReportHandle.enableMonitor(true, this.mEnablePullQualityMonitor, this.mIsEnableErrorInfoMonitor, false);
         this.mTimeStatistician = new PlayTimeStatistician();

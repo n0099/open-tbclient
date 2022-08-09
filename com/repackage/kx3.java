@@ -1,18 +1,22 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.MalformedURLException;
-@Service
 /* loaded from: classes6.dex */
-public class kx3 implements ph1 {
+public class kx3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public double clientX;
+    @V8JavascriptField
+    public double clientY;
+    @V8JavascriptField
+    public int identifier;
 
     public kx3() {
         Interceptable interceptable = $ic;
@@ -28,35 +32,31 @@ public class kx3 implements ph1 {
         }
     }
 
-    @Override // com.repackage.ph1
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? du3.g() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ph1
-    public boolean b() {
-        InterceptResult invokeV;
-        oz1 m;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (i03.M() == null || !i03.M().w0()) {
-                return false;
-            }
-            rz1 V = vl2.U().V();
-            if (V == null || (m = V.m()) == null || !(m instanceof ew3)) {
-                return true;
-            }
-            return ((ew3) m).D3();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.ph1
-    public String c(String str) throws MalformedURLException {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? du3.d(str) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj instanceof kx3) {
+                kx3 kx3Var = (kx3) obj;
+                return this.identifier == kx3Var.identifier && this.clientX == kx3Var.clientX && this.clientY == kx3Var.clientY;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Double.valueOf(this.identifier + this.clientX + this.clientY).hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "{identifier=" + this.identifier + ", clientX=" + this.clientX + ", clientY=" + this.clientY + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

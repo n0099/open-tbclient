@@ -1,22 +1,43 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ve7;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qx4 {
+public class qx4 implements ve7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public List<uf> b;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
+    public int n;
+    public String o;
+    public ve7.a p;
+    public int q;
+    public String r;
 
     public qx4() {
         Interceptable interceptable = $ic;
@@ -32,35 +53,117 @@ public class qx4 {
         }
     }
 
-    public List<uf> a() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (StringUtils.isNull(this.a) && StringUtils.isNull(this.j) && StringUtils.isNull(this.l)) {
+                return true;
+            }
+            if (c()) {
+                return StringUtils.isNull(this.c) || StringUtils.isNull(this.d);
+            }
+            return StringUtils.isNull(this.b);
+        }
+        return invokeV.booleanValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !"0".equals(this.r) : invokeV.booleanValue;
     }
 
-    public void c(JSONObject jSONObject) {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optInt("https_switch");
-        JSONObject optJSONObject = jSONObject.optJSONObject("https_whitelist_url");
-        if (optJSONObject != null) {
-            this.b = new ArrayList();
-            Iterator<String> keys = optJSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                if (!TextUtils.isEmpty(next)) {
-                    optJSONObject.optInt(next, 1);
-                    this.b.add(new uf());
-                }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "dynamic".equals(this.e) : invokeV.booleanValue;
+    }
+
+    public final JSONArray d(JSONObject jSONObject, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, jSONObject, str)) == null) {
+            try {
+                return jSONObject.optJSONArray(str);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
             }
         }
+        return (JSONArray) invokeLL.objValue;
+    }
+
+    public void e(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optString("url");
+        this.b = jSONObject.optString("icon_url");
+        this.c = jSONObject.optString("fold_lottie");
+        this.d = jSONObject.optString("unfold_lottie");
+        this.e = jSONObject.optString("float_type");
+        jSONObject.optString("fold_name");
+        jSONObject.optString("unfold_name");
+        this.h = jSONObject.optString("view_statistics_url");
+        this.i = jSONObject.optString("click_statistics_url");
+        this.j = jSONObject.optString("scheme");
+        this.k = jSONObject.optString("package_name");
+        this.l = jSONObject.optString("deeplink");
+        this.n = jSONObject.optInt("source", 1);
+        this.m = jSONObject.optString("ext_info");
+        this.o = jSONObject.optString(LegoListActivityConfig.AD_ID);
+        this.r = jSONObject.optString("display_ad_icon");
+        ve7.a aVar = new ve7.a();
+        this.p = aVar;
+        aVar.a = jSONObject.optString("parallel_charge_url");
+        this.p.c = f(d(jSONObject, "show_urls"));
+        this.p.d = f(d(jSONObject, "click_urls"));
+        String c = wi.c(TbadkApplication.getInst().getAndroidId());
+        String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
+        StringBuilder sb = new StringBuilder();
+        sb.append("&ANDROIDID=");
+        sb.append(c == null ? "" : c.toLowerCase());
+        sb.append("&OAID=");
+        sb.append(lastCachedOid != null ? lastCachedOid.toUpperCase() : "");
+        String sb2 = sb.toString();
+        if (!StringUtils.isNull(this.h)) {
+            this.h += sb2;
+        }
+        if (StringUtils.isNull(this.i)) {
+            return;
+        }
+        this.i += sb2;
+    }
+
+    public final ArrayList<String> f(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jSONArray)) == null) {
+            if (jSONArray != null && jSONArray.length() != 0) {
+                int length = jSONArray.length();
+                ArrayList<String> arrayList = new ArrayList<>(length);
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        String optString = optJSONObject.optString("url");
+                        if (!StringUtils.isNull(optString)) {
+                            arrayList.add(optString);
+                        }
+                    }
+                }
+                return arrayList;
+            }
+            return new ArrayList<>();
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    @Override // com.repackage.ve7
+    public ve7.a getParallelCharge() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.p : (ve7.a) invokeV.objValue;
     }
 }

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.animation.PathInterpolatorCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -119,7 +120,7 @@ public final class a {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, view2, j)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, "alpha", 1.0f, 0.0f);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ALPHA, 1.0f, 0.0f);
             ofFloat.setDuration(j);
             ofFloat.setInterpolator(PathInterpolatorCompat.create(0.0f, 0.0f, 0.58f, 1.0f));
             return ofFloat;
@@ -173,7 +174,7 @@ public final class a {
                     }
                 }
             });
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view3, "scaleX", 1.0f, 1.0f);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view3, Key.SCALE_X, 1.0f, 1.0f);
             ofFloat.setDuration(1600L);
             Animator a3 = a(view3, 200L);
             Animator a4 = a(view2, f, f2, 200L);
@@ -187,9 +188,9 @@ public final class a {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.uo = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f0910e4);
-            this.up = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f0910e6);
-            this.un = this.BA.findViewById(R.id.obfuscated_res_0x7f0910e5);
+            this.uo = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f09113a);
+            this.up = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f09113c);
+            this.un = this.BA.findViewById(R.id.obfuscated_res_0x7f09113b);
         }
     }
 

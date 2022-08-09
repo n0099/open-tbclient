@@ -1,89 +1,357 @@
 package com.repackage;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.InetSocketAddress;
+import java.net.Socket;
+import java.nio.ByteBuffer;
+import java.nio.channels.SocketChannel;
 /* loaded from: classes6.dex */
 public class mj {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] c;
+    public static jj a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964033528, "Lcom/repackage/mj;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public interface a {
+        int a();
+
+        String b();
+
+        long c();
+
+        void close() throws IOException;
+
+        String d();
+
+        String getLocalDns();
+
+        boolean isConnected();
+
+        int read(ByteBuffer byteBuffer) throws Exception;
+
+        int write(ByteBuffer byteBuffer) throws Exception;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public SocketChannel a;
+        public long b;
+        public String c;
+        public String d;
+        public String e;
+
+        public b(String str, int i, lk lkVar) throws Exception {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i), lkVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1964033528, "Lcom/repackage/mj;");
+            this.a = null;
+            this.b = 0L;
+            this.c = null;
+            this.d = null;
+            this.e = null;
+            this.a = SocketChannel.open();
+            long currentTimeMillis = System.currentTimeMillis();
+            InetSocketAddress inetSocketAddress = new InetSocketAddress(str, i);
+            if (inetSocketAddress.getAddress() != null) {
+                this.c = inetSocketAddress.getAddress().getHostAddress();
+                this.b = System.currentTimeMillis() - currentTimeMillis;
+            }
+            this.a.socket().connect(inetSocketAddress, lkVar.e());
+            this.a.socket().setSoTimeout(lkVar.f());
+            this.a.socket().setTcpNoDelay(lkVar.g());
+            this.d = qi.m();
+            this.e = qi.n();
+        }
+
+        @Override // com.repackage.mj.a
+        public int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.repackage.mj.a
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (String) invokeV.objValue;
+        }
+
+        @Override // com.repackage.mj.a
+        public long c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.longValue;
+        }
+
+        @Override // com.repackage.mj.a
+        public void close() throws IOException {
+            SocketChannel socketChannel;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (socketChannel = this.a) == null) {
                 return;
             }
+            socketChannel.close();
         }
-        c = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 10, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 11, 6, 6, 6, 5, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 0, 1, 2, 3, 5, 8, 7, 1, 1, 1, 4, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+
+        @Override // com.repackage.mj.a
+        public String d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (String) invokeV.objValue;
+        }
+
+        @Override // com.repackage.mj.a
+        public String getLocalDns() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : (String) invokeV.objValue;
+        }
+
+        @Override // com.repackage.mj.a
+        public boolean isConnected() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                SocketChannel socketChannel = this.a;
+                if (socketChannel != null) {
+                    return socketChannel.isConnected();
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.repackage.mj.a
+        public int read(ByteBuffer byteBuffer) throws Exception {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, byteBuffer)) == null) ? this.a.read(byteBuffer) : invokeL.intValue;
+        }
+
+        @Override // com.repackage.mj.a
+        public int write(ByteBuffer byteBuffer) throws Exception {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, byteBuffer)) == null) ? this.a.write(byteBuffer) : invokeL.intValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c implements a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Socket a;
+        public InputStream b;
+        public OutputStream c;
+        public byte[] d;
+        public long e;
+        public String f;
+        public String g;
+        public String h;
+
+        public c(String str, int i, lk lkVar) throws Exception {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i), lkVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = null;
+            this.b = null;
+            this.c = null;
+            this.d = null;
+            this.e = 0L;
+            this.f = null;
+            this.g = null;
+            this.h = null;
+            this.a = new Socket();
+            long currentTimeMillis = System.currentTimeMillis();
+            InetSocketAddress inetSocketAddress = new InetSocketAddress(str, i);
+            if (inetSocketAddress.getAddress() != null) {
+                this.f = inetSocketAddress.getAddress().getHostAddress();
+                this.e = System.currentTimeMillis() - currentTimeMillis;
+            }
+            this.a.connect(inetSocketAddress, lkVar.e());
+            this.a.setSoTimeout(lkVar.f());
+            this.a.setTcpNoDelay(lkVar.g());
+            this.b = this.a.getInputStream();
+            this.c = this.a.getOutputStream();
+            this.d = new byte[1024];
+            this.g = qi.m();
+            this.h = qi.n();
+        }
+
+        @Override // com.repackage.mj.a
+        public int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.repackage.mj.a
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h : (String) invokeV.objValue;
+        }
+
+        @Override // com.repackage.mj.a
+        public long c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : invokeV.longValue;
+        }
+
+        @Override // com.repackage.mj.a
+        public void close() throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                try {
+                    this.b.close();
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
+                try {
+                    this.c.close();
+                } catch (Exception e2) {
+                    BdLog.e(e2.getMessage());
+                }
+                Socket socket = this.a;
+                if (socket != null) {
+                    try {
+                        socket.close();
+                    } catch (IOException e3) {
+                        throw e3;
+                    } catch (Throwable unused) {
+                    }
+                }
+            }
+        }
+
+        @Override // com.repackage.mj.a
+        public String d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : (String) invokeV.objValue;
+        }
+
+        @Override // com.repackage.mj.a
+        public String getLocalDns() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.g : (String) invokeV.objValue;
+        }
+
+        @Override // com.repackage.mj.a
+        public boolean isConnected() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                Socket socket = this.a;
+                if (socket != null) {
+                    return socket.isConnected();
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.repackage.mj.a
+        public int read(ByteBuffer byteBuffer) throws Exception {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, byteBuffer)) == null) {
+                int read = this.b.read(this.d);
+                if (read > 0) {
+                    byteBuffer.put(this.d, 0, read);
+                }
+                return read;
+            }
+            return invokeL.intValue;
+        }
+
+        @Override // com.repackage.mj.a
+        public int write(ByteBuffer byteBuffer) throws Exception {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, byteBuffer)) == null) {
+                int remaining = byteBuffer.remaining();
+                if (remaining > 0) {
+                    byte[] bArr = new byte[remaining];
+                    byteBuffer.get(bArr);
+                    this.c.write(bArr);
+                }
+                return remaining;
+            }
+            return invokeL.intValue;
+        }
     }
 
     public mj() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        b();
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public a a(String str, int i, lk lkVar, boolean z) throws Exception {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a == 0 : invokeV.booleanValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = 0;
-            this.b = 0;
-        }
-    }
-
-    public boolean c(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) ? d(bArr, 0, bArr.length) : invokeL.booleanValue;
-    }
-
-    public boolean d(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i, i2)) == null) {
-            for (int i3 = i; i3 < i + i2; i3++) {
-                int[] iArr = c;
-                int i4 = iArr[(this.a << 4) + 256 + iArr[bArr[i3] & 255]];
-                this.a = i4;
-                if (i4 == 1) {
-                    this.b += i3;
-                    return false;
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), lkVar, Boolean.valueOf(z)})) == null) {
+            jj jjVar = a;
+            if (jjVar != null) {
+                return jjVar.a(str, i, lkVar);
             }
-            this.b += i2;
-            return true;
+            if (z) {
+                return new b(str, i, lkVar);
+            }
+            return new c(str, i, lkVar);
         }
-        return invokeLII.booleanValue;
+        return (a) invokeCommon.objValue;
     }
 }

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MaterialAttributes {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public class MaterialAttributes {
     public static int resolveMinimumAccessibleTouchTarget(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? resolveDimension(context, R.attr.obfuscated_res_0x7f040476, R.dimen.obfuscated_res_0x7f0704b7) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? resolveDimension(context, R.attr.obfuscated_res_0x7f0404d1, R.dimen.obfuscated_res_0x7f0704b9) : invokeL.intValue;
     }
 
     public static int resolveOrThrow(@NonNull Context context, @AttrRes int i, @NonNull String str) {

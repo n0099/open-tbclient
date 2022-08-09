@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class TransmitPostEditActivityConfig extends BaseWriteConfig<TransmitPostEditActivityConfig> {
     public static /* synthetic */ Interceptable $ic = null;
@@ -48,7 +48,7 @@ public class TransmitPostEditActivityConfig extends BaseWriteConfig<TransmitPost
         setIntentAction(IntentAction.ActivityForResult);
         setRequestCode(i2);
         if (antiData != null && antiData.getIfpost() == 0 && !StringUtils.isNull(antiData.getForbid_info())) {
-            pi.O(context, antiData.getForbid_info());
+            qi.O(context, antiData.getForbid_info());
             return;
         }
         getIntent().putExtra("type", i);

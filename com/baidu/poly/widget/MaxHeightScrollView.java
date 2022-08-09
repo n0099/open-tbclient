@@ -46,7 +46,7 @@ public class MaxHeightScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
             Resources resources = getContext().getResources();
-            return (((resources.getDisplayMetrics().heightPixels * f) - resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07098f)) - resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d1)) - resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d6);
+            return (((resources.getDisplayMetrics().heightPixels * f) - resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070992)) - resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d1)) - resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d6);
         }
         return invokeF.floatValue;
     }
@@ -54,7 +54,7 @@ public class MaxHeightScrollView extends ScrollView {
     public final void b(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040464, R.attr.obfuscated_res_0x7f040465, R.attr.obfuscated_res_0x7f040474});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0404be, R.attr.obfuscated_res_0x7f0404bf, R.attr.obfuscated_res_0x7f0404cf});
             this.a = obtainStyledAttributes.getFloat(1, -1.0f);
             this.b = obtainStyledAttributes.getFloat(2, -1.0f);
             obtainStyledAttributes.recycle();

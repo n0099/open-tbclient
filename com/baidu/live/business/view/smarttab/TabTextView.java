@@ -193,72 +193,30 @@ public class TabTextView extends AppCompatTextView {
         }
     }
 
-    public void setNormalBackground(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void setNormalText(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, charSequence) == null) {
-            this.g = charSequence;
-        }
-    }
-
-    public void setSelectedBackground(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.f = i;
-        }
-    }
-
     public void setSelectedBold(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             this.m = z;
-        }
-    }
-
-    public void setSelectedColor(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.d = i;
         }
     }
 
     public void setSelectedColorEnable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             this.j = z;
-        }
-    }
-
-    public void setSelectedText(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, charSequence) == null) {
-            this.h = charSequence;
         }
     }
 
     public void setSelectedTextSize(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048591, this, f) == null) {
+        if (interceptable == null || interceptable.invokeF(1048586, this, f) == null) {
             this.l = f;
-        }
-    }
-
-    public void setUnSelectedColor(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.c = i;
         }
     }
 
     public void setUnselectedBold(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
             this.n = z;
         }
     }
@@ -305,7 +263,7 @@ public class TabTextView extends AppCompatTextView {
         }
         this.i = true;
         this.j = false;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040417, R.attr.obfuscated_res_0x7f04041d, R.attr.obfuscated_res_0x7f04042b, R.attr.obfuscated_res_0x7f04042f, R.attr.obfuscated_res_0x7f040431, R.attr.obfuscated_res_0x7f040432, R.attr.obfuscated_res_0x7f040433, R.attr.obfuscated_res_0x7f040434, R.attr.obfuscated_res_0x7f04043b});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04045e, R.attr.obfuscated_res_0x7f040464, R.attr.obfuscated_res_0x7f040471, R.attr.obfuscated_res_0x7f040474, R.attr.obfuscated_res_0x7f040476, R.attr.obfuscated_res_0x7f040477, R.attr.obfuscated_res_0x7f040478, R.attr.obfuscated_res_0x7f040479, R.attr.obfuscated_res_0x7f040480});
         this.a = obtainStyledAttributes.getColor(7, 0);
         this.b = obtainStyledAttributes.getColor(1, 0);
         this.d = obtainStyledAttributes.getColor(4, 0);

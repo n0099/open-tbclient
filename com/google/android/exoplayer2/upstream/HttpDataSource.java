@@ -18,7 +18,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface HttpDataSource extends DataSource {
     public static final Predicate<String> REJECT_PAYWALL_TYPES = new Predicate<String>() { // from class: com.google.android.exoplayer2.upstream.HttpDataSource.1
         public static /* synthetic */ Interceptable $ic;
@@ -51,7 +51,7 @@ public interface HttpDataSource extends DataSource {
         }
     };
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static abstract class BaseFactory implements Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,7 +118,7 @@ public interface HttpDataSource extends DataSource {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface Factory extends DataSource.Factory {
         @Deprecated
         void clearAllDefaultRequestProperties();
@@ -135,7 +135,7 @@ public interface HttpDataSource extends DataSource {
         void setDefaultRequestProperty(String str, String str2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class InvalidContentTypeException extends HttpDataSourceException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -164,7 +164,7 @@ public interface HttpDataSource extends DataSource {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class InvalidResponseCodeException extends HttpDataSourceException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -212,7 +212,7 @@ public interface HttpDataSource extends DataSource {
 
     void setRequestProperty(String str, String str2);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class HttpDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TYPE_CLOSE = 3;
@@ -223,7 +223,7 @@ public interface HttpDataSource extends DataSource {
         public final int type;
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public @interface Type {
         }
 
@@ -314,7 +314,7 @@ public interface HttpDataSource extends DataSource {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class RequestProperties {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

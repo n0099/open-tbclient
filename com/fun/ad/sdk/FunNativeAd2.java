@@ -2,7 +2,6 @@ package com.fun.ad.sdk;
 
 import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +37,7 @@ public interface FunNativeAd2 {
                     return;
                 }
             }
-            NativeType nativeType = new NativeType(EngineName.CUSTOM_ENGINE, 0, true, false);
+            NativeType nativeType = new NativeType("CUSTOM", 0, true, false);
             CUSTOM = nativeType;
             NativeType nativeType2 = new NativeType("EXPRESS", 1, false, true);
             EXPRESS = nativeType2;

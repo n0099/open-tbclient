@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q51;
+import com.repackage.g61;
 /* loaded from: classes2.dex */
 public class ContextHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -28,7 +28,7 @@ public class ContextHolder {
                 return;
             }
         }
-        sApplicationContext = q51.b().a();
+        sApplicationContext = g61.b().a();
     }
 
     public ContextHolder() {

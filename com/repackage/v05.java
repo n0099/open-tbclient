@@ -1,18 +1,21 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.InetSocketAddress;
+import java.net.Socket;
 /* loaded from: classes7.dex */
 public class v05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public boolean b;
-    public String c;
+    public int b;
 
     public v05() {
         Interceptable interceptable = $ic;
@@ -24,53 +27,102 @@ public class v05 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+        this.b = 0;
+    }
+
+    public void a(String str) {
+        int lastIndexOf;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.a = false;
+            this.b = 0;
+            if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
+                String str3 = null;
+                try {
+                    str2 = str.substring(5, lastIndexOf);
+                } catch (Exception e) {
+                    e = e;
+                    str2 = null;
+                }
+                try {
+                    str3 = str.substring(lastIndexOf + 1);
+                } catch (Exception e2) {
+                    e = e2;
+                    BdLog.e(e.getMessage());
+                    if (TextUtils.isEmpty(str2)) {
+                        return;
+                    }
+                    return;
+                }
+                if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
+                    return;
+                }
+                int i = 0;
+                int i2 = 0;
+                for (int i3 = 0; i3 < 3; i3++) {
+                    Socket socket = new Socket();
+                    long currentTimeMillis = System.currentTimeMillis();
+                    try {
+                        try {
+                            socket.connect(new InetSocketAddress(str2, og.e(String.valueOf(str3), 8000)), c());
+                            if (socket.isConnected()) {
+                                i++;
+                                i2 = (int) (i2 + (System.currentTimeMillis() - currentTimeMillis));
+                                this.a = true;
+                            }
+                            try {
+                                socket.close();
+                            } catch (Exception e3) {
+                                BdLog.e(e3.getMessage());
+                            }
+                        } catch (Throwable th) {
+                            try {
+                                socket.close();
+                            } catch (Exception e4) {
+                                BdLog.e(e4.getMessage());
+                            }
+                            throw th;
+                        }
+                    } catch (Exception e5) {
+                        BdLog.e(e5.getMessage());
+                        socket.close();
+                    }
+                }
+                if (!this.a || i <= 0) {
+                    return;
+                }
+                this.b = i2 / i;
             }
         }
     }
 
-    public String a() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    public boolean b() {
+    public final int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int I = oi.I();
+            if (I != 1) {
+                return I != 2 ? 5000 : 10000;
+            }
+            return 3000;
+        }
+        return invokeV.intValue;
     }
 
-    public boolean c() {
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a = false;
-        }
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.b = z;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.booleanValue;
     }
 }

@@ -27,12 +27,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ev;
-import com.repackage.hu;
+import com.repackage.au;
+import com.repackage.fv;
 import com.repackage.iu;
-import com.repackage.vq;
-import com.repackage.yr;
-import com.repackage.yt;
+import com.repackage.ju;
+import com.repackage.wq;
+import com.repackage.zr;
 import com.repackage.zt;
 import java.io.Serializable;
 import kotlin.Metadata;
@@ -75,13 +75,13 @@ public abstract class a extends Activity {
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
-            yt v;
-            zt d;
+            zt v;
+            au d;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 TaskDialogViewData a = this.a.a();
                 if (a != null && (v = BDPTask.m.v()) != null && (d = v.d()) != null) {
-                    d.b(a.getTaskInfoSingleKey(), vq.c.a());
+                    d.b(a.getTaskInfoSingleKey(), wq.c.a());
                 }
                 this.a.g();
                 this.a.d();
@@ -191,8 +191,8 @@ public abstract class a extends Activity {
     }
 
     public final void b(TextView textView, ImageView imageView, String str, String str2, String str3, Function0<Unit> function0) {
-        yt v;
-        yr h;
+        zt v;
+        zr h;
         Context appContext;
         Resources resources;
         Interceptable interceptable = $ic;
@@ -202,7 +202,7 @@ public abstract class a extends Activity {
         if (!TextUtils.isEmpty(str)) {
             textView.setVisibility(0);
             imageView.setVisibility(8);
-            textView.setTextColor(ev.a.a(str2, resources.getColor(R.color.obfuscated_res_0x7f060aac)));
+            textView.setTextColor(fv.a.a(str2, resources.getColor(R.color.obfuscated_res_0x7f060ac8)));
             textView.setText(str);
             textView.setOnClickListener(new b(function0));
             c(str3, textView);
@@ -253,47 +253,47 @@ public abstract class a extends Activity {
 
     public final void g() {
         TaskDialogViewData a;
-        yt v;
-        hu f;
+        zt v;
+        iu f;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (a = a()) == null || (v = BDPTask.m.v()) == null || (f = v.f()) == null) {
             return;
         }
-        f.a("y_task_pop", "close_clk", iu.b(iu.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
+        f.a("y_task_pop", "close_clk", ju.b(ju.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
     }
 
     public final void h() {
         TaskDialogViewData a;
-        yt v;
-        hu f;
+        zt v;
+        iu f;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (a = a()) == null || (v = BDPTask.m.v()) == null || (f = v.f()) == null) {
             return;
         }
-        f.a("y_task_pop", "icon_clk", iu.b(iu.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
+        f.a("y_task_pop", "icon_clk", ju.b(ju.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
     }
 
     public final void i() {
         TaskDialogViewData a;
-        yt v;
-        hu f;
+        zt v;
+        iu f;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (a = a()) == null || (v = BDPTask.m.v()) == null || (f = v.f()) == null) {
             return;
         }
-        f.a("y_task_pop", "cancel_clk", iu.b(iu.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
+        f.a("y_task_pop", "cancel_clk", ju.b(ju.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
     }
 
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090772);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09079e);
             frameLayout.removeAllViews();
             getLayoutInflater().inflate(e(), frameLayout);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f09077a);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0907a6);
             Intrinsics.checkExpressionValueIsNotNull(findViewById, "findViewById(R.id.dialog_content_img)");
             this.b = (ImageView) findViewById;
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090777);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0907a3);
             Intrinsics.checkExpressionValueIsNotNull(findViewById2, "findViewById(R.id.dialog_close)");
             this.a = findViewById2;
             if (findViewById2 == null) {
@@ -316,13 +316,13 @@ public abstract class a extends Activity {
 
     public final void k() {
         TaskDialogViewData a;
-        yt v;
-        hu f;
+        zt v;
+        iu f;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (a = a()) == null || (v = BDPTask.m.v()) == null || (f = v.f()) == null) {
             return;
         }
-        f.a("y_task_pop", "c_pv", iu.b(iu.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
+        f.a("y_task_pop", "c_pv", ju.b(ju.a, a.getTaskId(), a.getTaskActId(), null, 4, null));
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
@@ -339,7 +339,7 @@ public abstract class a extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0752);
+            setContentView(R.layout.obfuscated_res_0x7f0d0779);
             getWindow().setLayout(-1, -1);
             j();
             LogUtil.logActivity(this, "onCreate");

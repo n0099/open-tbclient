@@ -16,10 +16,10 @@ import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 import com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram;
 import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
 import com.baidu.ugc.utils.FileUtils;
-import com.repackage.b99;
-import com.repackage.o99;
-import com.repackage.oe0;
-import com.repackage.we0;
+import com.repackage.jc9;
+import com.repackage.ke0;
+import com.repackage.se0;
+import com.repackage.wb9;
 import java.io.File;
 /* loaded from: classes4.dex */
 public class InputProcessor extends BaseEffectProcessor {
@@ -48,7 +48,7 @@ public class InputProcessor extends BaseEffectProcessor {
             return;
         }
         if (i2 == 0) {
-            o99.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.record.processor.InputProcessor.1
+            jc9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.record.processor.InputProcessor.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InputProcessor this$0;
@@ -123,24 +123,24 @@ public class InputProcessor extends BaseEffectProcessor {
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.IEffectProcessor
-    public int onProcessFrame(oe0 oe0Var, int i, float[] fArr) {
+    public int onProcessFrame(ke0 ke0Var, int i, float[] fArr) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, oe0Var, i, fArr)) == null) {
-            if (oe0Var == null || oe0Var.l() == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, ke0Var, i, fArr)) == null) {
+            if (ke0Var == null || ke0Var.l() == null) {
                 return i;
             }
-            MediaTrack mediaTrack = (MediaTrack) b99.c(oe0Var.l(), 0);
-            boolean m = we0.m(mediaTrack, "input_blank");
-            int f = !m ? oe0Var.f(mediaTrack, oe0Var.f(mediaTrack, oe0Var.f(mediaTrack, oe0Var.f(mediaTrack, oe0Var.f(mediaTrack, i, 1, null), 5, null), 2, null), 3, null), 4, null) : i;
+            MediaTrack mediaTrack = (MediaTrack) wb9.c(ke0Var.l(), 0);
+            boolean m = se0.m(mediaTrack, "input_blank");
+            int f = !m ? ke0Var.f(mediaTrack, ke0Var.f(mediaTrack, ke0Var.f(mediaTrack, ke0Var.f(mediaTrack, ke0Var.f(mediaTrack, i, 1, null), 5, null), 2, null), 3, null), 4, null) : i;
             if (m) {
-                for (int i2 = 1; i2 < oe0Var.l().size(); i2++) {
-                    MediaTrack mediaTrack2 = oe0Var.l().get(i2);
-                    if (mediaTrack2 != null && we0.m(mediaTrack2, "multi_input")) {
-                        f = oe0Var.i(mediaTrack2, f, null);
+                for (int i2 = 1; i2 < ke0Var.l().size(); i2++) {
+                    MediaTrack mediaTrack2 = ke0Var.l().get(i2);
+                    if (mediaTrack2 != null && se0.m(mediaTrack2, "multi_input")) {
+                        f = ke0Var.i(mediaTrack2, f, null);
                     }
                 }
-                f = oe0Var.f(mediaTrack, f, 1, null);
+                f = ke0Var.f(mediaTrack, f, 1, null);
             }
             return f == 0 ? i : f;
         }

@@ -11,11 +11,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes6.dex */
-public final class eq extends iq {
+public final class eq extends jq {
     public static /* synthetic */ Interceptable $ic;
-    public static final a e;
+    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
     public final String d;
+    public int e;
 
     /* loaded from: classes6.dex */
     public static final class a {
@@ -36,10 +37,16 @@ public final class eq extends iq {
             }
         }
 
-        public final eq a(TaskInfo taskInfo, int i) {
-            InterceptResult invokeLI;
+        public final eq a(TaskInfo taskInfo) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, taskInfo, i)) == null) ? new eq(taskInfo, null, i, null, null, 26, null) : (eq) invokeLI.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, taskInfo)) == null) ? new eq(taskInfo, null, 0, null, null, 30, null) : (eq) invokeL.objValue;
+        }
+
+        public final eq b(TaskInfo taskInfo) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo)) == null) ? new eq(taskInfo, null, 22, null, null, 26, null) : (eq) invokeL.objValue;
         }
 
         public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
@@ -60,25 +67,31 @@ public final class eq extends iq {
                 return;
             }
         }
-        e = new a(null);
+        f = new a(null);
     }
 
     public /* synthetic */ eq(TaskInfo taskInfo, String str, int i, Integer num, String str2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(taskInfo, (i2 & 2) != 0 ? taskInfo.getSingleKey() : str, (i2 & 4) != 0 ? 8 : i, (i2 & 8) != 0 ? null : num, (i2 & 16) != 0 ? null : str2);
+        this(taskInfo, (i2 & 2) != 0 ? taskInfo.getSingleKey() : str, (i2 & 4) != 0 ? 8 : i, (i2 & 8) != 0 ? 304 : num, (i2 & 16) != 0 ? "task got repeated duplicateId" : str2);
     }
 
-    @Override // com.repackage.wq
+    @Override // com.repackage.xq
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CleanTaskNoClickTimesAction" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TaskDuplicatedAction" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.iq
+    @Override // com.repackage.jq
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -101,5 +114,6 @@ public final class eq extends iq {
             }
         }
         this.d = str;
+        this.e = i;
     }
 }

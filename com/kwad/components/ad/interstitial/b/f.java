@@ -528,7 +528,7 @@ public final class f extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onCreate();
-            KsAutoCloseView ksAutoCloseView = (KsAutoCloseView) findViewById(R.id.obfuscated_res_0x7f091052);
+            KsAutoCloseView ksAutoCloseView = (KsAutoCloseView) findViewById(R.id.obfuscated_res_0x7f0910a8);
             this.ge = ksAutoCloseView;
             ksAutoCloseView.setViewListener(new KsAutoCloseView.a(this) { // from class: com.kwad.components.ad.interstitial.b.f.1
                 public static /* synthetic */ Interceptable $ic;

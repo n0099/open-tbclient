@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gg;
-import com.repackage.xb;
+import com.repackage.hg;
 import com.repackage.yb;
-import com.repackage.ym;
+import com.repackage.zb;
+import com.repackage.zm;
 /* loaded from: classes3.dex */
 public class NinePatchLoaderProc extends AbstractImageLoaderProc {
     public static /* synthetic */ Interceptable $ic;
@@ -56,29 +56,29 @@ public class NinePatchLoaderProc extends AbstractImageLoaderProc {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
-    public yb createDiskPicOperate(String str) {
+    public zb createDiskPicOperate(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? new xb("images", str, DiskFileOperate.Action.READ) : (yb) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? new yb("images", str, DiskFileOperate.Action.READ) : (zb) invokeL.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
-    public ym createImageFromDiskPicOperate(yb ybVar, String str, int i, int i2) {
+    public zm createImageFromDiskPicOperate(zb zbVar, String str, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048579, this, ybVar, str, i, i2)) == null) {
-            if (ybVar instanceof xb) {
-                xb xbVar = (xb) ybVar;
-                ybVar.formatData(ybVar.getData());
-                Bitmap bitmap = ybVar.getBitmap();
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048579, this, zbVar, str, i, i2)) == null) {
+            if (zbVar instanceof yb) {
+                yb ybVar = (yb) zbVar;
+                zbVar.formatData(zbVar.getData());
+                Bitmap bitmap = zbVar.getBitmap();
                 if (bitmap != null) {
-                    return new ym(bitmap, false, str, xbVar.g());
+                    return new zm(bitmap, false, str, ybVar.g());
                 }
                 return null;
             }
             return null;
         }
-        return (ym) invokeLLII.objValue;
+        return (zm) invokeLLII.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
@@ -127,15 +127,15 @@ public class NinePatchLoaderProc extends AbstractImageLoaderProc {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
-    public ym decodeToResource(byte[] bArr, Object... objArr) {
+    public zm decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, bArr, objArr)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             Bitmap Bytes2NineBitmap = BitmapHelper.Bytes2NineBitmap(bArr, (Rect) objArr[0]);
-            gg.c(Bytes2NineBitmap != null, System.currentTimeMillis() - currentTimeMillis);
-            return new ym(Bytes2NineBitmap);
+            hg.c(Bytes2NineBitmap != null, System.currentTimeMillis() - currentTimeMillis);
+            return new zm(Bytes2NineBitmap);
         }
-        return (ym) invokeLL.objValue;
+        return (zm) invokeLL.objValue;
     }
 }

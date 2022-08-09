@@ -1,150 +1,81 @@
 package com.repackage;
 
-import android.view.Surface;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.inlinewidget.rtcroom.model.RtcStatus;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fe2;
-import com.repackage.sg2;
 /* loaded from: classes6.dex */
-public class jh4 implements sg2 {
+public class jh4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile jh4 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ih4<String> a;
+    public String b;
 
-    public jh4() {
+    @SuppressLint({"BDThrowableCheck"})
+    public jh4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.repackage.fe2
-    public void A(@NonNull fe2.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+        ih4<String> ih4Var = new ih4<>();
+        this.a = ih4Var;
+        if (context == null) {
+            return;
         }
+        ih4Var.a(new mh4(context));
+        this.a.a(new oh4(context));
+        this.a.a(new nh4(context));
+        this.a.a(new qh4(context));
+        this.a.a(new kh4(context));
+        this.a.a(new ph4(context));
     }
 
-    @Override // com.repackage.sg2
-    public void R(int i, int i2) {
+    public static jh4 b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (c == null) {
+                synchronized (jh4.class) {
+                    if (c == null) {
+                        c = new jh4(context);
+                    }
+                }
+            }
+            return c;
         }
+        return (jh4) invokeL.objValue;
     }
 
-    @Override // com.repackage.sg2
-    public void X(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-        }
-    }
-
-    @Override // com.repackage.ug2
-    public RtcStatus a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? RtcStatus.UNKNOWN : (RtcStatus) invokeV.objValue;
-    }
-
-    @Override // com.repackage.fe2
-    @Nullable
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.sg2
-    public int getVideoHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TextUtils.isEmpty(this.b)) {
+                synchronized (this) {
+                    if (TextUtils.isEmpty(this.b)) {
+                        String b = this.a.b();
+                        this.b = b;
+                        this.a.d(b);
+                    }
+                }
+            }
+            return this.b;
         }
-        return invokeV.intValue;
-    }
-
-    @Override // com.repackage.sg2
-    public int getVideoWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.repackage.fe2
-    @Nullable
-    public String k0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.sg2
-    public void m(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-        }
-    }
-
-    @Override // com.repackage.sg2
-    public void o(@NonNull sg2.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
-        }
-    }
-
-    @Override // com.repackage.ug2
-    public void onRelease() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.ug2
-    public boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.sg2
-    public void s(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048588, this, i, i2, i3, i4) == null) {
-        }
-    }
-
-    @Override // com.repackage.sg2
-    public void setSurface(Surface surface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, surface) == null) {
-        }
-    }
-
-    @Override // com.repackage.sg2
-    public void z(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-        }
+        return (String) invokeV.objValue;
     }
 }

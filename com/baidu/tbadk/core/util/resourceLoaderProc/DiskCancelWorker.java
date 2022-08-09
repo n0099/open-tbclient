@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hg;
-import com.repackage.ub;
+import com.repackage.ig;
+import com.repackage.vb;
 /* loaded from: classes3.dex */
-public class DiskCancelWorker implements hg.a {
+public class DiskCancelWorker implements ig.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public DiskFileOperate operate;
@@ -31,13 +31,13 @@ public class DiskCancelWorker implements hg.a {
         this.operate = null;
     }
 
-    @Override // com.repackage.hg.a
+    @Override // com.repackage.ig.a
     public void cancel() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.operate == null) {
             return;
         }
-        ub.f().d(this.operate);
+        vb.f().d(this.operate);
     }
 
     public DiskFileOperate getOperate() {

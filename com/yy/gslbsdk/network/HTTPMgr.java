@@ -43,20 +43,20 @@ public class HTTPMgr {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x00e9, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x00ee, code lost:
         if (r2 != null) goto L32;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:42:0x010a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x010f, code lost:
         if (r2 == null) goto L31;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:43:0x010c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x0111, code lost:
         r2.disconnect();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:44:0x010f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:44:0x0114, code lost:
         return null;
      */
-    /* JADX WARN: Not initialized variable reg: 2, insn: 0x0111: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:46:0x0111 */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x0114  */
+    /* JADX WARN: Not initialized variable reg: 2, insn: 0x0116: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:46:0x0116 */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x0119  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -90,6 +90,7 @@ public class HTTPMgr {
                 }
                 httpURLConnection.setRequestMethod(str3);
                 httpURLConnection.setConnectTimeout(GlobalTools.HTTP_TIMEOUT);
+                httpURLConnection.setReadTimeout(GlobalTools.HTTP_TIMEOUT);
                 httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "Close");
                 httpURLConnection.setDoInput(true);
                 if (str2 != null && str2.length() > 0) {
@@ -289,28 +290,42 @@ public class HTTPMgr {
         }
     }
 
+    public static void exceptionLog(StackTraceElement[] stackTraceElementArr) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, null, stackTraceElementArr) == null) || stackTraceElementArr == null || stackTraceElementArr.length == 0) {
+            return;
+        }
+        StringBuffer stringBuffer = new StringBuffer();
+        for (StackTraceElement stackTraceElement : stackTraceElementArr) {
+            stringBuffer.append("\tat ");
+            stringBuffer.append(stackTraceElement.toString());
+            stringBuffer.append("\n");
+        }
+        LogTools.printWarning(TAG, stringBuffer.toString());
+    }
+
     public static String[] getHttp(String str, HashMap<String, String> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, hashMap)) == null) ? doHttpURLConnection(str, null, hashMap, "GET") : (String[]) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, hashMap)) == null) ? doHttpURLConnection(str, null, hashMap, "GET") : (String[]) invokeLL.objValue;
     }
 
     public static String[] getHttps(String str, String str2, HashMap<String, String> hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, hashMap)) == null) ? doHttpsURLConnection(str, str2, null, hashMap, "GET") : (String[]) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, str, str2, hashMap)) == null) ? doHttpsURLConnection(str, str2, null, hashMap, "GET") : (String[]) invokeLLL.objValue;
     }
 
     public static String[] headHttp(String str, HashMap<String, String> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, hashMap)) == null) ? doHttpURLConnection(str, null, hashMap, "HEAD") : (String[]) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, hashMap)) == null) ? doHttpURLConnection(str, null, hashMap, "HEAD") : (String[]) invokeLL.objValue;
     }
 
     public static String inputStreamToString(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, inputStream)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, inputStream)) == null) {
             String str = "";
             try {
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
@@ -332,7 +347,7 @@ public class HTTPMgr {
     public static String[] post(String str, String str2, HashMap<String, String> hashMap, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{str, str2, hashMap, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{str, str2, hashMap, Boolean.valueOf(z)})) == null) {
             if (str != null) {
                 if (z && str.startsWith("http://")) {
                     str = str.replace("http://", "https://");
@@ -351,17 +366,17 @@ public class HTTPMgr {
     public static String[] postHttp(String str, String str2, HashMap<String, String> hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, str, str2, hashMap)) == null) ? doHttpURLConnection(str, str2, hashMap, "POST") : (String[]) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, str, str2, hashMap)) == null) ? doHttpURLConnection(str, str2, hashMap, "POST") : (String[]) invokeLLL.objValue;
     }
 
     public static String[] postSniHttps(String str, String str2, String str3, HashMap<String, String> hashMap) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65546, null, str, str2, str3, hashMap)) == null) ? doHttpsURLConnection(str, str2, str3, hashMap, "POST") : (String[]) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65547, null, str, str2, str3, hashMap)) == null) ? doHttpsURLConnection(str, str2, str3, hashMap, "POST") : (String[]) invokeLLLL.objValue;
     }
 
-    /* JADX WARN: Not initialized variable reg: 2, insn: 0x00ab: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:32:0x00ab */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x00ae  */
+    /* JADX WARN: Not initialized variable reg: 2, insn: 0x00b0: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:32:0x00b0 */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x00b3  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -370,7 +385,7 @@ public class HTTPMgr {
         HttpURLConnection httpURLConnection;
         HttpURLConnection httpURLConnection2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65544, null, str, str2)) != null) {
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65545, null, str, str2)) != null) {
             return (String[]) invokeLL.objValue;
         }
         HttpURLConnection httpURLConnection3 = null;
@@ -387,6 +402,7 @@ public class HTTPMgr {
                     }
                     httpURLConnection.setRequestMethod("POST");
                     httpURLConnection.setConnectTimeout(GlobalTools.HTTP_TIMEOUT);
+                    httpURLConnection.setReadTimeout(GlobalTools.HTTP_TIMEOUT);
                     httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "Close");
                     if (str2 != null && str2.length() > 0) {
                         httpURLConnection.setDoOutput(true);

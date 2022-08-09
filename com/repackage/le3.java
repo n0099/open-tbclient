@@ -1,62 +1,33 @@
 package com.repackage;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayDeque;
-import java.util.Queue;
+import java.io.File;
 /* loaded from: classes6.dex */
 public class le3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Queue<Runnable> a;
-    public Runnable b;
 
-    public le3() {
+    public static void a(@NonNull Context context, @NonNull File file) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, context, file) == null) && file.exists()) {
+            Intent intent = new Intent();
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            intent.setAction("android.intent.action.SEND");
+            intent.setTypeAndNormalize(te3.s(file));
+            if (Build.VERSION.SDK_INT >= 24) {
+                intent.putExtra("android.intent.extra.STREAM", we3.a(context, file));
+                intent.addFlags(1);
+            } else {
+                intent.putExtra("android.intent.extra.STREAM", Uri.fromFile(file));
             }
+            context.startActivity(intent);
         }
-        this.a = new ArrayDeque();
-        this.b = null;
-    }
-
-    public synchronized boolean a(Runnable runnable) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            synchronized (this) {
-                z = true;
-                boolean z2 = runnable == null;
-                if (!z2) {
-                    this.a.offer(runnable);
-                }
-                boolean z3 = this.b == null && !this.a.isEmpty();
-                if (z3) {
-                    while (!this.a.isEmpty()) {
-                        Runnable poll = this.a.poll();
-                        this.b = poll;
-                        if (poll != null) {
-                            poll.run();
-                        }
-                        this.b = null;
-                    }
-                }
-                z = (z2 || !z3) ? false : false;
-            }
-            return z;
-        }
-        return invokeL.booleanValue;
     }
 }

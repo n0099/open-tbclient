@@ -1,112 +1,32 @@
 package com.repackage;
 
-import android.content.Intent;
 import android.os.Build;
-import android.view.KeyEvent;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.android.util.io.ActionJsonData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tieba.h5power.DescriptionTableInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dr4;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class wl8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final al8 b;
-    public final nl8 c;
-    public long d;
+    public ArrayList<rl8> a;
 
-    /* loaded from: classes7.dex */
-    public class a implements dr4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wl8 a;
-
-        public a(wl8 wl8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wl8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wl8Var;
-        }
-
-        @Override // com.repackage.dr4.e
-        public void onClick(dr4 dr4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
-                dr4Var.dismiss();
-                if (this.a.c == null || this.a.c.e() == null) {
-                    return;
-                }
-                this.a.c.e().b();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements dr4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wl8 a;
-
-        public b(wl8 wl8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wl8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wl8Var;
-        }
-
-        @Override // com.repackage.dr4.e
-        public void onClick(dr4 dr4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
-                try {
-                    this.a.a.startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS"));
-                    dr4Var.dismiss();
-                } catch (Exception unused) {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f07da);
-                }
-            }
-        }
-    }
-
-    public wl8(MainTabActivity mainTabActivity, al8 al8Var) {
+    public wl8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, al8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -116,65 +36,106 @@ public class wl8 {
                 return;
             }
         }
-        this.d = 0L;
-        this.a = mainTabActivity;
-        this.b = al8Var;
-        this.c = mainTabActivity.f;
+        this.a = new ArrayList<>();
     }
 
-    public void c() {
+    public void a(rl8 rl8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            new dr4(this.a).setTitle(R.string.obfuscated_res_0x7f0f042e).setCancelable(false).setMessageId(R.string.obfuscated_res_0x7f0f02ca).setPositiveButton(R.string.obfuscated_res_0x7f0f0c9f, new b(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f0c23, new a(this)).create(h9.a(this.a)).show();
+        if (interceptable == null || interceptable.invokeL(1048576, this, rl8Var) == null) {
+            this.a.add(rl8Var);
         }
     }
 
-    public boolean d(KeyEvent keyEvent) {
-        InterceptResult invokeL;
+    public final void b(WebView webView, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, keyEvent)) == null) {
-            if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-                return false;
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2) == null) || webView == null || pi.isEmpty(str) || pi.isEmpty(str2)) {
+            return;
+        }
+        if (Build.VERSION.SDK_INT >= 19) {
+            webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + str2 + "')", null);
+            return;
+        }
+        webView.loadUrl("javascript:" + str + "&&" + str + "('" + str2 + "')");
+    }
+
+    public tl8 c(vl8 vl8Var, tl8 tl8Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, vl8Var, tl8Var)) == null) {
+            if (tl8Var == null) {
+                tl8Var = new tl8();
             }
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016322, (Class) null);
-            if (runTask == null || !((Boolean) runTask.getData()).booleanValue()) {
-                CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(2016323, (Class) null);
-                if (runTask2 == null || !((Boolean) runTask2.getData()).booleanValue()) {
-                    pw8 pw8Var = this.a.r;
-                    if (pw8Var != null && pw8Var.n()) {
-                        this.a.r.m(true);
-                        return true;
-                    } else if (this.b.E()) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007010));
-                        return true;
-                    } else {
-                        CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(2921405, Boolean.class, Boolean.FALSE);
-                        if (runTask3 == null || runTask3.getData() == null || !(runTask3.getData() instanceof Boolean) || !((Boolean) runTask3.getData()).booleanValue()) {
-                            if (TbSingleton.getInstance().isFromFeedVideoClick()) {
-                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921612));
-                                return true;
-                            }
-                            if (System.currentTimeMillis() - this.d > 2000) {
-                                this.a.showToast(R.string.obfuscated_res_0x7f0f04ec);
-                                this.d = System.currentTimeMillis();
-                            } else if (UtilHelper.isBackgroundProcessLimitNone() && Build.VERSION.SDK_INT >= 14) {
-                                c();
-                                return true;
-                            } else {
-                                nl8 nl8Var = this.c;
-                                if (nl8Var != null && nl8Var.e() != null) {
-                                    this.c.e().b();
-                                }
-                            }
-                            return false;
-                        }
-                        return true;
+            if (ActionJsonData.TAG_NOTIFICATION.equals(vl8Var.c()) && "addObserver".equals(vl8Var.a())) {
+                Iterator<rl8> it = this.a.iterator();
+                while (it.hasNext()) {
+                    tl8Var = it.next().addObserver(vl8Var.d(), tl8Var, true);
+                    if (tl8Var.j()) {
+                        return tl8Var;
                     }
                 }
-                return true;
+                if (!tl8Var.j()) {
+                    tl8Var.y(202);
+                    tl8Var.u(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0367));
+                }
+            } else {
+                String c = vl8Var.c();
+                if (!pi.isEmpty(c) && DescriptionTableInfo.getModuleSet() != null && !DescriptionTableInfo.getModuleSet().contains(c)) {
+                    tl8Var.y(201);
+                    return tl8Var;
+                }
+                Iterator<rl8> it2 = this.a.iterator();
+                while (it2.hasNext()) {
+                    tl8Var = it2.next().dispatch(vl8Var, tl8Var);
+                    if (tl8Var.i()) {
+                        return tl8Var;
+                    }
+                }
+                if (!tl8Var.i()) {
+                    tl8Var.y(202);
+                }
             }
-            return true;
+            return tl8Var;
         }
-        return invokeL.booleanValue;
+        return (tl8) invokeLL.objValue;
+    }
+
+    public void d(WebView webView, tl8 tl8Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, webView, tl8Var) == null) || webView == null || tl8Var == null || !tl8Var.k()) {
+            return;
+        }
+        b(webView, tl8Var.c(), tl8Var.d());
+    }
+
+    public void e(WebView webView, List<tl8> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, webView, list) == null) || webView == null || ListUtils.isEmpty(list)) {
+            return;
+        }
+        for (tl8 tl8Var : list) {
+            if (tl8Var != null && tl8Var.k()) {
+                b(webView, tl8Var.c(), tl8Var.d());
+            }
+        }
+    }
+
+    public List<tl8> f(String str, HashMap hashMap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, hashMap)) == null) {
+            List<tl8> list = null;
+            if (pi.isEmpty(str)) {
+                return null;
+            }
+            Iterator<rl8> it = this.a.iterator();
+            while (it.hasNext()) {
+                list = it.next().processNotification(str, hashMap);
+                if (!ListUtils.isEmpty(list)) {
+                    break;
+                }
+            }
+            return list;
+        }
+        return (List) invokeLL.objValue;
     }
 }

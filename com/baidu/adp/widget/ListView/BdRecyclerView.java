@@ -17,23 +17,21 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bn;
-import com.repackage.dn;
+import com.repackage.cn;
+import com.repackage.en;
 import com.repackage.g9;
 import com.repackage.h9;
-import com.repackage.on;
 import com.repackage.pn;
-import com.repackage.rn;
-import com.repackage.vk;
+import com.repackage.qn;
+import com.repackage.sn;
+import com.repackage.wk;
 /* loaded from: classes.dex */
-public class BdRecyclerView extends RecyclerView implements pn<BdRecyclerView> {
+public class BdRecyclerView extends RecyclerView implements qn<BdRecyclerView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdRecyclerAdapter a;
@@ -46,15 +44,15 @@ public class BdRecyclerView extends RecyclerView implements pn<BdRecyclerView> {
     public BdListView.s h;
     public BdListView.o i;
     public long j;
-    public bn k;
-    public bn l;
+    public cn k;
+    public cn l;
     public View m;
     public boolean n;
     public boolean o;
     public Runnable p;
     public Runnable q;
     public Runnable r;
-    public rn s;
+    public sn s;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -136,8 +134,8 @@ public class BdRecyclerView extends RecyclerView implements pn<BdRecyclerView> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || view2 == null) {
                 return;
             }
-            if (view2 instanceof vk) {
-                ((vk) view2).refresh();
+            if (view2 instanceof wk) {
+                ((wk) view2).refresh();
             }
             if (view2 instanceof ViewGroup) {
                 ViewGroup viewGroup = (ViewGroup) view2;
@@ -203,7 +201,7 @@ public class BdRecyclerView extends RecyclerView implements pn<BdRecyclerView> {
     }
 
     /* loaded from: classes.dex */
-    public class d implements rn {
+    public class d implements sn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdRecyclerView a;
@@ -226,7 +224,7 @@ public class BdRecyclerView extends RecyclerView implements pn<BdRecyclerView> {
             this.a = bdRecyclerView;
         }
 
-        @Override // com.repackage.rn
+        @Override // com.repackage.sn
         public void cancelRefresh() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -235,21 +233,21 @@ public class BdRecyclerView extends RecyclerView implements pn<BdRecyclerView> {
             }
         }
 
-        @Override // com.repackage.rn
-        public on getAdapter() {
+        @Override // com.repackage.sn
+        public pn getAdapter() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.a : (on) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.a : (pn) invokeV.objValue;
         }
 
-        @Override // com.repackage.rn
+        @Override // com.repackage.sn
         public int getFirstVisiblePosition() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getFirstVisiblePosition() : invokeV.intValue;
         }
 
-        @Override // com.repackage.rn
+        @Override // com.repackage.sn
         public int getLastVisiblePosition() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -258,7 +256,7 @@ public class BdRecyclerView extends RecyclerView implements pn<BdRecyclerView> {
     }
 
     /* loaded from: classes.dex */
-    public class e implements dn.a {
+    public class e implements en.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdRecyclerView a;
@@ -281,7 +279,7 @@ public class BdRecyclerView extends RecyclerView implements pn<BdRecyclerView> {
             this.a = bdRecyclerView;
         }
 
-        @Override // com.repackage.dn.a
+        @Override // com.repackage.en.a
         public void onPreLoad() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -547,20 +545,6 @@ public class BdRecyclerView extends RecyclerView implements pn<BdRecyclerView> {
         boolean a(ViewGroup viewGroup, View view2, T t, int i, long j);
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1385633956, "Lcom/baidu/adp/widget/ListView/BdRecyclerView;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1385633956, "Lcom/baidu/adp/widget/ListView/BdRecyclerView;");
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdRecyclerView(Context context) {
         super(context);
@@ -569,13 +553,13 @@ public class BdRecyclerView extends RecyclerView implements pn<BdRecyclerView> {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
@@ -653,7 +637,7 @@ public class BdRecyclerView extends RecyclerView implements pn<BdRecyclerView> {
         return invokeCommon.booleanValue;
     }
 
-    @Override // com.repackage.pn
+    @Override // com.repackage.qn
     public int getContentViewsCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -716,49 +700,24 @@ public class BdRecyclerView extends RecyclerView implements pn<BdRecyclerView> {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.pn
+    @Override // com.repackage.qn
     public int getFooterViewsCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a.n() : invokeV.intValue;
     }
 
-    @Override // com.repackage.pn
+    @Override // com.repackage.qn
     public int getHeaderViewsCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a.o() : invokeV.intValue;
     }
 
-    public int getLastCompletelyVisiblePosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            RecyclerView.LayoutManager layoutManager = getLayoutManager();
-            if (layoutManager == null) {
-                return 0;
-            }
-            if (layoutManager instanceof LinearLayoutManager) {
-                return ((LinearLayoutManager) layoutManager).findLastCompletelyVisibleItemPosition();
-            }
-            if (layoutManager instanceof GridLayoutManager) {
-                return ((GridLayoutManager) layoutManager).findLastCompletelyVisibleItemPosition();
-            }
-            if (layoutManager instanceof StaggeredGridLayoutManager) {
-                StaggeredGridLayoutManager staggeredGridLayoutManager = (StaggeredGridLayoutManager) layoutManager;
-                int[] iArr = new int[staggeredGridLayoutManager.getSpanCount()];
-                staggeredGridLayoutManager.findLastCompletelyVisibleItemPositions(iArr);
-                return v(iArr);
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
     public int getLastVisiblePosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             RecyclerView.LayoutManager layoutManager = getLayoutManager();
             if (layoutManager == null) {
                 return 0;
@@ -780,30 +739,30 @@ public class BdRecyclerView extends RecyclerView implements pn<BdRecyclerView> {
         return invokeV.intValue;
     }
 
-    public on getListAdapter() {
+    public pn getListAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? (on) getAdapter() : (on) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? (pn) getAdapter() : (pn) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.pn
+    @Override // com.repackage.qn
     public BdRecyclerView getListView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this : (BdRecyclerView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this : (BdRecyclerView) invokeV.objValue;
     }
 
-    public rn getPreLoadHandle() {
+    public sn getPreLoadHandle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.s : (rn) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.s : (sn) invokeV.objValue;
     }
 
     public RecyclerView.Adapter getWrappedAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             BdRecyclerAdapter bdRecyclerAdapter = this.a;
             if (bdRecyclerAdapter != null) {
                 return bdRecyclerAdapter.p();
@@ -816,7 +775,7 @@ public class BdRecyclerView extends RecyclerView implements pn<BdRecyclerView> {
     @Override // androidx.recyclerview.widget.RecyclerView, android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             try {
                 super.onDetachedFromWindow();
                 getHandler().removeCallbacks(this.p);
@@ -829,17 +788,17 @@ public class BdRecyclerView extends RecyclerView implements pn<BdRecyclerView> {
     public void r(View view2) {
         BdRecyclerAdapter bdRecyclerAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, view2) == null) || (bdRecyclerAdapter = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, view2) == null) || (bdRecyclerAdapter = this.a) == null) {
             return;
         }
         bdRecyclerAdapter.g(view2);
     }
 
-    @Override // com.repackage.pn
+    @Override // com.repackage.qn
     public boolean removeHeaderView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, view2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, view2)) == null) {
             BdRecyclerAdapter bdRecyclerAdapter = this.a;
             if (bdRecyclerAdapter == null) {
                 return false;
@@ -852,14 +811,14 @@ public class BdRecyclerView extends RecyclerView implements pn<BdRecyclerView> {
     @Override // androidx.recyclerview.widget.RecyclerView, android.view.View, android.view.ViewParent
     public void requestLayout() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && this.n) {
+        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && this.n) {
             super.requestLayout();
         }
     }
 
     public void s(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048595, this, view2) == null) {
             this.a.i(view2, -1);
         }
     }
@@ -867,7 +826,7 @@ public class BdRecyclerView extends RecyclerView implements pn<BdRecyclerView> {
     @Override // androidx.recyclerview.widget.RecyclerView
     public void setAdapter(RecyclerView.Adapter adapter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, adapter) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, adapter) == null) {
             super.setAdapter(null);
             this.a.s(adapter);
             super.setAdapter(this.a);
@@ -876,38 +835,38 @@ public class BdRecyclerView extends RecyclerView implements pn<BdRecyclerView> {
 
     public void setCanFling(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
             this.o = z;
         }
     }
 
     public void setFooterView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048598, this, view2) == null) {
             this.a.t(view2, null, true, true, -1);
         }
     }
 
     public void setHeaderView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048599, this, view2) == null) {
             this.a.u(view2, null, true, true, -1);
         }
     }
 
-    public void setNextPage(bn bnVar) {
+    public void setNextPage(cn cnVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, bnVar) == null) {
-            bn bnVar2 = this.l;
-            if (bnVar2 == null || bnVar2 != bnVar) {
-                bn bnVar3 = this.l;
-                if (bnVar3 != null && bnVar3 != bnVar) {
-                    y(bnVar3.b());
+        if (interceptable == null || interceptable.invokeL(1048601, this, cnVar) == null) {
+            cn cnVar2 = this.l;
+            if (cnVar2 == null || cnVar2 != cnVar) {
+                cn cnVar3 = this.l;
+                if (cnVar3 != null && cnVar3 != cnVar) {
+                    y(cnVar3.b());
                     this.l = null;
                 }
-                if (bnVar != null) {
-                    this.a.h(bnVar.b(), null, true, 0);
-                    this.l = bnVar;
+                if (cnVar != null) {
+                    this.a.h(cnVar.b(), null, true, 0);
+                    this.l = cnVar;
                 }
             }
         }
@@ -915,7 +874,7 @@ public class BdRecyclerView extends RecyclerView implements pn<BdRecyclerView> {
 
     public void setNoData(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048604, this, str) == null) || str == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048603, this, str) == null) || str == null) {
             return;
         }
         TextView textView = new TextView(getContext());
@@ -925,37 +884,30 @@ public class BdRecyclerView extends RecyclerView implements pn<BdRecyclerView> {
         setNoData(textView);
     }
 
-    public void setOnFooterClickListener(BdListView.l lVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, lVar) == null) {
-            this.f = lVar;
-        }
-    }
-
     public void setOnHeaderClickListener(BdListView.m mVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, mVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048604, this, mVar) == null) {
             this.e = mVar;
         }
     }
 
     public void setOnItemClickListener(i iVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, iVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048605, this, iVar) == null) {
             this.c = iVar;
         }
     }
 
     public void setOnItemLongClickListener(j jVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, jVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048606, this, jVar) == null) {
             this.d = jVar;
         }
     }
 
     public void setOnScrollStopDelayedListener(BdListView.o oVar, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048609, this, oVar, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048607, this, oVar, j2) == null) {
             this.i = oVar;
             this.j = j2;
         }
@@ -963,60 +915,35 @@ public class BdRecyclerView extends RecyclerView implements pn<BdRecyclerView> {
 
     public void setOnSrollToBottomListener(BdListView.p pVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, pVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048608, this, pVar) == null) {
             this.g = pVar;
-        }
-    }
-
-    public void setOnSrollToTopListener(BdListView.s sVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, sVar) == null) {
-            this.h = sVar;
-        }
-    }
-
-    public void setPrePage(bn bnVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, bnVar) == null) {
-            bn bnVar2 = this.k;
-            if (bnVar2 == null || bnVar2 != bnVar) {
-                bn bnVar3 = this.k;
-                if (bnVar3 != null) {
-                    removeHeaderView(bnVar3.b());
-                    this.k = null;
-                }
-                if (bnVar != null) {
-                    s(bnVar.b());
-                    this.k = bnVar;
-                }
-            }
         }
     }
 
     public void setScrollable(g9 g9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, g9Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048609, this, g9Var) == null) {
             this.b = g9Var;
         }
     }
 
     public void setSelection(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
             scrollToPosition(i2);
         }
     }
 
     public void t(View view2, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048615, this, view2, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048611, this, view2, i2) == null) {
             this.a.i(view2, i2);
         }
     }
 
     public void u(View view2, Object obj, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048616, this, view2, obj, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(1048612, this, view2, obj, z) == null) {
             this.a.j(view2, obj, z, true, -1);
         }
     }
@@ -1024,7 +951,7 @@ public class BdRecyclerView extends RecyclerView implements pn<BdRecyclerView> {
     public final int v(int[] iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048617, this, iArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, iArr)) == null) {
             if (iArr == null) {
                 return 0;
             }
@@ -1042,7 +969,7 @@ public class BdRecyclerView extends RecyclerView implements pn<BdRecyclerView> {
     public final int w(int[] iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, iArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, iArr)) == null) {
             if (iArr == null) {
                 return 0;
             }
@@ -1059,7 +986,7 @@ public class BdRecyclerView extends RecyclerView implements pn<BdRecyclerView> {
 
     public final void x() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
             setFadingEdgeLength(0);
             BdRecyclerAdapter bdRecyclerAdapter = new BdRecyclerAdapter(getContext());
             this.a = bdRecyclerAdapter;
@@ -1073,7 +1000,7 @@ public class BdRecyclerView extends RecyclerView implements pn<BdRecyclerView> {
     public boolean y(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048620, this, view2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, view2)) == null) {
             BdRecyclerAdapter bdRecyclerAdapter = this.a;
             if (bdRecyclerAdapter == null) {
                 return false;
@@ -1085,21 +1012,21 @@ public class BdRecyclerView extends RecyclerView implements pn<BdRecyclerView> {
 
     public void z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
             this.n = false;
         }
     }
 
     public void setHeaderView(View view2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048601, this, view2, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048600, this, view2, z) == null) {
             this.a.u(view2, null, true, z, -1);
         }
     }
 
     public void setNoData(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048602, this, view2) == null) {
             View view3 = this.m;
             if (view3 != null) {
                 removeHeaderView(view3);
@@ -1120,14 +1047,14 @@ public class BdRecyclerView extends RecyclerView implements pn<BdRecyclerView> {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
@@ -1160,14 +1087,14 @@ public class BdRecyclerView extends RecyclerView implements pn<BdRecyclerView> {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65539, newInitContext);
+            interceptable.invokeUnInit(65538, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
                 int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
+                interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }

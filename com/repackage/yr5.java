@@ -1,161 +1,108 @@
 package com.repackage;
 
+import android.view.View;
 import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
+import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class yr5 {
+public class yr5 extends bz5<ir5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public ur5 b;
-    public int c;
+    public xr5 i;
+    public xr5 j;
+    public LinearLayout k;
+    public ViewGroup l;
+    public View m;
 
-    public yr5(TbPageContext tbPageContext) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yr5(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
+        super(tbPageContext, viewGroup);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = -1;
-        this.a = tbPageContext;
+        this.i = new xr5(tbPageContext);
+        this.j = new xr5(tbPageContext);
+        ViewGroup viewGroup2 = (ViewGroup) h();
+        this.l = viewGroup2;
+        this.k = (LinearLayout) viewGroup2.findViewById(R.id.obfuscated_res_0x7f090e44);
+        this.m = this.l.findViewById(R.id.obfuscated_res_0x7f090e3a);
+        View view2 = new View(getContext());
+        this.k.setPadding(g().getResources().getDimensionPixelSize(R.dimen.tbds44), 0, g().getResources().getDimensionPixelSize(R.dimen.tbds44), g().getResources().getDimensionPixelSize(R.dimen.tbds12));
+        this.k.addView(this.i.h());
+        this.k.addView(view2, new LinearLayout.LayoutParams(g().getResources().getDimensionPixelSize(R.dimen.tbds12), -1));
+        this.k.addView(this.j.h());
+        j(this.b, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void a(ViewGroup viewGroup) {
-        ur5 ur5Var;
+    @Override // com.repackage.bz5
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) || (ur5Var = this.b) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0832 : invokeV.intValue;
+    }
+
+    @Override // com.repackage.bz5
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundColor(this.l, R.color.CAM_X0201);
+            this.i.k(tbPageContext, i);
+            this.j.k(tbPageContext, i);
+            SkinManager.setBackgroundResource(this.m, R.color.CAM_X0204);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bz5
+    /* renamed from: r */
+    public void i(ir5 ir5Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, ir5Var) == null) || ir5Var == null) {
             return;
         }
-        ur5Var.a(viewGroup);
-    }
-
-    public void b(ir5 ir5Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ir5Var, z) == null) {
-            if (ir5Var == null) {
-                this.c = -1;
-                this.b = new vr5(this.a);
-            } else if (z) {
-                int i = ir5Var.d;
-                this.c = i;
-                if (i == 1) {
-                    this.b = new xr5(this.a);
-                } else if (i == 2) {
-                    this.b = new zr5(this.a);
-                } else if (i != 3) {
-                    this.b = new vr5(this.a);
-                } else {
-                    this.b = new wr5(this.a);
-                }
-            }
-            if (this.b.f(ir5Var)) {
-                if (z) {
-                    this.b.d();
-                }
-                this.b.b(ir5Var);
-                return;
-            }
-            this.c = -1;
-            vr5 vr5Var = new vr5(this.a);
-            this.b = vr5Var;
-            if (z) {
-                vr5Var.d();
-            }
-            this.b.b(ir5Var);
+        this.i.i(ir5Var.a);
+        this.j.i(ir5Var.b);
+        if (ir5Var.c) {
+            this.m.setVisibility(0);
+        } else {
+            this.m.setVisibility(8);
         }
     }
 
-    public boolean c(ir5 ir5Var) {
-        InterceptResult invokeL;
+    public void s(ds5 ds5Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ir5Var)) == null) ? ir5Var == null || this.c != ir5Var.d : invokeL.booleanValue;
-    }
-
-    public void d(boolean z) {
-        ur5 ur5Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (ur5Var = this.b) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ds5Var) == null) {
+            this.i.l(ds5Var);
+            this.j.l(ds5Var);
         }
-        ur5Var.g(z);
-    }
-
-    public void e() {
-        ur5 ur5Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (ur5Var = this.b) == null) {
-            return;
-        }
-        ur5Var.h();
-    }
-
-    public void f(int i) {
-        ur5 ur5Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || (ur5Var = this.b) == null) {
-            return;
-        }
-        ur5Var.i(i);
-    }
-
-    public void g() {
-        ur5 ur5Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (ur5Var = this.b) == null) {
-            return;
-        }
-        ur5Var.j();
-    }
-
-    public void h() {
-        ur5 ur5Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (ur5Var = this.b) == null) {
-            return;
-        }
-        ur5Var.k();
-    }
-
-    public void i() {
-        ur5 ur5Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (ur5Var = this.b) == null) {
-            return;
-        }
-        ur5Var.l();
-    }
-
-    public void j() {
-        ur5 ur5Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (ur5Var = this.b) == null) {
-            return;
-        }
-        ur5Var.m();
-    }
-
-    public void k() {
-        ur5 ur5Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (ur5Var = this.b) == null) {
-            return;
-        }
-        ur5Var.n();
     }
 }

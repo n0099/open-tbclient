@@ -43,12 +43,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ng;
-import com.repackage.q76;
-import com.repackage.sl4;
-import com.repackage.v48;
-import com.repackage.y05;
-import com.repackage.z38;
+import com.repackage.c78;
+import com.repackage.g68;
+import com.repackage.i96;
+import com.repackage.jm4;
+import com.repackage.og;
+import com.repackage.u15;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -56,20 +56,20 @@ import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
-/* loaded from: classes3.dex */
-public class PersonPolymericEventController extends v48 {
+/* loaded from: classes4.dex */
+public class PersonPolymericEventController extends c78 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public z38 e;
+    public g68 e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonPolymericEventController(TbPageContext tbPageContext, z38 z38Var) {
+    public PersonPolymericEventController(TbPageContext tbPageContext, g68 g68Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, z38Var};
+            Object[] objArr = {tbPageContext, g68Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -80,40 +80,40 @@ public class PersonPolymericEventController extends v48 {
                 return;
             }
         }
-        this.e = z38Var;
+        this.e = g68Var;
     }
 
-    @Override // com.repackage.v48, com.repackage.yt8
-    public void a(View view2, q76 q76Var) {
+    @Override // com.repackage.c78, com.repackage.ow8
+    public void a(View view2, i96 i96Var) {
         String str;
         int i;
         MembershipUserInfo membershipUserInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, q76Var) == null) {
-            super.a(view2, q76Var);
-            if (q76Var == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, i96Var) == null) {
+            super.a(view2, i96Var);
+            if (i96Var == null) {
                 return;
             }
-            Bundle bundle = q76Var.b;
+            Bundle bundle = i96Var.b;
             String str2 = null;
             UserData userData = bundle != null ? (UserData) bundle.getSerializable(UserData.TYPE_USER) : null;
             int i2 = 1;
-            switch (q76Var.a) {
+            switch (i96Var.a) {
                 case 1:
                     if (userData == null) {
                         return;
                     }
-                    y05 y05Var = new y05();
+                    u15 u15Var = new u15();
                     if (!StringUtils.isNull(userData.getPortrait()) && userData.getPortrait().startsWith("http")) {
-                        y05Var.d(userData.getPortrait());
+                        u15Var.f(userData.getPortrait());
                     } else {
-                        y05Var.d(userData.getPortraitH());
+                        u15Var.f(userData.getPortraitH());
                     }
-                    y05Var.h(userData.getPortrait());
-                    y05Var.g(true);
+                    u15Var.h(userData.getPortrait());
+                    u15Var.g(true);
                     ArrayList arrayList = new ArrayList();
-                    arrayList.add(y05Var);
-                    this.e.p().s(y05Var, arrayList, 0);
+                    arrayList.add(u15Var);
+                    this.e.n().q(u15Var, arrayList, 0);
                     return;
                 case 2:
                 case 3:
@@ -135,19 +135,19 @@ public class PersonPolymericEventController extends v48 {
                     this.a.getPageActivity().finish();
                     return;
                 case 9:
-                    z38 z38Var = this.e;
-                    if (z38Var == null || z38Var.n() == null) {
+                    g68 g68Var = this.e;
+                    if (g68Var == null || g68Var.l() == null) {
                         return;
                     }
                     TiebaStatic.log("c12207");
-                    this.e.n().e();
+                    this.e.l().e();
                     return;
                 case 10:
                     if (userData != null) {
                         str = userData.getUserId();
                         str2 = userData.getBg_pic();
                         try {
-                            i = ng.e(c(str2).get("props_id"), -1);
+                            i = og.e(c(str2).get("props_id"), -1);
                         } catch (URISyntaxException unused) {
                         }
                         if (i == -1 && !str.equals(TbadkCoreApplication.getCurrentAccount())) {
@@ -179,7 +179,7 @@ public class PersonPolymericEventController extends v48 {
                         personChangeData.setCanModifyAvatar(userData.canModifyAvatar());
                         personChangeData.setCantModifyAvatarDesc(userData.getCantModifyAvatarDesc());
                         personChangeData.setTiebaId(userData.getmTiebaUid());
-                        Bundle bundle2 = q76Var.b;
+                        Bundle bundle2 = i96Var.b;
                         if (bundle2 != null) {
                             personChangeData.setNickNameLeftDays(bundle2.getInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, -1));
                         }
@@ -267,7 +267,7 @@ public class PersonPolymericEventController extends v48 {
                     return;
                 case 31:
                     b(9);
-                    UrlManager.getInstance().dealOneLink(this.a, new String[]{q76Var.b.getString("book_jump_link")}, true);
+                    UrlManager.getInstance().dealOneLink(this.a, new String[]{i96Var.b.getString("book_jump_link")}, true);
                     return;
                 case 32:
                     if (ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
@@ -303,7 +303,7 @@ public class PersonPolymericEventController extends v48 {
                     StringBuilder sb = new StringBuilder();
                     sb.append("https://tieba.baidu.com/mo/q/hybrid-main-service/uegServiceCenter?is_yy_user=");
                     sb.append(TbSingleton.getInstance().getSyncYYSwitch() ? "1" : "0");
-                    sl4.o(this.a.getPageActivity(), sb.toString());
+                    jm4.o(this.a.getPageActivity(), sb.toString());
                     return;
                 case 40:
                     if (userData == null || !ViewHelper.checkUpIsLogin(this.a.getPageActivity()) || userData == null || userData.getUserId() == null || userData.getUserName() == null || userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
@@ -321,14 +321,14 @@ public class PersonPolymericEventController extends v48 {
                     if (userData == null || userData.getBaijiahaoInfo() == null) {
                         return;
                     }
-                    y05 y05Var2 = new y05();
-                    y05Var2.d(userData.getBaijiahaoInfo().avatar_h);
-                    y05Var2.h(userData.getBaijiahaoInfo().avatar);
-                    y05Var2.g(false);
+                    u15 u15Var2 = new u15();
+                    u15Var2.f(userData.getBaijiahaoInfo().avatar_h);
+                    u15Var2.h(userData.getBaijiahaoInfo().avatar);
+                    u15Var2.g(false);
                     ArrayList arrayList2 = new ArrayList();
-                    arrayList2.add(y05Var2);
-                    if (this.e.p() != null) {
-                        this.e.p().t(y05Var2, arrayList2, 0, true);
+                    arrayList2.add(u15Var2);
+                    if (this.e.n() != null) {
+                        this.e.n().r(u15Var2, arrayList2, 0, true);
                         return;
                     }
                     return;

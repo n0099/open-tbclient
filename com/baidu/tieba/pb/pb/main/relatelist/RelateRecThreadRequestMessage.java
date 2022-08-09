@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ud5;
+import com.repackage.te5;
 import tbclient.RelateRecThread.DataReq;
 import tbclient.RelateRecThread.RelateRecThreadReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RelateRecThreadRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +52,7 @@ public class RelateRecThreadRequestMessage extends NetMessage {
             builder.source_from = Integer.valueOf(this.sourceFrom);
             builder.eqid = this.eqid;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                ud5.a(builder, true);
+                te5.a(builder, true);
             }
             RelateRecThreadReqIdl.Builder builder2 = new RelateRecThreadReqIdl.Builder();
             builder2.data = builder.build(false);

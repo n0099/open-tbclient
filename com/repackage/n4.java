@@ -4,7 +4,6 @@ import com.badlogic.gdx.math.Quaternion;
 import com.badlogic.gdx.math.Vector3;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.stats.SpeedStatsMainTable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -346,7 +345,7 @@ public class n4 extends t1<b> {
                 } else {
                     String str3 = aVar2.a;
                 }
-                String str4 = "default".equals(aVar2.a) ? SpeedStatsMainTable.PART + num : aVar2.a;
+                String str4 = "default".equals(aVar2.a) ? "part" + num : aVar2.a;
                 y4 y4Var = new y4();
                 y4Var.a = str;
                 y4Var.d = new Vector3(1.0f, 1.0f, 1.0f);

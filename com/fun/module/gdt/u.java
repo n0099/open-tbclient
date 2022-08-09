@@ -120,27 +120,27 @@ public abstract class u extends NativeAdContainer {
                 int appStatus = nativeUnifiedADData.getAppStatus();
                 if (appStatus == 0) {
                     button = this.c;
-                    i = R.string.obfuscated_res_0x7f0f0769;
+                    i = R.string.obfuscated_res_0x7f0f0778;
                 } else if (appStatus == 1) {
                     button = this.c;
-                    i = R.string.obfuscated_res_0x7f0f0770;
+                    i = R.string.obfuscated_res_0x7f0f077f;
                 } else if (appStatus == 2) {
                     button = this.c;
-                    i = R.string.obfuscated_res_0x7f0f0774;
+                    i = R.string.obfuscated_res_0x7f0f0783;
                 } else if (appStatus == 4) {
                     this.c.setText(String.format("%s/100", Integer.valueOf(nativeUnifiedADData.getProgress())));
                     return;
                 } else if (appStatus == 8) {
                     button = this.c;
-                    i = R.string.obfuscated_res_0x7f0f076c;
+                    i = R.string.obfuscated_res_0x7f0f077b;
                 } else if (appStatus == 16) {
                     button = this.c;
-                    i = R.string.obfuscated_res_0x7f0f076e;
+                    i = R.string.obfuscated_res_0x7f0f077d;
                 }
                 button.setText(i);
             }
             button = this.c;
-            i = R.string.obfuscated_res_0x7f0f0775;
+            i = R.string.obfuscated_res_0x7f0f0784;
             button.setText(i);
         }
     }
@@ -150,9 +150,9 @@ public abstract class u extends NativeAdContainer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onFinishInflate();
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09009c);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900f0);
-            this.c = (Button) findViewById(R.id.obfuscated_res_0x7f090098);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0900a1);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900f5);
+            this.c = (Button) findViewById(R.id.obfuscated_res_0x7f09009d);
         }
     }
 }

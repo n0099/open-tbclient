@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wa9;
+import com.repackage.rd9;
 import java.io.File;
 /* loaded from: classes2.dex */
 public class DefaultFileUploader extends BaseFileUploader {
@@ -28,9 +28,9 @@ public class DefaultFileUploader extends BaseFileUploader {
     }
 
     @Override // com.baidu.searchbox.retrieve.upload.BaseFileUploader
-    public wa9 uploadSync(@NonNull String str, @NonNull String str2, @NonNull File file) {
+    public rd9 uploadSync(@NonNull String str, @NonNull String str2, @NonNull File file) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, file)) == null) ? new wa9() : (wa9) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, file)) == null) ? new rd9() : (rd9) invokeLLL.objValue;
     }
 }

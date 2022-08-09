@@ -17,49 +17,16 @@ public class LeftLableInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<LeftLableInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
+    public String cmd;
     public String dot;
     public String endColor;
     public String isShow;
+    public String leftIcon;
+    public String newText;
+    public String prefix;
+    public String rightIcon;
     public String startColor;
     public String text;
-
-    /* loaded from: classes2.dex */
-    public static class a implements Parcelable.Creator<LeftLableInfo> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: a */
-        public LeftLableInfo createFromParcel(Parcel parcel) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new LeftLableInfo(parcel) : (LeftLableInfo) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: b */
-        public LeftLableInfo[] newArray(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new LeftLableInfo[i] : (LeftLableInfo[]) invokeI.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -74,7 +41,42 @@ public class LeftLableInfo implements Parcelable {
                 return;
             }
         }
-        CREATOR = new a();
+        CREATOR = new Parcelable.Creator<LeftLableInfo>() { // from class: com.baidu.live.business.model.data.LeftLableInfo.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // android.os.Parcelable.Creator
+            public LeftLableInfo createFromParcel(Parcel parcel) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new LeftLableInfo(parcel) : (LeftLableInfo) invokeL.objValue;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // android.os.Parcelable.Creator
+            public LeftLableInfo[] newArray(int i) {
+                InterceptResult invokeI;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new LeftLableInfo[i] : (LeftLableInfo[]) invokeI.objValue;
+            }
+        };
     }
 
     public LeftLableInfo() {
@@ -107,9 +109,15 @@ public class LeftLableInfo implements Parcelable {
         return invokeV.intValue;
     }
 
+    public boolean isRankTopStyle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (!"1".equals(this.isShow) || TextUtils.isEmpty(this.prefix) || TextUtils.isEmpty(this.newText)) ? false : true : invokeV.booleanValue;
+    }
+
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         this.text = jSONObject.optString("text");
@@ -117,17 +125,25 @@ public class LeftLableInfo implements Parcelable {
         this.endColor = jSONObject.optString("end_color");
         this.dot = jSONObject.optString("dot");
         this.isShow = jSONObject.optString("is_show");
+        this.leftIcon = jSONObject.optString("left_icon");
+        this.rightIcon = jSONObject.optString("right_icon");
+        this.cmd = jSONObject.optString("url");
+        this.prefix = jSONObject.optString("prefix");
+        this.newText = jSONObject.optString("new_text");
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i) == null) {
             parcel.writeString(this.text);
             parcel.writeString(this.startColor);
             parcel.writeString(this.endColor);
             parcel.writeString(this.dot);
             parcel.writeString(this.isShow);
+            parcel.writeString(this.leftIcon);
+            parcel.writeString(this.rightIcon);
+            parcel.writeString(this.cmd);
         }
     }
 
@@ -151,5 +167,7 @@ public class LeftLableInfo implements Parcelable {
         this.endColor = parcel.readString();
         this.dot = parcel.readString();
         this.isShow = parcel.readString();
+        this.leftIcon = parcel.readString();
+        this.rightIcon = parcel.readString();
     }
 }

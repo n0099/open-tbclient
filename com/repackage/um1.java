@@ -1,7 +1,10 @@
 package com.repackage;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public interface um1 {
-    void a(kz1 kz1Var);
-
-    void b(kz1 kz1Var);
+    @Nullable
+    zs1 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull de2 de2Var);
 }

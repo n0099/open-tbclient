@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ud5;
+import com.repackage.te5;
 import tbclient.GetShoubaiThreadList.DataReq;
 import tbclient.GetShoubaiThreadList.GetShoubaiThreadListReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PersonCenterDynamicTabRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public class PersonCenterDynamicTabRequestMessage extends NetMessage {
             builder.cursor = Long.valueOf(this.cursor);
             builder.page_size = Integer.valueOf(this.pageSize);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                ud5.a(builder, true);
+                te5.a(builder, true);
             }
             GetShoubaiThreadListReqIdl.Builder builder2 = new GetShoubaiThreadListReqIdl.Builder();
             builder2.data = builder.build(false);

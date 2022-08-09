@@ -45,20 +45,19 @@ public class AtMeActivity extends BaseFragmentActivity implements VoiceManager.j
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void enterExitAnimation() {
+    public final void D0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.d) {
-                ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
-            } else {
-                super.enterExitAnimation();
-            }
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || getIntent() == null) {
+            return;
         }
+        StatisticItem statisticItem = new StatisticItem("c14622");
+        statisticItem.param("obj_source", getIntent().getIntExtra("from", 0));
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        TiebaStatic.log(statisticItem);
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager.i f1(VoiceData.VoiceModel voiceModel) {
+    public VoiceManager.i e1(VoiceData.VoiceModel voiceModel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voiceModel)) == null) {
@@ -67,10 +66,22 @@ public class AtMeActivity extends BaseFragmentActivity implements VoiceManager.j
         return (VoiceManager.i) invokeL.objValue;
     }
 
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
+    public void enterExitAnimation() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (this.d) {
+                ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
+            } else {
+                super.enterExitAnimation();
+            }
+        }
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity
     public void finish() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.finish();
             if (this.d) {
                 MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(this);
@@ -80,22 +91,11 @@ public class AtMeActivity extends BaseFragmentActivity implements VoiceManager.j
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.w85
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.u95
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "a079" : (String) invokeV.objValue;
-    }
-
-    public final void n0() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || getIntent() == null) {
-            return;
-        }
-        StatisticItem statisticItem = new StatisticItem("c14622");
-        statisticItem.param("obj_source", getIntent().getIntExtra("from", 0));
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        TiebaStatic.log(statisticItem);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "a079" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -131,19 +131,19 @@ public class AtMeActivity extends BaseFragmentActivity implements VoiceManager.j
             }
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d002b);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092439);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255b);
             this.b = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f02a4));
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f02a8));
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             AtMessageFragment atMessageFragment = new AtMessageFragment();
             this.a = atMessageFragment;
             atMessageFragment.setArguments(getIntent().getExtras());
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f09069f, this.a).commitAllowingStateLoss();
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f0906bd, this.a).commitAllowingStateLoss();
             adjustResizeForSoftInput();
-            VoiceManager u0 = u0();
-            this.c = u0;
-            u0.onCreate(getPageContext());
-            n0();
+            VoiceManager t0 = t0();
+            this.c = t0;
+            t0.onCreate(getPageContext());
+            D0();
         }
     }
 
@@ -169,7 +169,7 @@ public class AtMeActivity extends BaseFragmentActivity implements VoiceManager.j
                 return;
             }
             atMessageFragment.setArguments(intent.getExtras());
-            this.a.N1();
+            this.a.M1();
         }
     }
 
@@ -222,7 +222,7 @@ public class AtMeActivity extends BaseFragmentActivity implements VoiceManager.j
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager u0() {
+    public VoiceManager t0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {

@@ -1,93 +1,124 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cc4 extends ob4 {
+public class cc4 extends dc4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String d;
+    public String e;
+    public int f;
+    public String g;
+    public String h;
+    public int i;
 
-    public cc4() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cc4(String str, int i, String str2, int i2) {
+        super(i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), str2, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.i = -1;
+        this.d = str;
+        this.e = str2;
+        this.f = i;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.i : invokeV.intValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.h : (String) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g : (String) invokeV.objValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : invokeV.intValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.h = str;
         }
     }
 
-    @Override // com.repackage.ob4, com.repackage.rb4
-    public void b(JSONObject jSONObject, b84 b84Var, @Nullable b84 b84Var2, @Nullable b84 b84Var3) {
+    public cc4 m(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, jSONObject, b84Var, b84Var2, b84Var3) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            this.g = str;
+            return this;
         }
-        ec4.b().e(jSONObject.optJSONObject("tipmsgs"));
-        ic4.f().k(jSONObject.optJSONObject("page_tips"));
-        ac4.b().d(jSONObject.optJSONObject("pkg_clean_strategy"));
-        kc4.a().d(jSONObject.optJSONObject("pkg_preload"));
-        sc4.f(jSONObject.optJSONObject("app_inner_preload"));
-        dc4.a().c(jSONObject.optJSONObject("getpkg_retry_switch"));
-        pc4.b().d(jSONObject.optJSONObject("tts"));
-        lc4.a().e(jSONObject.optJSONObject("simple_control_item"));
-        qc4.e(jSONObject.optJSONObject("update_expire_time"));
-        if (mc4.a) {
-            c(jSONObject);
-        }
-        oc4.b().f(jSONObject.optJSONObject("web_degrade_strategy"));
-        fc4.a().c(jSONObject.optJSONObject("local_debug"));
-        r74.a().b(jSONObject.optJSONObject(r74.a().c()));
-        if (nc4.b()) {
-            hc4.a().b(jSONObject.optJSONObject("api_description"));
-        }
-        gc4.a().e(jSONObject.optJSONObject("no_history_apps"));
+        return (cc4) invokeL.objValue;
     }
 
-    public final void c(@NonNull JSONObject jSONObject) {
-        JSONObject optJSONObject;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cc4(String str, String str2, String str3, int i) {
+        super(i);
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) && (optJSONObject = jSONObject.optJSONObject("heartbeat")) != null && optJSONObject.optLong("errno") == 0) {
-            p74 b = r74.b();
-            ig4 i = b != null ? b.i() : null;
-            String optString = optJSONObject.optString("version");
-            if (!TextUtils.isEmpty(optString)) {
-                mc4.b = optString;
-                if (i != null) {
-                    i.putString("key_h2_heart_beat_version", optString);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            JSONObject optJSONObject2 = optJSONObject.optJSONObject("data");
-            if (optJSONObject2 != null) {
-                if (optJSONObject2.optInt(SetImageWatermarkTypeReqMsg.SWITCH) > 0) {
-                    int optInt = optJSONObject2.optInt("timespan");
-                    int optInt2 = optJSONObject2.optInt("timeout");
-                    if (i != null) {
-                        if (optInt > 0) {
-                            i.putInt("key_h2_heart_beat_timespan", optInt);
-                        }
-                        if (optInt2 > 0) {
-                            i.putInt("key_h2_heart_beat_timeout", optInt2);
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                }
-                mc4.a = false;
-            }
+        }
+        this.i = -1;
+        this.d = str;
+        this.e = str3;
+        try {
+            this.f = Integer.valueOf(str2).intValue();
+        } catch (NumberFormatException unused) {
+            this.f = 0;
         }
     }
 }

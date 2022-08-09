@@ -35,6 +35,7 @@ public class PackageInfo implements NoProGuard, Cloneable {
     public String channelId;
     public long createTime;
     public long currentSize;
+    public String dependInfo;
     public HashMap<String, String> dependencies;
     public String dependenciesString;
     public int disable;
@@ -63,6 +64,7 @@ public class PackageInfo implements NoProGuard, Cloneable {
     public int retryCount;
     public String sign;
     public String size;
+    public String subBundle;
     public long totalSize;
     public String trafficUrl;
     public volatile int type;

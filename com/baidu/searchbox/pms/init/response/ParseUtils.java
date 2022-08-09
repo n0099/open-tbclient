@@ -209,6 +209,8 @@ public class ParseUtils {
                 if (optJSONObject5 != null) {
                     packageInfo.setDependenciesString(optJSONObject5);
                 }
+                packageInfo.subBundle = optJSONObject.optString("sub_bundle");
+                packageInfo.dependInfo = optJSONObject.optString("depend_info");
             }
             return packageInfo;
         }

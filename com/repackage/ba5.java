@@ -1,50 +1,9 @@
 package com.repackage;
-
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ba5 extends qa {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ba5 {
+    void a();
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ba5() {
-        super(0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    void b();
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ua
-    /* renamed from: c */
-    public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage)) == null) {
-            if (httpResponsedMessage == null) {
-                return null;
-            }
-            if (httpResponsedMessage.getError() == 2260104) {
-                md5.a();
-            }
-            return httpResponsedMessage;
-        }
-        return (HttpResponsedMessage) invokeL.objValue;
-    }
+    void onError(String str);
 }

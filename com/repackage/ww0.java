@@ -1,35 +1,28 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
 public class ww0 {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public static void a(@Nullable Activity activity, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65536, null, activity, z) == null) || activity == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755187103, "Lcom/repackage/ww0;")) == null) {
             return;
         }
-        if (z) {
-            activity.setRequestedOrientation(8);
-        } else {
-            activity.setRequestedOrientation(0);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        activity.getWindow().setFlags(1024, 1024);
-    }
-
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public static void b(@Nullable Activity activity) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, activity) == null) || activity == null) {
-            return;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755187103, "Lcom/repackage/ww0;");
         }
-        activity.setRequestedOrientation(1);
     }
 }

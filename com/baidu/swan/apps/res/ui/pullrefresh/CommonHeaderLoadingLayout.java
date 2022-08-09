@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zd3;
+import com.repackage.qe3;
 /* loaded from: classes2.dex */
 public class CommonHeaderLoadingLayout extends LoadingLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -139,14 +139,14 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
             }
         }
         this.e = 0;
-        this.j = (RefreshingAnimView) findViewById(R.id.obfuscated_res_0x7f091a9e);
-        int f = zd3.f(getContext(), 29.0f);
+        this.j = (RefreshingAnimView) findViewById(R.id.obfuscated_res_0x7f091b7e);
+        int f = qe3.f(getContext(), 29.0f);
         this.e = f;
         this.f = (int) (f * 2.4f);
         int i3 = (int) (f * 1.5f);
         this.h = i3;
         this.g = i3;
-        HeaderRefreshIndicator headerRefreshIndicator = (HeaderRefreshIndicator) findViewById(R.id.obfuscated_res_0x7f091a9c);
+        HeaderRefreshIndicator headerRefreshIndicator = (HeaderRefreshIndicator) findViewById(R.id.obfuscated_res_0x7f091b7c);
         this.k = headerRefreshIndicator;
         headerRefreshIndicator.i();
     }
@@ -184,7 +184,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
             if (z) {
                 this.j.setAlpha(0.0f);
                 if (TextUtils.isEmpty(str)) {
-                    this.k.setText(getResources().getText(R.string.obfuscated_res_0x7f0f01aa));
+                    this.k.setText(getResources().getText(R.string.obfuscated_res_0x7f0f01ad));
                 } else {
                     this.k.setText(str);
                 }
@@ -225,7 +225,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
             if (view2 != null) {
                 return view2.getHeight();
             }
-            return zd3.f(getContext(), 50.0f);
+            return qe3.f(getContext(), 50.0f);
         }
         return invokeV.intValue;
     }

@@ -23,7 +23,7 @@ public class ca {
     public static final Object a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static ArrayList<hn> f964a;
+    public static ArrayList<hn> f965a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,13 +40,13 @@ public class ca {
             }
         }
         a = new Object();
-        f964a = new ArrayList<>();
+        f965a = new ArrayList<>();
     }
 
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            f964a.clear();
+            f965a.clear();
         }
     }
 
@@ -60,10 +60,10 @@ public class ca {
     public static void a(hn hnVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, hnVar) == null) {
-            if (f964a.size() > 10) {
-                f964a.remove(0);
+            if (f965a.size() > 10) {
+                f965a.remove(0);
             }
-            f964a.add(hnVar);
+            f965a.add(hnVar);
         }
     }
 

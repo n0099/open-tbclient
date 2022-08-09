@@ -1,9 +1,23 @@
 package com.repackage;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
-/* loaded from: classes6.dex */
+import java.util.ArrayList;
+/* loaded from: classes7.dex */
 public interface ob9 {
-    static {
-        new ServiceReference("yaLog", "yaLogConfig");
+
+    /* loaded from: classes7.dex */
+    public interface a {
+        void onCompletion();
+
+        boolean onError(int i, int i2, Object obj);
+
+        boolean onInfo(int i, int i2, Object obj);
     }
+
+    void release();
+
+    void setListener(a aVar);
+
+    void setSource(ArrayList<String> arrayList);
+
+    void start();
 }

@@ -1,104 +1,198 @@
 package com.repackage;
 
-import android.graphics.drawable.Drawable;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.StrikethroughSpan;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.PopupWindow;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wallet.CurrencyHelper;
-import com.baidu.tieba.wallet.CurrencySwitchUtil;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class xr6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Activity a;
+    public PopupWindow b;
+    public View c;
+    public FrsViewData d;
+    public xj6 e;
+    public Runnable f;
+    public Runnable g;
+    public View.OnClickListener h;
 
-    public static SpannableString a(long j, int i, int i2) {
-        InterceptResult invokeCommon;
-        String formatOverBaiwanNum;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (CurrencySwitchUtil.isYyIsConvert(i2)) {
-                formatOverBaiwanNum = CurrencyHelper.getFormatOverBaiwanNum(i2, j);
-            } else {
-                formatOverBaiwanNum = StringHelper.formatOverBaiwanNum(j);
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xr6 a;
+
+        public a(xr6 xr6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xr6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            Drawable moneyIcon = CurrencySwitchUtil.getMoneyIcon(i2);
-            String str = "[icon]" + formatOverBaiwanNum;
-            SpannableString spannableString = new SpannableString(str);
-            if (TbadkApplication.getInst().getSkinType() == 1) {
-                moneyIcon.setAlpha(179);
-            } else {
-                moneyIcon.setAlpha(255);
-            }
-            int f = pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701e8);
-            moneyIcon.setBounds(0, 0, f, f);
-            ze5 ze5Var = new ze5(moneyIcon);
-            ze5Var.b(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070230));
-            ze5Var.c(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070230));
-            UtilHelper.setSpan(spannableString, str, "[icon]", ze5Var);
-            UtilHelper.setSpan(spannableString, str, formatOverBaiwanNum, new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0108)));
-            return spannableString;
+            this.a = xr6Var;
         }
-        return (SpannableString) invokeCommon.objValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a == null || this.a.c == null || this.a.b == null || this.a.b.getContentView() == null) {
+                return;
+            }
+            int f = qi.f(this.a.a, R.dimen.obfuscated_res_0x7f07028e);
+            this.a.b.getContentView().measure(0, 0);
+            tg.l(this.a.b, this.a.c, (-qi.f(this.a.a, R.dimen.obfuscated_res_0x7f0702c1)) + (this.a.c.getMeasuredWidth() / 2) + 30, -f);
+            rg.a().postDelayed(this.a.g, 5000L);
+            TiebaStatic.log(new StatisticItem("c13016").param("obj_locate", 2));
+        }
     }
 
-    public static SpannableString b(long j, boolean z, int i) {
-        InterceptResult invokeCommon;
-        String formatOverBaiwanNum;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
-            if (CurrencySwitchUtil.isYyIsConvert(i)) {
-                formatOverBaiwanNum = CurrencyHelper.getFormatOverBaiwanNum(i, j);
-            } else {
-                formatOverBaiwanNum = StringHelper.formatOverBaiwanNum(j);
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xr6 a;
+
+        public b(xr6 xr6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xr6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (z) {
-                str = "=[icon]" + formatOverBaiwanNum;
-            } else {
-                str = "[icon]" + formatOverBaiwanNum;
-            }
-            SpannableString spannableString = new SpannableString(str);
-            Drawable moneyIcon = CurrencySwitchUtil.getMoneyIcon(i);
-            int f = pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701e8);
-            moneyIcon.setBounds(0, 0, f, f);
-            ze5 ze5Var = new ze5(moneyIcon);
-            ze5Var.b(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070230));
-            ze5Var.c(pi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070230));
-            UtilHelper.setSpan(spannableString, str, "[icon]", ze5Var);
-            UtilHelper.setSpan(spannableString, str, formatOverBaiwanNum, new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
-            if (z) {
-                UtilHelper.setSpan(spannableString, str, "=", new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0108)));
-            }
-            return spannableString;
+            this.a = xr6Var;
         }
-        return (SpannableString) invokeCommon.objValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.h();
+            }
+        }
     }
 
-    public static SpannableString c(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
-            if (StringUtils.isNull(str)) {
-                return new SpannableString("");
+    /* loaded from: classes7.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xr6 a;
+
+        public c(xr6 xr6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xr6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            SpannableString spannableString = new SpannableString(str);
-            UtilHelper.setSpan(spannableString, str, str, new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0109)));
-            UtilHelper.setSpan(spannableString, str, str2, new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
-            if (!StringUtils.isNull(str3)) {
-                UtilHelper.setSpan(spannableString, str, str3, new StrikethroughSpan());
-            }
-            return spannableString;
+            this.a = xr6Var;
         }
-        return (SpannableString) invokeLLL.objValue;
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.i();
+                if (this.a.d == null || this.a.d.postTopic == null || this.a.d.getForum() == null) {
+                    return;
+                }
+                if ((this.a.e == null || this.a.e.a()) && !WriteActivityConfig.isAsyncWriting()) {
+                    WriteActivityConfig.newInstance(this.a.a).setType(9).setForumData(this.a.d.getForum()).setAntiData(this.a.d.getAnti()).setTitle(this.a.d.postTopic.recom_topic).send();
+                    TiebaStatic.log(new StatisticItem("c13017").param("obj_locate", 2));
+                }
+            }
+        }
+    }
+
+    public xr6(Activity activity, xj6 xj6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, xj6Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f = new a(this);
+        this.g = new b(this);
+        this.h = new c(this);
+        this.a = activity;
+        this.e = xj6Var;
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            tg.c(this.b);
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            rg.a().removeCallbacks(this.f);
+            rg.a().removeCallbacks(this.g);
+            h();
+        }
+    }
+
+    public void j(View view2, FrsViewData frsViewData) {
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, frsViewData) == null) || view2 == null || frsViewData == null || frsViewData.postTopic == null || (activity = this.a) == null) {
+            return;
+        }
+        this.d = frsViewData;
+        this.c = view2;
+        View inflate = LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d0349, (ViewGroup) null);
+        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921b7)).setText(StringHelper.cutHotTopicShow(frsViewData.postTopic.recom_title, 24, StringHelper.STRING_MORE));
+        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921b8)).setText(R.string.obfuscated_res_0x7f0f143a);
+        inflate.setOnClickListener(this.h);
+        this.b = new PopupWindow(inflate, -2, -2);
+        rg.a().removeCallbacks(this.f);
+        rg.a().postDelayed(this.f, 100L);
     }
 }

@@ -10,6 +10,7 @@ import com.baidu.searchbox.cloudcontrol.data.CloudControlErrorBean;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlResponseInfo;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlUBCData;
 import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
+import com.baidu.searchbox.cloudcontrol.processor.IProcessorDataInterceptor;
 import com.baidu.searchbox.cloudcontrol.utils.CloudControlUBCUtils;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
@@ -71,13 +72,14 @@ public class DataRouter {
         }
         JSONObject serviceData = cloudControlData.getServiceData();
         JSONObject optionsData = cloudControlData.getOptionsData();
-        ExecutorUtilsExt.postOnElastic(new Runnable(this, serviceData, cloudControlData.getCheckDatas(), optionsData, cloudControlData.getCloudControlErrorBean(), cloudControlData.getIsForceDispatchs(), cloudControlData) { // from class: com.baidu.searchbox.cloudcontrol.router.DataRouter.1
+        ExecutorUtilsExt.postOnElastic(new Runnable(this, serviceData, cloudControlData.getCheckDatas(), cloudControlData.getDataInterceptors(), optionsData, cloudControlData.getCloudControlErrorBean(), cloudControlData.getIsForceDispatchs(), cloudControlData) { // from class: com.baidu.searchbox.cloudcontrol.router.DataRouter.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DataRouter this$0;
             public final /* synthetic */ HashMap val$checkDatas;
             public final /* synthetic */ CloudControlData val$cloudControlData;
             public final /* synthetic */ CloudControlErrorBean val$cloudControlErrorBean;
+            public final /* synthetic */ HashMap val$dataInterceptors;
             public final /* synthetic */ HashMap val$forceDispatchs;
             public final /* synthetic */ JSONObject val$options;
             public final /* synthetic */ JSONObject val$serviceData;
@@ -87,7 +89,7 @@ public class DataRouter {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {this, serviceData, r8, optionsData, r10, r11, cloudControlData};
+                    Object[] objArr = {this, serviceData, r8, r9, optionsData, r11, r12, cloudControlData};
                     interceptable2.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -100,9 +102,10 @@ public class DataRouter {
                 this.this$0 = this;
                 this.val$serviceData = serviceData;
                 this.val$checkDatas = r8;
+                this.val$dataInterceptors = r9;
                 this.val$options = optionsData;
-                this.val$cloudControlErrorBean = r10;
-                this.val$forceDispatchs = r11;
+                this.val$cloudControlErrorBean = r11;
+                this.val$forceDispatchs = r12;
                 this.val$cloudControlData = cloudControlData;
             }
 
@@ -120,6 +123,10 @@ public class DataRouter {
                         boolean has = jSONObject2 != null ? jSONObject2.has(key) : false;
                         ICloudControlProcessor value = entry.getValue();
                         Object obj = this.val$checkDatas.get(key);
+                        IProcessorDataInterceptor iProcessorDataInterceptor = (IProcessorDataInterceptor) this.val$dataInterceptors.get(key);
+                        if (iProcessorDataInterceptor != null) {
+                            iProcessorDataInterceptor.onIntercept(this.val$serviceData);
+                        }
                         if (has) {
                             try {
                                 JSONObject optJSONObject = this.val$serviceData.optJSONObject(key);

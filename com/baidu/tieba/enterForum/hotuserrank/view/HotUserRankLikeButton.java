@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
-import com.repackage.vu4;
+import com.repackage.pv4;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class HotUserRankLikeButton extends DynamicUserLikeButton {
     public static /* synthetic */ Interceptable $ic;
@@ -38,37 +38,37 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tieba.view.DynamicUserLikeButton, com.repackage.yv4
+    @Override // com.baidu.tieba.view.DynamicUserLikeButton, com.repackage.sw4
     public void e(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             if (z) {
-                vu4 vu4Var = new vu4();
-                vu4Var.t(R.color.CAM_X0109);
-                setConfig(vu4Var);
+                pv4 pv4Var = new pv4();
+                pv4Var.t(R.color.CAM_X0109);
+                setConfig(pv4Var);
                 setClickable(true);
                 if (i == 1) {
-                    setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f87));
+                    setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbc));
                 } else if (i == 2) {
-                    setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0514));
+                    setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0521));
                 }
             } else {
-                vu4 vu4Var2 = new vu4();
-                vu4Var2.r(R.color.CAM_X0302);
-                setConfig(vu4Var2);
+                pv4 pv4Var2 = new pv4();
+                pv4Var2.r(R.color.CAM_X0302);
+                setConfig(pv4Var2);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a7));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ab));
             }
             if (i == 2) {
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
                 if (layoutParams != null) {
-                    layoutParams.width = pi.f(getContext(), R.dimen.tbds196);
+                    layoutParams.width = qi.f(getContext(), R.dimen.tbds196);
                     setLayoutParams(layoutParams);
                 }
             } else {
                 ViewGroup.LayoutParams layoutParams2 = getLayoutParams();
                 if (layoutParams2 != null) {
-                    layoutParams2.width = pi.f(getContext(), R.dimen.tbds156);
+                    layoutParams2.width = qi.f(getContext(), R.dimen.tbds156);
                     setLayoutParams(layoutParams2);
                 }
             }

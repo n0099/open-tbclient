@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ForegroundLinearLayout extends LinearLayoutCompat {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -254,7 +254,7 @@ public class ForegroundLinearLayout extends LinearLayoutCompat {
         this.foregroundGravity = 119;
         this.mForegroundInPadding = true;
         this.foregroundBoundsChanged = false;
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{16843017, 16843264, R.attr.obfuscated_res_0x7f0402a4}, i, 0, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{16843017, 16843264, R.attr.obfuscated_res_0x7f0402e4}, i, 0, new int[0]);
         this.foregroundGravity = obtainStyledAttributes.getInt(1, this.foregroundGravity);
         Drawable drawable = obtainStyledAttributes.getDrawable(0);
         if (drawable != null) {

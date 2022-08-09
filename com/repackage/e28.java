@@ -1,150 +1,249 @@
 package com.repackage;
 
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.ListAdapter;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.personCenter.view.AutoBannerView;
+import com.baidu.tieba.pbextra.praise.PraiseListActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class e28 extends jx5<y18> {
+/* loaded from: classes6.dex */
+public class e28 extends b9<PraiseListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int i;
-    public LinearLayout j;
-    public AutoBannerView k;
-    public View l;
-    public ds4<k18> m;
-
-    /* loaded from: classes5.dex */
-    public class a implements ds4<k18> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e28 a;
-
-        public a(e28 e28Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e28Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = e28Var;
-        }
-
-        @Override // com.repackage.ds4
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) || this.a.k == null || str == null) {
-                return;
-            }
-            if (this.a.k.a(i)) {
-                TiebaStatic.log(new StatisticItem("c13247").param("obj_locate", i).param("obj_param1", str));
-            }
-            this.a.k.f();
-            this.a.k.b(str);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ds4
-        /* renamed from: c */
-        public void a(int i, k18 k18Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, k18Var) == null) || this.a.k == null || k18Var == null || k18Var.c() == null || !this.a.k.a(i)) {
-                return;
-            }
-            TiebaStatic.log(new StatisticItem("c13246").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", i).param("obj_param1", k18Var.c()));
-        }
-    }
+    public c28 a;
+    public PraiseListActivity b;
+    public View c;
+    public NavigationBar d;
+    public View e;
+    public NoDataView f;
+    public View g;
+    public TextView h;
+    public BdListView i;
+    public View j;
+    public TextView k;
+    public TextView l;
+    public ProgressBar m;
+    public ProgressBar n;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e28(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public e28(PraiseListActivity praiseListActivity, String str) {
+        super(praiseListActivity.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {praiseListActivity, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
+                super((d9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = 3;
-        this.m = new a(this);
-        View h = h();
-        this.j = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f09244e);
-        AutoBannerView autoBannerView = (AutoBannerView) h.findViewById(R.id.obfuscated_res_0x7f0917d8);
-        this.k = autoBannerView;
-        autoBannerView.setMarqueenTime(3000L);
-        this.k.getCoverFlowView().setCallback(this.m);
-        this.l = h.findViewById(R.id.obfuscated_res_0x7f090383);
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        this.h = null;
+        this.i = null;
+        this.j = null;
+        this.k = null;
+        this.l = null;
+        this.m = null;
+        this.n = null;
+        this.b = praiseListActivity;
+        praiseListActivity.setContentView(R.layout.obfuscated_res_0x7f0d091f);
+        this.c = praiseListActivity.findViewById(R.id.obfuscated_res_0x7f092695);
+        this.d = (NavigationBar) praiseListActivity.findViewById(R.id.obfuscated_res_0x7f092694);
+        this.e = praiseListActivity.findViewById(R.id.obfuscated_res_0x7f092692);
+        this.f = NoDataViewFactory.a(this.b.getPageContext().getContext(), this.c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, qi.f(this.b.getActivity(), R.dimen.obfuscated_res_0x7f07029e)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0ee7), null);
+        this.i = (BdListView) praiseListActivity.findViewById(R.id.obfuscated_res_0x7f092693);
+        TextView textView = new TextView(this.b.getActivity());
+        textView.setLayoutParams(new AbsListView.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
+        this.i.x(textView, 0);
+        this.m = (ProgressBar) praiseListActivity.findViewById(R.id.obfuscated_res_0x7f092696);
+        c28 c28Var = new c28(praiseListActivity);
+        this.a = c28Var;
+        this.i.setAdapter((ListAdapter) c28Var);
+        this.i.setOnScrollListener(this.a);
+        this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.d.setTitleText("");
+        View inflate = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d0921, (ViewGroup) null);
+        this.g = inflate;
+        inflate.setOnClickListener(praiseListActivity);
+        TextView textView2 = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f09268d);
+        this.h = textView2;
+        textView2.setText(str);
+        this.g.setVisibility(8);
+        this.i.addHeaderView(this.g);
+        View inflate2 = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d0920, (ViewGroup) null);
+        this.j = inflate2;
+        this.k = (TextView) inflate2.findViewById(R.id.obfuscated_res_0x7f09268b);
+        this.l = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f09268c);
+        this.n = (ProgressBar) this.j.findViewById(R.id.obfuscated_res_0x7f09268a);
+        this.j.setVisibility(8);
+        this.k.setOnClickListener(praiseListActivity);
+        this.i.addFooterView(this.j);
+        this.i.setOnItemClickListener(praiseListActivity);
     }
 
-    @Override // com.repackage.jx5
-    public int d() {
-        InterceptResult invokeV;
+    public void j(jn4 jn4Var, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06c4 : invokeV.intValue;
-    }
-
-    @Override // com.repackage.jx5
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || this.i == i) {
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, jn4Var, i) == null) || jn4Var == null) {
             return;
         }
-        AutoBannerView autoBannerView = this.k;
-        if (autoBannerView != null) {
-            autoBannerView.e(i);
-        }
-        SkinManager.setBackgroundColor(h(), R.color.CAM_X0204);
-        SkinManager.setBackgroundColor(this.l, R.color.CAM_X0204);
-        this.i = i;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        jn4Var.l(i == 1);
+        jn4Var.k(this.c);
+        jn4Var.k(this.g);
+        jn4Var.k(this.j);
+        this.d.onChangeSkinType(this.b.getPageContext(), i);
+        SkinManager.setBackgroundResource(this.j, R.drawable.bg_pack);
+        NoDataView noDataView = this.f;
+        if (noDataView != null) {
+            noDataView.f(this.b.getPageContext(), i);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.jx5
-    /* renamed from: s */
-    public void i(y18 y18Var) {
-        List<k18> list;
+    public View k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, y18Var) == null) {
-            j(this.b, TbadkCoreApplication.getInst().getSkinType());
-            if (this.j == null || y18Var == null || (list = y18Var.a) == null || this.k == null || list.size() == 0) {
-                return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.k : (View) invokeV.objValue;
+    }
+
+    public View l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : (View) invokeV.objValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.m.getVisibility() == 0 || this.n.getVisibility() == 0 : invokeV.booleanValue;
+    }
+
+    public void n() {
+        c28 c28Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (c28Var = this.a) == null) {
+            return;
+        }
+        c28Var.notifyDataSetChanged();
+    }
+
+    public void o(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, str, i) == null) {
+            this.m.setVisibility(8);
+            this.n.setVisibility(8);
+            this.e.setVisibility(8);
+            this.f.setVisibility(0);
+            if (!StringUtils.isNull(str)) {
+                this.f.setTextOption(NoDataViewFactory.e.c(str));
+            } else if (1 == i) {
+                this.f.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f07f5));
+            } else {
+                this.f.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0ee7));
             }
-            this.k.d(y18Var.a);
+        }
+    }
+
+    public void p(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            if (z) {
+                this.n.setVisibility(0);
+            } else {
+                this.m.setVisibility(0);
+            }
+        }
+    }
+
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.m.setVisibility(8);
+            this.n.setVisibility(8);
+        }
+    }
+
+    public void r(int i, List<a28> list, int i2, int i3) {
+        String format;
+        String format2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), list, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            this.m.setVisibility(8);
+            this.n.setVisibility(8);
+            this.g.setVisibility(0);
+            if (i > 0) {
+                PraiseListActivity praiseListActivity = this.b;
+                if (praiseListActivity.a != 1) {
+                    format2 = String.format(praiseListActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0ee8), StringHelper.numFormatOverWan(i));
+                } else {
+                    format2 = String.format(praiseListActivity.getResources().getString(R.string.obfuscated_res_0x7f0f07f6), StringHelper.numFormatOverWan(i));
+                }
+                this.d.setTitleText(format2);
+            } else {
+                this.d.setTitleText("");
+            }
+            if (list != null && list.size() >= 1) {
+                this.e.setVisibility(0);
+                this.f.setVisibility(8);
+                this.a.c(list);
+                this.a.notifyDataSetChanged();
+                switch (i2) {
+                    case 1001:
+                        this.j.setVisibility(0);
+                        this.k.setVisibility(0);
+                        this.l.setVisibility(8);
+                        return;
+                    case 1002:
+                        this.j.setVisibility(8);
+                        return;
+                    case 1003:
+                        this.j.setVisibility(0);
+                        SkinManager.setBackgroundResource(this.j, R.drawable.bg_pack);
+                        this.k.setVisibility(8);
+                        this.l.setVisibility(0);
+                        PraiseListActivity praiseListActivity2 = this.b;
+                        if (praiseListActivity2.a != 1) {
+                            format = String.format(praiseListActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f0ee6), StringHelper.numFormatOverWan(i));
+                        } else {
+                            format = String.format(praiseListActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f07f6), StringHelper.numFormatOverWan(i));
+                        }
+                        this.l.setText(format);
+                        return;
+                    default:
+                        this.j.setVisibility(8);
+                        return;
+                }
+            }
+            o(null, this.b.a);
         }
     }
 }

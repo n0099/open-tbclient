@@ -1,66 +1,54 @@
 package com.repackage;
 
-import androidx.collection.LongSparseArray;
-import com.baidu.adp.framework.message.SocketMessage;
-import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.message.MessageSyncMessage;
+import android.text.TextUtils;
+import com.baidu.tbadk.util.ChatStatusManager;
+import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.x67;
 /* loaded from: classes5.dex */
-public class a77 extends ya {
+public class a77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a77() {
-        super(202003);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    /* loaded from: classes5.dex */
+    public static class a implements x67.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
-    @Override // com.repackage.ta
-    public /* bridge */ /* synthetic */ SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        SocketMessage socketMessage2 = socketMessage;
-        process2(socketMessage2, socketMessageTask);
-        return socketMessage2;
-    }
-
-    /* renamed from: process  reason: avoid collision after fix types in other method */
-    public SocketMessage process2(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketMessage, socketMessageTask)) == null) {
-            StringBuilder sb = new StringBuilder(200);
-            if (socketMessage instanceof MessageSyncMessage) {
-                MessageSyncMessage messageSyncMessage = (MessageSyncMessage) socketMessage;
-                LongSparseArray<Long> groupMids = messageSyncMessage.getGroupMids();
-                for (int i = 0; i < groupMids.size(); i++) {
-                    sb.append(groupMids.keyAt(i));
-                    sb.append("-");
-                    sb.append(groupMids.valueAt(i));
-                    sb.append("|");
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                nt4.a("im", socketMessage.getClientLogID(), 202003, "sendMsg", 0, null, "reason", "pull" + messageSyncMessage.getSyncTypeString(), "comment", sb.toString());
             }
-            return socketMessage;
         }
-        return (SocketMessage) invokeLL.objValue;
+
+        @Override // com.repackage.x67.c
+        public boolean a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return !TextUtils.isEmpty(str) && ChatStatusManager.getInst().getIsOpen(1) && str.equals(ChatStatusManager.getInst().getCurId(1));
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, x67.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
+            x67.d(groupMsgData, imMessageCenterPojo, bVar, new a(), ChatStatusManager.getInst().getIsOpen(4));
+        }
     }
 }

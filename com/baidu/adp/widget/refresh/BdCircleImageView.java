@@ -1,5 +1,6 @@
 package com.baidu.adp.widget.refresh;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -9,7 +10,7 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.os.Build;
 import android.view.animation.Animation;
-import android.widget.ImageView;
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.view.ViewCompat;
 import androidx.swiperefreshlayout.widget.CircleImageView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class BdCircleImageView extends ImageView {
+public class BdCircleImageView extends AppCompatImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Animation.AnimationListener a;
@@ -87,6 +88,7 @@ public class BdCircleImageView extends ImageView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @SuppressLint({"WrongConstant"})
     public BdCircleImageView(Context context, int i) {
         super(context);
         ShapeDrawable shapeDrawable;
@@ -109,7 +111,7 @@ public class BdCircleImageView extends ImageView {
         int i4 = (int) (1.75f * f);
         int i5 = (int) (0.0f * f);
         this.b = (int) (3.5f * f);
-        if (a()) {
+        if (f()) {
             shapeDrawable = new ShapeDrawable(new OvalShape());
             ViewCompat.setElevation(this, f * 4.0f);
         } else {
@@ -124,7 +126,7 @@ public class BdCircleImageView extends ImageView {
         setBackgroundDrawable(shapeDrawable);
     }
 
-    public final boolean a() {
+    public final boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Build.VERSION.SDK_INT >= 21 : invokeV.booleanValue;
@@ -159,7 +161,7 @@ public class BdCircleImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
             super.onMeasure(i, i2);
-            if (a()) {
+            if (f()) {
                 return;
             }
             setMeasuredDimension(getMeasuredWidth() + (this.b * 2), getMeasuredHeight() + (this.b * 2));

@@ -20,7 +20,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public static volatile g a;
@@ -34,7 +34,7 @@ public class g {
     public ServiceConnection h;
     public IBinder.DeathRecipient i;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class a extends c.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -178,7 +178,7 @@ public class g {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface b {
         void a();
     }

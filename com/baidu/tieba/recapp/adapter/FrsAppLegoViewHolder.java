@@ -9,23 +9,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c68;
-import com.repackage.i98;
-import com.repackage.pd7;
-/* loaded from: classes3.dex */
-public class FrsAppLegoViewHolder extends TypeAdapter.ViewHolder implements c68 {
+import com.repackage.j88;
+import com.repackage.kf7;
+import com.repackage.pb8;
+/* loaded from: classes4.dex */
+public class FrsAppLegoViewHolder extends TypeAdapter.ViewHolder implements j88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public i98 a;
+    public pb8 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsAppLegoViewHolder(pd7<?> pd7Var) {
-        super((View) pd7Var);
+    public FrsAppLegoViewHolder(kf7<?> kf7Var) {
+        super((View) kf7Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pd7Var};
+            Object[] objArr = {kf7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,62 +38,62 @@ public class FrsAppLegoViewHolder extends TypeAdapter.ViewHolder implements c68 
         }
     }
 
-    public void b() {
-        i98 i98Var;
+    public void a() {
+        pb8 pb8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (i98Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (pb8Var = this.a) == null) {
             return;
         }
-        i98Var.release();
+        pb8Var.release();
     }
 
-    public void c(i98 i98Var) {
+    public void b(pb8 pb8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i98Var) == null) {
-            this.a = i98Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pb8Var) == null) {
+            this.a = pb8Var;
         }
     }
 
-    @Override // com.repackage.c68
+    @Override // com.repackage.j88
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            i98 i98Var = this.a;
-            if (i98Var == null) {
+            pb8 pb8Var = this.a;
+            if (pb8Var == null) {
                 return 0;
             }
-            return (int) i98Var.getCurrentPosition();
+            return (int) pb8Var.getCurrentPosition();
         }
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.c68
+    @Override // com.repackage.j88
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            i98 i98Var = this.a;
-            return i98Var == null ? "" : i98Var.getPlayUrl();
+            pb8 pb8Var = this.a;
+            return pb8Var == null ? "" : pb8Var.getPlayUrl();
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.c68
+    @Override // com.repackage.j88
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            i98 i98Var = this.a;
-            if (i98Var == null) {
+            pb8 pb8Var = this.a;
+            if (pb8Var == null) {
                 return null;
             }
-            return i98Var.getVideoContainer();
+            return pb8Var.getVideoContainer();
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.c68
+    @Override // com.repackage.j88
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -103,51 +103,51 @@ public class FrsAppLegoViewHolder extends TypeAdapter.ViewHolder implements c68 
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.c68
+    @Override // com.repackage.j88
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            i98 i98Var = this.a;
-            if (i98Var == null) {
+            pb8 pb8Var = this.a;
+            if (pb8Var == null) {
                 return false;
             }
-            return i98Var.isPlayStarted();
+            return pb8Var.isPlayStarted();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.c68
+    @Override // com.repackage.j88
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            i98 i98Var = this.a;
-            if (i98Var == null) {
+            pb8 pb8Var = this.a;
+            if (pb8Var == null) {
                 return false;
             }
-            return i98Var.isPlaying();
+            return pb8Var.isPlaying();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.c68
+    @Override // com.repackage.j88
     public void startPlay() {
-        i98 i98Var;
+        pb8 pb8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (i98Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (pb8Var = this.a) == null) {
             return;
         }
-        i98Var.startPlay();
+        pb8Var.startPlay();
     }
 
-    @Override // com.repackage.c68
+    @Override // com.repackage.j88
     public void stopPlay() {
-        i98 i98Var;
+        pb8 pb8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (i98Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (pb8Var = this.a) == null) {
             return;
         }
-        i98Var.stopPlay();
+        pb8Var.stopPlay();
     }
 }

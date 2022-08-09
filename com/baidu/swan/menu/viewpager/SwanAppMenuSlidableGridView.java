@@ -14,13 +14,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.r64;
-/* loaded from: classes2.dex */
+import com.repackage.i74;
+/* loaded from: classes3.dex */
 public class SwanAppMenuSlidableGridView extends SlideableGridView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends WrapContentHeightViewPager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +83,7 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            PointPageIndicator e = new r64(context).e(R.drawable.obfuscated_res_0x7f080cf2, R.drawable.obfuscated_res_0x7f080cf3);
+            PointPageIndicator e = new i74(context).e(R.drawable.obfuscated_res_0x7f080d4d, R.drawable.obfuscated_res_0x7f080d4e);
             e.f((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0701c8));
             this.h = e;
             this.i[0] = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0700dd);

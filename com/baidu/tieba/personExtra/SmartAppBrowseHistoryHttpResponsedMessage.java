@@ -8,15 +8,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j28;
+import com.repackage.q48;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.HistorySwan.HistorySwanResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SmartAppBrowseHistoryHttpResponsedMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public j28 mData;
+    public q48 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SmartAppBrowseHistoryHttpResponsedMessage() {
@@ -36,10 +36,10 @@ public class SmartAppBrowseHistoryHttpResponsedMessage extends HttpResponsedMess
         }
     }
 
-    public j28 getData() {
+    public q48 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (j28) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (q48) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -56,9 +56,9 @@ public class SmartAppBrowseHistoryHttpResponsedMessage extends HttpResponsedMess
             setErrorString(historySwanResIdl.error.usermsg);
         }
         if (historySwanResIdl.data != null) {
-            j28 j28Var = new j28();
-            this.mData = j28Var;
-            j28Var.b(historySwanResIdl.data);
+            q48 q48Var = new q48();
+            this.mData = q48Var;
+            q48Var.b(historySwanResIdl.data);
         }
     }
 }

@@ -1,45 +1,52 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
-import com.baidu.tieba.memberCenter.tail.privilegetool.PrivilegeDeskView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetVipInfo.VipBannerItem;
 /* loaded from: classes6.dex */
-public class mk7 extends v15 {
+public class mk7 implements rs4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mk7(Context context) {
-        super(context, null, 18, 0);
+    public mk7(VipBannerItem vipBannerItem) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {vipBannerItem};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a88);
-        this.m = new PrivilegeDeskView(context);
-        this.o = true;
-        this.i = false;
-        this.j = true;
-        this.d = R.drawable.obfuscated_res_0x7f080990;
-        this.e = R.drawable.obfuscated_res_0x7f080992;
-        this.n = 6;
-        this.p = new int[]{1};
+        if (vipBannerItem == null) {
+            return;
+        }
+        this.a = vipBannerItem.img_url;
+        this.b = vipBannerItem.link;
+    }
+
+    @Override // com.repackage.rs4
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.rs4
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 }

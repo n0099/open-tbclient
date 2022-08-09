@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.PriorityQueue;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class PriorityTaskManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,7 +18,7 @@ public final class PriorityTaskManager {
     public final Object lock;
     public final PriorityQueue<Integer> queue;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class PriorityTooLowException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

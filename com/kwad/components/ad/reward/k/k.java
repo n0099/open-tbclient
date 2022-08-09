@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.animation.PathInterpolatorCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -74,17 +75,17 @@ public final class k extends v implements View.OnClickListener {
             Interpolator create = PathInterpolatorCompat.create(0.22f, 0.59f, 0.36f, 1.0f);
             view2.setPivotX(0.0f);
             view2.setPivotY(view2.getHeight());
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, "alpha", 1.0f, 1.0f);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ALPHA, 1.0f, 1.0f);
             ofFloat.setDuration(100L);
-            ObjectAnimator duration = ObjectAnimator.ofFloat(view2, "rotation", 0.0f, f).setDuration(j);
+            ObjectAnimator duration = ObjectAnimator.ofFloat(view2, Key.ROTATION, 0.0f, f).setDuration(j);
             float f2 = -f;
             long j2 = j * 2;
-            ObjectAnimator duration2 = ObjectAnimator.ofFloat(view2, "rotation", f, f2).setDuration(j2);
+            ObjectAnimator duration2 = ObjectAnimator.ofFloat(view2, Key.ROTATION, f, f2).setDuration(j2);
             duration2.setInterpolator(create);
-            ObjectAnimator duration3 = ObjectAnimator.ofFloat(view2, "rotation", f2, f).setDuration(j2);
-            ObjectAnimator duration4 = ObjectAnimator.ofFloat(view2, "rotation", f, f2).setDuration(j2);
+            ObjectAnimator duration3 = ObjectAnimator.ofFloat(view2, Key.ROTATION, f2, f).setDuration(j2);
+            ObjectAnimator duration4 = ObjectAnimator.ofFloat(view2, Key.ROTATION, f, f2).setDuration(j2);
             duration4.setInterpolator(create);
-            animatorSet.playSequentially(ofFloat, duration, duration2, duration3, duration4, ObjectAnimator.ofFloat(view2, "rotation", f2, 0.0f).setDuration(j));
+            animatorSet.playSequentially(ofFloat, duration, duration2, duration3, duration4, ObjectAnimator.ofFloat(view2, Key.ROTATION, f2, 0.0f).setDuration(j));
             return animatorSet;
         }
         return (Animator) invokeCommon.objValue;
@@ -96,7 +97,7 @@ public final class k extends v implements View.OnClickListener {
             this.vp.setText(aVar.getTitle());
             this.iu.setText(aVar.gJ());
             String eL = aVar.eL();
-            Drawable drawable = this.nC.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bd1);
+            Drawable drawable = this.nC.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bf7);
             KSImageLoader.loadCircleIcon(this.nC, eL, drawable);
             String aj = com.kwad.components.ad.c.b.aj();
             if (!ax.dT(aj)) {
@@ -241,17 +242,17 @@ public final class k extends v implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || (viewGroup = this.pV) == null) {
             return;
         }
-        this.vr = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091117);
-        this.vo = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091120);
-        this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f09111f);
-        this.vp = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091121);
-        this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09111a);
-        this.vq = this.pV.findViewById(R.id.obfuscated_res_0x7f091118);
-        this.vs = this.pV.findViewById(R.id.obfuscated_res_0x7f09111b);
-        this.vt.add((ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f09111c));
-        this.vt.add((ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f09111d));
-        this.vt.add((ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f09111e));
-        this.vu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091119);
+        this.vr = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09116d);
+        this.vo = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091176);
+        this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091175);
+        this.vp = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091177);
+        this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091170);
+        this.vq = this.pV.findViewById(R.id.obfuscated_res_0x7f09116e);
+        this.vs = this.pV.findViewById(R.id.obfuscated_res_0x7f091171);
+        this.vt.add((ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091172));
+        this.vt.add((ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091173));
+        this.vt.add((ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091174));
+        this.vu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09116f);
         this.pV.setOnClickListener(this);
         this.vq.setOnClickListener(this);
     }
@@ -261,7 +262,7 @@ public final class k extends v implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, view2)) == null) {
             Interpolator create = PathInterpolatorCompat.create(0.0f, 0.0f, 0.58f, 1.0f);
-            ObjectAnimator duration = ObjectAnimator.ofFloat(view2, "translationY", view2.getResources().getDimension(R.dimen.obfuscated_res_0x7f07037c)).setDuration(250L);
+            ObjectAnimator duration = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, view2.getResources().getDimension(R.dimen.obfuscated_res_0x7f07037c)).setDuration(250L);
             duration.setInterpolator(create);
             return duration;
         }
@@ -298,7 +299,7 @@ public final class k extends v implements View.OnClickListener {
     public final void f(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) {
-            super.a(viewGroup, R.id.obfuscated_res_0x7f091124, R.id.obfuscated_res_0x7f091123);
+            super.a(viewGroup, R.id.obfuscated_res_0x7f09117a, R.id.obfuscated_res_0x7f091179);
             initView();
         }
     }

@@ -1,49 +1,38 @@
 package com.repackage;
 
-import android.media.MediaMetadataRetriever;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.content.DialogInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.v8engine.JsArrayBuffer;
-import com.baidu.swan.nalib.audio.SwanAudioPlayer;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ju3;
-import java.net.MalformedURLException;
-import java.util.HashMap;
+import com.repackage.d03;
 /* loaded from: classes6.dex */
 public class ku3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
-    public static volatile ku3 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public hu3 a;
-    public HashMap<String, Long> b;
-    public String c;
-    public HandlerThread d;
-    public Handler e;
-    public SwanAudioPlayer f;
+    public d03 a;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ku3 a;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ boolean d;
+        public final /* synthetic */ DialogInterface.OnClickListener e;
+        public final /* synthetic */ ku3 f;
 
-        public a(ku3 ku3Var) {
+        public a(ku3 ku3Var, Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ku3Var};
+                Object[] objArr = {ku3Var, activity, str, str2, Boolean.valueOf(z), onClickListener};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -53,249 +42,78 @@ public class ku3 {
                     return;
                 }
             }
-            this.a = ku3Var;
+            this.f = ku3Var;
+            this.a = activity;
+            this.b = str;
+            this.c = str2;
+            this.d = z;
+            this.e = onClickListener;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.f = SwanAudioPlayer.getInstance();
-                SwanAudioPlayer.settingNativeAudioParameters(AppRuntime.getApplication());
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ku3 a;
-
-        public b(ku3 ku3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ku3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                if (this.f.a != null && this.f.a.isShowing()) {
+                    this.f.a.dismiss();
+                }
+                Activity activity = this.a;
+                if (activity == null || activity.isFinishing()) {
                     return;
                 }
-            }
-            this.a = ku3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.f.pauseAll();
+                d03.a d = this.f.d(this.a, this.b, this.c, this.d, this.e);
+                this.f.a = d.X();
             }
         }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ku3 a;
-
-        public c(ku3 ku3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ku3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ku3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.f.resume();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755546424, "Lcom/repackage/ku3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755546424, "Lcom/repackage/ku3;");
-                return;
-            }
-        }
-        g = sg1.a;
-        b63.b();
     }
 
     public ku3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.b = new HashMap<>();
-        this.c = du3.g();
-        this.a = new hu3(this.c);
-        c();
-        e().post(new a(this));
     }
 
-    public static ku3 h() {
-        InterceptResult invokeV;
+    public final d03.a d(Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (h == null) {
-                synchronized (ku3.class) {
-                    if (h == null) {
-                        h = new ku3();
-                    }
-                }
-            }
-            return h;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{activity, str, str2, Boolean.valueOf(z), onClickListener})) == null) {
+            d03.a aVar = new d03.a(activity);
+            aVar.x(str);
+            aVar.a();
+            aVar.n(new hg3());
+            aVar.m(z);
+            aVar.Q(R.color.obfuscated_res_0x7f060a63);
+            aVar.f(true);
+            aVar.P(str2, onClickListener);
+            return aVar;
         }
-        return (ku3) invokeV.objValue;
+        return (d03.a) invokeCommon.objValue;
     }
 
-    public final void c() {
+    public void e() {
+        d03 d03Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.d == null) {
-            HandlerThread handlerThread = new HandlerThread("audio_thread");
-            this.d = handlerThread;
-            handlerThread.start();
-            this.e = new Handler(this.d.getLooper());
-        }
-    }
-
-    public synchronized lu3 d(String str, boolean z) {
-        InterceptResult invokeLZ;
-        mu3 mu3Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
-            synchronized (this) {
-                if (g) {
-                    Log.e("AudioPlayerManager", "create media player src = " + str);
-                }
-                mu3Var = new mu3();
-            }
-            return mu3Var;
-        }
-        return (lu3) invokeLZ.objValue;
-    }
-
-    public Handler e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (Handler) invokeV.objValue;
-    }
-
-    public long f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (this.b.containsKey(str)) {
-                return this.b.get(str).longValue();
-            }
-            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-            try {
-                try {
-                    mediaMetadataRetriever.setDataSource(str);
-                    long parseLong = Long.parseLong(mediaMetadataRetriever.extractMetadata(9));
-                    mediaMetadataRetriever.release();
-                    this.b.put(str, Long.valueOf(parseLong));
-                    return parseLong;
-                } catch (Exception e) {
-                    if (g) {
-                        e.printStackTrace();
-                    }
-                    mediaMetadataRetriever.release();
-                    return 0L;
-                }
-            } finally {
-                mediaMetadataRetriever.release();
-            }
-        }
-        return invokeL.longValue;
-    }
-
-    public String g(String str) throws MalformedURLException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return this.c + du3.d(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            SwanAudioPlayer swanAudioPlayer = this.f;
-            if (swanAudioPlayer != null) {
-                swanAudioPlayer.isAudioPlayer();
-                return false;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void j(String str, gu3 gu3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, gu3Var) == null) {
-            this.a.e(str, gu3Var);
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (d03Var = this.a) == null) {
             return;
         }
-        e().post(new c(this));
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f == null) {
-            return;
+        if (d03Var.isShowing()) {
+            this.a.dismiss();
         }
-        e().postDelayed(new b(this), 50L);
+        this.a = null;
     }
 
-    public void m(JsArrayBuffer jsArrayBuffer, ju3.b bVar) {
+    public void f(Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, jsArrayBuffer, bVar) == null) {
-            ju3.f().h(jsArrayBuffer, bVar);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, str, str2, Boolean.valueOf(z), onClickListener}) == null) {
+            te3.a0(new a(this, activity, str, str2, z, onClickListener));
         }
     }
 }

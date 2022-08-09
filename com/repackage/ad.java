@@ -1,5 +1,6 @@
 package com.repackage;
 
+import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -7,23 +8,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Type;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ad implements yc {
+public class ad implements zc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONObject a;
+    public xc a;
 
-    public ad(JSONObject jSONObject) {
+    public ad(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
+            Object[] objArr = {intent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,61 +30,28 @@ public class ad implements yc {
                 return;
             }
         }
-        this.a = jSONObject;
+        this.a = new xc(intent.getExtras());
     }
 
-    @Override // com.repackage.yc
+    @Override // com.repackage.zc
     public void a(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) {
-            try {
-                this.a.putOpt(str, obj);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            this.a.a(str, obj);
         }
     }
 
-    @Override // com.repackage.yc
+    @Override // com.repackage.zc
     public Object b(String str, Type type) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, type)) == null) {
-            Object c = c(str);
-            if (c != null) {
-                be beVar = new be(type);
-                ld a = fe.a(c);
-                return a != null ? a.a(beVar) : c;
-            }
-            return c;
-        }
-        return invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, type)) == null) ? this.a.b(str, type) : invokeLL.objValue;
     }
 
-    public Object c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.a.opt(str) : invokeL.objValue;
-    }
-
-    @Override // com.repackage.yc
+    @Override // com.repackage.zc
     public Set<String> getKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Iterator<String> keys = this.a.keys();
-            if (keys != null) {
-                HashSet hashSet = new HashSet();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    if (next != null) {
-                        hashSet.add(next.toString());
-                    }
-                }
-                return hashSet;
-            }
-            return null;
-        }
-        return (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getKeys() : (Set) invokeV.objValue;
     }
 }

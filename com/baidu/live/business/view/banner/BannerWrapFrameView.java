@@ -50,10 +50,10 @@ public class BannerWrapFrameView extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0514, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d051f, this);
             this.d = inflate;
-            this.b = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f0912d0);
-            this.c = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0912d2);
+            this.b = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09132a);
+            this.c = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f09132c);
         }
     }
 
@@ -85,12 +85,6 @@ public class BannerWrapFrameView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, liveBannerEntity) == null) {
             this.e = liveBannerEntity;
-        }
-    }
-
-    public void setIsImmersion(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
         }
     }
 

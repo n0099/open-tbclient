@@ -1,44 +1,65 @@
 package com.repackage;
 
-import android.os.Build;
-import android.view.Window;
-import android.view.WindowManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class lp8 {
+public class lp8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final MainTabActivity a;
+    public final mn8 b;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lp8(MainTabActivity mainTabActivity, mn8 mn8Var) {
+        super(2001304);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                return 2038;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, mn8Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return i;
         }
-        return invokeI.intValue;
+        this.a = mainTabActivity;
+        this.b = mn8Var;
     }
 
-    public static void b(int i, WindowManager.LayoutParams layoutParams, Window window) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        mn8 mn8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeILL(65537, null, i, layoutParams, window) == null) || layoutParams == null || window == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Integer) || (mn8Var = this.b) == null || mn8Var.B() == null) {
             return;
         }
-        try {
-            Field declaredField = layoutParams.getClass().getDeclaredField("layoutInDisplayCutoutMode");
-            if (declaredField != null) {
-                declaredField.set(layoutParams, Integer.valueOf(i));
-                window.setAttributes(layoutParams);
-            }
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (NoSuchFieldException e2) {
-            e2.printStackTrace();
+        int intValue = ((Integer) customResponsedMessage.getData()).intValue();
+        int oldSkinType = TbadkCoreApplication.getInst().getOldSkinType();
+        boolean z = false;
+        if ((intValue == 2 || oldSkinType == 2) ? false : true) {
+            return;
+        }
+        if ((intValue == 3 || intValue == 1 || intValue == 0) && oldSkinType == 2) {
+            z = true;
+        }
+        if (z) {
+            this.b.B().f(1);
+        } else if (TbadkCoreApplication.getInst().isThemeIconCover()) {
+            this.b.B().f(2);
+        } else {
+            this.b.B().f(1);
         }
     }
 }

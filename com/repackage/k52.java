@@ -1,7 +1,7 @@
 package com.repackage;
+
+import com.facebook.cache.common.CacheKey;
 /* loaded from: classes6.dex */
 public interface k52 {
-    static {
-        boolean z = sg1.a;
-    }
+    CacheKey a(String str);
 }

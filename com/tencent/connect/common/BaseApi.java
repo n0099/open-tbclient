@@ -36,7 +36,7 @@ import java.util.Map;
 import org.apache.http.conn.ConnectTimeoutException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class BaseApi {
     public static /* synthetic */ Interceptable $ic;
     public static String businessId;
@@ -47,7 +47,7 @@ public abstract class BaseApi {
     public c b;
     public QQToken c;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class TempRequestListener implements IRequestListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

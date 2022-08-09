@@ -1,53 +1,64 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.max.event.VideoEventTypeEnum;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class em0 implements fh0 {
+public class em0 {
     public static /* synthetic */ Interceptable $ic;
+    public static dm0 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final VideoEventTypeEnum a;
 
-    public em0(VideoEventTypeEnum type) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755732951, "Lcom/repackage/em0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755732951, "Lcom/repackage/em0;");
+        }
+    }
+
+    public em0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {type};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        Intrinsics.checkNotNullParameter(type, "type");
-        this.a = type;
     }
 
-    @Override // com.repackage.fh0
-    public String a() {
+    public static dm0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String simpleName = em0.class.getSimpleName();
-            Intrinsics.checkNotNullExpressionValue(simpleName, "VideoViewEvent::class.java.simpleName");
-            return simpleName;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (em0.class) {
+                    if (a == null) {
+                        a = (dm0) ServiceManager.getService(dm0.a);
+                    }
+                    if (a == null) {
+                        a = dm0.b;
+                    }
+                }
+            }
+            return a;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public final VideoEventTypeEnum getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (VideoEventTypeEnum) invokeV.objValue;
+        return (dm0) invokeV.objValue;
     }
 }

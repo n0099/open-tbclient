@@ -1,32 +1,17 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.nadcore.model.AdBaseModel;
 /* loaded from: classes6.dex */
-public class f51 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface f51 {
+    void a(AdBaseModel adBaseModel);
 
-    public f51() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b(AdBaseModel adBaseModel);
 
-    public abstract void a(boolean z, long j);
+    void c(AdBaseModel adBaseModel);
 
-    public abstract void b(@NonNull ln0 ln0Var);
+    void d(AdBaseModel adBaseModel);
 
-    public abstract void c();
+    void e(AdBaseModel adBaseModel);
+
+    void f(AdBaseModel adBaseModel, float f);
 }

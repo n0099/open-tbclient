@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b46;
+import com.repackage.t56;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class RnSyncResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b46 mData;
+    public t56 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RnSyncResponseMessage(int i) {
@@ -39,15 +39,15 @@ public class RnSyncResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) && jSONObject != null && isSuccess()) {
-            b46 b46Var = new b46();
-            this.mData = b46Var;
-            b46Var.d(jSONObject);
+            t56 t56Var = new t56();
+            this.mData = t56Var;
+            t56Var.d(jSONObject);
         }
     }
 
-    public b46 getData() {
+    public t56 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (b46) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (t56) invokeV.objValue;
     }
 }

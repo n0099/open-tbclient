@@ -1,203 +1,127 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.RankingParam;
-import tbclient.SugRankingInfo;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class vf7 implements nn {
+public class vf7 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public a d;
+    public List<tf7> a;
+    public Context b;
+    public int c;
+    public int d;
+    public final int e;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Integer a;
-        public Integer b;
-        public String c;
-        public Integer d;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public Integer a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Integer) invokeV.objValue;
-        }
-
-        public Integer b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (Integer) invokeV.objValue;
-        }
-
-        public String c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
-        }
-
-        public Integer d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (Integer) invokeV.objValue;
-        }
-
-        public void e(Integer num) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, num) == null) {
-            }
-        }
-
-        public void f(Integer num) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, num) == null) {
-                this.b = num;
-            }
-        }
-
-        public void g(Integer num) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, num) == null) {
-                this.a = num;
-            }
-        }
-
-        public void h(Integer num) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, num) == null) {
-            }
-        }
-
-        public void i(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-                this.c = str;
-            }
-        }
-
-        public void j(Integer num) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, num) == null) {
-                this.d = num;
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755233014, "Lcom/repackage/vf7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755233014, "Lcom/repackage/vf7;");
-                return;
-            }
-        }
-        e = BdUniqueId.gen();
-    }
-
-    public vf7() {
+    public vf7(Context context, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "";
-        this.b = "";
+        this.a = new ArrayList();
+        this.c = 0;
+        this.d = 0;
+        this.b = context;
+        this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b5);
+        this.d = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be);
+        this.e = i;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public tf7 getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public a b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (a) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public void g(SugRankingInfo sugRankingInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, sugRankingInfo) == null) {
-            String str = sugRankingInfo.rank_title;
-            this.a = str;
-            this.c = str;
-            RankingParam rankingParam = sugRankingInfo.rank_param;
-            if (rankingParam != null) {
-                a aVar = new a();
-                aVar.g(rankingParam.rank_type);
-                aVar.f(rankingParam.rank_code);
-                aVar.i(rankingParam.sort_type);
-                aVar.j(rankingParam.tab_id);
-                aVar.e(rankingParam.pn);
-                aVar.h(rankingParam.rn);
-                this.d = aVar;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i < 0 || i >= this.a.size()) {
+                return null;
             }
+            return this.a.get(i);
+        }
+        return (tf7) invokeI.objValue;
+    }
+
+    public void b(List<tf7> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a.clear();
+            if (list != null && list.size() > 0) {
+                this.a.addAll(list);
+            }
+            notifyDataSetChanged();
         }
     }
 
-    @Override // com.repackage.nn
-    public BdUniqueId getType() {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? e : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.size() : invokeV.intValue;
     }
 
-    public void h(String str) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return 0L;
         }
+        return invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            if (view2 instanceof TextView) {
+                textView = (TextView) view2;
+            } else {
+                textView = new TextView(this.b);
+                textView.setGravity(17);
+                textView.setTextSize(0, this.c);
+                int i2 = this.d;
+                textView.setPadding(0, i2, 0, i2);
+            }
+            tf7 tf7Var = (tf7) ListUtils.getItem(this.a, i);
+            if (tf7Var == null) {
+                return null;
+            }
+            textView.setText(StringHelper.cutChineseAndEnglishWithSuffix(tf7Var.c, 8, (String) null));
+            SkinManager.setViewTextColor(textView, R.color.CAM_X0106, 1);
+            if (i == this.e) {
+                SkinManager.setBackgroundResource(textView, R.drawable.btn_label_white_s);
+            } else {
+                SkinManager.setBackgroundResource(textView, R.drawable.lego_btn_more_item);
+            }
+            return textView;
+        }
+        return (View) invokeILL.objValue;
     }
 }

@@ -33,7 +33,7 @@ import com.tencent.tauth.Tencent;
 import com.tencent.tauth.UiError;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class QQShare extends BaseApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int QQ_SHARE_SUMMARY_MAX_LENGTH = 512;

@@ -1,81 +1,23 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.model.ThemeColorConfig;
+import com.yy.mobile.framework.revenuesdk.IRevenue;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.IRLogDelegate;
+import java.util.List;
+import tv.athena.revenue.api.IMiddleRevenue;
+import tv.athena.revenue.api.MiddleRevenueConfig;
 /* loaded from: classes6.dex */
-public final class nz9 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final nz9 a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface nz9 {
+    void addLogDelegate(IRLogDelegate iRLogDelegate);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755452060, "Lcom/repackage/nz9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755452060, "Lcom/repackage/nz9;");
-                return;
-            }
-        }
-        a = new nz9();
-    }
+    void addRevenueConfig(MiddleRevenueConfig middleRevenueConfig);
 
-    public nz9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    List<IRevenue> getAllRevenue();
 
-    public final int a(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        ThemeColorConfig themeColorConfig;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, payUIKitConfig)) == null) {
-            if (payUIKitConfig == null || (themeColorConfig = payUIKitConfig.themeColorConfig) == null || themeColorConfig.getThemeResId() == null) {
-                return R.style.obfuscated_res_0x7f10014a;
-            }
-            Integer themeResId = payUIKitConfig.themeColorConfig.getThemeResId();
-            if (themeResId == null) {
-                Intrinsics.throwNpe();
-            }
-            return themeResId.intValue();
-        }
-        return invokeL.intValue;
-    }
+    IMiddleRevenue getMiddleRevenue(int i, int i2);
 
-    public final boolean b(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        ThemeColorConfig themeColorConfig;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payUIKitConfig)) == null) {
-            if (payUIKitConfig == null || (themeColorConfig = payUIKitConfig.themeColorConfig) == null) {
-                return true;
-            }
-            Integer themeResId = themeColorConfig != null ? themeColorConfig.getThemeResId() : null;
-            return themeResId != null && themeResId.intValue() == R.style.obfuscated_res_0x7f10014a;
-        }
-        return invokeL.booleanValue;
-    }
+    IRevenue getRevenue(int i, int i2);
+
+    void removeRevenueConfig(int i, int i2);
+
+    void updateMiddleRevenueConfig(int i, int i2, Long l, String str);
 }

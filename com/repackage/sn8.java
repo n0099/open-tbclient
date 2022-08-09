@@ -1,22 +1,23 @@
 package com.repackage;
 
+import android.content.res.Configuration;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tieba.R;
+import com.baidu.tieba.splashad.SplashAdView;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetBgByCategory.ThemeBgInMain;
-import tbclient.ThemeBgProp;
+import java.lang.ref.WeakReference;
 /* loaded from: classes7.dex */
 public class sn8 {
     public static /* synthetic */ Interceptable $ic;
+    public static sn8 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<DressItemData> b;
+    public WeakReference<SplashAdView> a;
 
     public sn8() {
         Interceptable interceptable = $ic;
@@ -32,27 +33,60 @@ public class sn8 {
         }
     }
 
-    public List<DressItemData> a() {
+    public static sn8 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                b = new sn8();
+            }
+            return b;
+        }
+        return (sn8) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public void b(Configuration configuration) {
+        WeakReference<SplashAdView> weakReference;
+        SplashAdView splashAdView;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public void c(ThemeBgInMain themeBgInMain) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themeBgInMain) == null) || themeBgInMain == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, configuration) == null) || (weakReference = this.a) == null || (splashAdView = weakReference.get()) == null) {
             return;
         }
-        this.a = themeBgInMain.bg_category;
-        this.b = new ArrayList();
-        for (ThemeBgProp themeBgProp : themeBgInMain.props) {
-            this.b.add(new DressItemData(themeBgProp));
+        splashAdView.onConfigurationChanged(configuration);
+    }
+
+    public void c() {
+        WeakReference<SplashAdView> weakReference;
+        SplashAdView splashAdView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (weakReference = this.a) == null || (splashAdView = weakReference.get()) == null) {
+            return;
+        }
+        splashAdView.a();
+    }
+
+    public void d() {
+        WeakReference<SplashAdView> weakReference;
+        SplashAdView splashAdView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (weakReference = this.a) == null || (splashAdView = weakReference.get()) == null) {
+            return;
+        }
+        splashAdView.b();
+    }
+
+    public void e(MainTabActivity mainTabActivity) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, mainTabActivity) == null) || mainTabActivity == null) {
+            return;
+        }
+        SplashAdView splashAdView = new SplashAdView(mainTabActivity, 2);
+        this.a = new WeakReference<>(splashAdView);
+        mainTabActivity.getWindow().setFlags(1024, 1024);
+        ViewGroup viewGroup = (ViewGroup) mainTabActivity.findViewById(R.id.obfuscated_res_0x7f091edf);
+        if (viewGroup != null) {
+            viewGroup.setVisibility(0);
+            viewGroup.addView(splashAdView);
         }
     }
 }

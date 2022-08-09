@@ -1,123 +1,236 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.util.EmotionUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.dy;
+import com.repackage.oy;
 /* loaded from: classes6.dex */
-public class l86 {
+public class l86 extends bn<ir4, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern a;
-    public static final Pattern b;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdUniqueId a;
+    public String b;
+    public TbPageContext<?> c;
+    public un d;
+    public b06<ir4> e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755575161, "Lcom/repackage/l86;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a extends b06<ir4> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ l86 b;
+
+        public a(l86 l86Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l86Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755575161, "Lcom/repackage/l86;");
+            this.b = l86Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.b06
+        /* renamed from: d */
+        public void a(View view2, ir4 ir4Var) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, ir4Var) == null) || ir4Var == null) {
+                return;
+            }
+            uz5.b().d(true);
+            j66.a(view2, ir4Var, this.b.b);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements yn {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ l86 a;
+
+        public b(l86 l86Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l86Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = l86Var;
+        }
+
+        @Override // com.repackage.yn
+        public void b(View view2, on onVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, onVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (onVar instanceof ir4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
+                ir4 ir4Var = (ir4) onVar;
+                ThreadData threadData = ir4Var.t;
+                threadData.objType = 1;
+                if (this.a.e != null) {
+                    this.a.e.a(threadCardViewHolder.getView(), ir4Var);
+                }
+                ThreadCardUtils.jumpToPB((fo4) threadData, view2.getContext(), 2, false, vw.a((un) viewGroup, view2, i));
+                threadCardViewHolder.a().o(new oy.a(1));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements ThreadCommentAndPraiseInfoLayout.k {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ View b;
+        public final /* synthetic */ int c;
+
+        public c(l86 l86Var, ViewGroup viewGroup, View view2, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l86Var, viewGroup, view2, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = viewGroup;
+            this.b = view2;
+            this.c = i;
+        }
+
+        @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout.k
+        public void a(IntentConfig intentConfig) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, intentConfig) == null) && (intentConfig instanceof PbActivityConfig)) {
+                ((PbActivityConfig) intentConfig).setVideoOriginArea(vw.a((un) this.a, this.b, this.c));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l86(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = Pattern.compile("#\\([a-zA-Z0-9_~！\\-\\u4E00-\\u9FA5]+\\)");
-        b = Pattern.compile("#\\([^#\\)\\(]+\\)$");
+        this.e = new a(this);
+        this.c = tbPageContext;
+        this.a = bdUniqueId2;
+        this.b = str;
     }
 
-    public static int a(CharSequence charSequence) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bn
+    /* renamed from: u */
+    public ThreadCardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
-        CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, charSequence)) == null) {
-            int i = 0;
-            if (charSequence != null && charSequence.length() != 0) {
-                Matcher matcher = a.matcher(charSequence);
-                while (matcher.find()) {
-                    String group = matcher.group();
-                    if (MessageManager.getInstance().findTask(2004608) != null && (runTask = MessageManager.getInstance().runTask(2004608, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
-                        i++;
-                    }
-                }
-                Matcher matcher2 = Pattern.compile("#\\(meme,[collect_]?[a-zA-Z0-9_,]+\\)").matcher(charSequence);
-                while (matcher2.find()) {
-                    String[] split = matcher2.group().split(",");
-                    if (split != null && split.length == 5) {
-                        i++;
-                    }
-                }
-                Matcher matcher3 = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(charSequence);
-                while (matcher3.find()) {
-                    String[] split2 = matcher3.group().split(",");
-                    if (split2 != null && split2.length == 6) {
-                        i++;
-                    }
-                }
-            }
-            return i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            dy.b bVar = new dy.b(this.c.getPageActivity(), false);
+            fy fyVar = new fy(this.c.getPageActivity());
+            lo4 lo4Var = new lo4();
+            lo4Var.b = 22;
+            lo4Var.h = 19;
+            fyVar.w(lo4Var);
+            fyVar.F(this.b);
+            fyVar.y(18);
+            fyVar.E("personalize_page");
+            fyVar.D(18);
+            fyVar.z(2);
+            fyVar.c(32);
+            fyVar.x(false);
+            bVar.m(fyVar);
+            dy k = bVar.k(BaseCardInfo.SupportType.BOTTOM, viewGroup, this.d);
+            k.r(2);
+            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
+            threadCardViewHolder.i(this.a);
+            setOnAdapterItemClickListener(new b(this));
+            return threadCardViewHolder;
         }
-        return invokeL.intValue;
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    public static int b(CharSequence charSequence) {
-        InterceptResult invokeL;
-        CustomResponsedMessage runTask;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bn
+    /* renamed from: v */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ir4 ir4Var, ThreadCardViewHolder threadCardViewHolder) {
+        InterceptResult invokeCommon;
+        ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, charSequence)) == null) {
-            int i = 0;
-            if (charSequence != null && charSequence.length() != 0) {
-                Matcher matcher = a.matcher(charSequence);
-                while (matcher.find()) {
-                    String group = matcher.group();
-                    if (MessageManager.getInstance().findTask(2004608) != null && (runTask = MessageManager.getInstance().runTask(2004608, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
-                        i++;
-                    }
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ir4Var, threadCardViewHolder})) == null) {
+            if (ir4Var == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || (threadData = ir4Var.t) == null) {
+                return null;
             }
-            return i;
+            threadData.statFloor = getPositionByType(i) + 1;
+            threadCardViewHolder.a().q(i);
+            if (threadCardViewHolder.a().f() instanceof fy) {
+                ((fy) threadCardViewHolder.a().f()).C(new c(this, viewGroup, view2, i));
+            }
+            threadCardViewHolder.e(ir4Var);
+            threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.a().p(this.e);
+            j66.b(ir4Var, this.b);
+            return threadCardViewHolder.getView();
         }
-        return invokeL.intValue;
+        return (View) invokeCommon.objValue;
     }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
+    public void w(un unVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            String replaceAll = str.replaceAll(n45.h, EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT).replaceAll("meme,diy_", EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT);
-            Matcher matcher = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(replaceAll);
-            StringBuilder sb = new StringBuilder(replaceAll);
-            int i = 0;
-            while (matcher.find()) {
-                String[] split = matcher.group().split(",");
-                if (split != null && split.length == 6) {
-                    StringBuilder sb2 = new StringBuilder();
-                    int start = matcher.start() - i;
-                    int end = matcher.end() - i;
-                    for (int i2 = 0; i2 < split.length; i2++) {
-                        if (i2 != 1) {
-                            sb2.append(split[i2]);
-                            if (i2 < split.length - 1) {
-                                sb2.append(",");
-                            }
-                        }
-                    }
-                    i += (end - start) - sb2.toString().length();
-                    if (start >= 0 && end <= sb.length()) {
-                        sb.replace(start, end, sb2.toString());
-                    }
-                }
-            }
-            return sb.toString();
+        if (interceptable == null || interceptable.invokeL(1048580, this, unVar) == null) {
+            this.d = unVar;
         }
-        return (String) invokeL.objValue;
     }
 }

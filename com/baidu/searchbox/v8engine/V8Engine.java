@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ee1;
+import com.repackage.ve1;
 import java.io.File;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
@@ -511,7 +511,7 @@ public class V8Engine implements JSRuntime {
                     if (str == null) {
                         str = getBuildInV8BinPath();
                     }
-                    if (str != null && ee1.b(str)) {
+                    if (str != null && ve1.b(str)) {
                         this.mV8BinAssetManager = (AssetManager) AssetManager.class.newInstance();
                         AssetManager.class.getDeclaredMethod(ALTERNATIVE_ADD_ASSET_PATH_METHOD, String.class).invoke(this.mV8BinAssetManager, str);
                     }

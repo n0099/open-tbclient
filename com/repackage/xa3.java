@@ -1,14 +1,13 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
-import android.os.VibrationEffect;
-import android.os.Vibrator;
-import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
+import android.content.res.Resources;
+import android.provider.Settings;
+import android.view.Window;
+import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,47 +15,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mv2;
 /* loaded from: classes7.dex */
 public class xa3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public c b;
-    public final mv2.a c;
 
     /* loaded from: classes7.dex */
-    public class a implements mv2.a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xa3 a;
-
-        public a(xa3 xa3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xa3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xa3Var;
-        }
-
-        @Override // com.repackage.mv2.a
-        public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) && i == 700 && iArr.length > 0 && iArr[0] == 0 && this.a.b != null) {
-                this.a.b.a(this.a.a);
-            }
-        }
     }
 
     /* loaded from: classes7.dex */
@@ -82,46 +49,6 @@ public class xa3 {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Vibrator a;
-
-        public c(@NonNull Vibrator vibrator) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vibrator};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vibrator;
-        }
-
-        @SuppressLint({"MissingPermission"})
-        public void a(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                try {
-                    if (pc3.j()) {
-                        this.a.vibrate(VibrationEffect.createOneShot(j, -1));
-                        return;
-                    }
-                    this.a.vibrate(j);
-                } catch (Exception unused) {
-                }
-            }
-        }
-    }
-
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -135,64 +62,86 @@ public class xa3 {
                 return;
             }
         }
-        d = sg1.a;
+        boolean z = jh1.a;
     }
 
     public /* synthetic */ xa3(a aVar) {
         this();
     }
 
-    public static xa3 d() {
+    public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? b.a : (xa3) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            try {
+                Resources system = Resources.getSystem();
+                int identifier = system.getIdentifier("config_screenBrightnessSettingMaximum", "integer", "android");
+                if (identifier != 0) {
+                    return system.getInteger(identifier);
+                }
+                return 255;
+            } catch (Exception unused) {
+                return 255;
+            }
+        }
+        return invokeV.intValue;
     }
 
-    public final boolean c() {
+    public static xa3 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (pc3.h()) {
-                Context appContext = AppRuntime.getAppContext();
-                return appContext != null && ContextCompat.checkSelfPermission(appContext, "android.permission.VIBRATE") == 0;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? b.a : (xa3) invokeV.objValue;
+    }
+
+    public static float d(Context context) {
+        int i;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            try {
+                i = Settings.System.getInt(context.getContentResolver(), "screen_brightness");
+            } catch (Exception e) {
+                e.printStackTrace();
+                i = 0;
             }
-            return true;
+            return i * (1.0f / b());
         }
-        return invokeV.booleanValue;
+        return invokeL.floatValue;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public void e(long j) {
+    public float a(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.a = j;
-            if (this.b == null) {
-                if (d) {
-                    throw new RuntimeException("not support vibration");
-                }
-            } else if (c()) {
-                this.b.a(this.a);
-            } else {
-                String[] strArr = {"android.permission.VIBRATE"};
-                SwanAppActivity w = h03.K().w();
-                if (w != null) {
-                    w.y(700, strArr, this.c);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
+            if (activity != null) {
+                float f = activity.getWindow().getAttributes().screenBrightness;
+                return f < 0.0f ? d(activity) : f;
             }
+            return -1.0f;
         }
+        return invokeL.floatValue;
     }
 
-    public void f() {
+    public void e(Activity activity, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            e(400L);
+        if (!(interceptable == null || interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, f) == null) || activity == null) {
+            return;
         }
+        WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
+        attributes.screenBrightness = f;
+        activity.getWindow().setAttributes(attributes);
     }
 
-    public void g() {
+    public void f(Activity activity, boolean z) {
+        Window window;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            e(15L);
+        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, activity, z) == null) || activity == null || (window = activity.getWindow()) == null) {
+            return;
+        }
+        if (z) {
+            window.addFlags(128);
+        } else {
+            window.clearFlags(128);
         }
     }
 
@@ -206,14 +155,7 @@ public class xa3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
-        }
-        this.a = 0L;
-        this.c = new a(this);
-        Vibrator vibrator = (Vibrator) AppRuntime.getAppContext().getSystemService("vibrator");
-        if (vibrator != null) {
-            this.b = new c(vibrator);
         }
     }
 }

@@ -1,175 +1,180 @@
 package com.repackage;
 
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.faceshop.EmotionGroupData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.mvc.core.ViewEventCenter;
+import com.baidu.tieba.R;
+import com.baidu.tieba.enterForum.adapter.ClassFitionForumItemAdapter;
+import com.baidu.tieba.enterForum.model.EnterForumModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class w86 implements f15 {
+public class w86 extends d95<p66, r66> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext f;
+    public final LinearLayout g;
+    public RecyclerView h;
+    public EMTextView i;
+    public ImageView j;
+    public ClassFitionForumItemAdapter k;
+    public List<o66> l;
+    public boolean m;
 
-    public w86() {
+    /* loaded from: classes7.dex */
+    public class a implements b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ w86 a;
+
+        public a(w86 w86Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w86Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = w86Var;
+        }
+
+        @Override // com.repackage.w86.b
+        public void a(List<o66> list, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, list, i) == null) {
+                if (i == list.size() - 1) {
+                    w86 w86Var = this.a;
+                    w86Var.m = !w86Var.m;
+                    this.a.k.update(this.a.o());
+                    return;
+                }
+                HashMap hashMap = new HashMap();
+                hashMap.put(this.a.f.getString(R.string.obfuscated_res_0x7f0f06bb), list.get(i).b());
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921678, hashMap));
+                TiebaStatic.log(new StatisticItem("c14583").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_type", i + 1));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(List<o66> list, int i);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w86(TbPageContext<?> tbPageContext, View view2, ViewEventCenter viewEventCenter, b96 b96Var, EnterForumModel enterForumModel) {
+        super(tbPageContext, view2, viewEventCenter);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, view2, viewEventCenter, b96Var, enterForumModel};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (View) objArr2[1], (ViewEventCenter) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.m = false;
+        this.f = tbPageContext;
+        this.i = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0921ba);
+        this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0902b7);
+        this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090484);
+        RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091b74);
+        this.h = recyclerView;
+        recyclerView.setNestedScrollingEnabled(false);
+        this.h.setLayoutManager(new GridLayoutManager(getContext(), 5));
+        ClassFitionForumItemAdapter classFitionForumItemAdapter = new ClassFitionForumItemAdapter(tbPageContext, null);
+        this.k = classFitionForumItemAdapter;
+        this.h.setAdapter(classFitionForumItemAdapter);
+        this.k.f(new a(this));
     }
 
-    @Override // com.repackage.f15
-    public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
+    public final List<o66> o() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) || i == 3) {
-            return;
-        }
-        try {
-            File file = new File(downloadData.getPath());
-            if (file.exists()) {
-                file.delete();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.addAll(this.l);
+            if (this.m) {
+                if (this.l.size() >= 14) {
+                    List<o66> subList = arrayList.subList(0, 14);
+                    subList.add(new o66(this.f.getString(R.string.obfuscated_res_0x7f0f063c), R.drawable.obfuscated_res_0x7f0807cd));
+                    return subList;
+                }
+                return arrayList;
+            } else if (this.l.size() >= 9) {
+                List<o66> subList2 = arrayList.subList(0, 9);
+                subList2.add(new o66(this.f.getString(R.string.obfuscated_res_0x7f0f0ae3), R.drawable.obfuscated_res_0x7f08081f));
+                return subList2;
+            } else {
+                return arrayList;
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.f15
-    public void onFileDownloadSucceed(DownloadData downloadData) {
+    @Override // com.repackage.zj8
+    public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
-            MessageManager.getInstance().runTask(2004603, (Class) null);
-            try {
-                File file = new File(downloadData.getPath());
-                if (file.exists()) {
-                    file.delete();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    @Override // com.repackage.f15
-    public boolean onFileDownloaded(DownloadData downloadData) {
-        InterceptResult invokeL;
-        FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
-            if (downloadData == null) {
-                return false;
-            }
-            FileInputStream fileInputStream2 = null;
-            try {
-                try {
-                    fileInputStream = new FileInputStream(downloadData.getPath());
-                } catch (Exception e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                int g = q86.c().g(downloadData.getId(), fileInputStream);
-                EmotionGroupData n = y86.o().n(downloadData.getId());
-                if (n == null) {
-                    if (g == 0) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException e2) {
-                            BdLog.detailException(e2);
-                        }
-                        return false;
-                    }
-                    n = new EmotionGroupData();
-                    n.setBytesLength((int) downloadData.getSize());
-                    n.setBytesReceived((int) downloadData.getLength());
-                    n.setDownloadUrl(downloadData.getUrl());
-                    n.setGroupId(downloadData.getId());
-                    n.setEmotionsCount(g);
-                    n.setHeight(downloadData.getHeight());
-                    n.setWidth(downloadData.getWidth());
-                    n.setDownloadTime(System.currentTimeMillis());
-                    n.setGroupDesc(downloadData.getDescription());
-                    n.setGroupName(downloadData.getName());
-                    n.setStatus(1);
-                    y86.o().g(n);
-                }
-                y86.o().h(downloadData.getStatusMsg(), n);
-                downloadData.setStatusMsg(null);
-                try {
-                    fileInputStream.close();
-                } catch (IOException e3) {
-                    BdLog.detailException(e3);
-                }
-                return true;
-            } catch (Exception e4) {
-                e = e4;
-                fileInputStream2 = fileInputStream;
-                BdLog.detailException(e);
-                if (fileInputStream2 != null) {
-                    try {
-                        fileInputStream2.close();
-                    } catch (IOException e5) {
-                        BdLog.detailException(e5);
-                    }
-                }
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                fileInputStream2 = fileInputStream;
-                if (fileInputStream2 != null) {
-                    try {
-                        fileInputStream2.close();
-                    } catch (IOException e6) {
-                        BdLog.detailException(e6);
-                    }
-                }
-                throw th;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.f15
-    public void onFileUpdateProgress(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) || downloadData == null) {
-            return;
-        }
-        x86.f().i(downloadData);
-    }
-
-    @Override // com.repackage.f15
-    public boolean onPreDownload(DownloadData downloadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
-            if (downloadData == null) {
-                return false;
-            }
-            EmotionGroupData n = y86.o().n(downloadData.getId());
-            if (n == null || !r86.d(downloadData.getId())) {
-                return true;
-            }
-            y86.o().h(downloadData.getStatusMsg(), n);
-            downloadData.setStatusMsg(null);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i)) == null) {
+            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0201);
+            ms4 d = ms4.d(this.g);
+            d.n(R.string.J_X06);
+            d.f(R.color.CAM_X0205);
+            ms4 d2 = ms4.d(this.i);
+            d2.A(R.string.F_X02);
+            d2.z(R.dimen.T_X07);
+            d2.v(R.color.CAM_X0105);
+            WebPManager.setPureDrawable(this.j, R.drawable.icon_pure_list_arrow16_right, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeLI.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.g95
+    /* renamed from: p */
+    public void f(p66 p66Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, p66Var) == null) {
+            super.f(p66Var);
+            this.l = p66Var.j();
+            this.k.update(o());
+            this.i.setText(p66Var.getTitle());
+            onChangeSkinType(b(), TbadkCoreApplication.getInst().getSkinType());
+        }
     }
 }

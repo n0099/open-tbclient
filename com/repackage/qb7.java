@@ -1,74 +1,86 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class qb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
 
-    public qb7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public String b;
+        public String c;
+        public String d;
+        public String e;
+        public String f;
+        public String g;
+        public int h;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
     }
 
-    public static qb7 c(JSONObject jSONObject) {
+    public static a a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            int optInt = jSONObject.optInt(Config.TRACE_VISIT_RECENT_DAY);
-            int optInt2 = jSONObject.optInt("forum_num");
-            qb7 qb7Var = new qb7();
-            qb7Var.d(optInt);
-            qb7Var.e(optInt2);
-            return qb7Var;
+            a aVar = new a();
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                if (jSONArray.length() > 0) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(0);
+                    optJSONObject.optString("title");
+                    aVar.b = optJSONObject.optString("content");
+                    aVar.c = optJSONObject.optString("quote_content");
+                    aVar.d = optJSONObject.optString("fname");
+                    aVar.e = optJSONObject.optString("thread_id");
+                    aVar.f = optJSONObject.optString("post_id");
+                    aVar.h = optJSONObject.optInt("type");
+                    aVar.g = optJSONObject.optString("title");
+                    optJSONObject.optInt("thread_type");
+                    JSONObject optJSONObject2 = optJSONObject.optJSONObject("quote_user");
+                    if (optJSONObject2 != null) {
+                        optJSONObject2.optString("id");
+                        optJSONObject2.optString("portrait");
+                        optJSONObject2.optInt("gender");
+                    }
+                    JSONObject optJSONObject3 = optJSONObject.optJSONObject("replyer");
+                    if (optJSONObject3 != null) {
+                        optJSONObject3.optString("id");
+                        aVar.a = optJSONObject3.optInt("gender");
+                    }
+                }
+                return aVar;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
+            }
         }
-        return (qb7) invokeL.objValue;
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.b = i;
-        }
+        return (a) invokeL.objValue;
     }
 }

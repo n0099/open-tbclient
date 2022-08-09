@@ -1,20 +1,13 @@
 package com.repackage;
 
-import android.accounts.Account;
-import android.os.Bundle;
-import android.os.IBinder;
-import android.os.Parcel;
-import android.os.Parcelable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.Feature;
-import com.google.android.gms.common.api.Scope;
-import com.google.android.gms.common.internal.GetServiceRequest;
-import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
+import com.kwad.sdk.api.KsNativeAd;
 /* loaded from: classes7.dex */
-public final class rk9 implements Parcelable.Creator<GetServiceRequest> {
+public abstract class rk9 implements KsNativeAd.AdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,104 +25,17 @@ public final class rk9 implements Parcelable.Creator<GetServiceRequest> {
         }
     }
 
-    public static void a(GetServiceRequest getServiceRequest, Parcel parcel, int i) {
+    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+    public void onDownloadTipsDialogDismiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65537, null, getServiceRequest, parcel, i) == null) {
-            int a = fk9.a(parcel);
-            fk9.g(parcel, 1, getServiceRequest.zza);
-            fk9.g(parcel, 2, getServiceRequest.zzb);
-            fk9.g(parcel, 3, getServiceRequest.zzc);
-            fk9.k(parcel, 4, getServiceRequest.zzd, false);
-            fk9.f(parcel, 5, getServiceRequest.zze, false);
-            fk9.m(parcel, 6, getServiceRequest.zzf, i, false);
-            fk9.d(parcel, 7, getServiceRequest.zzg, false);
-            fk9.j(parcel, 8, getServiceRequest.zzh, i, false);
-            fk9.m(parcel, 10, getServiceRequest.zzi, i, false);
-            fk9.m(parcel, 11, getServiceRequest.zzj, i, false);
-            fk9.c(parcel, 12, getServiceRequest.zzk);
-            fk9.g(parcel, 13, getServiceRequest.zzl);
-            fk9.c(parcel, 14, getServiceRequest.zzm);
-            fk9.k(parcel, 15, getServiceRequest.zza(), false);
-            fk9.b(parcel, a);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // android.os.Parcelable.Creator
-    public final /* bridge */ /* synthetic */ GetServiceRequest createFromParcel(Parcel parcel) {
-        int q = SafeParcelReader.q(parcel);
-        String str = null;
-        IBinder iBinder = null;
-        Scope[] scopeArr = null;
-        Bundle bundle = null;
-        Account account = null;
-        Feature[] featureArr = null;
-        Feature[] featureArr2 = null;
-        String str2 = null;
-        int i = 0;
-        int i2 = 0;
-        int i3 = 0;
-        boolean z = false;
-        int i4 = 0;
-        boolean z2 = false;
-        while (parcel.dataPosition() < q) {
-            int k = SafeParcelReader.k(parcel);
-            switch (SafeParcelReader.h(k)) {
-                case 1:
-                    i = SafeParcelReader.m(parcel, k);
-                    break;
-                case 2:
-                    i2 = SafeParcelReader.m(parcel, k);
-                    break;
-                case 3:
-                    i3 = SafeParcelReader.m(parcel, k);
-                    break;
-                case 4:
-                    str = SafeParcelReader.d(parcel, k);
-                    break;
-                case 5:
-                    iBinder = SafeParcelReader.l(parcel, k);
-                    break;
-                case 6:
-                    scopeArr = (Scope[]) SafeParcelReader.f(parcel, k, Scope.CREATOR);
-                    break;
-                case 7:
-                    bundle = SafeParcelReader.a(parcel, k);
-                    break;
-                case 8:
-                    account = (Account) SafeParcelReader.c(parcel, k, Account.CREATOR);
-                    break;
-                case 9:
-                default:
-                    SafeParcelReader.p(parcel, k);
-                    break;
-                case 10:
-                    featureArr = (Feature[]) SafeParcelReader.f(parcel, k, Feature.CREATOR);
-                    break;
-                case 11:
-                    featureArr2 = (Feature[]) SafeParcelReader.f(parcel, k, Feature.CREATOR);
-                    break;
-                case 12:
-                    z = SafeParcelReader.i(parcel, k);
-                    break;
-                case 13:
-                    i4 = SafeParcelReader.m(parcel, k);
-                    break;
-                case 14:
-                    z2 = SafeParcelReader.i(parcel, k);
-                    break;
-                case 15:
-                    str2 = SafeParcelReader.d(parcel, k);
-                    break;
-            }
+    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+    public void onDownloadTipsDialogShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
-        SafeParcelReader.g(parcel, q);
-        return new GetServiceRequest(i, i2, i3, str, iBinder, scopeArr, bundle, account, featureArr, featureArr2, z, i4, z2, str2);
-    }
-
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
-    @Override // android.os.Parcelable.Creator
-    public final /* synthetic */ GetServiceRequest[] newArray(int i) {
-        return new GetServiceRequest[i];
     }
 }

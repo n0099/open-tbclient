@@ -1,117 +1,71 @@
 package com.repackage;
 
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.drawable.Drawable;
-import android.widget.ImageView;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.opensource.svgaplayer.SVGAVideoEntity;
+import org.checkerframework.checker.nullness.qual.EnsuresNonNull;
 /* loaded from: classes7.dex */
-public final class ym9 extends Drawable {
+public final class ym9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public ImageView.ScaleType c;
-    public final dn9 d;
-    public final SVGAVideoEntity e;
-    public final zm9 f;
 
-    public ym9(SVGAVideoEntity sVGAVideoEntity, zm9 zm9Var) {
+    public static void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sVGAVideoEntity, zm9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeZ(65536, null, z) == null) && !z) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    @NonNull
+    @EnsuresNonNull({"#1"})
+    public static String b(@Nullable String str, @NonNull Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, obj)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                throw new IllegalArgumentException(String.valueOf(obj));
             }
+            return str;
         }
-        this.e = sVGAVideoEntity;
-        this.f = zm9Var;
-        this.a = true;
-        this.c = ImageView.ScaleType.MATRIX;
-        this.d = new dn9(sVGAVideoEntity, zm9Var);
+        return (String) invokeLL.objValue;
     }
 
-    public final int a() {
-        InterceptResult invokeV;
+    public static void c(@NonNull String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public final SVGAVideoEntity b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (SVGAVideoEntity) invokeV.objValue;
-    }
-
-    public final void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || this.a == z) {
-            return;
-        }
-        this.a = z;
-        invalidateSelf();
-    }
-
-    public final void d(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || this.b == i) {
-            return;
-        }
-        this.b = i;
-        invalidateSelf();
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) || this.a || canvas == null) {
-            return;
-        }
-        this.d.a(canvas, this.b, this.c);
-    }
-
-    public final void e(ImageView.ScaleType scaleType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, scaleType) == null) {
-            this.c = scaleType;
+        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && sn9.a()) {
+            throw new IllegalStateException(str);
         }
     }
 
-    @Override // android.graphics.drawable.Drawable
-    public int getOpacity() {
-        InterceptResult invokeV;
+    @NonNull
+    @EnsuresNonNull({"#1"})
+    public static <T> T d(@Nullable T t) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return -2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, t)) == null) {
+            if (t != null) {
+                return t;
+            }
+            throw new NullPointerException("null reference");
         }
-        return invokeV.intValue;
+        return (T) invokeL.objValue;
     }
 
-    @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
+    @NonNull
+    @EnsuresNonNull({"#1"})
+    public static <T> T e(@NonNull T t, @NonNull Object obj) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, t, obj)) == null) {
+            if (t != null) {
+                return t;
+            }
+            throw new NullPointerException(String.valueOf(obj));
         }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(ColorFilter colorFilter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, colorFilter) == null) {
-        }
+        return (T) invokeLL.objValue;
     }
 }

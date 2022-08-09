@@ -6,25 +6,23 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
-import com.baidu.mobstat.Config;
+import com.baidu.live.feedpage.interfaces.ILiveFeedPageView;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g90;
-import com.repackage.k90;
-import com.repackage.sq5;
+import com.repackage.ks5;
+import com.repackage.l90;
 /* loaded from: classes3.dex */
 public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
-    public k90 b;
+    public ILiveFeedPageView b;
 
     public AlaLiveTabFeedActivity() {
         Interceptable interceptable = $ic;
@@ -45,11 +43,11 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             this.a.onChangeSkinType(getPageContext(), i);
-            String str = i == 1 ? SkinManager.SKIN_TYPE_STR_NIGHT : i == 4 ? "dark" : Config.TRACE_VISIT_RECENT_DAY;
-            LiveFeedPageSdk.f().r(str);
-            k90 k90Var = this.b;
-            if (k90Var != null) {
-                k90Var.b(str);
+            String str = i == 1 ? "night" : i == 4 ? "dark" : "day";
+            LiveFeedPageSdk.getInstance().updateUiMode(str);
+            ILiveFeedPageView iLiveFeedPageView = this.b;
+            if (iLiveFeedPageView != null) {
+                iLiveFeedPageView.onDarkModeChange(str);
             }
         }
     }
@@ -60,22 +58,22 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d00f9);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091b3e);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091568);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c22);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091624);
             this.a = navigationBar;
-            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0221));
+            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0224));
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            sq5.a().c(TbadkCoreApplication.getInst());
-            g90 g90Var = new g90();
-            this.b = g90Var;
-            View i = g90Var.i(this, null, "live_tab", "", null, null, false);
-            if (i.getParent() instanceof ViewGroup) {
-                ((ViewGroup) i.getParent()).removeView(i);
+            ks5.a().c(TbadkCoreApplication.getInst());
+            l90 l90Var = new l90();
+            this.b = l90Var;
+            View onCreateView = l90Var.onCreateView(this, null, LiveFeedPageSdk.HOST_LIVE_TAB, "index", null, null, false);
+            if (onCreateView.getParent() instanceof ViewGroup) {
+                ((ViewGroup) onCreateView.getParent()).removeView(onCreateView);
             }
-            linearLayout.addView(i);
-            k90 k90Var = this.b;
-            if (k90Var != null) {
-                k90Var.f();
+            linearLayout.addView(onCreateView);
+            ILiveFeedPageView iLiveFeedPageView = this.b;
+            if (iLiveFeedPageView != null) {
+                iLiveFeedPageView.lazyLoad();
             }
         }
     }
@@ -85,9 +83,9 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            k90 k90Var = this.b;
-            if (k90Var != null) {
-                k90Var.a();
+            ILiveFeedPageView iLiveFeedPageView = this.b;
+            if (iLiveFeedPageView != null) {
+                iLiveFeedPageView.onViewDestroy();
             }
         }
     }
@@ -97,9 +95,9 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onPause();
-            k90 k90Var = this.b;
-            if (k90Var != null) {
-                k90Var.e();
+            ILiveFeedPageView iLiveFeedPageView = this.b;
+            if (iLiveFeedPageView != null) {
+                iLiveFeedPageView.onViewPause();
                 this.b.onUserVisibleHint(false);
             }
         }
@@ -110,9 +108,9 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onResume();
-            k90 k90Var = this.b;
-            if (k90Var != null) {
-                k90Var.g();
+            ILiveFeedPageView iLiveFeedPageView = this.b;
+            if (iLiveFeedPageView != null) {
+                iLiveFeedPageView.onViewResume();
                 this.b.onUserVisibleHint(true);
             }
         }
@@ -123,9 +121,9 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onStart();
-            k90 k90Var = this.b;
-            if (k90Var != null) {
-                k90Var.d();
+            ILiveFeedPageView iLiveFeedPageView = this.b;
+            if (iLiveFeedPageView != null) {
+                iLiveFeedPageView.onViewStart();
             }
         }
     }
@@ -135,9 +133,9 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onStop();
-            k90 k90Var = this.b;
-            if (k90Var != null) {
-                k90Var.c();
+            ILiveFeedPageView iLiveFeedPageView = this.b;
+            if (iLiveFeedPageView != null) {
+                iLiveFeedPageView.onViewStop();
             }
         }
     }

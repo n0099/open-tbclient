@@ -1,26 +1,84 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.lego.card.model.ICardInfo;
-/* loaded from: classes6.dex */
-public interface pd7<T extends ICardInfo> {
-    void d(BdUniqueId bdUniqueId);
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetTagList.DataRes;
+import tbclient.GetTagList.ResponseTagInfo;
+/* loaded from: classes7.dex */
+public class pd7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public List<od7> a;
+    public List<od7> b;
+    public List<Integer> c;
 
-    void e();
+    public pd7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void f();
+    public List<od7> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (List) invokeV.objValue;
+    }
 
-    void g();
+    public List<od7> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (List) invokeV.objValue;
+    }
 
-    void h();
+    public void c(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) == null) || dataRes == null) {
+            return;
+        }
+        if (!ListUtils.isEmpty(dataRes.sex_taglist)) {
+            ArrayList arrayList = new ArrayList();
+            this.a = arrayList;
+            d(arrayList, dataRes.sex_taglist);
+        }
+        if (ListUtils.isEmpty(dataRes.taglist)) {
+            return;
+        }
+        this.b = new ArrayList();
+        this.c = new ArrayList();
+        d(this.b, dataRes.taglist);
+    }
 
-    void setAfterClickSchemeListener(tc7 tc7Var);
-
-    void setBusinessType(int i);
-
-    void setFromCDN(boolean z);
-
-    void setPosition(int i);
-
-    void update(Object obj);
+    public final void d(List<od7> list, List<ResponseTagInfo> list2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, list, list2) == null) || list == null || list2 == null) {
+            return;
+        }
+        for (ResponseTagInfo responseTagInfo : list2) {
+            if (responseTagInfo != null && !StringUtils.isNull(responseTagInfo.tag_name)) {
+                od7 od7Var = new od7();
+                od7Var.a(responseTagInfo);
+                list.add(od7Var);
+                List<Integer> list3 = this.c;
+                if (list3 != null && od7Var.c) {
+                    list3.add(Integer.valueOf(od7Var.a));
+                }
+            }
+        }
+    }
 }

@@ -1,317 +1,149 @@
 package com.repackage;
 
-import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.binaryresource.BinaryResource;
-import com.facebook.binaryresource.FileBinaryResource;
-import com.facebook.cache.common.CacheKey;
-import com.facebook.cache.common.WriterCallbacks;
-import com.facebook.datasource.DataSource;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.imagepipeline.cache.DefaultCacheKeyFactory;
-import com.facebook.imagepipeline.core.ImagePipeline;
-import com.facebook.imagepipeline.core.ImagePipelineFactory;
-import com.facebook.imagepipeline.request.ImageRequest;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import com.repackage.vj2;
+import com.repackage.yj2;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class s42 implements l42, r42 {
+public class s42 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public t42 b;
 
-    /* loaded from: classes7.dex */
-    public class a implements v42 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m42 a;
-
-        public a(s42 s42Var, m42 m42Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755370592, "Lcom/repackage/s42;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s42Var, m42Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = m42Var;
-        }
-
-        @Override // com.repackage.v42
-        public void a(ImageRequest imageRequest) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, imageRequest) == null) {
-            }
-        }
-
-        @Override // com.repackage.v42
-        public void b(ImageRequest imageRequest) {
-            m42 m42Var;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageRequest) == null) || (m42Var = this.a) == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755370592, "Lcom/repackage/s42;");
                 return;
             }
-            m42Var.a();
         }
-
-        @Override // com.repackage.v42
-        public void c(ImageRequest imageRequest, Throwable th) {
-            m42 m42Var;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, imageRequest, th) == null) || (m42Var = this.a) == null) {
-                return;
-            }
-            m42Var.a();
-        }
-
-        @Override // com.repackage.v42
-        public void onCancel(String str) {
-            m42 m42Var;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (m42Var = this.a) == null) {
-                return;
-            }
-            m42Var.a();
-        }
+        a = jh1.a;
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements t42 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(s42 s42Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s42Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.t42
-        public CacheKey a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                return DefaultCacheKeyFactory.getInstance().getEncodedCacheKey(ImageRequest.fromUri(Uri.parse(str)), null);
-            }
-            return (CacheKey) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static s42 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-61684863, "Lcom/repackage/s42$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-61684863, "Lcom/repackage/s42$c;");
-                    return;
-                }
-            }
-            a = new s42(null);
-        }
-    }
-
-    public /* synthetic */ s42(a aVar) {
-        this();
-    }
-
-    public static s42 d() {
-        InterceptResult invokeV;
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a : (s42) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? e(str, "swan_sub_package_zip") : (String) invokeL.objValue;
     }
 
-    @Override // com.repackage.l42
-    public void a(String str, File file, m42 m42Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048576, this, str, file, m42Var) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        boolean z = false;
-        if (file != null && file.exists()) {
-            z = b(str, file);
-        }
-        if (z) {
-            m42Var.a();
-        } else {
-            e(str, new a(this, m42Var));
-        }
-    }
-
-    public final boolean b(String str, File file) {
+    public static String b(String str, String str2) {
         InterceptResult invokeLL;
-        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, file)) == null) {
-            CacheKey a2 = this.b.a(str);
-            boolean z = false;
-            FileInputStream fileInputStream2 = null;
-            try {
-                try {
-                    fileInputStream = new FileInputStream(file);
-                } catch (IOException e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) ? a(vj2.e.i(str, str2).getPath()) : (String) invokeLL.objValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? e(str, "swan_sub_package_zip") : (String) invokeL.objValue;
+    }
+
+    public static String d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            File a2 = hk2.g().a(str, str2);
+            if (a2 != null) {
+                return c(a2.getPath());
             }
-            try {
-                BinaryResource insert = Fresco.getImagePipelineFactory().getMainFileCache().insert(a2, WriterCallbacks.from(fileInputStream));
-                if (insert != null) {
-                    if (insert.size() > 0) {
-                        z = true;
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                File file = new File(str, str2);
+                if (file.exists()) {
+                    return file.getPath();
+                }
+                if (file.mkdirs()) {
+                    return file.getPath();
+                }
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean f(List<x94> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, list)) == null) {
+            if (list == null || list.isEmpty()) {
+                return false;
+            }
+            return list.get(0).r;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean g(x94 x94Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, x94Var)) == null) {
+            if (x94Var == null || TextUtils.isEmpty(x94Var.o)) {
+                return false;
+            }
+            return h(new File(x94Var.a), new File(vj2.e.i(x94Var.o, String.valueOf(x94Var.i)).getPath(), x94Var.p));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean h(File file, File file2) {
+        InterceptResult invokeLL;
+        boolean U;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, file, file2)) == null) {
+            if (file != null && file2 != null) {
+                if (!file.exists()) {
+                    if (a) {
+                        Log.e("SubPkgDownloadUtil", "解压分包时，ZIP包不存在 zipFile=" + file);
+                    }
+                    return false;
+                } else if (!file2.exists() && !file2.mkdirs()) {
+                    if (a) {
+                        Log.e("SubPkgDownloadUtil", "创建分包解压文件夹失败 unzipFolder=" + file2);
+                    }
+                    return false;
+                } else {
+                    yj2.c j = yj2.j(file);
+                    int i = j.b;
+                    if (i != -1) {
+                        U = yj2.d(j.a, file2, i).a;
+                    } else {
+                        U = bh4.U(file.getAbsolutePath(), file2.getAbsolutePath());
+                    }
+                    if (U) {
+                        if (a) {
+                            Log.i("SubPkgDownloadUtil", "分包解压成功");
+                            return true;
+                        }
+                        return true;
+                    } else if (a) {
+                        Log.e("SubPkgDownloadUtil", "分包解压文件失败, file:" + file.getAbsolutePath() + " folder:" + file2.getAbsolutePath());
                     }
                 }
-                kg4.d(fileInputStream);
-                return z;
-            } catch (IOException e2) {
-                e = e2;
-                fileInputStream2 = fileInputStream;
-                if (r42.a) {
-                    Log.e("HybridIntercept", Log.getStackTraceString(e));
-                }
-                kg4.d(fileInputStream2);
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                fileInputStream2 = fileInputStream;
-                kg4.d(fileInputStream2);
-                throw th;
             }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final File c(String str) {
-        InterceptResult invokeL;
-        BinaryResource resource;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            CacheKey a2 = this.b.a(str);
-            if (a2 == null) {
-                return null;
-            }
-            if (ImagePipelineFactory.getInstance().getMainFileCache().hasKey(a2)) {
-                BinaryResource resource2 = ImagePipelineFactory.getInstance().getMainFileCache().getResource(a2);
-                if (resource2 != null) {
-                    return ((FileBinaryResource) resource2).getFile();
-                }
-                return null;
-            } else if (!ImagePipelineFactory.getInstance().getSmallImageFileCache().hasKey(a2) || (resource = ImagePipelineFactory.getInstance().getSmallImageFileCache().getResource(a2)) == null) {
-                return null;
-            } else {
-                return ((FileBinaryResource) resource).getFile();
-            }
-        }
-        return (File) invokeL.objValue;
-    }
-
-    public final DataSource<Void> e(String str, v42 v42Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, v42Var)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                if (v42Var != null) {
-                    v42Var.c(null, new Exception("url is empty"));
-                }
-                return null;
-            }
-            ImagePipeline imagePipeline = Fresco.getImagePipeline();
-            ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(Uri.parse(str));
-            if (v42Var != null) {
-                newBuilderWithSource.setRequestListener(pj2.B().a(v42Var));
-            }
-            return imagePipeline.prefetchToDiskCache(newBuilderWithSource.build(), null);
-        }
-        return (DataSource) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.l42
-    public InputStream get(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            File c2 = c(str);
-            if (c2 == null || !c2.exists()) {
-                return null;
-            }
-            try {
-                return new FileInputStream(c2);
-            } catch (IOException e) {
-                if (r42.a) {
-                    Log.e("HybridIntercept", Log.getStackTraceString(e));
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (InputStream) invokeL.objValue;
-    }
-
-    @Override // com.repackage.l42
-    public boolean isClosed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return false;
         }
-        return invokeV.booleanValue;
-    }
-
-    public s42() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = new b(this);
+        return invokeLL.booleanValue;
     }
 }

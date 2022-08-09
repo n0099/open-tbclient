@@ -17,10 +17,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.an;
-import com.repackage.bu6;
+import com.repackage.bn;
+import com.repackage.uv6;
 /* loaded from: classes3.dex */
-public class ConcernEmotionTipAdapter extends an<bu6, ConcernEmotionTipViewHolder> {
+public class ConcernEmotionTipAdapter extends bn<uv6, ConcernEmotionTipViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -52,12 +52,12 @@ public class ConcernEmotionTipAdapter extends an<bu6, ConcernEmotionTipViewHolde
                 }
             }
             this.d = 3;
-            this.a = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091329);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f89);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092218);
+            this.a = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f0913cb);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fdc);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09231d);
         }
 
-        public void b(int i, int i2) {
+        public void a(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
                 if (this.d != i) {
@@ -71,7 +71,7 @@ public class ConcernEmotionTipAdapter extends an<bu6, ConcernEmotionTipViewHolde
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernEmotionTipAdapter(Context context) {
-        super(context, bu6.g);
+        super(context, uv6.g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -91,39 +91,39 @@ public class ConcernEmotionTipAdapter extends an<bu6, ConcernEmotionTipViewHolde
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: Z */
-    public ConcernEmotionTipViewHolder M(ViewGroup viewGroup) {
+    @Override // com.repackage.bn
+    /* renamed from: s */
+    public ConcernEmotionTipViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new ConcernEmotionTipViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01e7, viewGroup, false)) : (ConcernEmotionTipViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new ConcernEmotionTipViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01e8, viewGroup, false)) : (ConcernEmotionTipViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, bu6 bu6Var, ConcernEmotionTipViewHolder concernEmotionTipViewHolder) {
+    @Override // com.repackage.bn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, uv6 uv6Var, ConcernEmotionTipViewHolder concernEmotionTipViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, bu6Var, concernEmotionTipViewHolder})) == null) {
-            String str = bu6Var.b;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, uv6Var, concernEmotionTipViewHolder})) == null) {
+            String str = uv6Var.b;
             if (str != null) {
                 concernEmotionTipViewHolder.c.setText(str);
             }
-            if (bu6Var.getType() == bu6.f) {
-                if (bu6Var.a == 2) {
-                    concernEmotionTipViewHolder.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f041f));
+            if (uv6Var.getType() == uv6.f) {
+                if (uv6Var.a == 2) {
+                    concernEmotionTipViewHolder.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f042a));
                 } else {
-                    concernEmotionTipViewHolder.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f041e));
+                    concernEmotionTipViewHolder.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0429));
                 }
             }
-            int i2 = bu6Var.a;
+            int i2 = uv6Var.a;
             if (i2 == 2) {
-                concernEmotionTipViewHolder.b(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_07);
+                concernEmotionTipViewHolder.a(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_07);
             } else if (i2 == 3) {
-                concernEmotionTipViewHolder.b(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_06);
+                concernEmotionTipViewHolder.a(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_06);
             }
-            return concernEmotionTipViewHolder.a();
+            return concernEmotionTipViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
     }

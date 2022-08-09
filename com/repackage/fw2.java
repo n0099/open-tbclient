@@ -1,120 +1,138 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.tencent.open.SocialOperation;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.UUID;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class fw2 {
+public class fw2 extends d42 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public l22<Boolean> c;
+    public String d;
+    public String e;
+    public long f;
+    public final o84<y94> g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755693488, "Lcom/repackage/fw2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a extends e42<fw2> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fw2 b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(fw2 fw2Var, fw2 fw2Var2) {
+            super(fw2Var2);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fw2Var, fw2Var2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((d42) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755693488, "Lcom/repackage/fw2;");
+            this.b = fw2Var;
+        }
+
+        @Override // com.repackage.e42
+        public void r(@NonNull y94 y94Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, y94Var) == null) {
+                this.b.c.a(Boolean.TRUE);
+            }
+        }
+
+        @Override // com.repackage.e42
+        public void u(y94 y94Var, sc3 sc3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y94Var, sc3Var) == null) {
+                this.b.c.a(Boolean.FALSE);
+            }
+        }
+    }
+
+    public fw2(String str, String str2, long j, l22<Boolean> l22Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, Long.valueOf(j), l22Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = sg1.a;
+        this.g = new a(this, this);
+        this.c = l22Var;
+        this.d = str;
+        this.e = str2;
+        this.f = j;
     }
 
-    public static String a(String str, long j, String str2) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.s84
+    public void C(r94 r94Var) {
+        y94 p;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Long.valueOf(j), str2})) == null) {
-            i03 M = i03.M();
-            String[] strArr = {M != null ? ks1.a(M.O()) : "", str, String.valueOf(j), str2};
-            Arrays.sort(strArr);
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < 4; i++) {
-                sb.append(strArr[i]);
-            }
-            try {
-                return ad3.c("SHA-1", sb.toString().getBytes(), false);
-            } catch (NoSuchAlgorithmException e) {
-                if (a) {
-                    Log.e("SwanPluginHostSign", "getSignature occurs exception:", e);
-                    return "";
+        if (interceptable == null || interceptable.invokeL(1048576, this, r94Var) == null) {
+            super.C(r94Var);
+            if (r94Var != null) {
+                if (r94Var.a == 1010 && (p = gw2.p(this.d, this.e, this.f)) != null) {
+                    p.d = p.b();
+                    u84.i().x(p);
                 }
-                return "";
+                rw2.b("fetch plugin error: " + r94Var.toString());
+            } else {
+                rw2.b("fetch plugin error");
             }
+            this.c.a(Boolean.FALSE);
         }
-        return (String) invokeCommon.objValue;
     }
 
-    public static String b(h94 h94Var) {
-        InterceptResult invokeL;
+    @Override // com.repackage.s84
+    public void E() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, h94Var)) == null) {
-            if (h94Var == null) {
-                return "";
-            }
-            String str = h94Var.p;
-            JSONObject jSONObject = new JSONObject();
-            String uuid = UUID.randomUUID().toString();
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            try {
-                jSONObject.put("noncestr", uuid);
-                jSONObject.put("timestamp", currentTimeMillis);
-                jSONObject.put(SocialOperation.GAME_SIGNATURE, a(uuid, currentTimeMillis, str));
-            } catch (JSONException e) {
-                aw2.b(Log.getStackTraceString(e));
-            }
-            return jSONObject.toString();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.E();
+            rw2.b("fetch plugin success");
         }
-        return (String) invokeL.objValue;
     }
 
-    public static boolean c(String str, String str2, h94 h94Var) {
-        InterceptResult invokeLLL;
-        int length;
+    @Override // com.repackage.s84
+    public void F() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, h94Var)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && h94Var != null) {
-                String str3 = h94Var.q;
-                if (TextUtils.isEmpty(str3)) {
-                    return false;
-                }
-                try {
-                    JSONArray optJSONArray = new JSONObject(str3).optJSONArray(str);
-                    if (optJSONArray == null || (length = optJSONArray.length()) == 0) {
-                        return false;
-                    }
-                    ArrayList arrayList = new ArrayList();
-                    for (int i = 0; i < length; i++) {
-                        String optString = optJSONArray.optString(i);
-                        if (!TextUtils.isEmpty(optString)) {
-                            arrayList.add(optString);
-                        }
-                    }
-                    return z03.b(new URI(str2).getHost(), arrayList);
-                } catch (URISyntaxException | JSONException e) {
-                    aw2.b(Log.getStackTraceString(e));
-                }
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.F();
+            rw2.b("no package");
+            this.c.a(Boolean.FALSE);
         }
-        return invokeLLL.booleanValue;
+    }
+
+    @Override // com.repackage.s84
+    public void G(fe4 fe4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, fe4Var) == null) {
+            super.G(fe4Var);
+        }
+    }
+
+    @Override // com.repackage.s84
+    public o84<y94> x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g : (o84) invokeV.objValue;
     }
 }

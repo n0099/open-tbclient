@@ -113,7 +113,7 @@ public class b {
                     i2 = HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_NETWORK_ERROR;
                     str = HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_NETWORK_ERROR;
                 } else if (i3 != 5) {
-                    i2 = HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_UNDEFINE_ERROR;
+                    i2 = 100013;
                     str = HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_UNDEFINE_ERROR;
                 } else {
                     i2 = HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_REQUEST_PARAMETER_ERROR;

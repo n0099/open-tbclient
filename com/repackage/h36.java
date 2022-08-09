@@ -1,27 +1,25 @@
 package com.repackage;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class h36 {
+public final class h36 extends o26 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile g36 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized g36 a() {
-        InterceptResult invokeV;
-        g36 g36Var;
+    public h36() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (h36.class) {
-                if (a == null) {
-                    a = new g36();
-                }
-                g36Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return g36Var;
         }
-        return (g36) invokeV.objValue;
     }
 }

@@ -900,8 +900,8 @@ public class Request {
             Map<String, CallFactory> map = this.callFactoryMap;
             if (map != null) {
                 Call call = null;
-                if (map.containsKey(EngineName.CUSTOM_ENGINE)) {
-                    call = this.callFactoryMap.get(EngineName.CUSTOM_ENGINE).newCall(this, this.callFactoryMap.size() != 1);
+                if (map.containsKey("CUSTOM")) {
+                    call = this.callFactoryMap.get("CUSTOM").newCall(this, this.callFactoryMap.size() != 1);
                 } else if (this.callFactoryMap.containsKey(EngineName.DEFAULT_ENGINE)) {
                     call = this.callFactoryMap.get(EngineName.DEFAULT_ENGINE).newCall(this, this.callFactoryMap.size() != 1);
                 }

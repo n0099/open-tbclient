@@ -47,7 +47,7 @@ public class GlobalTools {
     public static String QUALITY_MONITOR_NAME = "QUALITY_MONITOR";
     public static int QUALITY_MONITOR_PERIOD = 300000;
     public static boolean REFRESH_AFTER_NETWORK_CHANGE = true;
-    public static final String SDK_VERSION = "2.2.18-lianyun";
+    public static final String SDK_VERSION = "2.2.28-live";
     public static String STATS_REPORT_NAME = "STATS_REPORT";
     public static int STATS_REPORT_PERIOD = 180000;
     public static int STATS_REPORT_TIME = 0;

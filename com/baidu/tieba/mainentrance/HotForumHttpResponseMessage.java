@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.df7;
-import com.repackage.ef7;
+import com.repackage.yg7;
+import com.repackage.zg7;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,9 +21,9 @@ import tbclient.HotForum.HotTopicList;
 public class HotForumHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<df7> mForumInfoList;
+    public List<yg7> mForumInfoList;
     public HotSearchInfoData mHotSearchInfo;
-    public List<ef7> mTopicInfoList;
+    public List<zg7> mTopicInfoList;
     public String mTopicInfoTitle;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -46,7 +46,7 @@ public class HotForumHttpResponseMessage extends HttpResponsedMessage {
         }
     }
 
-    public List<df7> getForumInfoList() {
+    public List<yg7> getForumInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mForumInfoList : (List) invokeV.objValue;
@@ -58,7 +58,7 @@ public class HotForumHttpResponseMessage extends HttpResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mHotSearchInfo : (HotSearchInfoData) invokeV.objValue;
     }
 
-    public List<ef7> getTopicInfoList() {
+    public List<zg7> getTopicInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mTopicInfoList : (List) invokeV.objValue;
@@ -91,16 +91,16 @@ public class HotForumHttpResponseMessage extends HttpResponsedMessage {
         if (list != null) {
             for (ForumInfo forumInfo : list) {
                 if (forumInfo != null) {
-                    df7 df7Var = new df7();
-                    df7Var.a(forumInfo);
-                    this.mForumInfoList.add(df7Var);
+                    yg7 yg7Var = new yg7();
+                    yg7Var.a(forumInfo);
+                    this.mForumInfoList.add(yg7Var);
                 }
             }
         }
         if (hotForumResIdl.data.hot_search != null) {
             HotSearchInfoData hotSearchInfoData = new HotSearchInfoData();
             this.mHotSearchInfo = hotSearchInfoData;
-            hotSearchInfoData.B(hotForumResIdl.data.hot_search);
+            hotSearchInfoData.A(hotForumResIdl.data.hot_search);
         }
         if (hotForumResIdl.data.hot_topic != null) {
             this.mTopicInfoList = new ArrayList();
@@ -108,9 +108,9 @@ public class HotForumHttpResponseMessage extends HttpResponsedMessage {
             if (list2 != null) {
                 for (HotTopicList hotTopicList : list2) {
                     if (hotTopicList != null) {
-                        ef7 ef7Var = new ef7();
-                        ef7Var.d(hotTopicList);
-                        this.mTopicInfoList.add(ef7Var);
+                        zg7 zg7Var = new zg7();
+                        zg7Var.d(hotTopicList);
+                        this.mTopicInfoList.add(zg7Var);
                     }
                 }
             }

@@ -1,118 +1,40 @@
 package com.repackage;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.graphics.Rect;
-import android.os.Build;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class f35 {
+public class f35 extends s25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final View b;
-    public final int c;
-    public final boolean d;
-    public b35 e;
 
-    public f35(View view2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f35(Context context, int i) {
+        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f098f), 35, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = -1;
-        this.b = view2;
-        this.c = i35.a(view2.getContext());
-        this.d = j35.c((Activity) view2.getContext());
-    }
-
-    public final b35 a(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, view2)) != null) {
-            return (b35) invokeL.objValue;
-        }
-        b35 b35Var = this.e;
-        if (b35Var != null) {
-            return b35Var;
-        }
-        if (view2 instanceof b35) {
-            b35 b35Var2 = (b35) view2;
-            this.e = b35Var2;
-            return b35Var2;
-        } else if (!(view2 instanceof ViewGroup)) {
-            return null;
-        } else {
-            int i = 0;
-            while (true) {
-                ViewGroup viewGroup = (ViewGroup) view2;
-                if (i >= viewGroup.getChildCount()) {
-                    return null;
-                }
-                b35 a = a(viewGroup.getChildAt(i));
-                if (a != null) {
-                    this.e = a;
-                    return a;
-                }
-                i++;
-            }
-        }
-    }
-
-    @TargetApi(16)
-    public void b(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            if (this.d && Build.VERSION.SDK_INT >= 16 && this.b.getFitsSystemWindows()) {
-                Rect rect = new Rect();
-                this.b.getWindowVisibleDisplayFrame(rect);
-                i2 = rect.bottom - rect.top;
-            }
-            Log.d("KPSRootLayoutHandler", "onMeasure, width: " + i + " height: " + i2);
-            if (i2 < 0) {
-                return;
-            }
-            int i3 = this.a;
-            if (i3 < 0) {
-                this.a = i2;
-                return;
-            }
-            int i4 = i3 - i2;
-            if (i4 == 0) {
-                Log.d("KPSRootLayoutHandler", "" + i4 + " == 0 break;");
-            } else if (Math.abs(i4) == this.c) {
-                Log.w("KPSRootLayoutHandler", String.format("offset just equal statusBar height %d", Integer.valueOf(i4)));
-            } else {
-                this.a = i2;
-                b35 a = a(this.b);
-                if (a == null) {
-                    Log.w("KPSRootLayoutHandler", "can't find the valid panel conflict layout, give up!");
-                } else if (Math.abs(i4) < h35.f(this.b.getContext())) {
-                    Log.w("KPSRootLayoutHandler", "system bottom-menu-bar(such as HuaWei Mate7) causes layout changed");
-                } else if (i4 > 0) {
-                    a.handleHide();
-                } else if (a.b() && a.isVisible()) {
-                    a.handleShow();
-                }
-            }
-        }
+        this.d = R.drawable.pic_more_connect64;
+        this.h = R.drawable.pic_more_connect64;
+        this.k = false;
+        this.i = false;
+        this.p = new int[]{61};
     }
 }

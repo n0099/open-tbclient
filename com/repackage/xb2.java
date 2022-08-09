@@ -1,37 +1,44 @@
 package com.repackage;
 
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rb2;
+import com.repackage.e63;
+import com.repackage.vj2;
 import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class xb2<T extends rb2> extends ta2<T> {
+public class xb2 extends w23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public class a implements sf3<c63<e63.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public String b;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ Context c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ xb2 e;
 
-        public a() {
+        public a(xb2 xb2Var, CallbackHandler callbackHandler, String str, Context context, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xb2Var, callbackHandler, str, context, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,203 +48,143 @@ public class xb2<T extends rb2> extends ta2<T> {
                     return;
                 }
             }
-            this.a = 0;
+            this.e = xb2Var;
+            this.a = callbackHandler;
+            this.b = str;
+            this.c = context;
+            this.d = str2;
         }
 
-        public static a a(int i, String str) {
-            InterceptResult invokeIL;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.sf3
+        /* renamed from: b */
+        public void a(c63<e63.e> c63Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
-                a aVar = new a();
-                aVar.a = i;
-                aVar.b = str;
-                return aVar;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c63Var) == null) {
+                if (x53.h(c63Var)) {
+                    this.e.l(this.c, this.d, this.b, this.a);
+                } else {
+                    x53.q(c63Var, this.a, this.b);
+                }
             }
-            return (a) invokeIL.objValue;
-        }
-
-        public static a b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? a(1, str) : (a) invokeL.objValue;
-        }
-
-        public static a d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a(0, "") : (a) invokeV.objValue;
-        }
-
-        public boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a == 0 : invokeV.booleanValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return "RemoteExtensionCoreUpdateStatus{statusCode=" + this.a + ", message='" + this.b + "'}";
-            }
-            return (String) invokeV.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755177431, "Lcom/repackage/xb2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class b implements vj2.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ String c;
+
+        public b(xb2 xb2Var, Context context, CallbackHandler callbackHandler, String str) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xb2Var, context, callbackHandler, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755177431, "Lcom/repackage/xb2;");
-                return;
+            this.a = context;
+            this.b = callbackHandler;
+            this.c = str;
+        }
+
+        @Override // com.repackage.vj2.c
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             }
         }
-        b = sg1.a;
+
+        @Override // com.repackage.vj2.c
+        public void onFailed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                r03.f(this.a, R.string.obfuscated_res_0x7f0f014f).G();
+                this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
+            }
+        }
+
+        @Override // com.repackage.vj2.c
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                File d = ga3.d();
+                File c = ga3.c();
+                if (w23.b) {
+                    Log.d("replaceSwanCore", "swanCoreZipFile: " + d + " swanCoreDir: " + c);
+                }
+                if (d.exists() && bh4.U(d.getPath(), c.getPath())) {
+                    yw2.M(true);
+                    r03.f(this.a, R.string.obfuscated_res_0x7f0f0150).G();
+                    this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                    return;
+                }
+                r03.f(this.a, R.string.obfuscated_res_0x7f0f014f).G();
+                this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+            }
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xb2(@NonNull T t) {
-        super(t);
+    public xb2(w13 w13Var) {
+        super(w13Var, "/swanAPI/debug/replaceSwanCore");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {w13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((rb2) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
     }
 
-    @Override // com.repackage.ta2
-    public File a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.w23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, z03 z03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new File(super.a(), "remote") : (File) invokeV.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            k("0");
-            j(0L);
-        }
-    }
-
-    public final void d(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        kg4.k(str);
-    }
-
-    /* JADX WARN: Incorrect types in method signature: <T:Lcom/repackage/ob2;>(TT;)Ljava/lang/Exception; */
-    public Exception e(@NonNull ob2 ob2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, ob2Var)) == null) {
-            if (b) {
-                Log.d("ExtCore-RemoteControl", "doUpdate: remote");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, z03Var)) == null) {
+            JSONObject a2 = w23.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                r03.f(context, R.string.obfuscated_res_0x7f0f0147).G();
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "params is null");
+                return false;
             }
-            if (TextUtils.isEmpty(ob2Var.c)) {
-                if (b) {
-                    Log.e("ExtCore-RemoteControl", "doUpdate: remote with null coreFilePath");
-                }
-                return new Exception("ExtCore-RemoteControl doUpdate: failed by updateInfo.coreFilePath empty");
+            String optString = a2.optString("url");
+            String optString2 = a2.optString("cb");
+            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
+                z03Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, optString2, context, optString));
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
             }
-            a i = i(ob2Var);
-            if (b) {
-                Log.d("ExtCore-RemoteControl", "doUpdate: remote status: " + i);
-            }
-            d(ob2Var.c);
-            if (i.c()) {
-                return null;
-            }
-            return new Exception("ExtCore-RemoteControl doUpdate: failed by " + i.toString());
+            r03.f(context, R.string.obfuscated_res_0x7f0f011c).G();
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swan core url or cb is null");
+            return false;
         }
-        return (Exception) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 
-    @NonNull
-    public ExtensionCore f() {
-        InterceptResult invokeV;
+    public final void l(Context context, String str, String str2, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ExtensionCore extensionCore = new ExtensionCore();
-            long g = g();
-            extensionCore.extensionCoreVersionCode = g;
-            extensionCore.extensionCoreVersionName = h();
-            extensionCore.extensionCorePath = b(g).getPath();
-            extensionCore.extensionCoreType = 1;
-            return extensionCore;
-        }
-        return (ExtensionCore) invokeV.objValue;
-    }
-
-    public long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? w83.a().getLong(this.a.b(), 0L) : invokeV.longValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? w83.a().getString(this.a.e(), "0") : (String) invokeV.objValue;
-    }
-
-    public final a i(@NonNull ob2 ob2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, ob2Var)) == null) {
-            if (b) {
-                Log.d("ExtCore-RemoteControl", "doRemoteUpdate start.");
-                Log.d("ExtCore-RemoteControl", "doRemoteUpdate version: " + ob2Var.a + " ,filePath: " + ob2Var.c + " ,sign:" + ob2Var.d);
-            }
-            long j = ob2Var.b;
-            if (j == 0) {
-                return a.b("invalid version code : " + ob2Var.a);
-            } else if (!vd3.a(new File(ob2Var.c), ob2Var.d)) {
-                return a.b("sign failed.");
-            } else {
-                if (!kg4.U(ob2Var.c, b(j).getPath())) {
-                    return a.b("unzip bundle failed.");
-                }
-                zb2.b(a(), g(), j);
-                j(j);
-                k(ob2Var.a);
-                if (b) {
-                    Log.d("ExtCore-RemoteControl", "doRemoteUpdate end. version = " + j);
-                }
-                return a.d();
-            }
-        }
-        return (a) invokeL.objValue;
-    }
-
-    public void j(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            w83.a().putLong(this.a.b(), j);
-        }
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            w83.a().putString(this.a.e(), str);
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, callbackHandler) == null) {
+            vj2.J(str, new b(this, context, callbackHandler, str2));
         }
     }
 }

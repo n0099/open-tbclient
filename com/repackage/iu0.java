@@ -1,36 +1,31 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Handler;
+import android.annotation.SuppressLint;
 import android.os.Message;
+import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.constants.PlayerStatus;
-import com.baidu.nadcore.player.layer.LayerContainer;
+import com.baidu.searchbox.player.event.ControlEvent;
+import com.baidu.searchbox.player.event.LayerEvent;
+import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
-public abstract class iu0 implements vu0 {
+public abstract class iu0 extends nu0<FrameLayout, vq0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public cv0 a;
-    public LayerContainer b;
-    public Context c;
-    public Handler d;
+    public boolean g;
 
     /* loaded from: classes6.dex */
-    public static class a extends Handler {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<iu0> a;
+        public final /* synthetic */ iu0 a;
 
         public a(iu0 iu0Var) {
             Interceptable interceptable = $ic;
@@ -47,17 +42,15 @@ public abstract class iu0 implements vu0 {
                     return;
                 }
             }
-            this.a = new WeakReference<>(iu0Var);
+            this.a = iu0Var;
         }
 
-        @Override // android.os.Handler
-        public void handleMessage(@NonNull Message message) {
-            iu0 iu0Var;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || (iu0Var = this.a.get()) == null || iu0Var.getContentView() == null || iu0Var.getContentView().getParent() == null) {
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.W(false);
             }
-            iu0Var.z(message);
         }
     }
 
@@ -71,261 +64,239 @@ public abstract class iu0 implements vu0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        A(null);
     }
 
-    public final void A(@Nullable Context context) {
+    @Override // com.repackage.ru0
+    public void P() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            if (context == null) {
-                this.c = ap0.b();
-            } else {
-                this.c = context;
-            }
-            this.d = new a(this);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e = new FrameLayout(this.c);
         }
     }
 
-    public void B() {
+    public void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d.removeMessages(1);
         }
     }
 
-    public final boolean C() {
+    public void U(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            T();
+            this.d.sendMessageDelayed(this.d.obtainMessage(1), i);
+        }
+    }
+
+    public boolean V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g : invokeV.booleanValue;
     }
 
-    public void D() {
+    public void W(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            X(z, false);
         }
     }
 
-    public final void E() {
-        int[] subscribeEvent;
+    public void X(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || !C() || (subscribeEvent = getSubscribeEvent()) == null || subscribeEvent.length <= 0) {
-            return;
-        }
-        for (int i : subscribeEvent) {
-            this.a.c(i, this);
-        }
-    }
-
-    public void F(vr0 vr0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, vr0Var) == null) {
-            G(vr0Var);
-        }
-    }
-
-    public final void G(vr0 vr0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, vr0Var) == null) && C()) {
-            vr0Var.t(this);
-            this.a.d(vr0Var);
-        }
-    }
-
-    public void H(@Nullable xs0 xs0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, xs0Var) == null) {
-            u().u0(xs0Var);
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            this.d.removeMessages(2);
+            boolean z3 = z && (!np0.W0() || !u().V0());
+            if (z3) {
+                U(3000);
+                this.g = true;
+            } else {
+                T();
+                this.g = false;
+            }
+            Iterator it = this.f.iterator();
+            while (it.hasNext()) {
+                ((vq0) it.next()).s(z3, z2);
+            }
+            ur0 w = kr0.w(LayerEvent.ACTION_PANEL_VISIBLE_CHANGED);
+            w.n(9, Boolean.valueOf(z3));
+            F(w);
+            if (u().V0() && fx0.i(getActivity())) {
+                fx0.o(fx0.e(getActivity()), true);
+            }
+            u().y().y(z3);
         }
     }
 
-    public void I(@NonNull LayerContainer layerContainer) {
+    @Override // com.repackage.ru0, com.repackage.hu0, com.repackage.vs0
+    public void d(@NonNull ur0 ur0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layerContainer) == null) {
-            this.b = layerContainer;
+        if (interceptable == null || interceptable.invokeL(1048582, this, ur0Var) == null) {
+            if (PlayerEvent.ACTION_ON_COMPLETE.equals(ur0Var.c())) {
+                W(false);
+            } else if (PlayerEvent.ACTION_ON_ERROR.equals(ur0Var.c())) {
+                W(false);
+            }
+            N(ur0Var);
         }
     }
 
-    @Override // com.repackage.ws0
-    public void a(@NonNull vr0 vr0Var) {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @Override // com.repackage.ru0, com.repackage.hu0, com.repackage.vs0
+    public void k(@NonNull ur0 ur0Var) {
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, vr0Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, ur0Var) == null) {
+            String c2 = ur0Var.c();
+            switch (c2.hashCode()) {
+                case -1814572281:
+                    if (c2.equals(LayerEvent.ACTION_SPEED_CLICK)) {
+                        c = '\b';
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1225548796:
+                    if (c2.equals(LayerEvent.ACTION_PRAISE_ANIM_START)) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -915923721:
+                    if (c2.equals(LayerEvent.ACTION_ADJUST_VOLUME)) {
+                        c = 6;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -361192620:
+                    if (c2.equals(LayerEvent.ACTION_CLARITY_CLICK)) {
+                        c = '\t';
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -316059751:
+                    if (c2.equals(LayerEvent.ACTION_ADJUST_LIGHT)) {
+                        c = 7;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -150198673:
+                    if (c2.equals(LayerEvent.ACTION_CLICK_NET_TIP)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -21461611:
+                    if (c2.equals(LayerEvent.ACTION_TOUCH_DOWN)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 555655894:
+                    if (c2.equals(LayerEvent.ACTION_GOODS_CLICK)) {
+                        c = '\n';
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1231554669:
+                    if (c2.equals(LayerEvent.ACTION_LOCK_SCREEN)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1249368243:
+                    if (c2.equals(LayerEvent.ACTION_LONG_PRESS)) {
+                        c = 11;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1626817018:
+                    if (c2.equals(LayerEvent.ACTION_SHOW_FACE_AI_HEAD_BOX)) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 2064424334:
+                    if (c2.equals(LayerEvent.ACTION_POSITION_SLIDE)) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    T();
+                    break;
+                case 1:
+                    W(!this.g);
+                    break;
+                case 2:
+                    this.d.postDelayed(new a(this), 100L);
+                    break;
+                case 3:
+                    W(true);
+                    v().h();
+                    break;
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case '\b':
+                case '\t':
+                case '\n':
+                case 11:
+                    W(false);
+                    break;
+            }
+            N(ur0Var);
         }
     }
 
-    @Override // com.repackage.ws0
-    public void d(@NonNull vr0 vr0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, vr0Var) == null) {
-        }
-    }
-
-    @Nullable
-    public Activity getActivity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? u().getActivity() : (Activity) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ws0
-    public int getExpectOrder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.repackage.ws0
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.repackage.ws0
-    public void h(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, playerStatus, playerStatus2) == null) {
-        }
-    }
-
-    @Override // com.repackage.ws0
-    public void j(@NonNull vr0 vr0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, vr0Var) == null) {
-        }
-    }
-
-    @Override // com.repackage.ws0
-    public void k(@NonNull vr0 vr0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, vr0Var) == null) {
-        }
-    }
-
-    @Override // com.repackage.ws0
-    public void n(@NonNull vr0 vr0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, vr0Var) == null) {
-        }
-    }
-
-    @Override // com.repackage.vu0
+    @Override // com.repackage.ru0, com.repackage.hu0, com.repackage.uu0
     public void onContainerDetach() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.onContainerDetach();
+            W(false);
         }
     }
 
-    @Override // com.repackage.vu0
-    public void onLayerRelease() {
+    @Override // com.repackage.ru0, com.repackage.hu0, com.repackage.vs0
+    @SuppressLint({"WrongConstant"})
+    public void q(@NonNull ur0 ur0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            ex0.a("onLayerRelease() = " + this);
-            this.d.removeCallbacksAndMessages(null);
-            this.c = null;
-            this.a = null;
-        }
-    }
-
-    @Override // com.repackage.ws0
-    public void q(@NonNull vr0 vr0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, vr0Var) == null) {
-        }
-    }
-
-    public void r(@NonNull cv0 cv0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, cv0Var) == null) {
-            this.a = cv0Var;
-            E();
-        }
-    }
-
-    public void s() {
-        cv0 cv0Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048598, this) == null) || (cv0Var = this.a) == null) {
-            return;
-        }
-        cv0Var.e(this);
-        this.a = null;
-    }
-
-    @NonNull
-    public Context t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.c.getApplicationContext() : (Context) invokeV.objValue;
-    }
-
-    public bp0 u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            LayerContainer layerContainer = this.b;
-            if (layerContainer != null) {
-                return layerContainer.getBindPlayer();
+        if (interceptable == null || interceptable.invokeL(1048585, this, ur0Var) == null) {
+            if (ControlEvent.ACTION_SHOW_TIP.equals(ur0Var.c())) {
+                W(false);
             }
-            return null;
+            N(ur0Var);
         }
-        return (bp0) invokeV.objValue;
     }
 
-    public ir0 v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? u().q() : (ir0) invokeV.objValue;
-    }
-
-    public Handler w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.d : (Handler) invokeV.objValue;
-    }
-
-    public LayerContainer x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.b : (LayerContainer) invokeV.objValue;
-    }
-
-    @Nullable
-    public cv0 y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.a : (cv0) invokeV.objValue;
-    }
-
+    @Override // com.repackage.ru0, com.repackage.hu0
     public void z(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, message) == null) {
-        }
-    }
-
-    public iu0(@Nullable Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(1048586, this, message) == null) {
+            super.z(message);
+            if (message.what == 1) {
+                W(false);
             }
         }
-        ex0.a("AbsLayer(context@" + System.identityHashCode(context) + ") = " + this);
-        A(context);
     }
 }

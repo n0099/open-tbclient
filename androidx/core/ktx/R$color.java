@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class R$color {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int androidx_core_ripple_material_light = 2131100660;
-    public static final int androidx_core_secondary_text_default_material_light = 2131100661;
-    public static final int notification_action_color_filter = 2131101821;
-    public static final int notification_icon_bg_color = 2131101822;
+    public static final int androidx_core_ripple_material_light = 2131100675;
+    public static final int androidx_core_secondary_text_default_material_light = 2131100676;
+    public static final int notification_action_color_filter = 2131101847;
+    public static final int notification_icon_bg_color = 2131101848;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$color() {

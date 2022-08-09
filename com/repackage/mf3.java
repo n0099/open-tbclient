@@ -1,11 +1,18 @@
 package com.repackage;
 
-import android.view.View;
+import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.nio.channels.Channel;
 /* loaded from: classes6.dex */
-public interface mf3 {
-    boolean a(View view2, oq2 oq2Var);
+public final class mf3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean c(View view2, oq2 oq2Var);
-
-    boolean removeView(View view2);
+    public static void a(@Nullable Channel channel) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65536, null, channel) == null) && channel != null && channel.isOpen()) {
+            bh4.d(channel);
+        }
+    }
 }

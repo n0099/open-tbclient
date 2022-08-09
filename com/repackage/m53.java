@@ -1,182 +1,67 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
+import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.request.HttpRequest;
-import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
+@Deprecated
 /* loaded from: classes6.dex */
-public class m53 extends t53<b> {
+public class m53 extends w23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String m;
-    public final Activity n;
-    public final boolean o;
-    public final String p;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final boolean b;
-        public final JSONObject c;
-
-        public /* synthetic */ b(boolean z, String str, JSONObject jSONObject, a aVar) {
-            this(z, str, jSONObject);
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("Result(%b):%s", Boolean.valueOf(this.b), this.a) : (String) invokeV.objValue;
-        }
-
-        public b(boolean z, String str, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z), str, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str == null ? "" : str;
-            this.b = z;
-            this.c = jSONObject;
-        }
-    }
-
-    public m53(Activity activity, boolean z, String str, String str2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m53(w13 w13Var) {
+        super(w13Var, "/swanAPI/getSetting");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, Boolean.valueOf(z), str, str2};
+            Object[] objArr = {w13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.n = activity;
-        this.m = str;
-        this.o = z;
-        this.p = str2;
     }
 
-    @Override // com.repackage.t53
-    public void I() {
+    @Override // com.repackage.w23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, z03 z03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.I();
-            gs2.f();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.f53
-    @SuppressLint({"BDThrowableCheck"})
-    /* renamed from: P */
-    public b m(JSONObject jSONObject) throws JSONException {
-        InterceptResult invokeL;
-        JSONObject jSONObject2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            JSONObject c = g53.c(jSONObject);
-            int optInt = c.optInt("errno", 10001);
-            if (optInt != 0) {
-                if (11001 == optInt) {
-                    g53.m(c);
-                    g53.t("Accredit", c.toString());
-                }
-                if (f53.f) {
-                    throw new JSONException("Illegal errno=" + optInt + " errms=" + c.optString("errms"));
-                }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, z03Var)) == null) {
+            if (z03Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+                return false;
             }
-            JSONObject jSONObject3 = c.getJSONObject("data");
-            String str = "";
-            if (jSONObject3 != null) {
-                str = jSONObject3.optString("code", "");
-                jSONObject2 = jSONObject3.optJSONObject("opendata");
-            } else {
-                jSONObject2 = null;
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+                return false;
             }
-            return new b(this.o, str, jSONObject2, null);
-        }
-        return (b) invokeL.objValue;
-    }
-
-    @Override // com.repackage.f53
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ma_id", M().O());
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put(GameGuideConfigInfo.KEY_APP_KEY, M().O());
-                jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
-                jSONObject2.put("host_key_hash", g53.g());
-                String l = pj2.o().l();
-                if (!TextUtils.isEmpty(l)) {
-                    jSONObject2.put("host_api_key", l);
-                }
-                jSONObject.put("open", jSONObject2);
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("permit", Boolean.toString(this.o));
-                JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.put(this.m, jSONObject3);
-                jSONObject.put("accredits", jSONObject4);
-                if (!TextUtils.isEmpty(this.p)) {
-                    jSONObject.put("provider_appkey", this.p);
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
+            String optString = optParamsAsJo.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
+                return false;
             }
-            v("data", jSONObject.toString());
+            yq1.L(callbackHandler, optString);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
             return true;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.t53
-    public HttpRequest w(t53 t53Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, t53Var)) == null) ? pj2.o().o(this.n, t53Var.B()) : (HttpRequest) invokeL.objValue;
-    }
-
-    @Override // com.repackage.t53
-    public SwanInterfaceType z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? SwanInterfaceType.ACCREDIT_DATA : (SwanInterfaceType) invokeV.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

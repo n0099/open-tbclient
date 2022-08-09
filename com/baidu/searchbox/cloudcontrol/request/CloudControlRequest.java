@@ -12,6 +12,7 @@ import com.baidu.searchbox.cloudcontrol.constant.CloudControlConstant;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlData;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlErrorBean;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlRequestInfo;
+import com.baidu.searchbox.cloudcontrol.processor.IProcessorDataInterceptor;
 import com.baidu.searchbox.cloudcontrol.router.DataRouter;
 import com.baidu.searchbox.cloudcontrol.utils.CloudControlUrlConfig;
 import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
@@ -58,6 +59,7 @@ public class CloudControlRequest {
         public transient /* synthetic */ FieldHolder $fh;
         public HashMap<String, Object> mCheckData;
         public long mContentLength;
+        public HashMap<String, IProcessorDataInterceptor> mDataInterceptors;
         public long mDuration;
         public HashMap<String, Boolean> mIsForceDispatchs;
         public long mPostLength;
@@ -134,30 +136,37 @@ public class CloudControlRequest {
             }
         }
 
-        public void setIsForceDispatchs(HashMap<String, Boolean> hashMap) {
+        public void setDataInterceptor(HashMap<String, IProcessorDataInterceptor> hashMap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, hashMap) == null) {
+                this.mDataInterceptors = hashMap;
+            }
+        }
+
+        public void setIsForceDispatchs(HashMap<String, Boolean> hashMap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, hashMap) == null) {
                 this.mIsForceDispatchs = hashMap;
             }
         }
 
         public void setPostLength(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
                 this.mPostLength = j;
             }
         }
 
         public void setStart(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
                 this.mStart = j;
             }
         }
 
         public void setTraceID(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
                 this.mTraceID = str;
             }
         }
@@ -196,6 +205,7 @@ public class CloudControlRequest {
                     CloudControlData parseResponse = new CloudControlResponseParse(this.mRuntype, this.mTraceID).parseResponse(new JSONObject(string), false);
                     parseResponse.setCheckDatas(this.mCheckData);
                     parseResponse.setIsForceDispatchs(this.mIsForceDispatchs);
+                    parseResponse.setDataInterceptor(this.mDataInterceptors);
                     parseCloudErrorBean(parseResponse, response, i);
                     return parseResponse;
                 }
@@ -206,6 +216,7 @@ public class CloudControlRequest {
                 cloudControlData.setCloudControlErrorBean(cloudControlErrorBean);
                 cloudControlData.setCheckDatas(this.mCheckData);
                 cloudControlData.setIsForceDispatchs(this.mIsForceDispatchs);
+                cloudControlData.setDataInterceptor(this.mDataInterceptors);
                 doStabilityUBCEvent(3, i, response.message());
                 return cloudControlData;
             }
@@ -292,8 +303,9 @@ public class CloudControlRequest {
         return invokeL.booleanValue;
     }
 
-    /* JADX WARN: Type inference failed for: r5v6, types: [com.baidu.searchbox.http.request.HttpRequestBuilder] */
+    /* JADX WARN: Type inference failed for: r5v7, types: [com.baidu.searchbox.http.request.HttpRequestBuilder] */
     public void cloudControlRequest(String str, ArrayList<CloudControlRequestInfo> arrayList) {
+        ArrayList<CloudControlRequestInfo> arrayList2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, str, arrayList) == null) && isContentInterval(str) && !isInBlackInterrupt(str)) {
             CloudControlResponseCallback cloudControlResponseCallback = new CloudControlResponseCallback(this, str);
@@ -303,21 +315,34 @@ public class CloudControlRequest {
             JSONObject jSONObject2 = new JSONObject();
             HashMap<String, Object> hashMap = new HashMap<>();
             HashMap<String, Boolean> hashMap2 = new HashMap<>();
+            HashMap<String, IProcessorDataInterceptor> hashMap3 = new HashMap<>();
             String str2 = cloudControlUrl;
-            for (int i = 0; i < postData.size(); i++) {
+            int i = 0;
+            while (i < postData.size()) {
                 CloudControlRequestInfo cloudControlRequestInfo = postData.get(i);
-                if (cloudControlRequestInfo != null) {
+                if (cloudControlRequestInfo == null) {
+                    arrayList2 = postData;
+                } else {
                     try {
                         jSONObject.put(cloudControlRequestInfo.getServiceName(), cloudControlRequestInfo.getPostData());
                     } catch (JSONException e) {
                         if (AppConfig.isDebug()) {
-                            Log.d(TAG, "post data put error" + e.toString());
+                            StringBuilder sb = new StringBuilder();
+                            arrayList2 = postData;
+                            sb.append("post data put error");
+                            sb.append(e.toString());
+                            Log.d(TAG, sb.toString());
                         }
                     }
+                    arrayList2 = postData;
                     Object checkInfo = cloudControlRequestInfo.getCheckInfo();
                     boolean isForceDispatch = cloudControlRequestInfo.isForceDispatch();
                     hashMap.put(cloudControlRequestInfo.getServiceName(), checkInfo);
                     hashMap2.put(cloudControlRequestInfo.getServiceName(), Boolean.valueOf(isForceDispatch));
+                    IProcessorDataInterceptor dataInterceptor = cloudControlRequestInfo.getDataInterceptor();
+                    if (dataInterceptor != null) {
+                        hashMap3.put(cloudControlRequestInfo.getServiceName(), dataInterceptor);
+                    }
                     HashMap<String, String> queryData = cloudControlRequestInfo.getQueryData();
                     try {
                         jSONObject2.put(cloudControlRequestInfo.getServiceName(), cloudControlRequestInfo.getFilter());
@@ -330,14 +355,17 @@ public class CloudControlRequest {
                         str2 = UrlUtil.addParam(str2, entry.getKey(), entry.getValue());
                     }
                 }
+                i++;
+                postData = arrayList2;
             }
             cloudControlResponseCallback.setCheckData(hashMap);
             cloudControlResponseCallback.setIsForceDispatchs(hashMap2);
+            cloudControlResponseCallback.setDataInterceptor(hashMap3);
             HttpManager httpManager = HttpManager.getDefault(AppRuntime.getAppContext());
             HttpCommonRequestBuilder httpCommonRequestBuilder = (HttpCommonRequestBuilder) httpManager.postRequest().url(str2);
-            HashMap hashMap3 = new HashMap();
+            HashMap hashMap4 = new HashMap();
             if (jSONObject.length() != 0) {
-                hashMap3.put("versions", jSONObject);
+                hashMap4.put("versions", jSONObject);
             }
             JSONObject jSONObject3 = new JSONObject();
             try {
@@ -347,16 +375,16 @@ public class CloudControlRequest {
                 jSONObject3 = null;
             }
             if (jSONObject3 != null && jSONObject3.length() != 0) {
-                hashMap3.put(REQUEST_KEY_CTRL_VERSION, jSONObject3);
+                hashMap4.put(REQUEST_KEY_CTRL_VERSION, jSONObject3);
             }
             if (jSONObject2.length() != 0) {
-                hashMap3.put(REQUEST_KEY_FILTER, jSONObject2);
+                hashMap4.put(REQUEST_KEY_FILTER, jSONObject2);
             }
             if (!this.mSharedPrefsWrapper.getBoolean(CloudControlConstant.SP_KEY_BLACK_PUBPARAM, false)) {
                 String string = this.mSharedPrefsWrapper.getString(CloudControlConstant.SP_KEY_PUBPARAM, "");
                 if (!TextUtils.isEmpty(string)) {
                     try {
-                        hashMap3.put("pubparam", new JSONObject(string));
+                        hashMap4.put("pubparam", new JSONObject(string));
                     } catch (JSONException unused2) {
                         if (AppConfig.isDebug()) {
                             Log.d(TAG, "sp pubparam parse json is error");
@@ -364,7 +392,7 @@ public class CloudControlRequest {
                     }
                 }
             }
-            String jSONObject4 = new JSONObject(hashMap3).toString();
+            String jSONObject4 = new JSONObject(hashMap4).toString();
             HttpRequest build = httpCommonRequestBuilder.requestBody(RequestBody.create(MediaType.parse("application/json"), jSONObject4)).requestSubFrom(101).cookieManager(httpManager.getCookieManager(true, false)).build();
             long elapsedRealtime = SystemClock.elapsedRealtime();
             String bdTraceId = build.getBdTraceId();

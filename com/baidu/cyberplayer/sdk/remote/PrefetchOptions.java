@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class PrefetchOptions implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<PrefetchOptions> CREATOR;

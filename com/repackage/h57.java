@@ -1,145 +1,58 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.util.ChatStatusManager;
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d57;
-import java.util.LinkedList;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class h57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<bn> a;
 
-    /* loaded from: classes6.dex */
-    public static class a implements d57.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.d57.c
-        public boolean a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return !TextUtils.isEmpty(str) && ChatStatusManager.getInst().getIsOpen(0) && str.equals(ChatStatusManager.getInst().getCurId(0));
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements d57.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.d57.a
-        public boolean a(ChatMessage chatMessage, ImMessageCenterPojo imMessageCenterPojo) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, chatMessage, imMessageCenterPojo)) == null) {
-                if (chatMessage == null || chatMessage.getMsgType() != 22) {
-                    return false;
-                }
-                if (a97.t(chatMessage)) {
-                    return true;
-                }
-                long a = h57.a(chatMessage);
-                if (a > imMessageCenterPojo.getRead_msgId()) {
-                    imMessageCenterPojo.setRead_msgId(a);
-                }
-                return true;
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    public static long a(ChatMessage chatMessage) {
-        InterceptResult invokeL;
-        JSONObject optJSONObject;
+    public h57(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+        ue6 ue6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, chatMessage)) == null) {
-            if (chatMessage != null) {
-                if (chatMessage.getMsgType() == 22) {
-                    try {
-                        String content = chatMessage.getContent();
-                        if (TextUtils.isEmpty(content)) {
-                            return -1L;
-                        }
-                        JSONObject jSONObject = new JSONObject(content);
-                        String optString = jSONObject.optString(TbEnum.SystemMessage.KEY_EVENT_ID);
-                        if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM)) == null || optJSONObject.optLong(TbEnum.SystemMessage.KEY_GROUP_ID) != l77.j.longValue()) {
-                            return -1L;
-                        }
-                    } catch (Exception unused) {
-                        return -1L;
-                    }
-                }
-                return z87.a(optJSONObject.optLong("readMsgId"));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return -1L;
         }
-        return invokeL.longValue;
+        this.a = new ArrayList();
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921336, ue6.class, tbPageContext);
+        if (runTask != null && (ue6Var = (ue6) runTask.getData()) != null) {
+            this.a.add(ue6Var);
+        }
+        this.a.add(new i57(tbPageContext, ThreadData.TYPE_FRS_HOTTOPIC));
+        this.a.add(new g57(tbPageContext, ThreadData.TYPE_FRS_HOTTOPIC_VIDEO));
+        bdTypeRecyclerView.a(this.a);
     }
 
-    public static void b(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, d57.b bVar) {
+    public void a(TbPageTag tbPageTag) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
-            d57.e(groupMsgData, imMessageCenterPojo, bVar, new a(), ChatStatusManager.getInst().getIsOpen(5), new b());
-        }
-    }
-
-    public static void c(GroupMsgData groupMsgData) {
-        LinkedList<ChatMessage> listMessage;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, groupMsgData) == null) || groupMsgData == null || (listMessage = groupMsgData.getListMessage()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, tbPageTag) == null) || ListUtils.isEmpty(this.a)) {
             return;
         }
-        for (int i = 0; i < listMessage.size(); i++) {
-            try {
-                if (new JSONObject(listMessage.get(i).getContent()).optString(TbEnum.SystemMessage.KEY_EVENT_ID).equals(TbEnum.SystemMessage.EVENT_ID_CYBER_VIOLENCE)) {
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_IM_CYBER_VIOLENCE_MESSAGE_RECEIVER_SHOW).addParam("uid", TbadkCoreApplication.getCurrentAccount()));
-                }
-            } catch (Exception unused) {
+        for (bn bnVar : this.a) {
+            if (bnVar instanceof ue6) {
+                ((ue6) bnVar).C(tbPageTag);
             }
         }
     }

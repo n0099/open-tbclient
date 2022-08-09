@@ -1,11 +1,14 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.BDPTask;
+import com.baidu.bdtask.utils.UniqueId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class bu implements cs {
+public final class bu implements au {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -23,11 +26,33 @@ public final class bu implements cs {
         }
     }
 
-    @Override // com.repackage.cs
-    public void a(String str, bs bsVar) {
+    @Override // com.repackage.au
+    public void a(String str) {
+        BDPTask t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, bsVar) == null) {
-            bsVar.onError();
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (t = BDPTask.m.t()) == null) {
+            return;
         }
+        t.C(str);
+    }
+
+    @Override // com.repackage.au
+    public void b(String str, UniqueId uniqueId) {
+        BDPTask t;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, uniqueId) == null) || (t = BDPTask.m.t()) == null) {
+            return;
+        }
+        t.G(str, uniqueId);
+    }
+
+    @Override // com.repackage.au
+    public void c(String str, String str2) {
+        BDPTask t;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) || (t = BDPTask.m.t()) == null) {
+            return;
+        }
+        t.u0(str, str2);
     }
 }

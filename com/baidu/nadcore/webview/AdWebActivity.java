@@ -1,6 +1,7 @@
 package com.baidu.nadcore.webview;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -18,14 +19,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d21;
-import com.repackage.e21;
-import com.repackage.h21;
-import com.repackage.i21;
-import com.repackage.tk0;
-import com.repackage.x11;
+import com.repackage.m21;
+import com.repackage.qk0;
+import com.repackage.s21;
+import com.repackage.t21;
+import com.repackage.w21;
+import com.repackage.x21;
 /* loaded from: classes2.dex */
-public class AdWebActivity extends BaseActivity implements SlideInterceptor, d21, e21 {
+public class AdWebActivity extends BaseActivity implements SlideInterceptor, s21, t21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final AbsContainer u;
@@ -43,91 +44,100 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, d21
                 return;
             }
         }
-        this.u = x11.a.a(this, this, tk0.b().a().a("key_webview_core_type", 0));
+        this.u = m21.a.a(this, this, qk0.b().a().a("key_webview_core_type", 1));
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void B0(Bundle bundle) {
+    public void P0(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            super.B0(bundle);
-            if (!this.u.b()) {
+            super.P0(bundle);
+            if (!this.u.d()) {
                 if (isFinishing()) {
                     return;
                 }
                 finish();
                 return;
             }
-            this.u.v("1");
-            this.u.m();
-            h21.g().a(getActivity());
+            this.u.y("1");
+            this.u.p();
+            w21.f().a(getActivity());
         }
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void E0() {
+    public void S0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.E0();
-            this.u.o();
-        }
-    }
-
-    @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void F0(@Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            super.F0(bundle);
-            this.u.p(bundle);
-        }
-    }
-
-    @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void H0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.H0();
+            super.S0();
             this.u.q();
         }
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void L0() {
+    public void U0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.L0();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.U0();
             this.u.r();
         }
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void M0() {
+    public void V0(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.M0();
-            this.u.s();
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            super.V0(bundle);
+            this.u.s(bundle);
         }
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public boolean N0(Bundle bundle) {
+    public void Z0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.Z0();
+            this.u.t();
+        }
+    }
+
+    @Override // com.baidu.nadcore.appframework.BaseActivity
+    public void a1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.a1();
+            this.u.u();
+        }
+    }
+
+    @Override // com.baidu.nadcore.appframework.BaseActivity
+    public void b1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.b1();
+            this.u.v();
+        }
+    }
+
+    @Override // com.baidu.nadcore.appframework.BaseActivity
+    public boolean c1(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bundle)) == null) {
-            if (super.N0(bundle)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bundle)) == null) {
+            if (super.c1(bundle)) {
                 requestWindowFeature(1);
-                if (i21.b.a().a(getIntent())) {
-                    V0(0, 0, 0, 0);
+                if (x21.b.a().a(getIntent())) {
+                    k1(0, 0, 0, 0);
                     forceActivityTransparent(true);
                 } else {
-                    V0(R.anim.obfuscated_res_0x7f0100a8, R.anim.obfuscated_res_0x7f0100ab, R.anim.obfuscated_res_0x7f0100a7, R.anim.obfuscated_res_0x7f0100ac);
+                    k1(R.anim.obfuscated_res_0x7f0100ae, R.anim.obfuscated_res_0x7f0100b1, R.anim.obfuscated_res_0x7f0100ad, R.anim.obfuscated_res_0x7f0100b2);
                 }
                 if (Build.VERSION.SDK_INT == 26) {
                     setEnableSliding(false);
                     setCurrentActivityNoTransparent();
                 } else {
-                    Q0(true, this);
-                    a1(true);
+                    h1(true, this);
+                    n1(true);
                 }
                 return true;
             }
@@ -136,30 +146,20 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, d21
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.d21
-    public void d() {
+    @Override // com.repackage.s21
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             finish();
         }
     }
 
-    @Override // com.repackage.d21
+    @Override // com.repackage.s21
     @NonNull
     public Activity getActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this : (Activity) invokeV.objValue;
-    }
-
-    @Override // com.repackage.e21
-    public boolean h0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this : (Activity) invokeV.objValue;
     }
 
     @Override // com.baidu.nadcore.widget.SlideInterceptor
@@ -167,30 +167,20 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, d21
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, motionEvent)) == null) {
-            if (this.u.k()) {
+            if (this.u.m()) {
                 return false;
             }
-            return this.u.a(motionEvent);
+            return this.u.c(motionEvent);
         }
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.d21
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     @Override // com.baidu.nadcore.appframework.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onDestroy() {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            super.onDestroy();
-            this.u.n();
+        if (interceptable == null || interceptable.invokeIIL(1048587, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            this.u.o(i, i2, intent);
         }
     }
 
@@ -198,12 +188,32 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, d21
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048589, this, i, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048588, this, i, keyEvent)) == null) {
             if (this.u.onKeyDown(i, keyEvent)) {
                 return true;
             }
             return super.onKeyDown(i, keyEvent);
         }
         return invokeIL.booleanValue;
+    }
+
+    @Override // com.repackage.s21
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.t21
+    public boolean w0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -1,166 +1,65 @@
 package com.repackage;
 
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 /* loaded from: classes7.dex */
 public class u03 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -1;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public View b;
+    public Context c;
 
-    /* loaded from: classes7.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppConfigData a;
-        public final /* synthetic */ File b;
-
-        public a(SwanAppConfigData swanAppConfigData, File file, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {swanAppConfigData, file, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = swanAppConfigData;
-            this.b = file;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            FileOutputStream fileOutputStream;
-            Throwable th;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
+    public u03(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            FileOutputStream fileOutputStream2 = null;
-            try {
-                fileOutputStream = new FileOutputStream(this.b);
-                try {
-                    fileOutputStream.write(SwanAppConfigData.w.call2((w03<SwanAppConfigData>) this.a));
-                    kg4.d(fileOutputStream);
-                } catch (Exception unused) {
-                    fileOutputStream2 = fileOutputStream;
-                    kg4.d(fileOutputStream2);
-                } catch (Throwable th2) {
-                    th = th2;
-                    kg4.d(fileOutputStream);
-                    throw th;
-                }
-            } catch (Exception unused2) {
-            } catch (Throwable th3) {
-                fileOutputStream = null;
-                th = th3;
-            }
         }
+        this.b = null;
+        this.c = context;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755314823, "Lcom/repackage/u03;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755314823, "Lcom/repackage/u03;");
-        }
-    }
-
-    public static boolean a() {
-        InterceptResult invokeV;
+    public u03 a(View view2, View view3) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == -1) {
-                pj2.g0().getSwitch("swan_app_json_serialize", 0);
-                a = 0;
-            }
-            return a == 1;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static SwanAppConfigData b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? c(str, false) : (SwanAppConfigData) invokeL.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:30:0x006f  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static SwanAppConfigData c(String str, boolean z) {
-        InterceptResult invokeLZ;
-        FileInputStream fileInputStream;
-        SwanAppConfigData call;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, str, z)) == null) {
-            System.currentTimeMillis();
-            File file = new File(str, "app.json");
-            FileInputStream fileInputStream2 = null;
-            if (file.exists()) {
-                String E = kg4.E(file);
-                File file2 = new File(str, "app_json_serialize6.kv");
-                if (a() && !z && file2.exists()) {
-                    try {
-                        fileInputStream = new FileInputStream(file2);
-                    } catch (Exception unused) {
-                    } catch (Throwable th) {
-                        th = th;
-                    }
-                    try {
-                        int available = fileInputStream.available();
-                        byte[] bArr = new byte[available];
-                        if (available == fileInputStream.read(bArr) && (call = SwanAppConfigData.x.call(bArr)) != null) {
-                            call.n = E;
-                            kg4.d(fileInputStream);
-                            return call;
-                        }
-                        kg4.d(fileInputStream);
-                    } catch (Exception unused2) {
-                        fileInputStream2 = fileInputStream;
-                        kg4.d(fileInputStream2);
-                        SwanAppConfigData c = SwanAppConfigData.c(E, file.getParentFile());
-                        if (a()) {
-                        }
-                        return c;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        fileInputStream2 = fileInputStream;
-                        kg4.d(fileInputStream2);
-                        throw th;
-                    }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, view3)) == null) {
+            this.a = view2;
+            if (view2 != null && (view2.getParent() instanceof ViewGroup)) {
+                ViewGroup viewGroup = (ViewGroup) this.a.getParent();
+                int indexOfChild = viewGroup.indexOfChild(this.a);
+                View view4 = this.b;
+                if (view4 != null) {
+                    viewGroup.removeView(view4);
                 }
-                SwanAppConfigData c2 = SwanAppConfigData.c(E, file.getParentFile());
-                if (a()) {
-                    cd3.k(new a(c2, file2, str), "SwanAppConfigDataReader");
+                this.b = view3;
+                view3.setLayoutParams(this.a.getLayoutParams());
+                viewGroup.addView(this.b, indexOfChild);
+                if (viewGroup instanceof RelativeLayout) {
+                    this.a.setVisibility(4);
+                } else {
+                    this.a.setVisibility(8);
                 }
-                return c2;
+                return this;
             }
-            return null;
+            return this;
         }
-        return (SwanAppConfigData) invokeLZ.objValue;
+        return (u03) invokeLL.objValue;
     }
 }

@@ -1,39 +1,118 @@
 package com.repackage;
 
-import android.graphics.SurfaceTexture;
-import android.os.Build;
+import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.R;
+import com.baidu.tieba.video.record.GLVideoPreviewView;
+import com.baidu.tieba.video.record.ProgressView;
+import com.baidu.tieba.video.record.RecordVideoActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.w79;
+import com.faceunity.encoder.TextureMovieEncoder;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class nu8 implements w79.b {
+public class nu8 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile nu8 k;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public w79.b b;
-    public w79.b c;
-    public w79.b d;
-    public boolean e;
-    public w79.f f;
-    public SurfaceTexture g;
+    public int a;
+    public int b;
+    public RecordVideoActivity c;
+    public ProgressView d;
+    public List<b> e;
+    public boolean f;
+    public long g;
     public int h;
-    public boolean i;
-    public w79.a j;
 
     /* loaded from: classes6.dex */
-    public class a implements w79.a {
+    public class a implements ProgressView.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ nu8 a;
+
+        /* renamed from: com.repackage.nu8$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class C0536a implements TextureMovieEncoder.OnEncoderStatusUpdateListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ lu8 a;
+            public final /* synthetic */ a b;
+
+            /* renamed from: com.repackage.nu8$a$a$a  reason: collision with other inner class name */
+            /* loaded from: classes6.dex */
+            public class RunnableC0537a implements Runnable {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ C0536a a;
+
+                public RunnableC0537a(C0536a c0536a) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {c0536a};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = c0536a;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable = $ic;
+                    if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.b.a.c == null) {
+                        return;
+                    }
+                    this.a.b.a.c.y0();
+                }
+            }
+
+            public C0536a(a aVar, lu8 lu8Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, lu8Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = lu8Var;
+            }
+
+            @Override // com.faceunity.encoder.TextureMovieEncoder.OnEncoderStatusUpdateListener
+            public void onStartSuccess() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                }
+            }
+
+            @Override // com.faceunity.encoder.TextureMovieEncoder.OnEncoderStatusUpdateListener
+            public void onStopSuccess() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    rg.a().post(new RunnableC0537a(this));
+                    this.a.setOnEncoderStatusUpdateListener(null);
+                }
+            }
+        }
 
         public a(nu8 nu8Var) {
             Interceptable interceptable = $ic;
@@ -53,410 +132,231 @@ public class nu8 implements w79.b {
             this.a = nu8Var;
         }
 
-        @Override // com.repackage.w79.a
-        public void a(Object obj) {
+        @Override // com.baidu.tieba.video.record.ProgressView.a
+        public void a(int i) {
+            mu8 mu8Var;
+            lu8 q;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if (obj instanceof String) {
-                    String str = (String) obj;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                this.a.h = i;
+                if (i != 100 || this.a.c == null || (mu8Var = this.a.c.k) == null || (q = mu8Var.q()) == null) {
+                    return;
                 }
-                this.a.C();
-                this.a.d.k(this.a.g, this.a.f);
-                if (this.a.i) {
-                    this.a.i = false;
-                    this.a.d.n();
+                if (q instanceof GLVideoPreviewView) {
+                    q.setOnEncoderStatusUpdateListener(new C0536a(this, q));
+                    this.a.o();
+                    return;
+                }
+                this.a.o();
+                if (this.a.c != null) {
+                    this.a.c.y0();
                 }
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755456896, "Lcom/repackage/nu8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755456896, "Lcom/repackage/nu8;");
-        }
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(int i);
     }
 
-    public nu8(TbPageContext tbPageContext) {
+    public nu8(RecordVideoActivity recordVideoActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {recordVideoActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = false;
-        this.i = false;
-        this.j = new a(this);
-        if (Build.VERSION.SDK_INT >= 21) {
-            if (System.currentTimeMillis() - lu8.b.c() >= lu8.a) {
-                lu8.b.k(0);
-            }
-            if (1 != lu8.b.d().intValue()) {
-                this.c = ku8.U(tbPageContext);
-            }
-        }
-        mu8 B = mu8.B(tbPageContext);
-        this.b = B;
-        this.d = B;
-    }
-
-    public static nu8 D(TbPageContext tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext)) == null) {
-            if (k == null) {
-                synchronized (nu8.class) {
-                    if (k == null) {
-                        k = new nu8(tbPageContext);
-                    } else if (tbPageContext != null) {
-                        k.a = tbPageContext;
-                    }
-                }
-            }
-            return k;
-        }
-        return (nu8) invokeL.objValue;
-    }
-
-    public final void C() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c == null) {
+        this.a = 1;
+        this.c = recordVideoActivity;
+        if (recordVideoActivity == null) {
             return;
         }
-        this.b.u(this.h);
-        this.b.i(this.c.o());
-        this.b.m(this.c.a());
-        this.b.j(this.c.p());
-        this.c.q();
-        this.c.release();
-        this.d = this.b;
-        this.e = false;
-    }
-
-    @Override // com.repackage.w79.b
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            w79.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.a();
-            }
-            return false;
+        ImageView imageView = (ImageView) recordVideoActivity.findViewById(R.id.obfuscated_res_0x7f090486);
+        ImageView imageView2 = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0909d1);
+        ProgressView progressView = (ProgressView) this.c.findViewById(R.id.obfuscated_res_0x7f0924fb);
+        this.d = progressView;
+        progressView.setListener(new a(this));
+        if (!gu8.f(true)) {
+            imageView2.setVisibility(4);
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.w79.b
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            w79.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.b();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.repackage.w79.b
-    public void c(int i, int i2, int i3, int i4) {
-        w79.b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIII(1048579, this, i, i2, i3, i4) == null) || (bVar = this.d) == null) {
+        if (gu8.g(recordVideoActivity.getPackageManager())) {
             return;
         }
-        bVar.c(i, i2, i3, i4);
+        imageView.setVisibility(8);
     }
 
-    @Override // com.repackage.w79.b
-    public void d(byte[] bArr) {
-        w79.b bVar;
+    public void c(b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, bArr) == null) && (bVar = this.d) == this.b && bVar != null) {
-            bVar.d(bArr);
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            if (this.e == null) {
+                this.e = new ArrayList();
+            }
+            this.e.add(bVar);
         }
     }
 
-    @Override // com.repackage.w79.b
-    public String e() {
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ProgressView progressView = this.d;
+            if (progressView != null) {
+                progressView.setCurrentState(ProgressView.State.DELETE);
+            }
+            this.b = this.d.getLastProgress();
+            mu8 mu8Var = this.c.k;
+            if (mu8Var != null) {
+                mu8Var.h();
+            }
+        }
+    }
+
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            w79.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.e();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.h : invokeV.intValue;
     }
 
-    @Override // com.repackage.w79.b
-    public boolean f() {
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a == 6 : invokeV.booleanValue;
+    }
+
+    public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            w79.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.f();
+            ou8 ou8Var = this.c.I;
+            if (ou8Var != null) {
+                return ou8Var.i();
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.w79.b
-    public void g(int i, int i2, int i3, boolean z) {
+    public boolean j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
-            this.b.g(i, i2, i3, z);
-            w79.b bVar = this.c;
-            if (bVar != null) {
-                bVar.g(i, i2, i3, z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int f = f();
+            return f == 2 || f == 7;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.d.b() : invokeV.booleanValue;
+    }
+
+    public void l() {
+        ProgressView progressView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.f || (progressView = this.d) == null) {
+            return;
+        }
+        progressView.setCurrentState(ProgressView.State.ROLLBACK);
+    }
+
+    public void m(int i) {
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.a = i;
+            if (i == 1) {
+                this.d.setVisibility(4);
+                this.d.d();
+                this.b = 0;
+                File file = new File(ps8.f);
+                if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
+                    for (File file2 : listFiles) {
+                        if (file2.getPath().startsWith("rec_tmp_")) {
+                            file2.delete();
+                        }
+                    }
+                }
+            }
+            List<b> list = this.e;
+            if (list != null) {
+                for (b bVar : list) {
+                    bVar.a(this.a);
+                }
             }
         }
     }
 
-    @Override // com.repackage.w79.b
-    public void h(boolean z) {
-        w79.b bVar;
+    public void n() {
+        mu8 mu8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.e = z;
-            if (z && (bVar = this.c) != null) {
-                bVar.s(this.j);
-                this.d = this.c;
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.f) {
+            return;
+        }
+        ProgressView progressView = this.d;
+        if (progressView != null) {
+            progressView.setVisibility(0);
+            this.d.setCurrentState(ProgressView.State.START);
+        }
+        if (!this.f) {
+            this.f = true;
+            this.g = System.currentTimeMillis();
+        }
+        RecordVideoActivity recordVideoActivity = this.c;
+        if (recordVideoActivity == null || (mu8Var = recordVideoActivity.k) == null) {
+            return;
+        }
+        mu8Var.L();
+        ou8 ou8Var = this.c.I;
+        if (ou8Var != null) {
+            ou8Var.n(this.b);
+        }
+    }
+
+    public void o() {
+        mu8 mu8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.f) {
+            ProgressView progressView = this.d;
+            if (progressView != null) {
+                progressView.setCurrentState(ProgressView.State.PAUSE);
+            }
+            this.f = false;
+            this.b = (int) (this.b + (System.currentTimeMillis() - this.g));
+            ProgressView progressView2 = this.d;
+            if (progressView2 != null) {
+                int lastProgress = progressView2.getLastProgress();
+                int i = this.b;
+                if (lastProgress != i) {
+                    this.d.c(i);
+                }
+            }
+            RecordVideoActivity recordVideoActivity = this.c;
+            if (recordVideoActivity == null || (mu8Var = recordVideoActivity.k) == null) {
                 return;
             }
-            w79.b bVar2 = this.c;
-            if (bVar2 != null) {
-                bVar2.release();
-            }
-            this.d = this.b;
+            mu8Var.M();
         }
-    }
-
-    @Override // com.repackage.w79.b
-    public void i(boolean z) {
-        w79.b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || (bVar = this.d) == null) {
-            return;
-        }
-        bVar.i(z);
-    }
-
-    @Override // com.repackage.w79.b
-    public void j(boolean z) {
-        w79.b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || (bVar = this.d) == null) {
-            return;
-        }
-        bVar.j(z);
-    }
-
-    @Override // com.repackage.w79.b
-    public boolean k(SurfaceTexture surfaceTexture, w79.f fVar) {
-        InterceptResult invokeLL;
-        w79.b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, surfaceTexture, fVar)) == null) {
-            this.g = surfaceTexture;
-            this.f = fVar;
-            if (this.e && (bVar = this.c) != null) {
-                if (bVar.k(surfaceTexture, fVar)) {
-                    return true;
-                }
-                C();
-                w79.b bVar2 = this.d;
-                if (bVar2 != null) {
-                    boolean k2 = bVar2.k(surfaceTexture, fVar);
-                    if (this.i) {
-                        this.i = false;
-                        this.d.n();
-                    }
-                    return k2;
-                }
-                return false;
-            }
-            w79.b bVar3 = this.b;
-            this.d = bVar3;
-            if (bVar3 != null) {
-                return bVar3.k(surfaceTexture, fVar);
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.repackage.w79.b
-    public void l(int i) {
-        w79.b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || (bVar = this.d) == null) {
-            return;
-        }
-        bVar.l(i);
-    }
-
-    @Override // com.repackage.w79.b
-    public void m(boolean z) {
-        w79.b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048589, this, z) == null) || (bVar = this.d) == null) {
-            return;
-        }
-        bVar.m(z);
-    }
-
-    @Override // com.repackage.w79.b
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.i = true;
-            w79.b bVar = this.d;
-            if (bVar != null) {
-                bVar.n();
-            }
-        }
-    }
-
-    @Override // com.repackage.w79.b
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            w79.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.o();
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.w79.b
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            w79.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.p();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.w79.b
-    public void q() {
-        w79.b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (bVar = this.d) == null) {
-            return;
-        }
-        bVar.q();
-    }
-
-    @Override // com.repackage.w79.b
-    public int r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            w79.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.r();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.repackage.w79.b
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            q();
-            this.d = null;
-            w79.b bVar = this.b;
-            if (bVar != null) {
-                bVar.release();
-            }
-            w79.b bVar2 = this.c;
-            if (bVar2 != null) {
-                bVar2.release();
-            }
-            k = null;
-            this.f = null;
-            this.g = null;
-            this.j = null;
-        }
-    }
-
-    @Override // com.repackage.w79.b
-    public void s(w79.a aVar) {
-        w79.b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048596, this, aVar) == null) || (bVar = this.c) == null) {
-            return;
-        }
-        bVar.s(aVar);
-    }
-
-    @Override // com.repackage.w79.b
-    public void t(int i, int i2, int i3, int i4) {
-        w79.b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIII(1048597, this, i, i2, i3, i4) == null) || (bVar = this.d) == null) {
-            return;
-        }
-        bVar.t(i, i2, i3, i4);
-    }
-
-    @Override // com.repackage.w79.b
-    public void u(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
-            this.h = i;
-            w79.b bVar = this.d;
-            if (bVar != null) {
-                bVar.u(i);
-            }
-        }
-    }
-
-    @Override // com.repackage.w79.b
-    public int v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            w79.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.v();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
     }
 }

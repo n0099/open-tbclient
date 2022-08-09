@@ -19,7 +19,7 @@ public final class ff {
         public ez a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f357a;
+        public String f358a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public final class ff {
                 aVar.a = ez.t;
             }
             if (aVar.a == ez.t) {
-                aVar.f357a = str;
+                aVar.f358a = str;
             }
             return aVar;
         }
@@ -111,7 +111,7 @@ public final class ff {
                 }
                 ezVar2 = aVar.a;
                 if (ezVar2 != ez.D || ezVar2 == ez.E || ezVar2 == ez.G) {
-                    aVar.f357a = str;
+                    aVar.f358a = str;
                 }
                 return aVar;
             }
@@ -120,7 +120,7 @@ public final class ff {
             ezVar2 = aVar.a;
             if (ezVar2 != ez.D) {
             }
-            aVar.f357a = str;
+            aVar.f358a = str;
             return aVar;
         }
         return (a) invokeL.objValue;
@@ -160,7 +160,7 @@ public final class ff {
                 }
                 ezVar2 = aVar.a;
                 if (ezVar2 != ez.O || ezVar2 == ez.P || ezVar2 == ez.R) {
-                    aVar.f357a = str;
+                    aVar.f358a = str;
                 }
                 return aVar;
             } else {
@@ -170,7 +170,7 @@ public final class ff {
             ezVar2 = aVar.a;
             if (ezVar2 != ez.O) {
             }
-            aVar.f357a = str;
+            aVar.f358a = str;
             return aVar;
         }
         return (a) invokeL.objValue;
@@ -207,7 +207,7 @@ public final class ff {
                 }
                 ezVar2 = aVar.a;
                 if (ezVar2 != ez.aa || ezVar2 == ez.ab || ezVar2 == ez.ad) {
-                    aVar.f357a = str;
+                    aVar.f358a = str;
                 }
                 return aVar;
             } else {
@@ -217,7 +217,7 @@ public final class ff {
             ezVar2 = aVar.a;
             if (ezVar2 != ez.aa) {
             }
-            aVar.f357a = str;
+            aVar.f358a = str;
             return aVar;
         }
         return (a) invokeL.objValue;

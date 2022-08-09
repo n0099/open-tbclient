@@ -1,26 +1,95 @@
 package com.repackage;
 
-import android.hardware.Camera;
-import com.faceunity.encoder.TextureMovieEncoder;
+import android.app.Activity;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tieba.view.BdTopToast;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface ur8 {
+public class ur8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(boolean z, String str);
+    public static void a(hs4 hs4Var, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(65536, null, hs4Var, i) == null) || hs4Var == null || i < 0) {
+            return;
+        }
+        int i2 = i + 1;
+        boolean d = hs4Var.d();
+        TiebaStatic.log(new StatisticItem("c14633").param("uid", String.valueOf(TbadkCoreApplication.getCurrentAccountId())).param("obj_locate", i2).param("obj_type", d ? 2 : 1));
     }
 
-    void a(Camera camera);
+    public static boolean b(Activity activity, int i, String str) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, activity, i, str)) == null) {
+            if (d(i)) {
+                e(activity, str);
+                return true;
+            }
+            return false;
+        }
+        return invokeLIL.booleanValue;
+    }
 
-    void b(Camera camera);
+    public static String c(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            if (view2 == null) {
+                return null;
+            }
+            Object tag = view2.getTag();
+            if (tag instanceof PostData) {
+                PostData postData = (PostData) tag;
+                if (postData.s() != null) {
+                    return postData.s().getUserId();
+                }
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
 
-    void c(a aVar);
+    public static boolean d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i == 1990059 : invokeI.booleanValue;
+    }
 
-    void d(Camera camera);
+    public static void e(Activity activity, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, str) == null) || activity == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        g((ViewGroup) activity.findViewById(16908290), str, false);
+    }
 
-    void e(Camera camera);
+    public static void f(View view2, PostData postData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, view2, postData) == null) || view2 == null) {
+            return;
+        }
+        view2.setTag(postData);
+    }
 
-    void setOnEncoderStatusUpdateListener(TextureMovieEncoder.OnEncoderStatusUpdateListener onEncoderStatusUpdateListener);
-
-    void setPreviewSize(int i, int i2);
+    public static void g(ViewGroup viewGroup, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLZ(65542, null, viewGroup, str, z) == null) || viewGroup == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        BdTopToast bdTopToast = new BdTopToast(viewGroup.getContext());
+        bdTopToast.h(z);
+        bdTopToast.g(str);
+        bdTopToast.i(viewGroup);
+    }
 }

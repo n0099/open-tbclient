@@ -1,13 +1,7 @@
 package com.repackage;
 
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.AnyThread;
-import androidx.annotation.LayoutRes;
-import androidx.annotation.Nullable;
-import androidx.annotation.UiThread;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,22 +10,261 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 /* loaded from: classes7.dex */
-public class su2 implements ml2 {
+public class su2 implements qu2, dm2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ExecutorService e;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<Integer, CopyOnWriteArrayList<View>> c;
+    public final vv2 c;
+    public final vv2 d;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+
+        public a(su2 su2Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {su2Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (qu2.b) {
+                    try {
+                        qu2.b.wait(this.a);
+                    }
+                }
+            }
+        }
     }
 
     /* loaded from: classes7.dex */
-    public static class b {
+    public class b implements vv2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Map<Runnable, String> c;
+        public boolean d;
+
+        public b(su2 su2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {su2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = new ConcurrentHashMap();
+            this.d = false;
+        }
+
+        @Override // com.repackage.vv2
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            }
+        }
+
+        @Override // com.repackage.vv2
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.d = false;
+                f();
+            }
+        }
+
+        @Override // com.repackage.vv2
+        public void c(@NonNull Runnable runnable, @NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, runnable, str) == null) {
+                if (this.d) {
+                    this.c.put(runnable, str);
+                } else {
+                    td3.l(runnable, str);
+                }
+            }
+        }
+
+        @Override // com.repackage.vv2
+        public void d(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+                this.d = false;
+                long currentTimeMillis = System.currentTimeMillis();
+                int size = this.c.size();
+                f();
+                if (dm2.a) {
+                    long currentTimeMillis2 = System.currentTimeMillis();
+                    Log.d("SwanPerformance", "high task dispatch cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms ; task num = " + size);
+                }
+            }
+        }
+
+        @Override // com.repackage.vv2
+        public void e(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+                this.d = true;
+            }
+        }
+
+        public final void f() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.c.isEmpty()) {
+                return;
+            }
+            for (Map.Entry<Runnable, String> entry : this.c.entrySet()) {
+                if (entry != null) {
+                    td3.l(entry.getKey(), entry.getValue());
+                }
+            }
+            this.c.clear();
+        }
+
+        @Override // com.repackage.vv2
+        public String getName() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "HighPriorityTask" : (String) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements vv2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Map<Runnable, String> c;
+        public boolean d;
+        public final /* synthetic */ su2 e;
+
+        public c(su2 su2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {su2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = su2Var;
+            this.c = new ConcurrentHashMap();
+            this.d = false;
+        }
+
+        @Override // com.repackage.vv2
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            }
+        }
+
+        @Override // com.repackage.vv2
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.d = false;
+                f();
+            }
+        }
+
+        @Override // com.repackage.vv2
+        public void c(@NonNull Runnable runnable, @NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, runnable, str) == null) {
+                if (this.d) {
+                    this.c.put(runnable, str);
+                } else {
+                    td3.l(runnable, str);
+                }
+            }
+        }
+
+        @Override // com.repackage.vv2
+        public void d(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+                this.d = false;
+                long currentTimeMillis = System.currentTimeMillis();
+                int size = this.c.size();
+                f();
+                if (dm2.a) {
+                    long currentTimeMillis2 = System.currentTimeMillis();
+                    Log.d("SwanPerformance", "low task dispatch cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms ; task num = " + size);
+                }
+                if (av2.e()) {
+                    this.e.c();
+                }
+            }
+        }
+
+        @Override // com.repackage.vv2
+        public void e(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+                this.d = true;
+                if (av2.e()) {
+                    this.e.b(av2.f());
+                }
+            }
+        }
+
+        public final void f() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.c.isEmpty()) {
+                return;
+            }
+            for (Map.Entry<Runnable, String> entry : this.c.entrySet()) {
+                if (entry != null) {
+                    td3.l(entry.getKey(), entry.getValue());
+                }
+            }
+            this.c.clear();
+        }
+
+        @Override // com.repackage.vv2
+        public String getName() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "LowPriorityTask" : (String) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class d {
         public static /* synthetic */ Interceptable $ic;
         public static final su2 a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -39,13 +272,13 @@ public class su2 implements ml2 {
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1656029, "Lcom/repackage/su2$b;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1655967, "Lcom/repackage/su2$d;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1656029, "Lcom/repackage/su2$b;");
+                    classClinitInterceptable.invokePostClinit(-1655967, "Lcom/repackage/su2$d;");
                     return;
                 }
             }
@@ -53,120 +286,98 @@ public class su2 implements ml2 {
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755308127, "Lcom/repackage/su2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755308127, "Lcom/repackage/su2;");
+                return;
+            }
+        }
+        e = Executors.newSingleThreadExecutor();
+    }
+
     public /* synthetic */ su2(a aVar) {
         this();
     }
 
-    public static su2 a() {
+    public static su2 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (su2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? d.a : (su2) invokeV.objValue;
     }
 
-    @Nullable
-    @UiThread
-    public View b(@LayoutRes int i, @Nullable ViewGroup viewGroup, boolean z) {
-        InterceptResult invokeCommon;
-        ViewGroup.LayoutParams layoutParams;
+    @Override // com.repackage.qu2
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), viewGroup, Boolean.valueOf(z)})) == null) {
-            View d = d(i);
-            if (d != null && viewGroup != null && (layoutParams = viewGroup.getLayoutParams()) != null) {
-                ViewGroup.LayoutParams layoutParams2 = d.getLayoutParams();
-                if (layoutParams2 == null) {
-                    layoutParams2 = new ViewGroup.LayoutParams(layoutParams);
-                } else {
-                    layoutParams2.width = layoutParams.width;
-                    layoutParams2.height = layoutParams.height;
-                }
-                d.setLayoutParams(layoutParams2);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (dm2.a) {
+                Log.d("SwanPerformance", "low priority thread wait = " + i);
             }
-            if (d == null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                View inflate = LayoutInflater.from(pj2.c()).inflate(i, viewGroup, z);
-                long currentTimeMillis2 = System.currentTimeMillis();
-                if (ml2.a) {
-                    Log.d("SwanPerformance", "getView resId = " + i + " ；inflate new view cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms");
-                }
-                return inflate;
-            }
-            return d;
+            e.execute(new a(this, i));
         }
-        return (View) invokeCommon.objValue;
     }
 
-    @AnyThread
-    public void c(@LayoutRes int... iArr) {
+    @Override // com.repackage.qu2
+    public void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr) == null) || iArr == null || iArr.length == 0) {
-            return;
-        }
-        try {
-            long currentTimeMillis = System.currentTimeMillis();
-            int length = iArr.length;
-            LayoutInflater from = LayoutInflater.from(pj2.c());
-            for (int i : iArr) {
-                View inflate = from.inflate(i, (ViewGroup) null);
-                CopyOnWriteArrayList<View> copyOnWriteArrayList = this.c.get(Integer.valueOf(i));
-                if (copyOnWriteArrayList == null) {
-                    copyOnWriteArrayList = new CopyOnWriteArrayList<>();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (dm2.a) {
+                Log.d("SwanPerformance", "low priority thread notify");
+            }
+            synchronized (qu2.b) {
+                try {
+                    qu2.b.notifyAll();
                 }
-                copyOnWriteArrayList.add(inflate);
-                this.c.put(Integer.valueOf(i), copyOnWriteArrayList);
-            }
-            if (ml2.a) {
-                long currentTimeMillis2 = System.currentTimeMillis();
-                Log.d("SwanPerformance", "inflateLayoutRes count = " + length + "; cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms");
-            }
-        } catch (Exception e) {
-            if (ml2.a) {
-                Log.d("SwanPerformance", Log.getStackTraceString(e));
             }
         }
     }
 
-    @Nullable
-    @AnyThread
-    public View d(@LayoutRes int i) {
-        InterceptResult invokeI;
+    public boolean d(@NonNull Runnable runnable, @NonNull String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            View view2 = null;
-            try {
-                CopyOnWriteArrayList<View> copyOnWriteArrayList = this.c.get(Integer.valueOf(i));
-                if (copyOnWriteArrayList != null && !copyOnWriteArrayList.isEmpty()) {
-                    view2 = copyOnWriteArrayList.remove(0);
-                }
-            } catch (Exception e) {
-                if (ml2.a) {
-                    Log.d("SwanPerformance", Log.getStackTraceString(e));
-                }
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, runnable, str, z)) == null) {
+            if (z) {
+                this.c.c(runnable, str);
+                return true;
+            } else if (av2.e()) {
+                e.execute(runnable);
+                return true;
+            } else {
+                this.d.c(runnable, str);
+                return true;
             }
-            if (ml2.a) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("tryObtainLayoutByResId resId = ");
-                sb.append(i);
-                sb.append(view2 == null ? " cache view is null" : " adopt cached view");
-                Log.d("SwanPerformance", sb.toString());
-            }
-            return view2;
         }
-        return (View) invokeI.objValue;
+        return invokeLLZ.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            tv2.g().i(this.c, 3000);
+            tv2.g().i(this.d, 5000);
+        }
     }
 
     public su2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = new ConcurrentHashMap<>();
+        this.c = new b(this);
+        this.d = new c(this);
     }
 }

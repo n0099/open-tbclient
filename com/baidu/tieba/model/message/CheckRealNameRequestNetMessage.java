@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ud5;
+import com.repackage.te5;
 import tbclient.CheckRealName.CheckRealNameReqIdl;
 import tbclient.CheckRealName.DataReq;
 /* loaded from: classes3.dex */
@@ -46,7 +46,7 @@ public class CheckRealNameRequestNetMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.obj_source = this.objSource;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                ud5.a(builder, true);
+                te5.a(builder, true);
             }
             CheckRealNameReqIdl.Builder builder2 = new CheckRealNameReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class R$color {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int cardview_dark_background = 2131100726;
-    public static final int cardview_light_background = 2131100727;
-    public static final int cardview_shadow_end_color = 2131100728;
-    public static final int cardview_shadow_start_color = 2131100729;
+    public static final int cardview_dark_background = 2131100741;
+    public static final int cardview_light_background = 2131100742;
+    public static final int cardview_shadow_end_color = 2131100743;
+    public static final int cardview_shadow_start_color = 2131100744;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$color() {

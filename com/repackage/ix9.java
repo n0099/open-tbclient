@@ -1,150 +1,61 @@
 package com.repackage;
 
-import android.os.Build;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.RomUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.internal.util.atomic.LinkedQueueNode;
 /* loaded from: classes6.dex */
-public class ix9 {
+public abstract class ix9<E> extends kx9<E> {
     public static /* synthetic */ Interceptable $ic;
+    public static final long b;
     public transient /* synthetic */ FieldHolder $fh;
+    public LinkedQueueNode<E> consumerNode;
 
-    public static int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            try {
-                Class<?> cls = Class.forName("android.os.SystemProperties");
-                String str = (String) cls.getDeclaredMethod("get", String.class).invoke(cls, "ro.build.hw_emui_api_level");
-                if (TextUtils.isEmpty(str) || !TextUtils.isDigitsOnly(str)) {
-                    return 0;
-                }
-                return Integer.parseInt(str);
-            } catch (Exception unused) {
-                return 0;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755602937, "Lcom/repackage/ix9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755602937, "Lcom/repackage/ix9;");
+                return;
             }
         }
-        return invokeV.intValue;
+        b = my9.a(ix9.class, "consumerNode");
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    public ix9() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? g() ? f("ro.build.version.emui", "") : "" : (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f(RomUtils.PROP_RO_BUILD_DISPLAY_ID, "") : (String) invokeV.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? j() ? f(RomUtils.PROP_RO_BUILD_DISPLAY_ID, "") : "" : (String) invokeV.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? l() ? f("ro.miui.ui.version.name", "") : "" : (String) invokeV.objValue;
-    }
-
-    public static String f(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            try {
-                Class<?> cls = Class.forName("android.os.SystemProperties");
-                return (String) cls.getMethod("get", String.class, String.class).invoke(cls, str, str2);
-            } catch (Exception unused) {
-                return str2;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static boolean g() {
+    public final LinkedQueueNode<E> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? a() > 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (LinkedQueueNode) my9.a.f(this, b) : (LinkedQueueNode) invokeV.objValue;
     }
 
-    public static boolean h() {
-        InterceptResult invokeV;
+    public final void d(LinkedQueueNode<E> linkedQueueNode) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? b().contains("EmotionUI_3.0") : invokeV.booleanValue;
-    }
-
-    public static boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            String b = b();
-            return "EmotionUI 3".equals(b) || b.contains("EmotionUI_3.1");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedQueueNode) == null) {
+            this.consumerNode = linkedQueueNode;
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? c().toLowerCase().contains("flyme") : invokeV.booleanValue;
-    }
-
-    public static boolean k() {
-        InterceptResult invokeV;
-        int intValue;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            String d = d();
-            if (d.isEmpty()) {
-                return false;
-            }
-            try {
-                if (d.toLowerCase().contains("os")) {
-                    intValue = Integer.valueOf(d.substring(9, 10)).intValue();
-                } else {
-                    intValue = Integer.valueOf(d.substring(6, 7)).intValue();
-                }
-                return intValue >= 4;
-            } catch (NumberFormatException unused) {
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? !TextUtils.isEmpty(f("ro.miui.ui.version.name", "")) : invokeV.booleanValue;
-    }
-
-    public static boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            String e = e();
-            if (e.isEmpty()) {
-                return false;
-            }
-            try {
-                return Integer.valueOf(e.substring(1)).intValue() >= 6;
-            } catch (NumberFormatException unused) {
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? "OPPO".equals(Build.MANUFACTURER) : invokeV.booleanValue;
     }
 }

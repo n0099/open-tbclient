@@ -28,11 +28,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ei8;
-import com.repackage.oa7;
-import com.repackage.oi;
-import com.repackage.un4;
-import com.repackage.vr4;
+import com.repackage.jc7;
+import com.repackage.lo4;
+import com.repackage.ms4;
+import com.repackage.pi;
+import com.repackage.sk8;
 import tbclient.Agree;
 /* loaded from: classes3.dex */
 public class MessageCardBottomView extends LinearLayout {
@@ -46,7 +46,7 @@ public class MessageCardBottomView extends LinearLayout {
     public AgreeView f;
     public TextView g;
     public AgreeData h;
-    public ei8 i;
+    public sk8 i;
     public CustomMessageListener j;
 
     /* loaded from: classes3.dex */
@@ -79,10 +79,10 @@ public class MessageCardBottomView extends LinearLayout {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            ei8 ei8Var;
+            sk8 sk8Var;
             AgreeData agreeData;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof ei8) || (ei8Var = (ei8) customResponsedMessage.getData()) == null || (agreeData = ei8Var.b) == null || this.a.h == null || TextUtils.isEmpty(this.a.h.postId) || TextUtils.isEmpty(agreeData.postId) || !this.a.h.postId.equals(agreeData.postId) || this.a.h.isInThread || this.a.i.a == ei8Var.a) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof sk8) || (sk8Var = (sk8) customResponsedMessage.getData()) == null || (agreeData = sk8Var.b) == null || this.a.h == null || TextUtils.isEmpty(this.a.h.postId) || TextUtils.isEmpty(agreeData.postId) || !this.a.h.postId.equals(agreeData.postId) || this.a.h.isInThread || this.a.i.a == sk8Var.a) {
                 return;
             }
             this.a.h.hasAgree = agreeData.hasAgree;
@@ -182,9 +182,9 @@ public class MessageCardBottomView extends LinearLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            un4 un4Var = new un4();
-            un4Var.b = 27;
-            this.f.setStatisticData(un4Var);
+            lo4 lo4Var = new lo4();
+            lo4Var.b = 27;
+            this.f.setStatisticData(lo4Var);
         }
     }
 
@@ -198,23 +198,23 @@ public class MessageCardBottomView extends LinearLayout {
         this.f.I();
     }
 
-    public final AgreeData f(oa7 oa7Var, int i) {
+    public final AgreeData f(jc7 jc7Var, int i) {
         InterceptResult invokeLI;
         Agree agree;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, oa7Var, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jc7Var, i)) == null) {
             AgreeData agreeData = new AgreeData();
-            OriginalThreadInfo o = oa7Var.o();
-            if (o != null && (agree = o.z) != null) {
+            OriginalThreadInfo r = jc7Var.r();
+            if (r != null && (agree = r.z) != null) {
                 agreeData.parseProtobuf(agree);
             }
             this.f.getImgAgree().cancelAnimation();
             this.f.setNeedMatchStrategy(false);
             this.f.setUseDynamicLikeResImmediately();
-            agreeData.postId = oa7Var.t();
-            agreeData.threadId = oa7Var.E();
-            agreeData.forumId = String.valueOf(oa7Var.d());
-            if (oa7Var.g()) {
+            agreeData.postId = jc7Var.t();
+            agreeData.threadId = jc7Var.E();
+            agreeData.forumId = String.valueOf(jc7Var.f());
+            if (jc7Var.h()) {
                 agreeData.hasAgree = true;
                 agreeData.agreeType = 2;
             }
@@ -236,14 +236,14 @@ public class MessageCardBottomView extends LinearLayout {
     public final void g(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0559, (ViewGroup) this, true);
-            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091449);
-            this.b = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f09144b);
-            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09144c);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09144a);
-            this.e = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091446);
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091447);
-            AgreeView agreeView = (AgreeView) inflate.findViewById(R.id.obfuscated_res_0x7f091448);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0574, (ViewGroup) this, true);
+            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914f3);
+            this.b = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f0914f5);
+            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0914f6);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914f4);
+            this.e = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f0914f0);
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914f1);
+            AgreeView agreeView = (AgreeView) inflate.findViewById(R.id.obfuscated_res_0x7f0914f2);
             this.f = agreeView;
             agreeView.getAgreeNumView().setVisibility(8);
             this.f.H(true);
@@ -270,8 +270,8 @@ public class MessageCardBottomView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);
-            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f0808f7, R.color.CAM_X0107, null);
-            vr4 d = vr4.d(this.d);
+            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f080913, R.color.CAM_X0107, null);
+            ms4 d = ms4.d(this.d);
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X08);
             d.v(R.color.CAM_X0107);
@@ -289,15 +289,15 @@ public class MessageCardBottomView extends LinearLayout {
             return;
         }
         if (agreeData.hasAgree && agreeData.agreeType == 2) {
-            this.g.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0276));
-            vr4 d = vr4.d(this.g);
+            this.g.setText(getContext().getString(R.string.obfuscated_res_0x7f0f027a));
+            ms4 d = ms4.d(this.g);
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X08);
             d.v(R.color.CAM_X0301);
             return;
         }
-        this.g.setText(getContext().getString(R.string.obfuscated_res_0x7f0f13e8));
-        vr4 d2 = vr4.d(this.g);
+        this.g.setText(getContext().getString(R.string.obfuscated_res_0x7f0f1426));
+        ms4 d2 = ms4.d(this.g);
         d2.A(R.string.F_X01);
         d2.z(R.dimen.T_X08);
         d2.v(R.color.CAM_X0107);
@@ -321,15 +321,15 @@ public class MessageCardBottomView extends LinearLayout {
         }
     }
 
-    public void setAgreeData(oa7 oa7Var, int i) {
+    public void setAgreeData(jc7 jc7Var, int i) {
         AgreeData agreeData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048586, this, oa7Var, i) == null) {
-            this.h = f(oa7Var, i);
-            ei8 ei8Var = new ei8();
-            this.i = ei8Var;
-            ei8Var.b = this.h;
-            ei8Var.a = BdUniqueId.gen();
+        if (interceptable == null || interceptable.invokeLI(1048586, this, jc7Var, i) == null) {
+            this.h = f(jc7Var, i);
+            sk8 sk8Var = new sk8();
+            this.i = sk8Var;
+            sk8Var.b = this.h;
+            sk8Var.a = BdUniqueId.gen();
             AgreeView agreeView = this.f;
             if (agreeView != null && (agreeData = this.h) != null) {
                 agreeView.setData(agreeData);
@@ -344,14 +344,14 @@ public class MessageCardBottomView extends LinearLayout {
     public void setData(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048587, this, str, z) == null) {
-            if (!z && oi.isEmpty(str)) {
+            if (!z && pi.isEmpty(str)) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
             this.b.setVisibility(z ? 0 : 8);
             this.e.setVisibility(z ? 0 : 8);
-            if (oi.isEmpty(str)) {
+            if (pi.isEmpty(str)) {
                 this.a.setVisibility(8);
                 return;
             }

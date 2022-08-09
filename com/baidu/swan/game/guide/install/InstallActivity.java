@@ -16,18 +16,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr3;
-import com.repackage.dr3;
-import com.repackage.id3;
-import com.repackage.tq3;
-import com.repackage.zq3;
+import com.repackage.kr3;
+import com.repackage.qr3;
+import com.repackage.tr3;
+import com.repackage.ur3;
+import com.repackage.zd3;
 import com.sina.weibo.sdk.share.BaseActivity;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.json.JSONObject;
 @SuppressLint({BaseActivity.TAG})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class InstallActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public static ExecutorService g;
@@ -39,13 +39,13 @@ public class InstallActivity extends Activity {
     public JSONObject e;
     public String f;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -130,7 +130,7 @@ public class InstallActivity extends Activity {
     public static boolean b(WeakReference<Activity> weakReference, String str, String str2, String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, weakReference, str, str2, str3)) == null) ? tq3.t().u(weakReference.get(), str, str2, str3) : invokeLLLL.booleanValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, weakReference, str, str2, str3)) == null) ? kr3.t().u(weakReference.get(), str, str2, str3) : invokeLLLL.booleanValue;
     }
 
     @Override // android.app.Activity
@@ -141,12 +141,12 @@ public class InstallActivity extends Activity {
             if (i == 1345431) {
                 if (i2 != -1 || TextUtils.isEmpty(this.d)) {
                     if (i2 == 0) {
-                        dr3.n().h("installCancel", new cr3(this.e), this.d, this.f, this.c);
+                        ur3.n().h("installCancel", new tr3(this.e), this.d, this.f, this.c);
                     } else if (i2 == 1 && intent != null) {
-                        dr3.n().g("installFailed", new cr3(this.e), this.d, this.f, intent.getIntExtra("android.intent.extra.INSTALL_RESULT", 31022), this.c);
+                        ur3.n().g("installFailed", new tr3(this.e), this.d, this.f, intent.getIntExtra("android.intent.extra.INSTALL_RESULT", 31022), this.c);
                     }
-                } else if (zq3.g(AppRuntime.getAppContext(), this.d) && zq3.k(AppRuntime.getAppContext(), this.d)) {
-                    dr3.n().h("openAtOnce", new cr3(this.e), this.d, this.f, this.c);
+                } else if (qr3.g(AppRuntime.getAppContext(), this.d) && qr3.k(AppRuntime.getAppContext(), this.d)) {
+                    ur3.n().h("openAtOnce", new tr3(this.e), this.d, this.f, this.c);
                 }
             }
             finish();
@@ -162,7 +162,7 @@ public class InstallActivity extends Activity {
             if (extras != null) {
                 this.c = extras.getString("key_download_url");
                 this.d = extras.getString("key_download_package_name");
-                this.e = id3.d(extras.getString("ubc_params", ""));
+                this.e = zd3.d(extras.getString("ubc_params", ""));
                 this.f = extras.getString("download_params");
             }
             g.execute(new b(this, this.c, this.d, this.f, null));
@@ -179,8 +179,8 @@ public class InstallActivity extends Activity {
                 int i = this.a + 1;
                 this.a = i;
                 if (i > 1) {
-                    if (!zq3.g(AppRuntime.getAppContext(), this.d)) {
-                        dr3.n().h("installCancel", new cr3(this.e), this.d, this.f, this.c);
+                    if (!qr3.g(AppRuntime.getAppContext(), this.d)) {
+                        ur3.n().h("installCancel", new tr3(this.e), this.d, this.f, this.c);
                     }
                     finish();
                 }

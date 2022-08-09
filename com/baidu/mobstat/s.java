@@ -271,7 +271,7 @@ public class s {
             d.setRequestProperty("Content-Type", "gzip");
             d.setRequestProperty("mtj_appversion", jSONObject.getString("n"));
             d.setRequestProperty("mtj_os", "Android");
-            d.setRequestProperty("mtj_pn", jSONObject.getString(Config.PACKAGE_NAME));
+            d.setRequestProperty("mtj_pn", jSONObject.getString("pn"));
             d.setRequestProperty("mtj_tg", "1");
             d.setRequestProperty("mtj_ii", jSONObject.getString(Config.CUID_SEC));
         } catch (JSONException e) {

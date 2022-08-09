@@ -1,75 +1,97 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.LongSparseArray;
+import android.util.SparseArray;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.Personalized.DataRes;
+import tbclient.Personalized.DislikeReason;
+import tbclient.Personalized.ThreadPersonalized;
 /* loaded from: classes7.dex */
-public class s07 extends on4 {
+public class s07 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755374281, "Lcom/repackage/s07;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755374281, "Lcom/repackage/s07;");
-                return;
-            }
-        }
-        a = BdUniqueId.gen();
-    }
-
-    public s07() {
+    public static void a(DataRes.Builder builder, List<on> list) {
+        f06 f06Var;
+        ThreadData threadData;
+        ThreadPersonalized threadPersonalized;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, builder, list) == null) || builder == null || list == null) {
+            return;
+        }
+        LongSparseArray longSparseArray = new LongSparseArray();
+        for (ThreadPersonalized threadPersonalized2 : builder.thread_personalized) {
+            if (threadPersonalized2 != null) {
+                longSparseArray.put(threadPersonalized2.tid.longValue(), threadPersonalized2);
             }
         }
-    }
-
-    @Override // com.repackage.on4
-    public lp4 getNegFeedBackData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
+        int count = ListUtils.getCount(list);
+        for (int i = 0; i < count; i++) {
+            on onVar = (on) ListUtils.getItem(list, i);
+            if ((onVar instanceof f06) && (threadData = (f06Var = (f06) onVar).getThreadData()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(og.g(threadData.getTid(), 0L))) != null) {
+                f06Var.J(threadPersonalized.source);
+                f06Var.M(threadPersonalized.weight);
+                f06Var.F(threadPersonalized.abtest_tag);
+                threadData.mRecomAbTag = threadPersonalized.abtest_tag;
+                threadData.mRecomSource = threadPersonalized.source;
+                threadData.mRecomWeight = threadPersonalized.weight;
+                if (threadData.getThreadVideoInfo() != null) {
+                    f06Var.H(threadData.getThreadVideoInfo().is_vertical);
+                }
+                List<DislikeReason> list2 = threadPersonalized.dislike_resource;
+                if (list2 != null) {
+                    SparseArray<String> sparseArray = new SparseArray<>();
+                    for (DislikeReason dislikeReason : list2) {
+                        int intValue = dislikeReason.dislike_id.intValue();
+                        sparseArray.put(intValue, dislikeReason.dislike_reason + "%" + dislikeReason.extra);
+                    }
+                    f06Var.feedBackReasonMap = sparseArray;
+                    f06Var.G(threadPersonalized.extra);
+                }
+            }
         }
-        return (lp4) invokeV.objValue;
     }
 
-    @Override // com.repackage.on4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
+    public static void b(List<on> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, list) == null) || list == null) {
+            return;
         }
-        return (ThreadData) invokeV.objValue;
+        int count = ListUtils.getCount(list);
+        int i = 0;
+        while (i < count) {
+            on onVar = (on) ListUtils.getItem(list, i);
+            boolean z = onVar instanceof u06;
+            if (z) {
+                ((u06) onVar).d(true);
+            }
+            i++;
+            on onVar2 = (on) ListUtils.getItem(list, i);
+            if (z && (onVar2 instanceof u06)) {
+                u06 u06Var = (u06) onVar;
+                u06 u06Var2 = (u06) onVar2;
+                if (u06Var.m()) {
+                    u06Var2.d(false);
+                    if (u06Var2 instanceof z07) {
+                        u06Var.u(false);
+                    }
+                }
+            }
+            if (onVar instanceof z07) {
+                ((z07) onVar).u(false);
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.nn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public static void c(DataRes.Builder builder, List<on> list) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLL(65538, null, builder, list) == null) {
+            b(list);
+            a(builder, list);
+        }
     }
 }

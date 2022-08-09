@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class SsaDecoder extends SimpleSubtitleDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DIALOGUE_LINE_PREFIX = "Dialogue: ";

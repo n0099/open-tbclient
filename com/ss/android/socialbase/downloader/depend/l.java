@@ -6,22 +6,22 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface l extends IInterface {
     void a(DownloadInfo downloadInfo) throws RemoteException;
 
     boolean b(DownloadInfo downloadInfo) throws RemoteException;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class a extends Binder implements l {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.l$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public static class C0673a implements l {
+        /* loaded from: classes8.dex */
+        public static class C0678a implements l {
             public static l a;
             public IBinder b;
 
-            public C0673a(IBinder iBinder) {
+            public C0678a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
@@ -89,7 +89,7 @@ public interface l extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof l)) {
                 return (l) queryLocalInterface;
             }
-            return new C0673a(iBinder);
+            return new C0678a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -120,7 +120,7 @@ public interface l extends IInterface {
         }
 
         public static l a() {
-            return C0673a.a;
+            return C0678a.a;
         }
     }
 }

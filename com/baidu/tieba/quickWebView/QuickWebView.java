@@ -14,6 +14,7 @@ import android.view.animation.DecelerateInterpolator;
 import android.webkit.WebView;
 import android.widget.AbsoluteLayout;
 import android.widget.ProgressBar;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -38,13 +39,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dj8;
-import com.repackage.ej8;
-import com.repackage.nt4;
-import com.repackage.p88;
-import com.repackage.q88;
-import com.repackage.r88;
-import com.repackage.s88;
+import com.repackage.gu4;
+import com.repackage.pl8;
+import com.repackage.ql8;
+import com.repackage.wa8;
+import com.repackage.xa8;
+import com.repackage.ya8;
+import com.repackage.za8;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -52,12 +53,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class QuickWebView extends BaseWebView {
     public static /* synthetic */ Interceptable $ic;
     public static String o;
     public transient /* synthetic */ FieldHolder $fh;
-    public p88 a;
+    public wa8 a;
     public QuickWebViewBridge b;
     public ProgressBar c;
     public boolean d;
@@ -72,7 +73,7 @@ public class QuickWebView extends BaseWebView {
     public String m;
     public BaseWebView.g n;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements BaseWebView.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +121,7 @@ public class QuickWebView extends BaseWebView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -155,7 +156,7 @@ public class QuickWebView extends BaseWebView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -239,7 +240,7 @@ public class QuickWebView extends BaseWebView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
             if (this.j == null) {
-                this.j = getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f44);
+                this.j = getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080fa8);
             }
             return this.j;
         }
@@ -251,9 +252,9 @@ public class QuickWebView extends BaseWebView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.destroy();
-            p88 p88Var = this.a;
-            if (p88Var != null) {
-                p88Var.h();
+            wa8 wa8Var = this.a;
+            if (wa8Var != null) {
+                wa8Var.h();
                 this.a = null;
             }
             this.n = null;
@@ -281,10 +282,10 @@ public class QuickWebView extends BaseWebView {
         }
     }
 
-    public void h(dj8 dj8Var) {
+    public void h(pl8 pl8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dj8Var) == null) {
-            this.mJsBridge.a(dj8Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pl8Var) == null) {
+            this.mJsBridge.a(pl8Var);
         }
     }
 
@@ -314,10 +315,10 @@ public class QuickWebView extends BaseWebView {
             String str5 = null;
             try {
                 URL url = new URL(str);
-                s88 c2 = r88.a().c(url.getPath());
+                za8 c2 = ya8.a().c(url.getPath());
                 if (c2 == null) {
                     try {
-                        if (r88.a().b() != null) {
+                        if (ya8.a().b() != null) {
                             this.k = 3;
                         }
                         return null;
@@ -329,15 +330,15 @@ public class QuickWebView extends BaseWebView {
                     try {
                         if (!c2.e) {
                             this.k = 4;
-                            nt4.a("OfflineCache", -1L, -1, "readCache", -1, "", "url", str, "hybridName", c2.b, "hybridVersion", this.m, "hybridResult", "processing bundle");
+                            gu4.a("OfflineCache", -1L, -1, "readCache", -1, "", "url", str, "hybridName", c2.b, "hybridVersion", this.m, "hybridResult", "processing bundle");
                             return null;
                         }
                         try {
-                            String s = q88.q().s(c2.b);
+                            String s = xa8.q().s(c2.b);
                             if (!TextUtils.isEmpty(c2.b) && !TextUtils.isEmpty(c2.c) && !TextUtils.isEmpty(s)) {
-                                this.l = q88.z(true, c2.b);
-                                this.m = q88.z(false, s);
-                                String str6 = q88.q().p() + "/" + c2.b + "/" + s + "/";
+                                this.l = xa8.z(true, c2.b);
+                                this.m = xa8.z(false, s);
+                                String str6 = xa8.q().p() + "/" + c2.b + "/" + s + "/";
                                 String str7 = c2.c;
                                 if (!c2.c.endsWith(DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION)) {
                                     str7 = c2.c + DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION;
@@ -348,19 +349,19 @@ public class QuickWebView extends BaseWebView {
                                 if (!str8.contains("/android_asset/")) {
                                     if (!file.exists()) {
                                         this.k = 2;
-                                        nt4.a("OfflineCache", -1L, -1, "readCache", -1, "", "hybridName", this.l, "hybridVersion", this.m, "hybridResult", "path not found");
+                                        gu4.a("OfflineCache", -1L, -1, "readCache", -1, "", "hybridName", this.l, "hybridVersion", this.m, "hybridResult", "path not found");
                                         return null;
                                     } else if (ListUtils.isEmpty(arrayList)) {
                                         return null;
                                     } else {
                                         for (String str9 : arrayList) {
                                             if (StringUtils.isNull(str9)) {
-                                                nt4.a("OfflineCache", -1L, -1, "readCache", -1, "", "hybridName", this.l, "hybridVersion", this.m, "hybridResult", "static file path is null");
+                                                gu4.a("OfflineCache", -1L, -1, "readCache", -1, "", "hybridName", this.l, "hybridVersion", this.m, "hybridResult", "static file path is null");
                                                 this.k = 1;
                                                 return null;
                                             } else if (!new File(str6, str9).exists()) {
                                                 this.k = 1;
-                                                nt4.a("OfflineCache", -1L, -1, "readCache", -1, "", "url", str9, "hybridName", this.l, "hybridVersion", this.m, "hybridResult", "bundle incomplete");
+                                                gu4.a("OfflineCache", -1L, -1, "readCache", -1, "", "url", str9, "hybridName", this.l, "hybridVersion", this.m, "hybridResult", "bundle incomplete");
                                                 return null;
                                             }
                                         }
@@ -486,9 +487,9 @@ public class QuickWebView extends BaseWebView {
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
             this.i = context;
             initCommonJsBridge(context);
-            p88 p88Var = new p88(this);
-            this.a = p88Var;
-            p88Var.l(this.mJsBridge);
+            wa8 wa8Var = new wa8(this);
+            this.a = wa8Var;
+            wa8Var.l(this.mJsBridge);
             QuickWebViewBridge quickWebViewBridge = new QuickWebViewBridge(context, this.a);
             this.b = quickWebViewBridge;
             this.mJsBridge.a(quickWebViewBridge);
@@ -541,29 +542,29 @@ public class QuickWebView extends BaseWebView {
                 sb.append("_webview_time=");
                 sb.append(System.currentTimeMillis());
                 str2 = sb.toString();
-                nt4.a("OfflineCache", -1L, -1, "readCache", -1, "", "type", "start", "url", str2);
+                gu4.a("OfflineCache", -1L, -1, "readCache", -1, "", "type", "start", "url", str2);
                 String substring = str2.length() > 100 ? str2.substring(0, 100) : str2;
                 if (QuickWebViewSwitch.getInOn()) {
                     String j = j(str2);
                     if (!TextUtils.isEmpty(j)) {
-                        nt4.a("OfflineCache", -1L, -1, "readCache", -1, "", "type", "end", "url", j, "hybridName", this.l, "hybridVersion", this.m, "hybridResult", "success");
+                        gu4.a("OfflineCache", -1L, -1, "readCache", -1, "", "type", "end", "url", j, "hybridName", this.l, "hybridVersion", this.m, "hybridResult", "success");
                         str2 = j;
                         z = true;
-                        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_QUICK_WEBVIEW_LOCAL_URL).param("obj_locate", !z ? "1" : "2").param("obj_source", substring).param("obj_type", this.k).param("obj_name", q88.h).param("obj_param1", this.l).param("obj_id", this.m));
+                        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_QUICK_WEBVIEW_LOCAL_URL).param("obj_locate", !z ? "1" : "2").param("obj_source", substring).param("obj_type", this.k).param("obj_name", xa8.h).param("obj_param1", this.l).param("obj_id", this.m));
                         this.k = 0;
                         this.l = "none";
                         this.m = "0.0.0.0";
-                        nt4.a("search", -1L, 0, "LoadUrl", 0, "", "loadUrl", substring, SetImageWatermarkTypeReqMsg.SWITCH, Boolean.valueOf(QuickWebViewSwitch.getInOn()));
+                        gu4.a("search", -1L, 0, "LoadUrl", 0, "", "loadUrl", substring, SetImageWatermarkTypeReqMsg.SWITCH, Boolean.valueOf(QuickWebViewSwitch.getInOn()));
                     }
                 } else {
                     this.k = 5;
                 }
                 z = false;
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_QUICK_WEBVIEW_LOCAL_URL).param("obj_locate", !z ? "1" : "2").param("obj_source", substring).param("obj_type", this.k).param("obj_name", q88.h).param("obj_param1", this.l).param("obj_id", this.m));
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_QUICK_WEBVIEW_LOCAL_URL).param("obj_locate", !z ? "1" : "2").param("obj_source", substring).param("obj_type", this.k).param("obj_name", xa8.h).param("obj_param1", this.l).param("obj_id", this.m));
                 this.k = 0;
                 this.l = "none";
                 this.m = "0.0.0.0";
-                nt4.a("search", -1L, 0, "LoadUrl", 0, "", "loadUrl", substring, SetImageWatermarkTypeReqMsg.SWITCH, Boolean.valueOf(QuickWebViewSwitch.getInOn()));
+                gu4.a("search", -1L, 0, "LoadUrl", 0, "", "loadUrl", substring, SetImageWatermarkTypeReqMsg.SWITCH, Boolean.valueOf(QuickWebViewSwitch.getInOn()));
             }
             if (this.b != null) {
                 long currentTimeMillis = System.currentTimeMillis();
@@ -592,7 +593,7 @@ public class QuickWebView extends BaseWebView {
                 objectAnimator.cancel();
                 this.h = null;
             }
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.c, "alpha", 1.0f, 0.0f);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.c, Key.ALPHA, 1.0f, 0.0f);
             this.h = ofFloat;
             ofFloat.setDuration(150L);
             this.h.setInterpolator(new DecelerateInterpolator());
@@ -619,9 +620,9 @@ public class QuickWebView extends BaseWebView {
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView
-    public void setOnJsPromptCallback(ej8 ej8Var) {
+    public void setOnJsPromptCallback(ql8 ql8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, ej8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, ql8Var) == null) {
             Log.e(o, "QuickWebView do not support setOnJsPromptCallback");
         }
     }

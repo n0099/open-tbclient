@@ -1,39 +1,40 @@
 package com.repackage;
 
 import android.content.Context;
+import android.graphics.Typeface;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
 import android.util.Log;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import androidx.core.view.GravityCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.repackage.lw1;
 /* loaded from: classes6.dex */
-public class kw1 extends h13 {
+public abstract class kw1<V extends TextView, M extends lw1> extends mw1<V, M> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kw1(f13 f13Var) {
-        super(f13Var, "/swanAPI/coverview");
+    public kw1(@Nullable Context context, @NonNull M m) {
+        super(context, m);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {f13Var};
+            Object[] objArr = {context, m};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((f13) objArr2[0], (String) objArr2[1]);
+                super((Context) objArr2[0], (nw1) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -41,129 +42,165 @@ public class kw1 extends h13 {
         }
     }
 
-    @Override // com.repackage.h13
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.mw1, com.repackage.ow1
     @NonNull
-    public String j() {
-        InterceptResult invokeV;
+    /* renamed from: S */
+    public rx1 k(@NonNull M m, @NonNull M m2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "/swanAPI/coverview" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, m, m2)) == null) {
+            rx1 k = super.k(m, m2);
+            if (!TextUtils.equals(m.t, m2.t)) {
+                k.b(6);
+            }
+            return k;
+        }
+        return (rx1) invokeLL.objValue;
     }
 
-    @Override // com.repackage.h13
-    public boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, i03 i03Var) {
-        InterceptResult invokeLLLLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.mw1
+    /* renamed from: T */
+    public void O(@NonNull V v, @NonNull M m, @NonNull rx1 rx1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, i03Var)) == null) {
-            if (f23.b) {
-                Log.d("Component-Action-CoverView", "insert");
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, v, m, rx1Var) == null) {
+            super.C(v, m, rx1Var);
+            if (rx1Var.a(6)) {
+                U(v, m);
             }
-            qw1 q = q(unitedSchemeEntity);
-            if (q == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                ix1.c("Component-Action-CoverView", "model is null");
-                return false;
+            if (rx1Var.a(4)) {
+                V(v, m);
             }
-            zv1 insert = new pw1(context, q).insert();
-            boolean a = insert.a();
-            if (a) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+        }
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r4v1, resolved type: android.text.SpannableStringBuilder */
+    /* JADX WARN: Multi-variable type inference failed */
+    public void U(@NonNull V v, @NonNull M m) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, v, m) == null) {
+            if (ow1.h) {
+                Log.d("Component-TextView", "renderText");
+            }
+            boolean z = !TextUtils.isEmpty(m.t) && m.x >= 0;
+            String str = m.t;
+            if (z) {
+                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
+                spannableStringBuilder.setSpan(new jw1(m.x), 0, str.length(), 33);
+                str = spannableStringBuilder;
+            }
+            v.setIncludeFontPadding(!z);
+            v.setText(str);
+        }
+    }
+
+    public final void V(@NonNull V v, @NonNull M m) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048582, this, v, m) == null) || m.j == null) {
+            return;
+        }
+        if (ow1.h) {
+            Log.d("Component-TextView", "renderTextStyle");
+        }
+        if (m.v) {
+            v.setTextColor(m.u);
+        }
+        float f = (float) m.w;
+        if (f > 0.0f) {
+            v.setTextSize(1, f);
+        }
+        X(v, m);
+        W(v, m);
+        String str = m.B;
+        char c = 65535;
+        int hashCode = str.hashCode();
+        if (hashCode != -1039745817) {
+            if (hashCode == -1039592053 && str.equals("nowrap")) {
+                c = 1;
+            }
+        } else if (str.equals("normal")) {
+            c = 0;
+        }
+        if (c == 0) {
+            v.setSingleLine(false);
+        } else if (c == 1) {
+            v.setSingleLine(true);
+        }
+        if ("ellipsis".equals(m.C)) {
+            v.setEllipsize(TextUtils.TruncateAt.END);
+        }
+    }
+
+    public void W(@NonNull V v, @NonNull M m) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048583, this, v, m) == null) || m.j == null) {
+            return;
+        }
+        if (ow1.h) {
+            Log.d("Component-TextView", "renderTextStyleFontWeight");
+        }
+        String str = m.A;
+        char c = 65535;
+        int hashCode = str.hashCode();
+        if (hashCode != -1039745817) {
+            if (hashCode == 3029637 && str.equals("bold")) {
+                c = 1;
+            }
+        } else if (str.equals("normal")) {
+            c = 0;
+        }
+        if (c == 0) {
+            v.setTypeface(Typeface.SANS_SERIF, 0);
+        } else if (c != 1) {
+            zx1.o("Component-TextView", "invalid font weight : " + m.A);
+            v.setTypeface(Typeface.SANS_SERIF, 0);
+        } else {
+            v.setTypeface(Typeface.SANS_SERIF, 1);
+        }
+    }
+
+    public void X(@NonNull V v, @NonNull M m) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v, m) == null) {
+            Y(v, m, 48);
+        }
+    }
+
+    public final void Y(@NonNull V v, @NonNull M m, int i) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLI(1048585, this, v, m, i) == null) || m.j == null) {
+            return;
+        }
+        if (ow1.h) {
+            Log.d("Component-TextView", "renderTextStyleTextAlign");
+        }
+        String str = m.z;
+        char c = 65535;
+        int hashCode = str.hashCode();
+        if (hashCode != -1364013995) {
+            if (hashCode != 3317767) {
+                if (hashCode == 108511772 && str.equals("right")) {
+                    c = 1;
+                }
+            } else if (str.equals("left")) {
+                c = 0;
+            }
+        } else if (str.equals("center")) {
+            c = 2;
+        }
+        if (c != 0) {
+            if (c == 1) {
+                i2 = 8388613 | i;
+            } else if (c != 2) {
+                zx1.o("Component-TextView", "invalid text align: " + m.z);
             } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, insert.b);
+                i2 = i | 1;
             }
-            return a;
+            v.setGravity(i2);
         }
-        return invokeLLLLL.booleanValue;
-    }
-
-    @Override // com.repackage.h13
-    public boolean o(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, i03 i03Var) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, str, i03Var)) == null) {
-            if (f23.b) {
-                Log.d("Component-Action-CoverView", "remove");
-            }
-            qw1 q = q(unitedSchemeEntity);
-            if (q == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                ix1.c("Component-Action-CoverView", "model is null");
-                return false;
-            }
-            pw1 pw1Var = (pw1) vw1.a(q);
-            if (pw1Var == null) {
-                String str2 = "can't find coverView component:#" + q.b;
-                ix1.c("Component-Action-CoverView", str2);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
-                return false;
-            }
-            zv1 B = pw1Var.B();
-            boolean a = B.a();
-            if (a) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, B.b);
-            }
-            return a;
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    @Override // com.repackage.h13
-    public boolean p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, i03 i03Var) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, unitedSchemeEntity, callbackHandler, str, i03Var)) == null) {
-            if (f23.b) {
-                Log.d("Component-Action-CoverView", "update");
-            }
-            qw1 q = q(unitedSchemeEntity);
-            if (q == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                ix1.c("Component-Action-CoverView", "model is null");
-                return false;
-            }
-            pw1 pw1Var = (pw1) vw1.a(q);
-            if (pw1Var == null) {
-                String str2 = "can't find coverView component:#" + q.b;
-                ix1.c("Component-Action-CoverView", str2);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
-                return false;
-            }
-            zv1 update = pw1Var.update((pw1) q);
-            boolean a = update.a();
-            if (a) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, update.b);
-            }
-            return a;
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    @Nullable
-    public final qw1 q(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, unitedSchemeEntity)) == null) {
-            if (unitedSchemeEntity == null) {
-                return null;
-            }
-            JSONObject k = k(unitedSchemeEntity);
-            if (k == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                ix1.c("Component-Action-CoverView", "params is null");
-                return null;
-            }
-            qw1 qw1Var = new qw1();
-            try {
-                qw1Var.a(k);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                ix1.d("Component-Action-CoverView", "model parse exception:", e);
-            }
-            return qw1Var;
-        }
-        return (qw1) invokeL.objValue;
+        i2 = i | GravityCompat.START;
+        v.setGravity(i2);
     }
 }

@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ja5;
-import com.repackage.pi;
+import com.repackage.hb5;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public abstract class SuspendedActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -32,7 +32,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     public TextView e;
     public LinearLayout f;
     public LinearLayout g;
-    public ja5 h;
+    public hb5 h;
     public boolean i;
     public NoNetworkView.b j;
 
@@ -64,7 +64,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
         public void g(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
-                this.a.B0();
+                this.a.P0();
             }
         }
     }
@@ -97,7 +97,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.n0();
+                this.a.D0();
             }
         }
     }
@@ -118,20 +118,115 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
         this.j = new a(this);
     }
 
-    public abstract void B0();
+    public void D0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            hb5 hb5Var = this.h;
+            if (hb5Var == null || hb5Var.I0()) {
+                if (this.b != null) {
+                    this.a.h();
+                } else {
+                    finish();
+                }
+            }
+        }
+    }
 
-    public void C0(boolean z) {
+    public abstract hb5 E0(LinearLayout linearLayout, NavigationBar navigationBar);
+
+    public int F0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds153) : invokeV.intValue;
+    }
+
+    public View.OnClickListener G0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (View.OnClickListener) invokeV.objValue;
+    }
+
+    public final void K0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a = (SusPendedView) findViewById(R.id.obfuscated_res_0x7f091c31);
+            O0();
+            M0();
+            N0();
+            L0();
+            this.a.setNavigationBar(this.f);
+            this.a.setTranView(this.b);
+            this.a.setContentView(this.g);
+            this.a.i();
+        }
+    }
+
+    public final void L0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906df);
+            this.g = linearLayout;
+            hb5 E0 = E0(linearLayout, this.c);
+            this.h = E0;
+            if (E0 != null) {
+                this.a.setContentViewTop(E0);
+            }
+        }
+    }
+
+    public final void M0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255b);
+            this.c = navigationBar;
+            navigationBar.mCenterText.setTextSize(0, qi.f(getPageContext().getPageActivity(), R.dimen.tbds44));
+            TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getResources().getString(R.string.obfuscated_res_0x7f0f04e9), new b(this));
+            this.e = addTextButton;
+            addTextButton.setTextSize(0, qi.f(getPageContext().getPageActivity(), R.dimen.tbds44));
+            this.c.setIsCorner(true);
+            this.c.setStatusBarVisibility(8);
+            this.c.hideBottomLine();
+            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091627);
+            this.f.addView(this.b, 0, new LinearLayout.LayoutParams(-1, F0()));
+        }
+    }
+
+    public final void N0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            NoNetworkView noNetworkView = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f09255d);
+            this.d = noNetworkView;
+            noNetworkView.a(this.j);
+        }
+    }
+
+    public final void O0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            TranView tranView = new TranView(getPageContext().getPageActivity());
+            this.b = tranView;
+            tranView.setVisibility(0);
+            this.b.setOnClickListener(G0());
+        }
+    }
+
+    public abstract void P0();
+
+    public void S0(boolean z) {
         SusPendedView susPendedView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (susPendedView = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || (susPendedView = this.a) == null) {
             return;
         }
         susPendedView.setCanDragClose(z);
     }
 
-    public void D0(boolean z) {
+    public void T0(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
             this.i = z;
         }
     }
@@ -139,7 +234,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void closeAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 0);
         }
     }
@@ -147,7 +242,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void enterExitAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
         }
     }
@@ -155,14 +250,14 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity
     public void finish() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             if (this.i) {
                 super.finish();
                 return;
             }
-            ja5 ja5Var = this.h;
-            if (ja5Var != null) {
-                Intent resultIntent = ja5Var.getResultIntent();
+            hb5 hb5Var = this.h;
+            if (hb5Var != null) {
+                Intent resultIntent = hb5Var.getResultIntent();
                 if (resultIntent != null) {
                     setResult(-1, resultIntent);
                 }
@@ -178,35 +273,19 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
         }
     }
 
-    public void n0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            ja5 ja5Var = this.h;
-            if (ja5Var == null || ja5Var.J0()) {
-                if (this.b != null) {
-                    this.a.h();
-                } else {
-                    finish();
-                }
-            }
-        }
-    }
-
-    public abstract ja5 o0(LinearLayout linearLayout, NavigationBar navigationBar);
-
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             this.c.onChangeSkinType(getPageContext(), i);
             this.d.d(getPageContext(), i);
             this.a.e(i);
             SkinManager.setBackgroundColor(this.a, R.color.CAM_X0608);
             SkinManager.setBackgroundColor(this.g, R.color.CAM_X0201);
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0105);
-            ja5 ja5Var = this.h;
-            if (ja5Var != null) {
-                ja5Var.n(i);
+            hb5 hb5Var = this.h;
+            if (hb5Var != null) {
+                hb5Var.n(i);
             }
         }
     }
@@ -214,102 +293,23 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0052);
-            t0();
+            K0();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onDestroy();
             SusPendedView susPendedView = this.a;
             if (susPendedView != null) {
                 susPendedView.g();
             }
-        }
-    }
-
-    public int p0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds153) : invokeV.intValue;
-    }
-
-    public View.OnClickListener s0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return null;
-        }
-        return (View.OnClickListener) invokeV.objValue;
-    }
-
-    public final void t0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.a = (SusPendedView) findViewById(R.id.obfuscated_res_0x7f091b4c);
-            z0();
-            x0();
-            y0();
-            w0();
-            this.a.setNavigationBar(this.f);
-            this.a.setTranView(this.b);
-            this.a.setContentView(this.g);
-            this.a.i();
-        }
-    }
-
-    public final void w0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906c0);
-            this.g = linearLayout;
-            ja5 o0 = o0(linearLayout, this.c);
-            this.h = o0;
-            if (o0 != null) {
-                this.a.setContentViewTop(o0);
-            }
-        }
-    }
-
-    public final void x0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092439);
-            this.c = navigationBar;
-            navigationBar.mCenterText.setTextSize(0, pi.f(getPageContext().getPageActivity(), R.dimen.tbds44));
-            TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getResources().getString(R.string.obfuscated_res_0x7f0f04dc), new b(this));
-            this.e = addTextButton;
-            addTextButton.setTextSize(0, pi.f(getPageContext().getPageActivity(), R.dimen.tbds44));
-            this.c.setIsCorner(true);
-            this.c.setStatusBarVisibility(8);
-            this.c.hideBottomLine();
-            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09156b);
-            this.f.addView(this.b, 0, new LinearLayout.LayoutParams(-1, p0()));
-        }
-    }
-
-    public final void y0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            NoNetworkView noNetworkView = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f09243b);
-            this.d = noNetworkView;
-            noNetworkView.a(this.j);
-        }
-    }
-
-    public final void z0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            TranView tranView = new TranView(getPageContext().getPageActivity());
-            this.b = tranView;
-            tranView.setVisibility(0);
-            this.b.setOnClickListener(s0());
         }
     }
 }

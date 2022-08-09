@@ -1,100 +1,28 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.lang.ref.WeakReference;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class wt extends ar implements yt {
+public final class wt implements zr {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final yr d;
-    public final as e;
-    public final es f;
-    public final hs g;
-    public final cs h;
-    public final xr i;
-    public final ds j;
-    public final zt k;
-    public final hu l;
+    public WeakReference<Activity> a;
+    public final ap b;
 
-    public /* synthetic */ wt(yr yrVar, as asVar, es esVar, hs hsVar, cs csVar, xr xrVar, ds dsVar, zt ztVar, hu huVar, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(yrVar, asVar, esVar, hsVar, csVar, xrVar, dsVar, (i & 128) != 0 ? new au() : ztVar, (i & 256) != 0 ? new ju() : huVar);
-    }
-
-    @Override // com.repackage.zq
-    public ds a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.j : (ds) invokeV.objValue;
-    }
-
-    @Override // com.repackage.zq
-    public es b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (es) invokeV.objValue;
-    }
-
-    @Override // com.repackage.zq
-    public xr c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.i : (xr) invokeV.objValue;
-    }
-
-    @Override // com.repackage.yt
-    public zt d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.k : (zt) invokeV.objValue;
-    }
-
-    @Override // com.repackage.zq
-    public hs e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g : (hs) invokeV.objValue;
-    }
-
-    @Override // com.repackage.yt
-    public hu f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.l : (hu) invokeV.objValue;
-    }
-
-    @Override // com.repackage.zq
-    public as g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : (as) invokeV.objValue;
-    }
-
-    @Override // com.repackage.zq
-    public yr h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : (yr) invokeV.objValue;
-    }
-
-    @Override // com.repackage.zq
-    public cs i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.h : (cs) invokeV.objValue;
-    }
-
-    public wt(yr yrVar, as asVar, es esVar, hs hsVar, cs csVar, xr xrVar, ds dsVar, zt ztVar, hu huVar) {
+    public wt(ap apVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {yrVar, asVar, esVar, hsVar, csVar, xrVar, dsVar, ztVar, huVar};
+            Object[] objArr = {apVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -104,14 +32,88 @@ public final class wt extends ar implements yt {
                 return;
             }
         }
-        this.d = yrVar;
-        this.e = asVar;
-        this.f = esVar;
-        this.g = hsVar;
-        this.h = csVar;
-        this.i = xrVar;
-        this.j = dsVar;
-        this.k = ztVar;
-        this.l = huVar;
+        this.b = apVar;
+    }
+
+    @Override // com.repackage.zr
+    public Activity a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            WeakReference<Activity> weakReference = this.a;
+            if (weakReference == null) {
+                return null;
+            }
+            Activity activity = weakReference != null ? weakReference.get() : null;
+            if (ys.a(activity)) {
+                return null;
+            }
+            return activity;
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    @Override // com.repackage.zr
+    public void b(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) || ys.a(activity)) {
+            return;
+        }
+        this.a = new WeakReference<>(activity);
+    }
+
+    @Override // com.repackage.zr
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b.t() : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.zr
+    public Context getAppContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Context context = this.b.getContext();
+            Intrinsics.checkExpressionValueIsNotNull(context, "bdTaskConfig.context");
+            return context;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    @Override // com.repackage.zr
+    public String getAppVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            String k = this.b.k();
+            Intrinsics.checkExpressionValueIsNotNull(k, "bdTaskConfig.appVersion");
+            return k;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.zr
+    public as getEnv() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            as r = this.b.r();
+            Intrinsics.checkExpressionValueIsNotNull(r, "bdTaskConfig.taskEnv");
+            return r;
+        }
+        return (as) invokeV.objValue;
+    }
+
+    @Override // com.repackage.zr
+    public String getSdkVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            String q = this.b.q();
+            Intrinsics.checkExpressionValueIsNotNull(q, "bdTaskConfig.sdkVersion");
+            return q;
+        }
+        return (String) invokeV.objValue;
     }
 }

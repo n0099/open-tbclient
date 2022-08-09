@@ -1,220 +1,69 @@
 package com.repackage;
 
-import android.util.SparseArray;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.abtest.UsbAbTestSwitch;
-import com.baidu.tbadk.abtest.group.HomeGroupUbsABTest;
-import com.baidu.tbadk.abtest.group.IThreadCardUbsABTest;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tbadk.core.util.resourceLoaderProc.BigImageLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.BigdayImageLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.EmotionShareLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.FlutterLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.ImageLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileDrawableLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileImageLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileImageLoaderProc2;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalPicDrawableLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalVideoThumbLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.MemeLoaderProc2;
+import com.baidu.tbadk.core.util.resourceLoaderProc.NinePatchLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.PortraitBlurLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.PortraitLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleBlurLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleForeverLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleForeverMemoryLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleLoaderProc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes6.dex */
-public abstract class on4 extends BaseCardInfo implements IThreadCardUbsABTest {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int BIG_IMG = 2;
-    public static final int CONTENT = 1;
-    public static final int HEAD_IMG = 4;
-    public static final int HEAD_VIDEO = 5;
-    public static final int USER_NAME = 3;
+/* loaded from: classes7.dex */
+public class on4 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<String> feedBackReasonMap;
-    public int floorPosition;
-    public Map<BdUniqueId, UsbAbTestSwitch> mABTestMap;
-    public int objType;
 
-    public on4() {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            kg.h().o(10, new SimpleLoaderProc(true, true, false, 10));
+            kg.h().o(11, new SimpleLoaderProc(false, true, false, 10));
+            kg.h().o(42, new SimpleLoaderProc(true, false, false, 10));
+            kg.h().o(13, new SimpleLoaderProc(true, true, false, 13));
+            kg.h().o(14, new SimpleLoaderProc(false, true, false, 13));
+            kg.h().o(17, new SimpleLoaderProc(true, true, false, 17));
+            kg.h().o(18, new SimpleLoaderProc(false, true, false, 17));
+            kg.h().o(39, new SimpleBlurLoaderProc(true, 39));
+            kg.h().o(12, new PortraitLoaderProc(false, false, 12));
+            kg.h().o(26, new PortraitLoaderProc(true, false, 26));
+            kg.h().o(28, new PortraitLoaderProc(false, false, 26));
+            kg.h().o(40, new PortraitBlurLoaderProc(false, false, 40));
+            kg.h().o(19, new NinePatchLoaderProc(19));
+            kg.h().o(24, new LocalPicDrawableLoaderProc(24));
+            kg.h().o(25, new PortraitLoaderProc(false, true, 26));
+            kg.h().o(27, new BigImageLoaderProc(27));
+            kg.h().o(29, new SimpleForeverLoaderProc(true, 29));
+            kg.h().o(32, new LocalFileDrawableLoaderProc(32));
+            kg.h().o(23, new cx4());
+            kg.h().o(33, new MemeLoaderProc2());
+            kg.h().o(34, new EmotionShareLoaderProc());
+            kg.h().o(35, new LocalFileImageLoaderProc(160, 160));
+            kg.h().o(36, new LocalFileImageLoaderProc());
+            kg.h().o(43, new LocalFileImageLoaderProc2());
+            kg.h().o(37, new LocalVideoThumbLoaderProc());
+            kg.h().o(38, new ImageLoaderProc());
+            kg.h().o(41, new BigdayImageLoaderProc());
+            kg.h().o(44, new FlutterLoaderProc(true, 44, false));
+            kg.h().o(15, new SimpleLoaderProc(false, true, true, 15));
+            kg.h().o(16, new SimpleLoaderProc(false, true, true, 16));
+            kg.h().o(21, new SimpleLoaderProc(false, true, true, 21));
+            kg.h().o(30, new SimpleLoaderProc(true, true, false, 30));
+            kg.h().o(31, new SimpleLoaderProc(false, true, false, 30));
+            kg.h().o(45, new SimpleForeverMemoryLoaderProc(true, true, true, 45));
+            kg.h().o(46, new SimpleLoaderProc(true, true, false, 46));
+            kg.h().o(47, new SimpleLoaderProc(false, true, false, 46));
         }
-        this.objType = 1;
-        this.floorPosition = -1;
-        this.mABTestMap = new HashMap();
-        this.feedBackReasonMap = null;
-    }
-
-    private UsbAbTestSwitch getCurUsbAbTestSwitchByKey(BdUniqueId bdUniqueId) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, bdUniqueId)) == null) {
-            if (bdUniqueId == null) {
-                return null;
-            }
-            return this.mABTestMap.get(bdUniqueId);
-        }
-        return (UsbAbTestSwitch) invokeL.objValue;
-    }
-
-    public abstract lp4 getNegFeedBackData();
-
-    public String getPbInputLocate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String getRecomReason() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (getThreadData() == null) {
-                return null;
-            }
-            return getThreadData().getRecomReason();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public abstract ThreadData getThreadData();
-
-    public boolean isFromFrs() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ThreadData threadData = getThreadData();
-            if (threadData == null) {
-                return false;
-            }
-            return threadData.isFromFrs();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isSelf() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ThreadCardUtils.isSelf(getThreadData()) : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
-    public void setABTest(BdUniqueId bdUniqueId, UsbAbTestSwitch usbAbTestSwitch) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, bdUniqueId, usbAbTestSwitch) == null) || bdUniqueId == null) {
-            return;
-        }
-        this.mABTestMap.put(bdUniqueId, usbAbTestSwitch);
-    }
-
-    public boolean showCardBottomOpWeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            ThreadData threadData = getThreadData();
-            if (threadData == null) {
-                return false;
-            }
-            return threadData.isFromHomPage || threadData.isFromConcern || threadData.isFromPersonPolymeric || threadData.isFromVideoTab || threadData.isFromEnterFroumTabFeed || threadData.isFromFeedTab;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean showCardEnterFourm() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ThreadData threadData = getThreadData();
-            if (threadData == null) {
-                return false;
-            }
-            return threadData.isFromConcern || threadData.isFromPersonPolymeric || threadData.isWorksInfo();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean showCardGoodsFourm() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            ThreadData threadData = getThreadData();
-            if (threadData == null) {
-                return false;
-            }
-            return threadData.isFromConcern || threadData.isFromPersonPolymeric || threadData.isFromHomPage;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean showFollowBtn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            ThreadData threadData = getThreadData();
-            if (threadData == null || threadData.getAuthor() == null || threadData.isFromLocal || ThreadCardUtils.isSelf(threadData)) {
-                return false;
-            }
-            boolean z = threadData.isBjhDynamicThread() || threadData.isBJHArticleThreadType() || threadData.isBJHVideoThreadType();
-            if ((!threadData.isFromHomPage || (!z && !threadData.isWorksInfo())) && ((!threadData.isFromVideoTab || (!z && !threadData.isWorksInfo())) && (!threadData.isFromFrs() || (!z && !threadData.isWorksInfo())))) {
-                if (!threadData.isFromFeedTab) {
-                    return false;
-                }
-                if (!z && !threadData.isWorksInfo()) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
-    public boolean showNewPicCut() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? UbsABTestHelper.isABTestByKeys(getCurUsbAbTestSwitchByKey(HomeGroupUbsABTest.ABTEST_GROUP_KEY), HomeGroupUbsABTest.SID_B) : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
-    public boolean showNewUI() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? UbsABTestHelper.isABTestByKeys(getCurUsbAbTestSwitchByKey(HomeGroupUbsABTest.ABTEST_GROUP_KEY), HomeGroupUbsABTest.SID_A) : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
-    public boolean showNoName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
-    public boolean showNoReadState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? UbsABTestHelper.isABTestByKeys(getCurUsbAbTestSwitchByKey(HomeGroupUbsABTest.ABTEST_GROUP_KEY), HomeGroupUbsABTest.SID_E) : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
-    public boolean showWeakenName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

@@ -1,137 +1,326 @@
 package com.repackage;
 
-import android.os.Bundle;
-import android.preference.PreferenceManager;
+import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.SapiWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public final class p52 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebResourceResponse;
+import com.repackage.r52;
+import com.repackage.u52;
+import java.io.File;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
+/* loaded from: classes7.dex */
+public class p52 extends n52 implements i52 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public f52 b;
+    public c52 c;
+    public File d;
+    public b e;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static int a = -1;
-        public static int b = -1;
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ p52 d;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-146648857, "Lcom/repackage/p52$a;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
+        public a(p52 p52Var, String str, int i, String str2) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p52Var, str, Integer.valueOf(i), str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-146648857, "Lcom/repackage/p52$a;");
-            }
+            this.d = p52Var;
+            this.a = str;
+            this.b = i;
+            this.c = str2;
         }
 
-        public static String a() {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getString("swan_sub_pkg_launch_switch", "debug_ab") : (String) invokeV.objValue;
-        }
-
-        public static boolean b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                if (p52.a) {
-                    Log.d("AppLaunchMessenger", "isOnAppLaunchEnable getAppLaunchDebugSwitch : " + a());
-                    String a2 = a();
-                    char c = 65535;
-                    int hashCode = a2.hashCode();
-                    if (hashCode != 251117829) {
-                        if (hashCode != 547804557) {
-                            if (hashCode == 569516856 && a2.equals("debug_on_activity_create")) {
-                                c = 1;
-                            }
-                        } else if (a2.equals("debug_ab")) {
-                            c = 2;
-                        }
-                    } else if (a2.equals("debug_on_app_launch")) {
-                        c = 0;
-                    }
-                    if (c == 0) {
-                        return true;
-                    }
-                    if (c == 1) {
-                        return false;
-                    }
-                }
-                if (a < 0) {
-                    pj2.g0().getSwitch("swan_sub_pkg_launch_switch", 0);
-                    a = 0;
-                }
-                if (p52.a) {
-                    Log.d("AppLaunchMessenger", "isOnAppLaunchEnable sLaunchABSwitcher : " + a);
-                }
-                return a == 1;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.d.e.onError(this.a, this.b, this.c);
             }
-            return invokeV.booleanValue;
-        }
-
-        public static boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                if (b == -1) {
-                    pj2.g0().getSwitch("swan_app_launch_optimize_v2", 0);
-                    b = 0;
-                }
-                return b == 1;
-            }
-            return invokeV.booleanValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755459004, "Lcom/repackage/p52;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755459004, "Lcom/repackage/p52;");
-                return;
-            }
-        }
-        a = sg1.a;
+    /* loaded from: classes7.dex */
+    public interface b {
+        void onError(String str, int i, String str2);
     }
 
-    public static void b(hx2 hx2Var, Bundle bundle) {
+    /* loaded from: classes7.dex */
+    public class c implements r52.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public c52 a;
+        public String b;
+
+        /* loaded from: classes7.dex */
+        public class a implements d52 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ File a;
+
+            public a(c cVar, File file) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar, file};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = file;
+            }
+
+            @Override // com.repackage.d52
+            public void a() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    bh4.L(this.a);
+                }
+            }
+        }
+
+        public c(p52 p52Var, c52 c52Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p52Var, c52Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = c52Var;
+            this.b = str;
+        }
+
+        @Override // com.repackage.r52.a
+        public void a(File file) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, file) == null) {
+                try {
+                    this.a.a(this.b, file, new a(this, file));
+                } catch (Exception e) {
+                    if (i52.a) {
+                        Log.d("HybridIntercept", Log.getStackTraceString(e));
+                    }
+                }
+            }
+        }
+
+        @Override // com.repackage.r52.a
+        public void b(File file) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) == null) && i52.a) {
+                Log.e("HybridIntercept", "writer file fail, file = " + file);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p52(@NonNull Context context, c52 c52Var) {
+        super(context, c52Var);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, hx2Var, bundle) == null) {
-            if (a) {
-                Log.d("AppLaunchMessenger", "sendAppLaunchEvent event start.");
-            }
-            Bundle bundle2 = new Bundle();
-            bundle2.putBundle("swan_app_on_launch_event", bundle);
-            ax2 ax2Var = new ax2(122, bundle2);
-            if (!hx2Var.T() && a.c()) {
-                hx2Var.f0(ax2Var.h());
-            } else {
-                yw2 e = yw2.e();
-                ax2Var.b(hx2Var.b);
-                ax2Var.p(true);
-                e.h(ax2Var);
-            }
-            if (a) {
-                Log.d("AppLaunchMessenger", "sendAppLaunchEvent event end.");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, c52Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (c52) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = e52.a().f();
+        this.d = new File(e52.a().b(), "image_temp");
+        this.c = c52Var;
+        if (c52Var == null) {
+            h(context);
+        }
+    }
+
+    @Override // com.repackage.u52
+    public WebResourceResponse a(@NonNull u52.a aVar) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+            String d = aVar.d();
+            if (!i(aVar)) {
+                return aVar.b(d, aVar.getRequestHeaders(), aVar.c());
+            }
+            String f = f(d);
+            InputStream inputStream = null;
+            c52 c52Var = this.c;
+            if (c52Var != null && !c52Var.isClosed()) {
+                inputStream = this.c.get(f);
+            }
+            if (inputStream != null) {
+                if (i52.a) {
+                    Log.d("HybridIntercept", "adopt cached image, url = " + f);
+                }
+                return new WebResourceResponse(aVar.getMimeType(), "UTF-8", inputStream);
+            }
+            o52 a2 = s52.a(f, g(aVar));
+            if (a2 != null && (i = a2.a) >= 400 && this.e != null) {
+                d(f, i, a2.b);
+            }
+            WebResourceResponse c2 = c(a2);
+            if (c2 != null && c2.getData() != null) {
+                c2.setData(new t52(c2.getData(), new r52(new File(this.d, e52.a().d().a(f)), new c(this, this.c, f))));
+            }
+            if (i52.a) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("download image, response = ");
+                sb.append(c2 != null);
+                sb.append(" ; url = ");
+                sb.append(f);
+                Log.e("HybridIntercept", sb.toString());
+            }
+            return c2;
+        }
+        return (WebResourceResponse) invokeL.objValue;
+    }
+
+    public final WebResourceResponse c(o52 o52Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o52Var)) == null) {
+            if (o52Var == null) {
+                return null;
+            }
+            String str = o52Var.e;
+            if (str != null && str.toLowerCase().contains("html")) {
+                o52Var.e = SapiWebView.DATA_MIME_TYPE;
+                o52Var.d = "UTF-8";
+            }
+            if (gd3.f()) {
+                return new WebResourceResponse(o52Var.e, o52Var.d, o52Var.a, o52Var.b, o52Var.c, o52Var.f);
+            }
+            return new WebResourceResponse(o52Var.e, "UTF-8", o52Var.f);
+        }
+        return (WebResourceResponse) invokeL.objValue;
+    }
+
+    public final void d(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, str, i, str2) == null) {
+            te3.q().post(new a(this, str, i, str2));
+        }
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "image" : (String) invokeV.objValue;
+    }
+
+    public String f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            if (str.startsWith("intercept") && str.length() > 9) {
+                str = str.substring(9);
+            }
+            if (i52.a) {
+                Log.d("HybridIntercept", "remote request url = " + str);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public Map<String, String> g(@NonNull u52.a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, aVar)) == null) {
+            Map<String, String> requestHeaders = aVar.getRequestHeaders();
+            if (requestHeaders == null) {
+                requestHeaders = new HashMap<>();
+            }
+            String f = v93.l().f(f(aVar.d()), requestHeaders.get("Cookie"));
+            if (!TextUtils.isEmpty(f)) {
+                requestHeaders.put("Cookie", f);
+                if (i52.a) {
+                    Log.d("HybridIntercept", "addCookiesToHeader cookie: " + f);
+                }
+            }
+            return requestHeaders;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public final void h(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
+            File b2 = e52.a().b();
+            String e = e();
+            if (!TextUtils.isEmpty(e)) {
+                b2 = new File(b2, e);
+            }
+            if (i52.a) {
+                Log.d("HybridIntercept", "init default disk cache provider, path = " + b2);
+            }
+            bh4.l(b2);
+            this.c = gk2.U().b(context, b2, e52.a().g());
+        }
+    }
+
+    public boolean i(@NonNull u52.a aVar) {
+        InterceptResult invokeL;
+        Map<String, String> requestHeaders;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, aVar)) == null) {
+            if (aVar.c()) {
+                return this.b.a(aVar) && (requestHeaders = aVar.getRequestHeaders()) != null && requestHeaders.containsKey("Accept") && (str = requestHeaders.get("Accept")) != null && str.startsWith("image");
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

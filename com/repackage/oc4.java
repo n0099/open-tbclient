@@ -1,20 +1,15 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class oc4 {
+/* loaded from: classes7.dex */
+public class oc4 extends gc4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile oc4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public oc4() {
@@ -31,87 +26,24 @@ public class oc4 {
         }
     }
 
-    public static oc4 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (oc4.class) {
-                    if (a == null) {
-                        a = new oc4();
-                    }
-                }
-            }
-            return a;
-        }
-        return (oc4) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? r74.b().i().getString("web_mode_version", "0") : (String) invokeV.objValue;
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? r74.b().i().getInt("web_mode_switch", 1) == 1 : invokeV.booleanValue;
-    }
-
-    public ArrayList<String> a() {
+    @Override // com.repackage.gc4
+    public JSONObject d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String string = r74.b().i().getString("web_mode_degrade_list", "");
-            JSONArray jSONArray = null;
-            if (TextUtils.isEmpty(string)) {
-                return null;
-            }
+            nc4 c = nc4.c();
+            JSONObject jSONObject = new JSONObject();
             try {
-                jSONArray = new JSONArray(string);
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("version", c.a());
+                jSONObject.put("ceres_info", jSONObject2);
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("version", c.b());
+                jSONObject.put("global_info", jSONObject3);
             } catch (JSONException unused) {
             }
-            ArrayList<String> arrayList = new ArrayList<>();
-            if (jSONArray != null && jSONArray.length() > 0) {
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    arrayList.add(jSONArray.optString(i));
-                }
-            }
-            return arrayList;
+            return jSONObject;
         }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public final String e(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            JSONArray optJSONArray = jSONObject.optJSONArray("errno_list");
-            return optJSONArray != null ? optJSONArray.toString() : "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void f(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("host_use_weburl_degrade")) {
-            return;
-        }
-        int optInt = optJSONObject.optInt("host_use_weburl_degrade", 0);
-        String e = e(optJSONObject);
-        p74 b = r74.b();
-        if (b == null) {
-            return;
-        }
-        ig4 i = b.i();
-        i.putInt("web_mode_switch", optInt);
-        i.putString("web_mode_degrade_list", e);
-        i.putString("web_mode_version", optString);
+        return (JSONObject) invokeV.objValue;
     }
 }

@@ -1,129 +1,222 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.Environment;
-import android.util.Log;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.SystemProperties;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.upload.utils.RequsetNetworkUtils;
+import com.baidu.android.util.devices.RomUtils;
+import com.baidu.ar.arplay.core.message.ARPMessageType;
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import com.baidu.down.utils.Constants;
+import com.baidu.lcp.sdk.pb.LcmPb$Common;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
+import com.repackage.r60;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class s70 {
     public static /* synthetic */ Interceptable $ic;
-    public static Context a;
-    public static s70 b;
-    public static File c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public s70() {
+    public static void a(Context context, long j, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static File a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (Environment.getExternalStorageState().equals("mounted")) {
-                File file = new File(a.getExternalFilesDir("Log").getPath() + "/");
-                Log.i("LogToFileUtils", "file path ..." + file.getPath());
-                if (!file.exists()) {
-                    file.mkdirs();
-                }
-                File file2 = new File(file.getPath() + "/logs.txt");
-                if (file2.exists()) {
-                    file2.delete();
-                }
-                try {
-                    file2.createNewFile();
-                } catch (Exception e) {
-                    Log.e("LogToFileUtils", "Create log file failure !!! " + e.toString());
-                }
-                return file2;
-            }
-            Log.e("LogToFileUtils", "sd not mounted");
-            return null;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{context, Long.valueOf(j), str, str2}) == null) {
             try {
-                Class<?> cls = Class.forName("com.baidu.android.imsdk.internal.IMConfigInternal");
-                String valueOf = String.valueOf(cls.getMethod("getSDKVersionValue", Context.class).invoke(cls.getMethod("getInstance", new Class[0]).invoke(new Object(), new Object[0]), a));
-                return String.format("%s.%s.%s", valueOf.substring(0, 1), valueOf.substring(1, 2), valueOf.substring(2, 3));
+                r60.c cVar = new r60.c(context);
+                cVar.e(str);
+                cVar.f("1");
+                cVar.c(j);
+                cVar.d(str2);
+                cVar.a(501112L);
+                cVar.b();
             } catch (Exception e) {
-                Log.i("LogToFileUtils", e.getMessage());
-                e.printStackTrace();
+                v70.c("LCPCommon", "businessEvent exception ", e);
+            }
+        }
+    }
+
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (PackageManager.NameNotFoundException e) {
+                v70.c("LCPCommon", "getAppVersionName NameNotFoundException", e);
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static Object c(Context context, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, context, z)) == null) {
+            String valueOf = String.valueOf(System.currentTimeMillis());
+            String str = Build.VERSION.RELEASE;
+            String str2 = Build.MANUFACTURER;
+            String str3 = Build.MODEL;
+            String b = TextUtils.isEmpty(b(context)) ? "" : b(context);
+            long currentTimeMillis = System.currentTimeMillis();
+            String b2 = w70.b(context);
+            String e = w70.e(context);
+            try {
+                if (z) {
+                    if (!TextUtils.isEmpty(b2) && !TextUtils.isEmpty(e)) {
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, valueOf);
+                        jSONObject.put("cuid", e);
+                        jSONObject.put(HttpConstants.DEVICE_TYPE, "android");
+                        jSONObject.put(HttpConstants.OS_VERSION, str);
+                        jSONObject.put("manufacture", str2);
+                        jSONObject.put(ARPMessageType.ARPMessageParamKeys.MODEL_TYPE_KEY, str3);
+                        jSONObject.put("app_id", w70.b(context));
+                        jSONObject.put("app_version", b);
+                        jSONObject.put("sdk_version", "2280016");
+                        jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, currentTimeMillis);
+                        jSONObject.put("sign", f(b2, e, "android", currentTimeMillis));
+                        return jSONObject;
+                    }
+                    v70.b("LCPCommon", "getData appId : " + b2 + ", cuid :" + e);
+                    return null;
+                }
+                String str4 = "nonNet";
+                if (RequsetNetworkUtils.isNetworkAvailable(context)) {
+                    str4 = RequsetNetworkUtils.isWifiConnected(context) ? "wifi" : RequsetNetworkUtils.getMobileType(context);
+                }
+                LcmPb$Common.b newBuilder = LcmPb$Common.newBuilder();
+                newBuilder.w(e);
+                newBuilder.x("android");
+                newBuilder.B(str);
+                newBuilder.y(str2);
+                newBuilder.z(str3);
+                newBuilder.u(b2);
+                newBuilder.v(b);
+                newBuilder.D("2280016");
+                newBuilder.A(str4);
+                newBuilder.C(d(context));
+                return newBuilder.build();
+            } catch (Exception e2) {
+                v70.c("LCPCommon", "getData :", e2);
+                return null;
+            }
+        }
+        return invokeLZ.objValue;
+    }
+
+    public static String d(Context context) {
+        InterceptResult invokeL;
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            String upperCase = Build.MANUFACTURER.toUpperCase();
+            String str3 = "";
+            if (upperCase.contains("XIAOMI")) {
+                str = "ro.miui.ui.version.code";
+            } else if (upperCase.contains("HUAWEI")) {
+                str = "ro.build.version.emui";
+            } else if (upperCase.contains("MEIZU")) {
+                str = RomUtils.PROP_RO_BUILD_DISPLAY_ID;
+            } else if (upperCase.contains("OPPO")) {
+                str = "ro.build.version.opporom";
+            } else {
+                str = upperCase.contains("VIVO") ? "ro.vivo.os.version" : "";
+            }
+            try {
+                if (Build.VERSION.SDK_INT >= 28) {
+                    str2 = SystemProperties.get(str);
+                } else {
+                    Class<?> cls = Class.forName("android.os.SystemProperties");
+                    str2 = (String) cls.getDeclaredMethod("get", String.class).invoke(cls, str);
+                }
+                str3 = str2;
+            } catch (Throwable unused) {
+                if (Build.VERSION.SDK_INT >= 21 && upperCase.contains("HUAWEI")) {
+                    return Constants.SDK_VER;
+                }
+                if (upperCase.contains("HUAWEI")) {
+                    return "1.0";
+                }
+                if (upperCase.contains("XIAOMI")) {
+                    return "4.0";
+                }
+                if (upperCase.contains("MEIZU")) {
+                    return "6.0";
+                }
+                if (upperCase.contains("OPPO")) {
+                    return "3.0";
+                }
+                if (upperCase.contains("VIVO")) {
+                    return "3.2";
+                }
+            }
+            if (upperCase.contains("HUAWEI") && !TextUtils.isEmpty(str3)) {
+                String substring = str3.substring(str3.indexOf("_") + 1, str3.length());
+                return (substring.matches("\\d+\\.\\d+$") || Build.VERSION.SDK_INT < 21) ? substring : Constants.SDK_VER;
+            }
+            if (upperCase.contains("MEIZU")) {
+                if (TextUtils.isEmpty(str3)) {
+                    str3 = Build.DISPLAY;
+                }
+                Matcher matcher = Pattern.compile("\\d+(\\.\\d+)?").matcher(str3);
+                if (matcher.find()) {
+                    str3 = matcher.group();
+                }
+            } else if (upperCase.contains("OPPO") && !TextUtils.isEmpty(str3)) {
+                Matcher matcher2 = Pattern.compile("^V(\\d+\\.\\d+)").matcher(str3);
+                if (matcher2.find()) {
+                    str3 = matcher2.group(1);
+                }
+            } else if (upperCase.contains("VIVO") && !TextUtils.isEmpty(str3)) {
+                Matcher matcher3 = Pattern.compile("^\\d+(\\.\\d+)?").matcher(str3);
+                if (matcher3.find()) {
+                    return matcher3.group();
+                }
+            }
+            return str3;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            try {
+                byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
+                StringBuilder sb = new StringBuilder();
+                for (byte b : digest) {
+                    int i = b & 255;
+                    if (i < 16) {
+                        sb.append(0);
+                    }
+                    sb.append(Integer.toHexString(i));
+                }
+                return sb.toString();
+            } catch (NoSuchAlgorithmException unused) {
                 return "";
             }
         }
-        return (String) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static s70 c(Context context) {
-        InterceptResult invokeL;
-        File file;
+    @SuppressLint({"DefaultLocale"})
+    public static String f(String str, String str2, String str3, long j) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            Log.i("LogToFileUtils", "init ...");
-            if (a != null && b != null && (file = c) != null && file.exists()) {
-                Log.i("LogToFileUtils", "LogToFileUtils has been init ...");
-            } else {
-                a = context;
-                b = new s70();
-                c = a();
-                e("imsdkversion:" + b());
-                e("lcpsdkversion:" + d());
-                Log.i("LogToFileUtils", "LogFilePath is: " + c.getPath());
-            }
-            return b;
-        }
-        return (s70) invokeL.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? "2280016" : (String) invokeV.objValue;
-    }
-
-    public static void e(Object obj) {
-        File file;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, obj) == null) {
-            if (a != null && b != null && (file = c) != null && file.exists()) {
-                String str = System.currentTimeMillis() + ":" + obj.toString();
-                Log.i("LogToFileUtils", str);
-                try {
-                    BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(c, true));
-                    bufferedWriter.write(str);
-                    bufferedWriter.write("\r\n");
-                    bufferedWriter.flush();
-                    return;
-                } catch (Exception e) {
-                    Log.e("LogToFileUtils", "Write failure !!! " + e.toString());
-                    return;
-                }
-            }
-            Log.e("LogToFileUtils", "Initialization failure !!!");
-        }
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{str, str2, str3, Long.valueOf(j)})) == null) ? e(String.format("%s%s%s%d", str, str2, str3, Long.valueOf(j))) : (String) invokeCommon.objValue;
     }
 }

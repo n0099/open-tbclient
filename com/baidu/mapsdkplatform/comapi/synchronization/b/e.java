@@ -133,7 +133,7 @@ public class e extends Handler {
                 BitmapDescriptor startPositionIcon = this.c.getStartPositionIcon();
                 if (startPositionIcon == null) {
                     com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "There is no startPositionIcon");
-                    a(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_START_POINT_ICON_NULL, "History trace end point icon is null, can't render start point marker");
+                    a(100019, "History trace end point icon is null, can't render start point marker");
                     return;
                 }
                 this.f = (Marker) this.d.addOverlay(new MarkerOptions().position(latLng).icon(startPositionIcon).zIndex(5));
@@ -156,7 +156,7 @@ public class e extends Handler {
             }
             baiduMap.clear();
             if (this.c == null) {
-                a(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_DISPLAY_OPTIONS_NULL, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_DISPLAY_OPTIONS_NULL);
+                a(100015, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_DISPLAY_OPTIONS_NULL);
                 this.c = new HistoryTraceDisplayOptions();
             }
             a(historyTraceData.getOrderStartPosition());
@@ -180,7 +180,7 @@ public class e extends Handler {
                 a(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_POINTS_NULL, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_POINTS_NULL);
             } else if (list.size() < 2) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "History trace points less than 2, can't render polyline");
-                a(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_POINTS_LESS, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_POINTS_LESS);
+                a(100017, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_POINTS_LESS);
             } else {
                 BitmapDescriptor routeLineTexture = this.c.getRouteLineTexture();
                 if (routeLineTexture == null) {

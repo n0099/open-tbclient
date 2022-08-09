@@ -1,49 +1,23 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.launch.LaunchStatsUtils;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.facebook.common.util.UriUtil;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class mk5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static List<AdvertAppInfo> a(@NonNull String str) {
+    public static gk5 a(hk5 hk5Var) {
         InterceptResult invokeL;
-        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            try {
-                JSONObject optJSONObject2 = new JSONObject(str).optJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME);
-                if (optJSONObject2 == null) {
-                    return null;
-                }
-                JSONArray optJSONArray = optJSONObject2.optJSONArray(LaunchStatsUtils.AD);
-                ArrayList arrayList = new ArrayList();
-                if (optJSONArray == null) {
-                    return null;
-                }
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject3 = optJSONArray.optJSONObject(i);
-                    if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject("adInfo")) != null) {
-                        arrayList.add(AdvertAppInfo.t(optJSONObject));
-                    }
-                }
-                return arrayList;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, hk5Var)) == null) {
+            if (hk5Var != null && (hk5Var.a() instanceof TbPageContext) && (((TbPageContext) hk5Var.a()).getPageActivity() instanceof gk5)) {
+                return (gk5) ((TbPageContext) hk5Var.a()).getPageActivity();
             }
+            return null;
         }
-        return (List) invokeL.objValue;
+        return (gk5) invokeL.objValue;
     }
 }

@@ -8,6 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.data.UserGrowthTaskListData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,6 +44,7 @@ public class EditHeadActivityConfig extends IntentConfig {
     public static final int UPLOAD_TYPE_NO = 0;
     public static final int UPLOAD_TYPE_RESET_PORTRAIT = 1;
     public static final int UPLOAD_TYPE_UPLOAD_ONLY = 2;
+    public static final String USER_GROWTH_TASK = "user_growth_task";
     public static final String WATERMARK_TYPE = "watermark_type";
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -111,10 +113,20 @@ public class EditHeadActivityConfig extends IntentConfig {
         return (EditHeadActivityConfig) invokeZ.objValue;
     }
 
+    public EditHeadActivityConfig setUserGrowthTask(UserGrowthTaskListData userGrowthTaskListData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, userGrowthTaskListData)) == null) {
+            getIntent().putExtra(USER_GROWTH_TASK, userGrowthTaskListData);
+            return this;
+        }
+        return (EditHeadActivityConfig) invokeL.objValue;
+    }
+
     public EditHeadActivityConfig setWaterMaskType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             getIntent().putExtra(WATERMARK_TYPE, i);
             return this;
         }

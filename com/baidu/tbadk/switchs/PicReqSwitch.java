@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.af;
-import com.repackage.yt4;
+import com.repackage.bf;
+import com.repackage.ru4;
 /* loaded from: classes3.dex */
-public class PicReqSwitch extends af {
+public class PicReqSwitch extends bf {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PIC_REQ_SWITCH_KEY = "pic_req_switch_key";
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,14 +35,14 @@ public class PicReqSwitch extends af {
         return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? SwitchManager.getInstance().findType("pic_req_switch_key") == 1 : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.af
+    @Override // com.repackage.bf
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    @Override // com.repackage.af
+    @Override // com.repackage.bf
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -52,14 +52,14 @@ public class PicReqSwitch extends af {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.repackage.af
+    @Override // com.repackage.bf
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? yt4.k().l("key_pic_req_switch", 0) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ru4.k().l("key_pic_req_switch", 0) : invokeV.intValue;
     }
 
-    @Override // com.repackage.af
+    @Override // com.repackage.bf
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -69,14 +69,14 @@ public class PicReqSwitch extends af {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.af
+    @Override // com.repackage.bf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "pic_req_switch_key" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.af
+    @Override // com.repackage.bf
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

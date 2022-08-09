@@ -4,11 +4,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.CarrierEnter;
 /* loaded from: classes6.dex */
 public class io4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public int c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public boolean h;
+    public String i;
+    public long j;
 
     public io4() {
         Interceptable interceptable = $ic;
@@ -22,17 +31,5 @@ public class io4 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public void a(CarrierEnter carrierEnter) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, carrierEnter) == null) || carrierEnter == null) {
-            return;
-        }
-        String str = carrierEnter.title;
-        String str2 = carrierEnter.text;
-        String str3 = carrierEnter.headline_cover;
-        String str4 = carrierEnter.url;
-        String str5 = carrierEnter.obj_id;
     }
 }

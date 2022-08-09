@@ -18,7 +18,7 @@ import com.fun.ad.sdk.internal.api.utils.GlideHelper;
 import com.fun.module.ks.x;
 import com.kwad.sdk.api.KsImage;
 import com.kwad.sdk.api.KsNativeAd;
-import com.repackage.bi9;
+import com.repackage.wk9;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -138,7 +138,7 @@ public class KSNativeAdGroupImgAppDownloadView extends x {
             }
             this.j.setText(ksNativeAd.getAppName());
             this.k.setText(ksNativeAd.getActionDescription());
-            ksNativeAd.setDownloadListener(new bi9(ksNativeAd.getActionDescription(), this.k));
+            ksNativeAd.setDownloadListener(new wk9(ksNativeAd.getActionDescription(), this.k));
         }
     }
 
@@ -147,16 +147,16 @@ public class KSNativeAdGroupImgAppDownloadView extends x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09009c);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900ac);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900a9);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900aa);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ab);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900d0);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f090083);
-            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f090081);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090084);
-            this.k = (Button) findViewById(R.id.obfuscated_res_0x7f090080);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900a1);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900b1);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ae);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900af);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900b0);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900d5);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f090088);
+            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f090086);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090089);
+            this.k = (Button) findViewById(R.id.obfuscated_res_0x7f090085);
         }
     }
 

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class WXAPIFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MicroMsg.PaySdk.WXFactory";
@@ -39,7 +39,7 @@ public class WXAPIFactory {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, context, str, z)) == null) {
-            Log.d("MicroMsg.PaySdk.WXFactory", "createWXAPI, appId = " + str + ", checkSignature = " + z);
+            Log.d(TAG, "createWXAPI, appId = " + str + ", checkSignature = " + z);
             return new WXApiImplV10(context, str, z);
         }
         return (IWXAPI) invokeLLZ.objValue;

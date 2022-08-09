@@ -209,7 +209,7 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AppCompatEditText(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R$attr.obfuscated);
+        this(context, attributeSet, R$attr.editTextStyle);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

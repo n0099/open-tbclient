@@ -1,489 +1,236 @@
 package com.repackage;
 
-import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import android.annotation.TargetApi;
+import android.media.MediaCodec;
+import android.media.MediaFormat;
+import android.media.MediaMuxer;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.UnsupportedEncodingException;
-import java.util.concurrent.atomic.AtomicBoolean;
-import org.apache.commons.codec.binary4util.BaseNCodec;
-import org.json.JSONObject;
+import com.sina.weibo.sdk.utils.FileUtils;
+import java.io.IOException;
+import java.util.List;
+@TargetApi(18)
 /* loaded from: classes5.dex */
 public class aa9 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String c = "UnionIDHelper";
-    public static boolean d;
-    public static final String e;
-    public static final String f;
-    public static final Object g;
-    public static aa9 h;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile da9 a;
-    public AtomicBoolean b;
+    public List<String> a;
+    public String b;
+    public MediaMuxer c;
+    public int d;
+    public int e;
+    public MediaFormat f;
+    public MediaFormat g;
+    public qa9 h;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ b b;
-        public final /* synthetic */ aa9 c;
-
-        public a(aa9 aa9Var, Context context, b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aa9Var, context, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = aa9Var;
-            this.a = context;
-            this.b = bVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (aa9.d) {
-                    Log.d(aa9.c, "asyncRequest, Thread runn！");
-                }
-                ba9 m = this.c.m(this.a);
-                if (aa9.d) {
-                    String str = aa9.c;
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("asyncRequest, cachedBean == null ？");
-                    sb.append(m == null);
-                    Log.d(str, sb.toString());
-                }
-                if (m == null || this.c.q(m)) {
-                    if (aa9.d) {
-                        Log.d(aa9.c, "asyncRequest, requestFromManufacturer");
-                    }
-                    this.c.r();
-                    if (aa9.d) {
-                        Log.d(aa9.c, "asyncRequest, trySaveFiles！");
-                    }
-                    this.c.b.set(this.c.t(this.a));
-                    if (aa9.d) {
-                        Log.d(aa9.c, "asyncRequest, trySaveFiles done");
-                    }
-                }
-                if (aa9.d) {
-                    Log.d(aa9.c, "asyncRequest, send  innerHandler message");
-                }
-                this.b.obtainMessage(100, this.c.a).sendToTarget();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public ca9 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(Looper looper, ca9 ca9Var) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {looper, ca9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ca9Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                super.handleMessage(message);
-                if (message.what != 100) {
-                    return;
-                }
-                da9 da9Var = (da9) message.obj;
-                if (aa9.d) {
-                    String str = aa9.c;
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("handleMessage ，what：");
-                    sb.append(da9Var == null ? "" : da9Var.getOAID());
-                    Log.d(str, sb.toString());
-                }
-                ca9 ca9Var = this.a;
-                if (ca9Var != null) {
-                    ca9Var.a(da9Var);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755863368, "Lcom/repackage/aa9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755863368, "Lcom/repackage/aa9;");
-                return;
-            }
-        }
-        d = w99.e();
-        e = j(new byte[]{81, 72, 116, 79, 75, 72, 69, 52, 76, 51, 103, BaseNCodec.PAD_DEFAULT}, new byte[]{82, 51, 104, 90, 83, 122, 65, 105, Constants.SHORT_PING_CMD_TYPE, 49, 107, BaseNCodec.PAD_DEFAULT});
-        f = j(new byte[]{76, 67, 77, 53, 77, 70, 90, 73, 81, 107, 107, BaseNCodec.PAD_DEFAULT}, new byte[]{90, 105, 108, 121, 79, 68, 100, 81, 86, 121, 89, BaseNCodec.PAD_DEFAULT});
-        g = new Object();
-    }
-
-    public aa9() {
+    public aa9(List<String> list, String str, qa9 qa9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, str, qa9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        new AtomicBoolean(false);
-        this.b = new AtomicBoolean(false);
+        rb9.e("VideoComposer", list.size() + " composer to " + str);
+        this.a = list;
+        this.b = str;
+        this.h = qa9Var;
     }
 
-    public static String j(byte[]... bArr) {
-        InterceptResult invokeL;
+    public final long a(long j, String str) throws IOException {
+        InterceptResult invokeJL;
+        int i;
+        int i2;
+        z99 z99Var;
+        int i3;
+        z99 z99Var2;
+        int i4;
+        z99 z99Var3;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, bArr)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte[] bArr2 : bArr) {
-                sb.append(new String(ka9.a(bArr2)));
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String k(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                return new String(ia9.a(e, f, ka9.a(str.getBytes())));
-            } catch (Exception e2) {
-                if (d) {
-                    String str2 = c;
-                    Log.d(str2, "getCacheObject ，decryptUnionID：" + e2.getMessage());
-                    return "";
-                }
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                return ka9.c(ia9.b(e, f, str.getBytes()), IMAudioTransRequest.CHARSET);
-            } catch (UnsupportedEncodingException | Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static aa9 o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            if (h == null) {
-                synchronized (aa9.class) {
-                    if (h == null) {
-                        h = new aa9();
-                    }
-                }
-            }
-            return h;
-        }
-        return (aa9) invokeV.objValue;
-    }
-
-    public synchronized void i(Context context, @NonNull Looper looper, @Nullable ca9 ca9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, context, looper, ca9Var) == null) {
-            synchronized (this) {
-                if (looper != null) {
-                    b bVar = new b(looper, ca9Var);
-                    if (p()) {
-                        bVar.obtainMessage(100, null).sendToTarget();
-                        return;
-                    }
-                    if (this.a != null && this.b.get()) {
-                        if (d) {
-                            String str = c;
-                            Log.d(str, "asyncRequest, mIUnionId.getOAID：" + this.a.getOAID());
-                            String str2 = c;
-                            Log.d(str2, "asyncRequest, mIUnionId.isTrackLimited：" + this.a.c());
-                            String str3 = c;
-                            Log.d(str3, "asyncRequest, mIUnionId.getStatusCode：" + this.a.getStatusCode());
-                        }
-                        bVar.obtainMessage(100, this.a).sendToTarget();
-                    } else {
-                        if (!this.b.get()) {
-                            this.a = new y99(context).a;
-                        }
-                        new Thread(new a(this, context, bVar)).start();
-                    }
-                    return;
-                }
-                throw new NullPointerException("param looper not null");
-            }
-        }
-    }
-
-    public final ba9 m(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            File file = new File(context.getFilesDir().getAbsolutePath() + "/bdunionid/");
-            if (!file.exists()) {
-                if (d) {
-                    Log.d(c, "getCacheObject dir 不存在 , 首次需要创建");
-                }
-                return null;
-            }
-            File file2 = new File(file, ".bd_un_info.so");
-            if (!file2.exists()) {
-                if (d) {
-                    Log.d(c, "getCacheObject  file 不存在, 首次需要创建");
-                }
-                return null;
-            }
-            String a2 = ma9.a(file2, g);
-            if (d) {
-                String str = c;
-                Log.d(str, "getCacheObject ，content：" + a2);
-            }
-            if (TextUtils.isEmpty(a2)) {
-                return null;
-            }
-            String k = k(a2);
-            if (d) {
-                String str2 = c;
-                Log.d(str2, "getCacheObject ，json：" + k);
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(k);
-                ba9 ba9Var = new ba9();
-                s(ba9Var, jSONObject);
-                return ba9Var;
-            } catch (Exception e2) {
-                if (d) {
-                    String str3 = c;
-                    Log.d(str3, "getCacheObject , " + e2.getMessage());
-                }
-                return null;
-            }
-        }
-        return (ba9) invokeL.objValue;
-    }
-
-    public final long n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? w99.a(x99.a()) * 60 * 1000 : invokeV.longValue;
-    }
-
-    public final boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? w99.d(x99.a()) : invokeV.booleanValue;
-    }
-
-    public final boolean q(@NonNull ba9 ba9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, ba9Var)) == null) {
-            if (Math.abs(System.currentTimeMillis() - ba9Var.a) > n()) {
-                if (d) {
-                    Log.d(c, "isExpireTime ：超过缓存有效期");
-                    return true;
-                }
-                return true;
-            } else if (d) {
-                Log.d(c, "isExpireTime ：没有超过缓存有效期");
-                return false;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, str)) == null) {
+            String str3 = "VideoComposer";
+            rb9.e("VideoComposer", j + " compose " + str);
+            z99 z99Var4 = new z99();
+            z99Var4.m(str, FileUtils.VIDEO_FILE_START);
+            int d = z99Var4.d();
+            z99 z99Var5 = null;
+            if (d < 0) {
+                z99Var4.j();
+                z99Var4 = null;
             } else {
-                return false;
+                z99Var4.l(this.e);
             }
+            z99 z99Var6 = new z99();
+            z99Var6.m(str, "audio/");
+            int d2 = z99Var6.d();
+            if (d2 < 0) {
+                z99Var6.j();
+            } else {
+                z99Var6.l(this.d);
+                z99Var5 = z99Var6;
+            }
+            boolean z = z99Var4 == null;
+            boolean z2 = z99Var5 == null;
+            long j2 = 0;
+            long j3 = 0;
+            while (true) {
+                if (z && z2) {
+                    break;
+                }
+                if (!z2 && (z || z99Var5.e() - z99Var4.e() <= 50000)) {
+                    i = this.d;
+                    i3 = d2;
+                    i2 = i3;
+                    z99Var = z99Var5;
+                } else {
+                    i = this.e;
+                    i2 = d2;
+                    z99Var = z99Var4;
+                    i3 = d;
+                }
+                MediaCodec.BufferInfo h = z99Var.h();
+                if (h == null) {
+                    i4 = d;
+                    z99 z99Var7 = z99Var;
+                    if (z99Var7 == z99Var4) {
+                        j2 = z99Var4.e();
+                        d2 = i2;
+                        d = i4;
+                        z = true;
+                    } else if (z99Var7 == z99Var5) {
+                        j3 = z99Var5.e();
+                        d2 = i2;
+                        d = i4;
+                        z2 = true;
+                    } else {
+                        z99Var2 = z99Var4;
+                        z99Var3 = z99Var5;
+                        str2 = str3;
+                    }
+                } else {
+                    z99Var2 = z99Var4;
+                    i4 = d;
+                    z99 z99Var8 = z99Var;
+                    if (z99Var8.f() != i3) {
+                        StringBuilder sb = new StringBuilder();
+                        z99Var3 = z99Var5;
+                        sb.append("WEIRD: got sample from track ");
+                        sb.append(z99Var8.f());
+                        sb.append(", expected ");
+                        sb.append(i3);
+                        rb9.e(str3, sb.toString());
+                    } else {
+                        z99Var3 = z99Var5;
+                    }
+                    str2 = str3;
+                    h.presentationTimeUs += j;
+                    this.c.writeSampleData(i, z99Var8.c(), h);
+                    z99Var8.a();
+                }
+                str3 = str2;
+                d2 = i2;
+                d = i4;
+                z99Var4 = z99Var2;
+                z99Var5 = z99Var3;
+            }
+            long max = j + Math.max(j2, j3) + 10000;
+            qa9 qa9Var = this.h;
+            if (qa9Var != null) {
+                qa9Var.b(max);
+            }
+            rb9.e(str3, "finish one file, ptsOffset " + max);
+            if (z99Var4 != null) {
+                z99Var4.j();
+            }
+            if (z99Var5 != null) {
+                z99Var5.j();
+            }
+            return max;
         }
-        return invokeL.booleanValue;
+        return invokeJL.longValue;
     }
 
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a = this.a.d();
-            if (d) {
-                String str = c;
-                Log.d(str, "asyncRequest, requestFromManufacturer done :" + this.a.getOAID());
-            }
-        }
-    }
-
-    public final boolean s(ba9 ba9Var, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, ba9Var, jSONObject)) == null) {
-            try {
-                long optLong = jSONObject.optLong(new String(ka9.a("dGltZQ==".getBytes())));
-                ba9Var.a = optLong;
-                if (d) {
-                    String str = c;
-                    Log.d(str, "tryParseCacheJsonObject ，time：" + optLong);
-                    String str2 = c;
-                    Log.d(str2, "tryParseCacheJsonObject ，System.currentTimeMillis() - time：" + (System.currentTimeMillis() - optLong));
-                }
-                String str3 = new String(ka9.a("dW5pb25JRG9iag==".getBytes()));
-                if (d) {
-                    String str4 = c;
-                    Log.d(str4, "tryParseCacheJsonObject objKey：" + str3);
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject(str3);
-                if (d) {
-                    String str5 = c;
-                    Log.d(str5, "tryParseCacheJsonObject ，jsonObject：" + optJSONObject);
-                }
-                if (optJSONObject != null) {
-                    String str6 = new String(ka9.a("aXNUcmFja0xpbWl0ZWQ=".getBytes()));
-                    String str7 = new String(ka9.a("aXNTdXBwb3J0".getBytes()));
-                    String str8 = new String(ka9.a("c3RhdHVzY29kZQ==".getBytes()));
-                    String str9 = new String(ka9.a("b2FpZA==".getBytes()));
-                    String str10 = new String(ka9.a("YWFpZA==".getBytes()));
-                    String str11 = new String(ka9.a("dmFpZA==".getBytes()));
-                    boolean optBoolean = optJSONObject.optBoolean(str6);
-                    boolean optBoolean2 = optJSONObject.optBoolean(str7);
-                    int optInt = optJSONObject.optInt(str8);
-                    String optString = optJSONObject.optString(str9);
-                    String optString2 = optJSONObject.optString(str10);
-                    String optString3 = optJSONObject.optString(str11);
-                    this.a.h(optBoolean);
-                    this.a.e(optBoolean2);
-                    this.a.a(optInt);
-                    this.a.g(optString);
-                    this.a.f(optString2);
-                    this.a.b(optString3);
-                    ba9Var.b = this.a;
-                    return true;
-                }
-                ba9Var.b = null;
-                if (d) {
-                    Log.d(c, "tryParseCacheJsonObject return cause null：");
-                }
-                return false;
-            } catch (Exception e2) {
-                if (d) {
-                    String str12 = c;
-                    Log.d(str12, "tryParseCacheJsonObject ：" + e2.getMessage());
-                }
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final boolean t(Context context) {
+    public boolean b(StringBuilder sb) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
-            try {
-                if (this.a != null && !TextUtils.isEmpty(this.a.getOAID())) {
-                    File file = new File(context.getFilesDir().getAbsolutePath() + "/bdunionid/");
-                    if (!file.exists()) {
-                        file.mkdirs();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sb)) == null) {
+            boolean z = false;
+            boolean z2 = false;
+            for (String str : this.a) {
+                try {
+                    z99 z99Var = new z99();
+                    try {
+                        z99Var.m(str, FileUtils.VIDEO_FILE_START);
+                        if (!z) {
+                            MediaFormat mediaFormat = z99Var.g().a;
+                            this.g = mediaFormat;
+                            if (mediaFormat == null) {
+                                rb9.e("VideoComposer", "No video track found in " + str);
+                            } else {
+                                z = true;
+                            }
+                        }
+                        if (!z2) {
+                            MediaFormat mediaFormat2 = z99Var.b().a;
+                            this.f = mediaFormat2;
+                            if (mediaFormat2 == null) {
+                                rb9.e("VideoComposer", "No audio track found in " + str);
+                            } else {
+                                z2 = true;
+                            }
+                        }
+                    } catch (Exception e) {
+                        rb9.e("VideoComposer", e.getMessage());
+                        e.printStackTrace();
                     }
-                    File file2 = new File(file, ".bd_un_info.so");
-                    String str = new String(ka9.a("dGltZQ==".getBytes()));
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put(str, System.currentTimeMillis());
-                    String str2 = new String(ka9.a("dW5pb25JRG9iag==".getBytes()));
-                    JSONObject optJSONObject = jSONObject.optJSONObject(str2);
-                    if (optJSONObject == null) {
-                        optJSONObject = new JSONObject();
+                    z99Var.j();
+                    if (z && z2) {
+                        break;
                     }
-                    String str3 = new String(ka9.a("aXNUcmFja0xpbWl0ZWQ=".getBytes()));
-                    String str4 = new String(ka9.a("aXNTdXBwb3J0".getBytes()));
-                    String str5 = new String(ka9.a("c3RhdHVzY29kZQ==".getBytes()));
-                    String str6 = new String(ka9.a("b2FpZA==".getBytes()));
-                    String str7 = new String(ka9.a("YWFpZA==".getBytes()));
-                    String str8 = new String(ka9.a("dmFpZA==".getBytes()));
-                    optJSONObject.put(str3, this.a.c());
-                    optJSONObject.put(str4, this.a.isSupport());
-                    optJSONObject.put(str5, this.a.getStatusCode());
-                    optJSONObject.put(str6, this.a.getOAID());
-                    optJSONObject.put(str7, this.a.getAAID());
-                    optJSONObject.put(str8, this.a.getVAID());
-                    jSONObject.put(str2, optJSONObject);
-                    ma9.b(l(jSONObject.toString()), file2, false, g);
-                    if (d) {
-                        String str9 = c;
-                        Log.d(str9, "trySaveFiles, app: " + jSONObject.toString());
-                        return true;
+                } catch (Exception e2) {
+                    if (sb != null) {
+                        sb.append("VideoSplicer codec 录制视频拼接过程中发生异常:" + e2.getMessage());
                     }
-                    return true;
+                    e2.printStackTrace();
+                    return false;
                 }
-                return false;
-            } catch (Exception e2) {
-                if (d) {
-                    String str10 = c;
-                    Log.d(str10, "trySaveFiles, error " + e2.getMessage());
-                }
-                return false;
             }
+            MediaMuxer mediaMuxer = new MediaMuxer(this.b, 0);
+            this.c = mediaMuxer;
+            if (z) {
+                this.e = mediaMuxer.addTrack(this.g);
+            }
+            if (z2) {
+                this.d = this.c.addTrack(this.f);
+            }
+            this.c.start();
+            long j = 0;
+            for (String str2 : this.a) {
+                j = a(j, str2);
+            }
+            if (this.c != null) {
+                try {
+                    this.c.stop();
+                    this.c.release();
+                } catch (Exception unused) {
+                    rb9.e("VideoComposer", "Muxer close error. No data was written");
+                }
+                this.c = null;
+            }
+            rb9.j("VideoComposer", "video join finished");
+            return true;
         }
         return invokeL.booleanValue;
     }

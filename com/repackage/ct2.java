@@ -1,212 +1,198 @@
 package com.repackage;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Timer;
-import java.util.TimerTask;
-/* loaded from: classes5.dex */
-public class ct2 extends wz1 {
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+import org.json.JSONArray;
+/* loaded from: classes6.dex */
+public class ct2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
+    public static final ct2 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public Timer M0;
+    public final List<et2> a;
+    public final Map<String, et2> b;
+    public boolean c;
+    public bt2 d;
 
-    /* loaded from: classes5.dex */
-    public class a extends t12 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ct2 c;
-
-        public a(ct2 ct2Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755785744, "Lcom/repackage/ct2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ct2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.c = ct2Var;
-        }
-
-        @Override // com.repackage.t12, com.repackage.w12
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                ix1.k("SwanAppWxPayFragment", "onReceivedSslError:  statusCode = " + i);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755785744, "Lcom/repackage/ct2;");
+                return;
             }
         }
-
-        @Override // com.repackage.t12, com.repackage.w12
-        public boolean b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                if (str != null && str.startsWith("weixin://wap/pay")) {
-                    ix1.i("SwanAppWxPayFragment", " weixin  url:   " + str);
-                    b73.K("wechatH5Action", "intoPayment", 0);
-                    this.c.M0.cancel();
-                    this.c.M0 = null;
-                    wz1.Y2();
-                    return false;
-                }
-                return super.b(str);
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // com.repackage.t12, com.repackage.w12
-        public void c(int i, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, str2) == null) {
-                String str3 = "onReceivedError:  failingUrl = " + str2 + " errorCode = " + i + " description = " + str;
-                ix1.k("SwanAppWxPayFragment", str3);
-                b73.H(false, "wechatH5Action", b73.m(str2, str3));
-            }
-        }
-
-        @Override // com.repackage.t12, com.repackage.w12
-        public void d(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                ix1.k("SwanAppWxPayFragment", "title: " + str);
-            }
-        }
-
-        @Override // com.repackage.t12, com.repackage.w12
-        public void e(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                ix1.k("SwanAppWxPayFragment", "url: " + str);
-            }
-        }
-
-        @Override // com.repackage.t12, com.repackage.w12
-        public void goBack() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                ix1.k("SwanAppWxPayFragment", "goBack: ");
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ct2 a;
-
-        public b(ct2 ct2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ct2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ct2Var;
-        }
-
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ix1.k("SwanAppWxPayFragment", " WeChat H5 pay redirect time out : ");
-                b73.K("wechatH5Action", "outOfTime", 0);
-            }
-        }
+        e = jh1.a;
+        f = new ct2();
     }
 
     public ct2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList();
+        this.b = new HashMap();
+        this.c = false;
+    }
+
+    public static ct2 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f : (ct2) invokeV.objValue;
+    }
+
+    public void a(HybridUbcFlow hybridUbcFlow) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, hybridUbcFlow) == null) || hybridUbcFlow == null) {
+            return;
+        }
+        JSONArray e2 = e();
+        if (e2 != null && e2.length() > 0) {
+            hybridUbcFlow.D("ma_update_recorder", e2.toString());
+        }
+        c();
+    }
+
+    public String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (this.c) {
+                return null;
+            }
+            if (e) {
+                Log.d("MaUpdateRecorder", "begin update scope id - " + str);
+            }
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            String str2 = Thread.currentThread().getName() + "-" + UUID.randomUUID().toString();
+            et2 et2Var = new et2(str);
+            et2Var.a(currentTimeMillis);
+            synchronized (this.a) {
+                this.b.put(str2, et2Var);
+            }
+            if (e) {
+                Log.d("MaUpdateRecorder", "begin update uni tag - " + str2);
+                Log.d("MaUpdateRecorder", "begin update ts - " + currentTimeMillis);
+            }
+            return str2;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c = true;
+            synchronized (this.a) {
+                this.a.clear();
+                this.b.clear();
+            }
+            if (e) {
+                Log.d("MaUpdateRecorder", "done");
             }
         }
     }
 
-    @Override // com.repackage.wz1, com.repackage.oz1
-    public void U1(View view2) {
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            super.U1(view2);
-            this.f0.setTitle(getResources().getString(R.string.obfuscated_res_0x7f0f01e7));
-            x2(false);
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || this.c) {
+            return;
         }
-    }
-
-    @Override // com.repackage.wz1
-    public void W2(FrameLayout frameLayout) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frameLayout) == null) {
-            frameLayout.addView((RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00dc, (ViewGroup) null), new RelativeLayout.LayoutParams(-1, -1));
+        if (e) {
+            Log.d("MaUpdateRecorder", "end update uni tag - " + str);
         }
-    }
-
-    @Override // com.repackage.wz1
-    public w12 Z2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new a(this) : (w12) invokeV.objValue;
-    }
-
-    public Timer i3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ix1.k("SwanAppWxPayFragment", " start WeChat H5 redirect timer start : ");
-            Timer timer = new Timer();
-            try {
-                timer.schedule(new b(this), 10000L);
-            } catch (Exception e) {
-                if (wz1.L0) {
-                    e.printStackTrace();
-                }
-                ix1.k("SwanAppWxPayFragment", e.getMessage());
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        synchronized (this.a) {
+            et2 et2Var = this.b.get(str);
+            if (et2Var != null) {
+                et2Var.c(currentTimeMillis);
+                this.a.add(et2Var);
+                this.b.remove(str);
             }
-            return timer;
         }
-        return (Timer) invokeV.objValue;
+        if (e) {
+            Log.d("MaUpdateRecorder", "end update ts - " + currentTimeMillis);
+        }
     }
 
-    @Override // com.repackage.wz1
-    public rm1 l() {
+    public final JSONArray e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.M0 == null) {
-                this.M0 = i3();
+            JSONArray jSONArray = new JSONArray();
+            synchronized (this.a) {
+                try {
+                    for (et2 et2Var : this.a) {
+                        if (et2Var != null && (this.d == null || this.d.a(et2Var))) {
+                            jSONArray.put(et2Var.d());
+                        }
+                    }
+                } catch (Exception e2) {
+                    if (e) {
+                        e2.printStackTrace();
+                    }
+                }
             }
-            return c72.U().f0().i(getContext());
+            if (e) {
+                Log.d("MaUpdateRecorder", jSONArray.toString());
+            }
+            return jSONArray;
         }
-        return (rm1) invokeV.objValue;
+        return (JSONArray) invokeV.objValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.c = false;
+            synchronized (this.a) {
+                this.a.clear();
+                this.b.clear();
+            }
+            if (e) {
+                Log.d("MaUpdateRecorder", "reset");
+            }
+        }
+    }
+
+    public void h(bt2 bt2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bt2Var) == null) {
+            this.d = bt2Var;
+        }
     }
 }

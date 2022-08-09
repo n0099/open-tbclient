@@ -14,7 +14,7 @@ public final class ag {
     public static final ag a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ ag[] f50a;
+    public static final /* synthetic */ ag[] f51a;
     public static final ag b;
     public static final ag c;
     public static final ag d;
@@ -42,7 +42,7 @@ public final class ag {
         e = new ag("VIVO", 4);
         ag agVar = new ag("OTHER", 5);
         f = agVar;
-        f50a = new ag[]{a, b, c, d, e, agVar};
+        f51a = new ag[]{a, b, c, d, e, agVar};
     }
 
     public ag(String str, int i) {
@@ -73,6 +73,6 @@ public final class ag {
     public static ag[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ag[]) f50a.clone() : (ag[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ag[]) f51a.clone() : (ag[]) invokeV.objValue;
     }
 }

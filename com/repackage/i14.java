@@ -1,18 +1,16 @@
 package com.repackage;
 
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class i14 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public e74 a;
+    public boolean b;
 
     public i14() {
         Interceptable interceptable = $ic;
@@ -24,21 +22,47 @@ public class i14 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = true;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            c(false);
+        }
+    }
+
+    public void b(e74 e74Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e74Var) == null) {
+            this.a = e74Var;
+            c(this.b);
+        }
+    }
+
+    public final void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.b = z;
+            e74 e74Var = this.a;
+            if (e74Var == null) {
+                return;
+            }
+            if (z) {
+                e74Var.d(4, 1);
+            } else {
+                e74Var.l(4);
             }
         }
     }
 
-    public JSONObject a() {
-        InterceptResult invokeV;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, this.a);
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            c(true);
         }
-        return (JSONObject) invokeV.objValue;
     }
 }

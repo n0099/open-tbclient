@@ -1,6 +1,20 @@
 package com.repackage;
 
-import android.view.animation.Interpolator;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
+import com.baidu.adp.titan.TitanDownloadService;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.pms.bean.PackageInfo;
+import com.baidu.titan.sdk.internal.util.Files;
+import com.baidu.titan.sdk.loader.LoaderHead;
+import com.baidu.titan.sdk.loader.LoaderManager;
+import com.baidu.titan.sdk.pm.PatchInstallInfo;
+import com.baidu.titan.sdk.pm.PatchManager;
+import com.baidu.titan.sdk.pm.PatchMetaInfo;
+import com.baidu.titan.sdk.pm.TitanPaths;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,40 +22,69 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes7.dex */
-public final class tm {
+public class tm {
     public static /* synthetic */ Interceptable $ic;
-    public static final Interpolator a;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements Interpolator {
+    public static class a implements PatchManager.PatchInstallObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pm a;
+        public final /* synthetic */ PackageInfo b;
+        public final /* synthetic */ boolean c;
 
-        public a() {
+        public a(pm pmVar, PackageInfo packageInfo, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pmVar, packageInfo, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = pmVar;
+            this.b = packageInfo;
+            this.c = z;
         }
 
-        @Override // android.animation.TimeInterpolator
-        public float getInterpolation(float f) {
-            InterceptResult invokeF;
+        @Override // com.baidu.titan.sdk.pm.PatchManager.PatchInstallObserver
+        public void onPatchInstalled(int i, Bundle bundle) {
+            LoaderHead createFromJson;
+            PatchMetaInfo createFromPatch;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
-                float f2 = f - 1.0f;
-                return (f2 * f2 * f2 * f2 * f2) + 1.0f;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, bundle) == null) {
+                int i2 = (i == 0 || i == 1) ? 0 : -1;
+                String str = "install-resut:" + i;
+                pm pmVar = this.a;
+                if (pmVar != null) {
+                    pmVar.onResult(this.b.packageName, i2, str);
+                }
+                Log.d(TitanDownloadService.TAG, "patch install result code = " + i2);
+                if (i2 == 0) {
+                    tm.c(this.b);
+                }
+                if (this.c) {
+                    return;
+                }
+                int loadState = LoaderManager.getInstance().getLoadState();
+                if (loadState == -4 || loadState == -1) {
+                    File headFile = TitanPaths.getHeadFile();
+                    if (!headFile.exists() || (createFromJson = LoaderHead.createFromJson(Files.getFileStringContent(headFile))) == null || (createFromPatch = PatchMetaInfo.createFromPatch(new PatchInstallInfo(TitanPaths.getPatchDir(createFromJson.patchHash)).getPatchFile())) == null || createFromPatch.loadPolicy != 1) {
+                        return;
+                    }
+                    LoaderManager.getInstance().loadInTime();
+                }
             }
-            return invokeF.floatValue;
         }
     }
 
@@ -58,21 +101,45 @@ public final class tm {
                 return;
             }
         }
-        a = new a();
+        a = jm.a;
     }
 
-    public static int a(float f, float f2, boolean z) {
-        InterceptResult invokeCommon;
-        float interpolation;
+    public static void b(Context context, pm pmVar, PackageInfo packageInfo, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) {
-            if (z) {
-                interpolation = f - (a.getInterpolation(f2 / (f2 - f)) * f);
-            } else {
-                interpolation = f * a.getInterpolation(f2 / f);
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, pmVar, packageInfo, Boolean.valueOf(z)}) == null) {
+            if (a) {
+                Log.d(TitanDownloadService.TAG, "install file: " + packageInfo.filePath);
             }
-            return (int) interpolation;
+            PatchManager.getInstance().installPatch(Uri.fromFile(new File(packageInfo.filePath)), null, new a(pmVar, packageInfo, z));
         }
-        return invokeCommon.intValue;
+    }
+
+    public static void c(PackageInfo packageInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, packageInfo) == null) {
+            rm d = rm.d();
+            if (packageInfo != null) {
+                long j = packageInfo.updateVersion;
+                if (j != 0) {
+                    d.j(j);
+                    Context appContext = AppRuntime.getAppContext();
+                    if (appContext != null) {
+                        try {
+                            android.content.pm.PackageInfo packageInfo2 = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0);
+                            if (packageInfo2 != null) {
+                                d.h(packageInfo2.versionCode);
+                            }
+                        } catch (PackageManager.NameNotFoundException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                int i = packageInfo.errNo;
+                if (i == 0 || i == -2) {
+                    d.i(System.currentTimeMillis());
+                }
+            }
+            d.l();
+        }
     }
 }

@@ -150,7 +150,7 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
         }
     }
 
-    public final void D1() {
+    public final void C1() {
         Intent intent;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (intent = getIntent()) == null) {
@@ -162,26 +162,26 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
         }
     }
 
-    public final void E1() {
+    public final void D1() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f == null) {
             this.f = new a(this);
         }
     }
 
-    public final void F1() {
+    public final void E1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09195d);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091a30);
             this.a = navigationBar;
-            ((ImageView) navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.f).findViewById(R.id.obfuscated_res_0x7f0924ef)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0809e0));
-            this.b = (CustomVideoView) findViewById(R.id.obfuscated_res_0x7f09195f);
+            ((ImageView) navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.f).findViewById(R.id.obfuscated_res_0x7f092614)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a02));
+            this.b = (CustomVideoView) findViewById(R.id.obfuscated_res_0x7f091a32);
             if (!StringUtils.isNull(this.c.getVideoPath())) {
                 this.b.setVideoPath(this.c.getVideoPath());
             }
             this.b.setOnPreparedListener(new b(this));
             this.b.setOnCompletionListener(new c(this));
-            VideoControllerView videoControllerView = (VideoControllerView) findViewById(R.id.obfuscated_res_0x7f09195b);
+            VideoControllerView videoControllerView = (VideoControllerView) findViewById(R.id.obfuscated_res_0x7f091a2e);
             this.d = videoControllerView;
             videoControllerView.setPlayer(this.b);
         }
@@ -201,9 +201,9 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d004a);
+            C1();
             D1();
             E1();
-            F1();
             TiebaStatic.log("c14312");
         }
     }

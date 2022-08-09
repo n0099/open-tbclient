@@ -1,55 +1,72 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.R;
+import android.text.TextUtils;
+import android.view.ViewTreeObserver;
+import android.widget.TextView;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class k51 {
+public class k51 implements ViewTreeObserver.OnGlobalLayoutListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TextView a;
+    public int b;
 
-    public static void a(Context context, Drawable drawable, PorterDuff.Mode mode, int i) {
+    public k51(TextView textView) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(65536, null, context, drawable, mode, i) == null) || context == null || drawable == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {textView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        b(context, drawable, mode, i, e(context));
+        int maxLines = textView.getMaxLines();
+        this.b = maxLines;
+        if (maxLines <= 0) {
+            this.b = 1;
+        }
+        this.a = textView;
+        textView.setMaxLines(this.b + 1);
+        this.a.setSingleLine(false);
     }
 
-    public static void b(Context context, Drawable drawable, PorterDuff.Mode mode, int i, int i2) {
+    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+    public void onGlobalLayout() {
+        CharSequence text;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, drawable, mode, Integer.valueOf(i), Integer.valueOf(i2)}) == null) || context == null || drawable == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            String str = "";
+            if (this.a.getLineCount() > this.b) {
+                try {
+                    text = this.a.getText().subSequence(0, this.a.getLayout().getLineEnd(this.b - 1) - 2);
+                    str = StringHelper.STRING_MORE;
+                } catch (Exception e) {
+                    yh0.d("CustomLinkByEllipsize", "", e);
+                    text = this.a.getText();
+                }
+                TextUtils.TruncateAt ellipsize = this.a.getEllipsize();
+                if (ellipsize == TextUtils.TruncateAt.START) {
+                    this.a.setText(str);
+                    this.a.append(text);
+                } else if (ellipsize == TextUtils.TruncateAt.MIDDLE) {
+                    this.a.setText(text.subSequence(0, text.length() / 2));
+                    this.a.append(str);
+                    this.a.append(text.subSequence(text.length() / 2, text.length()));
+                } else {
+                    this.a.setText(text);
+                    this.a.append(str);
+                }
+            }
         }
-        if (i >= 0 && i < 255) {
-            i2 = Color.argb((Color.alpha(i2) * i) / 255, Color.red(i2), Color.green(i2), Color.blue(i2));
-        }
-        drawable.setColorFilter(i2, mode);
-    }
-
-    public static void c(Context context, Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, drawable) == null) {
-            d(context, drawable, 255);
-        }
-    }
-
-    public static void d(Context context, Drawable drawable, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65539, null, context, drawable, i) == null) {
-            a(context, drawable, PorterDuff.Mode.SRC_ATOP, i);
-        }
-    }
-
-    public static int e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? context.getResources().getColor(R.color.obfuscated_res_0x7f060848) : invokeL.intValue;
     }
 }

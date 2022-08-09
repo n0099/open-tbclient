@@ -1,56 +1,38 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public final class od3 {
+import com.repackage.ne3;
+import java.io.File;
+import java.util.List;
+/* loaded from: classes7.dex */
+public class od3 {
     public static /* synthetic */ Interceptable $ic;
-    public static SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755443597, "Lcom/repackage/od3;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755443597, "Lcom/repackage/od3;");
-        }
-    }
-
-    public static Context a() {
+    @Nullable
+    public static File a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? AppRuntime.getAppContext() : (Context) invokeV.objValue;
-    }
-
-    public static boolean b(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, str, z)) == null) ? c().getBoolean(str, z) : invokeLZ.booleanValue;
-    }
-
-    public static SharedPreferences c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a == null) {
-                a = PreferenceManager.getDefaultSharedPreferences(a());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            List<ne3.a> d = rl2.d();
+            if (d == null || d.size() <= 0) {
+                return null;
             }
-            return a;
+            File file = new File(d.get(0).a, "/debug/");
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return file;
         }
-        return (SharedPreferences) invokeV.objValue;
+        return (File) invokeV.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new File(rl2.d().get(0).a, "/debug/").getAbsolutePath() : (String) invokeV.objValue;
     }
 }

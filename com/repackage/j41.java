@@ -1,80 +1,130 @@
 package com.repackage;
 
-import android.view.View;
-import android.widget.ImageView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.ActivityOptions;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.NinePatch;
+import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.NinePatchDrawable;
+import android.os.Build;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 /* loaded from: classes6.dex */
-public class j41 extends k41 {
+public class j41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView t;
 
-    public j41() {
+    @SuppressLint({"DiscouragedPrivateApi"})
+    public static void a(Activity activity, i41 i41Var) {
+        Class<?>[] declaredClasses;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, activity, i41Var) == null) {
+            try {
+                Method declaredMethod = Activity.class.getDeclaredMethod("getActivityOptions", new Class[0]);
+                declaredMethod.setAccessible(true);
+                Object invoke = declaredMethod.invoke(activity, new Object[0]);
+                Class<?> cls = null;
+                for (Class<?> cls2 : Activity.class.getDeclaredClasses()) {
+                    if (cls2.getSimpleName().contains("TranslucentConversionListener")) {
+                        cls = cls2;
+                    }
+                }
+                Object newProxyInstance = Proxy.newProxyInstance(Activity.class.getClassLoader(), new Class[]{cls}, new k41(i41Var));
+                Method declaredMethod2 = Activity.class.getDeclaredMethod("convertToTranslucent", cls, ActivityOptions.class);
+                declaredMethod2.setAccessible(true);
+                declaredMethod2.invoke(activity, newProxyInstance, invoke);
+            } catch (Throwable unused) {
+                if (i41Var != null) {
+                    i41Var.onTranslucent(false);
+                }
             }
         }
     }
 
-    public void F() {
-        ImageView imageView;
+    public static void b(Activity activity, i41 i41Var) {
+        Class<?>[] declaredClasses;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (imageView = this.t) == null) {
-            return;
-        }
-        imageView.setBackground(l31.a().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d32));
-        this.t.setVisibility(0);
-    }
-
-    public void G(View.OnClickListener onClickListener) {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) || (imageView = this.t) == null) {
-            return;
-        }
-        imageView.setOnClickListener(onClickListener);
-    }
-
-    @Override // com.repackage.k41, com.repackage.i41
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d05ab : invokeV.intValue;
-    }
-
-    @Override // com.repackage.k41, com.repackage.i41
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (super.g()) {
-                this.t = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09044c);
-                return true;
+        if (interceptable == null || interceptable.invokeLL(65537, null, activity, i41Var) == null) {
+            try {
+                Class<?> cls = null;
+                for (Class<?> cls2 : Activity.class.getDeclaredClasses()) {
+                    if (cls2.getSimpleName().contains("TranslucentConversionListener")) {
+                        cls = cls2;
+                    }
+                }
+                Method declaredMethod = Activity.class.getDeclaredMethod("convertToTranslucent", cls);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(activity, null);
+                if (i41Var != null) {
+                    i41Var.onTranslucent(true);
+                }
+            } catch (Throwable unused) {
+                if (i41Var != null) {
+                    i41Var.onTranslucent(false);
+                }
             }
-            return false;
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.k41, com.repackage.i41
-    public void n() {
+    public static void c(Activity activity, i41 i41Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.n();
-            this.t = null;
+        if (interceptable == null || interceptable.invokeLL(65538, null, activity, i41Var) == null) {
+            try {
+                Method declaredMethod = Activity.class.getDeclaredMethod("convertFromTranslucent", new Class[0]);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(activity, new Object[0]);
+                if (i41Var != null) {
+                    i41Var.onTranslucent(false);
+                }
+            } catch (Throwable unused) {
+                if (i41Var != null) {
+                    i41Var.onTranslucent(true);
+                }
+            }
         }
+    }
+
+    public static void d(Activity activity, i41 i41Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, activity, i41Var) == null) {
+            try {
+                if (Build.VERSION.SDK_INT >= 21) {
+                    a(activity, i41Var);
+                } else {
+                    b(activity, i41Var);
+                }
+            } catch (Throwable unused) {
+                if (i41Var != null) {
+                    i41Var.onTranslucent(false);
+                }
+            }
+        }
+    }
+
+    public static Drawable e(Context context, String str) {
+        InterceptResult invokeLL;
+        Bitmap decodeFile;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            if (context == null || TextUtils.isEmpty(str) || (decodeFile = BitmapFactory.decodeFile(str)) == null) {
+                return null;
+            }
+            byte[] ninePatchChunk = decodeFile.getNinePatchChunk();
+            if (NinePatch.isNinePatchChunk(ninePatchChunk)) {
+                return new NinePatchDrawable(context.getResources(), decodeFile, ninePatchChunk, new Rect(), null);
+            }
+            return new BitmapDrawable(context.getResources(), decodeFile);
+        }
+        return (Drawable) invokeLL.objValue;
     }
 }

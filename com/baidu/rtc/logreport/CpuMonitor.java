@@ -8,6 +8,8 @@ import android.os.SystemClock;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -179,7 +181,7 @@ public class CpuMonitor {
     /* JADX INFO: Access modifiers changed from: private */
     public void cpuUtilizationTask() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && sampleCpuUtilization() && SystemClock.elapsedRealtime() - this.lastStatLogTimeMs >= 6000) {
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && sampleCpuUtilization() && SystemClock.elapsedRealtime() - this.lastStatLogTimeMs >= LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION) {
             this.lastStatLogTimeMs = SystemClock.elapsedRealtime();
             Log.d(TAG, getStatString());
         }
@@ -198,7 +200,7 @@ public class CpuMonitor {
             Intent registerReceiver = this.appContext.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
             int intExtra = registerReceiver.getIntExtra("scale", 100);
             if (intExtra > 0) {
-                return (int) ((registerReceiver.getIntExtra("level", 0) * 100.0f) / intExtra);
+                return (int) ((registerReceiver.getIntExtra(PollingModel.LEVEL, 0) * 100.0f) / intExtra);
             }
             return 0;
         }

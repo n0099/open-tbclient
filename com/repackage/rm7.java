@@ -1,182 +1,111 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.text.SpannableStringBuilder;
+import android.text.style.ImageSpan;
+import android.widget.EditText;
+import android.widget.Toast;
+import com.baidu.adp.base.BdBaseActivity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.newdetail.HotTopicDetailActivity;
-import com.baidu.tieba.newdetail.view.HotTopicDetailSpecialItem;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class rm7 extends an<hn7, b> {
+public class rm7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<HotTopicDetailActivity> i;
-    public km4<hn7> j;
 
     /* loaded from: classes7.dex */
-    public class a implements km4<hn7> {
+    public class a extends jg<zm> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rm7 a;
+        public final /* synthetic */ EditText a;
+        public final /* synthetic */ SpannableStringBuilder b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ EmotionGroupType d;
+        public final /* synthetic */ rm7 e;
 
-        public a(rm7 rm7Var) {
+        public a(rm7 rm7Var, EditText editText, SpannableStringBuilder spannableStringBuilder, int i, EmotionGroupType emotionGroupType) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rm7Var};
+                Object[] objArr = {rm7Var, editText, spannableStringBuilder, Integer.valueOf(i), emotionGroupType};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = rm7Var;
+            this.e = rm7Var;
+            this.a = editText;
+            this.b = spannableStringBuilder;
+            this.c = i;
+            this.d = emotionGroupType;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.km4
-        /* renamed from: a */
-        public void d(View view2, hn7 hn7Var, int i, long j) {
+        @Override // com.repackage.jg
+        public void onLoaded(zm zmVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, hn7Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.km4
-        /* renamed from: b */
-        public void c(View view2, hn7 hn7Var, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, hn7Var, Integer.valueOf(i), Long.valueOf(j)}) == null) || hn7Var == null || this.a.i == null) {
-                return;
-            }
-            qm7.a("c13820", hn7Var, i, ((HotTopicDetailActivity) this.a.i.getOrignalPage()).C1());
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b extends TypeAdapter.ViewHolder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public HotTopicDetailSpecialItem a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(HotTopicDetailSpecialItem hotTopicDetailSpecialItem) {
-            super(hotTopicDetailSpecialItem);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hotTopicDetailSpecialItem};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((View) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, zmVar, str, i) == null) {
+                super.onLoaded((a) zmVar, str, i);
+                if (zmVar != null) {
+                    this.e.c(this.a, this.b, this.c, zmVar, this.d);
                 }
             }
-            this.a = hotTopicDetailSpecialItem;
-        }
-
-        public void b(hn7 hn7Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, hn7Var) == null) || hn7Var == null) {
-                return;
-            }
-            this.a.a(hn7Var);
-        }
-
-        public void c(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                this.a.c(i);
-            }
-        }
-
-        public void d(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.a.setCurrentTopicId(str);
-            }
-        }
-
-        public void e(km4<hn7> km4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, km4Var) == null) {
-                this.a.setOnItemCoverListener(km4Var);
-            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rm7(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), gn7.a);
+    public rm7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public void b(BdBaseActivity<?> bdBaseActivity, EditText editText, gy4 gy4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, bdBaseActivity, editText, gy4Var) == null) {
+            if (((ImageSpan[]) editText.getText().getSpans(0, editText.getText().length(), ImageSpan.class)).length >= 10) {
+                Toast.makeText(bdBaseActivity.getPageContext().getPageActivity(), (int) R.string.obfuscated_res_0x7f0f1431, 0).show();
                 return;
             }
-        }
-        this.j = new a(this);
-        this.i = tbPageContext;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: a0 */
-    public b M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            b bVar = new b(new HotTopicDetailSpecialItem(viewGroup.getContext()));
-            bVar.d(this.i.getOrignalPage().C1());
-            bVar.e(this.j);
-            bVar.c(TbadkCoreApplication.getInst().getSkinType());
-            return bVar;
-        }
-        return (b) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: b0 */
-    public View S(int i, View view2, ViewGroup viewGroup, hn7 hn7Var, b bVar) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, hn7Var, bVar})) == null) {
-            if (hn7Var == null || bVar == null) {
-                return null;
+            String d = gy4Var.d();
+            EmotionGroupType type = gy4Var.getType();
+            if (d != null) {
+                kg.h().k(d, 20, new a(this, editText, new SpannableStringBuilder(d), editText.getSelectionStart(), type), 0, 0, bdBaseActivity.getUniqueId(), null, d, Boolean.FALSE, null);
             }
-            bVar.b(hn7Var);
-            bVar.c(TbadkCoreApplication.getInst().getSkinType());
-            return bVar.a();
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public final void c(EditText editText, SpannableStringBuilder spannableStringBuilder, int i, zm zmVar, EmotionGroupType emotionGroupType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{editText, spannableStringBuilder, Integer.valueOf(i), zmVar, emotionGroupType}) == null) {
+            Bitmap p = zmVar.p();
+            BitmapDrawable bitmapDrawable = new BitmapDrawable(p);
+            int width = p.getWidth();
+            if (emotionGroupType == EmotionGroupType.LOCAL) {
+                width = (int) (width * 0.5d);
+            }
+            bitmapDrawable.setBounds(0, 0, width, width);
+            bitmapDrawable.setGravity(119);
+            spannableStringBuilder.setSpan(new ImageSpan(bitmapDrawable, 0), 0, spannableStringBuilder.length(), 33);
+            editText.getText().insert(i, spannableStringBuilder);
+        }
     }
 }

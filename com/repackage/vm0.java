@@ -1,43 +1,50 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.model.ParseError;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class vm0 extends AdBaseModel {
+public final class vm0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final ym0 r;
+    public final String a;
+    public final int b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vm0(@NonNull fn0 fn0Var, @NonNull JSONObject jSONObject) throws ParseError {
-        super(fn0Var, jSONObject);
+    public vm0(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fn0Var, jSONObject};
+            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((fn0) objArr2[0], (JSONObject) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (fn0Var.k.size() >= 1) {
-            this.r = fn0Var.k.get(0);
+        this.a = jSONObject.optString("url");
+        jSONObject.optInt("width");
+        this.b = jSONObject.optInt("height");
+    }
+
+    public static vm0 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) ? new vm0(jSONObject) : (vm0) invokeL.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.a)) {
             return;
         }
-        throw ParseError.contentError(3, fn0Var.a.value);
+        pl0.a().c(this.a);
     }
 }

@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ar5;
-import com.repackage.zq5;
+import com.repackage.rs5;
+import com.repackage.ss5;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zq5 mHistoryData;
+    public rs5 mHistoryData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaRecentHistoryResponseMessage() {
@@ -45,18 +45,18 @@ public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
             if (jSONObject == null) {
                 return;
             }
-            zq5 zq5Var = new zq5();
-            this.mHistoryData = zq5Var;
-            zq5Var.a = jSONObject.optInt("has_more") == 1;
+            rs5 rs5Var = new rs5();
+            this.mHistoryData = rs5Var;
+            rs5Var.a = jSONObject.optInt("has_more") == 1;
             ArrayList arrayList = null;
             JSONArray optJSONArray = jSONObject.optJSONArray("host_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 int length = optJSONArray.length();
                 ArrayList arrayList2 = new ArrayList(length);
                 for (int i2 = 0; i2 < length; i2++) {
-                    ar5 ar5Var = new ar5();
-                    ar5Var.a(optJSONArray.optJSONObject(i2));
-                    arrayList2.add(ar5Var);
+                    ss5 ss5Var = new ss5();
+                    ss5Var.a(optJSONArray.optJSONObject(i2));
+                    arrayList2.add(ss5Var);
                 }
                 arrayList = arrayList2;
             }
@@ -64,9 +64,9 @@ public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public zq5 getRecentHistoryData() {
+    public rs5 getRecentHistoryData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mHistoryData : (zq5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mHistoryData : (rs5) invokeV.objValue;
     }
 }

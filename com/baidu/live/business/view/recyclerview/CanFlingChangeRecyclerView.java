@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +13,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class CanFlingChangeRecyclerView extends RecyclerView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public double a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CanFlingChangeRecyclerView(Context context) {
@@ -34,21 +32,13 @@ public class CanFlingChangeRecyclerView extends RecyclerView {
                 return;
             }
         }
-        this.a = 1.0d;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView
     public boolean fling(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) ? super.fling(i, (int) (i2 * this.a)) : invokeII.booleanValue;
-    }
-
-    public void setflingScale(double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d)}) == null) {
-            this.a = d;
-        }
+        return (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) ? super.fling(i, i2 * 1) : invokeII.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -70,7 +60,6 @@ public class CanFlingChangeRecyclerView extends RecyclerView {
                 return;
             }
         }
-        this.a = 1.0d;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -92,6 +81,5 @@ public class CanFlingChangeRecyclerView extends RecyclerView {
                 return;
             }
         }
-        this.a = 1.0d;
     }
 }

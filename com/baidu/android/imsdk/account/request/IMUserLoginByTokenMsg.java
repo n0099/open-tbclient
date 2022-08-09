@@ -15,6 +15,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.ar.constants.HttpConstants;
+import com.baidu.searchbox.common.security.DeviceInfoIPCServiceManager;
 import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -23,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j60;
+import com.repackage.l60;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -140,7 +141,7 @@ public class IMUserLoginByTokenMsg extends Message {
                 jSONObject2.put("appid", this.mAppid + "");
                 jSONObject2.put("from", this.mFrom);
                 jSONObject2.put("cfrom", this.cFrom);
-                jSONObject.put("device_info", jSONObject2);
+                jSONObject.put(DeviceInfoIPCServiceManager.IPC_SERVICE_NAME, jSONObject2);
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put("rpc_retry_time", sRetrytimes);
                 jSONObject.put("rpc", jSONObject3.toString());
@@ -200,7 +201,7 @@ public class IMUserLoginByTokenMsg extends Message {
                             }
                         }
                     }
-                    if (!j60.e) {
+                    if (!l60.e) {
                         ChatMsgManagerImpl.getInstance(this.mContext).fetchConfigMsg(this.mContext, 0L, 20L);
                     }
                 } catch (Exception e) {

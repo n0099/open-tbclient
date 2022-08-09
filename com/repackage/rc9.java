@@ -1,136 +1,103 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.sapi2.share.ShareCallPacking;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.Iterator;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
-public class rc9 extends mi9 {
+public class rc9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final AtomicBoolean a;
+    public static HashMap<Integer, Boolean> b;
+    public static HashMap<Integer, Long> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<Ssp> a;
-    public final Set<hd9> b;
-    public final Set<fd9> c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rc9(int i, ObjectInput objectInput) {
-        super(i);
-        HashSet hashSet;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), objectInput};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755354999, "Lcom/repackage/rc9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755354999, "Lcom/repackage/rc9;");
                 return;
             }
         }
-        int readInt = objectInput.readInt();
-        HashSet hashSet2 = new HashSet(readInt);
-        HashMap hashMap = new HashMap();
-        for (int i4 = 0; i4 < readInt; i4++) {
-            Ssp ssp = new Ssp(objectInput.readInt(), objectInput);
-            hashSet2.add(ssp);
-            for (Ssp.Pid pid : ssp.pids) {
-                hashMap.put(Long.valueOf(pid.id), pid);
-            }
-        }
-        int readInt2 = objectInput.readInt();
-        HashSet hashSet3 = new HashSet(readInt2);
-        for (int i5 = 0; i5 < readInt2; i5++) {
-            hashSet3.add(new hd9(objectInput.readInt(), objectInput, hashMap));
-        }
-        this.a = Collections.unmodifiableSet(hashSet2);
-        this.b = Collections.unmodifiableSet(hashSet3);
-        if (i == 1) {
-            int readInt3 = objectInput.readInt();
-            hashSet = new HashSet(readInt3);
-            for (int i6 = 0; i6 < readInt3; i6++) {
-                hashSet.add(new fd9(objectInput.readInt(), objectInput, hashMap));
-            }
-        } else {
-            hashSet = new HashSet();
-        }
-        this.c = Collections.unmodifiableSet(hashSet);
+        a = new AtomicBoolean(false);
+        b = new HashMap<>();
+        c = new HashMap<>();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rc9(Set<Ssp> set, Set<hd9> set2, Set<fd9> set3) {
-        super(1);
+    public static long a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {set, set2, set3};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (c.containsKey(Integer.valueOf(i))) {
+                return c.get(Integer.valueOf(i)).longValue();
             }
+            return Long.MAX_VALUE;
         }
-        this.a = set;
-        this.b = set2;
-        this.c = set3;
+        return invokeI.longValue;
     }
 
-    public boolean equals(Object obj) {
+    public static SharedPreferences b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || rc9.class != obj.getClass()) {
-                return false;
-            }
-            rc9 rc9Var = (rc9) obj;
-            return Objects.equals(this.a, rc9Var.a) && Objects.equals(this.b, rc9Var.b);
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? context.getSharedPreferences("CONFIG_RUNTIME", 0) : (SharedPreferences) invokeL.objValue;
     }
 
-    public int hashCode() {
+    public static synchronized void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
+            synchronized (rc9.class) {
+                if (!a.get()) {
+                    SharedPreferences b2 = b(context);
+                    Iterator<Integer> it = sc9.a.iterator();
+                    while (it.hasNext()) {
+                        int intValue = it.next().intValue();
+                        HashMap<Integer, Long> hashMap = c;
+                        Integer valueOf = Integer.valueOf(intValue);
+                        hashMap.put(valueOf, Long.valueOf(b2.getLong("cache_" + intValue, 10080L)));
+                        HashMap<Integer, Boolean> hashMap2 = b;
+                        Integer valueOf2 = Integer.valueOf(intValue);
+                        hashMap2.put(valueOf2, Boolean.valueOf(b2.getBoolean("close_" + intValue, false)));
+                    }
+                    c.put(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT), Long.MAX_VALUE);
+                    b.put(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT), Boolean.TRUE);
+                    a.set(true);
+                }
+            }
+        }
+    }
+
+    public static boolean d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            if (b.containsKey(Integer.valueOf(i))) {
+                return b.get(Integer.valueOf(i)).booleanValue();
+            }
+            return true;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(this.a, this.b) : invokeV.intValue;
-    }
-
-    @Override // com.repackage.mi9
-    public void srzableInternal(ObjectOutput objectOutput) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objectOutput) == null) {
-            objectOutput.writeInt(this.a.size());
-            for (Ssp ssp : this.a) {
-                ssp.srzable(objectOutput);
-            }
-            objectOutput.writeInt(this.b.size());
-            for (hd9 hd9Var : this.b) {
-                hd9Var.srzable(objectOutput);
-            }
-            objectOutput.writeInt(this.c.size());
-            for (fd9 fd9Var : this.c) {
-                fd9Var.srzable(objectOutput);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return false;
         }
+        return invokeV.booleanValue;
     }
 }

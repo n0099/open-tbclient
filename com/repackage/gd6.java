@@ -1,41 +1,92 @@
 package com.repackage;
 
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.FrsHotTopic.FrsHotTopicListData;
-import com.baidu.tieba.frs.FrsHotTopic.FrsLinkHashMap;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.forumMember.tbtitle.model.cache.GetLevelInfoReadCacheResponsedMessage;
+import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoReadCacheRequestMessage;
+import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoRequestMessage;
+import com.baidu.tieba.forumMember.tbtitle.model.res.GetLevelInfoHttpResponsedMessage;
+import com.baidu.tieba.forumMember.tbtitle.model.res.GetLevelInfoSocketResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Map;
+import tbclient.GetLevelInfo.DataRes;
 /* loaded from: classes6.dex */
-public class gd6 {
+public class gd6<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static gd6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsLinkHashMap<String, Long> a;
+    public c a;
+    public BaseActivity<T> b;
+    public ab c;
+    public CustomMessageListener d;
 
     /* loaded from: classes6.dex */
-    public class a extends BdAsyncTask<Void, Void, Void> {
+    public class a extends ab {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ gd6 a;
 
-        public a(gd6 gd6Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(gd6 gd6Var, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gd6Var};
+                Object[] objArr = {gd6Var, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gd6Var;
+        }
+
+        @Override // com.repackage.ab
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                if (responsedMessage instanceof GetLevelInfoHttpResponsedMessage) {
+                    GetLevelInfoHttpResponsedMessage getLevelInfoHttpResponsedMessage = (GetLevelInfoHttpResponsedMessage) responsedMessage;
+                    this.a.a.a(getLevelInfoHttpResponsedMessage.getResult(), true, getLevelInfoHttpResponsedMessage.getError(), getLevelInfoHttpResponsedMessage.getErrorString());
+                } else if (responsedMessage instanceof GetLevelInfoSocketResponsedMessage) {
+                    GetLevelInfoSocketResponsedMessage getLevelInfoSocketResponsedMessage = (GetLevelInfoSocketResponsedMessage) responsedMessage;
+                    this.a.a.a(getLevelInfoSocketResponsedMessage.getmResult(), true, getLevelInfoSocketResponsedMessage.getError(), getLevelInfoSocketResponsedMessage.getErrorString());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gd6 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(gd6 gd6Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gd6Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -45,152 +96,66 @@ public class gd6 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            FrsHotTopicListData frsHotTopicListData;
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                cr4.f();
-                te<String> h = cr4.h("tb.frs_hottopic", "");
-                if (h != null) {
-                    String str = h.get("hot_topic_key");
-                    if (!StringUtils.isNull(str) && (frsHotTopicListData = (FrsHotTopicListData) OrmObject.objectWithJsonStr(str, FrsHotTopicListData.class)) != null) {
-                        this.a.a = frsHotTopicListData.mSceneMap;
-                    }
-                }
-                return null;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof GetLevelInfoReadCacheResponsedMessage)) {
+                GetLevelInfoReadCacheResponsedMessage getLevelInfoReadCacheResponsedMessage = (GetLevelInfoReadCacheResponsedMessage) customResponsedMessage;
+                this.a.a.a(getLevelInfoReadCacheResponsedMessage.getResult(), false, getLevelInfoReadCacheResponsedMessage.getError(), getLevelInfoReadCacheResponsedMessage.getErrorString());
             }
-            return (Void) invokeL.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b extends BdAsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gd6 a;
-
-        public b(gd6 gd6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gd6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gd6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                cr4.f();
-                te<String> h = cr4.h("tb.frs_hottopic", "");
-                if (h == null) {
-                    return null;
-                }
-                FrsHotTopicListData frsHotTopicListData = new FrsHotTopicListData();
-                frsHotTopicListData.mSceneMap = this.a.a;
-                String jsonStrWithObject = OrmObject.jsonStrWithObject(frsHotTopicListData);
-                if (!StringUtils.isNull(jsonStrWithObject)) {
-                    h.g("hot_topic_key", jsonStrWithObject);
-                }
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
+    public interface c {
+        void a(DataRes dataRes, boolean z, int i, String str);
     }
 
-    public gd6() {
+    public gd6(c cVar, BaseActivity<T> baseActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cVar, baseActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.c = new a(this, CmdConfigHttp.CMD_GET_LEVLE_INFO, 301005);
+        this.d = new b(this, 2003007);
+        this.a = cVar;
+        this.b = baseActivity;
+        b();
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.registerListener(this.d);
+            this.b.registerListener(this.c);
         }
     }
 
-    public static gd6 d() {
-        InterceptResult invokeV;
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
-                synchronized (gd6.class) {
-                    if (b == null) {
-                        b = new gd6();
-                    }
-                }
-            }
-            return b;
-        }
-        return (gd6) invokeV.objValue;
-    }
-
-    public boolean c(String str, long j) {
-        InterceptResult invokeLJ;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) {
-            if (this.a == null) {
-                this.a = new FrsLinkHashMap<>();
-                e(str, j);
-            }
-            if (StringUtils.isNull(str) || this.a.isEmpty()) {
-                return false;
-            }
-            Iterator<Map.Entry<String, Long>> it = this.a.entrySet().iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    z = false;
-                    break;
-                }
-                Map.Entry<String, Long> next = it.next();
-                if (next != null && str.equals(next.getKey())) {
-                    z = true;
-                    break;
-                }
-            }
-            if (z && this.a.get(str).longValue() == j) {
-                return false;
-            }
-            this.a.put(str, Long.valueOf(j));
-            f();
-            return true;
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    public final void e(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
-            a aVar = new a(this);
-            aVar.setPriority(3);
-            aVar.execute(new Void[0]);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            GetLevelInfoReadCacheRequestMessage getLevelInfoReadCacheRequestMessage = new GetLevelInfoReadCacheRequestMessage();
+            getLevelInfoReadCacheRequestMessage.setCacheKey("" + i);
+            this.b.sendMessage(getLevelInfoReadCacheRequestMessage);
         }
     }
 
-    public final void f() {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            b bVar = new b(this);
-            bVar.setPriority(3);
-            bVar.execute(new Void[0]);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            GetLevelInfoRequestMessage getLevelInfoRequestMessage = new GetLevelInfoRequestMessage();
+            getLevelInfoRequestMessage.setForumId(i);
+            this.b.sendMessage(getLevelInfoRequestMessage);
         }
     }
 }

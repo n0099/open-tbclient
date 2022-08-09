@@ -24,8 +24,8 @@ public class h9 {
             if (context instanceof e9) {
                 return ((e9) context).getPageContext();
             }
-            Field b = fi.b(context.getClass(), g9.class);
-            if (b == null || (a = fi.a(context, b)) == null || !(a instanceof g9) || !(a instanceof e9)) {
+            Field b = gi.b(context.getClass(), g9.class);
+            if (b == null || (a = gi.a(context, b)) == null || !(a instanceof g9) || !(a instanceof e9)) {
                 return null;
             }
             return ((e9) a).getPageContext();
@@ -44,8 +44,8 @@ public class h9 {
             if (context instanceof e9) {
                 return (e9) context;
             }
-            Field b = fi.b(context.getClass(), g9.class);
-            if (b == null || (a = fi.a(context, b)) == null || !(a instanceof g9) || !(a instanceof e9)) {
+            Field b = gi.b(context.getClass(), g9.class);
+            if (b == null || (a = gi.a(context, b)) == null || !(a instanceof g9) || !(a instanceof e9)) {
                 return null;
             }
             return (e9) a;
@@ -70,8 +70,8 @@ public class h9 {
                     return (g9) orignalPage;
                 }
             }
-            Field b = fi.b(context.getClass(), g9.class);
-            if (b == null || (a = fi.a(context, b)) == null || !(a instanceof g9)) {
+            Field b = gi.b(context.getClass(), g9.class);
+            if (b == null || (a = gi.a(context, b)) == null || !(a instanceof g9)) {
                 return null;
             }
             return (g9) a;

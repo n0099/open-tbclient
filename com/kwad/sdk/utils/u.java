@@ -5,10 +5,10 @@ import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public final class u {
     public static String cj(Context context) {
-        return context.getString(R.string.obfuscated_res_0x7f0f0998);
+        return context.getString(R.string.obfuscated_res_0x7f0f09af);
     }
 
     public static String ck(Context context) {
-        return context.getString(R.string.obfuscated_res_0x7f0f09a0);
+        return context.getString(R.string.obfuscated_res_0x7f0f09b7);
     }
 }

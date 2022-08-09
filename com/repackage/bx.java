@@ -4,9 +4,11 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.ForumGoodsEnterLayout;
+import com.baidu.card.view.ForumEnterLayout;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.abtest.helper.HomeGroupUbsUIHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,13 +16,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bx extends xw {
+public class bx extends yw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public on4 h;
-    public ForumGoodsEnterLayout i;
-    public int j;
-    public final View.OnClickListener k;
+    public fo4 h;
+    public ForumEnterLayout i;
+    public final View.OnClickListener j;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -74,64 +75,66 @@ public class bx extends xw {
                 return;
             }
         }
-        this.k = new a(this);
-        int f = pi.f(context, R.dimen.M_H_X003);
-        int f2 = pi.f(context, HomeGroupUbsUIHelper.handleDimen(R.dimen.tbds21, R.dimen.tbds0));
+        this.j = new a(this);
+        int f = qi.f(context, R.dimen.M_H_X003);
+        int f2 = qi.f(context, HomeGroupUbsUIHelper.handleDimen(R.dimen.tbds21, R.dimen.tbds0));
         s(f);
         r(f2);
-        ForumGoodsEnterLayout forumGoodsEnterLayout = new ForumGoodsEnterLayout(context);
-        this.i = forumGoodsEnterLayout;
-        forumGoodsEnterLayout.setOnAfterClickListener(this.k);
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().d instanceof ForumEnterLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().d.getParent() == null) {
+            this.i = (ForumEnterLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().d;
+        } else {
+            this.i = new ForumEnterLayout(context);
+        }
+        this.i.setOnAfterClickListener(this.j);
     }
 
-    @Override // com.repackage.qw
+    @Override // com.repackage.rw
     public View h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.i : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.hx
+    @Override // com.repackage.ix
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.i.d(tbPageContext, i);
+            this.i.n(tbPageContext, i);
         }
     }
 
     public void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int f = pi.f(this.b, R.dimen.M_H_X003);
-            s(f);
+            if (UbsABTestHelper.showNewUI()) {
+                int f = qi.f(this.b, R.dimen.M_H_X003);
+                int f2 = qi.f(this.b, HomeGroupUbsUIHelper.handleDimen(R.dimen.tbds21, R.dimen.tbds0));
+                s(f);
+                r(f2);
+                return;
+            }
+            int f3 = qi.f(this.b, R.dimen.tbds10);
+            s(f3);
             r(0);
-            x(this.i, f, 0);
+            w(this.i, f3, 0);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.gx
+    @Override // com.repackage.hx
     /* renamed from: v */
-    public void a(on4 on4Var) {
+    public void a(fo4 fo4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, on4Var) == null) {
-            this.h = on4Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, fo4Var) == null) {
+            this.h = fo4Var;
             this.i.setSourceForPb(this.a.i());
-            this.i.setFrstype(this.j);
-            this.i.setData(on4Var);
+            this.i.setData(fo4Var);
         }
     }
 
-    public void w(int i) {
+    public void w(View view2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.j = i;
-        }
-    }
-
-    public void x(View view2, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048582, this, view2, i, i2) == null) && view2 != null && (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+        if ((interceptable == null || interceptable.invokeLII(1048581, this, view2, i, i2) == null) && view2 != null && (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
             if (marginLayoutParams.topMargin == i && marginLayoutParams.bottomMargin == i2) {
                 return;

@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ng5;
-import com.repackage.vr4;
+import com.repackage.bi5;
+import com.repackage.ms4;
 /* loaded from: classes3.dex */
 public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -45,45 +45,45 @@ public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
         }
         this.a = context;
         this.b = view2;
-        b(view2);
+        a(view2);
     }
 
-    public final void b(View view2) {
+    public final void a(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            this.c = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a43);
-            TbRichTextView tbRichTextView = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a42);
+            this.c = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a7e);
+            TbRichTextView tbRichTextView = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a7d);
             this.d = tbRichTextView;
             tbRichTextView.setTextSize(TbadkApplication.getInst().getResources().getDimension(R.dimen.T_X07));
-            ng5 layoutStrategy = this.d.getLayoutStrategy();
+            bi5 layoutStrategy = this.d.getLayoutStrategy();
             layoutStrategy.o(TbadkApplication.getInst().getResources().getDimension(R.dimen.tbds28), 1.0f);
             this.d.setLayoutStrategy(layoutStrategy);
-            c();
+            b();
         }
     }
 
-    public void c() {
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (this.e) {
-                vr4 d = vr4.d(this.c);
+                ms4 d = ms4.d(this.c);
                 d.A(R.string.F_X02);
                 d.v(R.color.CAM_X0301);
                 this.d.setTextColor(SkinManager.getColor(R.color.CAM_X0301));
                 return;
             }
-            vr4 d2 = vr4.d(this.c);
+            ms4 d2 = ms4.d(this.c);
             d2.A(R.string.F_X02);
             d2.v(R.color.CAM_X0105);
             this.d.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
         }
     }
 
-    public void d(boolean z) {
+    public void c(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             this.e = z;
-            c();
+            b();
         }
     }
 }

@@ -21,36 +21,36 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
-import com.repackage.bu3;
-import com.repackage.ew3;
-import com.repackage.gn2;
-import com.repackage.gu3;
-import com.repackage.hd2;
-import com.repackage.i03;
-import com.repackage.iw3;
-import com.repackage.ku3;
-import com.repackage.lu3;
-import com.repackage.on2;
-import com.repackage.oz1;
-import com.repackage.q72;
-import com.repackage.rz1;
-import com.repackage.sg1;
-import com.repackage.vl2;
-import com.repackage.w64;
+import com.repackage.bv3;
+import com.repackage.cv3;
+import com.repackage.f02;
+import com.repackage.fo2;
+import com.repackage.h82;
+import com.repackage.i02;
+import com.repackage.jh1;
+import com.repackage.mm2;
+import com.repackage.n74;
+import com.repackage.su3;
+import com.repackage.vw3;
+import com.repackage.xn2;
+import com.repackage.xu3;
+import com.repackage.yd2;
+import com.repackage.z03;
+import com.repackage.zw3;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class AudioPlayer implements gn2, w64 {
+/* loaded from: classes3.dex */
+public class AudioPlayer implements xn2, n74 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean o;
     public transient /* synthetic */ FieldHolder $fh;
-    public on2 a;
+    public fo2 a;
     public PlayerStatus b;
     public UserStatus c;
     public String d;
-    public lu3 e;
-    public bu3 f;
+    public cv3 e;
+    public su3 f;
     public e g;
     public int h;
     public String i;
@@ -61,7 +61,7 @@ public class AudioPlayer implements gn2, w64 {
     public long n;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class PlayerStatus {
         public static final /* synthetic */ PlayerStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -125,7 +125,7 @@ public class AudioPlayer implements gn2, w64 {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class UserStatus {
         public static final /* synthetic */ UserStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -190,19 +190,19 @@ public class AudioPlayer implements gn2, w64 {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements TypedCallbackHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AudioPlayer a;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -257,13 +257,13 @@ public class AudioPlayer implements gn2, w64 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ku3.h().e().post(new a(this));
+                bv3.h().e().post(new a(this));
             }
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class c implements gu3 {
+    /* loaded from: classes3.dex */
+    public class c implements xu3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AudioPlayer a;
@@ -286,7 +286,7 @@ public class AudioPlayer implements gn2, w64 {
             this.a = audioPlayer;
         }
 
-        @Override // com.repackage.gu3
+        @Override // com.repackage.xu3
         public void a(String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
@@ -295,7 +295,7 @@ public class AudioPlayer implements gn2, w64 {
             }
         }
 
-        @Override // com.repackage.gu3
+        @Override // com.repackage.xu3
         public void fail(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -304,7 +304,7 @@ public class AudioPlayer implements gn2, w64 {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d implements MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnInfoListener, MediaPlayer.OnErrorListener, MediaPlayer.OnSeekCompleteListener, MediaPlayer.OnBufferingUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -465,7 +465,7 @@ public class AudioPlayer implements gn2, w64 {
     }
 
     @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class e extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -473,7 +473,7 @@ public class AudioPlayer implements gn2, w64 {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(AudioPlayer audioPlayer) {
-            super(ku3.h().e().getLooper());
+            super(bv3.h().e().getLooper());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -524,7 +524,7 @@ public class AudioPlayer implements gn2, w64 {
                 return;
             }
         }
-        o = sg1.a;
+        o = jh1.a;
     }
 
     public AudioPlayer(String str) {
@@ -545,7 +545,7 @@ public class AudioPlayer implements gn2, w64 {
         this.b = PlayerStatus.NONE;
         this.c = UserStatus.OPEN;
         this.d = "";
-        this.f = new bu3();
+        this.f = new su3();
         this.g = new e(this);
         this.l = -1.0f;
         this.d = str;
@@ -569,45 +569,45 @@ public class AudioPlayer implements gn2, w64 {
         return invokeV.longValue;
     }
 
-    public lu3 B() {
+    public cv3 B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            lu3 lu3Var = this.e;
-            if (lu3Var == null || lu3Var.t()) {
-                this.e = ku3.h().d(this.j, this.f.f);
+            cv3 cv3Var = this.e;
+            if (cv3Var == null || cv3Var.s()) {
+                this.e = bv3.h().d(this.j, this.f.f);
                 S();
             }
             return this.e;
         }
-        return (lu3) invokeV.objValue;
+        return (cv3) invokeV.objValue;
     }
 
-    public final q72 C() {
+    public final h82 C() {
         InterceptResult invokeV;
         SwanAppActivity w;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            i03 M = i03.M();
+            z03 M = z03.M();
             if (M == null || !M.w0() || (w = M.w()) == null) {
                 return null;
             }
-            hd2 Q = w.Q();
-            if (Q instanceof iw3) {
-                return ((iw3) Q).g1();
+            yd2 Q = w.Q();
+            if (Q instanceof zw3) {
+                return ((zw3) Q).g1();
             }
             return null;
         }
-        return (q72) invokeV.objValue;
+        return (h82) invokeV.objValue;
     }
 
     public float D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            bu3 bu3Var = this.f;
-            if (bu3Var != null) {
-                return bu3Var.i;
+            su3 su3Var = this.f;
+            if (su3Var != null) {
+                return su3Var.i;
             }
             return 1.0f;
         }
@@ -626,9 +626,9 @@ public class AudioPlayer implements gn2, w64 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.b = PlayerStatus.IDLE;
-            lu3 lu3Var = this.e;
-            if (lu3Var != null) {
-                lu3Var.destroy();
+            cv3 cv3Var = this.e;
+            if (cv3Var != null) {
+                cv3Var.destroy();
                 this.e = null;
             }
             this.g.removeMessages(0);
@@ -637,17 +637,17 @@ public class AudioPlayer implements gn2, w64 {
 
     public final boolean G() {
         InterceptResult invokeV;
-        oz1 m;
+        f02 m;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (i03.M() == null || !i03.M().w0()) {
+            if (z03.M() == null || !z03.M().w0()) {
                 return false;
             }
-            rz1 V = vl2.U().V();
-            if (V == null || (m = V.m()) == null || !(m instanceof ew3)) {
+            i02 V = mm2.U().V();
+            if (V == null || (m = V.m()) == null || !(m instanceof vw3)) {
                 return true;
             }
-            return ((ew3) m).D3();
+            return ((vw3) m).D3();
         }
         return invokeV.booleanValue;
     }
@@ -677,12 +677,12 @@ public class AudioPlayer implements gn2, w64 {
     }
 
     public final void K(String str, JSONObject jSONObject) {
-        on2 on2Var;
+        fo2 fo2Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048586, this, str, jSONObject) == null) || (on2Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048586, this, str, jSONObject) == null) || (fo2Var = this.a) == null) {
             return;
         }
-        on2Var.b(str, jSONObject);
+        fo2Var.b(str, jSONObject);
     }
 
     public final void L(String str) {
@@ -706,7 +706,7 @@ public class AudioPlayer implements gn2, w64 {
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             try {
                 if (this.i.contains("http")) {
-                    ku3 h = ku3.h();
+                    bv3 h = bv3.h();
                     File file = new File(h.g(this.i));
                     if (file.exists() && !file.isDirectory()) {
                         this.j = file.getAbsolutePath();
@@ -726,9 +726,9 @@ public class AudioPlayer implements gn2, w64 {
         }
     }
 
-    public void N(bu3 bu3Var) {
+    public void N(su3 su3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, bu3Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, su3Var) == null) {
             if (o) {
                 Log.d("SwanAppAudioPlayer", "AudioPlayer open");
             }
@@ -736,9 +736,9 @@ public class AudioPlayer implements gn2, w64 {
                 F();
             }
             this.c = UserStatus.OPEN;
-            this.f = bu3Var;
+            this.f = su3Var;
             this.h = 0;
-            this.i = vl2.U().G().a(this.f.c);
+            this.i = mm2.U().G().a(this.f.c);
             this.b = PlayerStatus.IDLE;
             J("onWaiting");
             M();
@@ -780,7 +780,7 @@ public class AudioPlayer implements gn2, w64 {
                             J("onPlay");
                         } else if (this.b == PlayerStatus.IDLE) {
                             try {
-                                B().d(this.j);
+                                B().c(this.j);
                                 this.b = PlayerStatus.PREPARING;
                             } catch (Exception e2) {
                                 if (o) {
@@ -806,10 +806,10 @@ public class AudioPlayer implements gn2, w64 {
             try {
                 File file = new File(this.j);
                 if (file.exists() && !file.isDirectory()) {
-                    long f = ku3.h().f(this.j);
+                    long f = bv3.h().f(this.j);
                     this.n = f;
                     if (0 != f) {
-                        B().d(this.j);
+                        B().c(this.j);
                         if (o) {
                             Log.e("SwanAppAudioPlayer", "setSrc path: " + this.j);
                             return;
@@ -833,13 +833,13 @@ public class AudioPlayer implements gn2, w64 {
             if (this.k == null) {
                 this.k = new d(this, null);
             }
-            this.e.k(this.k);
-            this.e.r(this.k);
-            this.e.h(this.k);
+            this.e.j(this.k);
+            this.e.q(this.k);
+            this.e.g(this.k);
             this.e.l(this.k);
-            this.e.i(this.k);
-            this.e.o(this.k);
-            this.e.g(this);
+            this.e.h(this.k);
+            this.e.n(this.k);
+            this.e.f(this);
         }
     }
 
@@ -878,10 +878,10 @@ public class AudioPlayer implements gn2, w64 {
         }
     }
 
-    public void V(on2 on2Var) {
+    public void V(fo2 fo2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, on2Var) == null) {
-            this.a = on2Var;
+        if (interceptable == null || interceptable.invokeL(1048597, this, fo2Var) == null) {
+            this.a = fo2Var;
         }
     }
 
@@ -890,7 +890,7 @@ public class AudioPlayer implements gn2, w64 {
         if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
             try {
                 if (H()) {
-                    this.e.b(z);
+                    this.e.a(z);
                 }
             } catch (Exception e2) {
                 if (o) {
@@ -941,21 +941,21 @@ public class AudioPlayer implements gn2, w64 {
         }
     }
 
-    @Override // com.repackage.gn2
+    @Override // com.repackage.xn2
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f.b : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.gn2
+    @Override // com.repackage.xn2
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.d : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.gn2
+    @Override // com.repackage.xn2
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -965,32 +965,32 @@ public class AudioPlayer implements gn2, w64 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.gn2
+    @Override // com.repackage.xn2
     public Object i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this : invokeV.objValue;
     }
 
-    @Override // com.repackage.gn2
+    @Override // com.repackage.xn2
     public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048606, this, z) == null) {
         }
     }
 
-    @Override // com.repackage.gn2
+    @Override // com.repackage.xn2
     public void k(boolean z) {
-        i03 M;
-        q72 C;
+        z03 M;
+        h82 C;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048607, this, z) == null) || (M = i03.M()) == null || !M.w0() || z || (C = C()) == null || C.t0()) {
+        if (!(interceptable == null || interceptable.invokeZ(1048607, this, z) == null) || (M = z03.M()) == null || !M.w0() || z || (C = C()) == null || C.s0()) {
             return;
         }
         C.runOnJSThread(new b(this));
     }
 
-    @Override // com.repackage.gn2
+    @Override // com.repackage.xn2
     public boolean onBackPressed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1000,16 +1000,16 @@ public class AudioPlayer implements gn2, w64 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.gn2
+    @Override // com.repackage.xn2
     public void onDestroy() {
-        i03 M;
+        z03 M;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048609, this) == null) && (M = i03.M()) != null && M.w0()) {
+        if ((interceptable == null || interceptable.invokeV(1048609, this) == null) && (M = z03.M()) != null && M.w0()) {
             T();
         }
     }
 
-    @Override // com.repackage.w64
+    @Override // com.repackage.n74
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
@@ -1017,13 +1017,13 @@ public class AudioPlayer implements gn2, w64 {
         }
     }
 
-    public void update(bu3 bu3Var) {
+    public void update(su3 su3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, bu3Var) == null) {
-            this.f = bu3Var;
-            on2 on2Var = this.a;
-            if (on2Var != null) {
-                on2Var.d(bu3Var.j);
+        if (interceptable == null || interceptable.invokeL(1048611, this, su3Var) == null) {
+            this.f = su3Var;
+            fo2 fo2Var = this.a;
+            if (fo2Var != null) {
+                fo2Var.d(su3Var.j);
             }
             Z();
         }
@@ -1061,7 +1061,7 @@ public class AudioPlayer implements gn2, w64 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
             if (H()) {
-                return this.e.w();
+                return this.e.v();
             }
             return 0;
         }

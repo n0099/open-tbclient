@@ -7,7 +7,6 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.alasquare.special_forum.message.AlaSpecialConcernResponse;
@@ -16,11 +15,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lr5;
-import com.repackage.mr5;
-import com.repackage.nn;
-import com.repackage.nr5;
-import com.repackage.or5;
+import com.repackage.dt5;
+import com.repackage.et5;
+import com.repackage.ft5;
+import com.repackage.gt5;
+import com.repackage.on;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -29,7 +28,7 @@ public class SpecialConcernTabModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public b b;
-    public List<nn> c;
+    public List<on> c;
     public HttpMessageListener d;
 
     /* loaded from: classes3.dex */
@@ -72,34 +71,34 @@ public class SpecialConcernTabModel extends BdBaseModel {
                     boolean z = alaSpecialConcernResponse.hasMore;
                     if (ListUtils.isEmpty(alaSpecialConcernResponse.followList)) {
                         if (this.a.a == 1) {
-                            this.a.c.add(new mr5());
+                            this.a.c.add(new et5());
                         }
                     } else {
-                        for (lr5 lr5Var : alaSpecialConcernResponse.followList) {
-                            nr5 nr5Var = new nr5();
-                            nr5Var.a = lr5Var.a;
-                            nr5Var.b = lr5Var.b;
-                            nr5Var.c = false;
-                            this.a.c.add(nr5Var);
+                        for (dt5 dt5Var : alaSpecialConcernResponse.followList) {
+                            ft5 ft5Var = new ft5();
+                            ft5Var.a = dt5Var.a;
+                            ft5Var.b = dt5Var.b;
+                            ft5Var.c = false;
+                            this.a.c.add(ft5Var);
                         }
                     }
                     if (!ListUtils.isEmpty(alaSpecialConcernResponse.recommendList)) {
-                        or5 or5Var = new or5();
+                        gt5 gt5Var = new gt5();
                         if (!ListUtils.isEmpty(alaSpecialConcernResponse.followList)) {
-                            or5Var.a = false;
+                            gt5Var.a = false;
                         } else {
-                            or5Var.a = true;
+                            gt5Var.a = true;
                         }
-                        this.a.c.add(or5Var);
-                        for (lr5 lr5Var2 : alaSpecialConcernResponse.recommendList) {
-                            nr5 nr5Var2 = new nr5();
-                            nr5Var2.a = lr5Var2.a;
-                            nr5Var2.b = lr5Var2.b;
-                            nr5Var2.c = true;
-                            this.a.c.add(nr5Var2);
+                        this.a.c.add(gt5Var);
+                        for (dt5 dt5Var2 : alaSpecialConcernResponse.recommendList) {
+                            ft5 ft5Var2 = new ft5();
+                            ft5Var2.a = dt5Var2.a;
+                            ft5Var2.b = dt5Var2.b;
+                            ft5Var2.c = true;
+                            this.a.c.add(ft5Var2);
                         }
                     }
-                    SpecialConcernTabModel.B(this.a);
+                    SpecialConcernTabModel.A(this.a);
                     if (this.a.b != null) {
                         this.a.b.b(this.a.c, z, alaSpecialConcernResponse.totalFollowCount);
                     }
@@ -114,7 +113,7 @@ public class SpecialConcernTabModel extends BdBaseModel {
     public interface b {
         void a(int i, String str);
 
-        void b(List<nn> list, boolean z, int i);
+        void b(List<on> list, boolean z, int i);
     }
 
     public SpecialConcernTabModel(TbPageContext tbPageContext) {
@@ -138,37 +137,37 @@ public class SpecialConcernTabModel extends BdBaseModel {
         MessageManager.getInstance().registerListener(this.d);
     }
 
-    public static /* synthetic */ int B(SpecialConcernTabModel specialConcernTabModel) {
+    public static /* synthetic */ int A(SpecialConcernTabModel specialConcernTabModel) {
         int i = specialConcernTabModel.a;
         specialConcernTabModel.a = i + 1;
         return i;
     }
 
-    public final void E(int i) {
+    public final void D(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_SPECIAL_CONCERN_TAB);
-            httpMessage.addParam(Config.PACKAGE_NAME, i);
+            httpMessage.addParam("pn", i);
             MessageManager.getInstance().sendMessage(httpMessage);
+        }
+    }
+
+    public void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            D(this.a + 1);
         }
     }
 
     public void F() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            E(this.a + 1);
-        }
-    }
-
-    public void G() {
-        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a = 1;
-            E(1);
+            D(1);
         }
     }
 
-    public void H(b bVar) {
+    public void G(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
             this.b = bVar;

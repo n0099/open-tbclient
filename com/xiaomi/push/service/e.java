@@ -22,7 +22,7 @@ public class e {
     public static final SparseArray<ay.a<String, String, String>> a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final int[] f979a;
+    public static final int[] f980a;
     public static final SparseArray<Integer> b;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -39,7 +39,7 @@ public class e {
                 return;
             }
         }
-        f979a = new int[]{1, 2, 4, 8, 16};
+        f980a = new int[]{1, 2, 4, 8, 16};
         a = new f(5);
         b = new g(5);
     }
@@ -177,7 +177,7 @@ public class e {
         int[] iArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(65546, null, str, str2, i, i2) == null) {
-            for (int i3 : f979a) {
+            for (int i3 : f980a) {
                 if ((b.get(i3).intValue() & i2) == 0) {
                     a(str, str2, i3, (i & i3) > 0);
                 } else {

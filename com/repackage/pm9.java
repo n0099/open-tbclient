@@ -1,57 +1,190 @@
 package com.repackage;
 
-import android.content.BroadcastReceiver;
+import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageInstaller;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.UserManager;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public final class pm9 extends BroadcastReceiver {
-    public static /* synthetic */ Interceptable $ic;
+import com.google.android.gms.common.GooglePlayServicesIncorrectManifestValueException;
+import com.google.android.gms.common.GooglePlayServicesMissingManifestValueException;
+import java.util.concurrent.atomic.AtomicBoolean;
+/* loaded from: classes7.dex */
+public class pm9 {
+    public static /* synthetic */ Interceptable $ic = null;
+    @Deprecated
+    public static final int a = 12451000;
+    public static final AtomicBoolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ mm9 a;
-    public final /* synthetic */ lm9 b;
 
-    public pm9(lm9 lm9Var, mm9 mm9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {lm9Var, mm9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755404971, "Lcom/repackage/pm9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755404971, "Lcom/repackage/pm9;");
                 return;
             }
         }
-        this.b = lm9Var;
-        this.a = mm9Var;
+        new AtomicBoolean();
+        b = new AtomicBoolean();
     }
 
-    @Override // android.content.BroadcastReceiver
-    public final void onReceive(Context context, Intent intent) {
+    @Deprecated
+    public static int a(@NonNull Context context, int i) {
+        InterceptResult invokeLI;
+        PackageInfo packageInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-            String action = intent.getAction();
-            Bundle extras = intent.getExtras();
-            if ("com.google.android.play.core.install.ACTION_INSTALL_STATUS".equals(action) && extras != null && extras.containsKey("install.status")) {
-                this.b.p();
-                int i = extras.getInt("install.status");
-                if (i == 1 || i == 2 || i == 3) {
-                    this.a.a(com.google.ar.core.p.a);
-                } else if (i == 4) {
-                    this.a.a(com.google.ar.core.p.c);
-                } else if (i != 6) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            try {
+                context.getResources().getString(R.string.obfuscated_res_0x7f0f0416);
+            } catch (Throwable unused) {
+                Log.e("GooglePlayServicesUtil", "The Google Play services resources were not found. Check your project configuration to ensure that the resources are included.");
+            }
+            if (!"com.google.android.gms".equals(context.getPackageName()) && !b.get()) {
+                int a2 = cn9.a(context);
+                if (a2 != 0) {
+                    if (a2 != a) {
+                        throw new GooglePlayServicesIncorrectManifestValueException(a2);
+                    }
                 } else {
-                    this.a.a(com.google.ar.core.p.b);
+                    throw new GooglePlayServicesMissingManifestValueException();
                 }
             }
+            boolean z = (pn9.b(context) || pn9.d(context)) ? false : true;
+            ym9.a(i >= 0);
+            String packageName = context.getPackageName();
+            PackageManager packageManager = context.getPackageManager();
+            if (z) {
+                try {
+                    packageInfo = packageManager.getPackageInfo("com.android.vending", 8256);
+                } catch (PackageManager.NameNotFoundException unused2) {
+                    Log.w("GooglePlayServicesUtil", String.valueOf(packageName).concat(" requires the Google Play Store, but it is missing."));
+                }
+            } else {
+                packageInfo = null;
+            }
+            try {
+                PackageInfo packageInfo2 = packageManager.getPackageInfo("com.google.android.gms", 64);
+                qm9.a(context);
+                if (!qm9.c(packageInfo2, true)) {
+                    Log.w("GooglePlayServicesUtil", String.valueOf(packageName).concat(" requires Google Play services, but their signature is invalid."));
+                } else {
+                    if (z) {
+                        ym9.d(packageInfo);
+                        if (!qm9.c(packageInfo, true)) {
+                            Log.w("GooglePlayServicesUtil", String.valueOf(packageName).concat(" requires Google Play Store, but its signature is invalid."));
+                        }
+                    }
+                    if (z && packageInfo != null && !packageInfo.signatures[0].equals(packageInfo2.signatures[0])) {
+                        Log.w("GooglePlayServicesUtil", String.valueOf(packageName).concat(" requires Google Play Store, but its signature doesn't match that of Google Play services."));
+                    } else if (rn9.a(packageInfo2.versionCode) < rn9.a(i)) {
+                        int i2 = packageInfo2.versionCode;
+                        StringBuilder sb = new StringBuilder(String.valueOf(packageName).length() + 82);
+                        sb.append("Google Play services out of date for ");
+                        sb.append(packageName);
+                        sb.append(".  Requires ");
+                        sb.append(i);
+                        sb.append(" but found ");
+                        sb.append(i2);
+                        Log.w("GooglePlayServicesUtil", sb.toString());
+                        return 2;
+                    } else {
+                        ApplicationInfo applicationInfo = packageInfo2.applicationInfo;
+                        if (applicationInfo == null) {
+                            try {
+                                applicationInfo = packageManager.getApplicationInfo("com.google.android.gms", 0);
+                            } catch (PackageManager.NameNotFoundException e) {
+                                Log.wtf("GooglePlayServicesUtil", String.valueOf(packageName).concat(" requires Google Play services, but they're missing when getting application info."), e);
+                                return 1;
+                            }
+                        }
+                        return !applicationInfo.enabled ? 3 : 0;
+                    }
+                }
+                return 9;
+            } catch (PackageManager.NameNotFoundException unused3) {
+                Log.w("GooglePlayServicesUtil", String.valueOf(packageName).concat(" requires Google Play services, but they are missing."));
+                return 1;
+            }
         }
+        return invokeLI.intValue;
+    }
+
+    @Deprecated
+    public static boolean b(@NonNull Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) {
+            if (i == 18) {
+                return true;
+            }
+            if (i == 1) {
+                return d(context, "com.google.android.gms");
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    @TargetApi(18)
+    public static boolean c(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (qn9.a()) {
+                Object systemService = context.getSystemService("user");
+                ym9.d(systemService);
+                Bundle applicationRestrictions = ((UserManager) systemService).getApplicationRestrictions(context.getPackageName());
+                return applicationRestrictions != null && "true".equals(applicationRestrictions.getString("restricted_profile"));
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @TargetApi(21)
+    public static boolean d(Context context, String str) {
+        InterceptResult invokeLL;
+        ApplicationInfo applicationInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            boolean equals = str.equals("com.google.android.gms");
+            if (qn9.c()) {
+                try {
+                    for (PackageInstaller.SessionInfo sessionInfo : context.getPackageManager().getPackageInstaller().getAllSessions()) {
+                        if (str.equals(sessionInfo.getAppPackageName())) {
+                            return true;
+                        }
+                    }
+                } catch (Exception unused) {
+                    return false;
+                }
+            }
+            try {
+                applicationInfo = context.getPackageManager().getApplicationInfo(str, 8192);
+            } catch (PackageManager.NameNotFoundException unused2) {
+            }
+            if (equals) {
+                return applicationInfo.enabled;
+            }
+            return applicationInfo.enabled && !c(context);
+        }
+        return invokeLL.booleanValue;
     }
 }

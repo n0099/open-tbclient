@@ -36,10 +36,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.am;
-import com.repackage.mp8;
-import com.repackage.pi;
-import com.repackage.qp8;
-import com.repackage.zl;
+import com.repackage.bm;
+import com.repackage.ds8;
+import com.repackage.hs8;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class CaptureStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -52,7 +52,7 @@ public class CaptureStatic {
 
         /* renamed from: com.baidu.tieba.CaptureStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0194a implements qp8 {
+        public class C0194a implements hs8 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomResponsedMessage a;
@@ -87,7 +87,7 @@ public class CaptureStatic {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(1048576, this, packageInfo) == null) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.FALSE));
-                        pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f09c6);
+                        qi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f09df);
                     }
                 }
 
@@ -96,7 +96,7 @@ public class CaptureStatic {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.FALSE));
-                        pi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f09c6);
+                        qi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f09df);
                     }
                 }
 
@@ -131,7 +131,7 @@ public class CaptureStatic {
                 this.a = customResponsedMessage;
             }
 
-            @Override // com.repackage.qp8
+            @Override // com.repackage.hs8
             public void a() {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.a.getData() instanceof IntentConfig)) {
@@ -141,14 +141,14 @@ public class CaptureStatic {
                         return;
                     }
                     RequestParams requestParams = new RequestParams();
-                    requestParams.setRunType(am.a);
+                    requestParams.setRunType(bm.a);
                     requestParams.setRunNode("aps");
-                    requestParams.addChannel(new zl("com.baidu.tieba.soloader.libcbffmpeg", new C0195a(this)));
+                    requestParams.addChannel(new am("com.baidu.tieba.soloader.libcbffmpeg", new C0195a(this)));
                     PmsManager.getInstance().execute(requestParams);
                 }
             }
 
-            @Override // com.repackage.qp8
+            @Override // com.repackage.hs8
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -182,7 +182,7 @@ public class CaptureStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921582) {
-                mp8.b(TbadkCoreApplication.getInst(), new C0194a(this, customResponsedMessage));
+                ds8.b(TbadkCoreApplication.getInst(), new C0194a(this, customResponsedMessage));
             }
         }
     }

@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g88;
+import com.repackage.na8;
 import java.io.IOException;
 import tbclient.GetLockWindowMsg.GetLockWindowMsgResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PushDialogHttpResMsg extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g88 mData;
+    public na8 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PushDialogHttpResMsg(int i) {
@@ -37,10 +37,10 @@ public class PushDialogHttpResMsg extends TbHttpResponsedMessage {
         }
     }
 
-    public g88 getData() {
+    public na8 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (g88) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (na8) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -53,9 +53,9 @@ public class PushDialogHttpResMsg extends TbHttpResponsedMessage {
                 setError(getLockWindowMsgResIdl.error.errorno.intValue());
                 setErrorString(getLockWindowMsgResIdl.error.usermsg);
                 if (getLockWindowMsgResIdl.data != null) {
-                    g88 g88Var = new g88();
-                    this.mData = g88Var;
-                    g88Var.e(getLockWindowMsgResIdl.data);
+                    na8 na8Var = new na8();
+                    this.mData = na8Var;
+                    na8Var.e(getLockWindowMsgResIdl.data);
                 }
             } catch (IOException unused) {
             }

@@ -1,169 +1,172 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ad7;
 import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class ww4 implements ad7 {
+public class ww4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public int n;
-    public String o;
-    public ad7.a p;
-    public int q;
-    public String r;
+    public List<on> a;
+    public List<on> b;
+    public boolean c;
+    public boolean d;
+    public int e;
+    public int f;
+    public int g;
 
-    public ww4() {
+    public ww4(List<on> list, boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, Boolean.valueOf(z), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.e = 2;
+        this.f = 2;
+        this.g = 1;
+        this.a = list;
+        this.d = z;
+        this.f = i;
+        j(list);
     }
 
-    public boolean a() {
+    public int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (this.c) {
+                int size = this.b.size();
+                if (i == 0) {
+                    return (size - 1) - this.g;
+                }
+                int i2 = this.g;
+                return i == size - i2 ? i2 : i;
+            }
+            return i;
+        }
+        return invokeI.intValue;
+    }
+
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (StringUtils.isNull(this.a) && StringUtils.isNull(this.j) && StringUtils.isNull(this.l)) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            List<on> list = this.a;
+            if (list == null) {
+                return 0;
             }
-            if (c()) {
-                return StringUtils.isNull(this.c) || StringUtils.isNull(this.d);
-            }
-            return StringUtils.isNull(this.b);
+            return list.size();
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public boolean b() {
+    public int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.c ? i - this.g : i : invokeI.intValue;
+    }
+
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !"0".equals(this.r) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.c) {
+                return this.g;
+            }
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
-    public boolean c() {
+    public List<on> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "dynamic".equals(this.e) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (List) invokeV.objValue;
     }
 
-    public final JSONArray d(JSONObject jSONObject, String str) {
-        InterceptResult invokeLL;
+    public final List<on> f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, jSONObject, str)) == null) {
-            try {
-                return jSONObject.optJSONArray(str);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
-            }
-        }
-        return (JSONArray) invokeLL.objValue;
-    }
-
-    public void e(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optString("url");
-        this.b = jSONObject.optString("icon_url");
-        this.c = jSONObject.optString("fold_lottie");
-        this.d = jSONObject.optString("unfold_lottie");
-        this.e = jSONObject.optString("float_type");
-        jSONObject.optString("fold_name");
-        jSONObject.optString("unfold_name");
-        this.h = jSONObject.optString("view_statistics_url");
-        this.i = jSONObject.optString("click_statistics_url");
-        this.j = jSONObject.optString("scheme");
-        this.k = jSONObject.optString("package_name");
-        this.l = jSONObject.optString("deeplink");
-        this.n = jSONObject.optInt("source", 1);
-        this.m = jSONObject.optString("ext_info");
-        this.o = jSONObject.optString(LegoListActivityConfig.AD_ID);
-        this.r = jSONObject.optString("display_ad_icon");
-        ad7.a aVar = new ad7.a();
-        this.p = aVar;
-        aVar.a = jSONObject.optString("parallel_charge_url");
-        this.p.c = f(d(jSONObject, "show_urls"));
-        this.p.d = f(d(jSONObject, "click_urls"));
-        String c = vi.c(TbadkApplication.getInst().getAndroidId());
-        String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
-        StringBuilder sb = new StringBuilder();
-        sb.append("&ANDROIDID=");
-        sb.append(c == null ? "" : c.toLowerCase());
-        sb.append("&OAID=");
-        sb.append(lastCachedOid != null ? lastCachedOid.toUpperCase() : "");
-        String sb2 = sb.toString();
-        if (!StringUtils.isNull(this.h)) {
-            this.h += sb2;
-        }
-        if (StringUtils.isNull(this.i)) {
-            return;
-        }
-        this.i += sb2;
-    }
-
-    public final ArrayList<String> f(JSONArray jSONArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jSONArray)) == null) {
-            if (jSONArray != null && jSONArray.length() != 0) {
-                int length = jSONArray.length();
-                ArrayList<String> arrayList = new ArrayList<>(length);
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        String optString = optJSONObject.optString("url");
-                        if (!StringUtils.isNull(optString)) {
-                            arrayList.add(optString);
-                        }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            List<on> list = this.a;
+            if (list != null) {
+                if (this.c) {
+                    if (list.size() > this.f && this.a.size() >= this.g) {
+                        arrayList.addAll(this.a.subList(0, this.f));
+                        List<on> list2 = this.a;
+                        int i = this.f;
+                        arrayList.addAll(0, list2.subList(i - this.g, i));
+                        arrayList.addAll(this.a.subList(0, this.g));
+                    } else {
+                        arrayList.addAll(this.a);
+                        List<on> list3 = this.a;
+                        arrayList.addAll(0, list3.subList(list3.size() - this.g, this.a.size()));
+                        arrayList.addAll(this.a.subList(0, this.g));
+                    }
+                } else if (list != null && list.size() > 0) {
+                    int size = this.a.size();
+                    int i2 = this.g;
+                    if (size >= i2) {
+                        arrayList.addAll(this.a.subList(0, i2));
                     }
                 }
-                return arrayList;
             }
-            return new ArrayList<>();
+            return arrayList;
         }
-        return (ArrayList) invokeL.objValue;
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.ad7
-    public ad7.a getParallelCharge() {
-        InterceptResult invokeV;
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.p : (ad7.a) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.g = i;
+            j(this.a);
+        }
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.f = i;
+            j(this.a);
+        }
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.e = i;
+            j(this.a);
+        }
+    }
+
+    public void j(List<on> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
+            if (list != null && list.size() >= this.e && list.size() <= this.f) {
+                this.c = true;
+            } else if (list.size() > this.f && this.d) {
+                this.c = true;
+            } else {
+                this.c = false;
+            }
+            this.b = f();
+        }
     }
 }

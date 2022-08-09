@@ -1,23 +1,18 @@
 package com.repackage;
 
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.swan.apps.binding.model.JSTypeMismatchException;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.MalformedURLException;
+@Service
 /* loaded from: classes5.dex */
-public class by3 {
+public class by3 implements gi1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public boolean c;
-    public boolean d;
-    public int e;
-    public String f;
 
     public by3() {
         Interceptable interceptable = $ic;
@@ -29,82 +24,39 @@ public class by3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "";
-        this.b = Integer.MAX_VALUE;
-        this.c = false;
-        this.d = false;
     }
 
-    public boolean a(ps1 ps1Var) throws JSTypeMismatchException {
-        InterceptResult invokeL;
+    @Override // com.repackage.gi1
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ps1Var)) == null) {
-            try {
-                this.a = ps1Var.B("defaultValue");
-                this.b = ps1Var.q("maxLength");
-                this.c = ps1Var.l("multiple");
-                this.d = ps1Var.l("confirmHold");
-                String B = ps1Var.B("confirmType");
-                char c = 65535;
-                switch (B.hashCode()) {
-                    case -906336856:
-                        if (B.equals("search")) {
-                            c = 2;
-                            break;
-                        }
-                        break;
-                    case SpeedStatsStampTable.AD_LOAD_BEAR_END_STAMP_KEY /* 3304 */:
-                        if (B.equals("go")) {
-                            c = 3;
-                            break;
-                        }
-                        break;
-                    case 3089282:
-                        if (B.equals("done")) {
-                            c = 0;
-                            break;
-                        }
-                        break;
-                    case 3377907:
-                        if (B.equals(UnitedSchemeConstants.UNITED_SCHEME_NEXT)) {
-                            c = 1;
-                            break;
-                        }
-                        break;
-                    case 3526536:
-                        if (B.equals("send")) {
-                            c = 4;
-                            break;
-                        }
-                        break;
-                }
-                if (c == 0) {
-                    this.e = 6;
-                    this.f = "done";
-                } else if (c == 1) {
-                    this.e = 5;
-                    this.f = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
-                } else if (c == 2) {
-                    this.e = 3;
-                    this.f = "search";
-                } else if (c == 3) {
-                    this.e = 2;
-                    this.f = "go";
-                } else if (c != 4) {
-                    this.e = 6;
-                    this.f = "done";
-                } else {
-                    this.e = 4;
-                    this.f = "send";
-                }
-                return true;
-            } catch (Exception unused) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? uu3.g() : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.gi1
+    public boolean b() {
+        InterceptResult invokeV;
+        f02 m;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (z03.M() == null || !z03.M().w0()) {
                 return false;
             }
+            i02 V = mm2.U().V();
+            if (V == null || (m = V.m()) == null || !(m instanceof vw3)) {
+                return true;
+            }
+            return ((vw3) m).D3();
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.gi1
+    public String c(String str) throws MalformedURLException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? uu3.d(str) : (String) invokeL.objValue;
     }
 }

@@ -157,7 +157,7 @@ public class YYLiveNPSPluginManager {
         BundleInfo bundleByType;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65564, this)) == null) {
-            BundleInfoGroup bundleGroup = NPSPackageManager.getInstance().getBundleGroup(NPS_PLUGIN_PKG_NAME);
+            BundleInfoGroup bundleGroup = NPSPackageManager.getInstance().getBundleGroup("com.baidu.searchbox.yylive.entrance");
             if (bundleGroup == null || (bundleByType = bundleGroup.getBundleByType(2)) == null) {
                 return 0;
             }
@@ -171,7 +171,7 @@ public class YYLiveNPSPluginManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65565, this)) == null) {
-            BundleInfo bundleInfo = NPSPackageManager.getInstance().getBundleInfo(NPS_PLUGIN_PKG_NAME);
+            BundleInfo bundleInfo = NPSPackageManager.getInstance().getBundleInfo("com.baidu.searchbox.yylive.entrance");
             if (bundleInfo == null) {
                 return 0;
             }
@@ -186,7 +186,7 @@ public class YYLiveNPSPluginManager {
         BundleInfo bundleByType;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65566, this)) == null) {
-            BundleInfoGroup bundleGroup = NPSPackageManager.getInstance().getBundleGroup(NPS_PLUGIN_PKG_NAME);
+            BundleInfoGroup bundleGroup = NPSPackageManager.getInstance().getBundleGroup("com.baidu.searchbox.yylive.entrance");
             if (bundleGroup == null || (bundleByType = bundleGroup.getBundleByType(1)) == null) {
                 return 0;
             }
@@ -252,7 +252,7 @@ public class YYLiveNPSPluginManager {
                         YYLiveNPSPluginManager yYLiveNPSPluginManager = this.this$0;
                         int pluginInstallVersion = yYLiveNPSPluginManager.getPluginInstallVersion();
                         boolean z2 = i == 14;
-                        yYLiveNPSPluginManager.logPluginEnd(YYLiveNPSPluginManager.NPS_PLUGIN_PKG_NAME, pluginInstallVersion, z2, "load code" + i, "nps_load", this.val$entry);
+                        yYLiveNPSPluginManager.logPluginEnd("com.baidu.searchbox.yylive.entrance", pluginInstallVersion, z2, "load code" + i, "nps_load", this.val$entry);
                         if (this.val$callback != null) {
                             if (Looper.myLooper() != Looper.getMainLooper()) {
                                 this.this$0.handler.post(new Runnable(this, i, str2, obj) { // from class: com.baidu.searchbox.live.nps.yy.YYLiveNPSPluginManager.5.1
@@ -340,7 +340,7 @@ public class YYLiveNPSPluginManager {
                         YYLiveNPSPluginManager yYLiveNPSPluginManager = this.this$0;
                         int pluginInstallVersion = yYLiveNPSPluginManager.getPluginInstallVersion();
                         boolean z2 = i == 14;
-                        yYLiveNPSPluginManager.logPluginEnd(YYLiveNPSPluginManager.NPS_PLUGIN_PKG_NAME, pluginInstallVersion, z2, "load code" + i, this.this$0.fromDownLoad ? "nps_download" : "nps_install", this.val$entry);
+                        yYLiveNPSPluginManager.logPluginEnd("com.baidu.searchbox.yylive.entrance", pluginInstallVersion, z2, "load code" + i, this.this$0.fromDownLoad ? "nps_download" : "nps_install", this.val$entry);
                         if (this.val$callback != null) {
                             if (Looper.myLooper() != Looper.getMainLooper()) {
                                 this.this$0.handler.post(new Runnable(this, i, str2, obj, str3) { // from class: com.baidu.searchbox.live.nps.yy.YYLiveNPSPluginManager.6.1
@@ -392,14 +392,14 @@ public class YYLiveNPSPluginManager {
                     }
                 }
             };
-            logPluginLoad(NPS_PLUGIN_PKG_NAME, str);
+            logPluginLoad("com.baidu.searchbox.yylive.entrance", str);
             if (isAvailable()) {
                 this.fromDownLoad = false;
                 UBCManager uBCManager = this.ubcManager;
                 if (uBCManager != null && (flow2 = this.pageFlow) != null) {
                     uBCManager.flowStartSlot(flow2, "plugin_load", null);
                 }
-                NPSManager.getInstance().loadClazz(NPS_PLUGIN_PKG_NAME, NPS_PLUGIN_IMPL_CLASS_NAME, IYYLiveNPSPlugin.class, iInvokeCallback);
+                NPSManager.getInstance().loadClazz("com.baidu.searchbox.yylive.entrance", "com.baidu.searchbox.live.yy.impl.YYLiveNPSPluginImpl", IYYLiveNPSPlugin.class, iInvokeCallback);
                 return;
             }
             this.isLoadingCanceled = false;
@@ -412,7 +412,7 @@ public class YYLiveNPSPluginManager {
             }
             Log.d(TAG, "start install bundle t=" + System.currentTimeMillis());
             this.fromDownLoad = false;
-            NPSPackageManager.getInstance().installBundle(NPS_PLUGIN_PKG_NAME, new IInstallCallback(this, iInvokeCallback2, z, str) { // from class: com.baidu.searchbox.live.nps.yy.YYLiveNPSPluginManager.7
+            NPSPackageManager.getInstance().installBundle("com.baidu.searchbox.yylive.entrance", new IInstallCallback(this, iInvokeCallback2, z, str) { // from class: com.baidu.searchbox.live.nps.yy.YYLiveNPSPluginManager.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ YYLiveNPSPluginManager this$0;
@@ -465,21 +465,21 @@ public class YYLiveNPSPluginManager {
                                 this.this$0.ubcManager.flowEndSlot(this.this$0.pageFlow, "plugin_install");
                                 this.this$0.ubcManager.flowStartSlot(this.this$0.pageFlow, "plugin_load", null);
                             }
-                            NPSManager.getInstance().loadClazz(YYLiveNPSPluginManager.NPS_PLUGIN_PKG_NAME, YYLiveNPSPluginManager.NPS_PLUGIN_IMPL_CLASS_NAME, IYYLiveNPSPlugin.class, this.val$installProxyCallback);
-                        } else if (i == 3 && NPSPackageManager.getInstance().getBundleStatus(YYLiveNPSPluginManager.NPS_PLUGIN_PKG_NAME) == 43) {
+                            NPSManager.getInstance().loadClazz("com.baidu.searchbox.yylive.entrance", "com.baidu.searchbox.live.yy.impl.YYLiveNPSPluginImpl", IYYLiveNPSPlugin.class, this.val$installProxyCallback);
+                        } else if (i == 3 && NPSPackageManager.getInstance().getBundleStatus("com.baidu.searchbox.yylive.entrance") == 43) {
                             if (this.this$0.ubcManager != null && this.this$0.pageFlow != null) {
                                 this.this$0.ubcManager.flowEndSlot(this.this$0.pageFlow, "plugin_install");
                                 this.this$0.ubcManager.flowStartSlot(this.this$0.pageFlow, "plugin_load", null);
                             }
-                            NPSManager.getInstance().loadClazz(YYLiveNPSPluginManager.NPS_PLUGIN_PKG_NAME, YYLiveNPSPluginManager.NPS_PLUGIN_IMPL_CLASS_NAME, IYYLiveNPSPlugin.class, this.val$installProxyCallback);
+                            NPSManager.getInstance().loadClazz("com.baidu.searchbox.yylive.entrance", "com.baidu.searchbox.live.yy.impl.YYLiveNPSPluginImpl", IYYLiveNPSPlugin.class, this.val$installProxyCallback);
                         } else {
                             if (this.val$showLoading) {
                                 if (i == 34) {
                                     if (this.this$0.loadingCallback == null) {
-                                        this.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a0d, 0);
+                                        this.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a30, 0);
                                     }
                                 } else {
-                                    this.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a0c, 0);
+                                    this.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a2f, 0);
                                 }
                             }
                             if (this.this$0.isDebug()) {
@@ -495,7 +495,7 @@ public class YYLiveNPSPluginManager {
                                 this.this$0.pageFlow = null;
                             }
                             YYLiveNPSPluginManager yYLiveNPSPluginManager = this.this$0;
-                            yYLiveNPSPluginManager.logPluginEnd(YYLiveNPSPluginManager.NPS_PLUGIN_PKG_NAME, i2, false, "install code" + i, "nps_install", this.val$entry);
+                            yYLiveNPSPluginManager.logPluginEnd("com.baidu.searchbox.yylive.entrance", i2, false, "install code" + i, "nps_install", this.val$entry);
                         }
                     }
                 }
@@ -695,7 +695,7 @@ public class YYLiveNPSPluginManager {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         if (this.val$retCode != 14) {
-                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a0c, 0);
+                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a2f, 0);
                                             return;
                                         }
                                         try {
@@ -802,7 +802,7 @@ public class YYLiveNPSPluginManager {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         if (this.val$retCode != 14) {
-                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a0c, 0);
+                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a2f, 0);
                                             return;
                                         }
                                         try {
@@ -896,7 +896,7 @@ public class YYLiveNPSPluginManager {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         if (this.val$retCode != 14) {
-                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a0c, 0);
+                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a2f, 0);
                                             return;
                                         }
                                         try {
@@ -990,7 +990,7 @@ public class YYLiveNPSPluginManager {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         if (this.val$retCode != 14) {
-                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a0c, 0);
+                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a2f, 0);
                                             return;
                                         }
                                         try {
@@ -1021,14 +1021,14 @@ public class YYLiveNPSPluginManager {
         BundleInfo bundleByType2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int bundleStatus = NPSPackageManager.getInstance().getBundleStatus(NPS_PLUGIN_PKG_NAME);
+            int bundleStatus = NPSPackageManager.getInstance().getBundleStatus("com.baidu.searchbox.yylive.entrance");
             if (bundleStatus != 43) {
                 if (isDebug()) {
                     Log.d(TAG, "isAvailable: bundle status=" + bundleStatus);
                 }
                 return false;
             }
-            BundleInfoGroup bundleGroup = NPSPackageManager.getInstance().getBundleGroup(NPS_PLUGIN_PKG_NAME);
+            BundleInfoGroup bundleGroup = NPSPackageManager.getInstance().getBundleGroup("com.baidu.searchbox.yylive.entrance");
             if (bundleGroup == null) {
                 if (isDebug()) {
                     Log.d(TAG, "isAvailable: top plugin is null");
@@ -1176,7 +1176,7 @@ public class YYLiveNPSPluginManager {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         if (this.val$retCode != 14) {
-                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a0c, 0);
+                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a2f, 0);
                                             return;
                                         }
                                         try {
@@ -1275,7 +1275,7 @@ public class YYLiveNPSPluginManager {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         if (this.val$retCode != 14) {
-                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a0c, 0);
+                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a2f, 0);
                                             return;
                                         }
                                         try {
@@ -1367,7 +1367,7 @@ public class YYLiveNPSPluginManager {
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         Log.d(YYLiveNPSPluginManager.TAG, "finish load class t=" + System.currentTimeMillis());
                                         if (this.val$retCode != 14) {
-                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a0c, 0);
+                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a2f, 0);
                                             return;
                                         }
                                         try {
@@ -1459,7 +1459,7 @@ public class YYLiveNPSPluginManager {
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         Log.d(YYLiveNPSPluginManager.TAG, "finish load class t=" + System.currentTimeMillis());
                                         if (this.val$retCode != 14) {
-                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a0c, 0);
+                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a2f, 0);
                                             return;
                                         }
                                         try {
@@ -1560,7 +1560,7 @@ public class YYLiveNPSPluginManager {
                                                 this.this$1.this$0.ubcManager.flowEnd(this.this$1.this$0.pageFlow);
                                                 this.this$1.this$0.pageFlow = null;
                                             }
-                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a0c, 0);
+                                            this.this$1.this$0.showNormalToast(R.string.obfuscated_res_0x7f0f0a2f, 0);
                                             return;
                                         }
                                         try {

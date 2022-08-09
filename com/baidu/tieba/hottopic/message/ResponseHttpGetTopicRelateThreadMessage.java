@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b37;
+import com.repackage.v47;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.GetTopicRelateThread.DataRes;
@@ -19,7 +19,7 @@ import tbclient.ThreadInfo;
 public class ResponseHttpGetTopicRelateThreadMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b37 hotThreadItemListData;
+    public v47 hotThreadItemListData;
     public Page page;
     public List<ThreadInfo> thread_list;
 
@@ -43,10 +43,10 @@ public class ResponseHttpGetTopicRelateThreadMessage extends TbHttpResponsedMess
         }
     }
 
-    public b37 getHotThreadItemListData() {
+    public v47 getHotThreadItemListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.hotThreadItemListData : (b37) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.hotThreadItemListData : (v47) invokeV.objValue;
     }
 
     public Page getPage() {
@@ -77,8 +77,8 @@ public class ResponseHttpGetTopicRelateThreadMessage extends TbHttpResponsedMess
         DataRes dataRes = getTopicRelateThreadResIdl.data;
         this.thread_list = dataRes.thread_list;
         this.page = dataRes.page;
-        b37 b37Var = new b37();
-        this.hotThreadItemListData = b37Var;
-        b37Var.m(getTopicRelateThreadResIdl.data);
+        v47 v47Var = new v47();
+        this.hotThreadItemListData = v47Var;
+        v47Var.n(getTopicRelateThreadResIdl.data);
     }
 }

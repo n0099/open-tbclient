@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nn;
+import com.repackage.on;
 import tbclient.ActivityPage.SpecialColumn;
 /* loaded from: classes3.dex */
-public class SpecialColumnItemData implements nn, Parcelable {
+public class SpecialColumnItemData implements on, Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<SpecialColumnItemData> CREATOR;
     public static final BdUniqueId TYPE;
@@ -111,7 +111,7 @@ public class SpecialColumnItemData implements nn, Parcelable {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.nn
+    @Override // com.repackage.on
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -1,229 +1,206 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.text.SpannableString;
-import android.text.method.LinkMovementMethod;
-import android.text.style.AbsoluteSizeSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
+import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.jvm.internal.StringCompanionObject;
-import kotlin.text.StringsKt__StringsKt;
-@JvmName(name = "PrivacyPolicyDialogUtil")
+import java.util.concurrent.atomic.AtomicBoolean;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class rj5 {
+public class rj5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final rj5 l;
     public transient /* synthetic */ FieldHolder $fh;
+    public AtomicBoolean a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
+    public int k;
 
-    /* loaded from: classes7.dex */
-    public static final class a extends qj5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-
-        public a(Context context) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755348396, "Lcom/repackage/rj5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = context;
-        }
-
-        @Override // android.text.style.ClickableSpan
-        public void onClick(View widget) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, widget) == null) {
-                Intrinsics.checkNotNullParameter(widget, "widget");
-                sl4.l(this.a, "https://tieba.baidu.com/tb/mobile/wisemainstatic/secretright.html");
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755348396, "Lcom/repackage/rj5;");
+                return;
             }
         }
+        l = new rj5();
     }
 
-    /* loaded from: classes7.dex */
-    public static final class b extends qj5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-
-        public b(Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-        }
-
-        @Override // android.text.style.ClickableSpan
-        public void onClick(View widget) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, widget) == null) {
-                Intrinsics.checkNotNullParameter(widget, "widget");
-                sl4.l(this.a, "https://gsp0.baidu.com/5aAHeD3nKhI2p27j8IqW0jdnxx1xbK/tb/eula.html");
-            }
-        }
-    }
-
-    public static final dr4 a(TbPageContext<?> tbPageContext, View.OnClickListener listener, int i, int i2) {
-        InterceptResult invokeLLII;
+    public rj5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65536, null, tbPageContext, listener, i, i2)) == null) {
-            Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
-            Intrinsics.checkNotNullParameter(listener, "listener");
-            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0710, (ViewGroup) null);
-            Intrinsics.checkNotNullExpressionValue(inflate, "from(tbPageContext.pageA…olicy_guide_dialog, null)");
-            EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920be);
-            eMTextView.setText(R.string.obfuscated_res_0x7f0f10a2);
-            vr4 d = vr4.d(eMTextView);
-            d.A(R.string.F_X02);
-            d.z(R.dimen.T_X05);
-            EMTextView eMTextView2 = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0906ad);
-            eMTextView2.setHighlightColor(0);
-            StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
-            String string = tbPageContext.getString(i);
-            Intrinsics.checkNotNullExpressionValue(string, "tbPageContext.getString(contentTestResId)");
-            String format = String.format(string, Arrays.copyOf(new Object[]{tbPageContext.getString(R.string.obfuscated_res_0x7f0f0ed2), tbPageContext.getString(R.string.obfuscated_res_0x7f0f14a6)}, 2));
-            Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
-            Activity pageActivity = tbPageContext.getPageActivity();
-            Intrinsics.checkNotNullExpressionValue(pageActivity, "tbPageContext.pageActivity");
-            SpannableString d2 = d(pageActivity, format);
-            eMTextView2.setMovementMethod(LinkMovementMethod.getInstance());
-            eMTextView2.setText(d2);
-            vr4.d(eMTextView2).z(R.dimen.T_X07);
-            EMTextView eMTextView3 = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0903ea);
-            eMTextView3.setText(i2);
-            vr4.d(eMTextView3).z(R.dimen.T_X08);
-            eMTextView3.setOnClickListener(listener);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f092548);
-            tBSpecificationBtn.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f1096));
-            tBSpecificationBtn.setTextSize(R.dimen.T_X07);
-            vu4 vu4Var = new vu4();
-            vu4Var.p(R.color.CAM_X0303, R.color.CAM_X0101);
-            tBSpecificationBtn.setConfig(vu4Var);
-            tBSpecificationBtn.setOnClickListener(listener);
-            dr4 dr4Var = new dr4(tbPageContext.getPageActivity());
-            dr4Var.setContentView(inflate);
-            dr4Var.setContentViewSize(8);
-            dr4Var.setAutoNight(false);
-            dr4Var.setCanceledOnTouchOutside(false);
-            dr4Var.setCancelable(false);
-            dr4Var.create(tbPageContext);
-            return dr4Var;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (dr4) invokeLLII.objValue;
+        this.a = new AtomicBoolean(false);
     }
 
-    public static final dr4 b(TbPageContext<?> tbPageContext, View.OnClickListener listener) {
-        InterceptResult invokeLL;
+    public static rj5 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbPageContext, listener)) == null) {
-            Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
-            Intrinsics.checkNotNullParameter(listener, "listener");
-            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0711, (ViewGroup) null);
-            Intrinsics.checkNotNullExpressionValue(inflate, "from(tbPageContext.pageA…rivate_hint_dialog, null)");
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091979)).setText(R.string.obfuscated_res_0x7f0f10a2);
-            inflate.findViewById(R.id.obfuscated_res_0x7f0919bc).setVisibility(0);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0919bd);
-            textView.setHighlightColor(0);
-            StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
-            String string = tbPageContext.getString(R.string.obfuscated_res_0x7f0f10a1);
-            Intrinsics.checkNotNullExpressionValue(string, "tbPageContext.getString(…tring.secret_hint_format)");
-            String format = String.format(string, Arrays.copyOf(new Object[]{tbPageContext.getString(R.string.obfuscated_res_0x7f0f10a0), tbPageContext.getString(R.string.obfuscated_res_0x7f0f10a5), tbPageContext.getString(R.string.obfuscated_res_0x7f0f1099), tbPageContext.getString(R.string.obfuscated_res_0x7f0f109a), tbPageContext.getString(R.string.obfuscated_res_0x7f0f109b), tbPageContext.getString(R.string.obfuscated_res_0x7f0f109c), tbPageContext.getString(R.string.obfuscated_res_0x7f0f109d)}, 7));
-            Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
-            Activity pageActivity = tbPageContext.getPageActivity();
-            Intrinsics.checkNotNullExpressionValue(pageActivity, "tbPageContext.pageActivity");
-            SpannableString d = d(pageActivity, format);
-            Matcher matcher = Pattern.compile("\n\n").matcher(format);
-            while (matcher.find()) {
-                d.setSpan(new AbsoluteSizeSpan(2, true), matcher.start() + 1, matcher.end(), 33);
-            }
-            textView.setMovementMethod(LinkMovementMethod.getInstance());
-            textView.setText(d);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091975);
-            textView2.setOnClickListener(listener);
-            SkinManager.setViewTextColorSelector(textView2, R.color.CAM_X0110, R.color.CAM_X0110, 0);
-            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09197a);
-            textView3.setOnClickListener(listener);
-            vr4 d2 = vr4.d(textView3);
-            d2.n(R.string.J_X01);
-            d2.f(R.color.CAM_X0303);
-            SkinManager.setViewTextColorSelector(textView3, R.color.CAM_X0101, R.color.CAM_X0618, 0);
-            dr4 dr4Var = new dr4(tbPageContext.getPageActivity());
-            dr4Var.setContentView(inflate);
-            dr4Var.setContentViewSize(7);
-            dr4Var.setCanceledOnTouchOutside(false);
-            dr4Var.setAutoNight(false);
-            dr4Var.setCancelable(false);
-            dr4Var.create(tbPageContext);
-            return dr4Var;
-        }
-        return (dr4) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? l : (rj5) invokeV.objValue;
     }
 
-    public static final int[] c(String str, int i) {
-        InterceptResult invokeLI;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            String string = TbadkCoreApplication.getInst().getString(i);
-            Intrinsics.checkNotNullExpressionValue(string, "getInst().getString(patternTextResId)");
-            int[] iArr = {StringsKt__StringsKt.indexOf$default((CharSequence) str, string, 0, false, 6, (Object) null), iArr[0] + string.length()};
-            return iArr;
-        }
-        return (int[]) invokeLI.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.intValue;
     }
 
-    public static final SpannableString d(Context context, String str) {
-        InterceptResult invokeLL;
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            SpannableString spannableString = new SpannableString(str);
-            int[] c = c(str, R.string.obfuscated_res_0x7f0f0ed2);
-            if (c[0] != -1) {
-                spannableString.setSpan(new a(context), c[0], c[1], 18);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("tieba_pic_ad_req_num", 3) : invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("video_flow_first_floor", -1) : invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("video_flow_floor_interval", -1) : invokeV.intValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g == 1 : invokeV.booleanValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("ad_photo_browser_insert_mode", -1) == 1 : invokeV.booleanValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b == 1 : invokeV.booleanValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.k == 1 : invokeV.booleanValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.h == 1 : invokeV.booleanValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.i == 1 : invokeV.booleanValue;
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.d == 1 : invokeV.booleanValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.j == 1 : invokeV.booleanValue;
+    }
+
+    public void n(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, jSONObject) == null) {
+            boolean z = this.a.get();
+            if (jSONObject == null || z) {
+                return;
             }
-            int[] c2 = c(str, R.string.obfuscated_res_0x7f0f14a6);
-            if (c2[0] != -1) {
-                spannableString.setSpan(new b(context), c2[0], c2[1], 18);
+            this.a.set(true);
+            this.b = jSONObject.optInt("tieba_lazy_launch_switch", 1);
+            this.c = jSONObject.optInt("tieba_lazy_launch_internal", 60);
+            jSONObject.optInt("tieba_max_fake_progress", 50);
+            jSONObject.optInt("tieba_max_fake_time", 60);
+            jSONObject.optLong("tieba_max_fake_speed", 768000L);
+            SharedPreferences sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0);
+            SharedPreferences.Editor edit = sharedPreferences.edit();
+            edit.putInt("pic_page_insert_mode", jSONObject.optInt("pic_page_insert_mode", 2));
+            edit.putInt("pic_page_request_num", jSONObject.optInt("pic_page_request_num", 5));
+            edit.putInt("pic_page_cache_time", jSONObject.optInt("pic_page_cache_time", 20));
+            edit.putInt("pic_page_first_floor", jSONObject.optInt("pic_page_first_floor", 2));
+            edit.putInt("pic_page_floor_interval", jSONObject.optInt("pic_page_floor_interval", 5));
+            edit.putInt("pic_page_pre_load_num", jSONObject.optInt("pic_page_pre_load_num", 5));
+            edit.putInt("pic_page_max_ad_num", jSONObject.optInt("pic_page_max_ad_num", 5));
+            edit.putInt("pic_page_req_gap_time", jSONObject.optInt("pic_page_req_gap_time", 30));
+            edit.commit();
+            this.k = jSONObject.optInt("tieba_video_mobile_net_autoplay", 1);
+            this.g = jSONObject.optInt("tieba_12.4_download_path", 1);
+            jSONObject.optInt("tieba_landing_page_type_switch", -1);
+            this.d = jSONObject.optInt("tieba_fix_apk_install_status_switch", 1);
+            this.e = jSONObject.optInt("tieba_12.2_download_ad_discard", -1);
+            this.f = jSONObject.optInt("tieba_12.3_ad_discard_optimize", -1);
+            jSONObject.optString("tieba_follow_up_cmatch_switchs", "");
+            jSONObject.optInt("tieba_follow_up_expire_time", 7);
+            jSONObject.optInt("tieba_follow_up_max_remind_times", 3);
+            jSONObject.optInt("tieba_follow_up_gap_time", 5);
+            this.h = jSONObject.optInt("tieba_video_ad_jump_switch", 0);
+            this.i = jSONObject.optInt("tieba_video_load_optimize_switch", 0);
+            this.j = jSONObject.optInt("hide_landing_page_ad_download_tip", 0);
+            SharedPreferences.Editor edit2 = sharedPreferences.edit();
+            edit2.putInt("video_flow_first_floor", jSONObject.optInt("video_flow_first_floor", -1));
+            edit2.putInt("video_flow_floor_interval", jSONObject.optInt("video_flow_floor_interval", -1));
+            int optInt = jSONObject.optInt("ad_photo_browser_insert_mode", -1);
+            if (optInt != -1) {
+                edit2.putInt("ad_photo_browser_insert_mode", optInt);
             }
-            return spannableString;
+            int optInt2 = jSONObject.optInt("tieba_pic_ad_req_num", -1);
+            if (optInt2 != -1) {
+                edit2.putInt("tieba_pic_ad_req_num", optInt2);
+            }
+            edit2.commit();
         }
-        return (SpannableString) invokeLL.objValue;
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f == 1 : invokeV.booleanValue;
+    }
+
+    public boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.e == 1 : invokeV.booleanValue;
     }
 }

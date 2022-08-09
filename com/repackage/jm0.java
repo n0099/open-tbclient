@@ -1,16 +1,9 @@
 package com.repackage;
 
-import android.view.MotionEvent;
-import com.baidu.nadcore.max.uiwidget.basic.WebViewContainer;
+import com.baidu.nadcore.webview.container.base.AbsContainer;
 /* loaded from: classes6.dex */
-public interface jm0 extends gh0 {
-    WebViewContainer b();
+public interface jm0 extends ch0 {
+    AbsContainer b();
 
-    void f(boolean z, boolean z2, boolean z3, int i);
-
-    boolean g();
-
-    void i(MotionEvent motionEvent);
-
-    void j(boolean z, boolean z2, boolean z3);
+    void e(int i);
 }

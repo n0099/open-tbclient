@@ -11,23 +11,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ab;
 import com.repackage.d9;
-import com.repackage.nn8;
-import com.repackage.po8;
-import com.repackage.wh8;
-import com.repackage.za;
+import com.repackage.eq8;
+import com.repackage.gr8;
+import com.repackage.kk8;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-    public po8 b;
-    public List<nn8> c;
-    public za d;
+    public gr8 b;
+    public List<eq8> c;
+    public ab d;
 
     /* loaded from: classes4.dex */
-    public class a extends za {
+    public class a extends ab {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AvatarPendantModel a;
@@ -54,7 +54,7 @@ public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
             this.a = avatarPendantModel;
         }
 
-        @Override // com.repackage.za
+        @Override // com.repackage.ab
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
@@ -80,7 +80,7 @@ public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(int i, String str, po8 po8Var, List<nn8> list);
+        void a(int i, String str, gr8 gr8Var, List<eq8> list);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -106,20 +106,20 @@ public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
         registerListener(this.d);
     }
 
-    public List<nn8> F() {
+    public List<eq8> E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (List) invokeV.objValue;
     }
 
-    public void G() {
+    public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.d);
         }
     }
 
-    public void H(b bVar) {
+    public void G(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             this.a = bVar;
@@ -150,8 +150,8 @@ public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            wh8.h(309371, AvatarPendantListSocketResponseMessage.class, false, false);
-            wh8.c(309371, CmdConfigHttp.CMD_AVATAR_PENDANT_LIST, TbConfig.AVATAR_PENDANT, AvatarPendantListHttpResponseMessage.class, true, true, true, true);
+            kk8.h(309371, AvatarPendantListSocketResponseMessage.class, false, false);
+            kk8.c(309371, CmdConfigHttp.CMD_AVATAR_PENDANT_LIST, TbConfig.AVATAR_PENDANT, AvatarPendantListHttpResponseMessage.class, true, true, true, true);
         }
     }
 }

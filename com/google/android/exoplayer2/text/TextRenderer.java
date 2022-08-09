@@ -18,7 +18,7 @@ import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.MimeTypes;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class TextRenderer extends BaseRenderer implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MSG_UPDATE_OUTPUT = 0;
@@ -41,7 +41,7 @@ public final class TextRenderer extends BaseRenderer implements Handler.Callback
     public SubtitleOutputBuffer subtitle;
 
     @Deprecated
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface Output extends TextOutput {
     }
 

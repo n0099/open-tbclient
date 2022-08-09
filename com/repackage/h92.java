@@ -1,7 +1,9 @@
 package com.repackage;
 
-import androidx.collection.ArraySet;
+import android.content.Context;
+import androidx.annotation.NonNull;
 /* loaded from: classes6.dex */
 public interface h92 {
-    ArraySet<String> a();
+    @NonNull
+    Context a();
 }

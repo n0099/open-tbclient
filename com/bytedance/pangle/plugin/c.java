@@ -11,7 +11,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -407,7 +406,7 @@ public final class c {
                                 sb.append(a10);
                                 sb.append(ParamableElem.DIVIDE_PARAM);
                             }
-                            MethodUtils.invokeStaticMethod(plugin.mClassLoader.loadClass("com.volcengine.StubConfig"), UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME, new Object[0]);
+                            MethodUtils.invokeStaticMethod(plugin.mClassLoader.loadClass("com.volcengine.StubConfig"), "config", new Object[0]);
                             return true;
                         }
                         z = true;
@@ -536,7 +535,7 @@ public final class c {
                         sb.append("makeApplication cost:");
                         sb.append(a10);
                         sb.append(ParamableElem.DIVIDE_PARAM);
-                        MethodUtils.invokeStaticMethod(plugin.mClassLoader.loadClass("com.volcengine.StubConfig"), UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME, new Object[0]);
+                        MethodUtils.invokeStaticMethod(plugin.mClassLoader.loadClass("com.volcengine.StubConfig"), "config", new Object[0]);
                         return true;
                     }
                 } catch (Throwable th) {

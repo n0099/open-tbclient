@@ -52,11 +52,11 @@ public class j {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bVar)) == null) {
             if ("9".equals(bVar.g)) {
                 sb = new StringBuilder();
-                sb.append(bVar.f933a);
+                sb.append(bVar.f934a);
                 str = ".permission.MIMC_RECEIVE";
             } else {
                 sb = new StringBuilder();
-                sb.append(bVar.f933a);
+                sb.append(bVar.f934a);
                 str = ".permission.MIPUSH_RECEIVE";
             }
             sb.append(str);
@@ -91,7 +91,7 @@ public class j {
             String g = flVar.g();
             while (it.hasNext()) {
                 bg.b next = it.next();
-                if (TextUtils.equals(g, next.f936b)) {
+                if (TextUtils.equals(g, next.f937b)) {
                     return next;
                 }
             }
@@ -120,7 +120,7 @@ public class j {
             String l = gnVar.l();
             while (it.hasNext()) {
                 bg.b next = it.next();
-                if (TextUtils.equals(m, next.f936b) || TextUtils.equals(l, next.f936b)) {
+                if (TextUtils.equals(m, next.f937b) || TextUtils.equals(l, next.f937b)) {
                     return next;
                 }
                 while (it.hasNext()) {
@@ -153,23 +153,23 @@ public class j {
         }
         Intent intent = new Intent();
         intent.setAction("com.xiaomi.push.channel_closed");
-        intent.setPackage(bVar.f933a);
+        intent.setPackage(bVar.f934a);
         intent.putExtra(bk.t, bVar.g);
         intent.putExtra("ext_reason", i);
-        intent.putExtra(bk.q, bVar.f936b);
+        intent.putExtra(bk.q, bVar.f937b);
         intent.putExtra(bk.F, bVar.i);
-        if (bVar.f927a == null || !"9".equals(bVar.g)) {
-            com.xiaomi.channel.commonutils.logger.b.m89a(String.format("[Bcst] notify channel closed. %s,%s,%d", bVar.g, bVar.f933a, Integer.valueOf(i)));
+        if (bVar.f928a == null || !"9".equals(bVar.g)) {
+            com.xiaomi.channel.commonutils.logger.b.m89a(String.format("[Bcst] notify channel closed. %s,%s,%d", bVar.g, bVar.f934a, Integer.valueOf(i)));
             a(context, intent, bVar);
             return;
         }
         try {
-            bVar.f927a.send(Message.obtain(null, 17, intent));
+            bVar.f928a.send(Message.obtain(null, 17, intent));
         } catch (RemoteException unused) {
-            bVar.f927a = null;
+            bVar.f928a = null;
             StringBuilder sb = new StringBuilder();
             sb.append("peer may died: ");
-            String str = bVar.f936b;
+            String str = bVar.f937b;
             sb.append(str.substring(str.lastIndexOf(64)));
             com.xiaomi.channel.commonutils.logger.b.m89a(sb.toString());
         }
@@ -185,13 +185,13 @@ public class j {
             } else {
                 Intent intent = new Intent();
                 intent.setAction("com.xiaomi.push.kicked");
-                intent.setPackage(bVar.f933a);
+                intent.setPackage(bVar.f934a);
                 intent.putExtra("ext_kick_type", str);
                 intent.putExtra("ext_kick_reason", str2);
                 intent.putExtra("ext_chid", bVar.g);
-                intent.putExtra(bk.q, bVar.f936b);
+                intent.putExtra(bk.q, bVar.f937b);
                 intent.putExtra(bk.F, bVar.i);
-                com.xiaomi.channel.commonutils.logger.b.m89a(String.format("[Bcst] notify packet(blob) arrival. %s,%s,%s", bVar.g, bVar.f933a, str2));
+                com.xiaomi.channel.commonutils.logger.b.m89a(String.format("[Bcst] notify packet(blob) arrival. %s,%s,%s", bVar.g, bVar.f934a, str2));
                 a(context, intent, bVar);
             }
         }
@@ -207,7 +207,7 @@ public class j {
             }
             Intent intent = new Intent();
             intent.setAction("com.xiaomi.push.channel_opened");
-            intent.setPackage(bVar.f933a);
+            intent.setPackage(bVar.f934a);
             intent.putExtra("ext_succeeded", z);
             if (!z) {
                 intent.putExtra("ext_reason", i);
@@ -216,9 +216,9 @@ public class j {
                 intent.putExtra("ext_reason_msg", str);
             }
             intent.putExtra("ext_chid", bVar.g);
-            intent.putExtra(bk.q, bVar.f936b);
+            intent.putExtra(bk.q, bVar.f937b);
             intent.putExtra(bk.F, bVar.i);
-            com.xiaomi.channel.commonutils.logger.b.m89a(String.format("[Bcst] notify channel open result. %s,%s,%b,%d", bVar.g, bVar.f933a, Boolean.valueOf(z), Integer.valueOf(i)));
+            com.xiaomi.channel.commonutils.logger.b.m89a(String.format("[Bcst] notify channel open result. %s,%s,%b,%d", bVar.g, bVar.f934a, Boolean.valueOf(z), Integer.valueOf(i)));
             a(context, intent, bVar);
         }
     }
@@ -233,7 +233,7 @@ public class j {
             } else if ("5".equalsIgnoreCase(str)) {
                 this.a.a(xMPushService, flVar, a);
             } else {
-                String str2 = a.f933a;
+                String str2 = a.f934a;
                 Intent intent = new Intent();
                 intent.setAction("com.xiaomi.push.new_msg");
                 intent.setPackage(str2);
@@ -242,16 +242,16 @@ public class j {
                 intent.putExtra("ext_raw_packet", flVar.m340a(a.h));
                 intent.putExtra(bk.F, a.i);
                 intent.putExtra(bk.x, a.h);
-                if (a.f927a != null) {
+                if (a.f928a != null) {
                     try {
-                        a.f927a.send(Message.obtain(null, 17, intent));
+                        a.f928a.send(Message.obtain(null, 17, intent));
                         com.xiaomi.channel.commonutils.logger.b.m89a("message was sent by messenger for chid=" + str);
                         return;
                     } catch (RemoteException unused) {
-                        a.f927a = null;
+                        a.f928a = null;
                         StringBuilder sb = new StringBuilder();
                         sb.append("peer may died: ");
-                        String str3 = a.f936b;
+                        String str3 = a.f937b;
                         sb.append(str3.substring(str3.lastIndexOf(64)));
                         com.xiaomi.channel.commonutils.logger.b.m89a(sb.toString());
                     }
@@ -259,14 +259,14 @@ public class j {
                 if ("com.xiaomi.xmsf".equals(str2)) {
                     return;
                 }
-                com.xiaomi.channel.commonutils.logger.b.m89a(String.format("[Bcst] notify packet(blob) arrival. %s,%s,%s", a.g, a.f933a, flVar.e()));
+                com.xiaomi.channel.commonutils.logger.b.m89a(String.format("[Bcst] notify packet(blob) arrival. %s,%s,%s", a.g, a.f934a, flVar.e()));
                 a(xMPushService, intent, a);
-                if (!"10".equals(str) || (aoVar = flVar.f372a) == null) {
+                if (!"10".equals(str) || (aoVar = flVar.f373a) == null) {
                     return;
                 }
                 aoVar.d = System.currentTimeMillis();
                 if (hi.a(xMPushService, 1)) {
-                    bz.a("category_coord_down", "coord_down", "com.xiaomi.xmsf", flVar.f372a);
+                    bz.a("category_coord_down", "coord_down", "com.xiaomi.xmsf", flVar.f373a);
                 }
             }
         }
@@ -283,7 +283,7 @@ public class j {
                     this.a.a(xMPushService, gnVar, a);
                     return;
                 }
-                String str4 = a.f933a;
+                String str4 = a.f934a;
                 if (gnVar instanceof gm) {
                     str3 = "com.xiaomi.push.new_msg";
                 } else if (gnVar instanceof gl) {
@@ -300,7 +300,7 @@ public class j {
                 intent.putExtra("ext_packet", gnVar.a());
                 intent.putExtra(bk.F, a.i);
                 intent.putExtra(bk.x, a.h);
-                com.xiaomi.channel.commonutils.logger.b.m89a(String.format("[Bcst] notify packet arrival. %s,%s,%s", a.g, a.f933a, gnVar.j()));
+                com.xiaomi.channel.commonutils.logger.b.m89a(String.format("[Bcst] notify packet arrival. %s,%s,%s", a.g, a.f934a, gnVar.j()));
                 a(xMPushService, intent, a);
                 return;
             }

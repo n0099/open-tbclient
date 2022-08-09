@@ -62,12 +62,12 @@ public class CloudControlUrlConfig {
             if (AppConfig.isDebug() && !TextUtils.isEmpty(mDebugHost)) {
                 searchboxHostForHttps = mDebugHost;
             }
-            String processUrl = CommonUrlParamManager.getInstance().processUrl(String.format(mUrl, searchboxHostForHttps));
+            String appendParam = CommonUrlParamManager.getInstance().appendParam(String.format(mUrl, searchboxHostForHttps), 1);
             if (!TextUtils.isEmpty(str)) {
-                processUrl = UrlUtil.addParam(processUrl, KEY_RUN_TYPE, str);
+                appendParam = UrlUtil.addParam(appendParam, KEY_RUN_TYPE, str);
             }
             String valueOf = String.valueOf(mOEMTypeId);
-            return !TextUtils.isEmpty(valueOf) ? UrlUtil.addParam(processUrl, KEY_TYPE_ID, valueOf) : processUrl;
+            return !TextUtils.isEmpty(valueOf) ? UrlUtil.addParam(appendParam, KEY_TYPE_ID, valueOf) : appendParam;
         }
         return (String) invokeL.objValue;
     }

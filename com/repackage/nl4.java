@@ -1,23 +1,37 @@
 package com.repackage;
 
-import android.os.Looper;
-import android.os.MessageQueue;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.tbadk.core.data.AlaUserInfoData;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.util.UriUtil;
 /* loaded from: classes6.dex */
-public class nl4 extends Thread {
+public class nl4 {
     public static /* synthetic */ Interceptable $ic;
+    public static View.OnClickListener a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements MessageQueue.IdleHandler {
+    public static class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,71 +49,89 @@ public class nl4 extends Thread {
             }
         }
 
-        @Override // android.os.MessageQueue.IdleHandler
-        public boolean queueIdle() {
-            InterceptResult invokeV;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                try {
-                    new nl4("BenchmarkThread").start();
-                    return false;
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return false;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || view2 == null || view2.getTag() == null || !(view2.getTag() instanceof ll4)) {
+                return;
+            }
+            if (!oi.z()) {
+                qi.N(view2.getContext(), R.string.obfuscated_res_0x7f0f0c75);
+                return;
+            }
+            ll4 ll4Var = (ll4) view2.getTag();
+            AlaUserInfoData alaUserInfoData = ll4Var.a;
+            if (alaUserInfoData == null) {
+                return;
+            }
+            AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
+            long j = alaUserInfoData.anchor_live;
+            if (j != 0) {
+                alaLiveInfoCoreData.liveID = j;
+            } else {
+                long j2 = alaUserInfoData.enter_live;
+                if (j2 != 0) {
+                    alaLiveInfoCoreData.liveID = j2;
+                } else {
+                    long j3 = alaUserInfoData.live_id;
+                    if (j3 == 0) {
+                        return;
+                    }
+                    alaLiveInfoCoreData.liveID = j3;
                 }
             }
-            return invokeV.booleanValue;
+            int i = ll4Var.b;
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (i == 1) {
+                TiebaStatic.log(new StatisticItem("c11850").param("uid", currentAccount));
+            } else if (i == 2 || i == 3 || i == 4) {
+                TiebaStatic.log(new StatisticItem("c11851").param("uid", currentAccount));
+            } else if (i == 5) {
+                TiebaStatic.log(new StatisticItem("c11852").param("uid", currentAccount));
+            } else if (i == 7) {
+                if (alaUserInfoData.ala_id != 0) {
+                    TiebaStatic.log(new StatisticItem("c11855").param("uid", currentAccount).param("click_uid", alaUserInfoData.ala_id).param(IFavorStateServiceKt.KEY_FAVOR_LIVE_STATUS, alaUserInfoData.live_status));
+                }
+                TiebaStatic.log(new StatisticItem("c12542"));
+                if (ll4Var.c && !StringUtils.isNull(alaUserInfoData.sex)) {
+                    BdToast b = BdToast.b(view2.getContext(), String.format(view2.getContext().getString(R.string.obfuscated_res_0x7f0f0e63), alaUserInfoData.sex));
+                    b.f(BdToast.ToastIcon.FAILURE);
+                    b.h();
+                    return;
+                }
+            }
+            int i2 = ll4Var.b;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2911003, new AlaLiveRoomActivityConfig(view2.getContext(), alaLiveInfoCoreData, i2 == 5 ? AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_ATTENTION : i2 == 7 ? AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_PLAY : AlaLiveRoomActivityConfig.FROM_TYPE_TAIL_LIGHT, null, false, "")));
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nl4(String str) {
-        super(str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755465669, "Lcom/repackage/nl4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755465669, "Lcom/repackage/nl4;");
                 return;
             }
         }
+        a = new a();
     }
 
-    public static void a() {
+    public static TextView a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            Looper.myQueue().addIdleHandler(new a());
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            double nanoTime = System.nanoTime();
-            float f = 10.0f;
-            for (int i = 0; i < 1000000; i++) {
-                f = f + 1.9509029f + 98.90882f + 1998.158f + 989.98895f + 1.1599002f + 16.2098f + 8899.087f + i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (context == null || MessageManager.getInstance().findTask(2911003) == null) {
+                return null;
             }
-            BdLog.e(UriUtil.LOCAL_RESOURCE_SCHEME + f);
-            TbSingleton.getInstance().setCpuFlopsDuration((int) ((((double) System.nanoTime()) - nanoTime) / 1000000.0d));
-            x95.a();
+            TextView textView = (TextView) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d010d, (ViewGroup) null);
+            textView.setOnClickListener(a);
+            return textView;
         }
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                b();
-            }
-        }
+        return (TextView) invokeL.objValue;
     }
 }

@@ -1,113 +1,91 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.util.Log;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebView;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class g43 extends yv1 {
+public class g43 extends w23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String j;
-    public String k;
-    public String l;
-    public boolean m;
-    public List<String> n;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755728053, "Lcom/repackage/g43;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755728053, "Lcom/repackage/g43;");
-                return;
-            }
-        }
-        boolean z = sg1.a;
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g43() {
-        super("webView", "viewId");
+    public g43(w13 w13Var) {
+        super(w13Var, "/swanAPI/startPullDownRefresh");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {w13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.m = true;
     }
 
-    public static g43 h(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
+    @Override // com.repackage.w23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, z03 z03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, unitedSchemeEntity)) == null) {
-            if (unitedSchemeEntity == null) {
-                return null;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, z03Var)) == null) {
+            if (z03Var != null) {
+                z03Var.B().I(z03Var.getAppId());
             }
-            String str = unitedSchemeEntity.getParams().get("params");
-            g43 g43Var = new g43();
-            try {
-                g43Var.a(new JSONObject(str));
-                return g43Var;
-            } catch (JSONException e) {
-                ix1.d(WebView.LOGTAG, "parsing params occurs exception", e);
-                return null;
+            if (z03Var != null && z03Var.n0()) {
+                if (w23.b) {
+                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
+                return false;
+            }
+            i02 V = mm2.U().V();
+            if (V == null) {
+                zx1.c("startPullDownRefresh", "manager is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else if (!(V.m() instanceof h02)) {
+                zx1.c("startPullDownRefresh", "top fragment error");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else {
+                h02 h02Var = (h02) V.m();
+                if (h02Var.h0() == null) {
+                    zx1.c("startPullDownRefresh", "view is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
+                PullToRefreshBaseWebView h0 = h02Var.h0();
+                if (h0 == null) {
+                    zx1.c("startPullDownRefresh", "view is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                } else if (h0.N()) {
+                    zx1.c("startPullDownRefresh", "prevent pull to refresh");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                } else {
+                    zx1.i("startPullDownRefresh", "start pull refresh");
+                    h02Var.h0().k(true, 100L);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                    return true;
+                }
             }
         }
-        return (g43) invokeL.objValue;
-    }
-
-    @Override // com.repackage.yv1, com.repackage.hq2
-    public void a(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        super.a(jSONObject);
-        this.j = jSONObject.optString("src");
-        this.k = jSONObject.optString(TTDownloadField.TT_USERAGENT);
-        this.l = jSONObject.optString("type");
-        JSONArray optJSONArray = jSONObject.optJSONArray("targetUrls");
-        if (optJSONArray == null || optJSONArray.length() == 0) {
-            return;
-        }
-        this.n = new ArrayList();
-        int length = optJSONArray.length();
-        for (int i = 0; i < length; i++) {
-            this.n.add(optJSONArray.optString(i));
-        }
-    }
-
-    @Override // com.repackage.yv1, com.repackage.hq2
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !TextUtils.isEmpty(this.c) : invokeV.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 }

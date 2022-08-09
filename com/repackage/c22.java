@@ -1,14 +1,15 @@
 package com.repackage;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class c22 implements y72 {
+public class c22 extends a22<JSONObject, zs1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,17 +27,17 @@ public class c22 implements y72 {
         }
     }
 
-    @Override // com.repackage.y72
-    public q72 a(String str, n82 n82Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        InterceptResult invokeLLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.e22
+    @NonNull
+    /* renamed from: c */
+    public zs1 a(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, n82Var, v8ThreadDelegatePolicy)) == null) ? new b22(str, n82Var, v8ThreadDelegatePolicy) : (q72) invokeLLL.objValue;
-    }
-
-    @Override // com.repackage.y72
-    public String getUserAgent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? hc3.a() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            new v12().c();
+            return new zs1(0);
+        }
+        return (zs1) invokeL.objValue;
     }
 }

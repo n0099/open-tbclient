@@ -1,35 +1,27 @@
 package com.repackage;
 
-import android.content.Context;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface jk2 {
-    boolean a(Context context, ym2 ym2Var, rm2 rm2Var, i03 i03Var);
+public class jk2 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile ik2 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b(Context context, tm2 tm2Var, rm2 rm2Var, i03 i03Var);
-
-    boolean c(Context context, um2 um2Var, rm2 rm2Var, i03 i03Var);
-
-    void d(om1 om1Var);
-
-    boolean e(Context context, sm2 sm2Var, rm2 rm2Var, i03 i03Var);
-
-    void f(om1 om1Var);
-
-    boolean g(Context context, um2 um2Var, rm2 rm2Var, i03 i03Var);
-
-    boolean h(Context context, wm2 wm2Var, rm2 rm2Var, i03 i03Var);
-
-    void i(om1 om1Var);
-
-    boolean j(Context context, xm2 xm2Var, rm2 rm2Var, i03 i03Var);
-
-    boolean k(Context context, um2 um2Var, rm2 rm2Var, i03 i03Var);
-
-    boolean l(Context context, um2 um2Var, rm2 rm2Var, i03 i03Var);
-
-    boolean m(Context context, um2 um2Var, rm2 rm2Var, i03 i03Var);
-
-    boolean n(Context context, um2 um2Var, rm2 rm2Var, i03 i03Var);
-
-    boolean update(Context context, um2 um2Var, rm2 rm2Var, i03 i03Var);
+    public static synchronized ik2 a() {
+        InterceptResult invokeV;
+        ik2 ik2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (jk2.class) {
+                if (a == null) {
+                    a = new ik2();
+                }
+                ik2Var = a;
+            }
+            return ik2Var;
+        }
+        return (ik2) invokeV.objValue;
+    }
 }

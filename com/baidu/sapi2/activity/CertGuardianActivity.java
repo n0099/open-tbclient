@@ -112,7 +112,7 @@ public class CertGuardianActivity extends BaseActivity {
             try {
                 this.u = CoreViewRouter.getInstance().getCertGuardianCallback();
                 CoreViewRouter.getInstance().releaseCertGuardianCallback();
-                setContentView(R.layout.obfuscated_res_0x7f0d04eb);
+                setContentView(R.layout.obfuscated_res_0x7f0d04f4);
                 init();
                 setupViews();
             } catch (Throwable th) {
@@ -140,7 +140,7 @@ public class CertGuardianActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f1038);
+            setTitleText(R.string.obfuscated_res_0x7f0f106f);
             this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback(this) { // from class: com.baidu.sapi2.activity.CertGuardianActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

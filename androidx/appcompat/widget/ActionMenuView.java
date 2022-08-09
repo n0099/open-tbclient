@@ -321,7 +321,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
 
     /* JADX WARN: Type inference failed for: r14v12 */
     /* JADX WARN: Type inference failed for: r14v8 */
-    /* JADX WARN: Type inference failed for: r14v9, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r14v9, types: [boolean, int] */
     private void onMeasureExactFormat(int i, int i2) {
         int i3;
         int i4;

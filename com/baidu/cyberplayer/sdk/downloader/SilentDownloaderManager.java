@@ -26,7 +26,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class SilentDownloaderManager implements a.InterfaceC0090a {
     public static /* synthetic */ Interceptable $ic;
     public static volatile SilentDownloaderManager a;
@@ -43,7 +43,7 @@ public class SilentDownloaderManager implements a.InterfaceC0090a {
     public HashMap<String, String> k;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;

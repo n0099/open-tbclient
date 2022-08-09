@@ -30,6 +30,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
 import androidx.collection.ArrayMap;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.content.res.ComplexColorCompat;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.content.res.TypedArrayUtils;
@@ -604,7 +605,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
                 if (vPathRenderer.mBaseWidth <= 0.0f) {
                     throw new XmlPullParserException(typedArray.getPositionDescription() + "<vector> tag requires width > 0");
                 } else if (dimension > 0.0f) {
-                    vPathRenderer.setAlpha(TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "alpha", 4, vPathRenderer.getAlpha()));
+                    vPathRenderer.setAlpha(TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, Key.ALPHA, 4, vPathRenderer.getAlpha()));
                     String string = typedArray.getString(0);
                     if (string != null) {
                         vPathRenderer.mRootName = string;
@@ -2105,11 +2106,11 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65539, this, typedArray, xmlPullParser) == null) {
                 this.mThemeAttrs = null;
-                this.mRotate = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "rotation", 5, this.mRotate);
+                this.mRotate = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, Key.ROTATION, 5, this.mRotate);
                 this.mPivotX = typedArray.getFloat(1, this.mPivotX);
                 this.mPivotY = typedArray.getFloat(2, this.mPivotY);
-                this.mScaleX = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "scaleX", 3, this.mScaleX);
-                this.mScaleY = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "scaleY", 4, this.mScaleY);
+                this.mScaleX = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, Key.SCALE_X, 3, this.mScaleX);
+                this.mScaleY = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, Key.SCALE_Y, 4, this.mScaleY);
                 this.mTranslateX = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "translateX", 6, this.mTranslateX);
                 this.mTranslateY = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "translateY", 7, this.mTranslateY);
                 String string = typedArray.getString(0);

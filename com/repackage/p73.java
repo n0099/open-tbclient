@@ -1,18 +1,17 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class p73 {
+import com.repackage.q73;
+/* loaded from: classes7.dex */
+public class p73 extends zw2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public long b;
-    public long c;
 
     public p73() {
         Interceptable interceptable = $ic;
@@ -28,42 +27,15 @@ public class p73 {
         }
     }
 
-    public long a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.zw2
+    public void b(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.longValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.longValue;
-    }
-
-    public void d(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.c = j;
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void f(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.b = j;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            q73.a aVar = q73.a().a;
+            if (!ProcessUtils.isMainProcess() || aVar == null) {
+                return;
+            }
+            aVar.a(bundle.getString("statTag"), bundle.getString("statisticData"));
         }
     }
 }

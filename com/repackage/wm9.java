@@ -1,96 +1,73 @@
 package com.repackage;
 
 import android.content.Context;
-import android.util.Log;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.IBinder;
+import android.os.IInterface;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Method;
+import com.google.android.gms.common.internal.ConnectionTelemetryConfiguration;
+import com.google.android.gms.common.internal.zzj;
 /* loaded from: classes7.dex */
-public class wm9 {
+public abstract class wm9<T extends IInterface> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Context a;
+    public final Handler b;
+    @Nullable
+    public volatile zzj c;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static Object a;
-        public static Class<?> b;
-        public static Method c;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(105680913, "Lcom/repackage/wm9$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(105680913, "Lcom/repackage/wm9$a;");
-                    return;
-                }
-            }
-            try {
-                Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-                b = cls;
-                a = cls.newInstance();
-                b.getMethod("getUDID", Context.class);
-                c = b.getMethod("getOAID", Context.class);
-                b.getMethod("getVAID", Context.class);
-                b.getMethod("getAAID", Context.class);
-            } catch (Throwable th) {
-                Log.e("XiaomiId", "xiaomi init error", th);
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755196434, "Lcom/repackage/wm9;")) == null) {
+            return;
         }
-
-        public static String a(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? b(context, c) : (String) invokeL.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        public static String b(Context context, Method method) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, method)) == null) {
-                Object obj = a;
-                if (obj == null || method == null) {
-                    return null;
-                }
-                try {
-                    Object invoke = method.invoke(obj, context);
-                    if (invoke != null) {
-                        return (String) invoke;
-                    }
-                    return null;
-                } catch (Exception e) {
-                    Log.e("XiaomiId", "invoke method error", e);
-                    return null;
-                }
-            }
-            return (String) invokeLL.objValue;
-        }
-
-        public static boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b == null || a == null) ? false : true : invokeV.booleanValue;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755196434, "Lcom/repackage/wm9;");
         }
     }
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
+    public static /* bridge */ /* synthetic */ void c(wm9 wm9Var, zzj zzjVar) {
+        wm9Var.c = zzjVar;
+        if (wm9Var.b()) {
+            ConnectionTelemetryConfiguration connectionTelemetryConfiguration = zzjVar.zzd;
+            zm9.a().b(connectionTelemetryConfiguration == null ? null : connectionTelemetryConfiguration.zza());
+        }
+    }
+
+    public void a(int i, @Nullable IBinder iBinder, @Nullable Bundle bundle, int i2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? a.a(context.getApplicationContext()) : (String) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), iBinder, bundle, Integer.valueOf(i2)}) == null) {
+            Handler handler = this.b;
+            handler.sendMessage(handler.obtainMessage(1, i2, -1, new hn9(this, i, iBinder, bundle)));
+        }
     }
 
-    public static boolean b() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.c() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @NonNull
+    public final Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (Context) invokeV.objValue;
     }
 }

@@ -1,79 +1,98 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class pk7 {
+import com.baidu.webkit.sdk.SevenZipUtils;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetVipInfo.VipSpecialItem;
+import tbclient.GetVipInfo.VipSpecialList;
+/* loaded from: classes7.dex */
+public class pk7 implements on {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
+    public static int d;
+    public static boolean e;
+    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public ImageView b;
-    public Context c;
-    public TextView d;
+    public ok7 a;
+    public List<qk7> b;
 
-    public pk7() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755406955, "Lcom/repackage/pk7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755406955, "Lcom/repackage/pk7;");
+                return;
+            }
+        }
+        c = BdUniqueId.gen();
+        d = 3;
+        e = false;
+    }
+
+    public pk7(VipSpecialList vipSpecialList) {
+        List<VipSpecialItem> list;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vipSpecialList};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        if (vipSpecialList == null || (list = vipSpecialList.item) == null || list.size() <= 0) {
+            return;
+        }
+        String str = vipSpecialList.card_id;
+        ok7 ok7Var = new ok7();
+        this.a = ok7Var;
+        ok7Var.e(4);
+        this.a.d(vipSpecialList.class_name);
+        this.a.f(vipSpecialList.class_url_name);
+        this.a.g(vipSpecialList.class_url);
+        String currentAccount = TbadkCoreApplication.isLogin() ? TbadkCoreApplication.getCurrentAccount() : SevenZipUtils.FILE_NAME_TEMP;
+        if (StringUtils.isNull(f) || !f.equals(currentAccount)) {
+            e = false;
+            f = currentAccount;
+        }
+        this.b = new ArrayList();
+        for (int i3 = 0; i3 < vipSpecialList.item.size(); i3++) {
+            this.b.add(new qk7(vipSpecialList.item.get(i3)));
+            if (e) {
+                if (i3 == vipSpecialList.item.size() - 1 && vipSpecialList.item.size() > d) {
+                    this.b.add(new qk7(true, true));
+                }
+            } else if (i3 == d - 1 && vipSpecialList.item.size() > d) {
+                this.b.add(new qk7(true, false));
+                return;
             }
         }
     }
 
-    public View a(Context context) {
-        InterceptResult invokeL;
+    @Override // com.repackage.on
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            this.c = context;
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0819, (ViewGroup) null);
-            this.a = inflate;
-            inflate.setTag(this);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091f6d);
-            this.b = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091f6c);
-            return this.a;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    @SuppressLint({"ResourceAsColor"})
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setBackgroundResource(this.b, R.drawable.tail_tool_add_button_bg);
-            SkinManager.setImageResource(this.b, R.drawable.icon_tail_post_add);
-            SkinManager.setViewTextColor(this.d, R.color.CAM_X0109, 1);
-        }
-    }
-
-    public void c(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.b.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.d.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f1325), Integer.valueOf(i)));
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
     }
 }

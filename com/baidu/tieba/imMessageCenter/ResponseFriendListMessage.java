@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bz4;
+import com.repackage.wz4;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -19,7 +19,7 @@ import org.json.JSONObject;
 public class ResponseFriendListMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<bz4> friendList;
+    public LinkedList<wz4> friendList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseFriendListMessage(int i) {
@@ -57,12 +57,12 @@ public class ResponseFriendListMessage extends JsonHttpResponsedMessage {
                         MetaData metaData = new MetaData();
                         metaData.parserJson(optJSONArray.getJSONObject(i2));
                         if (!TextUtils.isEmpty(metaData.getName_show())) {
-                            bz4 bz4Var = new bz4();
-                            bz4Var.n(metaData.getUserName());
-                            bz4Var.o(metaData.getName_show());
-                            bz4Var.p(metaData.getPortrait());
-                            bz4Var.m(metaData.getUserIdLong());
-                            this.friendList.add(bz4Var);
+                            wz4 wz4Var = new wz4();
+                            wz4Var.n(metaData.getUserName());
+                            wz4Var.o(metaData.getName_show());
+                            wz4Var.p(metaData.getPortrait());
+                            wz4Var.m(metaData.getUserIdLong());
+                            this.friendList.add(wz4Var);
                         }
                     }
                 }
@@ -72,7 +72,7 @@ public class ResponseFriendListMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public LinkedList<bz4> getFriendList() {
+    public LinkedList<wz4> getFriendList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.friendList : (LinkedList) invokeV.objValue;

@@ -1,5 +1,6 @@
 package com.repackage;
 
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.badlogic.gdx.graphics.g3d.model.data.ModelMaterial;
 import com.badlogic.gdx.math.Matrix4;
@@ -104,7 +105,7 @@ public class l4 extends t1<t1.a> {
                                     a5Var.b = new Vector3(l4.n(i3), l4.n(i2), l4.n(i));
                                     z4Var.b.a(a5Var);
                                 }
-                                JsonValue l5 = jsonValue4.l("rotation");
+                                JsonValue l5 = jsonValue4.l(Key.ROTATION);
                                 if (l5 != null && l5.j == 4) {
                                     if (z4Var.c == null) {
                                         z4Var.c = new a7<>();
@@ -148,7 +149,7 @@ public class l4 extends t1<t1.a> {
                                     }
                                 }
                             }
-                            JsonValue l9 = jsonValue3.l("rotation");
+                            JsonValue l9 = jsonValue3.l(Key.ROTATION);
                             if (l9 != null && l9.u()) {
                                 a7<a5<Quaternion>> a7Var2 = new a7<>();
                                 z4Var.c = a7Var2;
@@ -409,8 +410,8 @@ public class l4 extends t1<t1.a> {
                 if (l == null || l.j == 3) {
                     boolean z = true;
                     y4Var.b = l == null ? null : new Vector3(l.n(0), l.n(1), l.n(2));
-                    String str5 = "rotation";
-                    JsonValue l2 = jsonValue.l("rotation");
+                    String str5 = Key.ROTATION;
+                    JsonValue l2 = jsonValue.l(Key.ROTATION);
                     if (l2 == null || l2.j == 4) {
                         y4Var.c = l2 == null ? null : new Quaternion(l2.n(0), l2.n(1), l2.n(2), l2.n(3));
                         JsonValue l3 = jsonValue.l("scale");

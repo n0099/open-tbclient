@@ -1,18 +1,9 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.ImageView;
-import androidx.annotation.CallSuper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.R;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.shrinkhead.LogicField;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,189 +11,83 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ThemeElement;
-/* loaded from: classes6.dex */
-public abstract class pn6 implements rn6 {
+import tbclient.RecentUpdate;
+/* loaded from: classes7.dex */
+public class pn6 extends fo4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsFragment a;
-    public Context b;
-    public View c;
-    public View.OnClickListener d;
-    public NavigationBar e;
-    public View f;
-    public ImageView g;
-    public boolean h;
+    public RecentUpdate a;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-93888996, "Lcom/repackage/pn6$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-93888996, "Lcom/repackage/pn6$a;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755404103, "Lcom/repackage/pn6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            int[] iArr = new int[LogicField.values().length];
-            a = iArr;
-            try {
-                iArr[LogicField.BACK_BTN.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[LogicField.BACK_IV.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755404103, "Lcom/repackage/pn6;");
+                return;
             }
         }
+        b = BdUniqueId.gen();
     }
 
     public pn6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.h = true;
-        sg8.b();
+        setSupportType(BaseCardInfo.SupportType.FULL);
     }
 
-    @Override // com.repackage.rn6
-    @Nullable
-    public <T> T a(@NonNull LogicField logicField) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, logicField)) == null) {
-            int i = a.a[logicField.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    return null;
-                }
-                return (T) this.g;
-            }
-            return (T) this.f;
-        }
-        return (T) invokeL.objValue;
-    }
-
-    @Override // com.repackage.rn6
-    @CallSuper
-    public void b(@NonNull ThemeElement themeElement) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, themeElement) == null) {
-        }
-    }
-
-    @Override // com.repackage.rn6
-    @CallSuper
-    public void c(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
-            if (f < 0.5f) {
-                if (this.h) {
-                    return;
-                }
-                j(true);
-                this.h = true;
-            } else if (this.h) {
-                j(false);
-                this.h = false;
-            }
-        }
-    }
-
-    @Override // com.repackage.rn6
-    public void d(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-        }
-    }
-
-    @Override // com.repackage.rn6
-    @NonNull
-    public NavigationBar e() {
+    public RecentUpdate c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            xd5.b(this.e);
-            return this.e;
-        }
-        return (NavigationBar) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (RecentUpdate) invokeV.objValue;
     }
 
-    @Override // com.repackage.rn6
-    @CallSuper
-    public void f(boolean z) {
+    public void f(RecentUpdate recentUpdate) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            SkinManager.setBackgroundColor(this.e.getContentLayout(), z ? R.color.CAM_X0201 : R.color.black_alpha0);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recentUpdate) == null) {
+            this.a = recentUpdate;
         }
     }
 
-    @Override // com.repackage.rn6
-    public int g() {
+    @Override // com.repackage.fo4
+    public cq4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
         }
-        return invokeV.intValue;
+        return (cq4) invokeV.objValue;
     }
 
-    @Override // com.repackage.rn6
-    public void h(@NonNull FrsFragment frsFragment, @NonNull View view2, @NonNull View.OnClickListener onClickListener) {
+    @Override // com.repackage.fo4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048583, this, frsFragment, view2, onClickListener) == null) && this.c == null) {
-            this.a = frsFragment;
-            this.b = view2.getContext();
-            this.c = view2;
-            this.d = onClickListener;
-            NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f092439);
-            this.e = navigationBar;
-            navigationBar.getBarBgView().setAlpha(1.0f);
-            i();
-            k();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
         }
+        return (ThreadData) invokeV.objValue;
     }
 
-    public final void i() {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.on
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            View addSystemImageButton = this.e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.f = addSystemImageButton;
-            addSystemImageButton.setOnClickListener(this.d);
-            this.g = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0924ef);
-        }
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-        }
-    }
-
-    public abstract void k();
-
-    @Override // com.repackage.rn6
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
     }
 }

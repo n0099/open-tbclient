@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.u56;
+import com.repackage.m76;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetInfluenceRank.GetInfluenceRankResIdl;
@@ -16,7 +16,7 @@ import tbclient.GetInfluenceRank.GetInfluenceRankResIdl;
 public class HotUserRankSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public u56 pageData;
+    public m76 pageData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotUserRankSocketResMsg() {
@@ -54,17 +54,17 @@ public class HotUserRankSocketResMsg extends SocketResponsedMessage {
                 }
                 setErrorString(getInfluenceRankResIdl.error.usermsg);
             }
-            u56 u56Var = new u56();
-            this.pageData = u56Var;
-            u56Var.c(getInfluenceRankResIdl.data);
+            m76 m76Var = new m76();
+            this.pageData = m76Var;
+            m76Var.c(getInfluenceRankResIdl.data);
             return getInfluenceRankResIdl;
         }
         return invokeIL.objValue;
     }
 
-    public u56 getPageData() {
+    public m76 getPageData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pageData : (u56) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pageData : (m76) invokeV.objValue;
     }
 }

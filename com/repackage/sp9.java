@@ -1,5 +1,9 @@
 package com.repackage;
 /* loaded from: classes7.dex */
-public interface sp9 extends vp9 {
-    void put(String str, String str2);
+public interface sp9 {
+    void a();
+
+    void b(int i, double d);
+
+    void c();
 }

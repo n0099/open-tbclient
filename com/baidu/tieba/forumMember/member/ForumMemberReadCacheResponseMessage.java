@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oh8;
+import com.repackage.ck8;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
@@ -28,7 +28,7 @@ public class ForumMemberReadCacheResponseMessage extends CustomResponsedMessage<
     public MemberGodInfo mMemberGodInfo;
     public List<MemberGroupInfo> mMemberGroupInfoList;
     public PriManagerApplyInfo mPrivateMgrApplyInfo;
-    public oh8 mUserInfo;
+    public ck8 mUserInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumMemberReadCacheResponseMessage() {
@@ -63,9 +63,9 @@ public class ForumMemberReadCacheResponseMessage extends CustomResponsedMessage<
                 }
                 if (getError() == 0 && (dataRes = getMemberInfoResIdl.data) != null) {
                     if (dataRes.forum_member_info != null) {
-                        oh8 oh8Var = new oh8();
-                        this.mUserInfo = oh8Var;
-                        oh8Var.y(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
+                        ck8 ck8Var = new ck8();
+                        this.mUserInfo = ck8Var;
+                        ck8Var.y(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
                         this.mUserInfo.u(getMemberInfoResIdl.data.forum_member_info.cur_score.intValue());
                         this.mUserInfo.x(getMemberInfoResIdl.data.forum_member_info.levelup_score.intValue());
                         this.mUserInfo.z(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
@@ -107,10 +107,10 @@ public class ForumMemberReadCacheResponseMessage extends CustomResponsedMessage<
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mPrivateMgrApplyInfo : (PriManagerApplyInfo) invokeV.objValue;
     }
 
-    public oh8 getUserInfo() {
+    public ck8 getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mUserInfo : (oh8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mUserInfo : (ck8) invokeV.objValue;
     }
 
     public boolean isBawuShow() {

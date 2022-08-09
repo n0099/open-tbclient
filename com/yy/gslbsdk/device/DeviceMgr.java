@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -79,21 +80,21 @@ public class DeviceMgr {
             if ("CN".equalsIgnoreCase(GlobalTools.APP_LOCALIZE_CODE) && context != null) {
                 try {
                     String simOperator = ((TelephonyManager) context.getSystemService("phone")).getSimOperator();
-                    if (simOperator != null) {
-                        if (!simOperator.equals("46000") && !simOperator.equals("46002") && !simOperator.equals("46007") && !simOperator.equals("46020")) {
-                            if (!simOperator.equals("46001") && !simOperator.equals("46006")) {
-                                if (!simOperator.equals("46003")) {
-                                    if (!simOperator.equals("46005")) {
-                                        return 0;
-                                    }
-                                }
-                                return 1;
-                            }
-                            return 2;
-                        }
-                        return 3;
+                    if (TextUtils.isEmpty(simOperator)) {
+                        return 0;
                     }
-                    return 0;
+                    if (!simOperator.equals("46000") && !simOperator.equals("46002") && !simOperator.equals("46007") && !simOperator.equals("46020")) {
+                        if (!simOperator.equals("46001") && !simOperator.equals("46006")) {
+                            if (!simOperator.equals("46003")) {
+                                if (!simOperator.equals("46005")) {
+                                    return 0;
+                                }
+                            }
+                            return 1;
+                        }
+                        return 2;
+                    }
+                    return 3;
                 } catch (Exception e) {
                     LogTools.printError(TAG, "getISP() exception:" + e.getMessage());
                     return 0;

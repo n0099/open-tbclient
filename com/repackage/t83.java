@@ -1,68 +1,67 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
-import android.util.Log;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"BDThrowableCheck"})
+import org.json.JSONObject;
+@Deprecated
 /* loaded from: classes7.dex */
-public class t83 extends s83 {
+public class t83 extends w23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public t83() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t83(w13 w13Var) {
+        super(w13Var, "/swanAPI/removeStorageSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {w13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.repackage.s83
-    @SuppressLint({"BDThrowableCheck"})
-    public Bundle c(r83 r83Var) {
-        InterceptResult invokeL;
+    @Override // com.repackage.w23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, z03 z03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, r83Var)) == null) {
-            Bundle bundle = new Bundle();
-            q83 b = w83.b(r83Var.a);
-            if (b == null) {
-                if (s83.a) {
-                    throw new IllegalArgumentException("illegal sp.");
-                }
-                return bundle;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, z03Var)) == null) {
+            if (z03Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+                return false;
             }
-            int i = r83Var.b;
-            if (i == 1) {
-                bundle.putInt("result_value", b.getInt(r83Var.c, Integer.parseInt(r83Var.d)));
-            } else if (i == 2) {
-                bundle.putLong("result_value", b.getLong(r83Var.c, Long.parseLong(r83Var.d)));
-            } else if (i == 3) {
-                bundle.putBoolean("result_value", b.getBoolean(r83Var.c, Boolean.parseBoolean(r83Var.d)));
-            } else if (i == 4) {
-                bundle.putString("result_value", b.getString(r83Var.c, r83Var.d));
-            } else if (i != 5) {
-                if (s83.a) {
-                    throw new IllegalArgumentException("wrong info params.");
-                }
-            } else {
-                bundle.putFloat("result_value", b.getFloat(r83Var.c, Float.parseFloat(r83Var.d)));
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+                return false;
             }
-            if (s83.a) {
-                Log.d("SwanAppSpDelegation", "Get: " + r83Var);
+            String Q = ar1.Q(optParamsAsJo);
+            if (Q == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
             }
-            return bundle;
+            z03Var.f0().g().remove(Q);
+            vc3.h.update();
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
+            return true;
         }
-        return (Bundle) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

@@ -39,24 +39,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.am4;
-import com.repackage.cj8;
-import com.repackage.dj8;
-import com.repackage.ej8;
-import com.repackage.ge6;
-import com.repackage.ha5;
-import com.repackage.mp4;
-import com.repackage.ni;
-import com.repackage.sl4;
-import com.repackage.t55;
-import com.repackage.wl4;
-import com.repackage.z85;
+import com.repackage.dq4;
+import com.repackage.fb5;
+import com.repackage.jm4;
+import com.repackage.nm4;
+import com.repackage.oi;
+import com.repackage.ol8;
+import com.repackage.p65;
+import com.repackage.pl8;
+import com.repackage.ql8;
+import com.repackage.rm4;
+import com.repackage.x95;
+import com.repackage.yf6;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class FrsTabWebFragment extends BaseWebViewFragment implements ge6 {
+public class FrsTabWebFragment extends BaseWebViewFragment implements yf6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String d;
@@ -66,17 +66,17 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements ge6 {
     public View h;
     public NestedScrollWebView i;
     public FrameLayout j;
-    public cj8 k;
+    public ol8 k;
     public boolean l;
     public boolean m;
     public boolean n;
     public boolean o;
-    public ej8 p;
+    public ql8 p;
     public CustomMessageListener q;
     public final View.OnClickListener r;
 
     /* loaded from: classes3.dex */
-    public class a implements ej8 {
+    public class a implements ql8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsTabWebFragment a;
@@ -99,7 +99,7 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements ge6 {
             this.a = frsTabWebFragment;
         }
 
-        @Override // com.repackage.ej8
+        @Override // com.repackage.ql8
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -147,7 +147,7 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements ge6 {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2005016 || StringUtils.isNull(this.a.a)) {
                 return;
             }
-            this.a.w();
+            this.a.x();
         }
     }
 
@@ -179,10 +179,10 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements ge6 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (ni.z()) {
-                    this.a.w();
+                if (oi.z()) {
+                    this.a.x();
                 } else {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c3c);
                 }
             }
         }
@@ -232,7 +232,7 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements ge6 {
                     frsTabWebFragment2.hideLoadingView(frsTabWebFragment2.j);
                     TbadkCoreApplication inst = TbadkCoreApplication.getInst();
                     FrsTabWebFragment frsTabWebFragment3 = this.a;
-                    frsTabWebFragment3.showNetRefreshView(frsTabWebFragment3.j, inst.getString(R.string.obfuscated_res_0x7f0f1495), null, inst.getString(R.string.obfuscated_res_0x7f0f0f81), false, this.a.r);
+                    frsTabWebFragment3.showNetRefreshView(frsTabWebFragment3.j, inst.getString(R.string.obfuscated_res_0x7f0f14d3), null, inst.getString(R.string.obfuscated_res_0x7f0f0fb6), false, this.a.r);
                     return;
                 }
                 this.a.l = false;
@@ -246,7 +246,7 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements ge6 {
                 if (TextUtils.isEmpty(title)) {
                     return;
                 }
-                this.a.C1(title);
+                this.a.B1(title);
             }
         }
 
@@ -285,7 +285,7 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements ge6 {
                 frsTabWebFragment.hideLoadingView(frsTabWebFragment.j);
                 TbadkCoreApplication inst = TbadkCoreApplication.getInst();
                 FrsTabWebFragment frsTabWebFragment2 = this.a;
-                frsTabWebFragment2.showNetRefreshView(frsTabWebFragment2.j, inst.getString(R.string.obfuscated_res_0x7f0f1495), null, inst.getString(R.string.obfuscated_res_0x7f0f0f81), false, this.a.r);
+                frsTabWebFragment2.showNetRefreshView(frsTabWebFragment2.j, inst.getString(R.string.obfuscated_res_0x7f0f14d3), null, inst.getString(R.string.obfuscated_res_0x7f0f0fb6), false, this.a.r);
             }
         }
 
@@ -294,7 +294,7 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements ge6 {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, renderProcessGoneDetail)) == null) {
-                am4.a("FrsTabWebFragment", webView);
+                rm4.a("FrsTabWebFragment", webView);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -311,9 +311,9 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements ge6 {
                 if (this.a.l) {
                     this.a.l = false;
                     return false;
-                } else if (!this.a.V1(str) || TbadkCoreApplication.isLogin() || this.a.getPageContext() == null) {
+                } else if (!this.a.U1(str) || TbadkCoreApplication.isLogin() || this.a.getPageContext() == null) {
                     if (this.a.i != null && this.a.i.isShown()) {
-                        if (!this.a.u1(str)) {
+                        if (!this.a.t1(str)) {
                             if (this.a.o) {
                                 return UrlManager.getInstance().dealOneLinkWithOutJumpWebView(this.a.getPageContext(), new String[]{str}) == 0;
                             }
@@ -394,29 +394,29 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements ge6 {
         this.r = new c(this);
     }
 
-    public void T1(mp4 mp4Var, JSONObject jSONObject) {
+    public void S1(dq4 dq4Var, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, mp4Var, jSONObject) == null) && this.g == 102 && this.k != null) {
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, dq4Var, jSONObject) == null) && this.g == 102 && this.k != null) {
             HashMap hashMap = new HashMap();
             hashMap.put("threadInfo", jSONObject);
             this.k.i(this.i, CommonTbJsBridge.CHANGE_POST_WALL, hashMap);
         }
     }
 
-    public final dj8 U1() {
+    public final pl8 T1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, dj8.class, getPageContext());
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, pl8.class, getPageContext());
             if (runTask == null || runTask.getData() == null) {
                 return null;
             }
-            return (dj8) runTask.getData();
+            return (pl8) runTask.getData();
         }
-        return (dj8) invokeV.objValue;
+        return (pl8) invokeV.objValue;
     }
 
-    public final boolean V1(String str) {
+    public final boolean U1(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
@@ -428,16 +428,9 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements ge6 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.ge6
-    public void W() {
+    public final void V1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public final void W1() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || TextUtils.isEmpty(this.f)) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || TextUtils.isEmpty(this.f)) {
             return;
         }
         StringBuilder sb = new StringBuilder();
@@ -448,15 +441,22 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements ge6 {
         this.f = sb.toString();
     }
 
-    public void X1() {
+    @Override // com.repackage.yf6
+    public void W() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    public void W1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            sl4.g(getBaseFragmentActivity().getApplicationContext());
+            jm4.g(getBaseFragmentActivity().getApplicationContext());
         }
     }
 
     @RequiresApi(api = 11)
-    public void Y1() {
+    public void X1() {
         NestedScrollWebView nestedScrollWebView;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (nestedScrollWebView = this.i) == null) {
@@ -479,13 +479,13 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements ge6 {
         this.i.setScrollBarStyle(33554432);
         this.i.setWebViewClient(new d(this));
         this.i.setDownloadListener(new e(this, null));
-        wl4 wl4Var = new wl4(getPageContext());
-        wl4Var.b(this.p);
-        this.i.setWebChromeClient(wl4Var);
+        nm4 nm4Var = new nm4(getPageContext());
+        nm4Var.b(this.p);
+        this.i.setWebChromeClient(nm4Var);
         CompatibleUtile.getInstance().removeJavascriptInterface(this.i);
     }
 
-    public void Z1(String str) {
+    public void Y1(String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || this.i == null) {
             return;
@@ -493,13 +493,13 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements ge6 {
         CompatibleUtile.getInstance().loadUrl(this.i, str);
     }
 
-    public final void a2() {
+    public final void Z1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
         }
     }
 
-    @Override // com.repackage.ge6
+    @Override // com.repackage.yf6
     public void b0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -512,7 +512,7 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements ge6 {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.w85
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.u95
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -522,7 +522,7 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements ge6 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.w85
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.u95
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -530,10 +530,10 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements ge6 {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
-    public z85 getPageStayDurationItem() {
+    public x95 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? super.getPageStayDurationItem() : (z85) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? super.getPageStayDurationItem() : (x95) invokeV.objValue;
     }
 
     public final void initData() {
@@ -543,7 +543,7 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements ge6 {
             if (str != null && str.contains("redirect=1")) {
                 this.o = true;
             }
-            Z1(this.a);
+            Y1(this.a);
         }
     }
 
@@ -567,7 +567,7 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements ge6 {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            ha5.a(getPageContext(), this.h);
+            fb5.a(getPageContext(), this.h);
             b0();
         }
     }
@@ -589,15 +589,15 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements ge6 {
                 this.e = bundle.getString("tab_code");
                 this.f = bundle.getString("tab_url");
             }
-            W1();
+            V1();
             this.a = this.f;
-            cj8 cj8Var = new cj8();
-            this.k = cj8Var;
-            cj8Var.a(new XiubaTbJsBridge(getPageContext()));
+            ol8 ol8Var = new ol8();
+            this.k = ol8Var;
+            ol8Var.a(new XiubaTbJsBridge(getPageContext()));
             this.k.a(new CommonTbJsBridge(getPageContext().getPageActivity()));
-            this.k.a(U1());
+            this.k.a(T1());
             registerListener(this.q);
-            X1();
+            W1();
         }
     }
 
@@ -612,11 +612,11 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements ge6 {
                 ((ViewGroup) this.h.getParent()).removeView(this.h);
             }
             if (this.h == null) {
-                View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0352, (ViewGroup) null);
+                View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0354, (ViewGroup) null);
                 this.h = inflate;
-                this.i = (NestedScrollWebView) inflate.findViewById(R.id.obfuscated_res_0x7f0924ca);
-                this.j = (FrameLayout) this.h.findViewById(R.id.obfuscated_res_0x7f091347);
-                Y1();
+                this.i = (NestedScrollWebView) inflate.findViewById(R.id.obfuscated_res_0x7f0925ef);
+                this.j = (FrameLayout) this.h.findViewById(R.id.obfuscated_res_0x7f0913eb);
+                X1();
             }
             NestedScrollWebView nestedScrollWebView = this.i;
             if (nestedScrollWebView != null) {
@@ -633,11 +633,11 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements ge6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.onDestroy();
-            cj8 cj8Var = this.k;
-            if (cj8Var != null) {
-                cj8Var.g();
+            ol8 ol8Var = this.k;
+            if (ol8Var != null) {
+                ol8Var.g();
             }
-            t55.e().b();
+            p65.e().b();
         }
     }
 
@@ -660,7 +660,7 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements ge6 {
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onPrimary();
             if (isAdded() && isPrimary() && this.i != null) {
-                a2();
+                Z1();
                 if (this.l) {
                     initData();
                 }
@@ -698,17 +698,17 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements ge6 {
         }
     }
 
-    @Override // com.repackage.ge6
+    @Override // com.repackage.yf6
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            w();
+            x();
         }
     }
 
-    public final void w() {
+    public final void x() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048602, this) == null) || this.j == null || this.i == null || this.m || TextUtils.isEmpty(this.a) || !ni.z()) {
+        if (!(interceptable == null || interceptable.invokeV(1048602, this) == null) || this.j == null || this.i == null || this.m || TextUtils.isEmpty(this.a) || !oi.z()) {
             return;
         }
         this.m = true;
@@ -717,11 +717,11 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements ge6 {
         this.i.setVisibility(8);
         hideNetRefreshView(this.j);
         showLoadingView(this.j);
-        Z1(this.a);
+        Y1(this.a);
     }
 
-    @Override // com.repackage.ge6
-    public void y() {
+    @Override // com.repackage.yf6
+    public void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
         }

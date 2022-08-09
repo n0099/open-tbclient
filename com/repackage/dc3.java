@@ -1,106 +1,71 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Locale;
-/* loaded from: classes5.dex */
-public final class dc3<ValueT> {
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class dc3 extends cc3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public ValueT b;
-    public a<ValueT> c;
 
-    /* loaded from: classes5.dex */
-    public interface a<ValueT> {
-        ValueT update() throws IllegalStateException;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r6v1, resolved type: com.repackage.fc3 */
-    /* JADX WARN: Multi-variable type inference failed */
-    public dc3(String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dc3(w13 w13Var) {
+        super(w13Var, "/swanAPI/closeTabBar");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {w13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((w13) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        fc3.a().h(this);
     }
 
-    public CharSequence a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.w23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, z03 z03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ValueT valuet = this.b;
-            return valuet == null ? "" : valuet.toString();
-        }
-        return (CharSequence) invokeV.objValue;
-    }
-
-    public dc3<ValueT> b(a<ValueT> aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            this.c = aVar;
-            update();
-            return this;
-        }
-        return (dc3) invokeL.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? String.format(Locale.getDefault(), "%s :: %s(%s)", super.toString(), this.a, a()) : (String) invokeV.objValue;
-    }
-
-    public boolean update() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? update((a) this.c) : invokeV.booleanValue;
-    }
-
-    public boolean update(a<ValueT> aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aVar)) == null) {
-            if (aVar != null) {
-                try {
-                    return update((dc3<ValueT>) aVar.update());
-                } catch (IllegalStateException e) {
-                    ix1.o("Tracer", "index update IllegalStateException " + e.getMessage());
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, z03Var)) == null) {
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                zx1.c("closeTabBar", "paramsJson is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else if (cc3.k()) {
+                zx1.c("CloseTabBarAction", "fail not TabBar page");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fail not TabBar page");
+                return false;
+            } else {
+                lc3 j = cc3.j();
+                if (j == null) {
+                    zx1.c("CloseTabBarAction", "tabBarViewController is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                     return false;
+                } else if (!j.j(optParamsAsJo.optBoolean("animation"))) {
+                    zx1.c("closeTabBar", "close tab bar fail");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                } else {
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    return true;
                 }
             }
-            return false;
         }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r5v1, resolved type: com.repackage.fc3 */
-    /* JADX WARN: Multi-variable type inference failed */
-    public boolean update(ValueT valuet) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, valuet)) == null) {
-            this.b = valuet;
-            fc3.a().e(this);
-            return true;
-        }
-        return invokeL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 }

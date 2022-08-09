@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.RomTypeUtil;
 import com.ss.android.socialbase.downloader.i.f;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static String a = null;
     public static String b = "";

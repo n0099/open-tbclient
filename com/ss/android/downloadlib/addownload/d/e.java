@@ -2,7 +2,7 @@ package com.ss.android.downloadlib.addownload.d;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e implements d {
     private boolean b(int i) {
         return com.ss.android.socialbase.downloader.g.a.a(i).a("pause_optimise_mistake_click_interval_switch", 0) == 1;

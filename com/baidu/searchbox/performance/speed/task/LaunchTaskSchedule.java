@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qb;
+import com.repackage.rb;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -104,7 +104,7 @@ public class LaunchTaskSchedule {
         }
         for (LaunchTask launchTask : taskList) {
             if ((launchTask.getProcess() & this.mProcessType) != 0) {
-                qb.b().a(launchTask.getName(), new Runnable(this, launchTask) { // from class: com.baidu.searchbox.performance.speed.task.LaunchTaskSchedule.1
+                rb.b().a(launchTask.getName(), new Runnable(this, launchTask) { // from class: com.baidu.searchbox.performance.speed.task.LaunchTaskSchedule.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LaunchTaskSchedule this$0;

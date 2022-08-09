@@ -21,7 +21,7 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
     public static final jc a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final jk f624a;
+    public static final jk f625a;
     public static final jc b;
     public static final jc c;
     public static final jc d;
@@ -32,31 +32,31 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public hj f625a;
+    public hj f626a;
 
     /* renamed from: a  reason: collision with other field name */
-    public hw f626a;
+    public hw f627a;
 
     /* renamed from: a  reason: collision with other field name */
-    public hy f627a;
+    public hy f628a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f628a;
+    public String f629a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ByteBuffer f629a;
+    public ByteBuffer f630a;
 
     /* renamed from: a  reason: collision with other field name */
-    public BitSet f630a;
+    public BitSet f631a;
 
     /* renamed from: a  reason: collision with other field name */
-    public boolean f631a;
+    public boolean f632a;
 
     /* renamed from: b  reason: collision with other field name */
-    public String f632b;
+    public String f633b;
 
     /* renamed from: b  reason: collision with other field name */
-    public boolean f633b;
+    public boolean f634b;
 
     static {
         InterceptResult invokeClinit;
@@ -71,7 +71,7 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
                 return;
             }
         }
-        f624a = new jk("XmPushActionContainer");
+        f625a = new jk("XmPushActionContainer");
         a = new jc("", (byte) 8, (short) 1);
         b = new jc("", (byte) 2, (short) 2);
         c = new jc("", (byte) 2, (short) 3);
@@ -95,9 +95,9 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
                 return;
             }
         }
-        this.f630a = new BitSet(2);
-        this.f631a = true;
-        this.f633b = true;
+        this.f631a = new BitSet(2);
+        this.f632a = true;
+        this.f634b = true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -120,42 +120,42 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
                 if (compareTo != 0) {
                     return compareTo;
                 }
-                if (!m469a() || (a9 = iv.a(this.f625a, cif.f625a)) == 0) {
+                if (!m469a() || (a9 = iv.a(this.f626a, cif.f626a)) == 0) {
                     int compareTo2 = Boolean.valueOf(c()).compareTo(Boolean.valueOf(cif.c()));
                     if (compareTo2 != 0) {
                         return compareTo2;
                     }
-                    if (!c() || (a8 = iv.a(this.f631a, cif.f631a)) == 0) {
+                    if (!c() || (a8 = iv.a(this.f632a, cif.f632a)) == 0) {
                         int compareTo3 = Boolean.valueOf(d()).compareTo(Boolean.valueOf(cif.d()));
                         if (compareTo3 != 0) {
                             return compareTo3;
                         }
-                        if (!d() || (a7 = iv.a(this.f633b, cif.f633b)) == 0) {
+                        if (!d() || (a7 = iv.a(this.f634b, cif.f634b)) == 0) {
                             int compareTo4 = Boolean.valueOf(e()).compareTo(Boolean.valueOf(cif.e()));
                             if (compareTo4 != 0) {
                                 return compareTo4;
                             }
-                            if (!e() || (a6 = iv.a(this.f629a, cif.f629a)) == 0) {
+                            if (!e() || (a6 = iv.a(this.f630a, cif.f630a)) == 0) {
                                 int compareTo5 = Boolean.valueOf(f()).compareTo(Boolean.valueOf(cif.f()));
                                 if (compareTo5 != 0) {
                                     return compareTo5;
                                 }
-                                if (!f() || (a5 = iv.a(this.f628a, cif.f628a)) == 0) {
+                                if (!f() || (a5 = iv.a(this.f629a, cif.f629a)) == 0) {
                                     int compareTo6 = Boolean.valueOf(g()).compareTo(Boolean.valueOf(cif.g()));
                                     if (compareTo6 != 0) {
                                         return compareTo6;
                                     }
-                                    if (!g() || (a4 = iv.a(this.f632b, cif.f632b)) == 0) {
+                                    if (!g() || (a4 = iv.a(this.f633b, cif.f633b)) == 0) {
                                         int compareTo7 = Boolean.valueOf(h()).compareTo(Boolean.valueOf(cif.h()));
                                         if (compareTo7 != 0) {
                                             return compareTo7;
                                         }
-                                        if (!h() || (a3 = iv.a(this.f627a, cif.f627a)) == 0) {
+                                        if (!h() || (a3 = iv.a(this.f628a, cif.f628a)) == 0) {
                                             int compareTo8 = Boolean.valueOf(i()).compareTo(Boolean.valueOf(cif.i()));
                                             if (compareTo8 != 0) {
                                                 return compareTo8;
                                             }
-                                            if (!i() || (a2 = iv.a(this.f626a, cif.f626a)) == 0) {
+                                            if (!i() || (a2 = iv.a(this.f627a, cif.f627a)) == 0) {
                                                 return 0;
                                             }
                                             return a2;
@@ -182,21 +182,21 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
     public hj a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f625a : (hj) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f626a : (hj) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public hw m465a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f626a : (hw) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f627a : (hw) invokeV.objValue;
     }
 
     public Cif a(hj hjVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, hjVar)) == null) {
-            this.f625a = hjVar;
+            this.f626a = hjVar;
             return this;
         }
         return (Cif) invokeL.objValue;
@@ -206,7 +206,7 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, hwVar)) == null) {
-            this.f626a = hwVar;
+            this.f627a = hwVar;
             return this;
         }
         return (Cif) invokeL.objValue;
@@ -216,7 +216,7 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, hyVar)) == null) {
-            this.f627a = hyVar;
+            this.f628a = hyVar;
             return this;
         }
         return (Cif) invokeL.objValue;
@@ -226,7 +226,7 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            this.f628a = str;
+            this.f629a = str;
             return this;
         }
         return (Cif) invokeL.objValue;
@@ -236,7 +236,7 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, byteBuffer)) == null) {
-            this.f629a = byteBuffer;
+            this.f630a = byteBuffer;
             return this;
         }
         return (Cif) invokeL.objValue;
@@ -246,7 +246,7 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-            this.f631a = z;
+            this.f632a = z;
             m468a(true);
             return this;
         }
@@ -257,18 +257,18 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
     public String m466a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f628a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f629a : (String) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public void m467a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (this.f625a == null) {
+            if (this.f626a == null) {
                 throw new jg("Required field 'action' was not present! Struct: " + toString());
-            } else if (this.f629a == null) {
+            } else if (this.f630a == null) {
                 throw new jg("Required field 'pushAction' was not present! Struct: " + toString());
-            } else if (this.f627a != null) {
+            } else if (this.f628a != null) {
             } else {
                 throw new jg("Required field 'target' was not present! Struct: " + toString());
             }
@@ -296,17 +296,17 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
                     throw new jg("Required field 'isRequest' was not found in serialized data! Struct: " + toString());
                 }
             }
-            switch (m545a.f809a) {
+            switch (m545a.f810a) {
                 case 1:
                     if (b2 == 8) {
-                        this.f625a = hj.a(jfVar.m543a());
+                        this.f626a = hj.a(jfVar.m543a());
                         continue;
                         jfVar.g();
                     }
                     break;
                 case 2:
                     if (b2 == 2) {
-                        this.f631a = jfVar.m554a();
+                        this.f632a = jfVar.m554a();
                         m468a(true);
                         continue;
                         jfVar.g();
@@ -314,7 +314,7 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
                     break;
                 case 3:
                     if (b2 == 2) {
-                        this.f633b = jfVar.m554a();
+                        this.f634b = jfVar.m554a();
                         m472b(true);
                         continue;
                         jfVar.g();
@@ -322,21 +322,21 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
                     break;
                 case 4:
                     if (b2 == 11) {
-                        this.f629a = jfVar.m551a();
+                        this.f630a = jfVar.m551a();
                         continue;
                         jfVar.g();
                     }
                     break;
                 case 5:
                     if (b2 == 11) {
-                        this.f628a = jfVar.m550a();
+                        this.f629a = jfVar.m550a();
                         continue;
                         jfVar.g();
                     }
                     break;
                 case 6:
                     if (b2 == 11) {
-                        this.f632b = jfVar.m550a();
+                        this.f633b = jfVar.m550a();
                         continue;
                         jfVar.g();
                     }
@@ -344,7 +344,7 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
                 case 7:
                     if (b2 == 12) {
                         hy hyVar = new hy();
-                        this.f627a = hyVar;
+                        this.f628a = hyVar;
                         hyVar.a(jfVar);
                         continue;
                         jfVar.g();
@@ -353,7 +353,7 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
                 case 8:
                     if (b2 == 12) {
                         hw hwVar = new hw();
-                        this.f626a = hwVar;
+                        this.f627a = hwVar;
                         hwVar.a(jfVar);
                         continue;
                         jfVar.g();
@@ -369,7 +369,7 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
     public void m468a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.f630a.set(0, z);
+            this.f631a.set(0, z);
         }
     }
 
@@ -377,7 +377,7 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
     public boolean m469a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f625a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f626a != null : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -390,31 +390,31 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
             }
             boolean m469a = m469a();
             boolean m469a2 = cif.m469a();
-            if (((!m469a && !m469a2) || (m469a && m469a2 && this.f625a.equals(cif.f625a))) && this.f631a == cif.f631a && this.f633b == cif.f633b) {
+            if (((!m469a && !m469a2) || (m469a && m469a2 && this.f626a.equals(cif.f626a))) && this.f632a == cif.f632a && this.f634b == cif.f634b) {
                 boolean e2 = e();
                 boolean e3 = cif.e();
-                if ((e2 || e3) && !(e2 && e3 && this.f629a.equals(cif.f629a))) {
+                if ((e2 || e3) && !(e2 && e3 && this.f630a.equals(cif.f630a))) {
                     return false;
                 }
                 boolean f2 = f();
                 boolean f3 = cif.f();
-                if ((f2 || f3) && !(f2 && f3 && this.f628a.equals(cif.f628a))) {
+                if ((f2 || f3) && !(f2 && f3 && this.f629a.equals(cif.f629a))) {
                     return false;
                 }
                 boolean g2 = g();
                 boolean g3 = cif.g();
-                if ((g2 || g3) && !(g2 && g3 && this.f632b.equals(cif.f632b))) {
+                if ((g2 || g3) && !(g2 && g3 && this.f633b.equals(cif.f633b))) {
                     return false;
                 }
                 boolean h2 = h();
                 boolean h3 = cif.h();
-                if ((h2 || h3) && !(h2 && h3 && this.f627a.m443a(cif.f627a))) {
+                if ((h2 || h3) && !(h2 && h3 && this.f628a.m443a(cif.f628a))) {
                     return false;
                 }
                 boolean i = i();
                 boolean i2 = cif.i();
                 if (i || i2) {
-                    return i && i2 && this.f626a.m435a(cif.f626a);
+                    return i && i2 && this.f627a.m435a(cif.f627a);
                 }
                 return true;
             }
@@ -428,8 +428,8 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            a(iv.a(this.f629a));
-            return this.f629a.array();
+            a(iv.a(this.f630a));
+            return this.f630a.array();
         }
         return (byte[]) invokeV.objValue;
     }
@@ -438,7 +438,7 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
-            this.f632b = str;
+            this.f633b = str;
             return this;
         }
         return (Cif) invokeL.objValue;
@@ -448,7 +448,7 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048593, this, z)) == null) {
-            this.f633b = z;
+            this.f634b = z;
             m472b(true);
             return this;
         }
@@ -458,7 +458,7 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f632b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f633b : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.iu
@@ -466,41 +466,41 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, jfVar) == null) {
             m467a();
-            jfVar.a(f624a);
-            if (this.f625a != null) {
+            jfVar.a(f625a);
+            if (this.f626a != null) {
                 jfVar.a(a);
-                jfVar.a(this.f625a.a());
+                jfVar.a(this.f626a.a());
                 jfVar.b();
             }
             jfVar.a(b);
-            jfVar.a(this.f631a);
+            jfVar.a(this.f632a);
             jfVar.b();
             jfVar.a(c);
-            jfVar.a(this.f633b);
+            jfVar.a(this.f634b);
             jfVar.b();
-            if (this.f629a != null) {
+            if (this.f630a != null) {
                 jfVar.a(d);
+                jfVar.a(this.f630a);
+                jfVar.b();
+            }
+            if (this.f629a != null && f()) {
+                jfVar.a(e);
                 jfVar.a(this.f629a);
                 jfVar.b();
             }
-            if (this.f628a != null && f()) {
-                jfVar.a(e);
-                jfVar.a(this.f628a);
-                jfVar.b();
-            }
-            if (this.f632b != null && g()) {
+            if (this.f633b != null && g()) {
                 jfVar.a(f);
-                jfVar.a(this.f632b);
+                jfVar.a(this.f633b);
                 jfVar.b();
             }
-            if (this.f627a != null) {
+            if (this.f628a != null) {
                 jfVar.a(g);
-                this.f627a.b(jfVar);
+                this.f628a.b(jfVar);
                 jfVar.b();
             }
-            if (this.f626a != null && i()) {
+            if (this.f627a != null && i()) {
                 jfVar.a(h);
-                this.f626a.b(jfVar);
+                this.f627a.b(jfVar);
                 jfVar.b();
             }
             jfVar.c();
@@ -512,7 +512,7 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
     public void m472b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            this.f630a.set(1, z);
+            this.f631a.set(1, z);
         }
     }
 
@@ -520,25 +520,25 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
     public boolean m473b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f631a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f632a : invokeV.booleanValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f630a.get(0) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f631a.get(0) : invokeV.booleanValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f630a.get(1) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f631a.get(1) : invokeV.booleanValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f629a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f630a != null : invokeV.booleanValue;
     }
 
     public boolean equals(Object obj) {
@@ -556,19 +556,19 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f628a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f629a != null : invokeV.booleanValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f632b != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f633b != null : invokeV.booleanValue;
     }
 
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f627a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f628a != null : invokeV.booleanValue;
     }
 
     public int hashCode() {
@@ -583,7 +583,7 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f626a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f627a != null : invokeV.booleanValue;
     }
 
     public String toString() {
@@ -592,7 +592,7 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
             StringBuilder sb = new StringBuilder("XmPushActionContainer(");
             sb.append("action:");
-            hj hjVar = this.f625a;
+            hj hjVar = this.f626a;
             if (hjVar == null) {
                 sb.append(StringUtil.NULL_STRING);
             } else {
@@ -600,13 +600,13 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
             }
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             sb.append("encryptAction:");
-            sb.append(this.f631a);
+            sb.append(this.f632a);
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             sb.append("isRequest:");
-            sb.append(this.f633b);
+            sb.append(this.f634b);
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             sb.append("pushAction:");
-            ByteBuffer byteBuffer = this.f629a;
+            ByteBuffer byteBuffer = this.f630a;
             if (byteBuffer == null) {
                 sb.append(StringUtil.NULL_STRING);
             } else {
@@ -615,7 +615,7 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
             if (f()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append("appid:");
-                String str = this.f628a;
+                String str = this.f629a;
                 if (str == null) {
                     sb.append(StringUtil.NULL_STRING);
                 } else {
@@ -625,7 +625,7 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
             if (g()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append("packageName:");
-                String str2 = this.f632b;
+                String str2 = this.f633b;
                 if (str2 == null) {
                     sb.append(StringUtil.NULL_STRING);
                 } else {
@@ -634,7 +634,7 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
             }
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             sb.append("target:");
-            hy hyVar = this.f627a;
+            hy hyVar = this.f628a;
             if (hyVar == null) {
                 sb.append(StringUtil.NULL_STRING);
             } else {
@@ -643,7 +643,7 @@ public class Cif implements iu<Cif, Object>, Serializable, Cloneable {
             if (i()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append("metaInfo:");
-                hw hwVar = this.f626a;
+                hw hwVar = this.f627a;
                 if (hwVar == null) {
                     sb.append(StringUtil.NULL_STRING);
                 } else {

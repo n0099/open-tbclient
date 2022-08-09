@@ -62,80 +62,80 @@ public class ap extends Handler {
             String str = (String) message.obj;
             int i = message.arg1;
             synchronized (af.class) {
-                context = this.a.f56a;
+                context = this.a.f57a;
                 if (af.a(context).m111a(str)) {
-                    context2 = this.a.f56a;
+                    context2 = this.a.f57a;
                     if (af.a(context2).a(str) < 10) {
                         if (au.a.ordinal() == i) {
-                            context14 = this.a.f56a;
+                            context14 = this.a.f57a;
                             if ("syncing".equals(af.a(context14).a(au.a))) {
                                 aoVar2 = this.a;
                                 auVar2 = au.a;
                                 aoVar2.a(str, auVar2, true, (HashMap<String, String>) null);
-                                context13 = this.a.f56a;
+                                context13 = this.a.f57a;
                                 af.a(context13).b(str);
                             }
                         }
                         if (au.b.ordinal() == i) {
-                            context12 = this.a.f56a;
+                            context12 = this.a.f57a;
                             if ("syncing".equals(af.a(context12).a(au.b))) {
                                 aoVar2 = this.a;
                                 auVar2 = au.b;
                                 aoVar2.a(str, auVar2, true, (HashMap<String, String>) null);
-                                context13 = this.a.f56a;
+                                context13 = this.a.f57a;
                                 af.a(context13).b(str);
                             }
                         }
                         if (au.c.ordinal() == i) {
-                            context10 = this.a.f56a;
+                            context10 = this.a.f57a;
                             if ("syncing".equals(af.a(context10).a(au.c))) {
                                 aoVar = this.a;
                                 auVar = au.c;
-                                context11 = this.a.f56a;
+                                context11 = this.a.f57a;
                                 m150a = i.m150a(context11, e.a);
                                 aoVar.a(str, auVar, false, m150a);
-                                context13 = this.a.f56a;
+                                context13 = this.a.f57a;
                                 af.a(context13).b(str);
                             }
                         }
                         if (au.d.ordinal() == i) {
-                            context8 = this.a.f56a;
+                            context8 = this.a.f57a;
                             if ("syncing".equals(af.a(context8).a(au.d))) {
                                 aoVar = this.a;
                                 auVar = au.d;
-                                context9 = this.a.f56a;
+                                context9 = this.a.f57a;
                                 m150a = i.m150a(context9, e.b);
                                 aoVar.a(str, auVar, false, m150a);
-                                context13 = this.a.f56a;
+                                context13 = this.a.f57a;
                                 af.a(context13).b(str);
                             }
                         }
                         if (au.e.ordinal() == i) {
-                            context6 = this.a.f56a;
+                            context6 = this.a.f57a;
                             if ("syncing".equals(af.a(context6).a(au.e))) {
                                 aoVar = this.a;
                                 auVar = au.e;
-                                context7 = this.a.f56a;
+                                context7 = this.a.f57a;
                                 m150a = i.m150a(context7, e.c);
                                 aoVar.a(str, auVar, false, m150a);
-                                context13 = this.a.f56a;
+                                context13 = this.a.f57a;
                                 af.a(context13).b(str);
                             }
                         }
                         if (au.f.ordinal() == i) {
-                            context4 = this.a.f56a;
+                            context4 = this.a.f57a;
                             if ("syncing".equals(af.a(context4).a(au.f))) {
                                 aoVar = this.a;
                                 auVar = au.f;
-                                context5 = this.a.f56a;
+                                context5 = this.a.f57a;
                                 m150a = i.m150a(context5, e.d);
                                 aoVar.a(str, auVar, false, m150a);
                             }
                         }
-                        context13 = this.a.f56a;
+                        context13 = this.a.f57a;
                         af.a(context13).b(str);
                     } else {
-                        context3 = this.a.f56a;
+                        context3 = this.a.f57a;
                         af.a(context3).c(str);
                     }
                 }

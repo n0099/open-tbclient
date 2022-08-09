@@ -934,42 +934,56 @@ public class DBAccessMgr {
         return (List) invokeL.objValue;
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x0099, code lost:
+        if (r1 != null) goto L17;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x009b, code lost:
+        r1.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x00a7, code lost:
+        if (r1 == null) goto L19;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x00ab, code lost:
+        return r0;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public synchronized List<ResultTB> getResultByNetworkHost(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048603, this, str, str2)) == null) {
-            synchronized (this) {
-                ArrayList arrayList = new ArrayList();
-                if (noNeedDB || this.openDBFailed) {
-                    return arrayList;
-                }
-                try {
-                    Cursor query = this.db.query(DBInitMgr.TB_RESULT, null, "network=? and host=?", new String[]{str, str2}, null, null, null);
-                    query.moveToFirst();
-                    while (!query.isAfterLast()) {
-                        ResultTB resultTB = new ResultTB();
-                        resultTB.setId(query.getInt(0));
-                        resultTB.setNetwork(query.getString(1));
-                        resultTB.setHost(query.getString(2));
-                        resultTB.setIp(query.getString(3));
-                        resultTB.setTtl(query.getInt(4));
-                        resultTB.setEndTime(query.getLong(5));
-                        resultTB.setCmd(query.getString(6));
-                        resultTB.setUpdateTime(query.getLong(7));
-                        resultTB.setView(query.getString(8));
-                        resultTB.setUip(query.getString(9));
-                        resultTB.setSource(query.getInt(10));
-                        arrayList.add(resultTB);
-                        query.moveToNext();
-                    }
-                    query.close();
-                } catch (Exception e) {
-                    LogTools.printWarning(TAG, e);
-                }
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(1048603, this, str, str2)) != null) {
+            return (List) invokeLL.objValue;
+        }
+        synchronized (this) {
+            ArrayList arrayList = new ArrayList();
+            if (noNeedDB || this.openDBFailed) {
                 return arrayList;
             }
+            Cursor cursor = null;
+            try {
+                cursor = this.db.query(DBInitMgr.TB_RESULT, null, "network=? and host=?", new String[]{str, str2}, null, null, null);
+                cursor.moveToFirst();
+                while (!cursor.isAfterLast()) {
+                    ResultTB resultTB = new ResultTB();
+                    resultTB.setId(cursor.getInt(0));
+                    resultTB.setNetwork(cursor.getString(1));
+                    resultTB.setHost(cursor.getString(2));
+                    resultTB.setIp(cursor.getString(3));
+                    resultTB.setTtl(cursor.getInt(4));
+                    resultTB.setEndTime(cursor.getLong(5));
+                    resultTB.setCmd(cursor.getString(6));
+                    resultTB.setUpdateTime(cursor.getLong(7));
+                    resultTB.setView(cursor.getString(8));
+                    resultTB.setUip(cursor.getString(9));
+                    resultTB.setSource(cursor.getInt(10));
+                    arrayList.add(resultTB);
+                    cursor.moveToNext();
+                }
+            } catch (Exception e) {
+                LogTools.printWarning(TAG, e);
+            }
         }
-        return (List) invokeLL.objValue;
     }
 
     public synchronized List<ResultTB> getResultV6ByNetworkHost(String str, String str2) {

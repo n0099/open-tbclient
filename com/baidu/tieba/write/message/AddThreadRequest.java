@@ -1,5 +1,6 @@
 package com.baidu.tieba.write.message;
 
+import android.text.TextUtils;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
@@ -16,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
-import com.repackage.ud5;
+import com.repackage.te5;
 import java.util.Map;
 import tbclient.AddThread.AddThreadReqIdl;
 import tbclient.AddThread.DataReq;
@@ -51,7 +52,7 @@ public class AddThreadRequest extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            ud5.c(builder, true, true, true);
+            te5.c(builder, true, true, true);
             builder.authsid = this.requestData.get("authsid");
             builder.sig = this.requestData.get(FunAdSdk.PLATFORM_SIG);
             builder.tbs = this.requestData.get(HttpRequest.TBS);
@@ -130,9 +131,17 @@ public class AddThreadRequest extends NetMessage {
             builder.is_article = this.requestData.get(WriteActivityConfig.IS_ARTICLE);
             builder.from_category_id = this.requestData.get("fromCategoryId");
             builder.to_category_id = this.requestData.get("toCategoryId");
+            if (!TextUtils.isEmpty(this.requestData.get("is_question"))) {
+                try {
+                    builder.is_question = Integer.valueOf(Integer.parseInt(this.requestData.get("is_question")));
+                    builder.question_tag_id = this.requestData.get("question_tag_id");
+                    builder.is_create_tag = Integer.valueOf(Integer.parseInt(this.requestData.get("is_create_tag")));
+                } catch (NumberFormatException unused) {
+                }
+            }
             try {
                 builder.show_custom_figure = Integer.valueOf(Integer.parseInt(this.requestData.get("show_custom_figure")));
-            } catch (NumberFormatException unused) {
+            } catch (NumberFormatException unused2) {
             }
             AddThreadReqIdl.Builder builder2 = new AddThreadReqIdl.Builder();
             builder2.data = builder.build(false);

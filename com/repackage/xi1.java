@@ -1,13 +1,11 @@
 package com.repackage;
 
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class xi1 implements hk2 {
+public class xi1 implements uk1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,11 +23,10 @@ public class xi1 implements hk2 {
         }
     }
 
-    @Override // com.repackage.hk2
-    @Nullable
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.uk1
+    public void a(String str, yx2 yx2Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, yx2Var) == null) {
+        }
     }
 }

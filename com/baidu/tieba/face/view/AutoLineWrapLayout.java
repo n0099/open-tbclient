@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class AutoLineWrapLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
@@ -41,7 +41,7 @@ public class AutoLineWrapLayout extends ViewGroup {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = pi.f(getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+            this.a = qi.f(getContext(), R.dimen.obfuscated_res_0x7f0701d5);
         }
     }
 

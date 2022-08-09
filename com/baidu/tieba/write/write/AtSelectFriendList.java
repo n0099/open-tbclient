@@ -112,7 +112,7 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
         }
         HeadImageView f = f();
         f.setIsRound(false);
-        f.J(metaData.getAvater(), 12, false);
+        f.K(metaData.getAvater(), 12, false);
         if (h()) {
             f.setTag(metaData);
             f.setOnClickListener(this.j);

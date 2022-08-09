@@ -1,6 +1,7 @@
 package com.repackage;
 
 import android.content.Context;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
@@ -11,9 +12,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
+import org.json.JSONObject;
 @Service
 /* loaded from: classes5.dex */
-public class cf0 extends rg0 {
+public class cf0 extends ng0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,20 +33,29 @@ public class cf0 extends rg0 {
         }
     }
 
-    @Override // com.repackage.rg0
+    @Override // com.repackage.ng0
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "onDownloadBtnClick" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "registerDeeplink" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.rg0
-    public boolean b(@NonNull Context context, @NonNull vg0 vg0Var, @Nullable Map<String, Object> map, @Nullable zg0 zg0Var) {
+    @Override // com.repackage.ng0
+    public boolean b(@NonNull Context context, @NonNull rg0 rg0Var, @Nullable Map<String, Object> map, @Nullable vg0 vg0Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, vg0Var, map, zg0Var)) == null) {
-            boolean b = super.b(context, vg0Var, map, zg0Var);
-            c(zg0Var, vg0Var, b ? 0 : 1001, b);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, rg0Var, map, vg0Var)) == null) {
+            super.b(context, rg0Var, map, vg0Var);
+            String str = (String) yx0.b(rg0Var.d(), "params");
+            if (TextUtils.isEmpty(str)) {
+                return true;
+            }
+            JSONObject c = xx0.c(str);
+            String optString = c.optString("packageName");
+            String optString2 = c.optString("deeplinkUrl");
+            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
+                ci0.b(optString, optString2);
+            }
             return true;
         }
         return invokeLLLL.booleanValue;

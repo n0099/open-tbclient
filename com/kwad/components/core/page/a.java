@@ -121,12 +121,12 @@ public class a extends com.kwad.components.core.i.b implements a.InterfaceC0358a
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            getActivity().setTheme(R.style.obfuscated_res_0x7f10022a);
-            setContentView(R.layout.obfuscated_res_0x7f0d03fe);
+            getActivity().setTheme(R.style.obfuscated_res_0x7f10022f);
+            setContentView(R.layout.obfuscated_res_0x7f0d0401);
             d(getIntent());
-            this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0910b9);
+            this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091112);
             nv();
-            com.kwad.components.core.playable.a aVar = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0910be));
+            com.kwad.components.core.playable.a aVar = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091117));
             this.mk = aVar;
             aVar.a(this.mAdTemplate, this.mRootContainer, this.mApkDownloadHelper);
             this.mk.a(this);

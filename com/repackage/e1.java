@@ -5,7 +5,7 @@ import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Graphics;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class e1 {
     public static /* synthetic */ Interceptable $ic;
     public static Application a;

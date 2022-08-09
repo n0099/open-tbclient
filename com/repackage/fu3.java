@@ -1,8 +1,7 @@
 package com.repackage;
 
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,11 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class fu3 {
+public final class fu3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public gv3 a;
 
     static {
         InterceptResult invokeClinit;
@@ -29,58 +30,73 @@ public class fu3 {
                 return;
             }
         }
-        a = sg1.a;
+        b = jh1.a;
     }
 
-    public fu3(JsObject jsObject) {
+    public fu3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jsObject};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
-        }
-        ps1 F = ps1.F(jsObject);
-        if (F == null) {
-            return;
-        }
-        i03 M = i03.M();
-        if (M == null) {
-            a(F, false, b("internal error"));
-            return;
-        }
-        try {
-            boolean m = F.m("mixWithOther", false);
-            M.U().h("key_audio_is_mix_with_other", Boolean.valueOf(m));
-            if (a) {
-                Log.d("InnerAudioOptionApi", "Audio Mix Changed to " + m);
-            }
-            a(F, true, "setInnerAudioOption:ok");
-        } catch (Exception unused) {
-            ix1.c("InnerAudioOptionApi", "set swanApp global var error");
-            a(F, false, b("internal error"));
         }
     }
 
-    public final void a(ps1 ps1Var, boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{ps1Var, Boolean.valueOf(z), str}) == null) {
-            qu3 qu3Var = new qu3();
-            qu3Var.errMsg = str;
-            t24.call(ps1Var, z, qu3Var);
-        }
-    }
-
-    public final String b(String str) {
+    public static fu3 d(gt1 gt1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? String.format("setInnerAudioOption:fail %s", str) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, gt1Var)) == null) {
+            if (gt1Var == null) {
+                return null;
+            }
+            fu3 fu3Var = new fu3();
+            fu3Var.a = gv3.e(gt1Var);
+            return fu3Var;
+        }
+        return (fu3) invokeL.objValue;
+    }
+
+    public final JSONObject a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, com.baidu.pass.biometrics.face.liveness.b.a.g0);
+                jSONObject.put("errDes", lq3.a(str));
+            } catch (Exception e) {
+                if (b) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            JSONObject a = a(str);
+            gv3 gv3Var = this.a;
+            if (gv3Var != null) {
+                gv3Var.b(a);
+            }
+        }
+    }
+
+    public void c() {
+        gv3 gv3Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (gv3Var = this.a) == null) {
+            return;
+        }
+        gv3Var.c();
     }
 }

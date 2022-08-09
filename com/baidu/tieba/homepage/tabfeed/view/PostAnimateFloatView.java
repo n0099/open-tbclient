@@ -25,12 +25,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hx;
-import com.repackage.qg;
-import com.repackage.uz6;
-import com.repackage.vr4;
+import com.repackage.ix;
+import com.repackage.ms4;
+import com.repackage.o17;
+import com.repackage.rg;
 /* loaded from: classes3.dex */
-public class PostAnimateFloatView extends FrameLayout implements hx {
+public class PostAnimateFloatView extends FrameLayout implements ix {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
@@ -104,7 +104,7 @@ public class PostAnimateFloatView extends FrameLayout implements hx {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                uz6.g();
+                o17.g();
                 new LocalChannelTopicListActivityConfig(this.a.getContext()).start();
             }
         }
@@ -280,7 +280,7 @@ public class PostAnimateFloatView extends FrameLayout implements hx {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) && this.a.d) {
                 this.a.e = false;
-                qg.a().postDelayed(this.a.i, 5000L);
+                rg.a().postDelayed(this.a.i, 5000L);
             }
         }
 
@@ -356,19 +356,19 @@ public class PostAnimateFloatView extends FrameLayout implements hx {
                 valueAnimator2.removeAllUpdateListeners();
                 this.g.removeAllListeners();
             }
-            qg.a().removeCallbacks(this.i);
+            rg.a().removeCallbacks(this.i);
         }
     }
 
     public final void i(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04af, (ViewGroup) this, true);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091b36);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091930);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091947);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04b6, (ViewGroup) this, true);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c1a);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a03);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091a1a);
             this.c = textView;
-            this.f = textView.getPaint().measureText(getContext().getString(R.string.obfuscated_res_0x7f0f0eaf));
+            this.f = textView.getPaint().measureText(getContext().getString(R.string.obfuscated_res_0x7f0f0edc));
             j();
             this.a.setOnClickListener(new b(this));
         }
@@ -412,13 +412,13 @@ public class PostAnimateFloatView extends FrameLayout implements hx {
         }
     }
 
-    @Override // com.repackage.hx
+    @Override // com.repackage.ix
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i) == null) {
             ImageView imageView = this.b;
             if (imageView != null) {
-                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f08092e, R.color.CAM_X0101, null);
+                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f08094b, R.color.CAM_X0101, null);
             }
             TextView textView = this.c;
             if (textView != null) {
@@ -426,7 +426,7 @@ public class PostAnimateFloatView extends FrameLayout implements hx {
             }
             LinearLayout linearLayout = this.a;
             if (linearLayout != null) {
-                vr4 d2 = vr4.d(linearLayout);
+                ms4 d2 = ms4.d(linearLayout);
                 d2.n(R.string.J_X01);
                 d2.h(R.color.CAM_X0302);
             }

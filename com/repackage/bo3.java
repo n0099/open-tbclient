@@ -1,16 +1,14 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bo3 {
+public class bo3 implements co3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jo3 a;
 
     public bo3() {
         Interceptable interceptable = $ic;
@@ -26,18 +24,10 @@ public class bo3 {
         }
     }
 
-    public jo3 a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.co3
+    public void a(Context context) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (jo3) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 3;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
         }
-        return invokeV.intValue;
     }
 }

@@ -10,7 +10,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IReporter;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.ReportConfig;
+import kotlin.Deprecated;
 import kotlin.Metadata;
+@Deprecated(message = "废弃不再使用")
 @Keep
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0007\u0018\u00002\u00020\u0001:\u0001\u0006B\u000f\u0012\u0006\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0004\u0010\u0005¨\u0006\u0007"}, d2 = {"Ltv/athena/revenue/api/MiddleReportConfig;", "Lcom/yy/mobile/framework/revenuesdk/baseapi/reporter/ReportConfig;", "Ltv/athena/revenue/api/MiddleReportConfig$MiddleReportConfigBuilder;", "builder", "<init>", "(Ltv/athena/revenue/api/MiddleReportConfig$MiddleReportConfigBuilder;)V", "MiddleReportConfigBuilder", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes9.dex */

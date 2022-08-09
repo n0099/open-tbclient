@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ud5;
+import com.repackage.te5;
 import tbclient.CommonReq;
 import tbclient.NewTopicThread.DataReq;
 import tbclient.NewTopicThread.NewTopicThreadReqIdl;
@@ -20,7 +20,7 @@ public class RequestGetTopicThreadMessage extends NetMessage {
     public String callFrom;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f1044common;
+    public CommonReq f1047common;
     public long lastFeedId;
     public long pageNo;
     public long topicId;
@@ -50,13 +50,13 @@ public class RequestGetTopicThreadMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1298common = this.f1044common;
+            builder.f1303common = this.f1047common;
             builder.topic_id = Long.valueOf(this.topicId);
             builder.page_no = Long.valueOf(this.pageNo);
             builder.last_feed_id = Long.valueOf(this.lastFeedId);
             builder.call_from = this.callFrom;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                ud5.a(builder, true);
+                te5.a(builder, true);
             }
             NewTopicThreadReqIdl.Builder builder2 = new NewTopicThreadReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -75,7 +75,7 @@ public class RequestGetTopicThreadMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, commonReq) == null) {
-            this.f1044common = commonReq;
+            this.f1047common = commonReq;
         }
     }
 

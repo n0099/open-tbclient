@@ -1,50 +1,91 @@
 package com.repackage;
 
-import android.graphics.Color;
-import android.text.TextUtils;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class vm2 {
+public class vm2 implements wm2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
 
-    public static int a(String str, int i) {
-        InterceptResult invokeLI;
-        long parseLong;
+    public vm2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                ix1.o("map", "color string is empty, use default " + Integer.toHexString(i));
-                return i;
-            }
-            try {
-                if (str.charAt(0) == '#') {
-                    String substring = str.substring(1);
-                    if (substring.length() != 6 && substring.length() != 8) {
-                        throw new IllegalArgumentException("char count not right");
-                    }
-                    if (substring.length() == 6) {
-                        parseLong = Long.parseLong(substring, 16) | (-16777216);
-                    } else {
-                        parseLong = Long.parseLong(substring.substring(6) + substring.substring(0, 6), 16);
-                    }
-                    return (int) parseLong;
-                }
-                return Color.parseColor(str);
-            } catch (IllegalArgumentException unused) {
-                ix1.o("map", "parse color error, use default " + Integer.toHexString(i));
-                return i;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeLI.intValue;
+        this.a = -2;
+        this.b = -2;
     }
 
-    public static float b(double d) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.wm2
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d)})) == null) ? (float) (d * zd3.l(AppRuntime.getAppContext())) : invokeCommon.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    @Override // com.repackage.wm2
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.wm2
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.b == -2) {
+                gk2.g0().getSwitch("swan_webview_pause_control", 3);
+                this.b = 3;
+            }
+            return (this.b & 2) == 2;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.wm2
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.b == -2) {
+                gk2.g0().getSwitch("swan_webview_pause_control", 3);
+                this.b = 3;
+            }
+            return (this.b & 1) == 1;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.wm2
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.a == -2) {
+                gk2.g0().getSwitch("swan_webview_backstage_optimize", -1);
+                this.a = -1;
+            }
+            return this.a > -1;
+        }
+        return invokeV.booleanValue;
     }
 }

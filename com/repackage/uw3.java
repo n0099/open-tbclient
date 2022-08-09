@@ -1,168 +1,29 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.center.clearcache.UserSettingForceListListener;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class uw3 {
+public class uw3 extends oc2<sw3> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public JSONObject c;
-    public String d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755246592, "Lcom/repackage/uw3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755246592, "Lcom/repackage/uw3;");
-                return;
-            }
-        }
-        e = sg1.a;
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public uw3() {
+        super(new sw3());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ic2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public final boolean a() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = this.c;
-            boolean z2 = false;
-            if (jSONObject == null) {
-                return false;
-            }
-            int optInt = jSONObject.optInt("bbaspg_guide_count", 3);
-            int optInt2 = this.c.optInt("bbaspg_guide_interval", 72);
-            long optLong = this.c.optLong("bbaspg_guide_last_time", 0L);
-            int optInt3 = this.c.optInt("bbaspg_guide_shown_count", 0);
-            int optInt4 = this.c.optInt("bbaspg_guide_image_index", 0);
-            boolean z3 = System.currentTimeMillis() - optLong > ((long) optInt2) * 3600000;
-            String optString = this.c.optString("filter_channelid");
-            if (TextUtils.isEmpty(optString)) {
-                z = true;
-            } else {
-                String[] split = optString.split(",");
-                String T = h03.K().q().W().T();
-                z = true;
-                for (String str : split) {
-                    if (TextUtils.equals(T, str)) {
-                        z = false;
-                    }
-                }
-            }
-            if (optInt3 < optInt && z3 && z) {
-                z2 = true;
-            }
-            if (e) {
-                Log.i("SwanGameGuideDialogChecker", "isShow:" + z2 + " maxCount" + optInt + " isOverInterval" + z3 + "imageUrl " + this.d + UserSettingForceListListener.FORCE_LIST_ITEM_SHOW_KEY + z2);
-            }
-            if (z2) {
-                d(this.c, optInt4, "bbaspg_guide_images");
-            }
-            return z2;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? i03.M() != null && TextUtils.equals(i03.g0(), "7TxyeScrKPj02EATE68RBG5Z8f46a8So") : invokeV.booleanValue;
-    }
-
-    public final JSONObject c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String string = w83.a().getString("swan_game_guide_toast", "");
-            if (TextUtils.isEmpty(string)) {
-                return null;
-            }
-            try {
-                return new JSONObject(string);
-            } catch (JSONException e2) {
-                if (sg1.a) {
-                    e2.printStackTrace();
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public final int d(JSONObject jSONObject, int i, String str) {
-        InterceptResult invokeLIL;
-        JSONArray optJSONArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, jSONObject, i, str)) == null) {
-            if (jSONObject == null || i < 0 || TextUtils.isEmpty(str) || (optJSONArray = jSONObject.optJSONArray(str)) == null || optJSONArray.length() == 0) {
-                return 0;
-            }
-            if (i >= optJSONArray.length()) {
-                i = 0;
-            }
-            this.d = optJSONArray.optString(i);
-            return i;
-        }
-        return invokeLIL.intValue;
-    }
-
-    public uw3 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            this.a = false;
-            this.b = false;
-            this.d = null;
-            this.c = c();
-            boolean b = b();
-            this.a = b;
-            if (b) {
-                return this;
-            }
-            this.b = a();
-            return this;
-        }
-        return (uw3) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a || this.b : invokeV.booleanValue;
     }
 }

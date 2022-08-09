@@ -46,7 +46,7 @@ public class ReportProtocolMgr {
                 jSONObject.put("isp", reportInfo.getNetInfo().getIsp());
                 jSONObject.put("plat", "andr");
                 jSONObject.put("gid", DataCacheMgr.INSTANCE.getIdentity(GlobalTools.APP_CONTEXT));
-                jSONObject.put("v", "2.2.18-lianyun");
+                jSONObject.put("v", "2.2.28-live");
                 jSONObject.put("timestamp", System.currentTimeMillis());
                 if (reportInfo.getStats0() != null) {
                     jSONObject.put("fc", reportInfo.getFc());

@@ -66,13 +66,13 @@ import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FloatingActionButton extends VisibilityAwareImageButton implements TintableBackgroundView, TintableImageSourceView, ExpandableTransformationWidget, Shapeable, CoordinatorLayout.AttachedBehavior {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AUTO_MINI_LARGEST_SCREEN_WIDTH = 470;
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f10032b = 2131755819;
+    public static final int obfuscated_res_0x7f100333 = 2131755827;
     public static final String EXPANDABLE_WIDGET_HELPER_KEY = "expandableWidgetHelper";
     public static final String LOG_TAG = "FloatingActionButton";
     public static final int NO_CUSTOM_SIZE = 0;
@@ -104,7 +104,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     public int size;
     public final Rect touchArea;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class BaseBehavior<T extends FloatingActionButton> extends CoordinatorLayout.Behavior<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final boolean AUTO_HIDE_DEFAULT = true;
@@ -324,13 +324,13 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
                     return;
                 }
             }
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400c8});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400d2});
             this.autoHideEnabled = obtainStyledAttributes.getBoolean(0, true);
             obtainStyledAttributes.recycle();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class Behavior extends BaseBehavior<FloatingActionButton> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -407,7 +407,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static abstract class OnVisibilityChangedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -439,7 +439,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class ShadowDelegateImpl implements ShadowViewDelegate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -499,11 +499,11 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public @interface Size {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class TransformationCallbackWrapper<T extends FloatingActionButton> implements FloatingActionButtonImpl.InternalTransformationCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1408,7 +1408,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FloatingActionButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040294);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0402bb);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1475,7 +1475,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FloatingActionButton(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f10032b), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100333), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1495,7 +1495,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         this.shadowPadding = new Rect();
         this.touchArea = new Rect();
         Context context2 = getContext();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16842766, R.attr.backgroundTint, R.attr.backgroundTintMode, R.attr.obfuscated_res_0x7f0400e3, R.attr.obfuscated_res_0x7f040215, R.attr.obfuscated_res_0x7f040253, R.attr.obfuscated_res_0x7f040271, R.attr.obfuscated_res_0x7f040272, R.attr.obfuscated_res_0x7f0402c4, R.attr.obfuscated_res_0x7f0402ed, R.attr.obfuscated_res_0x7f040467, R.attr.obfuscated_res_0x7f0404ec, R.attr.obfuscated_res_0x7f040548, R.attr.obfuscated_res_0x7f040592, R.attr.obfuscated_res_0x7f040595, R.attr.obfuscated_res_0x7f04059d, R.attr.obfuscated_res_0x7f0406b9}, i, obfuscated_res_0x7f10032b, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16842766, R.attr.obfuscated_res_0x7f0400b9, R.attr.obfuscated_res_0x7f0400ba, R.attr.obfuscated_res_0x7f0400ed, R.attr.obfuscated_res_0x7f04026d, R.attr.obfuscated_res_0x7f040286, R.attr.obfuscated_res_0x7f0402a3, R.attr.obfuscated_res_0x7f0402a4, R.attr.obfuscated_res_0x7f040304, R.attr.obfuscated_res_0x7f040327, R.attr.obfuscated_res_0x7f0404c1, R.attr.obfuscated_res_0x7f040566, R.attr.obfuscated_res_0x7f0405c7, R.attr.obfuscated_res_0x7f040614, R.attr.obfuscated_res_0x7f040617, R.attr.obfuscated_res_0x7f04061f, R.attr.obfuscated_res_0x7f04074d}, i, obfuscated_res_0x7f100333, new int[0]);
         this.backgroundTint = MaterialResources.getColorStateList(context2, obtainStyledAttributes, 1);
         this.backgroundTintMode = ViewUtils.parseTintMode(obtainStyledAttributes.getInt(2, -1), null);
         this.rippleColor = MaterialResources.getColorStateList(context2, obtainStyledAttributes, 12);
@@ -1506,11 +1506,11 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         float dimension2 = obtainStyledAttributes.getDimension(9, 0.0f);
         float dimension3 = obtainStyledAttributes.getDimension(11, 0.0f);
         this.compatPadding = obtainStyledAttributes.getBoolean(16, false);
-        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07049b);
+        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07049c);
         this.maxImageSize = obtainStyledAttributes.getDimensionPixelSize(10, 0);
         MotionSpec createFromAttribute = MotionSpec.createFromAttribute(context2, obtainStyledAttributes, 15);
         MotionSpec createFromAttribute2 = MotionSpec.createFromAttribute(context2, obtainStyledAttributes, 8);
-        ShapeAppearanceModel build = ShapeAppearanceModel.builder(context2, attributeSet, i, obfuscated_res_0x7f10032b, ShapeAppearanceModel.PILL).build();
+        ShapeAppearanceModel build = ShapeAppearanceModel.builder(context2, attributeSet, i, obfuscated_res_0x7f100333, ShapeAppearanceModel.PILL).build();
         boolean z = obtainStyledAttributes.getBoolean(5, false);
         setEnabled(obtainStyledAttributes.getBoolean(0, true));
         obtainStyledAttributes.recycle();

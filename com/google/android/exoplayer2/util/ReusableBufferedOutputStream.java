@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ReusableBufferedOutputStream extends BufferedOutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

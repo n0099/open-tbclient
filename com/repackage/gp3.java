@@ -1,142 +1,53 @@
 package com.repackage;
 
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.swan.game.ad.utils.NetworkUtils;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.swan.game.ad.downloader.model.DownloadParams;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
+import com.baidu.swan.game.ad.downloader.view.SwanAdDownloadButtonView;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Response;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class gp3 {
+public class gp3 implements ep3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public so3 a;
-    public Context b;
+    public Context a;
+    public SwanAdDownloadButtonView b;
+    public fp3 c;
+    public zo3 d;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yo3 a;
-        public final /* synthetic */ JSONObject b;
-        public final /* synthetic */ gp3 c;
+        public final /* synthetic */ gp3 a;
 
-        /* renamed from: com.repackage.gp3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0489a extends ResponseCallback<qo3> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            /* renamed from: com.repackage.gp3$a$a$a  reason: collision with other inner class name */
-            /* loaded from: classes6.dex */
-            public class RunnableC0490a implements Runnable {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ qo3 a;
-                public final /* synthetic */ C0489a b;
-
-                public RunnableC0490a(C0489a c0489a, qo3 qo3Var) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {c0489a, qo3Var};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.b = c0489a;
-                    this.a = qo3Var;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable = $ic;
-                    if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.a.c.a == null) {
-                        return;
-                    }
-                    this.b.a.c.a.h(this.a);
-                }
-            }
-
-            public C0489a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.searchbox.http.callback.ResponseCallback
-            /* renamed from: a */
-            public void onSuccess(qo3 qo3Var, int i) {
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeLI(1048576, this, qo3Var, i) == null) || qo3Var == null) {
-                    return;
-                }
-                wp3.c(new RunnableC0490a(this, qo3Var));
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.searchbox.http.callback.ResponseCallback
-            /* renamed from: b */
-            public qo3 parseResponse(Response response, int i) {
-                InterceptResult invokeLI;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
-                    if (response == null || response.body() == null || !response.isSuccessful()) {
-                        return null;
-                    }
-                    try {
-                        String string = response.body().string();
-                        if (!TextUtils.isEmpty(string)) {
-                            return new qo3(string);
-                        }
-                    } catch (Exception | OutOfMemoryError e) {
-                        e.printStackTrace();
-                    }
-                    return null;
-                }
-                return (qo3) invokeLI.objValue;
-            }
-
-            @Override // com.baidu.searchbox.http.callback.ResponseCallback
-            public void onFail(Exception exc) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                }
-            }
-        }
-
-        public a(gp3 gp3Var, yo3 yo3Var, JSONObject jSONObject) {
+        public a(gp3 gp3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gp3Var, yo3Var, jSONObject};
+                Object[] objArr = {gp3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -146,52 +57,367 @@ public class gp3 {
                     return;
                 }
             }
-            this.c = gp3Var;
-            this.a = yo3Var;
-            this.b = jSONObject;
+            this.a = gp3Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                C0489a c0489a = new C0489a(this);
-                if (NetworkUtils.f(this.c.b)) {
-                    this.a.b("https://afdconf.baidu.com/afd/download", this.b, c0489a);
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || qp3.b() == null) {
+                return;
+            }
+            if (this.a.c.a == DownloadState.NOT_START || this.a.c.a == DownloadState.DELETED) {
+                qp3.b().d(this.a.a, ((DownloadParams) this.a.p()).a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.a.d);
+            }
+            if (this.a.c.a == DownloadState.DOWNLOADING) {
+                qp3.b().d(this.a.a, ((DownloadParams) this.a.p()).a(), DownloadParams.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, this.a.d);
+            }
+            if (this.a.c.a == DownloadState.DOWNLOAD_PAUSED) {
+                qp3.b().d(this.a.a, ((DownloadParams) this.a.p()).a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.a.d);
+            }
+            if (this.a.c.a == DownloadState.DOWNLOAD_FAILED) {
+                qp3.b().d(this.a.a, ((DownloadParams) this.a.p()).a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.a.d);
+            }
+            if (this.a.c.a == DownloadState.DOWNLOADED) {
+                this.a.d.b();
+                qp3.b().d(this.a.a, ((DownloadParams) this.a.p()).a(), DownloadParams.SwanAppDownloadType.TYPE_INSTALL_APP, this.a.d);
+            }
+            if (this.a.c.a == DownloadState.INSTALLED) {
+                String e = this.a.d.e();
+                if (TextUtils.isEmpty(this.a.c.b) && !TextUtils.isEmpty(e)) {
+                    this.a.a(e);
                 }
+                gp3 gp3Var = this.a;
+                gp3Var.r(gp3Var.c.b);
             }
         }
     }
 
-    public gp3(Context context) {
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-349793655, "Lcom/repackage/gp3$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-349793655, "Lcom/repackage/gp3$b;");
+                    return;
+                }
+            }
+            int[] iArr = new int[DownloadState.values().length];
+            a = iArr;
+            try {
+                iArr[DownloadState.NOT_START.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[DownloadState.DOWNLOADING.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[DownloadState.DOWNLOAD_PAUSED.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[DownloadState.DOWNLOADED.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                a[DownloadState.DOWNLOAD_FAILED.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[DownloadState.INSTALLED.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+        }
+    }
+
+    public gp3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = context;
     }
 
-    public void c(yo3 yo3Var, JSONObject jSONObject) {
+    public static float m(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, yo3Var, jSONObject) == null) {
-            vp3.d(new a(this, yo3Var, jSONObject), "AdLandingDownloadRequest");
+        if (interceptable == null || (invokeF = interceptable.invokeF(65541, null, f)) == null) {
+            DisplayMetrics displayMetrics = AppRuntime.getAppContext().getResources().getDisplayMetrics();
+            return f * (displayMetrics != null ? displayMetrics.density : 0.0f);
+        }
+        return invokeF.floatValue;
+    }
+
+    @Override // com.repackage.ep3
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.c.b = str;
         }
     }
 
-    public void d(so3 so3Var) {
+    @Override // com.repackage.ep3
+    public void b(DownloadState downloadState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, so3Var) == null) {
-            this.a = so3Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadState) == null) {
+            v(downloadState);
+        }
+    }
+
+    @Override // com.repackage.ep3
+    public /* bridge */ /* synthetic */ ep3 c(Context context, DownloadParams downloadParams, zo3 zo3Var) {
+        l(context, downloadParams, zo3Var);
+        return this;
+    }
+
+    @Override // com.repackage.ep3
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            t(i);
+        }
+    }
+
+    @Override // com.repackage.ep3
+    public void e(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+            this.b.setTag(obj);
+        }
+    }
+
+    @Override // com.repackage.ep3
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            u(this.b);
+        }
+    }
+
+    @Override // com.repackage.ep3
+    public View getRealView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (View) invokeV.objValue;
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.b = new SwanAdDownloadButtonView(this.a);
+            String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1274);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+            layoutParams.gravity = 81;
+            layoutParams.bottomMargin = (int) (this.a.getResources().getDisplayMetrics().heightPixels * 0.14d);
+            this.b.setLayoutParams(layoutParams);
+            float n = n(this.a, R.dimen.obfuscated_res_0x7f070656);
+            int color = this.a.getResources().getColor(R.color.obfuscated_res_0x7f060a67);
+            u(this.b);
+            SwanAdDownloadButtonView swanAdDownloadButtonView = this.b;
+            swanAdDownloadButtonView.j(m(n));
+            swanAdDownloadButtonView.f(true);
+            swanAdDownloadButtonView.i(-1);
+            swanAdDownloadButtonView.h(color);
+            swanAdDownloadButtonView.g(true);
+            this.b.setText(string);
+            this.b.setVisibility(0);
+            this.b.setProgress(this.c.c);
+        }
+    }
+
+    public gp3 l(Context context, DownloadParams downloadParams, zo3 zo3Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, downloadParams, zo3Var)) == null) {
+            this.a = context;
+            this.c = fp3.a(downloadParams.a, downloadParams.b);
+            this.d = zo3Var;
+            k();
+            q();
+            return this;
+        }
+        return (gp3) invokeLLL.objValue;
+    }
+
+    public final float n(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, context, i)) == null) {
+            TypedValue typedValue = new TypedValue();
+            context.getResources().getValue(i, typedValue, true);
+            return typedValue.getFloat();
+        }
+        return invokeLI.floatValue;
+    }
+
+    public final ResolveInfo o(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, context, str)) == null) {
+            if (context == null || TextUtils.isEmpty(str)) {
+                return null;
+            }
+            Intent intent = new Intent("android.intent.action.MAIN");
+            intent.addCategory("android.intent.category.LAUNCHER");
+            intent.setPackage(str);
+            List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
+            if (queryIntentActivities.size() > 0) {
+                return queryIntentActivities.iterator().next();
+            }
+            return null;
+        }
+        return (ResolveInfo) invokeLL.objValue;
+    }
+
+    public Object p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.b.getTag() : invokeV.objValue;
+    }
+
+    public final void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.b.setOnClickListener(new a(this));
+        }
+    }
+
+    public final void r(String str) {
+        ResolveInfo o;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || TextUtils.isEmpty(str) || (o = o(this.a, str)) == null) {
+            return;
+        }
+        Intent intent = new Intent("android.intent.action.MAIN");
+        intent.addCategory("android.intent.category.LAUNCHER");
+        ActivityInfo activityInfo = o.activityInfo;
+        intent.setComponent(new ComponentName(activityInfo.packageName, activityInfo.name));
+        intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+        try {
+            this.a.startActivity(intent);
+        } catch (Exception unused) {
+        }
+    }
+
+    public final int s(DownloadState downloadState) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, downloadState)) == null) {
+            switch (b.a[downloadState.ordinal()]) {
+                case 1:
+                default:
+                    return R.string.obfuscated_res_0x7f0f1274;
+                case 2:
+                    return R.string.obfuscated_res_0x7f0f1279;
+                case 3:
+                    return R.string.obfuscated_res_0x7f0f1275;
+                case 4:
+                    return R.string.obfuscated_res_0x7f0f1277;
+                case 5:
+                    return R.string.obfuscated_res_0x7f0f1276;
+                case 6:
+                    return R.string.obfuscated_res_0x7f0f1278;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public final void t(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            fp3 fp3Var = this.c;
+            if (i != fp3Var.c) {
+                fp3Var.c = i;
+                w();
+            }
+        }
+    }
+
+    public final void u(View view2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, view2) == null) || view2 == null) {
+            return;
+        }
+        float n = n(this.a, R.dimen.obfuscated_res_0x7f070657);
+        float n2 = n(this.a, R.dimen.obfuscated_res_0x7f070655);
+        ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+        if (layoutParams == null) {
+            layoutParams = new ViewGroup.LayoutParams(-1, -2);
+            view2.setLayoutParams(layoutParams);
+        }
+        if (n >= 0.0f && n <= 1.0f) {
+            n *= this.a.getResources().getDisplayMetrics().widthPixels;
+        }
+        if (n2 > 0.0f && n2 <= 1.0f) {
+            n2 *= this.a.getResources().getDisplayMetrics().heightPixels;
+        }
+        layoutParams.width = (int) n;
+        layoutParams.height = (int) n2;
+    }
+
+    public final void v(DownloadState downloadState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, downloadState) == null) {
+            fp3 fp3Var = this.c;
+            if (downloadState != fp3Var.a) {
+                fp3Var.a = downloadState;
+                w();
+            }
+        }
+    }
+
+    public final void w() {
+        String string;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            fp3 fp3Var = this.c;
+            if (fp3Var.a == DownloadState.DOWNLOADING) {
+                SwanAdDownloadButtonView swanAdDownloadButtonView = this.b;
+                if (swanAdDownloadButtonView != null && swanAdDownloadButtonView.getVisibility() != 8) {
+                    if (this.c.c < this.b.getMax()) {
+                        String string2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1273);
+                        string = String.format(string2, this.c.c + "%");
+                    } else {
+                        string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1277);
+                    }
+                    this.b.setText(string);
+                    this.b.setProgress(this.c.c);
+                }
+            } else {
+                if (qq3.a(this.a, fp3Var.b)) {
+                    this.c.a = DownloadState.INSTALLED;
+                }
+                String string3 = this.a.getResources().getString(s(this.c.a));
+                if (this.c.a == DownloadState.DOWNLOADED) {
+                    this.b.setProgress(100);
+                }
+                fp3 fp3Var2 = this.c;
+                if (fp3Var2.a == DownloadState.DOWNLOAD_PAUSED) {
+                    this.b.setProgress(fp3Var2.c);
+                }
+                this.b.setText(string3);
+            }
+            SwanAdDownloadButtonView swanAdDownloadButtonView2 = this.b;
+            if (swanAdDownloadButtonView2 != null) {
+                swanAdDownloadButtonView2.postInvalidate();
+            }
         }
     }
 }

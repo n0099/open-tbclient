@@ -1,172 +1,137 @@
 package com.repackage;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.Base64;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.security.RSAUtil;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.KeyFactory;
-import java.security.interfaces.RSAPublicKey;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.Cipher;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class vf1 {
     public static /* synthetic */ Interceptable $ic;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    public static String a(Context context, String str) {
-        InterceptResult invokeLL;
+    public vf1(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            if (context != null && str != null) {
-                try {
-                    return new String(rf1.b(tf1.h(context).getBytes(), Base64.decode(str, 0), true));
-                } catch (Throwable th) {
-                    tf1.d(th);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return null;
         }
-        return (String) invokeLL.objValue;
+        this.a = ze1.a;
     }
 
-    public static String b(Context context, byte[] bArr) {
-        InterceptResult invokeLL;
-        byte[] a;
+    public static synchronized vf1 a(Context context) {
+        InterceptResult invokeL;
+        vf1 vf1Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, bArr)) == null) {
-            if (bArr != null) {
-                try {
-                    if (bArr.length != 0 && (a = rf1.a(tf1.h(context).getBytes(), bArr)) != null && a.length > 0) {
-                        return Base64.encodeToString(a, 0);
-                    }
-                    return null;
-                } catch (Throwable th) {
-                    tf1.d(th);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            synchronized (vf1.class) {
+                vf1Var = new vf1(context);
             }
-            return null;
+            return vf1Var;
         }
-        return (String) invokeLL.objValue;
+        return (vf1) invokeL.objValue;
     }
 
-    public static String c(byte[] bArr, String str) {
+    public String b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            String str3 = xe1.b;
+            String str4 = xe1.c;
+            String str5 = "";
+            if (TextUtils.isEmpty(str3) || TextUtils.isEmpty(str4)) {
+                return "";
+            }
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            StringBuilder sb = new StringBuilder();
             try {
-                RSAPublicKey d = d(str);
-                if (d == null) {
-                    return "";
-                }
-                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                cipher.init(1, d);
-                return Base64.encodeToString(cipher.doFinal(bArr), 0);
+                str5 = c(str3, str4, currentTimeMillis);
             } catch (Throwable th) {
-                tf1.d(th);
+                kg1.d(th);
+            }
+            sb.append(f());
+            sb.append(str);
+            sb.append("/");
+            sb.append("100");
+            sb.append("/");
+            sb.append(str3);
+            sb.append("/");
+            sb.append(currentTimeMillis);
+            sb.append("/");
+            sb.append(str5);
+            sb.append("?skey=");
+            sb.append(str2);
+            return sb.toString();
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public String c(String str, String str2, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j)})) == null) {
+            try {
+                return og1.b(str + j + str2);
+            } catch (Throwable th) {
+                kg1.d(th);
                 return "";
             }
         }
-        return (String) invokeLL.objValue;
+        return (String) invokeCommon.objValue;
     }
 
-    public static RSAPublicKey d(String str) {
-        InterceptResult invokeL;
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
-                return (RSAPublicKey) KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str, 0)));
+                b = new String(mg1.e(Base64.decode(this.a, 0), "30212102dicudiab".getBytes(IMAudioTransRequest.CHARSET)));
             } catch (Throwable th) {
-                tf1.d(th);
-                return null;
+                kg1.d(th);
             }
         }
-        return (RSAPublicKey) invokeL.objValue;
     }
 
-    public static byte[] e(byte[] bArr, byte[] bArr2) {
+    public byte[] e(byte[] bArr, String str) {
         InterceptResult invokeLL;
+        byte[] bArr2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, bArr2)) == null) {
-            byte[] bArr3 = null;
-            if (bArr2 != null) {
-                try {
-                    if (bArr2.length > 0 && bArr != null && bArr.length > 0 && (bArr3 = rf1.b(bArr2, bArr, true)) != null) {
-                        if (bArr3.length > 0) {
-                            return bArr3;
-                        }
-                    }
-                } catch (Throwable th) {
-                    tf1.d(th);
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, bArr, str)) == null) {
+            try {
+                bArr2 = ng1.b(str.getBytes(IMAudioTransRequest.CHARSET));
+            } catch (Throwable th) {
+                kg1.d(th);
+                bArr2 = null;
             }
-            return bArr3;
+            return mg1.f(bArr2, bArr);
         }
         return (byte[]) invokeLL.objValue;
     }
 
-    public static byte[] f(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
+    public final String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bArr, bArr2)) == null) {
-            byte[] bArr3 = null;
-            if (bArr2 != null) {
-                try {
-                    if (bArr2.length > 0 && bArr != null && bArr.length > 0 && (bArr3 = rf1.a(bArr2, bArr)) != null) {
-                        if (bArr3.length > 0) {
-                            return bArr3;
-                        }
-                    }
-                } catch (Throwable th) {
-                    tf1.d(th);
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (TextUtils.isEmpty(b)) {
+                d();
             }
-            return bArr3;
+            return b;
         }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static byte[] g(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, bArr, bArr2)) == null) {
-            byte[] bArr3 = null;
-            if (bArr2 != null) {
-                try {
-                    if (bArr2.length > 0 && bArr != null && bArr.length > 0 && (bArr3 = zf1.b(bArr, bArr2)) != null) {
-                        if (bArr3.length > 0) {
-                            return bArr3;
-                        }
-                    }
-                } catch (Throwable th) {
-                    tf1.d(th);
-                }
-            }
-            return bArr3;
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static byte[] h(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, bArr, bArr2)) == null) {
-            byte[] bArr3 = null;
-            if (bArr2 != null) {
-                try {
-                    if (bArr2.length > 0 && bArr != null && bArr.length > 0 && (bArr3 = zf1.c(bArr, bArr2)) != null) {
-                        if (bArr3.length > 0) {
-                            return bArr3;
-                        }
-                    }
-                } catch (Throwable th) {
-                    tf1.d(th);
-                }
-            }
-            return bArr3;
-        }
-        return (byte[]) invokeLL.objValue;
+        return (String) invokeV.objValue;
     }
 }

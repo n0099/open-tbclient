@@ -14,9 +14,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mw5;
-import com.repackage.ow5;
-import com.repackage.pi;
+import com.repackage.ey5;
+import com.repackage.gy5;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class VotedAreaLayout extends CardBasicLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -48,7 +48,7 @@ public class VotedAreaLayout extends CardBasicLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0924a7);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0925cc);
         }
     }
 
@@ -61,10 +61,10 @@ public class VotedAreaLayout extends CardBasicLayout {
             setOrientation(0);
             setGravity(17);
             setBackgroundResource(R.drawable.bar_select_bg_voted_area_layout);
-            setMinimumHeight(pi.f(getContext(), R.dimen.tbds62));
-            setMinimumWidth(pi.f(getContext(), R.dimen.tbds172));
+            setMinimumHeight(qi.f(getContext(), R.dimen.tbds62));
+            setMinimumWidth(qi.f(getContext(), R.dimen.tbds172));
             setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08c1, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08ed, (ViewGroup) this, true);
             a();
         }
     }
@@ -78,10 +78,10 @@ public class VotedAreaLayout extends CardBasicLayout {
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i, ow5 ow5Var) {
+    public void setData(int i, gy5 gy5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, ow5Var) == null) {
-            super.setData(i, ow5Var);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, gy5Var) == null) {
+            super.setData(i, gy5Var);
             if (this.b != null && this.c != null && this.a >= 0) {
                 TextView textView = this.e;
                 textView.setText(StringHelper.numFormatOverWan(this.c.m()) + "票");
@@ -92,12 +92,12 @@ public class VotedAreaLayout extends CardBasicLayout {
         }
     }
 
-    public void setMyRecordData(mw5 mw5Var) {
+    public void setMyRecordData(ey5 ey5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, mw5Var) == null) || mw5Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, ey5Var) == null) || ey5Var == null) {
             return;
         }
-        this.c = mw5Var;
+        this.c = ey5Var;
         TextView textView = this.e;
         textView.setText(StringHelper.numFormatOverWan(this.c.m()) + "票");
     }

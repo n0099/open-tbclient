@@ -1,5 +1,6 @@
 package com.badlogic.gdx.graphics.g2d;
 
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.common.others.lang.StringUtil;
@@ -87,7 +88,7 @@ public class Gdx2DPixmap implements h7 {
         if (interceptable == null || (invokeI = interceptable.invokeI(65549, null, i)) == null) {
             switch (i) {
                 case 1:
-                    return "alpha";
+                    return Key.ALPHA;
                 case 2:
                     return "luminance alpha";
                 case 3:

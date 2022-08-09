@@ -1,6 +1,7 @@
 package com.yy.gslbsdk;
 
 import android.content.Context;
+import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -40,6 +41,7 @@ public class HttpDnsService {
     public transient /* synthetic */ FieldHolder $fh;
     public DegradationFilter mDegradationFilter;
     public AtomicBoolean mInit;
+    public AtomicBoolean mUpdateIp;
 
     /* loaded from: classes8.dex */
     public interface DegradationFilter {
@@ -76,6 +78,7 @@ public class HttpDnsService {
         }
         this.mDegradationFilter = null;
         this.mInit = new AtomicBoolean(false);
+        this.mUpdateIp = new AtomicBoolean(true);
     }
 
     public static synchronized void destroyService() {
@@ -109,6 +112,7 @@ public class HttpDnsService {
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             synchronized (this.mInit) {
                 if (this.mInit.get()) {
+                    this.mUpdateIp.set(true);
                     return;
                 }
                 IpVersionController.getInstance().judgeIpVersion();
@@ -117,6 +121,7 @@ public class HttpDnsService {
                 ServerIPMgr.getInstance().updateServerIpByLocalDns(GlobalTools.APP_CONTEXT);
                 AsynTaskMgr.INSTANCE.startMonitors();
                 this.mInit.set(true);
+                this.mUpdateIp.set(false);
                 LogTools.printDebug(TAG, "init, mHttpDnsService: " + mHttpDnsService);
             }
         }
@@ -154,11 +159,17 @@ public class HttpDnsService {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) ? getIpsByHostAsync(str, false) : (DnsResultInfo) invokeL.objValue;
     }
 
+    public int getNetWorkStackStatus() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? IpVersionController.getInstance().getCurrIpVer() : invokeV.intValue;
+    }
+
     @Deprecated
     public int getNextRequestId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             LogTools.printDebug(TAG, "This interface is Deprecated.");
             return -1;
         }
@@ -168,54 +179,54 @@ public class HttpDnsService {
     public String getSdkVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? "2.2.18-lianyun" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? "2.2.28-live" : (String) invokeV.objValue;
     }
 
     public void loadAssetsIp(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
             ExternalCache.getInstance().loadFromAssets(GlobalTools.APP_CONTEXT, str);
         }
     }
 
     public void setBackgroundModel(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
             GlobalTools.IS_BACKGOUND_MODEL = z;
         }
     }
 
     public void setCacheMaxExpired(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             GlobalTools.TTL_HOST_ALIVE_SECOND = Math.max(GlobalTools.TTL_HOST_ALIVE_SECOND, i);
         }
     }
 
     public void setDectorHost(String str, int i, int i2, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2}) == null) {
             QualityDetectFlow.getInstance().updateDectorList(str, i, i2, str2);
         }
     }
 
     public void setDegradationFilter(DegradationFilter degradationFilter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, degradationFilter) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, degradationFilter) == null) {
             this.mDegradationFilter = degradationFilter;
         }
     }
 
     public void setEnableIpv6(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
             IpVersionController.getInstance().setEnableIpv6(z);
         }
     }
 
     public void setExternalIpData(Map<String, Map<String, List<String>>> map, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048595, this, map, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048596, this, map, i) == null) {
             ExternalCache.getInstance().setData(map);
             ExternalCache.getInstance().setScene(i);
         }
@@ -223,42 +234,42 @@ public class HttpDnsService {
 
     public void setExternalIpEnable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
             ExternalCache.getInstance().setEnable(z);
         }
     }
 
     public void setExternalIpNetType(ExternalCache.NetType netType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, netType) == null) {
+        if (interceptable == null || interceptable.invokeL(1048598, this, netType) == null) {
             ExternalCache.getInstance().setNetType(netType);
         }
     }
 
     public void setExternalIpScene(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
             ExternalCache.getInstance().setScene(i);
         }
     }
 
     public void setGslbEventMessager(GslbEvent.GslbEventListener gslbEventListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, gslbEventListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048600, this, gslbEventListener) == null) {
             GslbEvent.INSTANCE.setListener(gslbEventListener);
         }
     }
 
     public void setGslbStatistic(StatisticMgr.IGslbStatistic iGslbStatistic) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, iGslbStatistic) == null) {
+        if (interceptable == null || interceptable.invokeL(1048601, this, iGslbStatistic) == null) {
             StatisticMgr.getInstance().setStatistic(iGslbStatistic);
         }
     }
 
     public void setHttpsEnable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
             if (z) {
                 setHttpsEnable(1);
             } else {
@@ -269,14 +280,14 @@ public class HttpDnsService {
 
     public void setLogEnabled(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
             GlobalTools.LOG_IS_OPEN = z;
         }
     }
 
     public void setMinTTL(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048604, this, i) == null) || i < 180) {
+        if (!(interceptable == null || interceptable.invokeI(1048605, this, i) == null) || i < 180) {
             return;
         }
         GlobalTools.sMinSecondTTL = i;
@@ -284,7 +295,7 @@ public class HttpDnsService {
 
     public void setNetworkStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
             IpVersionController.getInstance().setNetworkStatus(i);
         }
     }
@@ -292,7 +303,7 @@ public class HttpDnsService {
     @Deprecated
     public void setNetworkSupportV6(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048606, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
             IpVersionController.getInstance().setNetworkStatus(z ? 3 : 1);
         }
     }
@@ -300,21 +311,27 @@ public class HttpDnsService {
     @Deprecated
     public void setPreResolveAfterNetworkChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
             GlobalTools.REFRESH_AFTER_NETWORK_CHANGE = z;
         }
     }
 
     public void setPreResolveHosts(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeL(1048609, this, arrayList) == null) {
             DnsResolveFlow.getInstance().updateHostList(arrayList, true);
+            init();
+            if (Build.VERSION.SDK_INT == 28) {
+                DnsResolveFlow.getInstance().preHost(arrayList);
+            } else {
+                DnsResolveFlow.getInstance().preHost();
+            }
         }
     }
 
     public void setReport(String str, String str2, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && QualityDetectFlow.getInstance().canReport(str)) {
+        if ((interceptable == null || interceptable.invokeCommon(1048611, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && QualityDetectFlow.getInstance().canReport(str)) {
             QualityDetectFlow.getInstance().addReportData(str, str2, j);
         }
     }
@@ -343,45 +360,6 @@ public class HttpDnsService {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, z)) == null) ? getIpsByHostAsync(str, z, true) : (DnsResultInfo) invokeLZ.objValue;
-    }
-
-    public void setPreResolveHosts(ArrayList<String> arrayList, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048609, this, arrayList, j) == null) {
-            AsynTaskMgr.INSTANCE.postDelayed(new Runnable(this, arrayList) { // from class: com.yy.gslbsdk.HttpDnsService.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ HttpDnsService this$0;
-                public final /* synthetic */ ArrayList val$hostList;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, arrayList};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$hostList = arrayList;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        DnsResolveFlow.getInstance().updateHostList(this.val$hostList, true);
-                    }
-                }
-            }, j);
-        }
     }
 
     public static synchronized HttpDnsService getService(Context context, String str, ThreadPoolMgr.ITaskExecutor iTaskExecutor, String str2, boolean z, String str3) {
@@ -417,21 +395,21 @@ public class HttpDnsService {
             DegradationFilter degradationFilter = this.mDegradationFilter;
             boolean shouldDegradeHttpDNS = degradationFilter != null ? degradationFilter.shouldDegradeHttpDNS(str) : false;
             LogTools.printDebug(TAG, String.format(Locale.US, "getIpsByHostAsync, host: %s, expiredIPEnabled: %b, enableLocalDns: %b", str, Boolean.valueOf(z), Boolean.valueOf(z2)));
-            return DnsResolveFlow.getInstance().handleDNS(str, shouldDegradeHttpDNS, true, z, false, z2);
+            return DnsResolveFlow.getInstance().handleDNS(str, shouldDegradeHttpDNS, true, z, false, z2, this.mUpdateIp.get());
         }
         return (DnsResultInfo) invokeCommon.objValue;
     }
 
     public void setExternalIpData(Map<String, Map<String, List<String>>> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, map) == null) {
+        if (interceptable == null || interceptable.invokeL(1048595, this, map) == null) {
             ExternalCache.getInstance().setData(map);
         }
     }
 
     public void setHttpsEnable(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
             HttpsLevelMgr.getInstance().setHttpsLevel(i);
         }
     }
@@ -464,7 +442,7 @@ public class HttpDnsService {
             DegradationFilter degradationFilter = this.mDegradationFilter;
             boolean shouldDegradeHttpDNS = degradationFilter != null ? degradationFilter.shouldDegradeHttpDNS(str) : false;
             LogTools.printDebug(TAG, String.format(Locale.US, "getIpsByHost, host: %s, forceRefresh: %b, enableLocalDns: %b", str, Boolean.valueOf(z), Boolean.valueOf(z2)));
-            return DnsResolveFlow.getInstance().handleDNS(str, shouldDegradeHttpDNS, false, false, z, z2);
+            return DnsResolveFlow.getInstance().handleDNS(str, shouldDegradeHttpDNS, false, false, z, z2, this.mUpdateIp.get());
         }
         return (DnsResultInfo) invokeCommon.objValue;
     }
@@ -526,6 +504,45 @@ public class HttpDnsService {
             return httpDnsService;
         }
         return (HttpDnsService) invokeCommon.objValue;
+    }
+
+    public void setPreResolveHosts(ArrayList<String> arrayList, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048610, this, arrayList, j) == null) {
+            AsynTaskMgr.INSTANCE.postDelayed(new Runnable(this, arrayList) { // from class: com.yy.gslbsdk.HttpDnsService.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ HttpDnsService this$0;
+                public final /* synthetic */ ArrayList val$hostList;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, arrayList};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$hostList = arrayList;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        DnsResolveFlow.getInstance().updateHostList(this.val$hostList, true);
+                    }
+                }
+            }, j);
+        }
     }
 
     public static synchronized HttpDnsService getService() {

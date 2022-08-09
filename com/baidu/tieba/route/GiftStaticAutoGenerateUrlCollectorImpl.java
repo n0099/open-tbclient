@@ -2,6 +2,7 @@ package com.baidu.tieba.route;
 
 import com.baidu.adp.framework.cmdRouter.ICmdRouter;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class GiftStaticAutoGenerateUrlCollectorImpl implements ICmdRouter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,8 +54,7 @@ public final class GiftStaticAutoGenerateUrlCollectorImpl implements ICmdRouter 
             ArrayList arrayList = new ArrayList();
             arrayList.add("MyGiftListActivityConfig");
             arrayList.add("GiftTabActivityConfig");
-            arrayList.add("https://tieba.baidu.com/user/gift");
-            arrayList.add("https://tieba.baidu.com/user/gift");
+            arrayList.add(UrlSchemaHelper.HTTP_JUMP_TO_USER_GIFT);
             hashMap.put("com.baidu.tieba.gift.giftTab.GiftStatic", arrayList);
             return hashMap;
         }

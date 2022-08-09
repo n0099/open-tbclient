@@ -1,25 +1,58 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import com.baidu.tieba.video.editvideo.data.PendantData;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
+import tbclient.GetPendantByCategory.ThemePendantInMain;
+import tbclient.ThemeBgProp;
 /* loaded from: classes6.dex */
-public interface eq8 {
-    void a0();
+public class eq8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public List<DressItemData> b;
 
-    void g();
+    public eq8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void l0(String str);
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
 
-    void m();
+    public List<DressItemData> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (List) invokeV.objValue;
+    }
 
-    void onNext();
-
-    void q0(String str);
-
-    void q1(Bitmap bitmap);
-
-    void t(List<PendantData> list);
-
-    void z();
+    public void c(ThemePendantInMain themePendantInMain) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themePendantInMain) == null) || themePendantInMain == null) {
+            return;
+        }
+        this.a = themePendantInMain.pendant_category;
+        this.b = new ArrayList();
+        for (ThemeBgProp themeBgProp : themePendantInMain.props) {
+            this.b.add(new DressItemData(themeBgProp));
+        }
+    }
 }

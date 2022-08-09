@@ -1,46 +1,26 @@
 package com.repackage;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tblauncher.MainTabActivity;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 /* loaded from: classes6.dex */
-public class fn8 extends CustomMessageListener {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final nl8 b;
+public interface fn8 {
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fn8(MainTabActivity mainTabActivity) {
-        super(2921509);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    /* loaded from: classes6.dex */
+    public interface a {
+
+        /* renamed from: com.repackage.fn8$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public interface InterfaceC0478a {
+            void a(@NonNull f15 f15Var);
+
+            boolean b();
         }
-        this.a = mainTabActivity;
-        this.b = mainTabActivity.f;
+
+        void a(@Nullable InterfaceC0478a interfaceC0478a);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Boolean)) {
-        }
-    }
+    int getCurrentTabType();
+
+    @NonNull
+    a j0();
 }

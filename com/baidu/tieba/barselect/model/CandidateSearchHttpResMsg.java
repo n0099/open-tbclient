@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jw5;
+import com.repackage.by5;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.Search.SearchResIdl;
@@ -15,7 +15,7 @@ import tbclient.Search.SearchResIdl;
 public class CandidateSearchHttpResMsg extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jw5 candidateData;
+    public by5 candidateData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CandidateSearchHttpResMsg() {
@@ -51,9 +51,9 @@ public class CandidateSearchHttpResMsg extends TbHttpResponsedMessage {
                 setErrorString(searchResIdl.error.errmsg);
             }
             if (searchResIdl.data.uid.longValue() != 0) {
-                jw5 jw5Var = new jw5();
-                this.candidateData = jw5Var;
-                jw5Var.a(searchResIdl.data);
+                by5 by5Var = new by5();
+                this.candidateData = by5Var;
+                by5Var.a(searchResIdl.data);
                 if (getOrginalMessage() == null || !(getOrginalMessage().getExtra() instanceof CandidateSearchReqMsg)) {
                     return;
                 }

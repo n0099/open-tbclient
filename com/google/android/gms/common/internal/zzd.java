@@ -11,22 +11,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bk9;
-import com.repackage.dk9;
-/* loaded from: classes4.dex */
+import com.repackage.wm9;
+import com.repackage.ym9;
+/* loaded from: classes5.dex */
 public final class zzd extends zzab {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public bk9 zza;
+    public wm9 zza;
     public final int zzb;
 
-    public zzd(@NonNull bk9 bk9Var, int i) {
+    public zzd(@NonNull wm9 wm9Var, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bk9Var, Integer.valueOf(i)};
+            Object[] objArr = {wm9Var, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -36,7 +36,7 @@ public final class zzd extends zzab {
                 return;
             }
         }
-        this.zza = bk9Var;
+        this.zza = wm9Var;
         this.zzb = i;
     }
 
@@ -45,7 +45,7 @@ public final class zzd extends zzab {
     public final void onPostInitComplete(int i, @NonNull IBinder iBinder, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048576, this, i, iBinder, bundle) == null) {
-            dk9.e(this.zza, "onPostInitComplete can be called only once per call to getRemoteService");
+            ym9.e(this.zza, "onPostInitComplete can be called only once per call to getRemoteService");
             this.zza.a(i, iBinder, bundle, this.zzb);
             this.zza = null;
         }
@@ -65,10 +65,10 @@ public final class zzd extends zzab {
     public final void zzc(int i, @NonNull IBinder iBinder, @NonNull zzj zzjVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, iBinder, zzjVar) == null) {
-            bk9 bk9Var = this.zza;
-            dk9.e(bk9Var, "onPostInitCompleteWithConnectionInfo can be called only once per call togetRemoteService");
-            dk9.d(zzjVar);
-            bk9.c(bk9Var, zzjVar);
+            wm9 wm9Var = this.zza;
+            ym9.e(wm9Var, "onPostInitCompleteWithConnectionInfo can be called only once per call togetRemoteService");
+            ym9.d(zzjVar);
+            wm9.c(wm9Var, zzjVar);
             onPostInitComplete(i, iBinder, zzjVar.zza);
         }
     }

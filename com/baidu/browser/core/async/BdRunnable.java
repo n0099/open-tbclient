@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
 import com.repackage.aw;
-import com.repackage.zv;
+import com.repackage.bw;
 /* loaded from: classes.dex */
-public abstract class BdRunnable implements Runnable, aw {
+public abstract class BdRunnable implements Runnable, bw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public aw a;
+    public bw a;
     public STATUS b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -100,16 +100,16 @@ public abstract class BdRunnable implements Runnable, aw {
         this.b = STATUS.INITED;
     }
 
-    @Override // com.repackage.aw
+    @Override // com.repackage.bw
     public void a(Error error) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, error) == null) {
             this.b = STATUS.FAIL;
-            aw awVar = this.a;
-            if (awVar != null) {
-                awVar.a(error);
+            bw bwVar = this.a;
+            if (bwVar != null) {
+                bwVar.a(error);
             }
-            zv.f().d();
+            aw.f().d();
         }
     }
 
@@ -125,40 +125,40 @@ public abstract class BdRunnable implements Runnable, aw {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.aw
+    @Override // com.repackage.bw
     public void onComplete() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.b = STATUS.COMPLETE;
-            aw awVar = this.a;
-            if (awVar != null) {
-                awVar.onComplete();
+            bw bwVar = this.a;
+            if (bwVar != null) {
+                bwVar.onComplete();
             }
-            zv.f().d();
+            aw.f().d();
         }
     }
 
-    @Override // com.repackage.aw
+    @Override // com.repackage.bw
     public void onException(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, exc) == null) {
             this.b = STATUS.FAIL;
-            aw awVar = this.a;
-            if (awVar != null) {
-                awVar.onException(exc);
+            bw bwVar = this.a;
+            if (bwVar != null) {
+                bwVar.onException(exc);
             }
-            zv.f().d();
+            aw.f().d();
         }
     }
 
-    @Override // com.repackage.aw
+    @Override // com.repackage.bw
     public void onStart() {
-        aw awVar;
+        bw bwVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (awVar = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (bwVar = this.a) == null) {
             return;
         }
-        awVar.onStart();
+        bwVar.onStart();
     }
 
     @Override // java.lang.Runnable

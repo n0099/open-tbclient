@@ -1,47 +1,133 @@
 package com.repackage;
 
-import android.webkit.JsPromptResult;
+import android.graphics.Matrix;
+import android.graphics.PointF;
+import android.graphics.RectF;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.z7;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class e46 implements y36 {
+public final class e46 implements z7.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public h26 a;
+    public d26 b;
+    public PointF c;
+    public RectF d;
+    public Matrix e;
+    public float f;
+    public boolean g;
 
-    public e46() {
+    public e46(h26 item, d26 drawingCache, PointF position, RectF rect, Matrix transform) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {item, drawingCache, position, rect, transform};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(item, "item");
+        Intrinsics.checkNotNullParameter(drawingCache, "drawingCache");
+        Intrinsics.checkNotNullParameter(position, "position");
+        Intrinsics.checkNotNullParameter(rect, "rect");
+        Intrinsics.checkNotNullParameter(transform, "transform");
+        this.a = item;
+        this.b = drawingCache;
+        this.c = position;
+        this.d = rect;
+        this.e = transform;
+        this.f = 1.0f;
     }
 
-    @Override // com.repackage.y36
-    public void a(String str, String str2, String str3, String str4, JsPromptResult jsPromptResult) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLLL(1048576, this, str, str2, str3, str4, jsPromptResult) == null) && b().equals(str)) {
-            try {
-                x36.f().i(str2, str3);
-            } catch (Throwable unused) {
-                x36.f().e();
-            }
-        }
-    }
-
-    @Override // com.repackage.y36
-    public String b() {
+    public final float a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "showNativeDialog" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : invokeV.floatValue;
+    }
+
+    public final d26 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (d26) invokeV.objValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : invokeV.booleanValue;
+    }
+
+    public final h26 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (h26) invokeV.objValue;
+    }
+
+    public final PointF e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (PointF) invokeV.objValue;
+    }
+
+    public final RectF f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : (RectF) invokeV.objValue;
+    }
+
+    public final Matrix g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : (Matrix) invokeV.objValue;
+    }
+
+    public final void h(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
+            this.f = f;
+        }
+    }
+
+    public final void i(d26 d26Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, d26Var) == null) {
+            Intrinsics.checkNotNullParameter(d26Var, "<set-?>");
+            this.b = d26Var;
+        }
+    }
+
+    public final void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public final void k(h26 h26Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, h26Var) == null) {
+            Intrinsics.checkNotNullParameter(h26Var, "<set-?>");
+            this.a = h26Var;
+        }
+    }
+
+    @Override // com.repackage.z7.a
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        }
     }
 }

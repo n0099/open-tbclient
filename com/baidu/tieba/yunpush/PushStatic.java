@@ -23,10 +23,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bb;
-import com.repackage.l09;
-import com.repackage.qy4;
-import com.repackage.yt4;
+import com.repackage.cb;
+import com.repackage.g39;
+import com.repackage.lz4;
+import com.repackage.ru4;
 /* loaded from: classes4.dex */
 public class PushStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -34,7 +34,7 @@ public class PushStatic {
     public static CustomMessageListener b;
     public static CustomMessageListener c;
     public static CustomMessageListener d;
-    public static bb e;
+    public static cb e;
     public static CustomMessageListener f;
     public static CustomMessageListener g;
     public transient /* synthetic */ FieldHolder $fh;
@@ -217,7 +217,7 @@ public class PushStatic {
     }
 
     /* loaded from: classes4.dex */
-    public static class e extends bb {
+    public static class e extends cb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -423,7 +423,7 @@ public class PushStatic {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65542, null) == null) && TbadkCoreApplication.getInst().isMainProcess(false)) {
             boolean areNotificationsEnabled = NotificationManagerCompat.from(TbadkCoreApplication.getInst()).areNotificationsEnabled();
-            boolean l = TbadkCoreApplication.isLogin() ? qy4.d().l() : false;
+            boolean l = TbadkCoreApplication.isLogin() ? lz4.d().l() : false;
             if (areNotificationsEnabled && l) {
                 k(true);
             } else {
@@ -467,7 +467,7 @@ public class PushStatic {
             }
             PushManager.enableMeizuProxy(context, true, "111848", "39e9cd05b2294f848dd1c10993e76b59");
             PushManager.enableVivoProxy(context, true);
-            PushManager.startWork(context, 0, l09.a(context, Constants.API_KEY));
+            PushManager.startWork(context, 0, g39.a(context, Constants.API_KEY));
             e();
             NotificationHelper.createIMChannel4Oppo(context);
         }
@@ -476,7 +476,7 @@ public class PushStatic {
     public static void j(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
-            yt4 k = yt4.k();
+            ru4 k = ru4.k();
             if (k.h(TbConfig.getVersion() + BaiduYunPushMessageReceiver.KEY_SHAREDPRE_PUSH_STARTWORK, false)) {
                 PushManager.stopWork(context);
             }
@@ -504,7 +504,7 @@ public class PushStatic {
     public static void m() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65550, null) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && TbadkCoreApplication.isLogin()) {
-            boolean m = qy4.d().m();
+            boolean m = lz4.d().m();
             PushManager.uploadNotifyStatus(TbadkCoreApplication.getInst(), m ? 1 : 0, new i());
         }
     }

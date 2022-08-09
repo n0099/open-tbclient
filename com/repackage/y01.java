@@ -27,8 +27,8 @@ public final class y01 {
                 return;
             }
         }
-        b = hh0.b().getApplicationInfo().processName;
-        String a2 = l01.a();
+        b = dh0.b().getApplicationInfo().processName;
+        String a2 = k01.a();
         a = a2;
         c = a(a2);
     }

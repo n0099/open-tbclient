@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yd1;
+import com.repackage.pe1;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.ByteBuffer;
 import java.util.List;
@@ -466,7 +466,7 @@ public class DuXRSessionFace {
                 return;
             }
             this.mTextureId = i3;
-            PermissionProxy permissionProxy = yd1.o;
+            PermissionProxy permissionProxy = pe1.o;
             if (permissionProxy != null) {
                 permissionProxy.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new a(this));
             } else {

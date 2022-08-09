@@ -15,7 +15,7 @@ public class bs implements Runnable {
     public Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public com.xiaomi.clientreport.processor.c f147a;
+    public com.xiaomi.clientreport.processor.c f148a;
 
     public bs() {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class bs implements Runnable {
     public void a(com.xiaomi.clientreport.processor.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f147a = cVar;
+            this.f148a = cVar;
         }
     }
 
@@ -53,15 +53,15 @@ public class bs implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
-                if (this.f147a != null) {
-                    this.f147a.a();
+                if (this.f148a != null) {
+                    this.f148a.a();
                 }
                 com.xiaomi.channel.commonutils.logger.b.c("begin read and send perf / event");
-                if (this.f147a instanceof IEventProcessor) {
+                if (this.f148a instanceof IEventProcessor) {
                     a = bw.a(this.a);
                     str = "event_last_upload_time";
                     currentTimeMillis = System.currentTimeMillis();
-                } else if (!(this.f147a instanceof IPerfProcessor)) {
+                } else if (!(this.f148a instanceof IPerfProcessor)) {
                     return;
                 } else {
                     a = bw.a(this.a);

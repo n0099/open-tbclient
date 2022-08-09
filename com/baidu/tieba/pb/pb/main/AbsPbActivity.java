@@ -11,6 +11,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProviders;
@@ -59,60 +60,60 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dd6;
-import com.repackage.ep8;
-import com.repackage.fj5;
-import com.repackage.fr6;
-import com.repackage.fv7;
-import com.repackage.gr6;
-import com.repackage.jr7;
-import com.repackage.jv7;
-import com.repackage.lg0;
-import com.repackage.mg0;
-import com.repackage.ng;
-import com.repackage.o35;
-import com.repackage.oi;
-import com.repackage.ot4;
+import com.repackage.cx7;
+import com.repackage.ee8;
+import com.repackage.ft7;
+import com.repackage.gx7;
+import com.repackage.hg0;
+import com.repackage.hu4;
+import com.repackage.ig0;
+import com.repackage.k05;
+import com.repackage.k45;
+import com.repackage.o75;
+import com.repackage.og;
+import com.repackage.ov7;
 import com.repackage.pi;
-import com.repackage.pz4;
-import com.repackage.qg;
-import com.repackage.qt7;
-import com.repackage.qy7;
-import com.repackage.rw7;
-import com.repackage.s65;
-import com.repackage.tw7;
-import com.repackage.ub8;
-import com.repackage.ws7;
-import com.repackage.xd5;
+import com.repackage.qi;
+import com.repackage.rg;
+import com.repackage.ry7;
+import com.repackage.sk5;
+import com.repackage.ss6;
+import com.repackage.su7;
+import com.repackage.t08;
+import com.repackage.ty7;
+import com.repackage.ve6;
+import com.repackage.vr8;
+import com.repackage.we5;
+import com.repackage.x95;
+import com.repackage.ys6;
 import com.repackage.z8;
-import com.repackage.z85;
-import com.repackage.zq6;
+import com.repackage.zs6;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes3.dex */
-public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<PbActivity>, VoiceManager.j, ot4, lg0 {
+public abstract class AbsPbActivity extends BaseFragmentActivity implements su7<PbActivity>, VoiceManager.j, hu4, hg0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PbModel a;
     public VideoPbViewModel b;
     public Fragment c;
-    public final rw7 d;
-    public final tw7 e;
+    public final ry7 d;
+    public final ty7 e;
     public View f;
     public boolean g;
     public VoiceManager h;
     public boolean i;
     public boolean j;
-    public qt7 k;
-    public jv7 l;
-    public fj5 m;
-    public ep8 n;
+    public ov7 k;
+    public gx7 l;
+    public sk5 m;
+    public vr8 n;
     @Nullable
     public TiePlusEventController o;
     public boolean p;
-    public zq6.h q;
-    public final mg0 r;
+    public ss6.h q;
+    public final ig0 r;
     public long s;
     public PbModel.h t;
 
@@ -124,13 +125,13 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
 
         /* renamed from: com.baidu.tieba.pb.pb.main.AbsPbActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0245a implements Runnable {
+        public class RunnableC0246a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ a b;
 
-            public RunnableC0245a(a aVar, String str) {
+            public RunnableC0246a(a aVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -154,18 +155,18 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     Fragment fragment = this.b.a.c;
-                    if ((fragment instanceof PbFragment) && ((PbFragment) fragment).O5() != null && ((PbFragment) this.b.a.c).O5().B0() != null) {
+                    if ((fragment instanceof PbFragment) && ((PbFragment) fragment).S5() != null && ((PbFragment) this.b.a.c).S5().B0() != null) {
                         AbsPbActivity absPbActivity = this.b.a;
-                        absPbActivity.W0(((PbFragment) absPbActivity.c).O5().B0(), ((PbFragment) this.b.a.c).K5(), this.a);
+                        absPbActivity.k1(((PbFragment) absPbActivity.c).S5().B0(), ((PbFragment) this.b.a.c).O5(), this.a);
                         this.b.a.p = true;
                         return;
                     }
                     Fragment fragment2 = this.b.a.c;
-                    if (!(fragment2 instanceof AbsVideoPbFragment) || ((AbsVideoPbFragment) fragment2).J3() == null) {
+                    if (!(fragment2 instanceof AbsVideoPbFragment) || ((AbsVideoPbFragment) fragment2).I3() == null) {
                         return;
                     }
                     AbsPbActivity absPbActivity2 = this.b.a;
-                    absPbActivity2.W0(((AbsVideoPbFragment) absPbActivity2.c).J3(), ((AbsVideoPbFragment) this.b.a.c).Y3(), this.a);
+                    absPbActivity2.k1(((AbsVideoPbFragment) absPbActivity2.c).I3(), ((AbsVideoPbFragment) this.b.a.c).X3(), this.a);
                     this.b.a.p = true;
                 }
             }
@@ -193,80 +194,80 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
         public void a(int i, boolean z, ResponsedMessage<?> responsedMessage, boolean z2, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), responsedMessage, Boolean.valueOf(z2), Long.valueOf(j)}) == null) {
-                Fragment E0 = this.a.E0();
-                if (E0 instanceof qy7) {
-                    qy7 qy7Var = (qy7) E0;
-                    if (qy7Var.D0() != null) {
-                        qy7Var.D0().a(i, z, responsedMessage, z2, j);
+                Fragment U0 = this.a.U0();
+                if (U0 instanceof t08) {
+                    t08 t08Var = (t08) U0;
+                    if (t08Var.C0() != null) {
+                        t08Var.C0().a(i, z, responsedMessage, z2, j);
                     }
                 }
             }
         }
 
         @Override // com.baidu.tieba.pb.pb.main.PbModel.h
-        public void b(jr7 jr7Var) {
+        public void b(ft7 ft7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jr7Var) == null) {
-                Fragment E0 = this.a.E0();
-                if (E0 instanceof qy7) {
-                    qy7 qy7Var = (qy7) E0;
-                    if (qy7Var.D0() != null) {
-                        qy7Var.D0().b(jr7Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ft7Var) == null) {
+                Fragment U0 = this.a.U0();
+                if (U0 instanceof t08) {
+                    t08 t08Var = (t08) U0;
+                    if (t08Var.C0() != null) {
+                        t08Var.C0().b(ft7Var);
                     }
                 }
             }
         }
 
         @Override // com.baidu.tieba.pb.pb.main.PbModel.h
-        public void c(boolean z, int i, int i2, int i3, jr7 jr7Var, String str, int i4) {
+        public void c(boolean z, int i, int i2, int i3, ft7 ft7Var, String str, int i4) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), jr7Var, str, Integer.valueOf(i4)}) == null) {
-                this.a.b1(jr7Var);
-                this.a.b.y(this.a.a.H1());
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), ft7Var, str, Integer.valueOf(i4)}) == null) {
+                this.a.n1(ft7Var);
+                this.a.b.y(this.a.a.G1());
                 this.a.b.v(false);
                 if (!PbLoadingViewOptimizeSwitch.isSwitchOn()) {
                     AbsPbActivity absPbActivity = this.a;
                     absPbActivity.hideLoadingView(absPbActivity.f);
                 }
                 if (z) {
-                    if (jr7Var != null) {
+                    if (ft7Var != null) {
                         AbsPbActivity absPbActivity2 = this.a;
                         absPbActivity2.hideNetRefreshView(absPbActivity2.f);
                     }
-                } else if (!this.a.g && !this.a.a.C2()) {
+                } else if (!this.a.g && !this.a.a.B2()) {
                     AbsPbActivity absPbActivity3 = this.a;
-                    absPbActivity3.showNetRefreshView(absPbActivity3.f, this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c16, str, Integer.valueOf(i)), null, null, true, this.a.getNetRefreshListener());
+                    absPbActivity3.showNetRefreshView(absPbActivity3.f, this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c3b, str, Integer.valueOf(i)), null, null, true, this.a.getNetRefreshListener());
                     AbsPbActivity absPbActivity4 = this.a;
-                    absPbActivity4.setNetRefreshViewEmotionMarginTop(pi.f(absPbActivity4.getActivity(), R.dimen.obfuscated_res_0x7f0702aa));
+                    absPbActivity4.setNetRefreshViewEmotionMarginTop(qi.f(absPbActivity4.getActivity(), R.dimen.obfuscated_res_0x7f0702aa));
                 }
-                Fragment E0 = this.a.E0();
-                if (E0 == null) {
+                Fragment U0 = this.a.U0();
+                if (U0 == null) {
                     if (z) {
-                        this.a.b.s(jr7Var, 3);
+                        this.a.b.s(ft7Var, 3);
                         PbModel pbModel = this.a.a;
                         if (pbModel != null) {
                             pbModel.cancelLoadData();
-                            this.a.a.M3(jr7Var);
+                            this.a.a.L3(ft7Var);
                         }
                         AbsPbActivity absPbActivity5 = this.a;
                         if (absPbActivity5.c == null) {
-                            absPbActivity5.D0(jr7Var);
+                            absPbActivity5.T0(ft7Var);
                         }
                     } else if (PbLoadingViewOptimizeSwitch.isSwitchOn()) {
                         AbsPbActivity absPbActivity6 = this.a;
                         absPbActivity6.hideLoadingView(absPbActivity6.f);
                     }
-                } else if (E0 instanceof qy7) {
-                    qy7 qy7Var = (qy7) E0;
-                    if (qy7Var.D0() != null) {
-                        qy7Var.D0().c(z, i, i2, i3, jr7Var, str, i4);
+                } else if (U0 instanceof t08) {
+                    t08 t08Var = (t08) U0;
+                    if (t08Var.C0() != null) {
+                        t08Var.C0().c(z, i, i2, i3, ft7Var, str, i4);
                     }
                 }
                 String stringExtra = this.a.getIntent().getStringExtra("key_open_editor_tips");
                 if (TextUtils.isEmpty(stringExtra) || this.a.p) {
                     return;
                 }
-                qg.a().postDelayed(new RunnableC0245a(this, stringExtra), 100L);
+                rg.a().postDelayed(new RunnableC0246a(this, stringExtra), 100L);
             }
         }
     }
@@ -304,26 +305,26 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getOrginalMessage().getTag() == this.a.getUniqueId()) {
                 PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage = (PbPageReadLocalResponseMessage) customResponsedMessage;
-                jr7 pbData = pbPageReadLocalResponseMessage.getPbData();
+                ft7 pbData = pbPageReadLocalResponseMessage.getPbData();
                 if (pbData == null) {
                     this.a.g = false;
                     return;
                 }
                 ThreadData O = pbData.O();
                 if (O != null) {
-                    this.a.a.c1(O);
+                    this.a.a.b1(O);
                 }
                 this.a.g = true;
                 this.a.b.v(false);
-                Fragment E0 = this.a.E0();
-                if (E0 == null) {
+                Fragment U0 = this.a.U0();
+                if (U0 == null) {
                     this.a.b.s(pbData, 2);
                     AbsPbActivity absPbActivity = this.a;
                     if (absPbActivity.c == null) {
-                        absPbActivity.D0(pbData);
+                        absPbActivity.T0(pbData);
                     }
-                } else if (E0 instanceof PbFragment) {
-                    this.a.a.W2(pbData, pbPageReadLocalResponseMessage.getUpdateType(), pbPageReadLocalResponseMessage.getErrorString());
+                } else if (U0 instanceof PbFragment) {
+                    this.a.a.V2(pbData, pbPageReadLocalResponseMessage.getUpdateType(), pbPageReadLocalResponseMessage.getErrorString());
                 }
             }
         }
@@ -334,15 +335,15 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ View a;
-        public final /* synthetic */ o35 b;
+        public final /* synthetic */ k45 b;
         public final /* synthetic */ AbsPbActivity c;
 
-        public c(AbsPbActivity absPbActivity, View view2, o35 o35Var) {
+        public c(AbsPbActivity absPbActivity, View view2, k45 k45Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {absPbActivity, view2, o35Var};
+                Object[] objArr = {absPbActivity, view2, k45Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -354,7 +355,7 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
             }
             this.c = absPbActivity;
             this.a = view2;
-            this.b = o35Var;
+            this.b = k45Var;
         }
 
         @Override // com.baidu.tbadk.core.dialog.WriteTipBubbleController.b
@@ -374,7 +375,7 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
     }
 
     /* loaded from: classes3.dex */
-    public class d implements zq6.h {
+    public class d implements ss6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsPbActivity a;
@@ -397,27 +398,27 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
             this.a = absPbActivity;
         }
 
-        @Override // com.repackage.zq6.h
+        @Override // com.repackage.ss6.h
         public void a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
                 Fragment fragment = this.a.c;
                 if (fragment instanceof PbFragment) {
                     PbFragment pbFragment = (PbFragment) fragment;
-                    if (pbFragment.O5() != null && pbFragment.O5().A0() != null) {
-                        pbFragment.O5().A0().A0();
+                    if (pbFragment.S5() != null && pbFragment.S5().A0() != null) {
+                        pbFragment.S5().A0().E0();
                     }
                 }
-                FunAdRecordHttpMessage.uploadRequestRecord("a005", "0", this.a.a.R1().Q(), this.a.a.R1().m(), null);
+                FunAdRecordHttpMessage.uploadRequestRecord("a005", "0", this.a.a.Q1().Q(), this.a.a.Q1().m(), null);
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", "a005").param("obj_locate", 0).param(TiebaStatic.Params.RESOURCE_ID, i).param("obj_param1", "1"));
             }
         }
 
-        @Override // com.repackage.zq6.h
+        @Override // com.repackage.ss6.h
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                FunAdRecordHttpMessage.uploadRequestRecord("a005", "1", this.a.a.R1().Q(), this.a.a.R1().m(), "0");
+                FunAdRecordHttpMessage.uploadRequestRecord("a005", "1", this.a.a.Q1().Q(), this.a.a.Q1().m(), "0");
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("obj_type", "a005").param("obj_locate", 1).param(TiebaStatic.Params.RESOURCE_ID, 0).param("obj_param1", "1"));
             }
         }
@@ -474,49 +475,89 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
                 return;
             }
         }
-        this.d = new rw7(this);
-        this.e = new tw7(getPageContext());
+        this.d = new ry7(this);
+        this.e = new ty7(getPageContext());
         this.i = false;
         this.j = false;
-        this.r = new mg0();
+        this.r = new ig0();
         this.t = new a(this);
     }
 
-    @Override // com.repackage.ws7
-    public rw7 A0() {
+    @Override // com.repackage.hu4
+    public String C0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (rw7) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            PbModel pbModel = this.a;
+            if (pbModel != null) {
+                return pbModel.i2();
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public Fragment C0(String str) {
+    @Override // com.repackage.su7
+    public boolean E(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            PbModel pbModel = this.a;
+            return pbModel != null && pbModel.G2(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.hg0
+    @NonNull
+    public ig0 P() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.r : (ig0) invokeV.objValue;
+    }
+
+    public Fragment S0(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             if ("video_pb_fragment_tag".equals(str)) {
                 return new VideoPbFragment();
             }
-            return PbFragment.B6();
+            return PbFragment.G6();
         }
         return (Fragment) invokeL.objValue;
     }
 
-    public final void D0(jr7 jr7Var) {
+    @Override // com.repackage.su7
+    public int T() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jr7Var) == null) {
-            String H0 = H0(jr7Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            PbModel pbModel = this.a;
+            if (pbModel == null || pbModel.Q1() == null) {
+                return 0;
+            }
+            return this.a.Q1().W();
+        }
+        return invokeV.intValue;
+    }
+
+    public final void T0(ft7 ft7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ft7Var) == null) {
+            String Z0 = Z0(ft7Var);
             FragmentManager supportFragmentManager = getSupportFragmentManager();
-            if (supportFragmentManager.findFragmentByTag(H0) == null) {
-                this.c = C0(H0);
-                supportFragmentManager.beginTransaction().add(R.id.obfuscated_res_0x7f09069f, this.c, H0).commitAllowingStateLoss();
+            if (supportFragmentManager.findFragmentByTag(Z0) == null) {
+                this.c = S0(Z0);
+                supportFragmentManager.beginTransaction().add(R.id.obfuscated_res_0x7f0906bd, this.c, Z0).commitAllowingStateLoss();
             }
         }
     }
 
-    public Fragment E0() {
+    public Fragment U0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             List<Fragment> fragments = getSupportFragmentManager().getFragments();
             if (ListUtils.isEmpty(fragments)) {
                 return null;
@@ -526,62 +567,106 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
         return (Fragment) invokeV.objValue;
     }
 
-    public abstract int F0();
+    public abstract int V0();
 
-    @Override // com.repackage.ws7
-    public boolean G(String str) {
-        InterceptResult invokeL;
+    public long W0() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.s : invokeV.longValue;
+    }
+
+    @Override // com.repackage.hu4
+    public String X() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             PbModel pbModel = this.a;
-            return pbModel != null && pbModel.H2(str);
+            if (pbModel != null) {
+                return pbModel.getForumId();
+            }
+            return null;
         }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public long G0() {
+    @Override // com.repackage.su7
+    public String X0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.s : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            PbModel pbModel = this.a;
+            if (pbModel != null) {
+                return pbModel.p1();
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public final String H0(jr7 jr7Var) {
+    public final String Z0(ft7 ft7Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, jr7Var)) == null) ? (jr7Var == null || !jr7Var.r0()) ? "pb_fragment_tag" : "video_pb_fragment_tag" : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, ft7Var)) == null) ? (ft7Var == null || !ft7Var.u0()) ? "pb_fragment_tag" : "video_pb_fragment_tag" : (String) invokeL.objValue;
     }
 
-    public abstract int L0();
+    public abstract int a1();
 
-    public PbModel M0() {
+    public PbModel b1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a : (PbModel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.a : (PbModel) invokeV.objValue;
     }
 
-    public View N0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f : (View) invokeV.objValue;
-    }
-
-    public abstract int O0();
+    public abstract int c1();
 
     @NonNull
-    public TiePlusEventController P0() {
+    public TiePlusEventController d1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            xd5.b(this.o);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            we5.b(this.o);
             return this.o;
         }
         return (TiePlusEventController) invokeV.objValue;
     }
 
-    public final void Q0() {
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.Window.Callback
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, motionEvent)) == null) {
+            this.r.a(motionEvent);
+            return super.dispatchTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.j
+    public VoiceManager.i e1(VoiceData.VoiceModel voiceModel) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, voiceModel)) == null) {
+            return null;
+        }
+        return (VoiceManager.i) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
+    public void enterExitAnimation() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            if (getIntent().getParcelableExtra("video_origin_area") == null && !this.i && !this.j) {
+                super.enterExitAnimation();
+            } else {
+                ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
+            }
+        }
+    }
+
+    public final void f1() {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (intent = getIntent()) == null) {
             return;
         }
         String stringExtra = intent.getStringExtra("target_scheme");
@@ -591,230 +676,22 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
         UrlSchemaHelper.goToNewPageByScheme(stringExtra);
     }
 
-    @Override // com.repackage.ws7
-    public int T() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            PbModel pbModel = this.a;
-            if (pbModel == null || pbModel.R1() == null) {
-                return 0;
-            }
-            return this.a.R1().V();
-        }
-        return invokeV.intValue;
-    }
-
-    public final void T0(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, bundle) == null) {
-            this.b.a(this.a);
-            fv7.b().p(this.a.d1(), this.a.A1());
-            registerListener(new b(this, 2004003));
-            if (!this.a.U2()) {
-                this.a.Q2();
-            }
-            if (this.a.C2()) {
-                jr7 b1 = this.a.b1(dd6.a());
-                if (b1 != null) {
-                    if (this.a.R1() != null) {
-                        this.a.R1().K0(b1.O());
-                    }
-                    b1.y0(3);
-                    if (E0() == null) {
-                        this.b.s(b1, 1);
-                        if (this.c == null) {
-                            D0(b1);
-                        }
-                    }
-                }
-                if (L0() == 0) {
-                    this.b.v(false);
-                } else {
-                    showLoadingView(findViewById(R.id.obfuscated_res_0x7f09069f), true);
-                    this.b.v(true);
-                }
-            } else {
-                showLoadingView(findViewById(R.id.obfuscated_res_0x7f09069f), true);
-                this.b.v(true);
-            }
-            if (pi.D() && !TbadkCoreApplication.getInst().syncHasFinish) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
-            }
-            X0();
-            a1();
-        }
-    }
-
-    @Override // com.repackage.lg0
-    @NonNull
-    public mg0 U() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.r : (mg0) invokeV.objValue;
-    }
-
-    public final void U0(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, bundle) == null) {
-            if (bundle != null) {
-                this.a = new PbModel(this, bundle, this.t);
-            } else {
-                this.a = new PbModel(this, getIntent(), this.t);
-            }
-            setForceInterceptStimeStat(this.a.t2());
-            this.a.B3(O0());
-            this.a.p3(L0());
-        }
-    }
-
-    public final void V0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            VideoPbViewModel videoPbViewModel = (VideoPbViewModel) ViewModelProviders.of(this).get(VideoPbViewModel.class);
-            this.b = videoPbViewModel;
-            videoPbViewModel.l(getIntent());
-        }
-    }
-
-    public final void W0(View view2, o35 o35Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048595, this, view2, o35Var, str) == null) {
-            new WriteTipBubbleController(getPageContext(), new c(this, view2, o35Var)).d(view2, getString(R.string.obfuscated_res_0x7f0f0cca), str, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_PB_REPLY);
-        }
-    }
-
-    public final void X0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            boolean z = true;
-            if (((TbadkCoreApplication.getCurrentAccountInfo() == null || TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() != 1) ? false : false) || !UbsABTestHelper.isPbPageBannerFunAdSdkTest()) {
-                return;
-            }
-            Activity f = z8.g().f(0);
-            if (this.q == null) {
-                this.q = new d(this);
-            }
-            FunAdRecordHttpMessage.uploadRequestRecord("a005", null, this.a.R1().Q(), this.a.R1().m(), null);
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("tid", this.a.R1().Q()).param("fid", this.a.R1().m()).param("obj_type", "a005").param("obj_param1", "1"));
-            String d2 = fr6.e().d("pb_banner");
-            zq6 m = zq6.m();
-            if (f == null) {
-                f = this;
-            }
-            m.y(f, d2, this.q, zq6.b("pb", UbsABTestHelper.isPbPageBannerFunAdSdkTest() ? "1" : "0"));
-        }
-    }
-
-    @Override // com.repackage.ws7
-    public String Y0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            PbModel pbModel = this.a;
-            if (pbModel != null) {
-                return pbModel.q1();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void a1() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && !gr6.f() && UbsABTestHelper.isPbCommentFunAdABTest()) {
-            zq6 m = zq6.m();
-            String f = zq6.f();
-            zq6.g b2 = zq6.b("pb", UbsABTestHelper.isPbPageBannerFunAdSdkTest() ? "1" : "0");
-            PbModel pbModel = this.a;
-            String Q = (pbModel == null || pbModel.R1() == null) ? "" : this.a.R1().Q();
-            PbModel pbModel2 = this.a;
-            m.M(this, f, b2, Q, (pbModel2 == null || pbModel2.R1() == null) ? "" : this.a.R1().m());
-        }
-    }
-
-    public final void b1(jr7 jr7Var) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048599, this, jr7Var) == null) || jr7Var == null || jr7Var.l() == null || (intent = getIntent()) == null) {
-            return;
-        }
-        ub8.d().g((Uri) intent.getParcelableExtra(IntentConfig.KEY_URI), jr7Var.l().getId());
-    }
-
-    public void c1(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048600, this, str) == null) || str == null || this.n == null) {
-            return;
-        }
-        this.n.n(ng.g(str, 0L));
-    }
-
-    public void d1() {
-        VoiceManager voiceManager;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048601, this) == null) || (voiceManager = this.h) == null) {
-            return;
-        }
-        voiceManager.stopPlay();
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.Window.Callback
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, motionEvent)) == null) {
-            this.r.a(motionEvent);
-            return super.dispatchTouchEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void e1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            super.finish();
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void enterExitAnimation() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            if (getIntent().getParcelableExtra("video_origin_area") == null && !this.i && !this.j) {
-                super.enterExitAnimation();
-            } else {
-                ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager.i f1(VoiceData.VoiceModel voiceModel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, voiceModel)) == null) {
-            return null;
-        }
-        return (VoiceManager.i) invokeL.objValue;
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity
     public void finish() {
-        jv7 jv7Var;
+        gx7 gx7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
-            if (!TbSingleton.getInstance().isNeedShowInterestGuide() && (jv7Var = this.l) != null) {
-                jv7Var.a(this.a);
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            if (!TbSingleton.getInstance().isNeedShowInterestGuide() && (gx7Var = this.l) != null) {
+                gx7Var.a(this.a);
             }
-            Fragment E0 = E0();
-            if (E0 instanceof qy7) {
-                ((qy7) E0).finish();
+            Fragment U0 = U0();
+            if (U0 instanceof t08) {
+                ((t08) U0).finish();
             } else {
                 super.finish();
             }
-            qt7 qt7Var = this.k;
-            if (qt7Var == null || qt7Var.b(this.a)) {
+            ov7 ov7Var = this.k;
+            if (ov7Var == null || ov7Var.b(this.a)) {
                 return;
             }
             if (this.i || this.j) {
@@ -827,41 +704,41 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.w85
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.u95
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? "a005" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? "a005" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public boolean getGpuSwitch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? TbadkCoreApplication.getInst().isGpuOpen() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? TbadkCoreApplication.getInst().isGpuOpen() : invokeV.booleanValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public long getMissionTid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
             return 0L;
         }
         return invokeV.longValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public z85 getPageStayDurationItem() {
+    public x95 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
-            z85 pageStayDurationItem = super.getPageStayDurationItem();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            x95 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 PbModel pbModel = this.a;
                 if (pbModel != null) {
-                    if (pbModel.R1() != null) {
-                        ThreadData O = this.a.R1().O();
+                    if (pbModel.Q1() != null) {
+                        ThreadData O = this.a.Q1().O();
                         pageStayDurationItem.u(O.getNid());
                         if (O.isNormalThreadType()) {
                             pageStayDurationItem.t = "1";
@@ -871,21 +748,21 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
                             pageStayDurationItem.t = "3";
                         }
                     }
-                    pageStayDurationItem.C(ng.g(this.a.j2(), 0L));
-                    if (this.a.R1() != null && this.a.R1().O() != null) {
-                        pageStayDurationItem.u(this.a.R1().O().getNid());
-                        pageStayDurationItem.B(this.a.R1().O().getThreadType());
+                    pageStayDurationItem.C(og.g(this.a.i2(), 0L));
+                    if (this.a.Q1() != null && this.a.Q1().O() != null) {
+                        pageStayDurationItem.u(this.a.Q1().O().getNid());
+                        pageStayDurationItem.B(this.a.Q1().O().getThreadType());
                     }
                 }
-                if (!oi.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
+                if (!pi.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                     pageStayDurationItem.z(TbadkCoreApplication.getInst().getTaskId());
                 }
                 if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
                     pageStayDurationItem.q(TbadkCoreApplication.getInst().getAdAdSense().k);
                 }
-                Fragment E0 = E0();
-                if (E0 instanceof PbFragment) {
-                    int i = ((PbFragment) E0).t1;
+                Fragment U0 = U0();
+                if (U0 instanceof PbFragment) {
+                    int i = ((PbFragment) U0).u1;
                     if (i == 2) {
                         pageStayDurationItem.v("a002");
                     } else if (i == 1) {
@@ -903,31 +780,146 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
             }
             return pageStayDurationItem;
         }
-        return (z85) invokeV.objValue;
+        return (x95) invokeV.objValue;
     }
 
-    @Override // com.repackage.ot4
-    public String m0() {
+    public View getRootView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            PbModel pbModel = this.a;
-            if (pbModel != null) {
-                return pbModel.j2();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f : (View) invokeV.objValue;
+    }
+
+    public final void h1(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, bundle) == null) {
+            this.b.a(this.a);
+            cx7.b().p(this.a.c1(), this.a.z1());
+            registerListener(new b(this, 2004003));
+            if (!this.a.T2()) {
+                this.a.P2();
             }
-            return null;
+            if (this.a.B2()) {
+                ft7 a1 = this.a.a1(ve6.a());
+                if (a1 != null) {
+                    if (this.a.Q1() != null) {
+                        this.a.Q1().N0(a1.O());
+                    }
+                    a1.B0(3);
+                    if (U0() == null) {
+                        this.b.s(a1, 1);
+                        if (this.c == null) {
+                            T0(a1);
+                        }
+                    }
+                }
+                if (a1() == 0) {
+                    this.b.v(false);
+                } else {
+                    showLoadingView(findViewById(R.id.obfuscated_res_0x7f0906bd), true);
+                    this.b.v(true);
+                }
+            } else {
+                showLoadingView(findViewById(R.id.obfuscated_res_0x7f0906bd), true);
+                this.b.v(true);
+            }
+            if (qi.D() && !TbadkCoreApplication.getInst().syncHasFinish) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
+            }
+            l1();
+            m1();
         }
-        return (String) invokeV.objValue;
+    }
+
+    public final void i1(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, bundle) == null) {
+            if (bundle != null) {
+                this.a = new PbModel(this, bundle, this.t);
+            } else {
+                this.a = new PbModel(this, getIntent(), this.t);
+            }
+            setForceInterceptStimeStat(this.a.s2());
+            this.a.A3(c1());
+            this.a.o3(a1());
+        }
+    }
+
+    public final void j1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+            VideoPbViewModel videoPbViewModel = (VideoPbViewModel) ViewModelProviders.of(this).get(VideoPbViewModel.class);
+            this.b = videoPbViewModel;
+            videoPbViewModel.l(getIntent());
+        }
+    }
+
+    public final void k1(View view2, k45 k45Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048605, this, view2, k45Var, str) == null) {
+            new WriteTipBubbleController(getPageContext(), new c(this, view2, k45Var)).d(view2, getString(R.string.obfuscated_res_0x7f0f0cf0), str, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_PB_REPLY);
+        }
+    }
+
+    public final void l1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
+            boolean z = true;
+            if (((TbadkCoreApplication.getCurrentAccountInfo() == null || TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() != 1) ? false : false) || !UbsABTestHelper.isPbPageBannerFunAdSdkTest()) {
+                return;
+            }
+            Activity f = z8.g().f(0);
+            if (this.q == null) {
+                this.q = new d(this);
+            }
+            FunAdRecordHttpMessage.uploadRequestRecord("a005", null, this.a.Q1().Q(), this.a.Q1().m(), null);
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST).param("obj_source", 6).param("tid", this.a.Q1().Q()).param("fid", this.a.Q1().m()).param("obj_type", "a005").param("obj_param1", "1"));
+            String d2 = ys6.e().d("pb_banner");
+            ss6 m = ss6.m();
+            if (f == null) {
+                f = this;
+            }
+            m.x(f, d2, this.q, ss6.b("pb", UbsABTestHelper.isPbPageBannerFunAdSdkTest() ? "1" : "0"));
+        }
+    }
+
+    public final void m1() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048607, this) == null) && !zs6.f() && UbsABTestHelper.isPbCommentFunAdABTest()) {
+            ss6 m = ss6.m();
+            String f = ss6.f();
+            ss6.g b2 = ss6.b("pb", UbsABTestHelper.isPbPageBannerFunAdSdkTest() ? "1" : "0");
+            PbModel pbModel = this.a;
+            String Q = (pbModel == null || pbModel.Q1() == null) ? "" : this.a.Q1().Q();
+            PbModel pbModel2 = this.a;
+            m.L(this, f, b2, Q, (pbModel2 == null || pbModel2.Q1() == null) ? "" : this.a.Q1().m());
+        }
+    }
+
+    public final void n1(ft7 ft7Var) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048608, this, ft7Var) == null) || ft7Var == null || ft7Var.l() == null || (intent = getIntent()) == null) {
+            return;
+        }
+        ee8.d().g((Uri) intent.getParcelableExtra(IntentConfig.KEY_URI), ft7Var.l().getId());
+    }
+
+    public void o1(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048609, this, str) == null) || str == null || this.n == null) {
+            return;
+        }
+        this.n.n(og.g(str, 0L));
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048612, this, i, i2, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048610, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
-            Fragment E0 = E0();
-            if (E0 != null) {
-                E0.onActivityResult(i, i2, intent);
+            Fragment U0 = U0();
+            if (U0 != null) {
+                U0.onActivityResult(i, i2, intent);
             }
         }
     }
@@ -935,11 +927,11 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
     @Override // androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
             super.onBackPressed();
-            Fragment E0 = E0();
-            if (E0 instanceof PbFragment) {
-                ((PbFragment) E0).C6();
+            Fragment U0 = U0();
+            if (U0 instanceof PbFragment) {
+                ((PbFragment) U0).H6();
             }
         }
     }
@@ -947,10 +939,10 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
-            Fragment E0 = E0();
-            if (E0 instanceof BaseFragment) {
-                ((BaseFragment) E0).onChangeSkinType(i);
+        if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
+            Fragment U0 = U0();
+            if (U0 instanceof BaseFragment) {
+                ((BaseFragment) U0).onChangeSkinType(i);
             }
         }
     }
@@ -959,16 +951,16 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
     public void onCreate(Bundle bundle) {
         int intExtra;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048615, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048613, this, bundle) == null) {
             this.s = System.currentTimeMillis();
             initUniqueId();
-            V0();
-            U0(bundle);
+            j1();
+            i1(bundle);
             boolean z = true;
             if (!z8.g().i("MainTabActivity")) {
                 if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null) {
                     this.i = true;
-                } else if (M0().Q1() == 7) {
+                } else if (b1().P1() == 7) {
                     this.j = true;
                 }
             }
@@ -976,19 +968,19 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
                 setIsAddSwipeBackLayout(false);
             }
             super.onCreate(bundle);
-            Q0();
-            setContentView(F0());
-            this.f = findViewById(R.id.obfuscated_res_0x7f09069f);
+            f1();
+            setContentView(V0());
+            this.f = findViewById(R.id.obfuscated_res_0x7f0906bd);
             adjustResizeForSoftInput();
             addGlobalLayoutListener();
-            T0(bundle);
+            h1(bundle);
             VoiceManager voiceManager = new VoiceManager();
             this.h = voiceManager;
             voiceManager.onCreate(getPageContext());
-            this.k = new qt7(getPageContext());
-            this.l = new jv7(getPageContext());
-            this.m = new fj5(getPageContext(), "client_pb_live");
-            this.n = new ep8(getPageContext(), getUniqueId());
+            this.k = new ov7(getPageContext());
+            this.l = new gx7(getPageContext());
+            this.m = new sk5(getPageContext(), "client_pb_live");
+            this.n = new vr8(getPageContext(), getUniqueId());
             if (this.o == null) {
                 if (getIntent() == null || ((intExtra = getIntent().getIntExtra(PbCommentFloatActivityConfig.KEY_FROM_VIDEO_PAGE_TYPE, 0)) != 1 && intExtra != 2 && intExtra != 3 && intExtra != 4 && intExtra != 5)) {
                     z = false;
@@ -1000,35 +992,36 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
                 }
             }
             getLifecycle().addObserver(this.o);
-            pz4.b(false);
+            k05.b(false);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
             super.onDestroy();
             VoiceManager voiceManager = this.h;
             if (voiceManager != null) {
                 voiceManager.onDestory(getPageContext());
             }
-            fj5 fj5Var = this.m;
-            if (fj5Var != null) {
-                fj5Var.h();
+            sk5 sk5Var = this.m;
+            if (sk5Var != null) {
+                sk5Var.h();
             }
-            ep8 ep8Var = this.n;
-            if (ep8Var != null) {
-                ep8Var.l();
+            vr8 vr8Var = this.n;
+            if (vr8Var != null) {
+                vr8Var.l();
             }
             TbPageExtraHelper.setPrePageKey(getCurrentPageKey());
-            s65.i(new PrePageKeyEvent(getCurrentPageKey()));
+            o75.i(new PrePageKeyEvent(getCurrentPageKey()));
             if (this.q != null) {
                 this.q = null;
             }
             if (this.o != null) {
                 getLifecycle().removeObserver(this.o);
             }
+            this.c = null;
         }
     }
 
@@ -1036,13 +1029,13 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048617, this, i, keyEvent)) == null) {
-            Fragment E0 = E0();
-            if (E0 instanceof PbFragment) {
-                if (((PbFragment) E0).D6(i, keyEvent)) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048615, this, i, keyEvent)) == null) {
+            Fragment U0 = U0();
+            if (U0 instanceof PbFragment) {
+                if (((PbFragment) U0).I6(i, keyEvent)) {
                     return true;
                 }
-            } else if ((E0 instanceof AbsVideoPbFragment) && ((AbsVideoPbFragment) E0).M4(i, keyEvent)) {
+            } else if ((U0 instanceof AbsVideoPbFragment) && ((AbsVideoPbFragment) U0).L4(i, keyEvent)) {
                 return true;
             }
             return super.onKeyDown(i, keyEvent);
@@ -1053,11 +1046,11 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onKeyboardVisibilityChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048618, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048616, this, z) == null) {
             super.onKeyboardVisibilityChanged(z);
-            Fragment E0 = E0();
-            if (E0 instanceof AbsVideoPbFragment) {
-                ((AbsVideoPbFragment) E0).N4(z);
+            Fragment U0 = U0();
+            if (U0 instanceof AbsVideoPbFragment) {
+                ((AbsVideoPbFragment) U0).M4(z);
             }
         }
     }
@@ -1065,12 +1058,12 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
             super.onNetRefreshButtonClicked();
             if (this.a != null) {
                 this.b.v(true);
                 showLoadingView(this.f);
-                this.a.Q2();
+                this.a.P2();
             }
         }
     }
@@ -1078,7 +1071,7 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
             super.onPause();
             VoiceManager voiceManager = this.h;
             if (voiceManager != null) {
@@ -1095,19 +1088,19 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048621, this, i, strArr, iArr) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048619, this, i, strArr, iArr) == null) {
             super.onRequestPermissionsResult(i, strArr, iArr);
             if (i == 0) {
                 Fragment fragment = this.c;
-                if ((fragment instanceof PbFragment) && ((PbFragment) fragment).K5() != null) {
-                    ((PbFragment) this.c).K5().z0();
+                if ((fragment instanceof PbFragment) && ((PbFragment) fragment).O5() != null) {
+                    ((PbFragment) this.c).O5().z0();
                     return;
                 }
                 Fragment fragment2 = this.c;
-                if (!(fragment2 instanceof AbsVideoPbFragment) || ((AbsVideoPbFragment) fragment2).Y3() == null) {
+                if (!(fragment2 instanceof AbsVideoPbFragment) || ((AbsVideoPbFragment) fragment2).X3() == null) {
                     return;
                 }
-                ((AbsVideoPbFragment) this.c).Y3().z0();
+                ((AbsVideoPbFragment) this.c).X3().z0();
             }
         }
     }
@@ -1115,10 +1108,10 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048622, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
             super.onResume();
             if (this.a != null) {
-                fv7.b().p(this.a.d1(), this.a.A1());
+                cx7.b().p(this.a.c1(), this.a.z1());
             }
             VoiceManager voiceManager = this.h;
             if (voiceManager != null) {
@@ -1138,11 +1131,11 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
     @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048623, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048621, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
             PbModel pbModel = this.a;
             if (pbModel != null) {
-                pbModel.k3(bundle);
+                pbModel.j3(bundle);
             }
             VoiceManager voiceManager = this.h;
             if (voiceManager != null) {
@@ -1154,16 +1147,16 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onScreenShot(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048622, this, str) == null) {
             super.onScreenShot(str);
             PbModel pbModel = this.a;
-            if (pbModel == null || pbModel.R1() == null) {
+            if (pbModel == null || pbModel.Q1() == null) {
                 return;
             }
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_SCREEN_SHOT);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("tid", this.a.j2());
-            statisticItem.param("fid", this.a.R1().m());
+            statisticItem.param("tid", this.a.i2());
+            statisticItem.param("fid", this.a.Q1().m());
             statisticItem.param("obj_type", 3);
             TiebaStatic.log(statisticItem);
         }
@@ -1172,7 +1165,7 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048625, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048623, this) == null) {
             super.onStart();
             VoiceManager voiceManager = this.h;
             if (voiceManager != null) {
@@ -1184,7 +1177,7 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048624, this) == null) {
             super.onStop();
             VoiceManager voiceManager = this.h;
             if (voiceManager != null) {
@@ -1200,12 +1193,28 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048627, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048625, this, z) == null) {
             super.onWindowFocusChanged(z);
             Fragment fragment = this.c;
             if (fragment instanceof AbsVideoPbFragment) {
-                ((AbsVideoPbFragment) fragment).Q4(z);
+                ((AbsVideoPbFragment) fragment).P4(z);
             }
+        }
+    }
+
+    public void p1() {
+        VoiceManager voiceManager;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048626, this) == null) || (voiceManager = this.h) == null) {
+            return;
+        }
+        voiceManager.stopPlay();
+    }
+
+    public void q1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048627, this) == null) {
+            super.finish();
         }
     }
 
@@ -1217,14 +1226,14 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager u0() {
+    public VoiceManager t0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? this.h : (VoiceManager) invokeV.objValue;
     }
 
-    @Override // com.repackage.ws7
-    public boolean v0() {
+    @Override // com.repackage.su7
+    public boolean u0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
@@ -1232,22 +1241,15 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements ws7<
             if (pbModel == null) {
                 return false;
             }
-            return pbModel.G2();
+            return pbModel.F2();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.ot4
-    public String y() {
+    @Override // com.repackage.su7
+    public ry7 z0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
-            PbModel pbModel = this.a;
-            if (pbModel != null) {
-                return pbModel.getForumId();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.d : (ry7) invokeV.objValue;
     }
 }

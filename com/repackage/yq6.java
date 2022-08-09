@@ -1,5 +1,14 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.util.LongSparseArray;
+import android.view.View;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,42 +18,186 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class yq6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final String c;
-    public final int d;
-    public final int e;
-    public final double f;
+    public zq6 a;
+    public LongSparseArray<Integer> b;
+    public em6 c;
+    public xq6 d;
 
-    public yq6(String str, String str2, String str3, int i, int i2, double d) {
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rr6 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+
+        public a(yq6 yq6Var, rr6 rr6Var, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yq6Var, rr6Var, str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rr6Var;
+            this.b = str;
+            this.c = str2;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                rr6 rr6Var = this.a;
+                if (rr6Var != null) {
+                    rr6Var.o(this.b, this.c);
+                }
+                TiebaStatic.log(new StatisticItem("c13982").param("fid", this.c).param("uid", TbadkCoreApplication.getCurrentAccount()));
+            }
+        }
+    }
+
+    public yq6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.d = i;
-        this.c = str3;
-        this.e = i2;
-        this.f = d;
+        this.a = null;
+        this.a = new zq6();
+        this.b = new LongSparseArray<>();
     }
 
-    public String toString() {
+    public int a(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            if (j == 0) {
+                return 0;
+            }
+            Integer num = this.b.get(j);
+            if (num == null) {
+                this.b.put(j, 1);
+                return 1;
+            }
+            this.b.put(j, Integer.valueOf(num.intValue() + 1));
+            return num.intValue() + 1;
+        }
+        return invokeJ.intValue;
+    }
+
+    public void b(long j) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || j == 0) {
+            return;
+        }
+        this.b.remove(j);
+    }
+
+    public void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            this.a.b(str, str2);
+        }
+    }
+
+    public void d() {
+        em6 em6Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (em6Var = this.c) == null) {
+            return;
+        }
+        em6Var.m();
+    }
+
+    public zq6 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "FunAdCacheInfo{adType='" + this.a + "', platform='" + this.b + "', pid='" + this.c + "', adHashCode=" + this.d + ", count=" + this.e + ", basePrice=" + this.f + '}';
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (zq6) invokeV.objValue;
+    }
+
+    public void f(Activity activity, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048581, this, activity, str, str2) == null) && activity != null && this.d.c()) {
+            if (this.c == null) {
+                this.c = new em6(activity, R.id.obfuscated_res_0x7f090b2b);
+            }
+            this.c.p(str);
+            this.c.q(str2);
+            this.c.r();
         }
-        return (String) invokeV.objValue;
+    }
+
+    public boolean g(String str, String str2) {
+        InterceptResult invokeLL;
+        zq6 zq6Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
+            if (StringUtils.isNull(str) || StringUtils.isNull(str2) || "0".equals(str) || "0".equals(str2) || (zq6Var = this.a) == null) {
+                return false;
+            }
+            long currentTimeMillis = System.currentTimeMillis() - zq6Var.f(str, str2);
+            if (currentTimeMillis < 3600000) {
+                return false;
+            }
+            if (this.a.e(str, str2) <= 3 || currentTimeMillis >= 2592000000L) {
+                long c = this.a.c(str, str2);
+                if (c == 0 || System.currentTimeMillis() - c > 604800000) {
+                    return this.a.d(str, str2);
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public void h(Activity activity, String str, String str2, String str3, rr6 rr6Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLLL(1048583, this, activity, str, str2, str3, rr6Var) == null) || activity == null) {
+            return;
+        }
+        if (this.c == null) {
+            this.c = new em6(activity, R.id.obfuscated_res_0x7f090b2f);
+        }
+        if (!StringUtils.isNull(str3)) {
+            this.c.n(str3);
+        }
+        this.c.o(new a(this, rr6Var, str, str2));
+        this.c.s();
+        TiebaStatic.log(new StatisticItem("c13894").param("fid", str2).param("uid", TbadkCoreApplication.getCurrentAccount()));
+    }
+
+    public yq6(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        this.d = new xq6(str, str2);
     }
 }

@@ -1,63 +1,40 @@
 package com.repackage;
 
-import android.graphics.drawable.ColorDrawable;
-import android.view.LayoutInflater;
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
-import android.widget.AdapterView;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
-import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.AutoVideoCardViewHolder;
+import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.R;
-import com.baidu.tieba.homepage.gamevideo.view.GameVideoGridView;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gv6;
-import java.util.List;
+import com.repackage.dy;
 /* loaded from: classes5.dex */
-public class av6 {
+public class av6 extends bn<o06, ThreadCardViewHolder<o06>> implements pl5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public View b;
-    public gv6 c;
-    public GameVideoGridView d;
-    public uu6 e;
-    public RelativeLayout f;
-    public RelativeLayout g;
-    public ImageView h;
-    public TextView i;
-    public f j;
-    public TranslateAnimation k;
-    public TranslateAnimation l;
-    public BdUniqueId m;
-    public boolean n;
-    public Animation.AnimationListener o;
-    public AdapterView.OnItemClickListener p;
-    public View.OnClickListener q;
-    public PopupWindow.OnDismissListener r;
-    public gv6.a s;
+    public BdUniqueId a;
+    public BdUniqueId b;
+    public TbPageContext<?> c;
+    public String d;
+    public un e;
+    public zw f;
+    public b06<o06> g;
 
     /* loaded from: classes5.dex */
-    public class a implements Animation.AnimationListener {
+    public class a extends b06<o06> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ av6 a;
+        public final /* synthetic */ av6 b;
 
         public a(av6 av6Var) {
             Interceptable interceptable = $ic;
@@ -74,36 +51,24 @@ public class av6 {
                     return;
                 }
             }
-            this.a = av6Var;
+            this.b = av6Var;
         }
 
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationEnd(Animation animation) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.b06
+        /* renamed from: d */
+        public void a(View view2, o06 o06Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.a.n = false;
-                this.a.f();
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationRepeat(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationStart(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
-                this.a.n = true;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, o06Var) == null) {
+                BdToast b = BdToast.b(this.b.c.getContext(), this.b.c.getString(R.string.obfuscated_res_0x7f0f1511));
+                b.f(BdToast.ToastIcon.FAILURE);
+                b.h();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements AdapterView.OnItemClickListener {
+    public class b implements yn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ av6 a;
@@ -126,330 +91,160 @@ public class av6 {
             this.a = av6Var;
         }
 
-        @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+        @Override // com.repackage.yn
+        public void b(View view2, on onVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || this.a.e == null || i >= this.a.e.getCount() || this.a.e.getItem(i) == null || !(this.a.e.getItem(i) instanceof cv6)) {
-                return;
-            }
-            cv6 cv6Var = (cv6) this.a.e.getItem(i);
-            if (cv6Var.d == 1) {
-                if (this.a.j != null) {
-                    this.a.j.a(cv6Var);
-                }
-                yt4.k().w("key_game_video_tab_has_choosed_sub_class_id", cv6Var.a);
-                yt4.k().y("key_game_video_tab_has_choosed_sub_class_name", cv6Var.b);
-                this.a.f();
-                TiebaStatic.log(new StatisticItem("c13489").param("obj_type", cv6Var.a));
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, onVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                BdToast b = BdToast.b(this.a.c.getContext(), this.a.c.getString(R.string.obfuscated_res_0x7f0f1511));
+                b.f(BdToast.ToastIcon.FAILURE);
+                b.h();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ av6 a;
-
-        public c(av6 av6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {av6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = av6Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.e();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements PopupWindow.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ av6 a;
-
-        public d(av6 av6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {av6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = av6Var;
-        }
-
-        @Override // android.widget.PopupWindow.OnDismissListener
-        public void onDismiss() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.j == null) {
-                return;
-            }
-            this.a.j.b();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e implements gv6.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ av6 a;
-
-        public e(av6 av6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {av6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = av6Var;
-        }
-
-        @Override // com.repackage.gv6.a
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.o();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface f {
-        void a(cv6 cv6Var);
-
-        void b();
-
-        void c();
-    }
-
-    public av6(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public av6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.n = false;
-        this.o = new a(this);
-        this.p = new b(this);
-        this.q = new c(this);
-        this.r = new d(this);
-        this.s = new e(this);
-        this.a = tbPageContext;
-        this.m = bdUniqueId;
-        g();
+        this.g = new a(this);
+        this.c = tbPageContext;
+        this.b = bdUniqueId2;
     }
 
-    public void e() {
-        gv6 gv6Var;
+    @Override // com.repackage.pl5
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (gv6Var = this.c) == null) {
-            return;
-        }
-        gv6Var.dismiss();
-    }
-
-    public void f() {
-        gv6 gv6Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (gv6Var = this.c) == null) {
-            return;
-        }
-        gv6Var.a();
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0372, (ViewGroup) null);
-            this.b = inflate;
-            this.f = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090dd8);
-            this.g = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090dd6);
-            this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090dd4);
-            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dd5);
-            GameVideoGridView gameVideoGridView = (GameVideoGridView) this.b.findViewById(R.id.obfuscated_res_0x7f090dd7);
-            this.d = gameVideoGridView;
-            gameVideoGridView.setMaxHeight(pi.k(this.a.getPageActivity()));
-            this.d.setNumColumns(4);
-            this.d.setEmptyView(this.g);
-            uu6 uu6Var = new uu6(this.a, 102, this.m);
-            this.e = uu6Var;
-            this.d.setAdapter((ListAdapter) uu6Var);
-            this.d.setOnItemClickListener(this.p);
-            this.b.setOnClickListener(this.q);
-            h();
-            j();
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.d = str;
         }
     }
 
-    public final void h() {
+    @Override // com.repackage.bn
+    public BdUniqueId getBottomId() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -1.0f, 1, 0.0f);
-            this.k = translateAnimation;
-            translateAnimation.setDuration(300L);
-            this.k.setFillAfter(true);
-            this.k.setInterpolator(new AccelerateDecelerateInterpolator());
-            TranslateAnimation translateAnimation2 = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -1.0f);
-            this.l = translateAnimation2;
-            translateAnimation2.setDuration(200L);
-            this.l.setFillAfter(true);
-            this.l.setInterpolator(new AccelerateDecelerateInterpolator());
-            this.l.setAnimationListener(this.o);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f06.M : (BdUniqueId) invokeV.objValue;
     }
 
-    public boolean i() {
+    @Override // com.repackage.bn
+    public BdUniqueId getContentId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? f06.K : (BdUniqueId) invokeV.objValue;
+    }
+
+    @Override // com.repackage.bn
+    public BdUniqueId getExtendId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f06.L : (BdUniqueId) invokeV.objValue;
+    }
+
+    @Override // com.repackage.bn
+    public BdUniqueId getHeaderId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            gv6 gv6Var = this.c;
-            if (gv6Var != null) {
-                return gv6Var.isShowing();
-            }
-            return false;
+            BdUniqueId bdUniqueId = this.b;
+            return bdUniqueId != null ? bdUniqueId : f06.D;
         }
-        return invokeV.booleanValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public void j() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bn
+    /* renamed from: t */
+    public ThreadCardViewHolder<o06> onCreateContentViewHolder(ViewGroup viewGroup, o06 o06Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            RelativeLayout relativeLayout = this.f;
-            if (relativeLayout != null) {
-                SkinManager.setBackgroundResource(relativeLayout, R.color.CAM_X0201);
-            }
-            TextView textView = this.i;
-            if (textView != null) {
-                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0109);
-            }
-            ImageView imageView = this.h;
-            if (imageView != null) {
-                SkinManager.setImageResource(imageView, R.drawable.new_pic_emotion_08);
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, viewGroup, o06Var)) == null) {
+            dy.b bVar = new dy.b(this.c.getPageActivity(), false);
+            zw zwVar = new zw(this.c.getPageActivity());
+            this.f = zwVar;
+            zwVar.r(this.a);
+            bVar.n(this.f);
+            dy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.e);
+            ThreadCardViewHolder<o06> threadCardViewHolder = new ThreadCardViewHolder<>(k);
+            threadCardViewHolder.i(this.a);
+            k.p(this.g);
+            k.r(1);
+            setOnAdapterItemClickListener(new b(this));
+            return threadCardViewHolder;
         }
+        return (ThreadCardViewHolder) invokeLL.objValue;
     }
 
-    public void k() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bn
+    /* renamed from: u */
+    public AutoVideoCardViewHolder<o06> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            f();
-            TranslateAnimation translateAnimation = this.k;
-            if (translateAnimation != null) {
-                translateAnimation.cancel();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, viewGroup)) == null) {
+            return null;
+        }
+        return (AutoVideoCardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bn
+    /* renamed from: v */
+    public View onFillContentViewHolder(int i, View view2, ViewGroup viewGroup, o06 o06Var, ThreadCardViewHolder<o06> threadCardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), view2, viewGroup, o06Var, threadCardViewHolder})) == null) {
+            if (o06Var == null) {
+                return threadCardViewHolder.getView();
             }
-            TranslateAnimation translateAnimation2 = this.l;
-            if (translateAnimation2 != null) {
-                translateAnimation2.cancel();
+            if (threadCardViewHolder == null) {
+                return null;
             }
-            GameVideoGridView gameVideoGridView = this.d;
-            if (gameVideoGridView != null) {
-                gameVideoGridView.d();
+            o06Var.I(o06Var.position + 1);
+            uz5.b().a(o06Var.f("c12351"));
+            threadCardViewHolder.a().q(i);
+            o06Var.T = 0;
+            if (threadCardViewHolder.a() instanceof ol5) {
+                threadCardViewHolder.a().b(this.d);
             }
+            threadCardViewHolder.e(o06Var);
+            threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.a().p(this.g);
+            return threadCardViewHolder.getView();
         }
+        return (View) invokeCommon.objValue;
     }
 
-    public void l(List<cv6> list) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bn
+    /* renamed from: w */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, o06 o06Var, ThreadCardViewHolder<o06> threadCardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
-            this.e.b(list);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), view2, viewGroup, o06Var, threadCardViewHolder})) == null) {
+            return null;
         }
+        return (View) invokeCommon.objValue;
     }
 
-    public void m(f fVar) {
+    public void x(un unVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fVar) == null) {
-            this.j = fVar;
+        if (interceptable == null || interceptable.invokeL(1048589, this, unVar) == null) {
+            this.e = unVar;
         }
-    }
-
-    public void n(View view2) {
-        TranslateAnimation translateAnimation;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, view2) == null) || view2 == null) {
-            return;
-        }
-        this.e.notifyDataSetChanged();
-        if (this.c == null) {
-            gv6 gv6Var = new gv6(this.a, this.b, -1, -1);
-            this.c = gv6Var;
-            gv6Var.setBackgroundDrawable(new ColorDrawable(this.a.getResources().getColor(R.color.black_alpha66)));
-            this.c.setAnimationStyle(0);
-            this.c.b(this.s);
-            this.c.setFocusable(true);
-            this.c.setOnDismissListener(this.r);
-        }
-        if (this.c.isShowing()) {
-            this.c.dismiss();
-        }
-        this.c.showAsDropDown(view2, 0, 0);
-        this.d.e();
-        RelativeLayout relativeLayout = this.f;
-        if (relativeLayout != null && (translateAnimation = this.k) != null) {
-            relativeLayout.startAnimation(translateAnimation);
-        }
-        f fVar = this.j;
-        if (fVar != null) {
-            fVar.c();
-        }
-    }
-
-    public final void o() {
-        TranslateAnimation translateAnimation;
-        RelativeLayout relativeLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (translateAnimation = this.l) == null || (relativeLayout = this.f) == null || this.n) {
-            return;
-        }
-        relativeLayout.startAnimation(translateAnimation);
-    }
-
-    public void p(int i) {
-        uu6 uu6Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048587, this, i) == null) || (uu6Var = this.e) == null) {
-            return;
-        }
-        uu6Var.c(i);
     }
 }

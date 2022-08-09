@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fr7;
+import com.repackage.bt7;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PbAdCardGiftItemResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fr7 mData;
+    public bt7 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbAdCardGiftItemResponseMessage() {
@@ -42,16 +42,16 @@ public class PbAdCardGiftItemResponseMessage extends JsonHttpResponsedMessage {
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
                 if (this.mData == null) {
-                    this.mData = new fr7();
+                    this.mData = new bt7();
                 }
                 this.mData.c(optJSONObject);
             }
         }
     }
 
-    public fr7 getData() {
+    public bt7 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (fr7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (bt7) invokeV.objValue;
     }
 }

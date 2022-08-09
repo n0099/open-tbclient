@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.pi;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -189,7 +189,7 @@ public class VersionData implements Serializable {
             this.newVer = jSONObject.optString("new_version", null);
             this.size = jSONObject.optString("size", null);
             String optString = jSONObject.optString("new_four_version", null);
-            if (!oi.isEmpty(optString)) {
+            if (!pi.isEmpty(optString)) {
                 this.newVer = optString;
             }
             this.url = jSONObject.optString("new_version_url");

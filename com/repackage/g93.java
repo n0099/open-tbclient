@@ -1,11 +1,8 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+import android.content.SharedPreferences;
 import android.util.Log;
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,14 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class g93 extends SQLiteOpenHelper {
+public class g93 extends h93 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
+    public final Set<String> f;
 
     static {
         InterceptResult invokeClinit;
@@ -36,141 +33,206 @@ public class g93 extends SQLiteOpenHelper {
                 return;
             }
         }
-        b = sg1.a;
+        g = jh1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g93(@NonNull Context context, String str) {
-        super(context.getApplicationContext(), c(str), (SQLiteDatabase.CursorFactory) null, 1);
+    public g93(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = str;
+        this.f = new HashSet();
     }
 
-    public static String a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.h93, com.repackage.m93, android.content.SharedPreferences
+    public boolean getBoolean(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "CREATE TABLE cookies (_id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT,value TEXT,domain TEXT,path TEXT,expires INTEGER,secure INTEGER,ext TEXT);" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) ? k(str) ? super.getBoolean(str, z) : d(str, z) : invokeLZ.booleanValue;
     }
 
-    public static String c(String str) {
+    @Override // com.repackage.h93, com.repackage.m93, android.content.SharedPreferences
+    public float getFloat(String str, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, f)) == null) ? k(str) ? super.getFloat(str, f) : e(str, f) : invokeLF.floatValue;
+    }
+
+    @Override // com.repackage.h93, com.repackage.m93, android.content.SharedPreferences
+    public int getInt(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) ? k(str) ? super.getInt(str, i) : f(str, i) : invokeLI.intValue;
+    }
+
+    @Override // com.repackage.h93, com.repackage.m93, android.content.SharedPreferences
+    public long getLong(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j)) == null) ? k(str) ? super.getLong(str, j) : g(str, j) : invokeLJ.longValue;
+    }
+
+    @Override // com.repackage.h93, com.repackage.m93, android.content.SharedPreferences
+    public String getString(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) ? k(str) ? super.getString(str, str2) : i(str, str2) : (String) invokeLL.objValue;
+    }
+
+    public boolean k(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            String o = ej2.o(str);
-            File file = new File(o);
-            if (!file.exists() && !file.mkdirs()) {
-                ix1.k("SwanCookieDBHelper", "mkdirs fail: " + o);
-            }
-            return o + File.separator + "smCookie.db";
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? this.f.contains(str) : invokeL.booleanValue;
     }
 
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    @SuppressLint({"BDThrowableCheck"})
-    public synchronized SQLiteDatabase getReadableDatabase() {
-        InterceptResult invokeV;
-        SQLiteDatabase sQLiteDatabase;
-        Exception e;
+    public final void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                try {
-                    sQLiteDatabase = super.getReadableDatabase();
-                } catch (Exception e2) {
-                    sQLiteDatabase = null;
-                    e = e2;
-                }
-                try {
-                    String databaseName = getDatabaseName();
-                    if (!new File(databaseName).exists()) {
-                        ix1.k("SwanCookieDBHelper", "getReadableDatabase file is not exit: " + databaseName);
-                        return null;
-                    }
-                } catch (Exception e3) {
-                    e = e3;
-                    ix1.k("SwanCookieDBHelper", "getRead fail mAppId =" + this.a + ParamableElem.DIVIDE_PARAM + Log.getStackTraceString(e));
-                    if (b) {
-                        throw new RuntimeException(e);
-                    }
-                    return sQLiteDatabase;
-                }
-                return sQLiteDatabase;
-            }
-        }
-        return (SQLiteDatabase) invokeV.objValue;
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    @SuppressLint({"BDThrowableCheck"})
-    public synchronized SQLiteDatabase getWritableDatabase() {
-        InterceptResult invokeV;
-        SQLiteDatabase sQLiteDatabase;
-        Exception e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                try {
-                    sQLiteDatabase = super.getWritableDatabase();
-                } catch (Exception e2) {
-                    sQLiteDatabase = null;
-                    e = e2;
-                }
-                try {
-                    String databaseName = getDatabaseName();
-                    if (!new File(databaseName).exists()) {
-                        ix1.k("SwanCookieDBHelper", "getWritableDatabase file is not exit: " + databaseName);
-                        return null;
-                    }
-                } catch (Exception e3) {
-                    e = e3;
-                    ix1.k("SwanCookieDBHelper", "getWrite fail mAppId =" + this.a + ParamableElem.DIVIDE_PARAM + Log.getStackTraceString(e));
-                    if (b) {
-                        throw new RuntimeException(e);
-                    }
-                    return sQLiteDatabase;
-                }
-                return sQLiteDatabase;
-            }
-        }
-        return (SQLiteDatabase) invokeV.objValue;
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
-            if (b) {
-                Log.d("SwanCookieDBHelper", "onCreate");
-            }
-            try {
-                sQLiteDatabase.execSQL(a());
-            } catch (Exception e) {
-                ix1.k("SwanCookieDBHelper", "createTableSql fail:" + Log.getStackTraceString(e));
-            }
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && g) {
+            IllegalAccessException illegalAccessException = new IllegalAccessException("read only allowed");
+            Log.i("IpcReadOnlySP", illegalAccessException.toString());
+            illegalAccessException.printStackTrace();
         }
     }
 
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+    @Override // com.repackage.h93, com.repackage.m93, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putBoolean(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) && b) {
-            Log.d("SwanCookieDBHelper", "oldVersion = " + i + ";newVersion=" + i2);
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, str, z)) == null) {
+            if (!j() && !k(str)) {
+                l();
+            } else {
+                super.putBoolean(str, z);
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLZ.objValue;
+    }
+
+    @Override // com.repackage.h93, com.repackage.m93, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putFloat(String str, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, f)) == null) {
+            if (!j() && !k(str)) {
+                l();
+            } else {
+                super.putFloat(str, f);
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLF.objValue;
+    }
+
+    @Override // com.repackage.h93, com.repackage.m93, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putInt(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, str, i)) == null) {
+            if (!j() && !k(str)) {
+                l();
+            } else {
+                super.putInt(str, i);
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLI.objValue;
+    }
+
+    @Override // com.repackage.h93, com.repackage.m93, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putLong(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, str, j)) == null) {
+            if (!j() && !k(str)) {
+                l();
+            } else {
+                super.putLong(str, j);
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLJ.objValue;
+    }
+
+    @Override // com.repackage.h93, com.repackage.m93, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putString(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
+            if (!j() && !k(str)) {
+                l();
+            } else {
+                super.putString(str, str2);
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.m93, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putStringSet(String str, Set<String> set) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, set)) == null) {
+            if (!j() && !k(str)) {
+                l();
+            } else {
+                super.putStringSet(str, set);
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.m93, com.repackage.zg4, android.content.SharedPreferences
+    public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, onSharedPreferenceChangeListener) == null) {
+            if (j()) {
+                super.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+            } else {
+                l();
+            }
+        }
+    }
+
+    @Override // com.repackage.h93, com.repackage.m93, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor remove(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+            if (!j() && !k(str)) {
+                l();
+            } else {
+                super.remove(str);
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeL.objValue;
+    }
+
+    @Override // com.repackage.m93, com.repackage.zg4, android.content.SharedPreferences
+    public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, onSharedPreferenceChangeListener) == null) {
+            if (j()) {
+                super.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+            } else {
+                l();
+            }
         }
     }
 }

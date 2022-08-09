@@ -1,265 +1,249 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.pangle.plugin.Plugin;
-import org.json.JSONObject;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class qv2 extends lo1 {
+public final class qv2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile qv2 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, rv2> a;
+    public HashMap<String, rv2> b;
+    public HashMap<String, rv2> c;
 
-    /* loaded from: classes7.dex */
-    public class a implements u12<tv2> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qv2 a;
-
-        public a(qv2 qv2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qv2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qv2Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.u12
-        /* renamed from: b */
-        public void a(tv2 tv2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tv2Var) == null) {
-                this.a.C(tv2Var);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements u12<tv2> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qv2 a;
-
-        public b(qv2 qv2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qv2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qv2Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.u12
-        /* renamed from: b */
-        public void a(tv2 tv2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tv2Var) == null) {
-                this.a.C(tv2Var);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements u12<tv2> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qv2 a;
-
-        public c(qv2 qv2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qv2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qv2Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.u12
-        /* renamed from: b */
-        public void a(tv2 tv2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tv2Var) == null) {
-                this.a.C(tv2Var);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qv2(@NonNull jo1 jo1Var) {
-        super(jo1Var);
+    public qv2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jo1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((jo1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        c();
     }
 
-    public is1 A(String str) {
-        InterceptResult invokeL;
+    public static qv2 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            q("#invokePluginPayment", false);
-            sv2 B = B(str);
-            if (B.b()) {
-                aw2.b(B.toString());
-                return B.i;
-            }
-            return new yv2().l(B, new c(this));
-        }
-        return (is1) invokeL.objValue;
-    }
-
-    public final sv2 B(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            sv2 sv2Var = new sv2();
-            Pair<is1, JSONObject> s = s(str);
-            sv2Var.i = (is1) s.first;
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (jSONObject == null) {
-                return sv2Var;
-            }
-            String optString = jSONObject.optString("pluginProvider");
-            if (TextUtils.isEmpty(optString)) {
-                sv2Var.i = new is1(201, "pluginProvider is empty");
-                return sv2Var;
-            }
-            h94 g = gw2.g(optString);
-            if (g != null) {
-                String str2 = g.r;
-                if (!TextUtils.isEmpty(str2)) {
-                    String optString2 = jSONObject.optString("providerRootPath");
-                    if (TextUtils.isEmpty(optString2)) {
-                        sv2Var.i = new is1(201, "providerRootPath is empty");
-                        return sv2Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                synchronized (qv2.class) {
+                    if (d == null) {
+                        d = new qv2();
                     }
-                    String optString3 = jSONObject.optString("slaveId");
-                    if (TextUtils.isEmpty(optString3)) {
-                        sv2Var.i = new is1(201, "slaveId is empty");
-                        return sv2Var;
-                    }
-                    String optString4 = jSONObject.optString("componentId");
-                    if (TextUtils.isEmpty(optString4)) {
-                        sv2Var.i = new is1(201, "componentId is empty");
-                        return sv2Var;
-                    }
-                    String optString5 = jSONObject.optString("pluginVersion", "release");
-                    String str3 = TextUtils.isEmpty(optString5) ? "release" : optString5;
-                    JSONObject optJSONObject = jSONObject.optJSONObject("args");
-                    String optString6 = jSONObject.optString("cb");
-                    sv2Var.a = str2;
-                    sv2Var.b = optString;
-                    sv2Var.c = optString2;
-                    sv2Var.d = str3;
-                    sv2Var.e = optString3;
-                    sv2Var.f = optString4;
-                    sv2Var.g = optJSONObject;
-                    sv2Var.h = optString6;
-                    return sv2Var;
                 }
             }
-            sv2Var.i = new is1(201, "pluginProvider exchange for truth app key，but empty");
-            return sv2Var;
+            return d;
         }
-        return (sv2) invokeL.objValue;
+        return (qv2) invokeV.objValue;
     }
 
-    public final void C(tv2 tv2Var) {
+    public static synchronized void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tv2Var) == null) || tv2Var == null) {
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            synchronized (qv2.class) {
+                if (d != null) {
+                    d.e();
+                    d = null;
+                }
+            }
+        }
+    }
+
+    public final void a(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        tv2Var.b();
-    }
-
-    @Override // com.repackage.lo1
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Plugin.TAG : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.lo1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "SwanInvokeFunPageApi" : (String) invokeV.objValue;
-    }
-
-    public is1 y(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            q("#invokePluginChooseAddress", false);
-            sv2 B = B(str);
-            if (B.b()) {
-                aw2.b(B.toString());
-                return B.i;
+        char c = 65535;
+        int hashCode = str.hashCode();
+        if (hashCode != 767526192) {
+            if (hashCode != 1331686101) {
+                if (hashCode == 1390184462 && str.equals("PageUpdateRender")) {
+                    c = 2;
+                }
+            } else if (str.equals("PageInitRender")) {
+                c = 1;
             }
-            return new xv2().l(B, new b(this));
+        } else if (str.equals("PageSwitchCost")) {
+            c = 0;
         }
-        return (is1) invokeL.objValue;
+        if (c == 0) {
+            vc3.d.update((uc3<Long>) Long.valueOf(j));
+        } else if (c == 1) {
+            vc3.e.update((uc3<Long>) Long.valueOf(j));
+        } else if (c != 2) {
+        } else {
+            vc3.f.update((uc3<Long>) Long.valueOf(j));
+        }
     }
 
-    public is1 z(String str) {
-        InterceptResult invokeL;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            sv2 B = B(str);
-            if (B.b()) {
-                aw2.b(B.toString());
-                return B.i;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.a == null) {
+                this.a = new HashMap<>();
             }
-            return new zv2().l(B, new a(this));
+            if (this.b == null) {
+                this.b = new HashMap<>();
+            }
+            if (this.c == null) {
+                this.c = new HashMap<>();
+            }
         }
-        return (is1) invokeL.objValue;
+    }
+
+    public void d(String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j)}) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || j < 0) {
+            return;
+        }
+        c();
+        char c = 65535;
+        switch (str2.hashCode()) {
+            case -1880922749:
+                if (str2.equals("pageUpdateEnd")) {
+                    c = 5;
+                    break;
+                }
+                break;
+            case -964566145:
+                if (str2.equals("pageSwitchStart")) {
+                    c = 0;
+                    break;
+                }
+                break;
+            case -410083667:
+                if (str2.equals("pageInitRenderStart")) {
+                    c = 1;
+                    break;
+                }
+                break;
+            case 4028902:
+                if (str2.equals("pageInitRenderEnd")) {
+                    c = 4;
+                    break;
+                }
+                break;
+            case 627578634:
+                if (str2.equals("pageUpdateStart")) {
+                    c = 2;
+                    break;
+                }
+                break;
+            case 1719651128:
+                if (str2.equals("pageSwitchEnd")) {
+                    c = 3;
+                    break;
+                }
+                break;
+        }
+        if (c == 0 || c == 1 || c == 2) {
+            h(str, str2, j);
+        } else if (c == 3 || c == 4 || c == 5) {
+            g(str, str2, j);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            HashMap<String, rv2> hashMap = this.a;
+            if (hashMap != null) {
+                hashMap.clear();
+            }
+            HashMap<String, rv2> hashMap2 = this.b;
+            if (hashMap2 != null) {
+                hashMap2.clear();
+            }
+            HashMap<String, rv2> hashMap3 = this.c;
+            if (hashMap3 != null) {
+                hashMap3.clear();
+            }
+        }
+    }
+
+    public final void g(String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Long.valueOf(j)}) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+            return;
+        }
+        rv2 rv2Var = null;
+        char c = 65535;
+        int hashCode = str2.hashCode();
+        if (hashCode != -1880922749) {
+            if (hashCode != 4028902) {
+                if (hashCode == 1719651128 && str2.equals("pageSwitchEnd")) {
+                    c = 0;
+                }
+            } else if (str2.equals("pageInitRenderEnd")) {
+                c = 1;
+            }
+        } else if (str2.equals("pageUpdateEnd")) {
+            c = 2;
+        }
+        if (c == 0) {
+            rv2Var = this.a.remove(str);
+        } else if (c == 1) {
+            rv2Var = this.b.remove(str);
+        } else if (c == 2) {
+            rv2Var = this.c.remove(str);
+        }
+        if (rv2Var == null) {
+            return;
+        }
+        rv2Var.b(j);
+        a(rv2Var.getType(), rv2Var.a());
+    }
+
+    public final void h(String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Long.valueOf(j)}) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+            return;
+        }
+        rv2 rv2Var = null;
+        char c = 65535;
+        int hashCode = str2.hashCode();
+        if (hashCode != -964566145) {
+            if (hashCode != -410083667) {
+                if (hashCode == 627578634 && str2.equals("pageUpdateStart")) {
+                    c = 2;
+                }
+            } else if (str2.equals("pageInitRenderStart")) {
+                c = 1;
+            }
+        } else if (str2.equals("pageSwitchStart")) {
+            c = 0;
+        }
+        if (c == 0) {
+            rv2Var = this.a.get(str);
+            if (rv2Var == null) {
+                rv2Var = new ov2();
+                this.a.put(str, rv2Var);
+            }
+        } else if (c == 1) {
+            rv2Var = this.b.get(str);
+            if (rv2Var == null) {
+                rv2Var = new nv2();
+                this.b.put(str, rv2Var);
+            }
+        } else if (c == 2 && (rv2Var = this.c.get(str)) == null) {
+            rv2Var = new pv2();
+            this.c.put(str, rv2Var);
+        }
+        if (rv2Var != null) {
+            rv2Var.c(j);
+        }
     }
 }

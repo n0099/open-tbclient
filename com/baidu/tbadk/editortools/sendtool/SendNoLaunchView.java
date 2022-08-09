@@ -24,13 +24,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e25;
-import com.repackage.k15;
-import com.repackage.pi;
-import com.repackage.vu4;
-import com.repackage.w15;
+import com.repackage.c35;
+import com.repackage.h25;
+import com.repackage.pv4;
+import com.repackage.qi;
+import com.repackage.t25;
 /* loaded from: classes3.dex */
-public class SendNoLaunchView extends FrameLayout implements w15 {
+public class SendNoLaunchView extends FrameLayout implements t25 {
     public static /* synthetic */ Interceptable $ic;
     public static final int j;
     public static final int k;
@@ -78,7 +78,7 @@ public class SendNoLaunchView extends FrameLayout implements w15 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.L(new k15(8, -1, null));
+                this.a.J(new h25(8, -1, null));
             }
         }
     }
@@ -112,15 +112,15 @@ public class SendNoLaunchView extends FrameLayout implements w15 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.i) {
-                    this.a.L(new k15(1, 3, null));
+                    this.a.J(new h25(1, 3, null));
                     SendNoLaunchView sendNoLaunchView = this.a;
-                    sendNoLaunchView.L(new k15(14, 0, Integer.valueOf(sendNoLaunchView.getToolId())));
+                    sendNoLaunchView.J(new h25(14, 0, Integer.valueOf(sendNoLaunchView.getToolId())));
                     return;
                 }
                 BdTopToast bdTopToast = new BdTopToast(this.a.h);
-                bdTopToast.i(false);
-                bdTopToast.h(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f00bf));
-                bdTopToast.j((ViewGroup) this.a.getRootView());
+                bdTopToast.h(false);
+                bdTopToast.g(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f00bf));
+                bdTopToast.i((ViewGroup) this.a.getRootView());
             }
         }
     }
@@ -138,11 +138,11 @@ public class SendNoLaunchView extends FrameLayout implements w15 {
                 return;
             }
         }
-        j = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds39);
-        k = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
-        l = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
-        m = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds46);
-        n = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds68);
+        j = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds39);
+        k = qi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
+        l = qi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
+        m = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds46);
+        n = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds68);
         o = 1;
         p = 0;
     }
@@ -203,15 +203,15 @@ public class SendNoLaunchView extends FrameLayout implements w15 {
         }
     }
 
-    @Override // com.repackage.l15
-    public void C(k15 k15Var) {
+    @Override // com.repackage.i25
+    public void A(h25 h25Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, k15Var) == null) || k15Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, h25Var) == null) || h25Var == null) {
             return;
         }
-        int i = k15Var.a;
+        int i = h25Var.a;
         if (i == 4) {
-            Object obj = k15Var.c;
+            Object obj = h25Var.c;
             if (obj != null && (!(obj instanceof String) || !StringUtils.isNull((String) obj))) {
                 this.c[0] = true;
             } else {
@@ -239,13 +239,13 @@ public class SendNoLaunchView extends FrameLayout implements w15 {
                     this.c[2] = false;
                     break;
                 case 12:
-                    Object obj2 = k15Var.c;
-                    if (obj2 instanceof e25) {
-                        e25 e25Var = (e25) obj2;
-                        WriteImagesInfo writeImagesInfo = e25Var.a;
+                    Object obj2 = h25Var.c;
+                    if (obj2 instanceof c35) {
+                        c35 c35Var = (c35) obj2;
+                        WriteImagesInfo writeImagesInfo = c35Var.a;
                         if (writeImagesInfo != null) {
                             if (writeImagesInfo.getChosedFiles() != null) {
-                                this.d[0] = e25Var.a.getChosedFiles().size();
+                                this.d[0] = c35Var.a.getChosedFiles().size();
                             } else {
                                 this.d[0] = 0;
                             }
@@ -277,14 +277,14 @@ public class SendNoLaunchView extends FrameLayout implements w15 {
         setSendBtnUseable(this.e);
     }
 
-    @Override // com.repackage.w15
-    public void L(k15 k15Var) {
+    @Override // com.repackage.t25
+    public void J(h25 h25Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k15Var) == null) || (editorTools = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h25Var) == null) || (editorTools = this.a) == null) {
             return;
         }
-        editorTools.A(k15Var);
+        editorTools.A(h25Var);
     }
 
     public final void c() {
@@ -310,70 +310,70 @@ public class SendNoLaunchView extends FrameLayout implements w15 {
         }
     }
 
-    public final void e() {
+    @Override // com.repackage.t25
+    public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            setVisibility(0);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.f = new TBSpecificationBtn(getContext());
-            this.f.setLayoutParams(new FrameLayout.LayoutParams(pi.f(getContext(), R.dimen.tbds151) + j, pi.f(getContext(), R.dimen.tbds75) + (k * 2)));
+            this.f.setLayoutParams(new FrameLayout.LayoutParams(qi.f(getContext(), R.dimen.tbds151) + j, qi.f(getContext(), R.dimen.tbds75) + (k * 2)));
             TBSpecificationBtn tBSpecificationBtn = this.f;
             int i = j;
             int i2 = k;
             tBSpecificationBtn.setPadding(i, i2, 0, i2);
             this.f.setEnabled(false);
             this.f.setTextSize(R.dimen.T_X08);
-            this.f.setText(getContext().getString(R.string.obfuscated_res_0x7f0f10d0));
+            this.f.setText(getContext().getString(R.string.obfuscated_res_0x7f0f110a));
             addView(this.f);
             this.f.setVisibility(8);
         }
     }
 
-    @Override // com.repackage.w15
+    @Override // com.repackage.t25
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    @Override // com.repackage.w15
+    @Override // com.repackage.t25
     public void hide() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             setVisibility(8);
         }
     }
 
-    @Override // com.repackage.w15
+    @Override // com.repackage.t25
     public void init() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             e();
             d();
             c();
         }
     }
 
-    @Override // com.repackage.w15
+    @Override // com.repackage.t25
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             if (this.f != null) {
-                vu4 vu4Var = new vu4();
-                vu4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
-                this.f.setConfig(vu4Var);
+                pv4 pv4Var = new pv4();
+                pv4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
+                this.f.setConfig(pv4Var);
             }
-            WebPManager.setPureDrawable(this.g, R.drawable.obfuscated_res_0x7f08097d, R.color.CAM_X0105, null);
+            WebPManager.setPureDrawable(this.g, R.drawable.obfuscated_res_0x7f08099e, R.color.CAM_X0105, null);
         }
     }
 
-    @Override // com.repackage.w15
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            setVisibility(0);
-        }
-    }
-
-    @Override // com.repackage.w15
+    @Override // com.repackage.t25
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, editorTools) == null) {
@@ -388,7 +388,7 @@ public class SendNoLaunchView extends FrameLayout implements w15 {
         }
     }
 
-    @Override // com.repackage.w15
+    @Override // com.repackage.t25
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {

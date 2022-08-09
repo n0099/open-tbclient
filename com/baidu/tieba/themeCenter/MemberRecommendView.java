@@ -23,8 +23,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.gr8;
 import com.repackage.h9;
-import com.repackage.po8;
 /* loaded from: classes4.dex */
 public class MemberRecommendView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -34,7 +34,7 @@ public class MemberRecommendView extends FrameLayout {
     public TbImageView c;
     public TextView d;
     public TextView e;
-    public po8 f;
+    public gr8 f;
     public int g;
 
     /* loaded from: classes4.dex */
@@ -156,13 +156,13 @@ public class MemberRecommendView extends FrameLayout {
         }
     }
 
-    public void e(po8 po8Var) {
+    public void e(gr8 gr8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, po8Var) == null) || po8Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gr8Var) == null) || gr8Var == null) {
             return;
         }
-        this.f = po8Var;
-        this.c.J(po8Var.b(), 10, false);
+        this.f = gr8Var;
+        this.c.K(gr8Var.b(), 10, false);
         this.d.setText(this.f.c());
         if (StringUtils.isNull(this.f.a())) {
             this.e.setVisibility(8);
@@ -175,15 +175,15 @@ public class MemberRecommendView extends FrameLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0547, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0562, this);
             this.b = inflate;
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09245f);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092584);
             this.c = tbImageView;
             tbImageView.setDefaultResource(R.drawable.icon_vip_orange);
-            this.c.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0811a8);
+            this.c.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08120f);
             this.c.setAutoChangeStyle(true);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920f0);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090fbe);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921ec);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091014);
             this.e = textView;
             textView.setOnClickListener(new a(this));
         }

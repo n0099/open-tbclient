@@ -72,13 +72,13 @@ public class al {
     public static long a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static volatile as f889a;
+    public static volatile as f890a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final LinkedList<Pair<Integer, Cif>> f890a;
+    public static final LinkedList<Pair<Integer, Cif>> f891a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static ExecutorService f891a;
+    public static ExecutorService f892a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
@@ -88,10 +88,10 @@ public class al {
         public Context a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f892a;
+        public String f893a;
 
         /* renamed from: a  reason: collision with other field name */
-        public boolean f893a;
+        public boolean f894a;
 
         public a(String str, Context context, boolean z) {
             Interceptable interceptable = $ic;
@@ -109,8 +109,8 @@ public class al {
                 }
             }
             this.a = context;
-            this.f892a = str;
-            this.f893a = z;
+            this.f893a = str;
+            this.f894a = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -121,17 +121,17 @@ public class al {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 Bitmap bitmap = null;
-                if (TextUtils.isEmpty(this.f892a)) {
+                if (TextUtils.isEmpty(this.f893a)) {
                     com.xiaomi.channel.commonutils.logger.b.m89a("Failed get online picture/icon resource cause picUrl is empty");
                     return null;
                 }
-                if (this.f892a.startsWith("http")) {
-                    aw.b a = aw.a(this.a, this.f892a, this.f893a);
+                if (this.f893a.startsWith("http")) {
+                    aw.b a = aw.a(this.a, this.f893a, this.f894a);
                     if (a != null) {
-                        return a.f911a;
+                        return a.f912a;
                     }
                 } else {
-                    bitmap = aw.a(this.a, this.f892a);
+                    bitmap = aw.a(this.a, this.f893a);
                     if (bitmap != null) {
                         return bitmap;
                     }
@@ -150,7 +150,7 @@ public class al {
         public long a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Notification f894a;
+        public Notification f895a;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -176,10 +176,10 @@ public class al {
         public long a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f895a;
+        public String f896a;
 
         /* renamed from: a  reason: collision with other field name */
-        public boolean f896a;
+        public boolean f897a;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -195,7 +195,7 @@ public class al {
                 }
             }
             this.a = 0L;
-            this.f896a = false;
+            this.f897a = false;
         }
     }
 
@@ -212,8 +212,8 @@ public class al {
                 return;
             }
         }
-        f890a = new LinkedList<>();
-        f891a = Executors.newCachedThreadPool();
+        f891a = new LinkedList<>();
+        f892a = Executors.newCachedThreadPool();
     }
 
     public static int a(Context context, String str) {
@@ -301,7 +301,7 @@ public class al {
         hw m465a = cif.m465a();
         String m431a = m465a != null ? m465a.m431a() : "";
         boolean m609a = m609a(cif);
-        if (m465a == null || TextUtils.isEmpty(m465a.f549e)) {
+        if (m465a == null || TextUtils.isEmpty(m465a.f550e)) {
             if (m609a) {
                 intent = new Intent();
                 intent.setComponent(new ComponentName("com.xiaomi.xmsf", "com.xiaomi.mipush.sdk.PushMessageHandler"));
@@ -332,11 +332,11 @@ public class al {
             return Build.VERSION.SDK_INT >= 31 ? PendingIntent.getActivity(context, 0, intent2, 167772160) : PendingIntent.getActivity(context, 0, intent2, 134217728);
         }
         Intent intent3 = new Intent("android.intent.action.VIEW");
-        intent3.setData(Uri.parse(m465a.f549e));
+        intent3.setData(Uri.parse(m465a.f550e));
         try {
-            protocol = new URL(m465a.f549e).getProtocol();
+            protocol = new URL(m465a.f550e).getProtocol();
         } catch (MalformedURLException unused) {
-            com.xiaomi.channel.commonutils.logger.b.m89a("meet URL exception : " + m465a.f549e);
+            com.xiaomi.channel.commonutils.logger.b.m89a("meet URL exception : " + m465a.f550e);
             intent3.setPackage(str);
         }
         if (!"http".equals(protocol) && !"https".equals(protocol)) {
@@ -518,7 +518,7 @@ public class al {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65549, null, context, str, z)) == null) {
-            Future submit = f891a.submit(new a(str, context, z));
+            Future submit = f892a.submit(new a(str, context, z));
             try {
                 try {
                     Bitmap bitmap = (Bitmap) submit.get(180L, TimeUnit.SECONDS);
@@ -640,7 +640,7 @@ public class al {
             String a3 = a(cif);
             Map<String, String> m432a = cif.m465a().m432a();
             String str2 = m432a.get("notification_style_type");
-            eq a4 = (!com.xiaomi.push.m.m561a(context) || f889a == null) ? null : f889a.a(context, i, a3, m432a);
+            eq a4 = (!com.xiaomi.push.m.m561a(context) || f890a == null) ? null : f890a.a(context, i, a3, m432a);
             if (a4 != null) {
                 a4.a(m432a);
                 return a4;
@@ -823,7 +823,7 @@ public class al {
                 if (a16.startsWith("http")) {
                     aw.b a17 = aw.a(context, a16, true);
                     if (a17 != null) {
-                        a5 = a17.f911a;
+                        a5 = a17.f912a;
                         bVar2.a = a17.a;
                     } else {
                         a5 = null;
@@ -872,7 +872,7 @@ public class al {
                     }
                     if (currentTimeMillis - a <= 10000) {
                         a = currentTimeMillis;
-                        i2 = m465a.f536a;
+                        i2 = m465a.f537a;
                         if (m612b(context, a8)) {
                             i2 = a(context, a8);
                         }
@@ -920,7 +920,7 @@ public class al {
                         if (!TextUtils.isEmpty(str7) || context.getApplicationInfo().targetSdkVersion >= 26) {
                             String a19 = a(context, a8, m432a);
                             int b2 = b(m432a);
-                            int i5 = m465a.f536a;
+                            int i5 = m465a.f537a;
                             cc.a(context, m432a, eqVar2, currentTimeMillis2);
                             com.xiaomi.push.bk.a((Object) eqVar2, "setChannelId", at.a(a18, str7, a19, m432a.get("channel_description"), i5, b2, m432a.get("sound_uri"), m432a.get("channel_perm")));
                             if (i3 == -100 && ay.a(m432a)) {
@@ -978,7 +978,7 @@ public class al {
                         }
                     }
                     b bVar3 = bVar;
-                    bVar3.f894a = notification;
+                    bVar3.f895a = notification;
                     return bVar3;
                 }
             }
@@ -1018,7 +1018,7 @@ public class al {
             if (m432a != null) {
             }
             b bVar32 = bVar;
-            bVar32.f894a = notification;
+            bVar32.f895a = notification;
             return bVar32;
         }
         return (b) invokeCommon.objValue;
@@ -1048,7 +1048,7 @@ public class al {
                     eo.a(context.getApplicationContext()).a(cif.b(), b(cif), m465a.m431a(), "10:" + a(cif));
                 }
                 str = "Do not notify because user block " + a(cif) + "‘s notification";
-            } else if (com.xiaomi.push.m.m561a(context) && f889a != null && f889a.m616a(context, b2, a(cif), map)) {
+            } else if (com.xiaomi.push.m.m561a(context) && f890a != null && f890a.m616a(context, b2, a(cif), map)) {
                 if (m465a != null) {
                     eo.a(context.getApplicationContext()).a(cif.b(), b(cif), m465a.m431a(), "14:" + a(cif));
                 }
@@ -1059,8 +1059,8 @@ public class al {
                 if (a4 != null) {
                     b a5 = a(context, cif, bArr, a3, a4, b2);
                     cVar.a = a5.a;
-                    cVar.f895a = a(cif);
-                    Notification notification = a5.f894a;
+                    cVar.f896a = a(cif);
+                    Notification notification = a5.f895a;
                     if (com.xiaomi.push.m.m560a()) {
                         if (!TextUtils.isEmpty(m465a.m431a())) {
                             notification.extras.putString("message_id", m465a.m431a());
@@ -1072,7 +1072,7 @@ public class al {
                         if (!TextUtils.isEmpty(str2)) {
                             notification.extras.putString("score_info", str2);
                         }
-                        notification.extras.putString("pushUid", a(m465a.f540a, "n_stats_expose"));
+                        notification.extras.putString("pushUid", a(m465a.f541a, "n_stats_expose"));
                         int i2 = -1;
                         if (c(cif)) {
                             i2 = 1000;
@@ -1098,14 +1098,14 @@ public class al {
                         ay.m632a(notification, a6);
                     }
                     ax a7 = ax.a(context, a6);
-                    if (com.xiaomi.push.m.m561a(context) && f889a != null) {
-                        f889a.a(cif, m465a.m432a(), b2, notification);
+                    if (com.xiaomi.push.m.m561a(context) && f890a != null) {
+                        f890a.a(cif, m465a.m432a(), b2, notification);
                     }
-                    if (com.xiaomi.push.m.m561a(context) && f889a != null && f889a.a(m465a.m432a(), b2, notification)) {
+                    if (com.xiaomi.push.m.m561a(context) && f890a != null && f890a.a(m465a.m432a(), b2, notification)) {
                         com.xiaomi.channel.commonutils.logger.b.b("consume this notificaiton by agent");
                     } else {
                         a7.a(b2, notification);
-                        cVar.f896a = true;
+                        cVar.f897a = true;
                         com.xiaomi.channel.commonutils.logger.b.m89a("notification: " + m465a.m431a() + " is notifyied");
                     }
                     if (com.xiaomi.push.m.m560a() && com.xiaomi.push.m.m561a(context)) {
@@ -1129,10 +1129,10 @@ public class al {
                         }
                     }
                     Pair<Integer, Cif> pair = new Pair<>(Integer.valueOf(b2), cif);
-                    synchronized (f890a) {
-                        f890a.add(pair);
-                        if (f890a.size() > 100) {
-                            f890a.remove();
+                    synchronized (f891a) {
+                        f891a.add(pair);
+                        if (f891a.size() > 100) {
+                            f891a.remove();
                         }
                     }
                     return cVar;
@@ -1159,13 +1159,13 @@ public class al {
         hw m465a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, cif)) == null) {
-            if ("com.xiaomi.xmsf".equals(cif.f632b) && (m465a = cif.m465a()) != null && m465a.m432a() != null) {
+            if ("com.xiaomi.xmsf".equals(cif.f633b) && (m465a = cif.m465a()) != null && m465a.m432a() != null) {
                 String str = m465a.m432a().get("miui_package_name");
                 if (!TextUtils.isEmpty(str)) {
                     return str;
                 }
             }
-            return cif.f632b;
+            return cif.f633b;
         }
         return (String) invokeL.objValue;
     }
@@ -1206,12 +1206,12 @@ public class al {
         }
         if (bk.a.equals(a2) || bk.b.equals(a2) || bk.c.equals(a2)) {
             intent.putExtra(MiPushMessage.KEY_MESSAGE_ID, str);
-            intent.putExtra("local_paid", cif.f628a);
-            if (!TextUtils.isEmpty(cif.f632b)) {
-                intent.putExtra("target_package", cif.f632b);
+            intent.putExtra("local_paid", cif.f629a);
+            if (!TextUtils.isEmpty(cif.f633b)) {
+                intent.putExtra("target_package", cif.f633b);
             }
             intent.putExtra("job_key", a(hwVar.m432a(), "jobkey"));
-            intent.putExtra(i + "_target_component", a(context, cif.f632b, hwVar.m432a(), i));
+            intent.putExtra(i + "_target_component", a(context, cif.f633b, hwVar.m432a(), i));
         }
     }
 
@@ -1638,10 +1638,10 @@ public class al {
     /* renamed from: b  reason: collision with other method in class */
     public static void m611b(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65579, null, context, str) == null) || !com.xiaomi.push.m.m561a(context) || f889a == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(65579, null, context, str) == null) || !com.xiaomi.push.m.m561a(context) || f890a == null || TextUtils.isEmpty(str)) {
             return;
         }
-        f889a.a(str);
+        f890a.a(str);
     }
 
     public static void b(Context context, String str, int i) {
@@ -1664,7 +1664,7 @@ public class al {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65582, null, cif)) == null) {
             hw m465a = cif.m465a();
-            return a(m465a) && m465a.f542b == 1 && !m609a(cif);
+            return a(m465a) && m465a.f543b == 1 && !m609a(cif);
         }
         return invokeL.booleanValue;
     }
@@ -1717,7 +1717,7 @@ public class al {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65586, null, cif)) == null) {
             hw m465a = cif.m465a();
-            return a(m465a) && m465a.f542b == 0 && !m609a(cif);
+            return a(m465a) && m465a.f543b == 0 && !m609a(cif);
         }
         return invokeL.booleanValue;
     }

@@ -3,7 +3,7 @@ package com.ss.android.socialbase.appdownloader.a;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class h extends a {
     public h(Context context, com.ss.android.socialbase.downloader.g.a aVar, String str) {
         super(context, aVar, str);

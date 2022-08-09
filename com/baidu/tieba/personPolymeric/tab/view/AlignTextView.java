@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
-/* loaded from: classes3.dex */
+import com.repackage.pi;
+/* loaded from: classes4.dex */
 public class AlignTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class AlignTextView extends TextView {
             }
             String str = (String) text;
             Layout layout = getLayout();
-            if (!oi.isEmpty(str) && layout != null && layout.getLineCount() == 1 && str.length() > 1) {
+            if (!pi.isEmpty(str) && layout != null && layout.getLineCount() == 1 && str.length() > 1) {
                 int lineBaseline = layout.getLineBaseline(0) + getPaddingTop();
                 float measureText = getPaint().measureText(str);
                 float paddingLeft = getPaddingLeft();

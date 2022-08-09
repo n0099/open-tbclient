@@ -1,94 +1,119 @@
 package com.repackage;
 
-import android.net.wifi.WifiConfiguration;
-import android.text.TextUtils;
+import android.content.Context;
+import android.os.Build;
+import android.util.Log;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.searchbox.datacollector.growth.utils.UBCEncryptor;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.UUID;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class kb3 {
+public class kb3 extends w23 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(WifiConfiguration wifiConfiguration) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, wifiConfiguration)) == null) {
-            if (wifiConfiguration == null) {
-                return -1;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755564683, "Lcom/repackage/kb3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (wifiConfiguration.allowedKeyManagement.get(1)) {
-                return 2;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755564683, "Lcom/repackage/kb3;");
+                return;
             }
-            if (wifiConfiguration.allowedKeyManagement.get(2) || wifiConfiguration.allowedKeyManagement.get(3)) {
-                return 3;
-            }
-            if (wifiConfiguration.wepKeys[0] != null) {
-                return 1;
-            }
-            return wifiConfiguration.allowedKeyManagement.get(0) ? 0 : -1;
         }
-        return invokeL.intValue;
+        c = jh1.a;
     }
 
-    public static int b(gb3 gb3Var) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kb3(w13 w13Var) {
+        super(w13Var, "/swanAPI/getSystemRiskInfo");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, gb3Var)) == null) {
-            if (gb3Var == null) {
-                return -1;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {w13Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (TextUtils.isEmpty(gb3Var.c) && TextUtils.isEmpty(gb3Var.d)) {
-                return 0;
-            }
-            if (TextUtils.isEmpty(gb3Var.c) || TextUtils.isEmpty(gb3Var.d)) {
-                return !TextUtils.isEmpty(gb3Var.d) ? 2 : -1;
-            }
-            return 3;
         }
-        return invokeL.intValue;
     }
 
-    public static int c(String str) {
-        InterceptResult invokeL;
+    @Override // com.repackage.w23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, z03 z03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, z03Var)) == null) {
+            wk1 h0 = gk2.h0();
+            JSONObject jSONObject = new JSONObject();
+            if (context == null) {
+                try {
+                    context = gk2.c();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
-            if (str.contains("WEP")) {
-                return 1;
+            String str = "";
+            jSONObject.put(DpStatConstants.KEY_USER_ID, h0 == null ? "" : h0.h(context));
+            jSONObject.put("zid", h0 == null ? "" : gk2.G0().a(context));
+            jSONObject.put("idfa", "");
+            jSONObject.put("imei", te3.r());
+            jSONObject.put("appkey", z03Var == null ? "" : z03Var.O());
+            jSONObject.put("os", "android");
+            jSONObject.put("osVersion", Build.VERSION.RELEASE);
+            jSONObject.put("hostName", context.getPackageName());
+            jSONObject.put("hostVersion", te3.D());
+            jSONObject.put("model", Build.MODEL);
+            jSONObject.put("uuid", jh4.b(context).a());
+            jSONObject.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
+            if (h0 != null) {
+                str = h0.i(context);
             }
-            if (str.contains("PSK")) {
-                return 2;
+            jSONObject.put("cuid", str);
+            if (c) {
+                Log.d("GetSystemRiskInfoAction", jSONObject.toString());
             }
-            return str.contains("EAP") ? 3 : -1;
+            String b = sh4.b(UUID.randomUUID().toString().getBytes(), false);
+            String a = rd3.a(b, jSONObject.toString(), UBCEncryptor.TRANSFORMATION, "4c6579b50ff05adb");
+            String d = rd3.d("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCjP7b5s3ozPgXpS7d9k2dGaie8KLNmCbhybWPxVjLTmN4Jj3c7GnwdzyIQOix7t95Kipd75AXcnP2c4vUnmXPpZwh6ejNAmiGLkLE7fobPCZKfI3aTweSKxIav3QPHMaZrra1aiGtnZ+rTHXD3chBpNCGbuAEUqN+psHjvnHO72QIDAQAB", b, "RSA/ECB/PKCS1Padding");
+            if (c) {
+                Log.d("GetSystemRiskInfoAction", "aesKey=" + b + ", aesValue=" + a + ", rsaKey=" + d);
+            }
+            JSONObject jSONObject2 = new JSONObject();
+            JSONObject jSONObject3 = new JSONObject();
+            try {
+                jSONObject3.put("key", d);
+                jSONObject3.put("value", a);
+                jSONObject2.put("content", jSONObject3);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0));
+            return true;
         }
-        return invokeL.intValue;
-    }
-
-    public static void d(WifiConfiguration wifiConfiguration, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65539, null, wifiConfiguration, i) == null) || wifiConfiguration == null) {
-            return;
-        }
-        wifiConfiguration.allowedKeyManagement.clear();
-        wifiConfiguration.allowedProtocols.clear();
-        wifiConfiguration.allowedAuthAlgorithms.clear();
-        wifiConfiguration.allowedPairwiseCiphers.clear();
-        wifiConfiguration.allowedGroupCiphers.clear();
-        if (i == 0) {
-            wifiConfiguration.allowedKeyManagement.set(0);
-        } else if (i == 1) {
-            wifiConfiguration.allowedKeyManagement.set(0);
-            wifiConfiguration.allowedAuthAlgorithms.set(0);
-            wifiConfiguration.allowedAuthAlgorithms.set(1);
-        } else if (i == 2) {
-            wifiConfiguration.allowedKeyManagement.set(1);
-        } else if (i != 3) {
-        } else {
-            wifiConfiguration.allowedKeyManagement.set(2);
-            wifiConfiguration.allowedKeyManagement.set(3);
-        }
+        return invokeLLLL.booleanValue;
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.tbadk.mutiprocess.sync;
 
 import com.baidu.tbadk.coreExtra.data.ABTestExtraData;
+import com.baidu.tbadk.data.UserGrowthTaskListData;
 import com.baidu.tbadk.mutiprocess.SerializableEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,6 +15,7 @@ public class SyncDataEvent extends SerializableEvent {
     public ABTestExtraData abtestExtraData;
     public String sampleId;
     public String ubsABTest;
+    public UserGrowthTaskListData userGrowthTaskListData;
 
     public SyncDataEvent() {
         Interceptable interceptable = $ic;

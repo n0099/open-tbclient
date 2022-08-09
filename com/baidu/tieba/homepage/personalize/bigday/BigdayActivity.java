@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yt4;
+import com.repackage.ru4;
 import java.util.Calendar;
 /* loaded from: classes3.dex */
 public class BigdayActivity extends BaseActivity {
@@ -81,7 +81,7 @@ public class BigdayActivity extends BaseActivity {
                 calendar.set(12, 59);
                 calendar.set(13, 59);
                 calendar.set(14, 0);
-                yt4.k().x("key_bigday_next_showtime_home", calendar.getTimeInMillis());
+                ru4.k().x("key_bigday_next_showtime_home", calendar.getTimeInMillis());
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, null));
                 finish();
             }
@@ -94,11 +94,11 @@ public class BigdayActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0155);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09036f);
+            setContentView(R.layout.obfuscated_res_0x7f0d0156);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090387);
             this.a = tbImageView;
             tbImageView.setAutoChangeStyle(false);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09036e);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090386);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(R.dimen.obfuscated_res_0x7f070287));
             }
@@ -109,7 +109,7 @@ public class BigdayActivity extends BaseActivity {
                 this.e = intent.getLongExtra(BigdayActivityConfig.BIGDAY_ID, 0L);
             }
             this.a.setTag(getPageContext().getUniqueId());
-            this.a.J(this.c, 41, false);
+            this.a.K(this.c, 41, false);
             this.a.setOnClickListener(this);
             this.b.setOnClickListener(this);
             TiebaStatic.log(new StatisticItem("c13111").param("obj_id", this.e).param(TiebaStatic.Params.OBJ_TO, this.d));

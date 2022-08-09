@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.ss.android.downloadlib.addownload.b.d;
@@ -33,8 +34,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0660a, ag {
+/* loaded from: classes8.dex */
+public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0665a, ag {
     public static String a = "a";
     public static volatile a d;
     public long b;
@@ -42,11 +43,11 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0660
 
     @WorkerThread
     /* renamed from: com.ss.android.downloadlib.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class RunnableC0643a implements Runnable {
+    /* loaded from: classes8.dex */
+    public class RunnableC0648a implements Runnable {
         public final int b;
 
-        public RunnableC0643a(int i) {
+        public RunnableC0648a(int i) {
             this.b = i;
         }
 
@@ -65,7 +66,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0660
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b implements Runnable {
         public long a;
         public int b;
@@ -199,7 +200,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0660
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class c implements Runnable {
         public final com.ss.android.downloadad.api.a.b b;
 
@@ -438,13 +439,13 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0660
         com.ss.android.downloadlib.d.a.a().b("download_finish", a2, bVar);
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0660a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0665a
     public void c() {
         com.ss.android.socialbase.downloader.c.a.b(a, "onAppBackground()");
         a(6);
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0660a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0665a
     public void b() {
         com.ss.android.socialbase.downloader.c.a.b(a, "onAppForeground()");
         d();
@@ -721,7 +722,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0660
         if (currentTimeMillis - this.b < AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
             return;
         }
-        d.a().a(new RunnableC0643a(i), this.b > 0 ? 2000L : 8000L);
+        d.a().a(new RunnableC0648a(i), this.b > 0 ? 2000L : 8000L);
         this.b = currentTimeMillis;
     }
 
@@ -769,7 +770,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0660
         }
         JSONArray e = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).e("ah_report_config");
         if (aVar.b != 0) {
-            downloadInfo.getTempCacheData().remove("intent");
+            downloadInfo.getTempCacheData().remove(IntentData.KEY);
         }
         if (e == null || (b2 = b(downloadInfo, aVar)) == null) {
             return;
@@ -787,9 +788,9 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0660
                 @Override // com.ss.android.downloadlib.b.d
                 public void a(boolean z) {
                     if (!z) {
-                        Intent intent = (Intent) downloadInfo.getTempCacheData().get("intent");
+                        Intent intent = (Intent) downloadInfo.getTempCacheData().get(IntentData.KEY);
                         if (intent != null) {
-                            downloadInfo.getTempCacheData().remove("intent");
+                            downloadInfo.getTempCacheData().remove(IntentData.KEY);
                             com.ss.android.socialbase.appdownloader.c.a(j.getContext(), intent);
                             l.a(jSONObject, UnitedSchemeConstants.UNITED_SCHEME_BACKUP, (Object) 1);
                         } else {

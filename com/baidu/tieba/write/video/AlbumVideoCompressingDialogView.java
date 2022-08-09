@@ -43,9 +43,9 @@ public class AlbumVideoCompressingDialogView extends FrameLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0207, this);
-            this.a = (AlbumCompressProgressView) findViewById(R.id.obfuscated_res_0x7f092422);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0922c1);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0208, this);
+            this.a = (AlbumCompressProgressView) findViewById(R.id.obfuscated_res_0x7f092544);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0923d1);
         }
     }
 

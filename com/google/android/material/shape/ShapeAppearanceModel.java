@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ShapeAppearanceModel {
     public static /* synthetic */ Interceptable $ic;
     public static final CornerSize PILL;
@@ -40,13 +40,13 @@ public class ShapeAppearanceModel {
     public CornerSize topRightCornerSize;
 
     /* renamed from: com.google.android.material.shape.ShapeAppearanceModel$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -450,7 +450,7 @@ public class ShapeAppearanceModel {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface CornerSizeUnaryOperator {
         @NonNull
         CornerSize apply(@NonNull CornerSize cornerSize);
@@ -674,7 +674,7 @@ public class ShapeAppearanceModel {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{context, attributeSet, Integer.valueOf(i), Integer.valueOf(i2), cornerSize})) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040592, R.attr.obfuscated_res_0x7f040595}, i, i2);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040614, R.attr.obfuscated_res_0x7f040617}, i, i2);
             int resourceId = obtainStyledAttributes.getResourceId(0, 0);
             int resourceId2 = obtainStyledAttributes.getResourceId(1, 0);
             obtainStyledAttributes.recycle();
@@ -707,7 +707,7 @@ public class ShapeAppearanceModel {
                 i = i2;
                 context = contextThemeWrapper;
             }
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(i, new int[]{R.attr.obfuscated_res_0x7f04018c, R.attr.obfuscated_res_0x7f04018d, R.attr.obfuscated_res_0x7f04018e, R.attr.obfuscated_res_0x7f04018f, R.attr.obfuscated_res_0x7f040190, R.attr.obfuscated_res_0x7f040192, R.attr.obfuscated_res_0x7f040193, R.attr.obfuscated_res_0x7f040194, R.attr.obfuscated_res_0x7f040195, R.attr.obfuscated_res_0x7f040196});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(i, new int[]{R.attr.obfuscated_res_0x7f04019e, R.attr.obfuscated_res_0x7f04019f, R.attr.obfuscated_res_0x7f0401a0, R.attr.obfuscated_res_0x7f0401a1, R.attr.obfuscated_res_0x7f0401a2, R.attr.obfuscated_res_0x7f0401a4, R.attr.obfuscated_res_0x7f0401a5, R.attr.obfuscated_res_0x7f0401a6, R.attr.obfuscated_res_0x7f0401a7, R.attr.obfuscated_res_0x7f0401a8});
             try {
                 int i3 = obtainStyledAttributes.getInt(0, 0);
                 int i4 = obtainStyledAttributes.getInt(3, i3);

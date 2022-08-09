@@ -1,175 +1,94 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.img.ImageUploadResult;
-import com.baidu.tbadk.img.ImageUploader;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes5.dex */
-public class c96 {
+public class c96 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public FrameLayout b;
+    public ImageView c;
+    public TextView d;
+    public int e;
+    public View.OnClickListener f;
 
-    /* loaded from: classes5.dex */
-    public class a implements d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AtomicInteger a;
-        public final /* synthetic */ List b;
-        public final /* synthetic */ c c;
-
-        public a(c96 c96Var, AtomicInteger atomicInteger, List list, c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c96Var, atomicInteger, list, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = atomicInteger;
-            this.b = list;
-            this.c = cVar;
-        }
-
-        @Override // com.repackage.c96.d
-        public void a(ImageUploadResult imageUploadResult) {
-            ImageUploadResult.picInfo picinfo;
-            ImageUploadResult.PicDetailedInfo picDetailedInfo;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, imageUploadResult) == null) {
-                this.a.decrementAndGet();
-                if (imageUploadResult != null && (picinfo = imageUploadResult.picInfo) != null && (picDetailedInfo = picinfo.bigPic) != null && !TextUtils.isEmpty(picDetailedInfo.picUrl)) {
-                    this.b.add(imageUploadResult.picInfo.bigPic.picUrl);
-                }
-                if (this.a.get() == 0) {
-                    if (!ListUtils.isEmpty(this.b)) {
-                        this.c.d0(this.b);
-                    } else {
-                        this.c.C0();
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ImageFileInfo a;
-        public final /* synthetic */ d b;
-
-        public b(c96 c96Var, ImageFileInfo imageFileInfo, d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c96Var, imageFileInfo, dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = imageFileInfo;
-            this.b = dVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String filePath = this.a.getFilePath();
-                ImageUploader imageUploader = new ImageUploader("from_user_collect");
-                if (this.a.isGif()) {
-                    this.b.a(imageUploader.uploadInBackground(filePath, true, false));
-                    return;
-                }
-                Bitmap b = tn7.b(this.a);
-                if (b == null) {
-                    this.b.a(null);
-                    return;
-                }
-                String saveBitmapByAbsolutelyPath = FileHelper.saveBitmapByAbsolutelyPath(TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath(), "face_" + Math.abs(filePath.hashCode()), b, 60);
-                b.recycle();
-                if (TextUtils.isEmpty(saveBitmapByAbsolutelyPath)) {
-                    this.b.a(null);
-                    return;
-                }
-                ImageUploadResult uploadInBackground = imageUploader.uploadInBackground(saveBitmapByAbsolutelyPath, false, false);
-                FileHelper.deleteFile(new File(saveBitmapByAbsolutelyPath));
-                this.b.a(uploadInBackground);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface c {
-        void C0();
-
-        void d0(List<String> list);
-    }
-
-    /* loaded from: classes5.dex */
-    public interface d {
-        void a(ImageUploadResult imageUploadResult);
-    }
-
-    public c96() {
+    public c96(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d026c, (ViewGroup) null);
+        this.a = inflate;
+        this.b = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090712);
+        this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090fdf);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09071c);
+        this.e = qi.f(tbPageContext.getPageActivity(), R.dimen.tbds52);
+        this.b.setOnClickListener(this);
+        this.c.setOnClickListener(this);
+        this.d.setOnClickListener(this);
+        if (this.b.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ((ViewGroup.MarginLayoutParams) this.b.getLayoutParams()).bottomMargin = qi.f(tbPageContext.getPageActivity(), R.dimen.tbds47) + TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
+            this.b.requestLayout();
+        }
     }
 
-    public void a(ArrayList<ImageFileInfo> arrayList, c cVar) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, arrayList, cVar) == null) || ListUtils.isEmpty(arrayList)) {
-            return;
-        }
-        AtomicInteger atomicInteger = new AtomicInteger();
-        atomicInteger.set(arrayList.size());
-        ArrayList arrayList2 = new ArrayList();
-        Iterator<ImageFileInfo> it = arrayList.iterator();
-        while (it.hasNext()) {
-            b(it.next(), new a(this, atomicInteger, arrayList2, cVar));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0205).defaultStrokeColor(R.color.cp_cont_b_alpha42).strokeWidth(UtilHelper.getDimenPixelSize(R.dimen.tbds1)).radius(this.e).into(this.b);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f0805f0, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
         }
     }
 
-    public final void b(ImageFileInfo imageFileInfo, d dVar) {
+    public View b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFileInfo, dVar) == null) {
-            jn7.b().a(new b(this, imageFileInfo, dVar));
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (View) invokeV.objValue;
+    }
+
+    public void c(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+            this.f = onClickListener;
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        View.OnClickListener onClickListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            if ((view2 == this.b || view2 == this.c || view2 == this.d) && (onClickListener = this.f) != null) {
+                onClickListener.onClick(view2);
+            }
         }
     }
 }

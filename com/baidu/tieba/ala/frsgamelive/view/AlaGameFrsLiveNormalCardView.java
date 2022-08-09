@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.at5;
-import com.repackage.gt5;
-import com.repackage.jx5;
-import com.repackage.mo5;
+import com.repackage.bz5;
+import com.repackage.eq5;
+import com.repackage.su5;
+import com.repackage.yu5;
 /* loaded from: classes3.dex */
-public class AlaGameFrsLiveNormalCardView extends jx5<at5> {
+public class AlaGameFrsLiveNormalCardView extends bz5<su5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext i;
-    public gt5 j;
+    public yu5 j;
 
     /* loaded from: classes3.dex */
     public static class AlaGameFrsNormalViewHolder extends TypeAdapter.ViewHolder {
@@ -73,21 +73,21 @@ public class AlaGameFrsLiveNormalCardView extends jx5<at5> {
         r();
     }
 
-    @Override // com.repackage.jx5
+    @Override // com.repackage.bz5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0109 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d010a : invokeV.intValue;
     }
 
-    @Override // com.repackage.jx5
+    @Override // com.repackage.bz5
     public void j(TbPageContext<?> tbPageContext, int i) {
-        gt5 gt5Var;
+        yu5 yu5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || (gt5Var = this.j) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || (yu5Var = this.j) == null) {
             return;
         }
-        gt5Var.e(tbPageContext, i);
+        yu5Var.e(tbPageContext, i);
     }
 
     @Override // android.view.View.OnClickListener
@@ -100,30 +100,30 @@ public class AlaGameFrsLiveNormalCardView extends jx5<at5> {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.j = new gt5(this.i);
+            this.j = new yu5(this.i);
             ((ViewGroup) h()).addView(this.j.c());
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.jx5
+    @Override // com.repackage.bz5
     /* renamed from: s */
-    public void i(at5 at5Var) {
+    public void i(su5 su5Var) {
         ThreadData threadData;
-        gt5 gt5Var;
+        yu5 yu5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, at5Var) == null) || at5Var == null || (threadData = at5Var.a) == null || (gt5Var = this.j) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, su5Var) == null) || su5Var == null || (threadData = su5Var.a) == null || (yu5Var = this.j) == null) {
             return;
         }
-        gt5Var.d(threadData);
+        yu5Var.d(threadData);
     }
 
-    public void t(mo5 mo5Var) {
-        gt5 gt5Var;
+    public void t(eq5 eq5Var) {
+        yu5 yu5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, mo5Var) == null) || (gt5Var = this.j) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, eq5Var) == null) || (yu5Var = this.j) == null) {
             return;
         }
-        gt5Var.g(mo5Var);
+        yu5Var.g(eq5Var);
     }
 }

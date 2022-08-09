@@ -40,38 +40,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.an4;
-import com.repackage.d88;
-import com.repackage.dr4;
-import com.repackage.eg;
-import com.repackage.f88;
+import com.repackage.bs8;
 import com.repackage.fg;
-import com.repackage.g88;
-import com.repackage.kp8;
-import com.repackage.ni;
-import com.repackage.pb8;
-import com.repackage.vo8;
-/* loaded from: classes3.dex */
+import com.repackage.gg;
+import com.repackage.ka8;
+import com.repackage.ma8;
+import com.repackage.mr8;
+import com.repackage.na8;
+import com.repackage.oi;
+import com.repackage.rn4;
+import com.repackage.ur4;
+import com.repackage.zd8;
+/* loaded from: classes4.dex */
 public class PushDialogActivity extends BaseActivity<PushDialogActivity> implements Object {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public f88 a;
-    public d88 b;
-    public kp8 c;
-    public eg<ImageView> d;
-    public eg<TextView> e;
-    public eg<GifView> f;
-    public eg<View> g;
-    public eg<LinearLayout> h;
-    public eg<RelativeLayout> i;
-    public vo8 j;
+    public ma8 a;
+    public ka8 b;
+    public bs8 c;
+    public fg<ImageView> d;
+    public fg<TextView> e;
+    public fg<GifView> f;
+    public fg<View> g;
+    public fg<LinearLayout> h;
+    public fg<RelativeLayout> i;
+    public mr8 j;
     public boolean k;
     public HomeWatcherReceiver l;
     public String m;
     public CustomMessageListener n;
     public CustomMessageListener o;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class HomeWatcherReceiver extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String SYSTEM_DIALOG_REASON_ASSIST = "assist";
@@ -109,7 +109,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -140,20 +140,20 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && ni.z() && this.a.a != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && oi.z() && this.a.a != null) {
                 this.a.a.e();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PushDialogActivity a;
 
-        /* loaded from: classes3.dex */
-        public class a implements dr4.e {
+        /* loaded from: classes4.dex */
+        public class a implements ur4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -173,11 +173,11 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
                 }
             }
 
-            @Override // com.repackage.dr4.e
-            public void onClick(dr4 dr4Var) {
+            @Override // com.repackage.ur4.e
+            public void onClick(ur4 ur4Var) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) && dr4Var != null && dr4Var.isShowing()) {
-                    dr4Var.dismiss();
+                if ((interceptable == null || interceptable.invokeL(1048576, this, ur4Var) == null) && ur4Var != null && ur4Var.isShowing()) {
+                    ur4Var.dismiss();
                 }
             }
         }
@@ -213,16 +213,16 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
                 if (updateAttentionMessage.getData() == null || updateAttentionMessage.getData().c == null || (message = updateAttentionMessage.getmOrginalMessage()) == null || message.getTag() == null || !message.getTag().equals(this.a.getPageContext().getUniqueId()) || updateAttentionMessage.getData().a) {
                     return;
                 }
-                dr4 dr4Var = new dr4(this.a);
-                dr4Var.setMessage(this.a.getString(R.string.obfuscated_res_0x7f0f0f1a));
-                dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0426, new a(this));
-                dr4Var.create(this.a.getPageContext()).show();
+                ur4 ur4Var = new ur4(this.a);
+                ur4Var.setMessage(this.a.getString(R.string.obfuscated_res_0x7f0f0f48));
+                ur4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0431, new a(this));
+                ur4Var.create(this.a.getPageContext()).show();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class c implements fg<ImageView> {
+    /* loaded from: classes4.dex */
+    public class c implements gg<ImageView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PushDialogActivity a;
@@ -247,7 +247,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.fg
+        @Override // com.repackage.gg
         public /* bridge */ /* synthetic */ ImageView a(ImageView imageView) {
             ImageView imageView2 = imageView;
             e(imageView2);
@@ -256,7 +256,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.fg
+        @Override // com.repackage.gg
         public /* bridge */ /* synthetic */ ImageView c(ImageView imageView) {
             ImageView imageView2 = imageView;
             h(imageView2);
@@ -270,7 +270,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
                 if (imageView instanceof TbImageView) {
                     TbImageView tbImageView = (TbImageView) imageView;
                     tbImageView.setTag(null);
-                    if (an4.c().g()) {
+                    if (rn4.c().g()) {
                         tbImageView.setAdjustViewBounds(false);
                         tbImageView.setInterceptOnClick(false);
                     } else {
@@ -285,7 +285,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.fg
+        @Override // com.repackage.gg
         /* renamed from: f */
         public void b(ImageView imageView) {
             Interceptable interceptable = $ic;
@@ -304,14 +304,14 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.fg
+        @Override // com.repackage.gg
         /* renamed from: g */
         public ImageView d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.a);
-                boolean g = an4.c().g();
+                boolean g = rn4.c().g();
                 foreDrawableImageView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
                 if (g) {
                     foreDrawableImageView.setAdjustViewBounds(false);
@@ -347,8 +347,8 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class d implements fg<GifView> {
+    /* loaded from: classes4.dex */
+    public class d implements gg<GifView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PushDialogActivity a;
@@ -373,7 +373,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.fg
+        @Override // com.repackage.gg
         public /* bridge */ /* synthetic */ GifView a(GifView gifView) {
             GifView gifView2 = gifView;
             e(gifView2);
@@ -382,7 +382,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.fg
+        @Override // com.repackage.gg
         public /* bridge */ /* synthetic */ GifView c(GifView gifView) {
             GifView gifView2 = gifView;
             h(gifView2);
@@ -396,7 +396,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.fg
+        @Override // com.repackage.gg
         /* renamed from: f */
         public void b(GifView gifView) {
             Interceptable interceptable = $ic;
@@ -406,7 +406,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.fg
+        @Override // com.repackage.gg
         /* renamed from: g */
         public GifView d() {
             InterceptResult invokeV;
@@ -428,8 +428,8 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class e implements fg<View> {
+    /* loaded from: classes4.dex */
+    public class e implements gg<View> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PushDialogActivity a;
@@ -454,7 +454,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.fg
+        @Override // com.repackage.gg
         public /* bridge */ /* synthetic */ View a(View view2) {
             View view3 = view2;
             e(view3);
@@ -463,7 +463,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.fg
+        @Override // com.repackage.gg
         public /* bridge */ /* synthetic */ View c(View view2) {
             View view3 = view2;
             h(view3);
@@ -481,7 +481,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.fg
+        @Override // com.repackage.gg
         /* renamed from: f */
         public void b(View view2) {
             Interceptable interceptable = $ic;
@@ -491,7 +491,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.fg
+        @Override // com.repackage.gg
         /* renamed from: g */
         public View d() {
             InterceptResult invokeV;
@@ -515,8 +515,8 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class f implements fg<LinearLayout> {
+    /* loaded from: classes4.dex */
+    public class f implements gg<LinearLayout> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PushDialogActivity a;
@@ -541,7 +541,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.fg
+        @Override // com.repackage.gg
         public /* bridge */ /* synthetic */ LinearLayout a(LinearLayout linearLayout) {
             LinearLayout linearLayout2 = linearLayout;
             e(linearLayout2);
@@ -550,7 +550,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.fg
+        @Override // com.repackage.gg
         public /* bridge */ /* synthetic */ LinearLayout c(LinearLayout linearLayout) {
             LinearLayout linearLayout2 = linearLayout;
             h(linearLayout2);
@@ -564,7 +564,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.fg
+        @Override // com.repackage.gg
         /* renamed from: f */
         public void b(LinearLayout linearLayout) {
             Interceptable interceptable = $ic;
@@ -574,14 +574,14 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.fg
+        @Override // com.repackage.gg
         /* renamed from: g */
         public LinearLayout d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 LinearLayout linearLayout = new LinearLayout(this.a);
-                linearLayout.setId(R.id.obfuscated_res_0x7f09177a);
+                linearLayout.setId(R.id.obfuscated_res_0x7f091847);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 linearLayout.setLayoutParams(layoutParams);
                 linearLayout.setGravity(16);
@@ -604,8 +604,8 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class g implements fg<RelativeLayout> {
+    /* loaded from: classes4.dex */
+    public class g implements gg<RelativeLayout> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PushDialogActivity a;
@@ -630,7 +630,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.fg
+        @Override // com.repackage.gg
         public /* bridge */ /* synthetic */ RelativeLayout a(RelativeLayout relativeLayout) {
             RelativeLayout relativeLayout2 = relativeLayout;
             e(relativeLayout2);
@@ -639,7 +639,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.fg
+        @Override // com.repackage.gg
         public /* bridge */ /* synthetic */ RelativeLayout c(RelativeLayout relativeLayout) {
             RelativeLayout relativeLayout2 = relativeLayout;
             h(relativeLayout2);
@@ -653,7 +653,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.fg
+        @Override // com.repackage.gg
         /* renamed from: f */
         public void b(RelativeLayout relativeLayout) {
             Interceptable interceptable = $ic;
@@ -662,7 +662,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.fg
+        @Override // com.repackage.gg
         /* renamed from: g */
         public RelativeLayout d() {
             InterceptResult invokeV;
@@ -696,50 +696,44 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         this.o = new b(this, 2001115);
     }
 
-    public eg<LinearLayout> A() {
+    public bs8 A1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.h == null) {
-                this.h = new eg<>(new f(this), 15, 0);
-            }
-            return this.h;
-        }
-        return (eg) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (bs8) invokeV.objValue;
     }
 
-    public kp8 B1() {
+    public String B1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (kp8) invokeV.objValue;
-    }
-
-    public String C1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            d88 d88Var = this.b;
-            if (d88Var == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ka8 ka8Var = this.b;
+            if (ka8Var == null) {
                 return null;
             }
-            return d88Var.d();
+            return ka8Var.d();
         }
         return (String) invokeV.objValue;
     }
 
-    public void D1(boolean z, g88 g88Var) {
+    public int C() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048579, this, z, g88Var) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.id.obfuscated_res_0x7f091ac9 : invokeV.intValue;
+    }
+
+    public void C1(boolean z, na8 na8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048579, this, z, na8Var) == null) {
             String str = this.m + "_3";
             this.m = str;
             TiebaStatic.eventStat(this, "push_dialog", str);
             this.k = true;
-            if (z && g88Var != null) {
-                f88 f88Var = this.a;
-                if (f88Var != null) {
-                    f88Var.i(g88Var);
-                    TiebaStatic.log(new StatisticItem("c13197").param("tid", C1()));
-                    TiebaStatic.log(new StatisticItem("c13196").param("obj_type", 2).param("obj_source", this.b.c() != 0 ? 2 : 1).param("tid", C1()));
+            if (z && na8Var != null) {
+                ma8 ma8Var = this.a;
+                if (ma8Var != null) {
+                    ma8Var.i(na8Var);
+                    TiebaStatic.log(new StatisticItem("c13197").param("tid", B1()));
+                    TiebaStatic.log(new StatisticItem("c13196").param("obj_type", 2).param("obj_source", this.b.c() != 0 ? 2 : 1).param("tid", B1()));
                     return;
                 }
                 return;
@@ -748,123 +742,123 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         }
     }
 
-    public int E() {
-        InterceptResult invokeV;
+    public void F(Context context, String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.id.obfuscated_res_0x7f0919f3 : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, context, str) == null) {
+        }
     }
 
     public void H(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, context, str) == null) {
-        }
-    }
-
-    public void J(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, context, str) == null) {
             finish();
         }
     }
 
-    public eg<RelativeLayout> M() {
+    public fg<RelativeLayout> L() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            fg<RelativeLayout> fgVar = new fg<>(new g(this), 10, 0);
+            this.i = fgVar;
+            return fgVar;
+        }
+        return (fg) invokeV.objValue;
+    }
+
+    public fg<ImageView> N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            eg<RelativeLayout> egVar = new eg<>(new g(this), 10, 0);
-            this.i = egVar;
-            return egVar;
-        }
-        return (eg) invokeV.objValue;
-    }
-
-    public eg<ImageView> O() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             if (this.d == null) {
-                this.d = new eg<>(new c(this), 8, 0);
+                this.d = new fg<>(new c(this), 8, 0);
             }
             return this.d;
         }
-        return (eg) invokeV.objValue;
+        return (fg) invokeV.objValue;
     }
 
-    public eg<View> P() {
+    public fg<View> O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             if (this.g == null) {
-                this.g = new eg<>(new e(this), 8, 0);
+                this.g = new fg<>(new e(this), 8, 0);
             }
             return this.g;
         }
-        return (eg) invokeV.objValue;
+        return (fg) invokeV.objValue;
     }
 
     public void Q(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048585, this, context, str) == null) {
             finish();
         }
     }
 
     public void R(Context context, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048587, this, context, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(1048586, this, context, str, z) == null) {
         }
     }
 
     public void V(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048588, this, context, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048587, this, context, str, str2) == null) {
         }
     }
 
     public void Y(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048588, this, context, str) == null) {
         }
     }
 
-    public eg<TextView> Z0() {
+    public fg<TextView> Y0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             if (this.e == null) {
                 this.e = TbRichTextView.C(this, 8);
             }
             return this.e;
         }
-        return (eg) invokeV.objValue;
+        return (fg) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void closeAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 0);
         }
     }
 
-    public eg<ItemCardView> e0() {
+    public fg<ItemCardView> e0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return null;
         }
-        return (eg) invokeV.objValue;
+        return (fg) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void enterExitAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.w85
+    public void g1(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048593, this, context, str) == null) {
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.u95
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -880,23 +874,17 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         return (ListView) invokeV.objValue;
     }
 
-    public void h1(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048596, this, context, str) == null) {
-        }
-    }
-
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, bundle) == null) {
             String str = this.m + SkinManager.nightSufix;
             this.m = str;
             TiebaStatic.eventStat(this, "push_dialog", str);
             super.onCreate(bundle);
-            this.c = pb8.j().d;
+            this.c = zd8.j().d;
             if (this.j == null) {
-                this.j = new vo8();
+                this.j = new mr8();
             }
             this.j.g(true);
             setSwipeBackEnabled(false);
@@ -906,10 +894,10 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
                 window.addFlags(524288);
             }
             getWindow().getDecorView().setDrawingCacheEnabled(false);
-            this.a = new f88(this, R.layout.obfuscated_res_0x7f0d005f);
-            d88 d88Var = new d88(this);
-            this.b = d88Var;
-            d88Var.e();
+            this.a = new ma8(this, R.layout.obfuscated_res_0x7f0d005f);
+            ka8 ka8Var = new ka8(this);
+            this.b = ka8Var;
+            ka8Var.e();
             registerListener(this.n);
             this.l = new HomeWatcherReceiver(this);
             IntentFilter intentFilter = new IntentFilter();
@@ -922,7 +910,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             String str = this.m + "_5";
             this.m = str;
             TiebaStatic.eventStat(this, "push_dialog", str);
@@ -937,9 +925,9 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             if (homeWatcherReceiver != null) {
                 unregisterReceiver(homeWatcherReceiver);
             }
-            vo8 vo8Var = this.j;
-            if (vo8Var != null) {
-                vo8Var.g(false);
+            mr8 mr8Var = this.j;
+            if (mr8Var != null) {
+                mr8Var.g(false);
             }
         }
     }
@@ -948,7 +936,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048599, this, i, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048598, this, i, keyEvent)) == null) {
             if (i == 3) {
                 finish();
                 return true;
@@ -961,7 +949,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             String str = this.m + "_4";
             this.m = str;
             TiebaStatic.eventStat(this, "push_dialog", str);
@@ -973,7 +961,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             String str = this.m + SkinManager.darkSuffix;
             this.m = str;
             TiebaStatic.eventStat(this, "push_dialog", str);
@@ -982,24 +970,36 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         }
     }
 
-    public eg<GifView> x() {
+    public fg<GifView> v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
             if (this.f == null) {
-                this.f = new eg<>(new d(this), 20, 0);
+                this.f = new fg<>(new d(this), 20, 0);
             }
             return this.f;
         }
-        return (eg) invokeV.objValue;
+        return (fg) invokeV.objValue;
     }
 
-    public eg<TiebaPlusRecommendCard> z1() {
+    public fg<LinearLayout> y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            if (this.h == null) {
+                this.h = new fg<>(new f(this), 15, 0);
+            }
+            return this.h;
+        }
+        return (fg) invokeV.objValue;
+    }
+
+    public fg<TiebaPlusRecommendCard> y1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
             return null;
         }
-        return (eg) invokeV.objValue;
+        return (fg) invokeV.objValue;
     }
 }

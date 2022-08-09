@@ -1,30 +1,32 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.RemoteException;
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.Signature;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.concurrent.atomic.AtomicBoolean;
+import com.google.android.gms.common.zzi;
+import com.google.android.gms.common.zzj;
+import javax.annotation.Nullable;
 /* loaded from: classes7.dex */
-public final class qm9 implements Runnable {
+public class qm9 {
     public static /* synthetic */ Interceptable $ic;
+    @Nullable
+    public static qm9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ Activity a;
-    public final /* synthetic */ mm9 b;
-    public final /* synthetic */ lm9 c;
+    public final Context a;
 
-    public qm9(lm9 lm9Var, Activity activity, mm9 mm9Var) {
+    public qm9(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {lm9Var, activity, mm9Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,30 +36,61 @@ public final class qm9 implements Runnable {
                 return;
             }
         }
-        this.c = lm9Var;
-        this.a = activity;
-        this.b = mm9Var;
+        this.a = context.getApplicationContext();
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        com.google.a.b.a.a.a.a aVar;
-        Bundle l;
+    @NonNull
+    public static qm9 a(@NonNull Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-                aVar = this.c.d;
-                String str = this.a.getApplicationInfo().packageName;
-                lm9 lm9Var = this.c;
-                l = lm9.l();
-                aVar.a(str, Collections.singletonList(l), new Bundle(), new com.google.ar.core.x(this, atomicBoolean));
-                new Handler().postDelayed(new rm9(this, atomicBoolean), 3000L);
-            } catch (RemoteException e) {
-                Log.w("ARCore-InstallService", "requestInstall threw, launching fullscreen.", e);
-                lm9 lm9Var2 = this.c;
-                lm9.n(this.a, this.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            ym9.d(context);
+            synchronized (qm9.class) {
+                if (b == null) {
+                    yn9.a(context);
+                    b = new qm9(context);
+                }
             }
+            return b;
         }
+        return (qm9) invokeL.objValue;
+    }
+
+    @Nullable
+    public static final zzi b(PackageInfo packageInfo, zzi... zziVarArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, packageInfo, zziVarArr)) == null) {
+            Signature[] signatureArr = packageInfo.signatures;
+            if (signatureArr == null) {
+                return null;
+            }
+            if (signatureArr.length != 1) {
+                Log.w("GoogleSignatureVerifier", "Package has more than one signature.");
+                return null;
+            }
+            zzj zzjVar = new zzj(packageInfo.signatures[0].toByteArray());
+            for (int i = 0; i < zziVarArr.length; i++) {
+                if (zziVarArr[i].equals(zzjVar)) {
+                    return zziVarArr[i];
+                }
+            }
+            return null;
+        }
+        return (zzi) invokeLL.objValue;
+    }
+
+    public static final boolean c(@NonNull PackageInfo packageInfo, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, packageInfo, z)) == null) {
+            if (packageInfo != null && packageInfo.signatures != null) {
+                if ((z ? b(packageInfo, xn9.a) : b(packageInfo, xn9.a[0])) != null) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeLZ.booleanValue;
     }
 }

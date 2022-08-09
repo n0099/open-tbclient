@@ -1,119 +1,165 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class qj2 {
+public class qj2 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public String[] b;
 
-    @Inject(force = false)
-    public static tl2 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new gy3() : (tl2) invokeV.objValue;
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    @Inject(force = false)
-    public static y72 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new qv3() : (y72) invokeV.objValue;
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ImageView a;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
     }
 
-    @Inject(force = false)
-    public static mh1 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? s24.a() : (mh1) invokeV.objValue;
+    /* loaded from: classes7.dex */
+    public static final class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ c(a aVar) {
+            this();
+        }
     }
 
-    @Inject(force = false)
-    public static nh1 d() {
-        InterceptResult invokeV;
+    public qj2(Context context, @NonNull String[] strArr) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? ix3.a() : (nh1) invokeV.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, strArr};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = context;
+        this.b = strArr;
     }
 
-    @Inject(force = false)
-    public static oh1 e() {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new jx3() : (oh1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b.length : invokeV.intValue;
     }
 
-    @Inject(force = false)
-    public static ph1 f() {
-        InterceptResult invokeV;
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? new kx3() : (ph1) invokeV.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.b[i] : invokeI.objValue;
     }
 
-    @Inject(force = false)
-    public static qh1 g() {
-        InterceptResult invokeV;
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? new lx3() : (qh1) invokeV.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? i : invokeI.longValue;
     }
 
-    @Inject(force = false)
-    public static rh1 h() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Multi-variable search result rejected for r1v9, resolved type: com.repackage.qj2$b */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        c cVar;
+        View inflate;
+        c cVar2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? new bv3() : (rh1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static sh1 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? gw3.a() : (sh1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static th1 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? a14.a() : (th1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static uh1 k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? new a34() : (uh1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static vh1 l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? nx3.a() : (vh1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static xh1 m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? m14.a() : (xh1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static yh1 n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? d14.a() : (yh1) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static ai1 o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? k24.a() : (ai1) invokeV.objValue;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                if (i == 11) {
+                    inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d00b1, null);
+                    b bVar = new b(null);
+                    bVar.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090779);
+                    cVar2 = bVar;
+                } else {
+                    inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d00b3, null);
+                    c cVar3 = new c(null);
+                    cVar3.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09101f);
+                    cVar2 = cVar3;
+                    if (i == 9) {
+                        if (TextUtils.isEmpty(this.b[9])) {
+                            inflate.setBackgroundColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0603ca));
+                            cVar2 = cVar3;
+                        } else {
+                            inflate.setBackgroundResource(R.drawable.obfuscated_res_0x7f080183);
+                            cVar2 = cVar3;
+                        }
+                    }
+                }
+                view2 = inflate;
+                view2.setTag(cVar2);
+                cVar = cVar2;
+            } else {
+                cVar = view2.getTag();
+            }
+            if (i != 11 && (cVar instanceof c)) {
+                ((c) cVar).a.setText(this.b[i]);
+            }
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

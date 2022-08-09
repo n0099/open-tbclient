@@ -1,81 +1,50 @@
 package com.repackage;
 
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
-import com.baidu.tieba.R;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class iu4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(ImageView imageView, int i) {
+    public static JSONObject a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65536, null, imageView, i) == null) || imageView == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            b(jSONObject, "uid", TbadkCoreApplication.getCurrentAccount());
+            b(jSONObject, "latest_related_tid", TbadkCoreApplication.getInst().getLatestRelatedTid());
+            b(jSONObject, "latest_related_fid", TbadkCoreApplication.getInst().getLatestRelatedFid());
+            b(jSONObject, "continuous_crash_times", String.valueOf(ou4.q().o()));
+            b(jSONObject, "trigger_safe_mode_status", String.valueOf(ou4.q().s()));
+            return jSONObject;
         }
-        WebPManager.setPureDrawable(imageView, i, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
-        ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
-        if (layoutParams != null) {
-            layoutParams.width = pi.f(TbadkApplication.getInst(), R.dimen.tbds52);
-            layoutParams.height = pi.f(TbadkApplication.getInst(), R.dimen.tbds52);
-            imageView.setLayoutParams(layoutParams);
-        }
+        return (JSONObject) invokeL.objValue;
     }
 
-    public static void b(ViewGroup viewGroup) {
-        ViewGroup.LayoutParams layoutParams;
+    public static JSONObject b(JSONObject jSONObject, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, viewGroup) == null) || viewGroup == null || (layoutParams = viewGroup.getLayoutParams()) == null) {
-            return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, jSONObject, str, str2)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            if (str != null && str2 != null) {
+                try {
+                    jSONObject.put(str, str2);
+                } catch (JSONException e) {
+                    BdLog.e(e);
+                }
+            }
+            return jSONObject;
         }
-        layoutParams.height = pi.f(TbadkApplication.getInst(), R.dimen.tbds120);
-        viewGroup.setLayoutParams(layoutParams);
-    }
-
-    public static void c(TextView textView) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, textView) == null) || textView == null) {
-            return;
-        }
-        vr4.d(textView).v(R.color.CAM_X0107);
-    }
-
-    public static void d(TextView textView) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, textView) == null) || textView == null) {
-            return;
-        }
-        vr4.d(textView).z(R.dimen.tbds36);
-    }
-
-    public static void e(TextView textView) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, textView) == null) || textView == null) {
-            return;
-        }
-        vr4 d = vr4.d(textView);
-        d.z(R.dimen.tbds36);
-        d.v(R.color.CAM_X0107);
-    }
-
-    public static void f(TBLottieAnimationView tBLottieAnimationView, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65541, null, tBLottieAnimationView, i) == null) || tBLottieAnimationView == null) {
-            return;
-        }
-        if (i != 1 && i != 4) {
-            SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.obfuscated_res_0x7f11001e);
-        } else {
-            SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.obfuscated_res_0x7f110020);
-        }
-        tBLottieAnimationView.setColorFilter(SkinManager.getColor(R.color.CAM_X0107));
+        return (JSONObject) invokeLLL.objValue;
     }
 }

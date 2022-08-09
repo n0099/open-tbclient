@@ -1,76 +1,23 @@
 package com.repackage;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.el0;
 /* loaded from: classes6.dex */
-public class hs0 {
+public class hs0 extends xr0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final float a;
-    public final float b;
+    public final ap0 c;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final hs0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-318483314, "Lcom/repackage/hs0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-318483314, "Lcom/repackage/hs0$b;");
-                    return;
-                }
-            }
-            a = new hs0(null);
-        }
-    }
-
-    public /* synthetic */ hs0(a aVar) {
-        this();
-    }
-
-    public static hs0 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (hs0) invokeV.objValue;
-    }
-
-    public float b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.floatValue;
-    }
-
-    public float c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.floatValue;
-    }
-
-    public hs0() {
+    public hs0(@NonNull ap0 ap0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ap0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -80,7 +27,26 @@ public class hs0 {
                 return;
             }
         }
-        this.a = el0.a.a().getLaunchSpeedScore();
-        this.b = el0.a.a().getStaticDeviceScore();
+        this.c = ap0Var;
+    }
+
+    public final void b(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) || i2 <= 0) {
+            return;
+        }
+        this.c.y().p(i, (i3 * 100) / i2, i2);
+    }
+
+    @Override // com.repackage.bs0
+    public void doTask() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int C = this.c.C();
+            int r = this.c.r();
+            int p = this.c.p();
+            this.c.q().j(C, r, p);
+            b(C, r, p);
+        }
     }
 }

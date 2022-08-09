@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class EntelechyPullUpRefreshView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -59,7 +59,7 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             if (this.d == null) {
-                this.d = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010102);
+                this.d = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010108);
                 this.d.setInterpolator(new LinearInterpolator());
                 this.d.setFillAfter(true);
             }
@@ -74,7 +74,7 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
             return;
         }
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04063b, R.attr.obfuscated_res_0x7f04063c});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0406c2, R.attr.obfuscated_res_0x7f0406c3});
             this.e = obtainStyledAttributes.getResourceId(1, R.drawable.icon_frs_reload);
             this.f = obtainStyledAttributes.getBoolean(0, false);
             obtainStyledAttributes.recycle();
@@ -89,9 +89,9 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
             addView(this.a);
         }
         this.b = new TbImageView(context);
-        int f = pi.f(getContext(), R.dimen.obfuscated_res_0x7f0702cb);
+        int f = qi.f(getContext(), R.dimen.obfuscated_res_0x7f0702cb);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(f, f);
-        layoutParams.topMargin = pi.f(getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+        layoutParams.topMargin = qi.f(getContext(), R.dimen.obfuscated_res_0x7f0701d5);
         this.b.setLayoutParams(layoutParams);
         SkinManager.setImageResource(this.b, this.e);
         addView(this.b);

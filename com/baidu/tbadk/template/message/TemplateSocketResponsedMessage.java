@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rb5;
+import com.repackage.pc5;
 /* loaded from: classes3.dex */
 public class TemplateSocketResponsedMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rb5 mIResp;
+    public pc5 mIResp;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TemplateSocketResponsedMessage(int i) {
@@ -59,7 +59,7 @@ public class TemplateSocketResponsedMessage extends SocketResponsedMessage {
             if (templateNetMessage == null || templateNetMessage.getIResp() == null) {
                 return null;
             }
-            rb5 iResp = templateNetMessage.getIResp();
+            pc5 iResp = templateNetMessage.getIResp();
             this.mIResp = iResp;
             iResp.a(i, bArr);
             setError(this.mIResp.getErrorCode());
@@ -69,10 +69,10 @@ public class TemplateSocketResponsedMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public rb5 getIResp() {
+    public pc5 getIResp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mIResp : (rb5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mIResp : (pc5) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

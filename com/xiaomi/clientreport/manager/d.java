@@ -48,7 +48,7 @@ public class d extends al.a {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             a = this.a.a();
             if (a > 0) {
-                executorService = this.a.f25a;
+                executorService = this.a.f26a;
                 executorService.execute(new e(this));
             }
         }

@@ -1,9 +1,26 @@
 package com.repackage;
 
-import java.util.List;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
 /* loaded from: classes7.dex */
-public interface rb1<T> {
-    void a(nb1<List<T>> nb1Var);
+public class rb1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    List<T> getList();
+    @Nullable
+    public static File a(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            return ob1.s(str);
+        }
+        return (File) invokeL.objValue;
+    }
 }

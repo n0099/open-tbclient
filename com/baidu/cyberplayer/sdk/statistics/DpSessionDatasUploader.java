@@ -21,7 +21,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class DpSessionDatasUploader {
     public static /* synthetic */ Interceptable $ic = null;
     @Keep

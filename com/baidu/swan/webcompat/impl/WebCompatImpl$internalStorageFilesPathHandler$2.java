@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h03;
+import com.repackage.y03;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "Landroidx/webkit/WebViewAssetLoader$InternalStoragePathHandler;", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class WebCompatImpl$internalStorageFilesPathHandler$2 extends Lambda implements Function0<WebViewAssetLoader.InternalStoragePathHandler> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public final class WebCompatImpl$internalStorageFilesPathHandler$2 extends Lambd
         FilePathInfo l;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            h03 K = h03.K();
+            y03 K = y03.K();
             l = this.this$0.l();
             return new WebViewAssetLoader.InternalStoragePathHandler(K, l.c());
         }

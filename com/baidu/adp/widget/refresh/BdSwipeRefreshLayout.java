@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eo;
+import com.repackage.fo;
 /* loaded from: classes.dex */
 public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingParent, NestedScrollingChild {
     public static /* synthetic */ Interceptable $ic;
@@ -370,7 +370,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public BdCircleImageView a;
-        public eo b;
+        public fo b;
         public Animation c;
         public Animation d;
         public final /* synthetic */ BdSwipeRefreshLayout e;
@@ -407,9 +407,9 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
             public void applyTransformation(float f, Transformation transformation) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), transformation}) == null) {
-                    eo eoVar = this.c.b;
+                    fo foVar = this.c.b;
                     int i = this.a;
-                    eoVar.setAlpha((int) (i + ((this.b - i) * f)));
+                    foVar.setAlpha((int) (i + ((this.b - i) * f)));
                 }
             }
         }
@@ -431,9 +431,9 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
             }
             this.e = bdSwipeRefreshLayout;
             this.a = new BdCircleImageView(bdSwipeRefreshLayout.getContext(), SwipeRefreshLayout.CIRCLE_BG_LIGHT);
-            eo eoVar = new eo(context, this.a);
-            this.b = eoVar;
-            eoVar.e(SwipeRefreshLayout.CIRCLE_BG_LIGHT);
+            fo foVar = new fo(context, this.a);
+            this.b = foVar;
+            foVar.e(SwipeRefreshLayout.CIRCLE_BG_LIGHT);
             this.a.setImageDrawable(this.b);
             this.a.setVisibility(8);
         }

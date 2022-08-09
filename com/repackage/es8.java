@@ -1,166 +1,125 @@
 package com.repackage;
 
-import android.content.Intent;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.data.VideoEasterEggData;
+import android.media.MediaMetadataRetriever;
+import com.baidu.tbadk.album.VideoFileInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes6.dex */
-public class es8 implements ds8 {
+public class es8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public VideoEasterEggData a;
 
-    public es8() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755726937, "Lcom/repackage/es8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755726937, "Lcom/repackage/es8;");
+        }
+    }
+
+    public static boolean a(InputStream inputStream, String str, qa9 qa9Var) throws IOException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, inputStream, str, qa9Var)) == null) {
+            try {
+                double size = inputStream instanceof FileInputStream ? ((FileInputStream) inputStream).getChannel().size() : 0.0d;
+                FileOutputStream fileOutputStream = new FileOutputStream(str);
+                byte[] bArr = new byte[1444];
+                int i = 0;
+                while (true) {
+                    int read = inputStream.read(bArr);
+                    if (read == -1) {
+                        break;
+                    }
+                    i += read;
+                    if (qa9Var != null && size != 0.0d) {
+                        qa9Var.c((int) ((i / size) * 100.0d));
+                    } else if (qa9Var != null && size == 0.0d) {
+                        qa9Var.c(80);
+                    }
+                    fileOutputStream.write(bArr, 0, read);
+                }
+                return true;
+            } finally {
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         }
+        return invokeLLL.booleanValue;
     }
 
-    @Override // com.repackage.ds8
-    public String a() {
-        InterceptResult invokeV;
+    public static boolean b(String str, String str2, qa9 qa9Var) throws IOException {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, qa9Var)) == null) ? a(new FileInputStream(str), str2, qa9Var) : invokeLLL.booleanValue;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:24:0x0082 -> B:25:0x0085). Please submit an issue!!! */
+    public static VideoFileInfo c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            File file = new File(str);
+            if (file.exists() && file.isFile()) {
+                VideoFileInfo videoFileInfo = new VideoFileInfo();
+                videoFileInfo.videoPath = str;
+                videoFileInfo.lastModified = file.lastModified();
+                MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+                try {
+                    try {
+                        try {
+                            mediaMetadataRetriever.setDataSource(str);
+                            videoFileInfo.videoDuration = og.e(mediaMetadataRetriever.extractMetadata(9), 0);
+                            videoFileInfo.mimeType = mediaMetadataRetriever.extractMetadata(12);
+                            videoFileInfo.videoWidth = og.e(mediaMetadataRetriever.extractMetadata(18), 0);
+                            videoFileInfo.videoHeight = og.e(mediaMetadataRetriever.extractMetadata(19), 0);
+                            int e = og.e(mediaMetadataRetriever.extractMetadata(24), 0);
+                            if (e == 90 || e == 270) {
+                                int i = videoFileInfo.videoWidth;
+                                videoFileInfo.videoWidth = videoFileInfo.videoHeight;
+                                videoFileInfo.videoHeight = i;
+                            }
+                            mediaMetadataRetriever.release();
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                            mediaMetadataRetriever.release();
+                        }
+                    } catch (Throwable th) {
+                        try {
+                            mediaMetadataRetriever.release();
+                        } catch (Exception e3) {
+                            e3.printStackTrace();
+                        }
+                        throw th;
+                    }
+                } catch (Exception e4) {
+                    e4.printStackTrace();
+                }
+                return videoFileInfo;
             }
-            return videoEasterEggData.getPopText();
+            return null;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ds8
-    public void b(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) || intent == null) {
-            return;
-        }
-        intent.getStringExtra("from");
-        if (intent.hasExtra(IntentConfig.VIDEO_EASTER_EGG_DATA)) {
-            this.a = (VideoEasterEggData) intent.getSerializableExtra(IntentConfig.VIDEO_EASTER_EGG_DATA);
-        }
-    }
-
-    @Override // com.repackage.ds8
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
-            }
-            return videoEasterEggData.getActivityID();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ds8
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
-            }
-            return videoEasterEggData.getShareTitle();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ds8
-    public void e(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) || oi.isEmpty(g())) {
-            return;
-        }
-        jg.h().m(g(), 10, null, bdUniqueId);
-    }
-
-    @Override // com.repackage.ds8
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
-            }
-            return videoEasterEggData.getShareUrl();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ds8
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
-            }
-            return videoEasterEggData.getPopImageUrl();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ds8
-    public String getVideoUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
-            }
-            return videoEasterEggData.getVideoUrl();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ds8
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
-            }
-            return videoEasterEggData.getShareImageUrl();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ds8
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            VideoEasterEggData videoEasterEggData = this.a;
-            if (videoEasterEggData == null) {
-                return null;
-            }
-            return videoEasterEggData.getShareContent();
-        }
-        return (String) invokeV.objValue;
+        return (VideoFileInfo) invokeL.objValue;
     }
 }

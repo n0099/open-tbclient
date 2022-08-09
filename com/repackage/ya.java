@@ -1,15 +1,14 @@
 package com.repackage;
 
 import com.baidu.adp.framework.FrameHelper;
-import com.baidu.adp.framework.message.SocketMessage;
-import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.InvalidParameterException;
 /* loaded from: classes7.dex */
-public abstract class ya extends ta<SocketMessage, SocketMessageTask> {
+public abstract class ya extends va<SocketResponsedMessage> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

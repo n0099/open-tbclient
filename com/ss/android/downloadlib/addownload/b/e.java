@@ -10,7 +10,7 @@ import com.ss.android.downloadad.api.download.AdDownloadEventConfig;
 import com.ss.android.downloadad.api.download.AdDownloadModel;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e implements com.ss.android.downloadad.api.a.a {
     public long a;
     public DownloadModel b;

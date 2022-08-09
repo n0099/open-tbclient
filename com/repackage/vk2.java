@@ -1,104 +1,193 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.os.Message;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class vk2 extends tk2 {
+public abstract class vk2 implements jl1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755228364, "Lcom/repackage/vk2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755228364, "Lcom/repackage/vk2;");
-                return;
-            }
-        }
-        b = new String[]{"setStorage", "getStorage", "removeStorage", "getSystemInfo", "getStorageInfo"};
-    }
 
     public vk2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.repackage.xk2
-    public boolean a(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.jl1
+    public String G() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            for (String str3 : b) {
-                if (TextUtils.equals(str3, str2)) {
-                    return true;
-                }
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("%s/ma/landingpage?t=service_agreement_m", "https://ossapi.baidu.com") : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.jl1
+    public String H() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.jl1
+    public String I() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? vx1.w(String.format("%s/ma/navigate", vx1.a), true) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.jl1
+    public boolean J() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return false;
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.xk2
-    public String b() {
+    @Override // com.repackage.jl1
+    public String K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "StorageApiDescInterceptor" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.xk2
-    @NonNull
-    public JSONObject c(@NonNull String str, @NonNull JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject)) == null) {
-            JSONArray optJSONArray = jSONObject.optJSONArray("args");
-            if (optJSONArray != null) {
-                optJSONArray.put(d("cb", EMABTest.TYPE_STRING));
-            }
-            if ("getSystemInfo".equals(str) || "getStorageInfo".equals(str)) {
-                try {
-                    String optString = jSONObject.optString("method");
-                    jSONObject.put("method", optString + "Async");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
         }
-        return (JSONObject) invokeLL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.xk2
-    public boolean enable() {
+    @Override // com.repackage.jl1
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.jl1
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? e("swan_storage_async") : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.jl1
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.jl1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.jl1
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.jl1
+    public String m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) ? vx1.v(str) : (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.jl1
+    public String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? vx1.v(String.format("%s/ma/customer/checknewmess", vx1.a)) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.jl1
+    public String q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? String.format("%s/pms", "https://ossapi.baidu.com") : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.jl1
+    public int r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.repackage.jl1
+    public String t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? String.format("%s", "https://ossapi.baidu.com") : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.jl1
+    public String w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.jl1
+    public void x(Message message, zn2 zn2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048592, this, message, zn2Var) == null) {
+        }
+    }
+
+    @Override // com.repackage.jl1
+    public String y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.jl1
+    public String z(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, context)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
     }
 }

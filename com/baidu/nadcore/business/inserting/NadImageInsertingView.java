@@ -19,14 +19,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.f11;
-import com.repackage.k31;
-import com.repackage.ll0;
-import com.repackage.pf0;
-import com.repackage.qf0;
-import com.repackage.qg0;
-import com.repackage.tl0;
-import com.repackage.xx0;
-import com.repackage.ym0;
+import com.repackage.il0;
+import com.repackage.lf0;
+import com.repackage.mf0;
+import com.repackage.mg0;
+import com.repackage.ql0;
+import com.repackage.vm0;
+import com.repackage.wx0;
+import com.repackage.z31;
 /* loaded from: classes2.dex */
 public class NadImageInsertingView extends NadInsertingBaseView {
     public static /* synthetic */ Interceptable $ic;
@@ -65,7 +65,7 @@ public class NadImageInsertingView extends NadInsertingBaseView {
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (this.a.getTag() instanceof AdBaseModel)) {
                 AdBaseModel adBaseModel = (AdBaseModel) this.a.getTag();
                 this.a.d(adBaseModel, ClogBuilder.Area.IMAGE);
-                qg0.b(adBaseModel.f.c);
+                mg0.b(adBaseModel.f.c);
                 this.a.a.c();
                 this.a.j(2);
             }
@@ -73,20 +73,20 @@ public class NadImageInsertingView extends NadInsertingBaseView {
     }
 
     /* loaded from: classes2.dex */
-    public class b implements tl0 {
+    public class b implements ql0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ym0 a;
-        public final /* synthetic */ qf0.c b;
+        public final /* synthetic */ vm0 a;
+        public final /* synthetic */ mf0.c b;
         public final /* synthetic */ AdBaseModel c;
         public final /* synthetic */ NadImageInsertingView d;
 
-        public b(NadImageInsertingView nadImageInsertingView, ym0 ym0Var, qf0.c cVar, AdBaseModel adBaseModel) {
+        public b(NadImageInsertingView nadImageInsertingView, vm0 vm0Var, mf0.c cVar, AdBaseModel adBaseModel) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nadImageInsertingView, ym0Var, cVar, adBaseModel};
+                Object[] objArr = {nadImageInsertingView, vm0Var, cVar, adBaseModel};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -97,12 +97,12 @@ public class NadImageInsertingView extends NadInsertingBaseView {
                 }
             }
             this.d = nadImageInsertingView;
-            this.a = ym0Var;
+            this.a = vm0Var;
             this.b = cVar;
             this.c = adBaseModel;
         }
 
-        @Override // com.repackage.tl0
+        @Override // com.repackage.ql0
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -111,7 +111,7 @@ public class NadImageInsertingView extends NadInsertingBaseView {
             }
         }
 
-        @Override // com.repackage.tl0
+        @Override // com.repackage.ql0
         public void b(Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
@@ -191,19 +191,19 @@ public class NadImageInsertingView extends NadInsertingBaseView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NadImageInsertingView(@NonNull Context context, @NonNull ViewGroup viewGroup, @NonNull pf0 pf0Var) {
-        super(context, viewGroup, pf0Var);
+    public NadImageInsertingView(@NonNull Context context, @NonNull ViewGroup viewGroup, @NonNull lf0 lf0Var) {
+        super(context, viewGroup, lf0Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, viewGroup, pf0Var};
+            Object[] objArr = {context, viewGroup, lf0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (ViewGroup) objArr2[1], (pf0) objArr2[2]);
+                super((Context) objArr2[0], (ViewGroup) objArr2[1], (lf0) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -224,9 +224,9 @@ public class NadImageInsertingView extends NadInsertingBaseView {
     public void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05bb, this);
-            this.e = (AdImageView) findViewById(R.id.obfuscated_res_0x7f091519);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09151a);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05d9, this);
+            this.e = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0915d4);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0915d5);
         }
     }
 
@@ -262,7 +262,7 @@ public class NadImageInsertingView extends NadInsertingBaseView {
                 e(adBaseModel, ClogBuilder.Area.CLOSE_BTN, currentTimeMillis);
             }
             this.a.d();
-            ll0.g(this.d);
+            il0.g(this.d);
             this.c.a();
         }
     }
@@ -274,7 +274,7 @@ public class NadImageInsertingView extends NadInsertingBaseView {
             this.b = System.currentTimeMillis();
             this.a.onShow();
             this.c.e();
-            ll0.f(this.d);
+            il0.f(this.d);
             this.e.setVisibility(0);
             this.f.setVisibility(0);
         }
@@ -289,22 +289,22 @@ public class NadImageInsertingView extends NadInsertingBaseView {
         }
     }
 
-    public final void m(@NonNull AdBaseModel adBaseModel, @NonNull qf0.c cVar) {
+    public final void m(@NonNull AdBaseModel adBaseModel, @NonNull mf0.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, adBaseModel, cVar) == null) {
-            ym0 ym0Var = (ym0) xx0.d(adBaseModel.f.k, 0);
-            if (ym0Var == null) {
+            vm0 vm0Var = (vm0) wx0.d(adBaseModel.f.k, 0);
+            if (vm0Var == null) {
                 setVisibility(8);
                 c(adBaseModel, "16", "16001");
                 cVar.onFail();
                 return;
             }
-            k31.a().d(ym0Var.a, new b(this, ym0Var, cVar, adBaseModel));
+            z31.a().d(vm0Var.a, new b(this, vm0Var, cVar, adBaseModel));
         }
     }
 
     @Override // com.baidu.nadcore.business.inserting.NadInsertingBaseView
-    public void setData(@NonNull AdBaseModel adBaseModel, @NonNull qf0.c cVar) {
+    public void setData(@NonNull AdBaseModel adBaseModel, @NonNull mf0.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, adBaseModel, cVar) == null) {
             setTag(adBaseModel);

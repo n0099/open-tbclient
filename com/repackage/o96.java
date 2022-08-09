@@ -1,39 +1,31 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.flow.CoverFlowView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
+import com.baidu.minivideo.arface.utils.ThreadPool;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.s96;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
-public class o96 {
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.record.RecordConstants;
+import com.repackage.y99;
+/* loaded from: classes7.dex */
+public abstract class o96 implements r96 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Pattern a;
-    public TbPageContext<?> b;
-    public View c;
-    public CoverFlowView<as4> d;
-    public s96 e;
-    public ds4<as4> f;
+    public u96 a;
+    public s96 b;
+    public Thread c;
+    public boolean d;
 
-    /* loaded from: classes6.dex */
-    public class a extends bs4 {
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ o96 a;
@@ -56,98 +48,19 @@ public class o96 {
             this.a = o96Var;
         }
 
-        @Override // com.repackage.bs4, com.repackage.zr4
-        public cs4 a() {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                cs4 a = super.a();
-                if (a != null) {
-                    a.d(81);
-                    a.e(R.dimen.obfuscated_res_0x7f0701d5);
-                }
-                return a;
-            }
-            return (cs4) invokeV.objValue;
-        }
-
-        @Override // com.repackage.bs4, com.repackage.zr4
-        public es4 c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                es4 es4Var = new es4();
-                es4Var.a((int) (pi.k(this.a.b.getPageActivity()) / 2.5714285f));
-                return es4Var;
-            }
-            return (es4) invokeV.objValue;
-        }
-
-        @Override // com.repackage.bs4, com.repackage.zr4
-        public TbImageView d(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-                TbImageView tbImageView = new TbImageView(context);
-                tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                tbImageView.setGifIconSupport(false);
-                return tbImageView;
-            }
-            return (TbImageView) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements ds4<as4> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o96 a;
-
-        public b(o96 o96Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o96Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = o96Var;
-        }
-
-        @Override // com.repackage.ds4
-        public void a(int i, as4 as4Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeIL(1048576, this, i, as4Var) != null) || as4Var == null) {
-            }
-        }
-
-        @Override // com.repackage.ds4
-        public void b(int i, String str) {
-            s96.a aVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) || (aVar = (s96.a) this.a.d.n(i)) == null) {
-                return;
-            }
-            Matcher matcher = this.a.a.matcher(aVar.b());
-            if (matcher.find()) {
-                this.a.b.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.a.b.getPageActivity()).createNormalCfg(matcher.group(1), null, null)));
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.f();
             }
         }
     }
 
-    public o96(TbPageContext<?> tbPageContext) {
+    public o96() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -157,60 +70,145 @@ public class o96 {
                 return;
             }
         }
-        this.a = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
-        this.b = null;
-        this.d = null;
-        this.e = null;
-        this.f = new b(this);
-        this.b = tbPageContext;
-        d();
+        this.d = false;
     }
 
-    public View c() {
+    @Override // com.repackage.r96
+    public void a(u96 u96Var, s96 s96Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, u96Var, s96Var) == null) || s96Var == null) {
+            return;
+        }
+        this.b = s96Var;
+        if (u96Var == null) {
+            s96Var.onError(StringUtil.NULL_STRING, "cover config is null !!");
+            return;
+        }
+        this.a = u96Var;
+        this.c = new Thread(new a(this));
+        ThreadPool.b().e(this.c);
+    }
+
+    public int[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (View) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            u96 u96Var = this.a;
+            int[] iArr = {u96Var.a, u96Var.b};
+            if (!u96Var.g && !u96Var.e) {
+                float f = u96Var.d;
+                if (f != 0.0f) {
+                    y99.a e = y99.e(f, RecordConstants.VIDEO_CONSTANT_WIDTH);
+                    iArr[0] = e.b();
+                    iArr[1] = e.a();
+                }
+            } else {
+                y99.a e2 = e();
+                float f2 = this.a.d;
+                if (f2 != 0.0f) {
+                    y99.a f3 = y99.f(f2, e2.b(), e2.a());
+                    iArr[0] = f3.b();
+                    iArr[1] = f3.a();
+                }
+                y99.a d = y99.d(iArr[0], iArr[1]);
+                iArr[0] = d.b();
+                iArr[1] = d.a();
+            }
+            return iArr;
+        }
+        return (int[]) invokeV.objValue;
     }
 
-    public final void d() {
-        TbPageContext<?> tbPageContext;
+    public Bitmap c(Bitmap bitmap, float f, MultiMediaData multiMediaData) {
+        InterceptResult invokeCommon;
+        Bitmap bitmap2;
+        int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (tbPageContext = this.b) == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bitmap, Float.valueOf(f), multiMediaData})) == null) {
+            if (multiMediaData == null || !((i = 360 - (((int) multiMediaData.angle) % 360)) == 90 || i == 270)) {
+                bitmap2 = null;
+            } else {
+                Matrix matrix = new Matrix();
+                matrix.setRotate(i);
+                bitmap2 = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+            }
+            if (bitmap2 != null) {
+                bitmap = bitmap2;
+            }
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            if (bitmap.getHeight() / bitmap.getWidth() > f) {
+                width = (int) (bitmap.getHeight() * f);
+            } else {
+                height = (int) (bitmap.getWidth() * f);
+            }
+            Bitmap createBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+            Canvas canvas = new Canvas(createBitmap);
+            canvas.save();
+            canvas.drawBitmap(bitmap, width != bitmap.getWidth() ? Math.abs(width - bitmap.getWidth()) / 2 : 0, height != bitmap.getHeight() ? Math.abs(height - bitmap.getHeight()) / 2 : 0, (Paint) null);
+            canvas.restore();
+            bitmap.recycle();
+            return createBitmap;
         }
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07a2, (ViewGroup) null);
-        this.c = inflate;
-        if (inflate == null) {
-            return;
-        }
-        this.d = (CoverFlowView) inflate.findViewById(R.id.obfuscated_res_0x7f091dfb);
-        a aVar = new a(this);
-        this.d.setDisableParentEvent(false);
-        this.d.setCoverFlowFactory(aVar);
-        this.d.setCallback(this.f);
+        return (Bitmap) invokeCommon.objValue;
     }
 
-    public void e(s96 s96Var) {
+    public String d(int i, int i2, Bitmap bitmap, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, s96Var) == null) || s96Var == null || s96Var == this.e) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), bitmap, Boolean.valueOf(z)})) == null) {
+            if (i == 0 || i2 == 0) {
+                return "";
+            }
+            Bitmap h = sb9.h(bitmap, i, i2, z);
+            String b = this.d ? oy8.b() : oy8.a();
+            String c = oy8.c(b, h, System.currentTimeMillis() + ".jpg");
+            if (h != null) {
+                h.recycle();
+                return c;
+            }
+            return c;
         }
-        this.d.setData(s96Var.a());
-        this.e = s96Var;
+        return (String) invokeCommon.objValue;
     }
 
-    public void f(BdUniqueId bdUniqueId) {
+    public y99.a e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, bdUniqueId) != null) || bdUniqueId == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            MultiMediaData multiMediaData = this.a.c;
+            int i = RecordConstants.VIDEO_CONSTANT_WIDTH;
+            int i2 = RecordConstants.VIDEO_CONSTANT_HEIGHT;
+            if (multiMediaData == null) {
+                return new y99.a(i, i2);
+            }
+            if (multiMediaData.type == 1) {
+                float f = multiMediaData.angle;
+                float f2 = multiMediaData.rotation;
+                if ((f + f2) % 360.0f != 90.0f && (f + f2) % 360.0f != 270.0f) {
+                    i = multiMediaData.width;
+                    i2 = multiMediaData.height;
+                } else {
+                    i = multiMediaData.height;
+                    i2 = multiMediaData.width;
+                }
+            }
+            return new y99.a(i, i2);
         }
+        return (y99.a) invokeV.objValue;
     }
 
-    public void g() {
-        CoverFlowView<as4> coverFlowView;
+    public abstract void f();
+
+    public void g(t96 t96Var, Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (coverFlowView = this.d) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, t96Var, bitmap) == null) {
+            if (t96Var == null) {
+                t96Var = new t96();
+            }
+            int[] b = b();
+            t96Var.a = d(b[0], b[1], bitmap, true);
+            this.b.a(this.a.f, t96Var);
         }
-        coverFlowView.v();
     }
 }

@@ -1,55 +1,38 @@
 package com.repackage;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.ala.utils.AlaStringHelper;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.R;
-import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
-import com.baidu.tieba.wallet.CurrencySwitchUtil;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class yv5 {
+public class yv5 extends bn<ow5, CardViewHolder<tx5>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout a;
-    public TextView b;
-    public TextView c;
-    public TextView d;
-    public TextView e;
-    public TextView f;
-    public LinearLayout g;
-    public LinearLayout h;
-    public TextView i;
-    public b j;
-    public AlaEnterEffectData k;
-    public Context l;
+    public TbPageContext a;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yv5 a;
+        public final /* synthetic */ ow5 a;
+        public final /* synthetic */ yv5 b;
 
-        public a(yv5 yv5Var) {
+        public a(yv5 yv5Var, ow5 ow5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yv5Var};
+                Object[] objArr = {yv5Var, ow5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -59,143 +42,86 @@ public class yv5 {
                     return;
                 }
             }
-            this.a = yv5Var;
+            this.b = yv5Var;
+            this.a = ow5Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.j == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.b.t(this.a);
             }
-            this.a.j.a();
         }
     }
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a();
-    }
-
-    public yv5(Context context, AlaEnterEffectData alaEnterEffectData) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yv5(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), ow5.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, alaEnterEffectData};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (alaEnterEffectData == null || context == null) {
-            return;
-        }
-        this.l = context;
-        this.k = alaEnterEffectData;
-        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00e9, (ViewGroup) null);
-        this.a = relativeLayout;
-        this.b = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f09083f);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09125e);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0912fb);
-        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090693);
-        this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091ebc);
-        this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091ebd);
-        this.h = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090707);
-        this.i = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090706);
-        c(alaEnterEffectData);
+        this.a = tbPageContext;
     }
 
-    public RelativeLayout b() {
-        InterceptResult invokeV;
+    public final void t(ow5 ow5Var) {
+        lw5 c;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (RelativeLayout) invokeV.objValue;
-    }
-
-    public void c(AlaEnterEffectData alaEnterEffectData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, alaEnterEffectData) == null) || alaEnterEffectData == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ow5Var) == null) || ow5Var == null || (c = ow5Var.c()) == null || c.b() == null) {
             return;
         }
-        this.k = alaEnterEffectData;
-        this.e.setEnabled(true);
-        int i = this.k.categoryType;
-        if (3 != i) {
-            if (2 == i) {
-                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f0801d4);
-                this.e.setTextColor(this.l.getResources().getColor(R.color.CAM_X0201));
-                this.g.setVisibility(0);
-                this.f.setText(AlaStringHelper.formatLowercasekDou((float) alaEnterEffectData.price));
-                Drawable normalSkinMoneyIcon = CurrencySwitchUtil.getNormalSkinMoneyIcon();
-                int dimensionPixelSize = this.l.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070215);
-                normalSkinMoneyIcon.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
-                this.f.setCompoundDrawablePadding(this.l.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023b));
-                this.f.setCompoundDrawables(normalSkinMoneyIcon, null, null, null);
-                this.h.setVisibility(0);
-                this.i.setText(AlaStringHelper.formatLowercasekDou((float) TbadkCoreApplication.getInst().currentAccountTdouNum));
-                Drawable normalSkinMoneyIcon2 = CurrencySwitchUtil.getNormalSkinMoneyIcon();
-                int dimensionPixelSize2 = this.l.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8);
-                normalSkinMoneyIcon2.setBounds(0, 0, dimensionPixelSize2, dimensionPixelSize2);
-                this.i.setCompoundDrawablePadding(this.l.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224));
-                this.i.setCompoundDrawables(normalSkinMoneyIcon2, null, null, null);
-            } else {
-                this.d.setVisibility(0);
-                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cd5);
-                this.e.setTextColor(this.l.getResources().getColorStateList(R.color.obfuscated_res_0x7f06077d));
-            }
-        }
-        AlaEnterEffectData alaEnterEffectData2 = this.k;
-        if (alaEnterEffectData2.isOwn) {
-            if (alaEnterEffectData2.isUsing()) {
-                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cd2);
-                this.e.setTextColor(this.l.getResources().getColorStateList(R.color.obfuscated_res_0x7f06077c));
-                this.e.setText(R.string.obfuscated_res_0x7f0f0247);
-                if (2 == this.k.categoryType) {
-                    this.h.setVisibility(8);
-                }
-            } else {
-                this.e.setText(R.string.obfuscated_res_0x7f0f021b);
-            }
+        if (!c.c()) {
+            TiebaStatic.log("c11864");
         } else {
-            int i2 = alaEnterEffectData2.categoryType;
-            if (3 == i2) {
-                this.e.setText(R.string.obfuscated_res_0x7f0f0234);
-                this.c.setText(this.l.getString(R.string.obfuscated_res_0x7f0f020d, alaEnterEffectData.nobilityName));
-            } else if (2 == i2) {
-                if (TbadkCoreApplication.getInst().currentAccountTdouNum >= this.k.price) {
-                    this.e.setText(R.string.obfuscated_res_0x7f0f0212);
-                } else {
-                    this.e.setText(R.string.obfuscated_res_0x7f0f020b);
-                }
-            } else {
-                this.e.setBackgroundDrawable(null);
-                this.e.setTextColor(this.l.getResources().getColor(R.color.white_alpha60));
-                this.e.setText(R.string.obfuscated_res_0x7f0f020f);
-                this.e.setEnabled(false);
-            }
+            TiebaStatic.log("c11857");
         }
-        this.e.setOnClickListener(new a(this));
-        if (!StringUtils.isNull(alaEnterEffectData.name)) {
-            this.b.setText(alaEnterEffectData.name);
-        }
-        long currentTimeMillis = (alaEnterEffectData.end_time * 1000) - System.currentTimeMillis();
-        if (currentTimeMillis >= 0) {
-            this.c.setText(this.l.getResources().getString(R.string.obfuscated_res_0x7f0f021e, StringHelper.formatDayOrHourTime(currentTimeMillis)));
-        }
-        if (StringUtils.isNull(alaEnterEffectData.effect_range_name)) {
+        String q = ru4.k().q("ala_personal_exp_detail_url", "https://sv.baidu.com/cashliveui/userLevel.html#/level");
+        if (q == null) {
             return;
         }
-        this.d.setText(alaEnterEffectData.effect_range_name);
+        if (q.endsWith("/")) {
+            q = q.substring(0, q.length() - 1);
+        }
+        jm4.o(this.a.getPageActivity(), q);
     }
 
-    public void d(b bVar) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bn
+    /* renamed from: u */
+    public CardViewHolder<tx5> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.j = bVar;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new CardViewHolder<>(new tx5(this.a)) : (CardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bn
+    /* renamed from: v */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ow5 ow5Var, CardViewHolder<tx5> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ow5Var, cardViewHolder})) == null) {
+            if (cardViewHolder.a() == null) {
+                return null;
+            }
+            cardViewHolder.a().i(ow5Var);
+            cardViewHolder.a().j(this.a, TbadkCoreApplication.getInst().getSkinType());
+            cardViewHolder.a().k.setOnClickListener(new a(this, ow5Var));
+            return cardViewHolder.a().h();
         }
+        return (View) invokeCommon.objValue;
     }
 }

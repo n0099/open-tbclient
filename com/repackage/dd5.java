@@ -1,144 +1,196 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.Paint;
+import android.content.Context;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public class dd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public d a;
+    public a b;
+    public b c;
 
-    public static int a(BitmapFactory.Options options, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, options, i, i2)) == null) {
-            int i3 = options.outHeight;
-            int i4 = options.outWidth;
-            if (i3 > i2 || i4 > i) {
-                int round = Math.round(i3 / i2);
-                int round2 = Math.round(i4 / i);
-                if (round >= round2) {
-                    round = round2;
-                }
-                if (round >= 3) {
-                    if (round < 6.5d) {
-                        return 4;
-                    }
-                    if (round < 8) {
-                        return 8;
-                    }
-                }
-                return round;
-            }
-            return 1;
-        }
-        return invokeLII.intValue;
-    }
+    /* loaded from: classes6.dex */
+    public static class a extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public boolean b;
+        public int c;
+        public String d;
+        public String e;
+        public boolean f;
+        public int g;
+        public View.OnClickListener h;
 
-    public static Bitmap b(String str, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, str, i, i2)) == null) {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            options.inPreferredConfig = Bitmap.Config.RGB_565;
-            options.inSampleSize = a(options, i, i2);
-            options.inJustDecodeBounds = false;
-            return BitmapFactory.decodeFile(str, options);
-        }
-        return (Bitmap) invokeLII.objValue;
-    }
-
-    public static Bitmap c(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            Bitmap bitmap = null;
-            if (view2 == null || view2.getWidth() <= 0 || view2.getHeight() <= 0) {
-                return null;
-            }
-            try {
-                try {
-                    Bitmap createBitmap = Bitmap.createBitmap(view2.getWidth(), view2.getHeight(), Bitmap.Config.ARGB_8888);
-                    view2.draw(new Canvas(createBitmap));
-                    return createBitmap;
-                } catch (OutOfMemoryError e) {
-                    BdLog.e(e);
-                    return bitmap;
-                }
-            } catch (OutOfMemoryError unused) {
-                TbadkCoreApplication.getInst().onAppMemoryLow();
-                bitmap = Bitmap.createBitmap(view2.getWidth(), view2.getHeight(), Bitmap.Config.RGB_565);
-                view2.draw(new Canvas(bitmap));
-                return bitmap;
-            }
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public static float[] d(Bitmap bitmap, Matrix matrix) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bitmap, matrix)) == null) {
-            float[] fArr = new float[8];
-            matrix.mapPoints(fArr, new float[]{0.0f, 0.0f, bitmap.getWidth(), 0.0f, 0.0f, bitmap.getHeight(), bitmap.getWidth(), bitmap.getHeight()});
-            return fArr;
-        }
-        return (float[]) invokeLL.objValue;
-    }
-
-    public static int[] e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            return new int[]{options.outWidth, options.outHeight};
-        }
-        return (int[]) invokeL.objValue;
-    }
-
-    public static Bitmap f(Bitmap bitmap, Bitmap bitmap2, int i, int i2) {
-        InterceptResult invokeLLII;
-        Bitmap bitmap3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65541, null, bitmap, bitmap2, i, i2)) == null) {
-            if (bitmap == null || bitmap2 == null || i <= 0 || i2 <= 0) {
-                return null;
-            }
-            try {
-                bitmap3 = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
-            } catch (OutOfMemoryError unused) {
-                bitmap3 = null;
-            }
-            try {
-                Canvas canvas = new Canvas(bitmap3);
-                canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
-                canvas.drawBitmap(bitmap2, 0.0f, 0.0f, (Paint) null);
-                return bitmap3;
-            } catch (OutOfMemoryError unused2) {
-                try {
-                    TbadkCoreApplication.getInst().onAppMemoryLow();
-                    bitmap3 = Bitmap.createBitmap(i, i2, Bitmap.Config.RGB_565);
-                    Canvas canvas2 = new Canvas(bitmap3);
-                    canvas2.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
-                    canvas2.drawBitmap(bitmap2, 0.0f, 0.0f, (Paint) null);
-                    return bitmap3;
-                } catch (OutOfMemoryError e) {
-                    BdLog.e(e);
-                    return bitmap3;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.b = true;
+            this.c = R.drawable.new_pic_emotion_05;
+            this.d = dd5.c(R.string.obfuscated_res_0x7f0f0c55, new Object[0]);
+            this.e = dd5.c(R.string.obfuscated_res_0x7f0f0fb8, new Object[0]);
+            this.f = false;
+            this.g = qi.f(dd5.getContext(), R.dimen.obfuscated_res_0x7f0702bf);
         }
-        return (Bitmap) invokeLLII.objValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public boolean b;
+        public int c;
+        public int d;
+        public String e;
+        public String f;
+        public String g;
+        public View.OnClickListener h;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = true;
+            this.c = R.drawable.new_pic_emotion_08;
+            this.d = qi.f(dd5.getContext(), R.dimen.obfuscated_res_0x7f070292);
+            this.e = dd5.c(R.string.obfuscated_res_0x7f0f0fb8, new Object[0]);
+            this.f = dd5.c(R.string.obfuscated_res_0x7f0f0fb9, new Object[0]);
+            this.g = dd5.c(R.string.obfuscated_res_0x7f0f0487, new Object[0]);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public String c;
+        public String d;
+        public String e;
+        public String f;
+        public boolean g;
+        public View.OnClickListener h;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qi.f(dd5.getContext(), R.dimen.tbds182);
+            this.b = TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
+            this.c = dd5.c(R.string.obfuscated_res_0x7f0f0a3c, new Object[0]);
+            this.d = dd5.c(R.string.obfuscated_res_0x7f0f0dd6, new Object[0]);
+            this.e = dd5.c(R.string.obfuscated_res_0x7f0f09ea, new Object[0]);
+            this.f = dd5.c(R.string.obfuscated_res_0x7f0f03ee, new Object[0]);
+            this.g = false;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class d extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public int b;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dd5.c(R.string.obfuscated_res_0x7f0f0a42, new Object[0]);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static abstract class e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public dd5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static String c(int i, Object... objArr) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, objArr)) == null) ? getContext().getString(i, objArr) : (String) invokeIL.objValue;
+    }
+
+    public static Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? TbadkCoreApplication.getInst().getApplicationContext() : (Context) invokeV.objValue;
     }
 }

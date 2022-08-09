@@ -1,7 +1,7 @@
 package com.ss.android.socialbase.appdownloader.c;
 
 import android.content.DialogInterface;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface l {
     k a();
 

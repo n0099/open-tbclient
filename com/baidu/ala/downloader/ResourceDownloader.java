@@ -16,9 +16,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f15;
-import com.repackage.g15;
-import com.repackage.ni;
+import com.repackage.c25;
+import com.repackage.d25;
+import com.repackage.oi;
 import java.io.File;
 import java.util.Vector;
 /* loaded from: classes.dex */
@@ -166,14 +166,14 @@ public class ResourceDownloader {
     public static void realDownloadResZip(String str, String str2, String str3, String str4, String str5, String str6, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{str, str2, str3, str4, str5, str6, Boolean.valueOf(z)}) == null) {
-            if (ni.H() || z) {
+            if (oi.H() || z) {
                 DownloadData downloadData = new DownloadData();
                 downloadData.setId(str);
                 downloadData.setName(str3);
                 downloadData.setUrl(str2);
                 downloadData.setCheck(str6);
                 downloadData.setType(19);
-                downloadData.setCallback(new f15(z, str4, str5 + str3) { // from class: com.baidu.ala.downloader.ResourceDownloader.2
+                downloadData.setCallback(new c25(z, str4, str5 + str3) { // from class: com.baidu.ala.downloader.ResourceDownloader.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ String val$fileMd5ListKey;
@@ -200,7 +200,7 @@ public class ResourceDownloader {
                         this.val$fileMd5ListKey = r8;
                     }
 
-                    @Override // com.repackage.f15
+                    @Override // com.repackage.c25
                     public void onFileDownloadFailed(DownloadData downloadData2, int i, String str7) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, downloadData2, i, str7) == null) {
@@ -210,7 +210,7 @@ public class ResourceDownloader {
                         }
                     }
 
-                    @Override // com.repackage.f15
+                    @Override // com.repackage.c25
                     public void onFileDownloadSucceed(DownloadData downloadData2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData2) == null) {
@@ -291,7 +291,7 @@ public class ResourceDownloader {
                         }
                     }
 
-                    @Override // com.repackage.f15
+                    @Override // com.repackage.c25
                     public boolean onFileDownloaded(DownloadData downloadData2) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
@@ -302,7 +302,7 @@ public class ResourceDownloader {
                         return invokeL.booleanValue;
                     }
 
-                    @Override // com.repackage.f15
+                    @Override // com.repackage.c25
                     public void onFileUpdateProgress(DownloadData downloadData2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048579, this, downloadData2) == null) {
@@ -310,12 +310,12 @@ public class ResourceDownloader {
                         }
                     }
 
-                    @Override // com.repackage.f15
+                    @Override // com.repackage.c25
                     public boolean onPreDownload(DownloadData downloadData2) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048580, this, downloadData2)) == null) {
-                            if (ni.H() || this.val$isForceDownload) {
+                            if (oi.H() || this.val$isForceDownload) {
                                 ResourceDownloader.sendDownloadStatusMessage(1, downloadData2);
                                 return true;
                             }
@@ -371,7 +371,7 @@ public class ResourceDownloader {
                                 ResourceDownloader.addDownloadingResId(this.val$resId);
                                 DownloaderHelper.cleanDir(new File(this.val$targetResDir));
                                 this.val$downloadData.setPath(this.val$targetResPath);
-                                g15.k().l(this.val$downloadData);
+                                d25.k().l(this.val$downloadData);
                                 return Boolean.TRUE;
                             }
                             return Boolean.FALSE;

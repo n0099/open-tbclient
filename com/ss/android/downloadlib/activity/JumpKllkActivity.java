@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.ss.android.downloadlib.addownload.j;
 import com.ss.android.downloadlib.e.c;
 import com.ss.android.downloadlib.g.h;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class JumpKllkActivity extends TTDelegateActivity {
     @Override // com.ss.android.downloadlib.activity.TTDelegateActivity
     public void a() {

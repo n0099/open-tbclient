@@ -21,7 +21,7 @@ public class b implements IPerfProcessor {
     public Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> f31a;
+    public HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> f32a;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -117,11 +117,11 @@ public class b implements IPerfProcessor {
     /* renamed from: a */
     public void mo97a(com.xiaomi.clientreport.data.a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && (aVar instanceof PerfClientReport) && this.f31a != null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && (aVar instanceof PerfClientReport) && this.f32a != null) {
             PerfClientReport perfClientReport = (PerfClientReport) aVar;
             String a = a((com.xiaomi.clientreport.data.a) perfClientReport);
             String a2 = e.a(perfClientReport);
-            HashMap<String, com.xiaomi.clientreport.data.a> hashMap = this.f31a.get(a);
+            HashMap<String, com.xiaomi.clientreport.data.a> hashMap = this.f32a.get(a);
             if (hashMap == null) {
                 hashMap = new HashMap<>();
             }
@@ -131,7 +131,7 @@ public class b implements IPerfProcessor {
                 perfClientReport.perfLatencies += perfClientReport2.perfLatencies;
             }
             hashMap.put(a2, perfClientReport);
-            this.f31a.put(a, hashMap);
+            this.f32a.put(a, hashMap);
         }
     }
 
@@ -157,12 +157,12 @@ public class b implements IPerfProcessor {
     public void b() {
         HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> hashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (hashMap = this.f31a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (hashMap = this.f32a) == null) {
             return;
         }
         if (hashMap.size() > 0) {
-            for (String str : this.f31a.keySet()) {
-                HashMap<String, com.xiaomi.clientreport.data.a> hashMap2 = this.f31a.get(str);
+            for (String str : this.f32a.keySet()) {
+                HashMap<String, com.xiaomi.clientreport.data.a> hashMap2 = this.f32a.get(str);
                 if (hashMap2 != null && hashMap2.size() > 0) {
                     com.xiaomi.clientreport.data.a[] aVarArr = new com.xiaomi.clientreport.data.a[hashMap2.size()];
                     hashMap2.values().toArray(aVarArr);
@@ -170,14 +170,14 @@ public class b implements IPerfProcessor {
                 }
             }
         }
-        this.f31a.clear();
+        this.f32a.clear();
     }
 
     @Override // com.xiaomi.clientreport.processor.IPerfProcessor
     public void setPerfMap(HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, hashMap) == null) {
-            this.f31a = hashMap;
+            this.f32a = hashMap;
         }
     }
 }

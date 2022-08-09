@@ -2,8 +2,10 @@ package com.baidu.tieba.im.chat.officialBar;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -21,7 +23,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumRulesShowActivityConfig;
+import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
 import com.baidu.tbadk.core.atomData.TbTitleActivityConfig;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.NewUrlSchemaHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
@@ -37,15 +41,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.Cif;
-import com.repackage.a97;
-import com.repackage.bu8;
-import com.repackage.c87;
-import com.repackage.pi;
-import com.repackage.r57;
-import com.repackage.sg5;
-import com.repackage.w67;
+import com.repackage.gi5;
+import com.repackage.jf;
+import com.repackage.l77;
+import com.repackage.ms4;
+import com.repackage.q87;
+import com.repackage.qi;
+import com.repackage.rw8;
+import com.repackage.ua7;
+import com.repackage.vu4;
+import com.repackage.w97;
 import java.net.URISyntaxException;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class SingleImageTextView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -58,8 +66,11 @@ public class SingleImageTextView extends RelativeLayout {
     public TextView f;
     public ImageView g;
     public TextView h;
-    public Cif i;
+    public jf i;
     public int j;
+    public ViewGroup k;
+    public TextView l;
+    public TextView m;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnLongClickListener {
@@ -91,7 +102,7 @@ public class SingleImageTextView extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
                 if (this.a.i != null) {
-                    this.a.i.m(view2, 9, this.a.j, 0L);
+                    this.a.i.u(view2, 9, this.a.j, 0L);
                     return false;
                 }
                 return false;
@@ -101,14 +112,14 @@ public class SingleImageTextView extends RelativeLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class b extends sg5 {
+    public class b extends gi5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w67.a h;
+        public final /* synthetic */ q87.a h;
         public final /* synthetic */ SingleImageTextView i;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(SingleImageTextView singleImageTextView, int i, String str, w67.a aVar) {
+        public b(SingleImageTextView singleImageTextView, int i, String str, q87.a aVar) {
             super(i, str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -130,15 +141,15 @@ public class SingleImageTextView extends RelativeLayout {
             this.h = aVar;
         }
 
-        @Override // com.repackage.sg5, android.text.style.ClickableSpan
+        @Override // com.repackage.gi5, android.text.style.ClickableSpan
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumRulesShowActivityConfig(this.i.a, this.i.i(this.h.d), ForumRulesShowActivityConfig.FORUM_RULE_SHOW_FROM_MESSAGE)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumRulesShowActivityConfig(this.i.a, this.i.k(this.h.d), ForumRulesShowActivityConfig.FORUM_RULE_SHOW_FROM_MESSAGE)));
             }
         }
 
-        @Override // com.repackage.sg5, android.text.style.ClickableSpan, android.text.style.CharacterStyle
+        @Override // com.repackage.gi5, android.text.style.ClickableSpan, android.text.style.CharacterStyle
         public void updateDrawState(TextPaint textPaint) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
@@ -152,12 +163,12 @@ public class SingleImageTextView extends RelativeLayout {
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w67.a a;
+        public final /* synthetic */ q87.a a;
         public final /* synthetic */ TbPageContext b;
         public final /* synthetic */ int c;
         public final /* synthetic */ SingleImageTextView d;
 
-        public c(SingleImageTextView singleImageTextView, w67.a aVar, TbPageContext tbPageContext, int i) {
+        public c(SingleImageTextView singleImageTextView, q87.a aVar, TbPageContext tbPageContext, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -178,20 +189,20 @@ public class SingleImageTextView extends RelativeLayout {
             this.c = i;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:80:0x025a  */
+        /* JADX WARN: Removed duplicated region for block: B:83:0x0274  */
         @Override // android.view.View.OnClickListener
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void onClick(View view2) {
             String str;
-            w67.a aVar;
+            q87.a aVar;
             String str2;
             int i;
             String str3;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                w67.a aVar2 = this.a;
+                q87.a aVar2 = this.a;
                 if (aVar2 != null && (str3 = aVar2.d) != null && str3.contains(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC)) {
                     try {
                         this.d.a.startActivity(Intent.parseUri(this.a.d, 1));
@@ -199,7 +210,7 @@ public class SingleImageTextView extends RelativeLayout {
                         e.printStackTrace();
                     }
                 }
-                if (!this.d.f(this.b.getPageActivity().getApplicationContext(), this.a.d)) {
+                if (!this.d.g(this.b.getPageActivity().getApplicationContext(), this.a.d)) {
                     UrlManager.getInstance().dealOneLink(this.b, new String[]{this.a.d});
                 }
                 String str4 = this.a.d;
@@ -226,12 +237,12 @@ public class SingleImageTextView extends RelativeLayout {
                 }
                 if (this.c == 1) {
                     TiebaStatic.eventStat(this.d.a, "official_msg_ck", "click", 1, "fid", this.a.e);
-                    r57 l = a97.l(this.a.f);
-                    if (l != null) {
-                        TiebaStatic.eventStat(this.d.a, "message_open_detail", "click", 1, "task_type", l.a, "task_id", l.b, "loc", "0");
+                    l77 m = ua7.m(this.a.f);
+                    if (m != null) {
+                        TiebaStatic.eventStat(this.d.a, "message_open_detail", "click", 1, "task_type", m.a, "task_id", m.b, "loc", "0");
                         int i2 = this.a.g;
-                        if ((i2 == 1 || i2 == 3) && !"0".equals(l.b)) {
-                            c87.c().a(l.b);
+                        if ((i2 == 1 || i2 == 3) && !"0".equals(m.b)) {
+                            w97.c().a(m.b);
                         }
                     }
                     StatisticItem statisticItem = new StatisticItem("official_message_open_detail");
@@ -242,6 +253,9 @@ public class SingleImageTextView extends RelativeLayout {
                     statisticItem.param("task_id", this.a.k);
                     statisticItem.param("obj_params1", this.a.d);
                     TiebaStatic.log(statisticItem);
+                }
+                if (this.a.o == 35) {
+                    new StatisticItem(CommonStatisticKey.KEY_QUESTION_TOP_NOTIFY_CLICK).addParam("uid", TbadkCoreApplication.getCurrentAccount()).eventStat();
                 }
                 StatisticItem statisticItem2 = new StatisticItem("c13784");
                 statisticItem2.param("service_id", this.a.l);
@@ -343,10 +357,43 @@ public class SingleImageTextView extends RelativeLayout {
         }
     }
 
-    public final boolean f(Context context, String str) {
+    public void f(q87.a aVar) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
+            return;
+        }
+        this.k.setVisibility(0);
+        this.d.setVisibility(8);
+        this.c.setVisibility(8);
+        this.b.setTypeface(Typeface.defaultFromStyle(0));
+        this.b.setMaxLines(1);
+        String str2 = "";
+        try {
+            JSONObject jSONObject = new JSONObject(TextUtils.isEmpty(aVar.b) ? "" : aVar.b);
+            str = jSONObject.optString("reply");
+            try {
+                str2 = jSONObject.optString(MissonDetailsActivityConfig.THREAD_TITLE);
+            } catch (JSONException e) {
+                e = e;
+                e.printStackTrace();
+                this.l.setText(str);
+                this.m.setText(h(str2));
+                new StatisticItem(CommonStatisticKey.KEY_QUESTION_TOP_NOTIFY_SHOW).addParam("uid", TbadkCoreApplication.getCurrentAccount()).eventStat();
+            }
+        } catch (JSONException e2) {
+            e = e2;
+            str = "";
+        }
+        this.l.setText(str);
+        this.m.setText(h(str2));
+        new StatisticItem(CommonStatisticKey.KEY_QUESTION_TOP_NOTIFY_SHOW).addParam("uid", TbadkCoreApplication.getCurrentAccount()).eventStat();
+    }
+
+    public final boolean g(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
             if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_PERSON_CHAT)) {
                 UrlSchemaJumpHelper.jumpPersonChat(context, str, true);
             } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_ALBUM)) {
@@ -365,21 +412,55 @@ public class SingleImageTextView extends RelativeLayout {
         return invokeLL.booleanValue;
     }
 
-    public final void g() {
+    public final SpannableStringBuilder h(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0573, (ViewGroup) this, true);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091dbb);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091db7);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091db8);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            int f = qi.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
+            int f2 = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+            int f3 = qi.f(TbadkCoreApplication.getInst(), R.dimen.T_X10);
+            int f4 = qi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+            int f5 = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds2);
+            int f6 = qi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+            int f7 = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds42);
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0dc0);
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            spannableStringBuilder.append((CharSequence) string);
+            vu4 vu4Var = new vu4(f, -1, R.color.CAM_X0302, f3, R.color.CAM_X0101, f4, f7);
+            vu4Var.f(true);
+            vu4Var.b(f2);
+            vu4Var.h(f5);
+            vu4Var.i(f6);
+            vu4Var.g(true);
+            vu4Var.d(qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds7));
+            spannableStringBuilder.setSpan(vu4Var, 0, string.length(), 17);
+            spannableStringBuilder.append((CharSequence) str);
+            return spannableStringBuilder;
+        }
+        return (SpannableStringBuilder) invokeL.objValue;
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d058f, (ViewGroup) this, true);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091eab);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091ea7);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091ea8);
             this.d = tbImageView;
             tbImageView.setAutoChangeStyle(false);
-            this.d.setRadius(pi.f(getContext(), R.dimen.tbds20));
+            this.d.setRadius(qi.f(getContext(), R.dimen.tbds20));
             this.d.setConrers(15);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091a3b);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902a0);
-            this.e = findViewById(R.id.obfuscated_res_0x7f091db9);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091d8a);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091b1a);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902b2);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091ea9);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091e79);
+            this.k = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091283);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f092391);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f092392);
             setOnLongClickListener(new a(this));
             int dimension = (int) this.a.getResources().getDimension(R.dimen.tbds38);
             int dimension2 = (int) this.a.getResources().getDimension(R.dimen.tbds10);
@@ -387,9 +468,9 @@ public class SingleImageTextView extends RelativeLayout {
         }
     }
 
-    public void h(boolean z) {
+    public void j(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (!z) {
                 skinType = 0;
@@ -398,16 +479,21 @@ public class SingleImageTextView extends RelativeLayout {
             SkinManager.setViewTextColor(this.b, R.color.CAM_X0105, 1, skinType);
             SkinManager.setViewTextColor(this.c, R.color.CAM_X0109, 1, skinType);
             SkinManager.setViewTextColor(this.f, R.color.CAM_X0107, 1, skinType);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.obfuscated_res_0x7f0805e4, R.color.CAM_X0109, null);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.obfuscated_res_0x7f0805e9, R.color.CAM_X0109, null);
             SkinManager.setViewTextColor(this.h, R.color.common_color_10067, 1, skinType);
             SkinManager.setBackgroundResource(this.e, R.drawable.multi_single_divider_selector, skinType);
+            ms4 d = ms4.d(this.l);
+            d.v(R.color.CAM_X0107);
+            d.w(R.dimen.M_T_X003);
+            SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0105);
+            SkinManager.setBackgroundResource(this.k, R.drawable.obfuscated_res_0x7f0802b3);
         }
     }
 
-    public final String i(String str) {
+    public final String k(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             try {
                 return Uri.parse(str).getQueryParameter(TbTitleActivityConfig.FORUM_ID);
             } catch (Exception e) {
@@ -418,33 +504,41 @@ public class SingleImageTextView extends RelativeLayout {
         return (String) invokeL.objValue;
     }
 
-    public void j() {
+    public void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.b.setText("");
             this.c.setText("");
             this.d.setBackgroundDrawable(null);
             this.d.setImageDrawable(null);
             this.h.setText("");
             this.h.setVisibility(8);
+            this.b.setTypeface(Typeface.defaultFromStyle(1));
+            this.b.setMaxLines(2);
+            this.d.setVisibility(0);
+            this.c.setVisibility(0);
+            this.m.setText("");
+            this.l.setText("");
+            this.k.setBackgroundDrawable(null);
+            this.k.setVisibility(8);
         }
     }
 
-    public void setData(TbPageContext<?> tbPageContext, w67.a aVar, View view2, int i) {
+    public void setData(TbPageContext<?> tbPageContext, q87.a aVar, View view2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(1048581, this, tbPageContext, aVar, view2, i) == null) || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeLLLI(1048583, this, tbPageContext, aVar, view2, i) == null) || aVar == null) {
             return;
         }
         this.b.setText(!TextUtils.isEmpty(aVar.a) ? aVar.a : "");
         String str = TextUtils.isEmpty(aVar.b) ? "" : aVar.b;
-        if (!TextUtils.isEmpty(aVar.b) && aVar.b.contains(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08ce))) {
+        if (!TextUtils.isEmpty(aVar.b) && aVar.b.contains(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08e2))) {
             b bVar = new b(this, 2, aVar.d, aVar);
-            int indexOf = aVar.b.indexOf(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08ce));
+            int indexOf = aVar.b.indexOf(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08e2));
             SpannableString spannableString = new SpannableString(aVar.b);
             spannableString.setSpan(bVar, indexOf - 1, indexOf + 6, 33);
-            this.c.setOnTouchListener(new bu8(spannableString));
+            this.c.setOnTouchListener(new rw8(spannableString));
             this.c.setText(spannableString);
-            this.f.setText(R.string.obfuscated_res_0x7f0f02f0);
+            this.f.setText(R.string.obfuscated_res_0x7f0f02f4);
         } else {
             this.c.setText(str);
         }
@@ -456,9 +550,18 @@ public class SingleImageTextView extends RelativeLayout {
             }
             setOnClickListener(new c(this, aVar, tbPageContext, i));
         }
+        if (aVar.o == 35) {
+            f(aVar);
+            return;
+        }
+        this.k.setVisibility(8);
+        this.d.setVisibility(0);
+        this.c.setVisibility(0);
+        this.b.setTypeface(Typeface.defaultFromStyle(1));
+        this.b.setMaxLines(2);
         if (!TextUtils.isEmpty(aVar.c)) {
             this.d.setTag(aVar.c);
-            this.d.J(aVar.c, 10, false);
+            this.d.K(aVar.c, 10, false);
         }
         ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
@@ -468,23 +571,23 @@ public class SingleImageTextView extends RelativeLayout {
         }
     }
 
-    public void setOnItemViewLongClickListener(Cif cif) {
+    public void setOnItemViewLongClickListener(jf jfVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cif) == null) {
-            this.i = cif;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jfVar) == null) {
+            this.i = jfVar;
         }
     }
 
     public void setPosition(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             this.j = i;
         }
     }
 
     public void setTime(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
                 this.h.setVisibility(8);
                 this.h.setText("");
@@ -537,6 +640,6 @@ public class SingleImageTextView extends RelativeLayout {
         }
         this.i = null;
         this.a = context;
-        g();
+        i();
     }
 }

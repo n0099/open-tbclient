@@ -1,9 +1,5 @@
 package com.repackage;
 
-import android.util.Base64;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsSerializeValue;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,124 +9,40 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class n14 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public s72 a;
-    public l14 b;
+    public long a;
+    public long b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public int i;
+    public String j;
+    public String k;
+    public String l;
+    public int m;
 
-    public n14(s72 s72Var) {
+    public n14() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {s72Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = s72Var;
-        this.b = new l14();
     }
 
-    @NonNull
-    public r14 a() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.b.j();
-            ec3.h.update();
-            return r14.i(null);
+            return "{ clipMaxDuration=" + this.a + " , clipMinDuration=" + this.b + " , topicSource=" + this.c + " , publishURL=" + this.e + " , publishType=" + this.k + " , publishTitle=" + this.d + " , atURL=" + this.g + " , topicURL=" + this.h + " , musicURL=" + this.f + " , sourceFrom=" + this.j + " , sourceType=" + this.i + ",target=" + this.l + ",showToast=" + this.m + " }";
         }
-        return (r14) invokeV.objValue;
-    }
-
-    @NonNull
-    public q14 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String[] n = this.b.n();
-            q14 q14Var = new q14();
-            q14Var.keys = n;
-            q14Var.currentSize = this.b.m() / 1024;
-            q14Var.limitSize = this.b.s() / 1024;
-            q14Var.errMsg = o14.b("getStorageInfoSync");
-            return q14Var;
-        }
-        return (q14) invokeV.objValue;
-    }
-
-    @NonNull
-    public r14 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (str == null) {
-                return r14.b("parameter error: the key cannot be null.");
-            }
-            String p = this.b.p(str, null);
-            Object C = p != null ? this.a.C(Base64.decode(p, 2), true) : null;
-            if (C == null) {
-                C = r14.h();
-            }
-            return r14.i(C);
-        }
-        return (r14) invokeL.objValue;
-    }
-
-    public final void d(JsSerializeValue jsSerializeValue) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, jsSerializeValue) == null) || jsSerializeValue == null) {
-            return;
-        }
-        jsSerializeValue.release();
-    }
-
-    @NonNull
-    public r14 e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (str == null) {
-                return r14.b("parameter error: the key cannot be null.");
-            }
-            this.b.u(str);
-            ec3.h.update();
-            return r14.i(null);
-        }
-        return (r14) invokeL.objValue;
-    }
-
-    @NonNull
-    public r14 f(String str, JsSerializeValue jsSerializeValue) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, jsSerializeValue)) == null) {
-            if (str == null) {
-                d(jsSerializeValue);
-                return r14.b("parameter error: the key cannot be null.");
-            } else if (jsSerializeValue == null) {
-                return r14.i(null);
-            } else {
-                byte[] K = this.a.K(jsSerializeValue, true);
-                d(jsSerializeValue);
-                if (K == null) {
-                    return r14.b("parameter error: the data parse failed.");
-                }
-                String encodeToString = Base64.encodeToString(K, 2);
-                String p = this.b.p(str, null);
-                int length = str.getBytes().length;
-                if (this.b.s() - this.b.m() < (encodeToString.length() + length) - (p == null ? 0 : p.length() + length)) {
-                    return r14.b("storage error: the storage space insufficient.");
-                }
-                boolean t = this.b.t(str, encodeToString);
-                ec3.h.update();
-                return t ? r14.i(null) : r14.b("storage error: the storage is invalid.");
-            }
-        }
-        return (r14) invokeLL.objValue;
+        return (String) invokeV.objValue;
     }
 }

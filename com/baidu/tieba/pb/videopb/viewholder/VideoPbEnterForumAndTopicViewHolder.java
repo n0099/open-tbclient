@@ -16,10 +16,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.pi;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class VideoPbEnterForumAndTopicViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public class VideoPbEnterForumAndTopicViewHolder extends TypeAdapter.ViewHolder 
         this.b = (FlowLabelLayout) ((ViewGroup) view2).getChildAt(0);
     }
 
-    public void b() {
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ThreadForumEnterButton threadForumEnterButton = this.c;
@@ -76,7 +76,7 @@ public class VideoPbEnterForumAndTopicViewHolder extends TypeAdapter.ViewHolder 
         if (list != null) {
             list.clear();
         }
-        if (!oi.isEmpty(threadData.getForum_name())) {
+        if (!pi.isEmpty(threadData.getForum_name())) {
             ThreadForumEnterButton threadForumEnterButton = new ThreadForumEnterButton(this.a);
             this.c = threadForumEnterButton;
             threadForumEnterButton.a(threadData);

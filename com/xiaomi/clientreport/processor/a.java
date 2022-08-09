@@ -41,7 +41,7 @@ public class a implements IEventProcessor {
     public Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> f30a;
+    public HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> f31a;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -453,15 +453,15 @@ public class a implements IEventProcessor {
     /* renamed from: a  reason: collision with other method in class */
     public void mo97a(com.xiaomi.clientreport.data.a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) && (aVar instanceof EventClientReport) && this.f30a != null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) && (aVar instanceof EventClientReport) && this.f31a != null) {
             EventClientReport eventClientReport = (EventClientReport) aVar;
             String a = a((com.xiaomi.clientreport.data.a) eventClientReport);
-            ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f30a.get(a);
+            ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f31a.get(a);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
             }
             arrayList.add(eventClientReport);
-            this.f30a.put(a, arrayList);
+            this.f31a.put(a, arrayList);
         }
     }
 
@@ -493,12 +493,12 @@ public class a implements IEventProcessor {
     public void b() {
         HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> hashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (hashMap = this.f30a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (hashMap = this.f31a) == null) {
             return;
         }
         if (hashMap.size() > 0) {
-            for (String str : this.f30a.keySet()) {
-                ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f30a.get(str);
+            for (String str : this.f31a.keySet()) {
+                ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f31a.get(str);
                 if (arrayList != null && arrayList.size() > 0) {
                     com.xiaomi.clientreport.data.a[] aVarArr = new com.xiaomi.clientreport.data.a[arrayList.size()];
                     arrayList.toArray(aVarArr);
@@ -506,7 +506,7 @@ public class a implements IEventProcessor {
                 }
             }
         }
-        this.f30a.clear();
+        this.f31a.clear();
     }
 
     @Override // com.xiaomi.clientreport.processor.IEventProcessor
@@ -537,7 +537,7 @@ public class a implements IEventProcessor {
     public void setEventMap(HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, hashMap) == null) {
-            this.f30a = hashMap;
+            this.f31a = hashMap;
         }
     }
 

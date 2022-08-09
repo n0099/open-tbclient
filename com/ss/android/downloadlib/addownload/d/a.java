@@ -7,7 +7,7 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.text.DecimalFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a implements d {
     public static com.ss.android.downloadlib.addownload.a.c a;
 

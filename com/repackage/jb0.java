@@ -1,9 +1,8 @@
 package com.repackage;
 
-import android.graphics.SurfaceTexture;
+import android.opengl.EGL14;
+import android.opengl.EGLSurface;
 import android.util.Log;
-import android.view.Surface;
-import android.view.SurfaceHolder;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,16 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class jb0 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String d = "jb0";
+    public static final String c = "jb0";
     public transient /* synthetic */ FieldHolder $fh;
-    public lb0 a;
-    public List<kb0> b;
-    public int c;
+    public ib0 a;
+    public EGLSurface b;
 
     static {
         InterceptResult invokeClinit;
@@ -38,12 +34,12 @@ public class jb0 {
         }
     }
 
-    public jb0(Object obj, List<xb0> list) {
+    public jb0(ib0 ib0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {obj, list};
+            Object[] objArr = {ib0Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,119 +49,54 @@ public class jb0 {
                 return;
             }
         }
-        this.c = 0;
-        b(obj, list);
+        this.b = EGL14.EGL_NO_SURFACE;
+        this.a = ib0Var;
     }
 
-    public void a(long j) {
-        List<kb0> list;
+    public void a(Object obj) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048576, this, j) == null) || this.a == null || (list = this.b) == null || list.size() == 0) {
-            return;
-        }
-        synchronized (this) {
-            for (kb0 kb0Var : this.b) {
-                this.a.b(kb0Var.c());
-                kb0Var.b(j);
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            if (this.b == EGL14.EGL_NO_SURFACE) {
+                this.b = this.a.b(obj);
+                return;
             }
-            notifyAll();
+            throw new IllegalStateException("surface already created");
         }
-        this.a.d(j);
-        this.a.e();
     }
 
-    public final void b(Object obj, List<xb0> list) {
-        kb0 kb0Var;
-        lb0 lb0Var;
+    public void b(ib0 ib0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, list) == null) || list == null || list.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ib0Var) == null) || ib0Var.d(this.b)) {
             return;
         }
-        List<kb0> list2 = this.b;
-        if (list2 == null) {
-            this.b = new ArrayList();
-        } else {
-            list2.clear();
-        }
-        for (int i = 0; i < list.size(); i++) {
-            try {
-                this.b.add(new kb0(list.get(i)));
-                if (list.get(i).k()) {
-                    this.c = i;
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        int size = this.b.size();
-        int i2 = this.c;
-        if (size > i2) {
-            if (obj != null) {
-                if (obj instanceof Surface) {
-                    this.a = new lb0(this.b.get(this.c).c(), (Surface) obj, true);
-                } else if (obj instanceof SurfaceTexture) {
-                    this.a = new lb0(this.b.get(this.c).c(), (SurfaceTexture) obj);
-                } else if (obj instanceof SurfaceHolder) {
-                    this.a = new lb0(this.b.get(this.c).c(), (SurfaceHolder) obj);
-                }
-            } else {
-                List<kb0> list3 = this.b;
-                if (list3 != null && list3 != null && (kb0Var = list3.get(i2)) != null && (lb0Var = this.a) != null) {
-                    lb0Var.f(kb0Var.c());
-                }
-            }
-        }
-        for (kb0 kb0Var2 : this.b) {
-            lb0 lb0Var2 = this.a;
-            if (lb0Var2 != null) {
-                lb0Var2.b(kb0Var2.c());
-                kb0Var2.f();
-            }
-        }
+        ib0Var.e(this.b);
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            lb0 lb0Var = this.a;
-            if (lb0Var != null) {
-                lb0Var.g();
-                this.a = null;
-            }
-            List<kb0> list = this.b;
-            if (list != null) {
-                for (kb0 kb0Var : list) {
-                    kb0Var.e();
-                }
-                this.b.clear();
-                this.b = null;
-            }
+            this.a.g(this.b);
+            this.b = EGL14.EGL_NO_SURFACE;
         }
     }
 
-    public void d(qb0 qb0Var) {
+    public void d(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, qb0Var) == null) {
-            for (kb0 kb0Var : this.b) {
-                lb0 lb0Var = this.a;
-                if (lb0Var != null) {
-                    lb0Var.b(kb0Var.c());
-                    kb0Var.g(qb0Var);
-                }
-            }
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.a.h(this.b, j);
         }
     }
 
-    public void e(List<xb0> list) {
+    public boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            Log.d(d, "updateSurfaceDrawer !!!");
-            this.a.c();
-            for (kb0 kb0Var : this.b) {
-                kb0Var.e();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            boolean i = this.a.i(this.b);
+            if (!i) {
+                Log.d(c, "WARNING: swapBuffers() failed");
             }
-            this.b.clear();
-            b(null, list);
+            return i;
         }
+        return invokeV.booleanValue;
     }
 }

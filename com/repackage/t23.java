@@ -1,31 +1,38 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m03;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class t23 extends s23 {
+public class t23 extends w23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t23(l03 l03Var) {
-        super(l03Var);
+    public t23(w13 w13Var) {
+        super(w13Var, "/swanAPI/preventPullDownRefresh");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {l03Var};
+            Object[] objArr = {w13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l03) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -33,45 +40,58 @@ public class t23 extends s23 {
         }
     }
 
-    @Override // com.repackage.s23
-    public void I(String str) {
-        String str2;
+    @Override // com.repackage.w23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, z03 z03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && M() && (str2 = this.d) != null && str2.equals(str)) {
-            h03 K = h03.K();
-            if (K.E()) {
-                if (K.q().n0()) {
-                    K.n("flag_finish_activity", "flag_remove_task");
-                    return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, z03Var)) == null) {
+            if (w23.b) {
+                Log.d("PreventPullDownRefresh", "handle entity: " + unitedSchemeEntity.toString());
+            }
+            JSONObject a = w23.a(unitedSchemeEntity, "params");
+            if (a == null) {
+                zx1.c("preventPullDownRefresh", "none params");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none params");
+                return false;
+            }
+            String optString = a.optString("slaveId");
+            if (TextUtils.isEmpty(optString)) {
+                zx1.c("preventPullDownRefresh", "slaveId null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "slaveId null");
+                return false;
+            }
+            mm2 U = mm2.U();
+            hn1 A = U.A(optString);
+            if (!(A instanceof fn1)) {
+                zx1.c("preventPullDownRefresh", "webViewManager not a SwanAppSlaveManager");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "webViewManager not a SwanAppSlaveManager");
+                return false;
+            }
+            i02 V = U.V();
+            if (V == null) {
+                zx1.c("PreventPullDownRefresh", "manager is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            }
+            h02 o = V.o();
+            if (o == null) {
+                zx1.c("PreventPullDownRefresh", "slave container is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else if (TextUtils.equals("7", o.N1().l())) {
+                zx1.c("PreventPullDownRefresh", "this page is from showModalPage api");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(402);
+                return false;
+            } else {
+                boolean optBoolean = a.optBoolean("prevent", false);
+                PullToRefreshBaseWebView h0 = ((fn1) A).h0();
+                if (h0 != null) {
+                    h0.setIsPreventPullToRefresh(optBoolean);
+                    return true;
                 }
-                bc3 bc3Var = new bc3();
-                bc3Var.k(10L);
-                bc3Var.i(2107L);
-                bc3Var.d("app forbidden");
-                o03.y0(d84.i().u(str), pj2.c(), K.q().W(), false, null, bc3Var);
+                return true;
             }
         }
-    }
-
-    public boolean M() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (i03.b0() == null || this.b == 0) ? false : true : invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.bf3
-    /* renamed from: N */
-    public void a(m03.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            if (uw2.J(aVar.D(), "swan_forbidden_kill_on_client")) {
-                this.b = aVar.j("ipc_forbidden_flag", 1);
-                this.d = aVar.o("mAppId", h03.K().getAppId());
-            }
-            if (uw2.J(aVar.D(), "swan_kill_to_client")) {
-                h03.K().n("flag_finish_activity", "flag_remove_task");
-            }
-        }
+        return invokeLLLL.booleanValue;
     }
 }

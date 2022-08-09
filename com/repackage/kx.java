@@ -1,29 +1,77 @@
 package com.repackage;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.view.ThreadLinkView;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.ItemCardView;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class kx extends qw<on4> {
+public class kx extends yw {
     public static /* synthetic */ Interceptable $ic;
+    public static final int i;
     public transient /* synthetic */ FieldHolder $fh;
-    public View f;
-    public ThreadLinkView g;
-    public TextView h;
-    public on4 i;
+    public ItemCardView h;
+
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(kx kxVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kxVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001440, view2));
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964035016, "Lcom/repackage/kx;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964035016, "Lcom/repackage/kx;");
+                return;
+            }
+        }
+        i = qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003);
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public kx(Context context) {
@@ -33,59 +81,125 @@ public class kx extends qw<on4> {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        if (TbadkCoreApplication.getInst().getPersonalizeViewData().o != null && TbadkCoreApplication.getInst().getPersonalizeViewData().o.getParent() == null) {
-            this.f = TbadkCoreApplication.getInst().getPersonalizeViewData().o;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().l instanceof ItemCardView) && TbadkCoreApplication.getInst().getPersonalizeViewData().l.getParent() == null) {
+            this.h = (ItemCardView) TbadkCoreApplication.getInst().getPersonalizeViewData().l;
         } else {
-            this.f = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01a0, (ViewGroup) null, true);
+            this.h = new ItemCardView(context);
         }
-        this.g = (ThreadLinkView) this.f.findViewById(R.id.obfuscated_res_0x7f0912a8);
-        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0912a3);
+        z();
+        s(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
     }
 
-    @Override // com.repackage.qw
+    public void A(int i2) {
+        ItemCardView itemCardView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (itemCardView = this.h) == null) {
+            return;
+        }
+        itemCardView.setPosition(i2);
+    }
+
+    @Override // com.repackage.rw
     public View h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.h : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.hx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+    @Override // com.repackage.ix
+    public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.g.b();
-            on4 on4Var = this.i;
-            if (on4Var == null || on4Var.getThreadData() == null) {
-                return;
-            }
-            ux5.l(this.h, this.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) {
+            this.h.G();
         }
+    }
+
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            s(i);
+            r(0);
+            y(this.h, i, 0);
+        }
+    }
+
+    public int u(ItemData itemData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, itemData)) == null) {
+            ItemCardView itemCardView = this.h;
+            if (itemCardView != null) {
+                return itemCardView.z(itemData);
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public int v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            ItemCardView itemCardView = this.h;
+            if (itemCardView != null) {
+                return itemCardView.getPosition();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.gx
-    /* renamed from: p */
-    public void a(on4 on4Var) {
+    @Override // com.repackage.hx
+    /* renamed from: w */
+    public void a(fo4 fo4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, on4Var) == null) {
-            if (on4Var != null && on4Var.getThreadData() != null) {
-                this.i = on4Var;
-                ThreadData threadData = on4Var.getThreadData();
-                ux5.j(threadData, this.h);
-                this.g.setData(threadData);
+        if (interceptable == null || interceptable.invokeL(1048583, this, fo4Var) == null) {
+            if (fo4Var != null && fo4Var.getThreadData() != null && fo4Var.getThreadData().getItem() != null) {
+                this.h.setVisibility(0);
+                this.h.setData(fo4Var.getThreadData().itemData, 13, fo4Var.getThreadData().tid);
                 return;
             }
-            h().setVisibility(8);
+            this.h.setVisibility(8);
         }
+    }
+
+    public void x(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.h.setIsShowRightBtn(z);
+        }
+    }
+
+    public final void y(View view2, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(1048585, this, view2, i2, i3) == null) && view2 != null && (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
+            if (marginLayoutParams.topMargin == i2 && marginLayoutParams.bottomMargin == i3) {
+                return;
+            }
+            marginLayoutParams.topMargin = i2;
+            marginLayoutParams.bottomMargin = i3;
+            view2.setLayoutParams(marginLayoutParams);
+        }
+    }
+
+    public final void z() {
+        ItemCardView itemCardView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (itemCardView = this.h) == null) {
+            return;
+        }
+        itemCardView.setOnClickListenerOfRightBtn(new a(this));
     }
 }

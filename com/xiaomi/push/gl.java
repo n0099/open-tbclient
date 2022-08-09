@@ -19,7 +19,7 @@ public class gl extends gn {
     public a a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Map<String, String> f433a;
+    public final Map<String, String> f434a;
 
     /* loaded from: classes8.dex */
     public static class a {
@@ -32,7 +32,7 @@ public class gl extends gn {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f434a;
+        public String f435a;
 
         static {
             InterceptResult invokeClinit;
@@ -69,7 +69,7 @@ public class gl extends gn {
                     return;
                 }
             }
-            this.f434a = str;
+            this.f435a = str;
         }
 
         public static a a(String str) {
@@ -103,7 +103,7 @@ public class gl extends gn {
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f434a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f435a : (String) invokeV.objValue;
         }
     }
 
@@ -121,7 +121,7 @@ public class gl extends gn {
             }
         }
         this.a = a.a;
-        this.f433a = new HashMap();
+        this.f434a = new HashMap();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -143,7 +143,7 @@ public class gl extends gn {
             }
         }
         this.a = a.a;
-        this.f433a = new HashMap();
+        this.f434a = new HashMap();
         if (bundle.containsKey("ext_iq_type")) {
             this.a = a.a(bundle.getString("ext_iq_type"));
         }
@@ -197,7 +197,7 @@ public class gl extends gn {
                 sb.append(gy.a(k()));
                 sb.append("\" ");
             }
-            for (Map.Entry<String, String> entry : this.f433a.entrySet()) {
+            for (Map.Entry<String, String> entry : this.f434a.entrySet()) {
                 sb.append(gy.a(entry.getKey()));
                 sb.append("=\"");
                 sb.append(gy.a(entry.getValue()));
@@ -240,7 +240,7 @@ public class gl extends gn {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
             synchronized (this) {
-                this.f433a.putAll(map);
+                this.f434a.putAll(map);
             }
         }
     }

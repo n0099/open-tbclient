@@ -1,227 +1,167 @@
 package com.repackage;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.R;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cy;
-import com.repackage.ny;
-import com.repackage.tw;
-/* loaded from: classes5.dex */
-public class cn7 extends tm7<rq4, ThreadCardViewHolder<ThreadData>> {
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import org.json.JSONArray;
+/* loaded from: classes6.dex */
+public class cn7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId k;
-    public TbPageContext<?> l;
-    public tn m;
-    public jy5<ThreadData> n;
 
-    /* loaded from: classes5.dex */
-    public class a extends jy5<ThreadData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cn7 b;
-
-        public a(cn7 cn7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cn7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = cn7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.jy5
-        /* renamed from: d */
-        public void a(View view2, ThreadData threadData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-                cy5.b().d(true);
-                this.b.g0(view2, threadData);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements tw.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(cn7 cn7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cn7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.tw.b
-        public void a(on4 on4Var, View view2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, on4Var, view2) == null) || on4Var == null) {
-                return;
-            }
-            if (view2.getId() == R.id.obfuscated_res_0x7f09232f) {
-                on4Var.objType = 3;
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09230e) {
-                on4Var.objType = 4;
-            } else {
-                on4Var.objType = 1;
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements xn {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cn7 a;
-
-        public c(cn7 cn7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cn7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cn7Var;
-        }
-
-        @Override // com.repackage.xn
-        public void b(View view2, nn nnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, nnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (nnVar instanceof rq4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                ThreadData threadData = ((rq4) nnVar).s;
-                threadData.objType = 1;
-                if (this.a.n != null) {
-                    this.a.n.a(threadCardViewHolder.a(), threadData);
-                }
-                ThreadCardUtils.jumpToPB(threadData, view2.getContext(), 17, false, uw.a((tn) viewGroup, view2, i), this.a.j.getOrignalPage().C1(), this.a.Z() ? "3" : "2");
-                threadCardViewHolder.b().o(new ny.a(1));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cn7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId);
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (!(interceptable == null || interceptable.invokeL(65536, null, str) == null) || StringUtils.isNull(str)) {
+            return;
         }
-        this.n = new a(this);
-        this.l = tbPageContext;
-        this.k = bdUniqueId2;
+        File file = new File(str);
+        if (file.exists()) {
+            return;
+        }
+        file.mkdirs();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: e0 */
-    public ThreadCardViewHolder M(ViewGroup viewGroup) {
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, str) == null) || StringUtils.isNull(str)) {
+            return;
+        }
+        FileHelper.deleteFileOrDir(new File(en7.e + en7.a + str));
+    }
+
+    public static void c(String str, JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, str, jSONArray) == null) || StringUtils.isNull(str) || jSONArray == null) {
+            return;
+        }
+        try {
+            JSONArray jSONArray2 = new JSONArray(str);
+            for (int i = 0; i < jSONArray2.length(); i++) {
+                jSONArray.put(jSONArray2.optJSONObject(i));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static JSONArray d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            cy.b bVar = new cy.b(this.l.getPageActivity());
-            tw twVar = new tw(this.l.getPageActivity());
-            twVar.u(this.k);
-            twVar.d(1024);
-            twVar.t(new b(this));
-            twVar.w(this.l);
-            bVar.o(twVar);
-            cy k = bVar.k(BaseCardInfo.SupportType.TOP, viewGroup, this.m);
-            k.r(17);
-            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
-            threadCardViewHolder.j(this.k);
-            V(new c(this));
-            return threadCardViewHolder;
-        }
-        return (ThreadCardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: f0 */
-    public View S(int i, View view2, ViewGroup viewGroup, rq4 rq4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
-        InterceptResult invokeCommon;
-        ThreadData threadData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rq4Var, threadCardViewHolder})) == null) {
-            if (rq4Var == null || threadCardViewHolder == null || threadCardViewHolder.a() == null || (threadData = rq4Var.s) == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            if (StringUtils.isNull(str)) {
+                return jSONArray;
             }
-            threadData.statFloor = B(i) + 1;
-            threadCardViewHolder.b().q(i);
-            threadCardViewHolder.f(rq4Var.s);
-            threadCardViewHolder.b().onChangeSkinType(this.l, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.b().p(this.n);
-            qm7.c(this, rq4Var);
-            return threadCardViewHolder.a();
+            File file = new File(str);
+            if (file.exists()) {
+                String e = e(file);
+                String[] split = e.split("\n");
+                if (split.length > 0) {
+                    for (String str2 : split) {
+                        c(str2, jSONArray);
+                    }
+                } else {
+                    c(e, jSONArray);
+                }
+                FileHelper.deleteFile(file);
+                return jSONArray;
+            }
+            return jSONArray;
         }
-        return (View) invokeCommon.objValue;
+        return (JSONArray) invokeL.objValue;
     }
 
-    public final void g0(View view2, ThreadData threadData) {
+    public static String e(File file) {
+        InterceptResult invokeL;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, view2, threadData) == null) {
-            qm7.b(this, threadData);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
+            StringBuilder sb = new StringBuilder();
+            FileInputStream fileInputStream2 = null;
+            try {
+                try {
+                    fileInputStream = new FileInputStream(file);
+                } catch (Exception e) {
+                    e = e;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                byte[] bArr = new byte[1024];
+                while (true) {
+                    int read = fileInputStream.read(bArr);
+                    if (read == -1) {
+                        break;
+                    }
+                    sb.append(new String(bArr, 0, read));
+                }
+                ng.c(fileInputStream);
+            } catch (Exception e2) {
+                e = e2;
+                fileInputStream2 = fileInputStream;
+                e.printStackTrace();
+                ng.c(fileInputStream2);
+                return sb.toString();
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream2 = fileInputStream;
+                ng.c(fileInputStream2);
+                throw th;
+            }
+            return sb.toString();
         }
+        return (String) invokeL.objValue;
     }
 
-    public void h0(tn tnVar) {
+    public static boolean f(File file, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, tnVar) == null) {
-            this.m = tnVar;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, file, str)) == null) ? g(file, str, true) : invokeLL.booleanValue;
+    }
+
+    public static boolean g(File file, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        FileOutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, null, file, str, z)) == null) {
+            FileOutputStream fileOutputStream2 = null;
+            try {
+                try {
+                    if (!file.exists()) {
+                        file.createNewFile();
+                    }
+                    fileOutputStream = new FileOutputStream(file, z);
+                } catch (Exception e) {
+                    e = e;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                fileOutputStream.write(str.getBytes());
+                fileOutputStream.flush();
+                ng.d(fileOutputStream);
+                return true;
+            } catch (Exception e2) {
+                e = e2;
+                fileOutputStream2 = fileOutputStream;
+                e.printStackTrace();
+                ng.d(fileOutputStream2);
+                return false;
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream2 = fileOutputStream;
+                ng.d(fileOutputStream2);
+                throw th;
+            }
         }
+        return invokeLLZ.booleanValue;
     }
 }

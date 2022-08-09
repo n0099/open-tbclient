@@ -1,105 +1,143 @@
 package com.repackage;
 
-import android.os.Handler;
 import android.text.TextUtils;
+import android.util.SparseArray;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.face.SearchEmotionModel;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.YyExtData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.List;
+import tbclient.AlaLiveInfo;
+import tbclient.DislikeInfo;
 /* loaded from: classes7.dex */
-public class pw7 {
+public class pw7 implements on {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId o;
     public transient /* synthetic */ FieldHolder $fh;
-    public Handler a;
-    public SearchEmotionModel b;
-    public String c;
-    public SearchEmotionModel.b d;
-    public Runnable e;
+    public String a;
+    public int b;
+    public int c;
+    public String d;
+    public String e;
+    public MetaData f;
+    public HashMap<String, MetaData> g;
+    public boolean h;
+    public String i;
+    public String j;
+    public boolean k;
+    public boolean l;
+    public cq4 m;
+    public YyExtData n;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pw7 a;
-
-        public a(pw7 pw7Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755395423, "Lcom/repackage/pw7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pw7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = pw7Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.a.c) || this.a.d == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755395423, "Lcom/repackage/pw7;");
                 return;
             }
-            if (this.a.b == null) {
-                this.a.b = new SearchEmotionModel();
-            }
-            this.a.b.B(this.a.c, 0, 30, this.a.d);
         }
+        o = BdUniqueId.gen();
     }
 
     public pw7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.e = new a(this);
-        this.a = new Handler();
+        this.l = false;
     }
 
-    public void e() {
+    public void a(AlaLiveInfo alaLiveInfo) {
+        HashMap<String, MetaData> hashMap;
+        MetaData metaData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SearchEmotionModel searchEmotionModel = this.b;
-            if (searchEmotionModel != null) {
-                searchEmotionModel.cancelLoadData();
-            }
-            this.a.removeCallbacks(this.e);
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                this.c = "";
+        if (interceptable == null || interceptable.invokeL(1048576, this, alaLiveInfo) == null) {
+            if (alaLiveInfo != null && alaLiveInfo.user_info != null && alaLiveInfo.pb_display_type.intValue() == 3 && alaLiveInfo.live_status.intValue() == 1) {
+                this.a = alaLiveInfo.user_info.user_name;
+                this.b = alaLiveInfo.live_status.intValue();
+                this.c = alaLiveInfo.audience_count.intValue();
+                this.d = alaLiveInfo.description;
+                String str = alaLiveInfo.cover_wide;
+                this.e = str;
+                if (str == null || TextUtils.isEmpty(str)) {
+                    this.e = alaLiveInfo.cover;
+                }
+                alaLiveInfo.live_id.longValue();
+                this.h = alaLiveInfo.live_from.intValue() == 1;
+                this.i = alaLiveInfo.third_live_type;
+                this.j = alaLiveInfo.third_room_id;
+                String str2 = alaLiveInfo.router_type;
+                YyExtData yyExtData = new YyExtData();
+                this.n = yyExtData;
+                yyExtData.parseProtoBuf(alaLiveInfo.yy_ext);
+                Long l = alaLiveInfo.user_info.user_id;
+                if (l != null && l.longValue() > 0 && (hashMap = this.g) != null && (metaData = hashMap.get(alaLiveInfo.user_info.user_id.toString())) != null) {
+                    this.f = metaData;
+                }
+                List<DislikeInfo> list = alaLiveInfo.dislike_info;
+                if (ListUtils.getCount(list) > 0) {
+                    SparseArray<String> sparseArray = new SparseArray<>();
+                    SparseArray<String> sparseArray2 = new SparseArray<>();
+                    for (DislikeInfo dislikeInfo : list) {
+                        if (dislikeInfo != null) {
+                            sparseArray.put(dislikeInfo.dislike_id.intValue(), dislikeInfo.dislike_reason);
+                            sparseArray2.put(dislikeInfo.dislike_id.intValue(), dislikeInfo.extra);
+                        }
+                    }
+                    cq4 cq4Var = new cq4();
+                    this.m = cq4Var;
+                    cq4Var.j(sparseArray);
+                    this.m.g = sparseArray2;
+                } else {
+                    this.m = null;
+                }
+                this.k = true;
                 return;
             }
-            this.a.removeCallbacks(this.e);
-            this.a.postDelayed(this.e, 300L);
-            this.c = str;
+            this.k = false;
         }
     }
 
-    public void g(SearchEmotionModel.b bVar) {
+    public void b(HashMap<String, MetaData> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.d = bVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) == null) {
+            this.g = hashMap;
         }
+    }
+
+    @Override // com.repackage.on
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? o : (BdUniqueId) invokeV.objValue;
+    }
+
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.k : invokeV.booleanValue;
     }
 }

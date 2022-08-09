@@ -14,12 +14,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vr4;
-import com.repackage.vu4;
+import com.repackage.ms4;
+import com.repackage.pv4;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u00002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0002\n\u0000\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\u0006\u0010\u0012\u001a\u00020\u0013R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082\u0004¢\u0006\u0002\n\u0000R(\u0010\r\u001a\u0004\u0018\u00010\f2\b\u0010\u000b\u001a\u0004\u0018\u00010\f@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000e\u0010\u000f\"\u0004\b\u0010\u0010\u0011¨\u0006\u0014"}, d2 = {"Lcom/baidu/tieba/pb/pb/main/PbVideoDetailBrowseModeEmotionHolder;", "Lcom/baidu/adp/widget/ListView/TypeAdapter$ViewHolder;", NativeConstants.TYPE_VIEW, "Landroid/view/View;", "(Landroid/view/View;)V", "agreeBtn", "Lcom/baidu/tbadk/core/view/commonBtn/TBSpecificationBtn;", "descriptionText", "Lcom/baidu/tbadk/core/elementsMaven/view/EMTextView;", "emotionImg", "Lcom/baidu/adp/newwidget/ImageView/BDImageView;", "value", "Landroid/view/View$OnClickListener;", "onAgreeListener", "getOnAgreeListener", "()Landroid/view/View$OnClickListener;", "setOnAgreeListener", "(Landroid/view/View$OnClickListener;)V", "onChangeSkinType", "", "pb_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class PbVideoDetailBrowseModeEmotionHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,35 +47,35 @@ public final class PbVideoDetailBrowseModeEmotionHolder extends TypeAdapter.View
             }
         }
         Intrinsics.checkNotNullParameter(view2, "view");
-        View findViewById = a().findViewById(R.id.obfuscated_res_0x7f09085f);
+        View findViewById = getView().findViewById(R.id.obfuscated_res_0x7f090896);
         Intrinsics.checkNotNullExpressionValue(findViewById, "getView().findViewById(R.id.emotion_img)");
         this.a = (BDImageView) findViewById;
-        View findViewById2 = a().findViewById(R.id.obfuscated_res_0x7f090761);
+        View findViewById2 = getView().findViewById(R.id.obfuscated_res_0x7f09078d);
         Intrinsics.checkNotNullExpressionValue(findViewById2, "getView().findViewById(R.id.description_text)");
         this.b = (EMTextView) findViewById2;
-        View findViewById3 = a().findViewById(R.id.obfuscated_res_0x7f09014c);
+        View findViewById3 = getView().findViewById(R.id.obfuscated_res_0x7f090152);
         Intrinsics.checkNotNullExpressionValue(findViewById3, "getView().findViewById(R.id.agree_btn)");
         this.c = (TBSpecificationBtn) findViewById3;
         SkinManager.setImageResource(this.a, R.drawable.new_pic_emotion_01);
-        this.b.setText(R.string.obfuscated_res_0x7f0f0dc7);
-        vr4.d(this.b).v(R.color.CAM_X0107);
-        vu4 vu4Var = new vu4();
-        vu4Var.p(R.color.CAM_X0303, R.color.CAM_X0101);
-        this.c.setConfig(vu4Var);
-        this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0dc6));
+        this.b.setText(R.string.obfuscated_res_0x7f0f0df4);
+        ms4.d(this.b).v(R.color.CAM_X0107);
+        pv4 pv4Var = new pv4();
+        pv4Var.p(R.color.CAM_X0303, R.color.CAM_X0101);
+        this.c.setConfig(pv4Var);
+        this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0df3));
         this.c.setTextSize(R.dimen.T_X07);
     }
 
-    public final void b() {
+    public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             SkinManager.setImageResource(this.a, R.drawable.new_pic_emotion_01);
-            vr4.d(this.b).v(R.color.CAM_X0107);
+            ms4.d(this.b).v(R.color.CAM_X0107);
             this.c.k();
         }
     }
 
-    public final void c(View.OnClickListener onClickListener) {
+    public final void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
             this.d = onClickListener;

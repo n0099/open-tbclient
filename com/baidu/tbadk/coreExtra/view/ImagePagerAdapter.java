@@ -22,9 +22,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.br6;
-import com.repackage.ng;
-import com.repackage.w88;
+import com.repackage.db8;
+import com.repackage.og;
+import com.repackage.us6;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -173,7 +173,7 @@ public class ImagePagerAdapter extends PagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i)) == null) {
             String str = i < this.c.size() ? this.c.get(i) : null;
-            if (StringUtils.isNull(str) || w88.j(str) || br6.d(str)) {
+            if (StringUtils.isNull(str) || db8.j(str) || us6.d(str)) {
                 return null;
             }
             UrlDragImageView urlDragImageView = new UrlDragImageView(this.a);
@@ -203,9 +203,9 @@ public class ImagePagerAdapter extends PagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i)) == null) {
             if (this.n && i == getCount() - 1 && i != 0) {
-                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0154, (ViewGroup) null);
-                ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e2c)).setImageDrawable(SkinManager.getDrawable(R.drawable.big_image_next_default));
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09204f)).setText(this.o);
+                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0155, (ViewGroup) null);
+                ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e78)).setImageDrawable(SkinManager.getDrawable(R.drawable.big_image_next_default));
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09214b)).setText(this.o);
                 viewGroup.addView(inflate);
                 inflate.setOnClickListener(this.d);
                 return inflate;
@@ -250,7 +250,7 @@ public class ImagePagerAdapter extends PagerAdapter {
                 if (imageUrlData2 != null && !StringUtils.isNull(imageUrlData2.imageUrl)) {
                     urlDragImageView.setAssistUrl(d(imageUrlData2.imageUrl));
                 }
-                String str = (String) ListUtils.getItem(this.c, ng.e(String.valueOf(urlDragImageView.getTag()), -1));
+                String str = (String) ListUtils.getItem(this.c, og.e(String.valueOf(urlDragImageView.getTag()), -1));
                 if (imageUrlData2 != null && str != null && (imageUrlData = this.b.get(str)) != null && (imageUrlData == imageUrlData2 || Objects.equals(imageUrlData.imageUrl, imageUrlData2.imageUrl))) {
                     return super.getItemPosition(obj);
                 }

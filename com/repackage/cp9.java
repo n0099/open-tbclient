@@ -1,40 +1,41 @@
 package com.repackage;
 
-import java.net.InetSocketAddress;
-import java.nio.ByteBuffer;
-import org.java_websocket.WebSocket;
-import org.java_websocket.drafts.Draft;
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.framing.Framedata;
-/* loaded from: classes5.dex */
-public interface cp9 {
-    InetSocketAddress getLocalSocketAddress(WebSocket webSocket);
+import android.view.View;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.ar.core.InstallActivity;
+import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
+/* loaded from: classes6.dex */
+public final class cp9 implements View.OnClickListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ InstallActivity a;
 
-    InetSocketAddress getRemoteSocketAddress(WebSocket webSocket);
+    public cp9(InstallActivity installActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {installActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = installActivity;
+    }
 
-    void onWebsocketClose(WebSocket webSocket, int i, String str, boolean z);
-
-    void onWebsocketCloseInitiated(WebSocket webSocket, int i, String str);
-
-    void onWebsocketClosing(WebSocket webSocket, int i, String str, boolean z);
-
-    void onWebsocketError(WebSocket webSocket, Exception exc);
-
-    void onWebsocketHandshakeReceivedAsClient(WebSocket webSocket, qp9 qp9Var, xp9 xp9Var) throws InvalidDataException;
-
-    yp9 onWebsocketHandshakeReceivedAsServer(WebSocket webSocket, Draft draft, qp9 qp9Var) throws InvalidDataException;
-
-    void onWebsocketHandshakeSentAsClient(WebSocket webSocket, qp9 qp9Var) throws InvalidDataException;
-
-    void onWebsocketMessage(WebSocket webSocket, String str);
-
-    void onWebsocketMessage(WebSocket webSocket, ByteBuffer byteBuffer);
-
-    void onWebsocketOpen(WebSocket webSocket, vp9 vp9Var);
-
-    void onWebsocketPing(WebSocket webSocket, Framedata framedata);
-
-    void onWebsocketPong(WebSocket webSocket, Framedata framedata);
-
-    void onWriteDemand(WebSocket webSocket);
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            this.a.j(new UnavailableUserDeclinedInstallationException());
+        }
+    }
 }

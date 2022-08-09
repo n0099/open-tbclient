@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bf;
 import com.repackage.cf;
+import com.repackage.df;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -23,7 +23,7 @@ public class SwitchManager {
     public static SwitchManager sSwitchManager;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, Integer> mBaseSwitchs;
-    public ConcurrentHashMap<String, cf> mSwitchs;
+    public ConcurrentHashMap<String, df> mSwitchs;
 
     static {
         InterceptResult invokeClinit;
@@ -74,12 +74,12 @@ public class SwitchManager {
         return (SwitchManager) invokeV.objValue;
     }
 
-    public void addSwitchData(bf bfVar) {
+    public void addSwitchData(cf cfVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, bfVar) == null) || bfVar == null || this.mSwitchs.containsKey(bfVar.e())) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, cfVar) == null) || cfVar == null || this.mSwitchs.containsKey(cfVar.e())) {
             return;
         }
-        this.mSwitchs.put(bfVar.e(), new cf(bfVar));
+        this.mSwitchs.put(cfVar.e(), new df(cfVar));
     }
 
     public void clear() {
@@ -88,11 +88,11 @@ public class SwitchManager {
             return;
         }
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        for (cf cfVar : this.mSwitchs.values()) {
-            if (cfVar != null) {
-                cfVar.h(0);
-                edit.putInt(cfVar.d() + cf.d, 0);
-                edit.putInt(cfVar.d() + cf.e, cfVar.c());
+        for (df dfVar : this.mSwitchs.values()) {
+            if (dfVar != null) {
+                dfVar.h(0);
+                edit.putInt(dfVar.d() + df.d, 0);
+                edit.putInt(dfVar.d() + df.e, dfVar.c());
             }
         }
         edit.commit();
@@ -101,7 +101,7 @@ public class SwitchManager {
     public void crash(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            Iterator<cf> it = this.mSwitchs.values().iterator();
+            Iterator<df> it = this.mSwitchs.values().iterator();
             while (it.hasNext() && !it.next().a(str)) {
             }
         }
@@ -111,9 +111,9 @@ public class SwitchManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            cf cfVar = this.mSwitchs.get(str);
-            if (cfVar != null) {
-                return cfVar.getType();
+            df dfVar = this.mSwitchs.get(str);
+            if (dfVar != null) {
+                return dfVar.getType();
             }
             return -1;
         }
@@ -152,26 +152,26 @@ public class SwitchManager {
         }
     }
 
-    public bf removeSwitchData(String str) {
+    public cf removeSwitchData(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            cf remove = this.mSwitchs.remove(str);
+            df remove = this.mSwitchs.remove(str);
             if (remove != null) {
                 return remove.b();
             }
             return null;
         }
-        return (bf) invokeL.objValue;
+        return (cf) invokeL.objValue;
     }
 
     public boolean turn(String str, int i) {
         InterceptResult invokeLI;
-        cf cfVar;
+        df dfVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i)) == null) {
-            if (i >= 0 && (cfVar = this.mSwitchs.get(str)) != null) {
-                return cfVar.i(i);
+            if (i >= 0 && (dfVar = this.mSwitchs.get(str)) != null) {
+                return dfVar.i(i);
             }
             return false;
         }

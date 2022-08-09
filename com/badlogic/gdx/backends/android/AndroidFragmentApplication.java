@@ -247,7 +247,7 @@ public class AndroidFragmentApplication extends Fragment implements g2 {
             this.a.u(true);
             this.a.r();
             this.b.onPause();
-            if (isRemoving() || v1() || getActivity().isFinishing()) {
+            if (isRemoving() || u1() || getActivity().isFinishing()) {
                 this.a.h();
                 this.a.j();
             }
@@ -264,10 +264,10 @@ public class AndroidFragmentApplication extends Fragment implements g2 {
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             e1.a = this;
             getInput();
-            e1.c = s1();
-            e1.d = t1();
+            e1.c = r1();
+            e1.d = s1();
             e1.b = getGraphics();
-            u1();
+            t1();
             this.b.onResume();
             q2 q2Var = this.a;
             if (q2Var != null) {
@@ -293,25 +293,25 @@ public class AndroidFragmentApplication extends Fragment implements g2 {
         }
     }
 
-    public d1 s1() {
+    public d1 r1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.c : (d1) invokeV.objValue;
     }
 
-    public Files t1() {
+    public Files s1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.d : (Files) invokeV.objValue;
     }
 
-    public Net u1() {
+    public Net t1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.e : (Net) invokeV.objValue;
     }
 
-    public final boolean v1() {
+    public final boolean u1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {

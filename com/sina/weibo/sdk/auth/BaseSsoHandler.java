@@ -32,7 +32,7 @@ import com.sina.weibo.sdk.web.WeiboCallbackManager;
 import com.sina.weibo.sdk.web.WeiboSdkWebActivity;
 import com.sina.weibo.sdk.web.param.AuthWebViewRequestParam;
 import com.xiaomi.mipush.sdk.PushMessageHelper;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BaseSsoHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String OAUTH2_BASE_URL = "https://open.weibo.cn/oauth2/authorize?";
@@ -45,7 +45,7 @@ public class BaseSsoHandler {
     public int ssoRequestType;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class AuthType {
         public static final /* synthetic */ AuthType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

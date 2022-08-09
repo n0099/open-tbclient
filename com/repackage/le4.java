@@ -1,24 +1,27 @@
 package com.repackage;
 
+import android.app.Activity;
 import android.content.Context;
-import android.content.res.ColorStateList;
+import android.content.Intent;
+import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class le4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(Context context, int i) {
-        InterceptResult invokeLI;
+    public static void startActivity(Context context, Intent intent, Bundle bundle) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, context, i)) == null) ? context.getColor(i) : invokeLI.intValue;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, context, intent, bundle) == null) {
+            context.startActivity(intent, bundle);
+        }
     }
 
-    public static ColorStateList b(Context context, int i) {
-        InterceptResult invokeLI;
+    public static void startActivityForResult(Activity activity, Intent intent, int i, Bundle bundle) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) ? context.getColorStateList(i) : (ColorStateList) invokeLI.objValue;
+        if (interceptable == null || interceptable.invokeLLIL(65537, null, activity, intent, i, bundle) == null) {
+            activity.startActivityForResult(intent, i, bundle);
+        }
     }
 }

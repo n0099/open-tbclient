@@ -1,66 +1,32 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.launch.SmartLaunchStats;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class nx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public int d;
+    public ux4 a;
+    public int b;
+    public long c;
+    public long d;
     public int e;
     public int f;
     public int g;
     public int h;
     public String i;
-    public String j;
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-141971670, "Lcom/repackage/nx4$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-141971670, "Lcom/repackage/nx4$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[EmotionGroupType.values().length];
-            a = iArr;
-            try {
-                iArr[EmotionGroupType.LOCAL.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[EmotionGroupType.USER_COLLECT.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[EmotionGroupType.USER_DIY.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-        }
-    }
+    public boolean j;
+    public String k;
+    public String l;
 
     public nx4() {
         Interceptable interceptable = $ic;
@@ -72,41 +38,100 @@ public class nx4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.e = 0;
+        this.f = 0;
+        this.g = 300;
+        this.h = 1;
+        this.a = new ux4();
     }
 
-    public String a() {
+    public ux4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ux4) invokeV.objValue;
     }
 
-    public String b() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : invokeV.intValue;
     }
 
-    public void c(@NonNull c25 c25Var, @Nullable String str) {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, c25Var, str) == null) {
-            EmotionGroupType h = c25Var.h();
-            String b = str != null ? a65.b.b(str) : null;
-            int i = a.a[h.ordinal()];
-            if (i == 1) {
-                this.j = "1";
-                this.i = str;
-            } else if (i == 2) {
-                this.j = "2";
-                this.i = b;
-            } else if (i != 3) {
-                this.j = c25Var.f();
-                this.i = b;
-            } else {
-                this.j = "3";
-                this.i = b;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.i : (String) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e == 1 : invokeV.booleanValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.b == 1) {
+                long currentTimeMillis = System.currentTimeMillis() / 1000;
+                return this.c < currentTimeMillis && currentTimeMillis < this.d;
             }
+            return false;
         }
+        return invokeV.booleanValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f == 1 : invokeV.booleanValue;
+    }
+
+    public void g(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        jSONObject.optInt("als_control", 1);
+        jSONObject.optInt("not_use_lego_patch", 0);
+        jSONObject.optInt("ad_video_not_autoplay", 1);
+        this.f = jSONObject.optInt("lp_video_not_autoplay", 0);
+        this.a.a(jSONObject);
+        JSONObject optJSONObject = jSONObject.optJSONObject("log_feed_control");
+        if (optJSONObject != null) {
+            this.b = optJSONObject.optInt("log_feed_switch", 0);
+            this.c = optJSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, -1L);
+            this.d = optJSONObject.optLong("end_time", -1L);
+            optJSONObject.optString("ext_info");
+        }
+        this.e = jSONObject.optInt("ad_collect_switch", 0);
+        JSONObject optJSONObject2 = jSONObject.optJSONObject(SpeedStatsUtils.UBC_VALUE_SPLASH);
+        if (optJSONObject2 != null) {
+            this.g = optJSONObject2.optInt("interval", 300);
+        }
+        this.h = jSONObject.optInt("video_page_style", 1);
+        ru4.k().w("video_page_style", this.h);
+        jSONObject.optInt("ad_download_lib", 0);
+        JSONObject optJSONObject3 = jSONObject.optJSONObject("action_control");
+        if (optJSONObject3 != null) {
+            this.i = optJSONObject3.optString("url");
+            optJSONObject3.optString("name");
+            optJSONObject3.optString(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR);
+            optJSONObject3.optString("text_color_pressed");
+        }
+        this.j = jSONObject.optInt("afd_jump_pb") == 1;
+        this.k = jSONObject.optString("afd_eid");
+        JSONObject optJSONObject4 = jSONObject.optJSONObject("iadex_sniff_list_url");
+        if (optJSONObject4 != null) {
+            String optString = optJSONObject4.optString("os_type2_iadex_url");
+            this.l = optString;
+            wd5.h(optString);
+            return;
+        }
+        wd5.h(null);
     }
 }

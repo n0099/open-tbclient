@@ -25,10 +25,10 @@ public class dv extends al.a {
     public Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public SharedPreferences f233a;
+    public SharedPreferences f234a;
 
     /* renamed from: a  reason: collision with other field name */
-    public com.xiaomi.push.service.ba f234a;
+    public com.xiaomi.push.service.ba f235a;
 
     public dv(Context context) {
         Interceptable interceptable = $ic;
@@ -46,8 +46,8 @@ public class dv extends al.a {
             }
         }
         this.a = context;
-        this.f233a = context.getSharedPreferences("mipush_extra", 0);
-        this.f234a = com.xiaomi.push.service.ba.a(context);
+        this.f234a = context.getSharedPreferences("mipush_extra", 0);
+        this.f235a = com.xiaomi.push.service.ba.a(context);
     }
 
     private List<hr> a(File file) {
@@ -149,7 +149,7 @@ public class dv extends al.a {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            SharedPreferences.Editor edit = this.f233a.edit();
+            SharedPreferences.Editor edit = this.f234a.edit();
             edit.putLong("last_upload_data_timestamp", System.currentTimeMillis() / 1000);
             edit.commit();
         }
@@ -157,10 +157,10 @@ public class dv extends al.a {
 
     private void a(hr hrVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, this, hrVar) == null) && hrVar.f496a == hl.b && !hrVar.f497a.startsWith("same_")) {
-            SharedPreferences.Editor edit = this.f233a.edit();
-            edit.putLong("dc_job_result_time_4", hrVar.f495a);
-            edit.putString("dc_job_result_4", bp.a(hrVar.f497a));
+        if ((interceptable == null || interceptable.invokeL(65539, this, hrVar) == null) && hrVar.f497a == hl.b && !hrVar.f498a.startsWith("same_")) {
+            SharedPreferences.Editor edit = this.f234a.edit();
+            edit.putLong("dc_job_result_time_4", hrVar.f496a);
+            edit.putString("dc_job_result_4", bp.a(hrVar.f498a));
             edit.commit();
         }
     }
@@ -185,8 +185,8 @@ public class dv extends al.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            if (this.f234a.a(ho.L.a(), true)) {
-                return Math.abs((System.currentTimeMillis() / 1000) - this.f233a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f234a.a(ho.M.a(), 432000)));
+            if (this.f235a.a(ho.L.a(), true)) {
+                return Math.abs((System.currentTimeMillis() / 1000) - this.f234a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f235a.a(ho.M.a(), 432000)));
             }
             return false;
         }
@@ -197,8 +197,8 @@ public class dv extends al.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-            if (this.f234a.a(ho.J.a(), true)) {
-                return Math.abs((System.currentTimeMillis() / 1000) - this.f233a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f234a.a(ho.K.a(), 259200)));
+            if (this.f235a.a(ho.J.a(), true)) {
+                return Math.abs((System.currentTimeMillis() / 1000) - this.f234a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f235a.a(ho.K.a(), 259200)));
             }
             return false;
         }
@@ -233,7 +233,7 @@ public class dv extends al.a {
                     icVar.a(a);
                     byte[] a2 = ab.a(it.a(icVar));
                     ii iiVar = new ii("-1", false);
-                    iiVar.c(ht.q.f505a);
+                    iiVar.c(ht.q.f506a);
                     iiVar.a(a2);
                     dm m269a = dn.a().m269a();
                     if (m269a != null) {

@@ -19,7 +19,7 @@ import com.google.android.exoplayer2.util.Util;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class MappingTrackSelector extends TrackSelector {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public abstract class MappingTrackSelector extends TrackSelector {
     public final SparseArray<Map<TrackGroupArray, SelectionOverride>> selectionOverrides;
     public int tunnelingAudioSessionId;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class SelectionOverride {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -390,7 +390,7 @@ public abstract class MappingTrackSelector extends TrackSelector {
         invalidate();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class MappedTrackInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int RENDERER_SUPPORT_EXCEEDS_CAPABILITIES_TRACKS = 2;

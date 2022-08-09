@@ -1,59 +1,100 @@
 package com.repackage;
 
-import android.content.SharedPreferences;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.concurrent.TimeUnit;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class hd4 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static long a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            SharedPreferences a = pd4.a();
-            return a.getLong("latest_update_time" + i, 0L);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755652103, "Lcom/repackage/hd4;")) == null) {
+            return;
         }
-        return invokeI.longValue;
-    }
-
-    public static long b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            SharedPreferences a = pd4.a();
-            return a.getLong("max_age" + i, 0L);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        return invokeI.longValue;
-    }
-
-    public static boolean c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            return (System.currentTimeMillis() - a(i)) / 1000 > b(i);
-        }
-        return invokeI.booleanValue;
-    }
-
-    public static void d(int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            SharedPreferences.Editor edit = pd4.a().edit();
-            edit.putLong("latest_update_time" + i, j).apply();
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755652103, "Lcom/repackage/hd4;");
         }
     }
 
-    public static void e(int i, long j) {
+    public static int a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            if (j <= 0 || j >= 259200) {
-                j = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            int i = 5;
+            if (c() <= 0) {
+                return 5;
             }
-            pd4.a().edit().putLong("max_age" + i, j).apply();
+            String string = i84.b().i().getString("expire_time", "");
+            if (TextUtils.isEmpty(string)) {
+                return 5;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(string);
+                i = jSONObject.optInt("time", 5);
+                JSONObject optJSONObject = jSONObject.optJSONObject("appkeys");
+                if (optJSONObject == null) {
+                    return i;
+                }
+                int optInt = optJSONObject.optInt(str, -1);
+                return optInt < 0 ? i : optInt;
+            } catch (JSONException unused) {
+                return i;
+            }
         }
+        return invokeL.intValue;
+    }
+
+    public static long b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? TimeUnit.HOURS.toMillis(a(str)) : invokeL.longValue;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (a < 0) {
+                i84.b().F("swan_update_expired_time", 0);
+                a = 0;
+            }
+            return a;
+        }
+        return invokeV.intValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? i84.b().i().getString("expire_time_version", "0") : (String) invokeV.objValue;
+    }
+
+    public static void e(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65541, null, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString("version");
+        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
+            return;
+        }
+        i84.b().i().putString("expire_time_version", optString);
+        i84.b().i().putString("expire_time", optJSONObject.toString());
     }
 }

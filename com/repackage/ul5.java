@@ -1,31 +1,72 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.advert.sdk.data.AdInfo;
+import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
+import com.baidu.tieba.ad.AbsDataRecorder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.connect.share.QzonePublish;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class ul5 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ul5 k;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
     public int g;
-    public int h;
-    public int i;
-    public long j;
-    public long k;
+    public boolean h;
+    public String i;
+    public String j;
+
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(47379926, "Lcom/repackage/ul5$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(47379926, "Lcom/repackage/ul5$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[AbsDataRecorder.Scene.values().length];
+            a = iArr;
+            try {
+                iArr[AbsDataRecorder.Scene.RECOMMEND.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[AbsDataRecorder.Scene.FRS_HOT.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[AbsDataRecorder.Scene.FRS_NEW.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[AbsDataRecorder.Scene.PB.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+        }
+    }
 
     public ul5() {
         Interceptable interceptable = $ic;
@@ -37,101 +78,132 @@ public class ul5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static ul5 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (k == null) {
+                synchronized (ul5.class) {
+                    if (k == null) {
+                        k = new ul5();
+                    }
+                }
+            }
+            return k;
+        }
+        return (ul5) invokeV.objValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
+            this.b = null;
+            this.c = 0;
+            this.d = 0;
+            this.e = 0;
+            this.f = 0;
+            this.g = 0;
+            this.h = false;
+            this.i = null;
+            this.j = null;
+        }
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.j : (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.i : (String) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public int f(AbsDataRecorder.Scene scene) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, scene)) == null) {
+            int i = a.a[scene.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            return 0;
+                        }
+                        return this.g;
+                    }
+                    return this.f;
+                }
+                return this.e;
+            }
+            return this.d;
+        }
+        return invokeL.intValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.h : invokeV.booleanValue;
+    }
+
+    public void j(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("slogan")) == null) {
+            return;
+        }
+        this.i = optJSONObject.optString("text");
+        this.j = optJSONObject.optString("color");
+    }
+
+    public void k(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
+            if (jSONObject != null) {
+                this.h = true;
+                JSONObject optJSONObject = jSONObject.optJSONObject("slogan");
+                if (optJSONObject != null) {
+                    this.a = optJSONObject.optString("text");
+                    this.b = optJSONObject.optString("color");
+                }
+                this.c = jSONObject.optInt("display_frequency_control");
+                JSONObject optJSONObject2 = jSONObject.optJSONObject("display_after_refresh");
+                if (optJSONObject2 != null) {
+                    this.d = optJSONObject2.optInt(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_HOME);
+                    this.e = optJSONObject2.optInt("frs_hot");
+                    this.f = optJSONObject2.optInt("frs_new");
+                    this.g = optJSONObject2.optInt("pb");
+                    return;
+                }
                 return;
             }
+            this.h = false;
         }
-        this.d = "";
-        this.c = "";
-        this.e = "";
-        this.f = "";
-        this.b = "";
-        this.a = "";
-    }
-
-    public static ul5 a(AdInfo adInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, adInfo)) == null) {
-            ul5 ul5Var = new ul5();
-            if (adInfo == null) {
-                return ul5Var;
-            }
-            ul5Var.a = adInfo.adImgUrl;
-            ul5Var.b = adInfo.redirectUrl;
-            ul5Var.j = adInfo.startShowTime;
-            ul5Var.k = adInfo.endShowTime;
-            ul5Var.d = adInfo.videoLocalPath;
-            ul5Var.e = adInfo.videoJumpUrl;
-            ul5Var.f = adInfo.videoMd5;
-            ul5Var.g = adInfo.videoDuration;
-            ul5Var.h = adInfo.videoWidth;
-            ul5Var.i = adInfo.videoHight;
-            ul5Var.c = adInfo.adVideoUrl;
-            return ul5Var;
-        }
-        return (ul5) invokeL.objValue;
-    }
-
-    public static ul5 b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            ul5 ul5Var = new ul5();
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                ul5Var.a = jSONObject.optString("adImgUrl");
-                ul5Var.b = jSONObject.optString("redirectUrl");
-                ul5Var.d = jSONObject.optString("videoLocalPath");
-                ul5Var.j = jSONObject.optLong("startShowTime");
-                ul5Var.k = jSONObject.optLong("endShowTime");
-                ul5Var.e = jSONObject.optString("videoJumpUrl");
-                ul5Var.f = jSONObject.optString("videoMd5");
-                ul5Var.g = jSONObject.optInt(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION);
-                ul5Var.h = jSONObject.optInt("videoWidth");
-                ul5Var.i = jSONObject.optInt("videoHeight");
-                ul5Var.c = jSONObject.optString("adVideoUrl");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return ul5Var;
-        }
-        return (ul5) invokeL.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (System.currentTimeMillis() / 1000 >= this.j && System.currentTimeMillis() / 1000 <= this.k) || (this.j == 0 && this.k == 0) : invokeV.booleanValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !TextUtils.isEmpty(this.d) : invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("adImgUrl", this.a);
-                jSONObject.put("redirectUrl", this.b);
-                jSONObject.put("videoLocalPath", this.d);
-                jSONObject.put("startShowTime", this.j);
-                jSONObject.put("endShowTime", this.k);
-                jSONObject.put("videoMd5", this.f);
-                jSONObject.put("videoJumpUrl", this.e);
-                jSONObject.put(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION, this.g);
-                jSONObject.put("videoWidth", this.h);
-                jSONObject.put("videoHeight", this.i);
-                jSONObject.put("adVideoUrl", this.c);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeV.objValue;
     }
 }

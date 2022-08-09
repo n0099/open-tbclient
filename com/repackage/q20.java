@@ -1,11 +1,7 @@
 package com.repackage;
 
-import org.json.JSONObject;
+import android.content.Context;
 /* loaded from: classes7.dex */
 public interface q20 {
-    q20 a(JSONObject jSONObject);
-
-    void b(JSONObject jSONObject);
-
-    boolean b();
+    String a(Context context) throws NullPointerException;
 }

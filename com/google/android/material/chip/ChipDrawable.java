@@ -61,7 +61,7 @@ import com.google.android.material.ripple.RippleUtils;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDrawable, Drawable.Callback, TextDrawableHelper.TextDrawableDelegate {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -163,7 +163,7 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
     public TextUtils.TruncateAt truncateAt;
     public boolean useCompatRipple;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface Delegate {
         void onChipDrawableSizeChange();
     }
@@ -398,9 +398,9 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
             AttributeSet parseDrawableXml = DrawableUtils.parseDrawableXml(context, i, "chip");
             int styleAttribute = parseDrawableXml.getStyleAttribute();
             if (styleAttribute == 0) {
-                styleAttribute = R.style.obfuscated_res_0x7f10035a;
+                styleAttribute = R.style.obfuscated_res_0x7f10035e;
             }
-            return createFromAttributes(context, parseDrawableXml, R.attr.obfuscated_res_0x7f04013e, styleAttribute);
+            return createFromAttributes(context, parseDrawableXml, R.attr.obfuscated_res_0x7f04014a, styleAttribute);
         }
         return (ChipDrawable) invokeLI.objValue;
     }
@@ -597,7 +597,7 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
     private void loadFromAttributes(@Nullable AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65562, this, attributeSet, i, i2) == null) {
-            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(this.context, attributeSet, new int[]{16842804, 16842904, 16842923, 16843039, 16843087, 16843237, R.attr.obfuscated_res_0x7f04012b, R.attr.obfuscated_res_0x7f04012c, R.attr.obfuscated_res_0x7f04012d, R.attr.obfuscated_res_0x7f04012e, R.attr.obfuscated_res_0x7f040130, R.attr.obfuscated_res_0x7f040131, R.attr.obfuscated_res_0x7f040132, R.attr.obfuscated_res_0x7f040134, R.attr.obfuscated_res_0x7f040135, R.attr.obfuscated_res_0x7f040136, R.attr.obfuscated_res_0x7f040137, R.attr.obfuscated_res_0x7f040138, R.attr.obfuscated_res_0x7f040139, R.attr.obfuscated_res_0x7f04013a, R.attr.obfuscated_res_0x7f04013f, R.attr.obfuscated_res_0x7f040140, R.attr.obfuscated_res_0x7f040141, R.attr.obfuscated_res_0x7f040144, R.attr.obfuscated_res_0x7f04014d, R.attr.obfuscated_res_0x7f04014e, R.attr.obfuscated_res_0x7f04014f, R.attr.obfuscated_res_0x7f040150, R.attr.obfuscated_res_0x7f040151, R.attr.obfuscated_res_0x7f040152, R.attr.obfuscated_res_0x7f040153, R.attr.obfuscated_res_0x7f040253, R.attr.obfuscated_res_0x7f0402c4, R.attr.obfuscated_res_0x7f0402ef, R.attr.obfuscated_res_0x7f0402f3, R.attr.obfuscated_res_0x7f040548, R.attr.obfuscated_res_0x7f040592, R.attr.obfuscated_res_0x7f040595, R.attr.obfuscated_res_0x7f04059d, R.attr.obfuscated_res_0x7f040660, R.attr.obfuscated_res_0x7f040668}, i, i2, new int[0]);
+            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(this.context, attributeSet, new int[]{16842804, 16842904, 16842923, 16843039, 16843087, 16843237, R.attr.obfuscated_res_0x7f040136, R.attr.obfuscated_res_0x7f040137, R.attr.obfuscated_res_0x7f040138, R.attr.obfuscated_res_0x7f040139, R.attr.obfuscated_res_0x7f04013b, R.attr.obfuscated_res_0x7f04013c, R.attr.obfuscated_res_0x7f04013d, R.attr.obfuscated_res_0x7f04013f, R.attr.obfuscated_res_0x7f040140, R.attr.obfuscated_res_0x7f040141, R.attr.obfuscated_res_0x7f040143, R.attr.obfuscated_res_0x7f040144, R.attr.obfuscated_res_0x7f040145, R.attr.obfuscated_res_0x7f040146, R.attr.obfuscated_res_0x7f04014b, R.attr.obfuscated_res_0x7f04014c, R.attr.obfuscated_res_0x7f04014d, R.attr.obfuscated_res_0x7f04014f, R.attr.obfuscated_res_0x7f04015a, R.attr.obfuscated_res_0x7f04015c, R.attr.obfuscated_res_0x7f04015d, R.attr.obfuscated_res_0x7f04015e, R.attr.obfuscated_res_0x7f040161, R.attr.obfuscated_res_0x7f040162, R.attr.obfuscated_res_0x7f040163, R.attr.obfuscated_res_0x7f040286, R.attr.obfuscated_res_0x7f040304, R.attr.obfuscated_res_0x7f040329, R.attr.obfuscated_res_0x7f04032d, R.attr.obfuscated_res_0x7f0405c7, R.attr.obfuscated_res_0x7f040614, R.attr.obfuscated_res_0x7f040617, R.attr.obfuscated_res_0x7f04061f, R.attr.obfuscated_res_0x7f0406ea, R.attr.obfuscated_res_0x7f0406f2}, i, i2, new int[0]);
             this.isShapeThemingEnabled = obtainStyledAttributes.hasValue(36);
             setChipSurfaceColor(MaterialResources.getColorStateList(this.context, obtainStyledAttributes, 23));
             setChipBackgroundColor(MaterialResources.getColorStateList(this.context, obtainStyledAttributes, 10));

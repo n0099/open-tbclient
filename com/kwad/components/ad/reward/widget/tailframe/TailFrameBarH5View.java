@@ -94,8 +94,8 @@ public class TailFrameBarH5View extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65539, this, context, i) == null) {
             LinearLayout.inflate(context, i, this);
-            this.cD = (TextView) findViewById(R.id.obfuscated_res_0x7f091191);
-            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f091192);
+            this.cD = (TextView) findViewById(R.id.obfuscated_res_0x7f0911e7);
+            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f0911e8);
         }
     }
 
@@ -161,7 +161,7 @@ public class TailFrameBarH5View extends LinearLayout {
     public final void e(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            c(getContext(), z ? z2 ? R.layout.obfuscated_res_0x7f0d0479 : R.layout.obfuscated_res_0x7f0d0478 : R.layout.obfuscated_res_0x7f0d0477);
+            c(getContext(), z ? z2 ? R.layout.obfuscated_res_0x7f0d047c : R.layout.obfuscated_res_0x7f0d047b : R.layout.obfuscated_res_0x7f0d047a);
         }
     }
 

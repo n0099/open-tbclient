@@ -1,85 +1,112 @@
 package com.repackage;
 
-import android.graphics.drawable.Drawable;
-import android.os.Build;
+import android.app.Activity;
+import android.graphics.Rect;
 import android.view.View;
-import android.widget.AbsoluteLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.browser.sailor.BdSailorWebView;
-import com.baidu.browser.sailor.util.BdZeusUtil;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.ViewTreeObserver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class nc3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public View c;
+    public int d;
+    public mc3 e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755474349, "Lcom/repackage/nc3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ nc3 b;
+
+        public a(nc3 nc3Var, String str) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nc3Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755474349, "Lcom/repackage/nc3;");
+            this.b = nc3Var;
+            this.a = str;
+        }
+
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.b.e != null) {
+                    this.b.e.c(this.a);
+                }
+                Rect rect = new Rect();
+                this.b.c.getWindowVisibleDisplayFrame(rect);
+                int height = rect.height();
+                if (this.b.d == this.b.a) {
+                    this.b.d = height;
+                } else if (this.b.d == height) {
+                } else {
+                    if (this.b.d - height > this.b.b) {
+                        if (this.b.e != null) {
+                            this.b.e.b(this.a, this.b.d - height);
+                        }
+                        this.b.d = height;
+                    } else if (height - this.b.d > this.b.b) {
+                        if (this.b.e != null) {
+                            this.b.e.a(this.a, height - this.b.d);
+                        }
+                        this.b.d = height;
+                    }
+                }
+            }
+        }
+    }
+
+    public nc3(String str, Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, activity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = sg1.a;
+        this.a = 0;
+        this.b = 200;
+        View decorView = activity.getWindow().getDecorView();
+        this.c = decorView;
+        decorView.getViewTreeObserver().addOnGlobalLayoutListener(new a(this, str));
     }
 
-    public static void a(@NonNull BdSailorWebView bdSailorWebView) {
-        AbsoluteLayout webView;
+    public static void g(String str, Activity activity, mc3 mc3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, bdSailorWebView) == null) {
-            Drawable d = je4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f0810b0);
-            Drawable d2 = je4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f0810af);
-            if (BdZeusUtil.isWebkitLoaded()) {
-                webView = bdSailorWebView.getCurrentWebView();
-            } else {
-                webView = bdSailorWebView.getCurrentWebView().getWebView();
-            }
-            if (Build.VERSION.SDK_INT >= 29) {
-                webView.setVerticalScrollbarThumbDrawable(d);
-                webView.setHorizontalScrollbarThumbDrawable(d2);
-                return;
-            }
-            b(webView, d, d2);
+        if (interceptable == null || interceptable.invokeLLL(65543, null, str, activity, mc3Var) == null) {
+            new nc3(str, activity).h(mc3Var);
         }
     }
 
-    public static void b(@Nullable View view2, Drawable drawable, Drawable drawable2) {
+    public final void h(mc3 mc3Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65538, null, view2, drawable, drawable2) == null) || view2 == null) {
-            return;
-        }
-        try {
-            Field declaredField = View.class.getDeclaredField("mScrollCache");
-            declaredField.setAccessible(true);
-            Object obj = declaredField.get(view2);
-            Field declaredField2 = obj.getClass().getDeclaredField("scrollBar");
-            declaredField2.setAccessible(true);
-            Object obj2 = declaredField2.get(obj);
-            Method declaredMethod = obj2.getClass().getDeclaredMethod("setVerticalThumbDrawable", Drawable.class);
-            declaredMethod.setAccessible(true);
-            declaredMethod.invoke(obj2, drawable);
-            Method declaredMethod2 = obj2.getClass().getDeclaredMethod("setHorizontalThumbDrawable", Drawable.class);
-            declaredMethod2.setAccessible(true);
-            declaredMethod2.invoke(obj2, drawable2);
-        } catch (Throwable th) {
-            if (a) {
-                th.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, mc3Var) == null) {
+            this.e = mc3Var;
         }
     }
 }

@@ -15,14 +15,14 @@ public final class hq {
     public static final hq a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ hq[] f492a;
+    public static final /* synthetic */ hq[] f493a;
     public static final hq b;
     public static final hq c;
     public static final hq d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f493a;
+    public final int f494a;
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +42,7 @@ public final class hq {
         c = new hq("STRING", 2, 3);
         hq hqVar = new hq("BOOLEAN", 3, 4);
         d = hqVar;
-        f492a = new hq[]{a, b, c, hqVar};
+        f493a = new hq[]{a, b, c, hqVar};
     }
 
     public hq(String str, int i, int i2) {
@@ -63,7 +63,7 @@ public final class hq {
                 return;
             }
         }
-        this.f493a = i2;
+        this.f494a = i2;
     }
 
     public static hq a(int i) {
@@ -96,6 +96,6 @@ public final class hq {
     public static hq[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (hq[]) f492a.clone() : (hq[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (hq[]) f493a.clone() : (hq[]) invokeV.objValue;
     }
 }

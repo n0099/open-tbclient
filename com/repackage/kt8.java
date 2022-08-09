@@ -1,246 +1,228 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
-import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.video.VideoItemModel;
-import com.baidu.tieba.videoplay.VideoPlayView;
-import com.baidu.tieba.videoplay.nad.AdVideoFlowFragment;
+import com.baidu.tbadk.core.util.TbMd5;
+import com.baidu.tbadk.download.DownloadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ga8;
-import java.util.ArrayList;
+import java.io.File;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
 /* loaded from: classes6.dex */
-public class kt8 implements IAdBaseAsyncController.a, ea8<VideoItemModel> {
+public class kt8 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile kt8 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext<BaseFragmentActivity> a;
-    public final List<VideoItemModel> b;
-    public final ga8 c;
-    public final Queue<AdvertAppInfo> d;
-    public final Map<VideoItemModel, AdvertAppInfo> e;
-    public int f;
-    public boolean g;
-    public int h;
-    public VideoPlayView i;
-    public ba8 j;
-    public final boolean k;
-    public ga8.a l;
-    public int m;
-    public VideoItemModel n;
+    public HashMap<String, String> a;
+    public DownloadData b;
 
-    public kt8(@NonNull List list, TbPageContext<BaseFragmentActivity> tbPageContext) {
+    /* loaded from: classes6.dex */
+    public class a implements c25 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ kt8 c;
+
+        public a(kt8 kt8Var, b bVar, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kt8Var, bVar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = kt8Var;
+            this.a = bVar;
+            this.b = str;
+        }
+
+        @Override // com.repackage.c25
+        public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
+                File file = new File(downloadData.getPath());
+                if (file.exists()) {
+                    file.delete();
+                }
+                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
+                    this.c.b = null;
+                }
+                b bVar = this.a;
+                if (bVar != null) {
+                    bVar.a(str);
+                }
+            }
+        }
+
+        @Override // com.repackage.c25
+        public void onFileDownloadSucceed(DownloadData downloadData) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) || downloadData == null || StringUtils.isNull(downloadData.getPath())) {
+                return;
+            }
+            if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
+                this.c.b = null;
+            }
+            if (this.a != null) {
+                this.c.a.put(downloadData.getPath().substring(ps8.h.length(), downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
+                this.a.c(this.b, downloadData.getPath());
+            }
+        }
+
+        @Override // com.repackage.c25
+        public boolean onFileDownloaded(DownloadData downloadData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.repackage.c25
+        public void onFileUpdateProgress(DownloadData downloadData) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) && downloadData.getStatus() == 4) {
+                File file = new File(downloadData.getPath());
+                if (file.exists()) {
+                    file.delete();
+                }
+                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
+                    this.c.b = null;
+                }
+                b bVar = this.a;
+                if (bVar != null) {
+                    bVar.b();
+                }
+            }
+        }
+
+        @Override // com.repackage.c25
+        public boolean onPreDownload(DownloadData downloadData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(String str);
+
+        void b();
+
+        void c(String str, String str2);
+    }
+
+    public kt8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        boolean z = false;
-        this.f = 0;
-        this.g = true;
-        this.b = list;
-        this.a = tbPageContext;
-        ga8 ga8Var = (ga8) s98.l().h(IAdBaseAsyncController.Type.VIDEO_FLOW, this);
-        this.c = ga8Var;
-        ga8Var.a(this.a);
-        this.d = new LinkedList();
-        this.e = new HashMap();
-        int d = di5.a().d();
-        int e = di5.a().e();
-        if (d > 0 && e > 0) {
-            z = true;
-        }
-        this.k = z;
-        if (z) {
-            ba8 ba8Var = new ba8();
-            this.j = ba8Var;
-            ba8Var.d(d - 1);
-            this.j.e(e);
-        }
-    }
-
-    @Override // com.repackage.ea8
-    public void a(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            if (i2 != 0) {
-                this.h = i2;
-            }
-            if (this.h - 2 <= i && this.d.isEmpty() && this.g) {
-                this.c.loadAd();
-                this.g = false;
             }
         }
     }
 
-    @Override // com.baidu.tieba.recapp.async.IAdBaseAsyncController.a
-    public void b(@Nullable List<AdvertAppInfo> list) {
+    public static kt8 g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || gd7.e(list)) {
-            return;
-        }
-        this.g = true;
-        this.d.addAll(list);
-        VideoItemModel videoItemModel = new VideoItemModel(new VideoItemData(), 5);
-        this.n = videoItemModel;
-        ca8.b(this.b, this.m, this.j, this.f, videoItemModel, this.d.peek(), this);
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            VideoItemModel videoItemModel = this.b.get(i);
-            if (this.e.containsKey(videoItemModel)) {
-                this.c.m(this.e.get(videoItemModel));
-            }
-        }
-    }
-
-    public AdVideoFlowFragment g(int i) {
-        InterceptResult invokeI;
-        h98 i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            AdvertAppInfo advertAppInfo = this.e.get(this.b.get(i));
-            if (advertAppInfo == null || (i2 = this.c.i(advertAppInfo)) == null) {
-                return null;
-            }
-            if ((i2 instanceof View) && (this.a.getPageActivity() instanceof lg0)) {
-                advertAppInfo.r = ng0.b(advertAppInfo.r, (lg0) this.a.getPageActivity(), (View) i2);
-            }
-            i2.setPageChangeHandler(this.l, i);
-            AdVideoFlowFragment adVideoFlowFragment = new AdVideoFlowFragment();
-            adVideoFlowFragment.u1(i2);
-            return adVideoFlowFragment;
-        }
-        return (AdVideoFlowFragment) invokeI.objValue;
-    }
-
-    public List<VideoItemModel> h(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (Map.Entry<VideoItemModel, AdvertAppInfo> entry : this.e.entrySet()) {
-                if (TextUtils.equals(entry.getValue().a, str)) {
-                    arrayList.add(entry.getKey());
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (c == null) {
+                synchronized (kt8.class) {
+                    if (c == null) {
+                        c = new kt8();
+                    }
                 }
             }
-            return arrayList;
+            return c;
         }
-        return (List) invokeL.objValue;
+        return (kt8) invokeV.objValue;
     }
 
-    public void i() {
+    public void d() {
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.k) {
-            this.f = 0;
-            this.h = di5.a().d() - 1;
-            if (this.d.size() >= 1 || !this.g) {
-                return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            HashMap<String, String> hashMap = this.a;
+            if (hashMap == null) {
+                this.a = new HashMap<>();
+            } else {
+                hashMap.clear();
             }
-            this.c.loadAd();
-            this.g = false;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ea8
-    /* renamed from: j */
-    public void c(int i, int i2, da8 da8Var, VideoItemModel videoItemModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), da8Var, videoItemModel}) == null) {
-            AdvertAppInfo advertAppInfo = (AdvertAppInfo) da8Var;
-            this.d.remove(advertAppInfo);
-            this.f = i2;
-            this.e.put(videoItemModel, advertAppInfo);
-            VideoPlayView videoPlayView = this.i;
-            if (videoPlayView != null) {
-                videoPlayView.A();
+            File file = new File(ps8.h);
+            if (file.exists()) {
+                for (File file2 : file.listFiles()) {
+                    if (file2.isFile()) {
+                        this.a.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
+                    }
+                }
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ea8
-    /* renamed from: k */
-    public void e(int i, int i2, VideoItemModel videoItemModel, da8 da8Var, VideoItemModel videoItemModel2) {
+    public void e(String str, String str2, b bVar) {
+        String nameMd5FromUrl;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), videoItemModel, da8Var, videoItemModel2}) == null) {
-            AdvertAppInfo advertAppInfo = (AdvertAppInfo) da8Var;
-            this.d.remove(advertAppInfo);
-            this.f = i2;
-            this.e.put(videoItemModel, advertAppInfo);
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, bVar) == null) || TextUtils.isEmpty(str2) || (nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str2)) == null) {
+            return;
         }
+        if (this.b != null) {
+            d25.k().h(this.b.getUrl(), true);
+        }
+        File file = new File(ps8.h);
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        DownloadData downloadData = new DownloadData();
+        downloadData.setType(18);
+        downloadData.setId(str);
+        downloadData.setUrl(str2);
+        downloadData.setPath(ps8.h + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
+        downloadData.setCallback(new a(this, bVar, str2));
+        this.b = downloadData;
+        d25.k().l(downloadData);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ea8
-    /* renamed from: l */
-    public void d(int i, int i2, int i3, da8 da8Var, VideoItemModel videoItemModel) {
+    public String f(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), da8Var, videoItemModel}) == null) {
-        }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && this.k) {
-            this.m = i;
-            VideoItemModel videoItemModel = (VideoItemModel) gd7.d(this.b, i);
-            if (this.e.containsKey(videoItemModel)) {
-                AdvertAppInfo advertAppInfo = this.e.get(videoItemModel);
-                eb8.o(advertAppInfo);
-                bd7.b(bd7.a(advertAppInfo));
-                this.c.c(advertAppInfo, true);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str);
+            if (nameMd5FromUrl == null) {
+                return null;
             }
-            this.c.c(null, false);
-            if (i <= this.f) {
-                return;
+            HashMap<String, String> hashMap = this.a;
+            if (hashMap == null) {
+                this.a = new HashMap<>();
+                d();
+                if (this.a.size() > 0) {
+                    return this.a.get(nameMd5FromUrl);
+                }
+                return null;
             }
-            VideoItemModel videoItemModel2 = new VideoItemModel(new VideoItemData(), 5);
-            this.n = videoItemModel2;
-            ca8.b(this.b, i, this.j, this.f, videoItemModel2, this.d.peek(), this);
+            return hashMap.get(nameMd5FromUrl);
         }
-    }
-
-    public void n(ga8.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, aVar) == null) {
-            this.l = aVar;
-        }
-    }
-
-    public void o(VideoPlayView videoPlayView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, videoPlayView) == null) {
-            this.i = videoPlayView;
-        }
+        return (String) invokeL.objValue;
     }
 }

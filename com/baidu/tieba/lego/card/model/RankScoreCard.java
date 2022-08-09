@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hd7;
+import com.repackage.cf7;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class RankScoreCard extends BaseCardInfo {
@@ -52,14 +52,14 @@ public class RankScoreCard extends BaseCardInfo {
         this.rank = jSONObject.optInt("rank");
         this.desc = jSONObject.optString("desc");
         this.desc2 = jSONObject.optString("desc2");
-        this.d2Color = hd7.b(jSONObject.optString("d2Color", ""));
-        this.d2ColorN = hd7.b(jSONObject.optString("d2ColorN", ""));
+        this.d2Color = cf7.b(jSONObject.optString("d2Color", ""));
+        this.d2ColorN = cf7.b(jSONObject.optString("d2ColorN", ""));
         this.d2Scheme = jSONObject.optString("d2Scheme");
         this.ratio = jSONObject.optDouble("ratio");
         this.picUrl = jSONObject.optString("picUrl");
         this.subTitle = jSONObject.optString("subTitle");
-        this.sColor = hd7.b(jSONObject.optString("sColor", ""));
-        this.sColorNight = hd7.b(jSONObject.optString("sColorN", ""));
+        this.sColor = cf7.b(jSONObject.optString("sColor", ""));
+        this.sColorNight = cf7.b(jSONObject.optString("sColorN", ""));
         this.postUrl = jSONObject.optString("postUrl");
         this.isDone = jSONObject.optInt("isDone") == 1;
         this.btnText = jSONObject.optString("btnText");

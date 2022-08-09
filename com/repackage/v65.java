@@ -1,46 +1,77 @@
 package com.repackage;
 
-import android.content.Intent;
-import com.baidu.tbadk.mutiprocess.DataType;
-import com.baidu.tbadk.mutiprocess.ParcelableEvent;
-import com.baidu.tbadk.mutiprocess.SerializableEvent;
-import com.baidu.tbadk.mutiprocess.StickyEvent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+@Deprecated
 /* loaded from: classes7.dex */
-public class v65 {
+public final class v65 {
     public static /* synthetic */ Interceptable $ic;
+    @NonNull
+    public static final v65 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, u65> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755279204, "Lcom/repackage/v65;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755279204, "Lcom/repackage/v65;");
+                return;
+            }
+        }
+        b = new v65();
+    }
 
     public v65() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.a = new HashMap();
+    }
+
+    public static void a(@NonNull String str, @NonNull u65 u65Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, u65Var) == null) {
+            b.a.put(str, u65Var);
         }
     }
 
-    public void a(Intent intent, l65 l65Var) {
+    @Nullable
+    public static <T> T b(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, intent, l65Var) == null) {
-            if (l65Var instanceof StickyEvent) {
-                intent.putExtra("value_type", DataType.ORM.ordinal());
-                intent.putExtra("value", (StickyEvent) l65Var);
-            } else if (l65Var instanceof ParcelableEvent) {
-                intent.putExtra("value_type", DataType.PARCELABLE.ordinal());
-                intent.putExtra("value", (ParcelableEvent) l65Var);
-            } else if (l65Var instanceof SerializableEvent) {
-                intent.putExtra("value_type", DataType.SERIALIZABLE.ordinal());
-                intent.putExtra("value", (SerializableEvent) l65Var);
-            }
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (T) b.a.get(str) : (T) invokeL.objValue;
+    }
+
+    @NonNull
+    public static <T> T c(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (T) Objects.requireNonNull(b(str)) : (T) invokeL.objValue;
     }
 }

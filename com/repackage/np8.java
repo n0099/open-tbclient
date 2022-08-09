@@ -1,125 +1,53 @@
 package com.repackage;
 
-import android.media.MediaMetadataRetriever;
-import com.baidu.tbadk.album.VideoFileInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class np8 {
+public class np8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final zn8 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755461701, "Lcom/repackage/np8;")) == null) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public np8(MainTabActivity mainTabActivity) {
+        super(2921725);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = mainTabActivity.f;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        zn8 zn8Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || (zn8Var = this.a) == null || zn8Var.g() == null || !(customResponsedMessage.getData() instanceof Boolean)) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+            Runnable runnable = this.a.g().c;
+            rg.a().removeCallbacks(runnable);
+            rg.a().post(runnable);
+            return;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755461701, "Lcom/repackage/np8;");
-        }
-    }
-
-    public static boolean a(InputStream inputStream, String str, v79 v79Var) throws IOException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, inputStream, str, v79Var)) == null) {
-            try {
-                double size = inputStream instanceof FileInputStream ? ((FileInputStream) inputStream).getChannel().size() : 0.0d;
-                FileOutputStream fileOutputStream = new FileOutputStream(str);
-                byte[] bArr = new byte[1444];
-                int i = 0;
-                while (true) {
-                    int read = inputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    i += read;
-                    if (v79Var != null && size != 0.0d) {
-                        v79Var.c((int) ((i / size) * 100.0d));
-                    } else if (v79Var != null && size == 0.0d) {
-                        v79Var.c(80);
-                    }
-                    fileOutputStream.write(bArr, 0, read);
-                }
-                return true;
-            } finally {
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static boolean b(String str, String str2, v79 v79Var) throws IOException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, v79Var)) == null) ? a(new FileInputStream(str), str2, v79Var) : invokeLLL.booleanValue;
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:24:0x0082 -> B:25:0x0085). Please submit an issue!!! */
-    public static VideoFileInfo c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            File file = new File(str);
-            if (file.exists() && file.isFile()) {
-                VideoFileInfo videoFileInfo = new VideoFileInfo();
-                videoFileInfo.videoPath = str;
-                videoFileInfo.lastModified = file.lastModified();
-                MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-                try {
-                    try {
-                        try {
-                            mediaMetadataRetriever.setDataSource(str);
-                            videoFileInfo.videoDuration = ng.e(mediaMetadataRetriever.extractMetadata(9), 0);
-                            videoFileInfo.mimeType = mediaMetadataRetriever.extractMetadata(12);
-                            videoFileInfo.videoWidth = ng.e(mediaMetadataRetriever.extractMetadata(18), 0);
-                            videoFileInfo.videoHeight = ng.e(mediaMetadataRetriever.extractMetadata(19), 0);
-                            int e = ng.e(mediaMetadataRetriever.extractMetadata(24), 0);
-                            if (e == 90 || e == 270) {
-                                int i = videoFileInfo.videoWidth;
-                                videoFileInfo.videoWidth = videoFileInfo.videoHeight;
-                                videoFileInfo.videoHeight = i;
-                            }
-                            mediaMetadataRetriever.release();
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
-                            mediaMetadataRetriever.release();
-                        }
-                    } catch (Throwable th) {
-                        try {
-                            mediaMetadataRetriever.release();
-                        } catch (Exception e3) {
-                            e3.printStackTrace();
-                        }
-                        throw th;
-                    }
-                } catch (Exception e4) {
-                    e4.printStackTrace();
-                }
-                return videoFileInfo;
-            }
-            return null;
-        }
-        return (VideoFileInfo) invokeL.objValue;
+        rg.a().removeCallbacks(this.a.g().c);
     }
 }

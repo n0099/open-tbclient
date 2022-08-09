@@ -57,7 +57,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -518,8 +518,8 @@ public class TbTabLayout extends HorizontalScrollView {
                                 textView = gVar.e;
                             }
                             if (textView != null) {
-                                int right = (gVar.getRight() - (gVar.getWidth() - textView.getRight())) - pi.f(getContext(), R.dimen.tbds3);
-                                int top = (textView.getTop() - (gVar.g.getIntrinsicHeight() / 2)) + pi.f(getContext(), R.dimen.tbds10);
+                                int right = (gVar.getRight() - (gVar.getWidth() - textView.getRight())) - qi.f(getContext(), R.dimen.tbds3);
+                                int top = (textView.getTop() - (gVar.g.getIntrinsicHeight() / 2)) + qi.f(getContext(), R.dimen.tbds10);
                                 gVar.g.setBounds(right, top, gVar.g.getIntrinsicWidth() + right, gVar.g.getIntrinsicHeight() + top);
                                 gVar.g.draw(canvas);
                                 if (!TextUtils.isEmpty(gVar.h)) {
@@ -527,8 +527,8 @@ public class TbTabLayout extends HorizontalScrollView {
                                         Drawable drawable = SkinManager.getDrawable(R.drawable.icon_news_white_dot);
                                         int intrinsicWidth = right + (gVar.g.getIntrinsicWidth() / 2);
                                         int intrinsicHeight2 = top + (gVar.g.getIntrinsicHeight() / 2);
-                                        int f = pi.f(getContext(), R.dimen.tbds6);
-                                        int f2 = pi.f(getContext(), R.dimen.tbds7);
+                                        int f = qi.f(getContext(), R.dimen.tbds6);
+                                        int f2 = qi.f(getContext(), R.dimen.tbds7);
                                         int i5 = f / 2;
                                         int i6 = intrinsicWidth - i5;
                                         int i7 = intrinsicHeight2 - i5;
@@ -545,7 +545,7 @@ public class TbTabLayout extends HorizontalScrollView {
                                     } else {
                                         Paint paint = new Paint(1);
                                         paint.setColor(SkinManager.getColor(R.color.CAM_X0101));
-                                        paint.setTextSize(pi.f(getContext(), R.dimen.tbfontsize26));
+                                        paint.setTextSize(qi.f(getContext(), R.dimen.tbfontsize26));
                                         paint.setTextAlign(Paint.Align.CENTER);
                                         paint.setTypeface(Typeface.MONOSPACE);
                                         paint.getTextBounds(gVar.h, 0, gVar.h.length(), new Rect());
@@ -1241,12 +1241,12 @@ public class TbTabLayout extends HorizontalScrollView {
                 boolean z = false;
                 if (this.d == null) {
                     if (this.c == null) {
-                        ImageView imageView2 = (ImageView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0212, (ViewGroup) this, false);
+                        ImageView imageView2 = (ImageView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0213, (ViewGroup) this, false);
                         addView(imageView2, 0);
                         this.c = imageView2;
                     }
                     if (this.b == null) {
-                        TextView textView3 = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0213, (ViewGroup) this, false);
+                        TextView textView3 = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0214, (ViewGroup) this, false);
                         addView(textView3);
                         this.b = textView3;
                         this.i = TextViewCompat.getMaxLines(textView3);
@@ -1328,7 +1328,7 @@ public class TbTabLayout extends HorizontalScrollView {
                 return;
             }
         }
-        I = new int[]{R$attr.obfuscated};
+        I = new int[]{R$attr.colorPrimary};
         J = new FastOutSlowInInterpolator();
         K = new Pools.SynchronizedPool(16);
     }
@@ -2166,7 +2166,7 @@ public class TbTabLayout extends HorizontalScrollView {
         if (interceptable == null || interceptable.invokeV(1048641, this) == null) {
             String str = Build.MODEL;
             if (str.contains("vivo") && str.contains("X20")) {
-                this.H = pi.f(getContext(), R.dimen.tbds2);
+                this.H = qi.f(getContext(), R.dimen.tbds2);
             }
         }
     }
@@ -2260,8 +2260,8 @@ public class TbTabLayout extends HorizontalScrollView {
         e eVar = new e(this, context);
         this.c = eVar;
         super.addView(eVar, 0, new FrameLayout.LayoutParams(-2, -1));
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405f4, R.attr.obfuscated_res_0x7f0405f5, R.attr.obfuscated_res_0x7f0405f6, R.attr.obfuscated_res_0x7f0405f7, R.attr.obfuscated_res_0x7f0405f8, R.attr.obfuscated_res_0x7f0405f9, R.attr.obfuscated_res_0x7f0405fa, R.attr.obfuscated_res_0x7f0405fb, R.attr.obfuscated_res_0x7f0405fc, R.attr.obfuscated_res_0x7f0405fd, R.attr.obfuscated_res_0x7f0405fe, R.attr.obfuscated_res_0x7f040600, R.attr.obfuscated_res_0x7f040601, R.attr.obfuscated_res_0x7f040602, R.attr.obfuscated_res_0x7f040603, R.attr.obfuscated_res_0x7f040604, R.attr.obfuscated_res_0x7f040605, R.attr.obfuscated_res_0x7f040606, R.attr.obfuscated_res_0x7f040607, R.attr.obfuscated_res_0x7f040608, R.attr.obfuscated_res_0x7f040609, R.attr.obfuscated_res_0x7f04060a, R.attr.obfuscated_res_0x7f04060c, R.attr.obfuscated_res_0x7f04060d, R.attr.obfuscated_res_0x7f04060e}, i, R.style.obfuscated_res_0x7f100333);
-        TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405ff});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04067a, R.attr.obfuscated_res_0x7f04067b, R.attr.obfuscated_res_0x7f04067c, R.attr.obfuscated_res_0x7f04067d, R.attr.obfuscated_res_0x7f04067e, R.attr.obfuscated_res_0x7f04067f, R.attr.obfuscated_res_0x7f040680, R.attr.obfuscated_res_0x7f040681, R.attr.obfuscated_res_0x7f040682, R.attr.obfuscated_res_0x7f040683, R.attr.obfuscated_res_0x7f040684, R.attr.obfuscated_res_0x7f040686, R.attr.obfuscated_res_0x7f040687, R.attr.obfuscated_res_0x7f040688, R.attr.obfuscated_res_0x7f040689, R.attr.obfuscated_res_0x7f04068a, R.attr.obfuscated_res_0x7f04068b, R.attr.obfuscated_res_0x7f04068c, R.attr.obfuscated_res_0x7f04068d, R.attr.obfuscated_res_0x7f04068e, R.attr.obfuscated_res_0x7f04068f, R.attr.obfuscated_res_0x7f040690, R.attr.obfuscated_res_0x7f040692, R.attr.obfuscated_res_0x7f040693, R.attr.obfuscated_res_0x7f040694}, i, R.style.obfuscated_res_0x7f100337);
+        TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040685});
         this.c.h(obtainStyledAttributes.getDimensionPixelSize(10, 0));
         this.c.i(obtainStyledAttributes2.getDimensionPixelSize(0, 0));
         this.c.g(obtainStyledAttributes.getColor(7, 0));
@@ -2274,7 +2274,7 @@ public class TbTabLayout extends HorizontalScrollView {
         this.e = obtainStyledAttributes.getDimensionPixelSize(19, this.e);
         this.f = obtainStyledAttributes.getDimensionPixelSize(17, this.f);
         this.g = obtainStyledAttributes.getDimensionPixelSize(16, this.g);
-        int resourceId = obtainStyledAttributes.getResourceId(22, R.style.obfuscated_res_0x7f100201);
+        int resourceId = obtainStyledAttributes.getResourceId(22, R.style.obfuscated_res_0x7f100205);
         this.h = resourceId;
         TypedArray obtainStyledAttributes3 = context.obtainStyledAttributes(resourceId, R$styleable.TextAppearance);
         try {

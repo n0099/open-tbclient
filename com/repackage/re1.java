@@ -1,176 +1,114 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.content.SharedPreferences;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.UIMsg;
+import com.baidu.smallgame.sdk.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class re1 extends qe1 {
-    public static /* synthetic */ Interceptable $ic;
+public class re1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int d = 1;
+    public static int e = 2;
+    public static int f = 3;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, String> a;
+    public Map<String, String> b;
+    public SharedPreferences c;
 
-    /* loaded from: classes7.dex */
-    public class a extends of1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ re1 c;
-
-        public a(re1 re1Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {re1Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = re1Var;
-            this.b = i;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755353325, "Lcom/repackage/re1;")) == null) {
+            return;
         }
-
-        @Override // com.repackage.of1
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.c.b(this.b);
-                } catch (Throwable th) {
-                    tf1.d(th);
-                    re1 re1Var = this.c;
-                    re1Var.d(this.b, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, re1Var.c, "cu on getToken unknown error.");
-                }
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755353325, "Lcom/repackage/re1;");
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b extends of1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ re1 c;
-
-        public b(re1 re1Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {re1Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = re1Var;
-            this.b = i;
-        }
-
-        @Override // com.repackage.of1
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.c.g(this.b, this.c.c, this.c.h);
-                } catch (Throwable th) {
-                    tf1.d(th);
-                    re1 re1Var = this.c;
-                    re1Var.n(this.b, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, re1Var.c, "cu on getToken unknown error.");
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public re1(Context context) {
-        super(context);
+    public re1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = new HashMap();
+        this.b = new HashMap();
     }
 
-    @Override // com.repackage.qe1
-    public void j(Context context, int i, long j) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            super.j(context, i, j);
-            c(i, 2);
-            qf1.c().b(new a(this, i));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.clear();
         }
     }
 
-    @Override // com.repackage.qe1
-    public boolean l() {
-        InterceptResult invokeV;
+    public String b(int i, String str) {
+        InterceptResult invokeIL;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (TextUtils.isEmpty(this.e)) {
-                this.g = null;
-                this.f = 0L;
-                return true;
-            } else if (this.f - System.currentTimeMillis() < sf1.a) {
-                this.g = null;
-                this.f = 0L;
-                return true;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
+            if (i == d) {
+                str2 = this.a.get(str);
+            } else if (i == e) {
+                str2 = this.b.get(str);
             } else {
-                return false;
+                if (i == f) {
+                    SharedPreferences sharedPreferences = this.c;
+                    if (sharedPreferences != null) {
+                        str2 = sharedPreferences.getString(str, "");
+                    } else {
+                        Log.e("TAG", "prefs data store is null");
+                    }
+                }
+                str2 = null;
+            }
+            return str2 == null ? "" : str2;
+        }
+        return (String) invokeIL.objValue;
+    }
+
+    public void c(SharedPreferences sharedPreferences) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sharedPreferences) == null) {
+            this.c = sharedPreferences;
+        }
+    }
+
+    public void d(int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i, str, str2) == null) {
+            if (i == d) {
+                this.a.put(str, str2);
+            } else if (i == e) {
+                this.b.put(str, str2);
+            } else if (i == f) {
+                SharedPreferences sharedPreferences = this.c;
+                if (sharedPreferences != null) {
+                    sharedPreferences.edit().putString(str, str2).commit();
+                } else {
+                    Log.e("TAG", "prefs data store is null");
+                }
             }
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.qe1
-    public void p(Context context, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            super.p(context, i, j);
-            c(i, 4);
-            qf1.c().b(new b(this, i));
-        }
-    }
-
-    @Override // com.repackage.qe1
-    public boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.h)) {
-                this.i = 0L;
-                return true;
-            } else if (this.i - System.currentTimeMillis() < sf1.a) {
-                this.i = 0L;
-                return true;
-            } else {
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
     }
 }

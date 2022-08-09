@@ -40,12 +40,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bb;
-import com.repackage.pb8;
-import com.repackage.yt4;
+import com.repackage.ab;
+import com.repackage.cb;
+import com.repackage.ru4;
 import com.repackage.z8;
-import com.repackage.za;
-/* loaded from: classes3.dex */
+import com.repackage.zd8;
+/* loaded from: classes4.dex */
 public class PushDialogLoopManager {
     public static /* synthetic */ Interceptable $ic;
     public static PushDialogLoopManager g;
@@ -57,7 +57,7 @@ public class PushDialogLoopManager {
     public boolean e;
     public AlarmManager f;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class PushAlarmReceiver extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +85,7 @@ public class PushDialogLoopManager {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -125,8 +125,8 @@ public class PushDialogLoopManager {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class b extends za {
+    /* loaded from: classes4.dex */
+    public class b extends ab {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PushDialogLoopManager a;
@@ -153,7 +153,7 @@ public class PushDialogLoopManager {
             this.a = pushDialogLoopManager;
         }
 
-        @Override // com.repackage.za
+        @Override // com.repackage.ab
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             String tid;
             Interceptable interceptable = $ic;
@@ -167,7 +167,7 @@ public class PushDialogLoopManager {
                     return;
                 }
                 this.a.b = tid;
-                if (pb8.j().d.c()) {
+                if (zd8.j().d.c()) {
                     this.a.c = true;
                 } else {
                     this.a.p(tid);
@@ -176,8 +176,8 @@ public class PushDialogLoopManager {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class c extends bb {
+    /* loaded from: classes4.dex */
+    public class c extends cb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PushDialogLoopManager a;
@@ -213,7 +213,7 @@ public class PushDialogLoopManager {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -250,7 +250,7 @@ public class PushDialogLoopManager {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class e extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -305,7 +305,7 @@ public class PushDialogLoopManager {
         MessageManager.getInstance().registerListener(new b(this, CmdConfigHttp.CMD_GET_PUSH_DIALOG_TID, 309618));
         MessageManager.getInstance().registerListener(new c(this, 1003));
         MessageManager.getInstance().registerListener(new d(this, 2001371));
-        this.b = yt4.k().q("key_push_dialog_last_show_tid", "0");
+        this.b = ru4.k().q("key_push_dialog_last_show_tid", "0");
         TbadkCoreApplication.getInst().registerReceiver(new e(null), new IntentFilter("android.intent.action.SCREEN_OFF"));
         this.f = (AlarmManager) TbadkCoreApplication.getInst().getApp().getSystemService(NotificationCompat.CATEGORY_ALARM);
         try {
@@ -337,7 +337,7 @@ public class PushDialogLoopManager {
 
     public final void j() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c && pb8.j().g() && !this.d) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c && zd8.j().g() && !this.d) {
             if (Build.VERSION.SDK_INT >= 21 && this.e) {
                 try {
                     ((JobScheduler) TbadkCoreApplication.getInst().getSystemService("jobscheduler")).schedule(new JobInfo.Builder(29467, new ComponentName(TbadkCoreApplication.getInst(), PushDialogJobService.class)).setMinimumLatency(TbSingleton.getInstance().getPushDialogShowTime()).setOverrideDeadline(TbSingleton.getInstance().getPushDialogShowTime()).setRequiredNetworkType(1).setRequiresCharging(false).setRequiresDeviceIdle(false).build());
@@ -399,7 +399,7 @@ public class PushDialogLoopManager {
 
     public final void p(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || pb8.j().d.c() || TbSingleton.getInstance().getLastResumeTime() > UtilHelper.getTodayZeroTime()) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || zd8.j().d.c() || TbSingleton.getInstance().getLastResumeTime() > UtilHelper.getTodayZeroTime()) {
             return;
         }
         Activity b2 = z8.g().b();
@@ -407,7 +407,7 @@ public class PushDialogLoopManager {
             b2.finish();
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PushDialogActivityConfig(TbadkCoreApplication.getInst(), 0L, str)));
-        yt4.k().y("key_push_dialog_last_show_tid", str);
+        ru4.k().y("key_push_dialog_last_show_tid", str);
         this.c = false;
     }
 }

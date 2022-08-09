@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SwanAppBottomTabIconView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,10 +45,10 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
             }
         }
         LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0095, (ViewGroup) this, true);
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0903d8);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0903da);
-        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0903d9);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0903d7);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0903f0);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0903f2);
+        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0903f1);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0903ef);
     }
 
     public boolean a() {

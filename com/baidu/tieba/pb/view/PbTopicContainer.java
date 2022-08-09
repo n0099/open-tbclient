@@ -22,11 +22,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jd5;
-import com.repackage.pi;
-import com.repackage.sl4;
+import com.repackage.ie5;
+import com.repackage.jm4;
+import com.repackage.qi;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PbTopicContainer extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,13 +61,13 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         }
         Context context = getContext();
         TextView textView = new TextView(context);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, pi.f(context, R.dimen.tbds72));
-        int f = pi.f(context, R.dimen.tbds22);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, qi.f(context, R.dimen.tbds72));
+        int f = qi.f(context, R.dimen.tbds22);
         layoutParams.rightMargin = f;
         textView.setTag(recommendTopicListData);
-        textView.setText(jd5.a(recommendTopicListData.getTopicName()));
+        textView.setText(ie5.a(recommendTopicListData.getTopicName()));
         addView(textView, layoutParams);
-        textView.setTextSize(0, pi.f(context, R.dimen.tbds33));
+        textView.setTextSize(0, qi.f(context, R.dimen.tbds33));
         textView.setGravity(17);
         textView.setOnClickListener(this);
         textView.setPadding(f, 0, f, 0);
@@ -82,13 +82,13 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).param("obj_locate", TbadkCoreStatisticKey.HOT_TOPIC_CLICK_PB_BOTTOM));
             RecommendTopicData.RecommendTopicListData recommendTopicListData = (RecommendTopicData.RecommendTopicListData) view2.getTag();
             TbPageContext tbPageContext = this.b;
-            if (tbPageContext != null && !jd5.c(tbPageContext, false, true)) {
+            if (tbPageContext != null && !ie5.c(tbPageContext, false, true)) {
                 HotTopicActivityConfig hotTopicActivityConfig = new HotTopicActivityConfig(getContext());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotTopicActivityConfig.createNormalConfig(recommendTopicListData.getTopicId() + "", recommendTopicListData.getTopicName(), "2")));
                 return;
             }
             Context context = getContext();
-            sl4.o(context, "https://tieba.baidu.com/mo/q/hotMessage?topic_id=" + recommendTopicListData.getTopicId() + "&topic_name=" + recommendTopicListData.getTopicName());
+            jm4.o(context, "https://tieba.baidu.com/mo/q/hotmessage?topic_id=" + recommendTopicListData.getTopicId() + "&topic_name=" + recommendTopicListData.getTopicName());
         }
     }
 
@@ -144,16 +144,9 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         }
     }
 
-    public void setMaxChildCount(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.a = i;
-        }
-    }
-
     public void setPageContext(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, tbPageContext) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, tbPageContext) == null) {
             this.b = tbPageContext;
         }
     }

@@ -1,102 +1,54 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.live.interfaces.service.AccountManagerService;
-import com.baidu.searchbox.live.interfaces.service.AppInfoService;
-import com.baidu.searchbox.live.interfaces.service.RouterService;
-import com.baidu.searchbox.live.interfaces.service.ToastService;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class tq5 implements j90 {
+public class tq5 {
     public static /* synthetic */ Interceptable $ic;
+    public static HashMap<Integer, Integer> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public AccountManagerService a;
-    public AppInfoService b;
-    public ToastService c;
-    public RouterService d;
 
-    public tq5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755282087, "Lcom/repackage/tq5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755282087, "Lcom/repackage/tq5;");
                 return;
             }
         }
-        this.a = (AccountManagerService) ServiceManager.getService(AccountManagerService.Companion.getSERVICE_REFERENCE());
-        this.b = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
-        this.c = (ToastService) ServiceManager.getService(ToastService.Companion.getSERVICE_REFERENCE());
-        this.d = (RouterService) ServiceManager.getService(RouterService.Companion.getSERVICE_REFERENCE());
+        a = new HashMap<>();
     }
 
-    @Override // com.repackage.j90
-    public void a(Context context, String str) {
+    public static void a(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) || this.c == null || context == null || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
+            if (a.containsKey(Integer.valueOf(i))) {
+                a.put(Integer.valueOf(i), Integer.valueOf(a.get(Integer.valueOf(i)).intValue() + 1));
+            } else {
+                a.put(Integer.valueOf(i), 2);
+            }
         }
-        this.c.showNormal(context, str, 0);
     }
 
-    @Override // com.repackage.j90
-    public String b() {
-        InterceptResult invokeV;
+    public static int b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            AccountManagerService accountManagerService = this.a;
-            return accountManagerService != null ? accountManagerService.getAccount().getUk() : "";
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (a.containsKey(Integer.valueOf(i))) {
+                return a.get(Integer.valueOf(i)).intValue();
+            }
+            a.put(Integer.valueOf(i), 1);
+            return 1;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.j90
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            return skinType == 1 ? SkinManager.SKIN_TYPE_STR_NIGHT : skinType == 4 ? "dark" : Config.TRACE_VISIT_RECENT_DAY;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.j90
-    public String getCuid() {
-        InterceptResult invokeV;
-        AppInfoService appInfoService;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a == null || (appInfoService = this.b) == null) ? "" : this.a.getSocialEncryption(appInfoService.getCuid(), "baiduuid_") : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.j90
-    public String getIID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.j90
-    public void invokeScheme(Context context, String str) {
-        RouterService routerService;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, context, str) == null) || context == null || TextUtils.isEmpty(str) || (routerService = this.d) == null) {
-            return;
-        }
-        routerService.invokeScheme(context, str);
+        return invokeI.intValue;
     }
 }

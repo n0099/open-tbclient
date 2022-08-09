@@ -19,9 +19,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sg1;
-import com.repackage.zd3;
-/* loaded from: classes2.dex */
+import com.repackage.jh1;
+import com.repackage.qe3;
+/* loaded from: classes3.dex */
 public class SwanAppRoundCornerListView extends ListView {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean f;
@@ -46,8 +46,8 @@ public class SwanAppRoundCornerListView extends ListView {
                 return;
             }
         }
-        f = sg1.a;
-        g = zd3.h(11.0f);
+        f = jh1.a;
+        g = qe3.h(11.0f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

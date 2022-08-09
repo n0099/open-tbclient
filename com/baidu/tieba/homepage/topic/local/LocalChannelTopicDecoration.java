@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class LocalChannelTopicDecoration extends RecyclerView.ItemDecoration {
     public static /* synthetic */ Interceptable $ic;
@@ -38,15 +38,22 @@ public class LocalChannelTopicDecoration extends RecyclerView.ItemDecoration {
                 return;
             }
         }
-        this.a = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds3);
-        this.b = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
+        this.a = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds3);
+        this.b = qi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
         this.c = new ColorDrawable(SkinManager.getColor(R.color.CAM_X0203));
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c = new ColorDrawable(SkinManager.getColor(R.color.CAM_X0203));
+        }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
     public void getItemOffsets(@NonNull Rect rect, @NonNull View view2, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.State state) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, rect, view2, recyclerView, state) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rect, view2, recyclerView, state) == null) {
             super.getItemOffsets(rect, view2, recyclerView, state);
             RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
             int childLayoutPosition = recyclerView.getChildLayoutPosition(view2);
@@ -63,7 +70,7 @@ public class LocalChannelTopicDecoration extends RecyclerView.ItemDecoration {
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
     public void onDraw(@NonNull Canvas canvas, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.State state) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, recyclerView, state) == null) {
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, canvas, recyclerView, state) == null) {
             super.onDraw(canvas, recyclerView, state);
             for (int i = 0; i < recyclerView.getChildCount() - 1; i++) {
                 View childAt = recyclerView.getChildAt(i);

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,22 +46,22 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
             this.a = new ArrayList();
         }
         this.a.clear();
-        if (absVideoPbFragment.B4()) {
-            this.a.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0dc8));
-            this.a.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0dd0));
+        if (absVideoPbFragment.A4()) {
+            this.a.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0df5));
+            this.a.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0dfd));
         } else {
-            this.a.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0dd0));
+            this.a.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0dfd));
         }
         if (this.b == null) {
             this.b = new ArrayList<>();
         }
         this.b.clear();
-        if (absVideoPbFragment.B4()) {
-            this.b.add(DetailInfoFragment.F1(absVideoPbFragment));
-            this.b.add(ReplyFragment.U1(absVideoPbFragment));
+        if (absVideoPbFragment.A4()) {
+            this.b.add(DetailInfoFragment.E1(absVideoPbFragment));
+            this.b.add(ReplyFragment.T1(absVideoPbFragment));
             return;
         }
-        this.b.add(DetailInfoAndReplyFragment.Y1(absVideoPbFragment));
+        this.b.add(DetailInfoAndReplyFragment.X1(absVideoPbFragment));
     }
 
     public BaseFragment b(int i) {

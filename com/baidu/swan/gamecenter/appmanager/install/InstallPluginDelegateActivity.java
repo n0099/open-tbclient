@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.share.BaseActivity;
 @SuppressLint({BaseActivity.TAG})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class InstallPluginDelegateActivity extends PluginDelegateActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

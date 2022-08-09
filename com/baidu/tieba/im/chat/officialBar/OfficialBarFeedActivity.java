@@ -16,9 +16,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i67;
-import com.repackage.l67;
-import com.repackage.x67;
+import com.repackage.c87;
+import com.repackage.f87;
+import com.repackage.r87;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivity> implements OfficialBarFeedMsglistModel.IFeedHeadLoadCallback {
@@ -46,16 +46,9 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
         this.d = 3;
     }
 
-    public final void A1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = new OfficialBarFeedMsglistView(this);
-        }
-    }
-
     public final void initData() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
                 OfficialBarFeedMsglistModel officialBarFeedMsglistModel = new OfficialBarFeedMsglistModel(getPageContext());
                 this.b = officialBarFeedMsglistModel;
@@ -70,7 +63,7 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || this.d == i) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.d == i) {
             return;
         }
         this.d = i;
@@ -84,9 +77,9 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            A1();
+            z1();
             initData();
         }
     }
@@ -94,7 +87,7 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
             OfficialBarFeedMsglistModel officialBarFeedMsglistModel = this.b;
             if (officialBarFeedMsglistModel != null) {
@@ -104,17 +97,17 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
     }
 
     @Override // com.baidu.tieba.im.model.OfficialBarFeedMsglistModel.IFeedHeadLoadCallback
-    public void onListDataLoad(List<x67> list, List<i67> list2) {
+    public void onListDataLoad(List<r87> list, List<c87> list2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, list, list2) == null) {
-            this.a.p(list, list2);
+        if (interceptable == null || interceptable.invokeLL(1048580, this, list, list2) == null) {
+            this.a.r(list, list2);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onPause();
             this.c = true;
             OfficialBarFeedMsglistModel officialBarFeedMsglistModel = this.b;
@@ -125,17 +118,17 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
     }
 
     @Override // com.baidu.tieba.im.model.OfficialBarFeedMsglistModel.IFeedHeadLoadCallback
-    public void onReadCountLoad(LongSparseArray<l67> longSparseArray) {
+    public void onReadCountLoad(LongSparseArray<f87> longSparseArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, longSparseArray) == null) {
-            this.a.q(longSparseArray);
+        if (interceptable == null || interceptable.invokeL(1048582, this, longSparseArray) == null) {
+            this.a.s(longSparseArray);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onResume();
             OfficialBarFeedMsglistModel officialBarFeedMsglistModel = this.b;
             if (officialBarFeedMsglistModel != null && this.c) {
@@ -145,6 +138,13 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
             StatisticItem statisticItem = new StatisticItem("c13861");
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public final void z1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.a = new OfficialBarFeedMsglistView(this);
         }
     }
 }

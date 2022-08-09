@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.User;
 import tbclient.UserPost.UserPostResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UserPostPageSocketResponsedMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -18,10 +18,10 @@ public class b extends al.a {
     public ii a;
 
     /* renamed from: a  reason: collision with other field name */
-    public WeakReference<XMPushService> f918a;
+    public WeakReference<XMPushService> f919a;
 
     /* renamed from: a  reason: collision with other field name */
-    public boolean f919a;
+    public boolean f920a;
 
     public b(ii iiVar, WeakReference<XMPushService> weakReference, boolean z) {
         Interceptable interceptable = $ic;
@@ -38,10 +38,10 @@ public class b extends al.a {
                 return;
             }
         }
-        this.f919a = false;
+        this.f920a = false;
         this.a = iiVar;
-        this.f918a = weakReference;
-        this.f919a = z;
+        this.f919a = weakReference;
+        this.f920a = z;
     }
 
     @Override // com.xiaomi.push.al.a
@@ -57,7 +57,7 @@ public class b extends al.a {
         WeakReference<XMPushService> weakReference;
         XMPushService xMPushService;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (weakReference = this.f918a) == null || this.a == null || (xMPushService = weakReference.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (weakReference = this.f919a) == null || this.a == null || (xMPushService = weakReference.get()) == null) {
             return;
         }
         this.a.a(bd.a());
@@ -65,7 +65,7 @@ public class b extends al.a {
         com.xiaomi.channel.commonutils.logger.b.c("MoleInfo aw_ping : send aw_Ping msg " + this.a.m480a());
         try {
             String c = this.a.c();
-            xMPushService.a(c, it.a(ah.a(c, this.a.b(), this.a, hj.i)), this.f919a);
+            xMPushService.a(c, it.a(ah.a(c, this.a.b(), this.a, hj.i)), this.f920a);
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.d("MoleInfo aw_ping : send help app ping error" + e.toString());
         }

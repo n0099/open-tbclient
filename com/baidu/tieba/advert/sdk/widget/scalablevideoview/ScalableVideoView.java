@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nm5;
-import com.repackage.om5;
+import com.repackage.fo5;
+import com.repackage.go5;
 import java.io.IOException;
 /* loaded from: classes3.dex */
 public class ScalableVideoView extends TextureView implements TextureView.SurfaceTextureListener, MediaPlayer.OnVideoSizeChangedListener {
@@ -100,7 +100,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public final void f(int i, int i2) {
         Matrix m;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) || i == 0 || i2 == 0 || (m = new nm5(new om5(getWidth(), getHeight()), new om5(i, i2)).m(this.a)) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) || i == 0 || i2 == 0 || (m = new fo5(new go5(getWidth(), getHeight()), new go5(i, i2)).m(this.a)) == null) {
             return;
         }
         setTransform(m);
@@ -312,7 +312,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
             }
         }
         this.a = ScalableType.NONE;
-        if (attributeSet == null || (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040564}, 0, 0)) == null) {
+        if (attributeSet == null || (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405e6}, 0, 0)) == null) {
             return;
         }
         int i4 = obtainStyledAttributes.getInt(0, ScalableType.NONE.ordinal());

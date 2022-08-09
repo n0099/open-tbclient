@@ -1,110 +1,175 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.homepage.lowFlows.message.MoreTreasureTroveReqMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Personalized.CardForum;
-import tbclient.Personalized.PersonalForum;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ny6 extends ty5 implements cz5 {
+public class ny6 implements ay6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CardForum e;
+    public String a;
+    public BdUniqueId b;
+    public ab c;
+    public boolean d;
+    public by6 e;
+    public final HashMap<String, List<on>> f;
 
-    public ny6() {
+    /* loaded from: classes6.dex */
+    public class a extends ab {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ny6 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ny6 ny6Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ny6Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ny6Var;
+        }
+
+        @Override // com.repackage.ab
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                this.a.d = false;
+                if (this.a.e == null) {
+                    return;
+                }
+                if (!(responsedMessage instanceof my6)) {
+                    this.a.e.c(-1);
+                } else if (responsedMessage.getOrginalMessage() == null || this.a.b != responsedMessage.getOrginalMessage().getTag()) {
+                    this.a.e.c(-1);
+                } else if (responsedMessage.hasError() && responsedMessage.getError() == 0) {
+                    this.a.e.c(responsedMessage.getError());
+                } else {
+                    my6 my6Var = (my6) responsedMessage;
+                    if (my6Var.getDataList() == null || my6Var.getDataList().size() <= 0) {
+                        this.a.e.c(-1);
+                        return;
+                    }
+                    if (!StringUtils.isNull(this.a.a)) {
+                        this.a.f.put(this.a.a, my6Var.getDataList());
+                    }
+                    this.a.e.b(responsedMessage.getError(), my6Var);
+                }
+            }
+        }
+    }
+
+    public ny6(by6 by6Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {by6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = null;
+        this.f = new HashMap<>();
+        this.e = by6Var;
+        g();
     }
 
-    public static boolean m(int i) {
-        InterceptResult invokeI;
+    @Override // com.repackage.ay6
+    public boolean a(BdUniqueId bdUniqueId, String str, String str2, String str3) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i == 1 : invokeI.booleanValue;
-    }
-
-    @Override // com.repackage.cz5
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.showTopDivider = z;
-        }
-    }
-
-    @Override // com.repackage.cz5
-    public int getPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            CardForum cardForum = this.e;
-            if (cardForum != null) {
-                return cardForum.position.intValue();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.repackage.cz5
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ListUtils.getCount(getDataList()) > 0 : invokeV.booleanValue;
-    }
-
-    public void s(CardForum cardForum) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, cardForum) == null) || cardForum == null) {
-            return;
-        }
-        this.e = cardForum;
-        this.mGroupTitle = cardForum.card_title;
-        if (cardForum.position != null) {
-            k(g() + cardForum.position.intValue());
-        } else {
-            k(g() + 0);
-        }
-        if (ListUtils.getCount(cardForum.forum_list) > 0) {
-            for (PersonalForum personalForum : cardForum.forum_list) {
-                if (personalForum != null && !TextUtils.isEmpty(personalForum.forum_name) && personalForum.forum_id.longValue() > 0) {
-                    sy5 sy5Var = new sy5();
-                    sy5Var.b = personalForum.avatar;
-                    sy5Var.c = personalForum.forum_name;
-                    sy5Var.d = ng.e("" + personalForum.forum_id, -1);
-                    sy5Var.e = personalForum.is_like.intValue() == 1;
-                    c(sy5Var);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, bdUniqueId, str, str2, str3)) == null) {
+            if (oi.A() && bdUniqueId != null && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
+                if (this.d) {
+                    return false;
                 }
+                String str4 = this.a;
+                if (str4 != null && str4.equals(str) && this.f.size() > 0) {
+                    this.e.setData(this.f.get(str));
+                    return true;
+                }
+                k(bdUniqueId);
+                i(str);
+                h(str2);
+                j(str3);
+                MoreTreasureTroveReqMsg moreTreasureTroveReqMsg = new MoreTreasureTroveReqMsg();
+                moreTreasureTroveReqMsg.setTag(bdUniqueId);
+                moreTreasureTroveReqMsg.setTabCode(str);
+                moreTreasureTroveReqMsg.setLfUser(str2);
+                moreTreasureTroveReqMsg.setTaskId(str3);
+                boolean sendMessage = MessageManager.getInstance().sendMessage(moreTreasureTroveReqMsg);
+                this.d = sendMessage;
+                return sendMessage;
             }
+            by6 by6Var = this.e;
+            if (by6Var != null) {
+                by6Var.c(-1);
+            }
+            return false;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = new a(this, CmdConfigHttp.CMD_LOW_FLOWS_PAGE, 309691);
+            MessageManager.getInstance().registerListener(this.c);
         }
     }
 
-    @Override // com.repackage.cz5
-    public void v(boolean z) {
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.showBottomDivider = z;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        }
+    }
+
+    public void k(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
+            this.b = bdUniqueId;
         }
     }
 }

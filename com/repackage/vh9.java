@@ -1,84 +1,47 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.kwad.sdk.api.KsSplashScreenAd;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
 /* loaded from: classes7.dex */
-public class vh9 extends zh9 {
+public class vh9 extends ih9<TTNativeExpressAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public final /* synthetic */ KsSplashScreenAd c;
-    public final /* synthetic */ uh9 d;
 
-    public vh9(uh9 uh9Var, KsSplashScreenAd ksSplashScreenAd) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vh9(TTNativeExpressAd tTNativeExpressAd) {
+        super(tTNativeExpressAd);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {uh9Var, ksSplashScreenAd};
+            Object[] objArr = {tTNativeExpressAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = uh9Var;
-        this.c = ksSplashScreenAd;
     }
 
-    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
-    public void onAdClicked() {
+    @Override // com.repackage.ih9
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogPrinter.d();
-            this.d.onAdClicked(this.c, this.b, new String[0]);
-            this.b = true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b.isEmpty()) {
+                this.b = (String) ((TTNativeExpressAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
+            }
+            return this.b;
         }
-    }
-
-    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
-    public void onAdShowEnd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LogPrinter.d();
-            this.d.onAdClose(this.c);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
-    public void onAdShowError(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
-            LogPrinter.e("onAdShowError code: " + i + ", message: " + str, new Object[0]);
-            this.d.onAdError(this.c, i, str);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
-    public void onAdShowStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LogPrinter.d();
-            this.d.onAdShow(this.c, this.a, new String[0]);
-            this.a = true;
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
-    public void onSkippedAd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LogPrinter.d();
-            this.d.onAdClose(this.c);
-        }
+        return (String) invokeV.objValue;
     }
 }

@@ -19,7 +19,7 @@ import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUti
 import com.baidu.ugc.editvideo.sticker.OnChangeStickerListener;
 import com.baidu.ugc.editvideo.sticker.a;
 import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
-import com.repackage.b99;
+import com.repackage.wb9;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
@@ -293,7 +293,7 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
     public void deleteCurrentStickerItem(a aVar, String str, boolean z) {
         int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(1048579, this, aVar, str, z) == null) || aVar == null || b99.e(this.mStickerItems)) {
+        if (!(interceptable == null || interceptable.invokeLLZ(1048579, this, aVar, str, z) == null) || aVar == null || wb9.e(this.mStickerItems)) {
             return;
         }
         if (TextUtils.equals(SubtitleLog.TAG, str)) {
@@ -301,7 +301,7 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
         } else {
             i = this.mStickerItems.indexOf(aVar);
             this.mStickerItems.remove(aVar);
-            if (!b99.e(this.mVisibleStickerItems)) {
+            if (!wb9.e(this.mVisibleStickerItems)) {
                 this.mVisibleStickerItems.remove(aVar);
             }
         }

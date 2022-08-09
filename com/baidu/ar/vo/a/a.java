@@ -1,5 +1,6 @@
 package com.baidu.ar.vo.a;
 
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.ar.h.i;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,8 +56,8 @@ public class a {
                 if (jSONObject.has("pitch_angle")) {
                     bVar.V(jSONObject.getInt("pitch_angle"));
                 }
-                if (jSONObject.has("rotation")) {
-                    bVar.aY(jSONObject.getString("rotation"));
+                if (jSONObject.has(Key.ROTATION)) {
+                    bVar.aY(jSONObject.getString(Key.ROTATION));
                 }
                 if (jSONObject.has("immediately_place_model")) {
                     boolean z = true;

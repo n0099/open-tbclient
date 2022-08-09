@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class WXWebpageObject implements WXMediaMessage.IMediaObject {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LENGTH_LIMIT = 10240;
@@ -58,7 +58,7 @@ public class WXWebpageObject implements WXMediaMessage.IMediaObject {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             String str = this.webpageUrl;
             if (str == null || str.length() == 0 || this.webpageUrl.length() > 10240) {
-                Log.e("MicroMsg.SDK.WXWebpageObject", "checkArgs fail, webpageUrl is invalid");
+                Log.e(TAG, "checkArgs fail, webpageUrl is invalid");
                 return false;
             }
             return true;

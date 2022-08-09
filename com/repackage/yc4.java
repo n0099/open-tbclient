@@ -1,19 +1,19 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class yc4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile yc4 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public d94 a;
-    public d94 b;
-    public b94 c;
-    public Collection<i94> d;
-    public Collection<h94> e;
 
     public yc4() {
         Interceptable interceptable = $ic;
@@ -26,6 +26,41 @@ public class yc4 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    public static yc4 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (yc4.class) {
+                    if (a == null) {
+                        a = new yc4();
+                    }
+                }
+            }
+            return a;
+        }
+        return (yc4) invokeV.objValue;
+    }
+
+    public void b(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString("version");
+        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || i84.b() == null || i84.b().i() == null) {
+            return;
+        }
+        JSONArray optJSONArray = optJSONObject.optJSONArray(AlbumActivityConfig.FROM_WEB_VIEW);
+        JSONArray optJSONArray2 = optJSONObject.optJSONArray("js");
+        boolean o = optJSONArray != null ? i84.b().o(false, optJSONArray) : true;
+        boolean o2 = optJSONArray2 != null ? i84.b().o(true, optJSONArray2) : true;
+        if (o && o2) {
+            i84.b().i().putString("key_online_description_fix_version", optString);
         }
     }
 }

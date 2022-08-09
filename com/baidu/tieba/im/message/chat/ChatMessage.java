@@ -19,18 +19,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g47;
-import com.repackage.m57;
-import com.repackage.ng;
-import com.repackage.nn;
-import com.repackage.w9;
+import com.repackage.a67;
+import com.repackage.g77;
+import com.repackage.og;
+import com.repackage.on;
+import com.repackage.x9;
 import java.lang.ref.WeakReference;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public abstract class ChatMessage extends TbSocketMessage implements w9, nn {
+public abstract class ChatMessage extends TbSocketMessage implements x9, on {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId TYPE_MSG_GROUP_ACTIVITY;
     public static final BdUniqueId TYPE_MSG_ICE_BREAK;
@@ -56,10 +56,10 @@ public abstract class ChatMessage extends TbSocketMessage implements w9, nn {
     public String groupId;
     public boolean hasRead;
     public int height;
-    public List<m57> iceBreakEmotions;
+    public List<g77> iceBreakEmotions;
     public int isFriend;
     public boolean isUploading;
-    public WeakReference<g47> itemViewWeakReference;
+    public WeakReference<a67> itemViewWeakReference;
     public String link;
     public MsgLocalData localData;
     public long logTime;
@@ -253,7 +253,7 @@ public abstract class ChatMessage extends TbSocketMessage implements w9, nn {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.height : invokeV.intValue;
     }
 
-    public List<m57> getIceBreakEmotions() {
+    public List<g77> getIceBreakEmotions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.iceBreakEmotions : (List) invokeV.objValue;
@@ -272,17 +272,17 @@ public abstract class ChatMessage extends TbSocketMessage implements w9, nn {
     }
 
     @Nullable
-    public g47 getItemView() {
+    public a67 getItemView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            WeakReference<g47> weakReference = this.itemViewWeakReference;
+            WeakReference<a67> weakReference = this.itemViewWeakReference;
             if (weakReference == null) {
                 return null;
             }
             return weakReference.get();
         }
-        return (g47) invokeV.objValue;
+        return (a67) invokeV.objValue;
     }
 
     public String getLink() {
@@ -375,7 +375,7 @@ public abstract class ChatMessage extends TbSocketMessage implements w9, nn {
                 try {
                     JSONArray jSONArray = new JSONArray(this.content);
                     if (jSONArray.length() > 0) {
-                        this.statisticsTaskId = ng.g(jSONArray.optJSONObject(0).optString("task_id"), 0L);
+                        this.statisticsTaskId = og.g(jSONArray.optJSONObject(0).optString("task_id"), 0L);
                     }
                 } catch (Exception unused) {
                 }
@@ -401,7 +401,7 @@ public abstract class ChatMessage extends TbSocketMessage implements w9, nn {
                 try {
                     JSONArray jSONArray = new JSONArray(this.content);
                     if (jSONArray.length() > 0) {
-                        this.statisticsServiceId = ng.g(jSONArray.optJSONObject(0).optString("service_id"), 0L);
+                        this.statisticsServiceId = og.g(jSONArray.optJSONObject(0).optString("service_id"), 0L);
                     }
                 } catch (Exception unused) {
                 }
@@ -439,7 +439,7 @@ public abstract class ChatMessage extends TbSocketMessage implements w9, nn {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.toUserInfo : (UserData) invokeV.objValue;
     }
 
-    @Override // com.repackage.nn
+    @Override // com.repackage.on
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -454,7 +454,7 @@ public abstract class ChatMessage extends TbSocketMessage implements w9, nn {
             if (i == 6) {
                 return TYPE_MSG_GROUP_ACTIVITY;
             }
-            if (i == 7) {
+            if (i == 7 || i == 35) {
                 return TYPE_MSG_MULTI_PIC_TEXT;
             }
             if (i == 23) {
@@ -510,7 +510,7 @@ public abstract class ChatMessage extends TbSocketMessage implements w9, nn {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.mIsPushForOperateAccount : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.w9
+    @Override // com.repackage.x9
     public boolean onFindMessage(SocketMessage socketMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -600,7 +600,7 @@ public abstract class ChatMessage extends TbSocketMessage implements w9, nn {
         }
     }
 
-    public void setIceBreakEmotions(List<m57> list) {
+    public void setIceBreakEmotions(List<g77> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048627, this, list) == null) {
             this.iceBreakEmotions = list;
@@ -628,24 +628,24 @@ public abstract class ChatMessage extends TbSocketMessage implements w9, nn {
         }
     }
 
-    public void setItemView(@Nullable g47 g47Var) {
-        WeakReference<g47> weakReference;
+    public void setItemView(@Nullable a67 a67Var) {
+        WeakReference<a67> weakReference;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048631, this, g47Var) == null) {
-            if (g47Var == null && (weakReference = this.itemViewWeakReference) != null) {
+        if (interceptable == null || interceptable.invokeL(1048631, this, a67Var) == null) {
+            if (a67Var == null && (weakReference = this.itemViewWeakReference) != null) {
                 weakReference.clear();
                 this.itemViewWeakReference = null;
                 return;
             }
-            WeakReference<g47> weakReference2 = this.itemViewWeakReference;
+            WeakReference<a67> weakReference2 = this.itemViewWeakReference;
             if (weakReference2 != null) {
-                if (weakReference2.get() == g47Var) {
+                if (weakReference2.get() == a67Var) {
                     return;
                 }
                 this.itemViewWeakReference.clear();
                 this.itemViewWeakReference = null;
             }
-            this.itemViewWeakReference = new WeakReference<>(g47Var);
+            this.itemViewWeakReference = new WeakReference<>(a67Var);
         }
     }
 

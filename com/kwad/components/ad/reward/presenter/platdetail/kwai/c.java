@@ -199,15 +199,15 @@ public final class c extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.sd = (ImageView) findViewById(R.id.obfuscated_res_0x7f09101e);
-            this.se = (TextView) findViewById(R.id.obfuscated_res_0x7f091198);
+            this.sd = (ImageView) findViewById(R.id.obfuscated_res_0x7f091074);
+            this.se = (TextView) findViewById(R.id.obfuscated_res_0x7f0911ee);
             if (TextUtils.isEmpty(com.kwad.components.ad.reward.kwai.b.fW())) {
                 if (com.kwad.components.ad.reward.kwai.b.fV() == 0) {
                     imageView = this.sd;
-                    i = R.drawable.obfuscated_res_0x7f080c07;
+                    i = R.drawable.obfuscated_res_0x7f080c2d;
                 } else {
                     imageView = this.sd;
-                    i = R.drawable.obfuscated_res_0x7f080c63;
+                    i = R.drawable.obfuscated_res_0x7f080c89;
                 }
                 imageView.setImageResource(i);
                 this.se.setVisibility(8);

@@ -1,382 +1,418 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.album.MediaFileInfo;
-import com.baidu.tbadk.album.VideoFileInfo;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.img.WriteImagesInfo;
-import com.baidu.tieba.R;
+import com.baidu.tieba.view.bubbleView.ArrowDirection;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class yw8 {
+public class yw8 extends Drawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final d9 b;
-    public WriteImagesInfo c;
-    public VideoFileInfo d;
-    public String e;
-    public ImageFileInfo f;
-    public List<ImageFileInfo> g;
-    public final List<zk4> h;
+    public RectF a;
+    public Path b;
+    public Paint c;
+    public Path d;
+    public Paint e;
+    public float f;
+    public float g;
+    public float h;
+    public float i;
+    public float j;
 
-    public yw8(d9 d9Var) {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(172144634, "Lcom/repackage/yw8$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(172144634, "Lcom/repackage/yw8$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[ArrowDirection.values().length];
+            a = iArr;
+            try {
+                iArr[ArrowDirection.LEFT.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[ArrowDirection.TOP.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[ArrowDirection.RIGHT.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[ArrowDirection.BOTTOM.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+        }
+    }
+
+    public yw8(RectF rectF, float f, float f2, float f3, float f4, float f5, int i, int i2, ArrowDirection arrowDirection) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d9Var};
+            Object[] objArr = {rectF, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Integer.valueOf(i), Integer.valueOf(i2), arrowDirection};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 9;
-        this.h = new ArrayList();
-        this.b = d9Var;
-    }
-
-    public void A(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (this.c == null) {
-                this.c = new WriteImagesInfo(this.a);
-            }
-            this.c.setLastAlbumId(str);
-        }
-    }
-
-    public void B(boolean z) {
-        WriteImagesInfo writeImagesInfo;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (writeImagesInfo = this.c) == null) {
+        this.b = new Path();
+        Paint paint = new Paint(1);
+        this.c = paint;
+        this.a = rectF;
+        this.f = f;
+        this.g = f2;
+        this.h = f3;
+        this.i = f4;
+        this.j = f5;
+        paint.setColor(i2);
+        if (f5 > 0.0f) {
+            Paint paint2 = new Paint(1);
+            this.e = paint2;
+            paint2.setColor(i);
+            this.d = new Path();
+            e(arrowDirection, this.b, f5);
+            e(arrowDirection, this.d, 0.0f);
             return;
         }
-        writeImagesInfo.setOriginalImg(z);
+        e(arrowDirection, this.b, 0.0f);
     }
 
-    public void C(WriteImagesInfo writeImagesInfo) {
+    public final void a(RectF rectF, Path path, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeImagesInfo) == null) {
-            this.c = writeImagesInfo;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
+            path.moveTo(rectF.left + this.g + f, rectF.top + f);
+            path.lineTo((rectF.width() - this.g) - f, rectF.top + f);
+            float f2 = rectF.right;
+            float f3 = this.g;
+            float f4 = rectF.top;
+            path.arcTo(new RectF(f2 - f3, f4 + f, f2 - f, f3 + f4), 270.0f, 90.0f);
+            path.lineTo(rectF.right - f, ((rectF.bottom - this.h) - this.g) - f);
+            float f5 = rectF.right;
+            float f6 = this.g;
+            float f7 = rectF.bottom;
+            float f8 = this.h;
+            path.arcTo(new RectF(f5 - f6, (f7 - f6) - f8, f5 - f, (f7 - f8) - f), 0.0f, 90.0f);
+            float f9 = f / 2.0f;
+            path.lineTo(((rectF.left + this.f) + this.i) - f9, (rectF.bottom - this.h) - f);
+            path.lineTo(rectF.left + this.i + (this.f / 2.0f), (rectF.bottom - f) - f);
+            path.lineTo(rectF.left + this.i + f9, (rectF.bottom - this.h) - f);
+            path.lineTo(rectF.left + Math.min(this.g, this.i) + f, (rectF.bottom - this.h) - f);
+            float f10 = rectF.left;
+            float f11 = rectF.bottom;
+            float f12 = this.g;
+            float f13 = this.h;
+            path.arcTo(new RectF(f10 + f, (f11 - f12) - f13, f12 + f10, (f11 - f13) - f), 90.0f, 90.0f);
+            path.lineTo(rectF.left + f, rectF.top + this.g + f);
+            float f14 = rectF.left;
+            float f15 = rectF.top;
+            float f16 = this.g;
+            path.arcTo(new RectF(f14 + f, f + f15, f14 + f16, f16 + f15), 180.0f, 90.0f);
+            path.close();
         }
     }
 
-    public int D() {
-        InterceptResult invokeV;
+    public final void b(RectF rectF, Path path, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            WriteImagesInfo writeImagesInfo = this.c;
-            if (writeImagesInfo == null) {
-                return 0;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
+            path.moveTo(rectF.left + f, rectF.top + f);
+            path.lineTo(rectF.right - f, rectF.top + f);
+            path.lineTo(rectF.right - f, (rectF.bottom - this.h) - f);
+            float f2 = f / 2.0f;
+            path.lineTo(((rectF.left + this.f) + this.i) - f2, (rectF.bottom - this.h) - f);
+            path.lineTo(rectF.left + this.i + (this.f / 2.0f), (rectF.bottom - f) - f);
+            path.lineTo(rectF.left + this.i + f2, (rectF.bottom - this.h) - f);
+            path.lineTo(rectF.left + this.i + f, (rectF.bottom - this.h) - f);
+            path.lineTo(rectF.left + f, (rectF.bottom - this.h) - f);
+            path.lineTo(rectF.left + f, rectF.top + f);
+            path.close();
+        }
+    }
+
+    public final void c(RectF rectF, Path path, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
+            path.moveTo(this.f + rectF.left + this.g + f, rectF.top + f);
+            path.lineTo((rectF.width() - this.g) - f, rectF.top + f);
+            float f2 = rectF.right;
+            float f3 = this.g;
+            float f4 = rectF.top;
+            path.arcTo(new RectF(f2 - f3, f4 + f, f2 - f, f3 + f4), 270.0f, 90.0f);
+            path.lineTo(rectF.right - f, (rectF.bottom - this.g) - f);
+            float f5 = rectF.right;
+            float f6 = this.g;
+            float f7 = rectF.bottom;
+            path.arcTo(new RectF(f5 - f6, f7 - f6, f5 - f, f7 - f), 0.0f, 90.0f);
+            path.lineTo(rectF.left + this.f + this.g + f, rectF.bottom - f);
+            float f8 = rectF.left;
+            float f9 = this.f;
+            float f10 = rectF.bottom;
+            float f11 = this.g;
+            path.arcTo(new RectF(f8 + f9 + f, f10 - f11, f11 + f8 + f9, f10 - f), 90.0f, 90.0f);
+            float f12 = f / 2.0f;
+            path.lineTo(rectF.left + this.f + f, (this.h + this.i) - f12);
+            path.lineTo(rectF.left + f + f, this.i + (this.h / 2.0f));
+            path.lineTo(rectF.left + this.f + f, this.i + f12);
+            path.lineTo(rectF.left + this.f + f, rectF.top + this.g + f);
+            float f13 = rectF.left;
+            float f14 = this.f;
+            float f15 = rectF.top;
+            float f16 = this.g;
+            path.arcTo(new RectF(f13 + f14 + f, f + f15, f13 + f16 + f14, f16 + f15), 180.0f, 90.0f);
+            path.close();
+        }
+    }
+
+    public final void d(RectF rectF, Path path, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
+            path.moveTo(this.f + rectF.left + f, rectF.top + f);
+            path.lineTo(rectF.width() - f, rectF.top + f);
+            path.lineTo(rectF.right - f, rectF.bottom - f);
+            path.lineTo(rectF.left + this.f + f, rectF.bottom - f);
+            float f2 = f / 2.0f;
+            path.lineTo(rectF.left + this.f + f, (this.h + this.i) - f2);
+            path.lineTo(rectF.left + f + f, this.i + (this.h / 2.0f));
+            path.lineTo(rectF.left + this.f + f, this.i + f2);
+            path.lineTo(rectF.left + this.f + f, rectF.top + f);
+            path.close();
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
+            if (this.j > 0.0f) {
+                canvas.drawPath(this.d, this.e);
             }
-            return writeImagesInfo.size();
-        }
-        return invokeV.intValue;
-    }
-
-    public void a(ImageFileInfo imageFileInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, imageFileInfo) == null) {
-            if (this.c == null) {
-                this.c = new WriteImagesInfo(this.a);
-            }
-            this.c.addChooseFile(imageFileInfo);
+            canvas.drawPath(this.b, this.c);
         }
     }
 
-    public void b() {
-        WriteImagesInfo writeImagesInfo;
+    public final void e(ArrowDirection arrowDirection, Path path, float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (writeImagesInfo = this.c) == null) {
-            return;
-        }
-        writeImagesInfo.clear();
-    }
-
-    public void c(ImageFileInfo imageFileInfo) {
-        WriteImagesInfo writeImagesInfo;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, imageFileInfo) == null) || (writeImagesInfo = this.c) == null) {
-            return;
-        }
-        writeImagesInfo.delChooseFile(imageFileInfo);
-    }
-
-    public List<MediaFileInfo> d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (this.h != null && !StringUtils.isNull(str)) {
-                for (zk4 zk4Var : this.h) {
-                    if (zk4Var != null && TextUtils.equals(str, zk4Var.b())) {
-                        return zk4Var.d();
-                    }
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{arrowDirection, path, Float.valueOf(f)}) == null) {
+            int i = a.a[arrowDirection.ordinal()];
+            if (i == 1) {
+                float f2 = this.g;
+                if (f2 <= 0.0f) {
+                    d(this.a, path, f);
+                } else if (f > 0.0f && f > f2) {
+                    d(this.a, path, f);
+                } else {
+                    c(this.a, path, f);
+                }
+            } else if (i == 2) {
+                float f3 = this.g;
+                if (f3 <= 0.0f) {
+                    i(this.a, path, f);
+                } else if (f > 0.0f && f > f3) {
+                    i(this.a, path, f);
+                } else {
+                    h(this.a, path, f);
+                }
+            } else if (i == 3) {
+                float f4 = this.g;
+                if (f4 <= 0.0f) {
+                    g(this.a, path, f);
+                } else if (f > 0.0f && f > f4) {
+                    g(this.a, path, f);
+                } else {
+                    f(this.a, path, f);
+                }
+            } else if (i != 4) {
+            } else {
+                float f5 = this.g;
+                if (f5 <= 0.0f) {
+                    b(this.a, path, f);
+                } else if (f > 0.0f && f > f5) {
+                    b(this.a, path, f);
+                } else {
+                    a(this.a, path, f);
                 }
             }
-            return null;
         }
-        return (List) invokeL.objValue;
     }
 
-    public List<zk4> e() {
+    public final void f(RectF rectF, Path path, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
+            path.moveTo(rectF.left + this.g + f, rectF.top + f);
+            path.lineTo(((rectF.width() - this.g) - this.f) - f, rectF.top + f);
+            float f2 = rectF.right;
+            float f3 = this.g;
+            float f4 = this.f;
+            float f5 = rectF.top;
+            path.arcTo(new RectF((f2 - f3) - f4, f5 + f, (f2 - f4) - f, f3 + f5), 270.0f, 90.0f);
+            float f6 = f / 2.0f;
+            path.lineTo((rectF.right - this.f) - f, this.i + f6);
+            path.lineTo((rectF.right - f) - f, this.i + (this.h / 2.0f));
+            path.lineTo((rectF.right - this.f) - f, (this.i + this.h) - f6);
+            path.lineTo((rectF.right - this.f) - f, (rectF.bottom - this.g) - f);
+            float f7 = rectF.right;
+            float f8 = this.g;
+            float f9 = this.f;
+            float f10 = rectF.bottom;
+            path.arcTo(new RectF((f7 - f8) - f9, f10 - f8, (f7 - f9) - f, f10 - f), 0.0f, 90.0f);
+            path.lineTo(rectF.left + this.f + f, rectF.bottom - f);
+            float f11 = rectF.left;
+            float f12 = rectF.bottom;
+            float f13 = this.g;
+            path.arcTo(new RectF(f11 + f, f12 - f13, f13 + f11, f12 - f), 90.0f, 90.0f);
+            float f14 = rectF.left;
+            float f15 = rectF.top;
+            float f16 = this.g;
+            path.arcTo(new RectF(f14 + f, f + f15, f14 + f16, f16 + f15), 180.0f, 90.0f);
+            path.close();
+        }
+    }
+
+    public final void g(RectF rectF, Path path, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
+            path.moveTo(rectF.left + f, rectF.top + f);
+            path.lineTo((rectF.width() - this.f) - f, rectF.top + f);
+            float f2 = f / 2.0f;
+            path.lineTo((rectF.right - this.f) - f, this.i + f2);
+            path.lineTo((rectF.right - f) - f, this.i + (this.h / 2.0f));
+            path.lineTo((rectF.right - this.f) - f, (this.i + this.h) - f2);
+            path.lineTo((rectF.right - this.f) - f, rectF.bottom - f);
+            path.lineTo(rectF.left + f, rectF.bottom - f);
+            path.lineTo(rectF.left + f, rectF.top + f);
+            path.close();
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getIntrinsicHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.h : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (int) this.a.height() : invokeV.intValue;
     }
 
-    public VideoFileInfo f() {
+    @Override // android.graphics.drawable.Drawable
+    public int getIntrinsicWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.d : (VideoFileInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? (int) this.a.width() : invokeV.intValue;
     }
 
-    public List<ImageFileInfo> g() {
+    @Override // android.graphics.drawable.Drawable
+    public int getOpacity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            WriteImagesInfo writeImagesInfo = this.c;
-            if (writeImagesInfo != null) {
-                return writeImagesInfo.getChosedFiles();
-            }
-            return null;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    public List<ImageFileInfo> i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.g : (List) invokeV.objValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        List<ImageFileInfo> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            ImageFileInfo imageFileInfo = this.f;
-            if (imageFileInfo != null && !TextUtils.isEmpty(imageFileInfo.getFilePath()) && (list = this.g) != null && list.size() != 0) {
-                int size = this.g.size();
-                for (int i = 0; i < size; i++) {
-                    ImageFileInfo imageFileInfo2 = this.g.get(i);
-                    if (imageFileInfo2 != null && this.f.getFilePath().equals(imageFileInfo2.getFilePath())) {
-                        return i;
-                    }
-                }
-            }
-            return 0;
+            return -3;
         }
         return invokeV.intValue;
     }
 
-    public String k() {
-        InterceptResult invokeV;
+    public final void h(RectF rectF, Path path, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            WriteImagesInfo writeImagesInfo = this.c;
-            if (writeImagesInfo != null) {
-                return writeImagesInfo.getLastAlbumId();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            WriteImagesInfo writeImagesInfo = this.c;
-            if (writeImagesInfo != null) {
-                return writeImagesInfo.getMaxImagesAllowed();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public WriteImagesInfo m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.c : (WriteImagesInfo) invokeV.objValue;
-    }
-
-    public boolean n(ImageFileInfo imageFileInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, imageFileInfo)) == null) {
-            WriteImagesInfo writeImagesInfo = this.c;
-            if (writeImagesInfo == null) {
-                return false;
-            }
-            return writeImagesInfo.isAdded(imageFileInfo);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? !ListUtils.isEmpty(g()) : invokeV.booleanValue;
-    }
-
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.d != null : invokeV.booleanValue;
-    }
-
-    public boolean q(VideoFileInfo videoFileInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, videoFileInfo)) == null) {
-            VideoFileInfo videoFileInfo2 = this.d;
-            return (videoFileInfo2 == null || videoFileInfo == null || videoFileInfo2.videoId != videoFileInfo.videoId) ? false : true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? ListUtils.isEmpty(d(zk4.f)) : invokeV.booleanValue;
-    }
-
-    public boolean s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            WriteImagesInfo writeImagesInfo = this.c;
-            if (writeImagesInfo != null) {
-                return writeImagesInfo.isOriginalImg();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public zk4 t(List<MediaFileInfo> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, list)) == null) {
-            zk4 zk4Var = new zk4();
-            zk4Var.h(zk4.f);
-            zk4Var.l(this.b.getString(R.string.obfuscated_res_0x7f0f024e));
-            int count = ListUtils.getCount(list);
-            zk4Var.j(list);
-            zk4Var.i(String.valueOf(count));
-            MediaFileInfo mediaFileInfo = (MediaFileInfo) ListUtils.getItem(list, count - 1);
-            if (mediaFileInfo instanceof ImageFileInfo) {
-                zk4Var.k((ImageFileInfo) mediaFileInfo);
-            } else if (mediaFileInfo instanceof VideoFileInfo) {
-                zk4Var.k((VideoFileInfo) mediaFileInfo);
-            }
-            return zk4Var;
-        }
-        return (zk4) invokeL.objValue;
-    }
-
-    public zk4 u(List<VideoFileInfo> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, list)) == null) {
-            zk4 zk4Var = new zk4();
-            zk4Var.h(zk4.g);
-            zk4Var.l(this.b.getString(R.string.obfuscated_res_0x7f0f0250));
-            int count = ListUtils.getCount(list);
-            zk4Var.i(String.valueOf(count));
-            ArrayList arrayList = new ArrayList();
-            if (!ListUtils.isEmpty(list)) {
-                arrayList.addAll(list);
-            }
-            zk4Var.j(arrayList);
-            VideoFileInfo videoFileInfo = (VideoFileInfo) ListUtils.getItem(list, count - 1);
-            if (videoFileInfo != null) {
-                zk4Var.k(videoFileInfo);
-            }
-            return zk4Var;
-        }
-        return (zk4) invokeL.objValue;
-    }
-
-    public final void v(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048601, this, str) == null) || this.h == null || StringUtils.isNull(str)) {
-            return;
-        }
-        for (zk4 zk4Var : this.h) {
-            if (zk4Var != null && TextUtils.equals(str, zk4Var.b())) {
-                ArrayList arrayList = new ArrayList();
-                if (zk4Var.d() != null) {
-                    for (MediaFileInfo mediaFileInfo : zk4Var.d()) {
-                        if (mediaFileInfo instanceof ImageFileInfo) {
-                            arrayList.add((ImageFileInfo) mediaFileInfo);
-                        }
-                    }
-                }
-                this.g = arrayList;
-            }
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
+            path.moveTo(rectF.left + Math.min(this.i, this.g) + f, rectF.top + this.h + f);
+            float f2 = f / 2.0f;
+            path.lineTo(rectF.left + this.i + f2, rectF.top + this.h + f);
+            path.lineTo(rectF.left + (this.f / 2.0f) + this.i, rectF.top + f + f);
+            path.lineTo(((rectF.left + this.f) + this.i) - f2, rectF.top + this.h + f);
+            path.lineTo((rectF.right - this.g) - f, rectF.top + this.h + f);
+            float f3 = rectF.right;
+            float f4 = this.g;
+            float f5 = rectF.top;
+            float f6 = this.h;
+            path.arcTo(new RectF(f3 - f4, f5 + f6 + f, f3 - f, f4 + f5 + f6), 270.0f, 90.0f);
+            path.lineTo(rectF.right - f, (rectF.bottom - this.g) - f);
+            float f7 = rectF.right;
+            float f8 = this.g;
+            float f9 = rectF.bottom;
+            path.arcTo(new RectF(f7 - f8, f9 - f8, f7 - f, f9 - f), 0.0f, 90.0f);
+            path.lineTo(rectF.left + this.g + f, rectF.bottom - f);
+            float f10 = rectF.left;
+            float f11 = rectF.bottom;
+            float f12 = this.g;
+            path.arcTo(new RectF(f10 + f, f11 - f12, f12 + f10, f11 - f), 90.0f, 90.0f);
+            path.lineTo(rectF.left + f, rectF.top + this.h + this.g + f);
+            float f13 = rectF.left;
+            float f14 = f13 + f;
+            float f15 = rectF.top;
+            float f16 = this.h;
+            float f17 = f15 + f16 + f;
+            float f18 = this.g;
+            path.arcTo(new RectF(f14, f17, f13 + f18, f18 + f15 + f16), 180.0f, 90.0f);
+            path.close();
         }
     }
 
-    public void w(VideoFileInfo videoFileInfo) {
+    public final void i(RectF rectF, Path path, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, videoFileInfo) == null) {
-            this.d = videoFileInfo;
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{rectF, path, Float.valueOf(f)}) == null) {
+            path.moveTo(rectF.left + this.i + f, rectF.top + this.h + f);
+            float f2 = f / 2.0f;
+            path.lineTo(rectF.left + this.i + f2, rectF.top + this.h + f);
+            path.lineTo(rectF.left + (this.f / 2.0f) + this.i, rectF.top + f + f);
+            path.lineTo(((rectF.left + this.f) + this.i) - f2, rectF.top + this.h + f);
+            path.lineTo(rectF.right - f, rectF.top + this.h + f);
+            path.lineTo(rectF.right - f, rectF.bottom - f);
+            path.lineTo(rectF.left + f, rectF.bottom - f);
+            path.lineTo(rectF.left + f, rectF.top + this.h + f);
+            path.lineTo(rectF.left + this.i + f, rectF.top + this.h + f);
+            path.close();
         }
     }
 
-    public void x(String str) {
+    @Override // android.graphics.drawable.Drawable
+    public void onBoundsChange(Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
-            this.e = str;
-            v(str);
+        if (interceptable == null || interceptable.invokeL(1048589, this, rect) == null) {
+            super.onBoundsChange(rect);
         }
     }
 
-    public void y(ImageFileInfo imageFileInfo) {
+    @Override // android.graphics.drawable.Drawable
+    public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, imageFileInfo) == null) {
-            this.f = imageFileInfo;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.c.setAlpha(i);
         }
     }
 
-    public void z(fl4 fl4Var) {
+    @Override // android.graphics.drawable.Drawable
+    public void setColorFilter(ColorFilter colorFilter) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048605, this, fl4Var) == null) || fl4Var == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048591, this, colorFilter) == null) {
+            this.c.setColorFilter(colorFilter);
         }
-        List<MediaFileInfo> list = fl4Var.b;
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(t(list));
-        if (!ListUtils.isEmpty(fl4Var.c)) {
-            arrayList.add(u(fl4Var.c));
-        }
-        if (!ListUtils.isEmpty(fl4Var.a)) {
-            arrayList.addAll(fl4Var.a);
-        }
-        this.h.clear();
-        this.h.addAll(arrayList);
     }
 }

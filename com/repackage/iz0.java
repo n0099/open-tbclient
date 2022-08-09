@@ -1,20 +1,17 @@
 package com.repackage;
 
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.thread.executor.BaseExecutorCell;
-import com.baidu.nadcore.thread.task.ElasticTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
-public abstract class iz0 extends BaseExecutorCell {
+public class iz0 extends hz0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public iz0(int i) {
@@ -34,48 +31,13 @@ public abstract class iz0 extends BaseExecutorCell {
                 return;
             }
         }
-        this.d = false;
+        this.c = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 100L, TimeUnit.MILLISECONDS, new SynchronousQueue());
     }
 
     @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
-    public boolean a() {
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d && e() < this.b : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
-    public void g(ElasticTask elasticTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, elasticTask) == null) {
-            super.g(elasticTask);
-            if (this.d) {
-                uz0.f().k();
-            }
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.d) {
-                Log.w(d(), "This executor cell is already opened.");
-                return;
-            }
-            this.d = true;
-            this.c.setKeepAliveTime(5000L, TimeUnit.MILLISECONDS);
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (!this.d) {
-                Log.w(d(), "This executor cell is already shutdown.");
-                return;
-            }
-            this.d = false;
-            this.c.setKeepAliveTime(100L, TimeUnit.MILLISECONDS);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ElasticDredgeDisasterCell" : (String) invokeV.objValue;
     }
 }

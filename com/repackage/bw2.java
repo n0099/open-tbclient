@@ -1,15 +1,16 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.SwanAppBaseActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.ej2;
-import java.io.File;
-import java.util.List;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class bw2 {
     public static /* synthetic */ Interceptable $ic;
@@ -29,76 +30,118 @@ public class bw2 {
                 return;
             }
         }
-        a = sg1.a;
+        a = jh1.a;
     }
 
-    public static void a() {
-        String[] list;
+    @SuppressLint({"BDThrowableCheck"})
+    public static boolean a(Context context, @NonNull cw2 cw2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || (list = ej2.q().list()) == null || list.length <= 0) {
-            return;
-        }
-        for (String str : list) {
-            if (!TextUtils.isEmpty(str)) {
-                h94 h94Var = new h94();
-                h94Var.g = str;
-                h94Var.i = -1L;
-                d84.i().f(h94Var);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, cw2Var)) == null) {
+            if (context instanceof SwanAppBaseActivity) {
+                return true;
             }
-        }
-        ej2.e.d();
-    }
-
-    public static void b(String str) {
-        File s;
-        String[] list;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, str) == null) || TextUtils.isEmpty(str) || (s = ej2.s(str)) == null || (list = s.list()) == null || list.length <= 1) {
-            return;
-        }
-        List<h94> q = pv2.q(str);
-        for (String str2 : list) {
-            long j = -1;
-            try {
-                j = Long.parseLong(str2);
-            } catch (NumberFormatException e) {
-                if (a) {
-                    aw2.b(Log.getStackTraceString(e));
-                }
-            }
-            if (!c(j, q)) {
-                kg4.L(ej2.t(str, str2));
-                aw2.b("delete plugin name = " + str + " ; version = " + str2);
-            }
-        }
-        h94 h94Var = null;
-        if (q != null) {
-            if (q.size() == 1) {
-                h94Var = q.get(0);
-            } else if (q.size() >= 2) {
-                h94Var = q.get(1);
-            }
-        }
-        if (h94Var != null) {
-            d84.i().f(h94Var);
-        }
-    }
-
-    public static boolean c(long j, List<h94> list) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65539, null, j, list)) == null) {
-            if (j >= 0 && list != null && list.size() != 0) {
-                int min = Math.min(list.size(), 2);
-                for (int i = 0; i < min; i++) {
-                    h94 h94Var = list.get(i);
-                    if (h94Var != null && (j == h94Var.i || j == xd3.c(h94Var.j))) {
-                        return true;
-                    }
-                }
+            cw2Var.b(2, "method should be called after setActivityRef");
+            if (a) {
+                throw new IllegalStateException("this method should be called after setActivityRef");
             }
             return false;
         }
-        return invokeJL.booleanValue;
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean b(@NonNull Context context, @NonNull String str, @NonNull cw2 cw2Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, str, cw2Var)) == null) {
+            if (th4.a(context, str)) {
+                cw2Var.a("permission has already granted");
+                return true;
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static boolean c(ArrayList<String> arrayList, @NonNull cw2 cw2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, arrayList, cw2Var)) == null) {
+            if (arrayList == null || arrayList.isEmpty()) {
+                cw2Var.a("permission has already granted");
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @NonNull
+    public static ArrayList<String> d(@NonNull Context context, @NonNull String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, strArr)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            for (String str : strArr) {
+                if (!th4.a(context, str)) {
+                    arrayList.add(str);
+                }
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeLL.objValue;
+    }
+
+    public static void e(@NonNull String str, @NonNull String[] strArr, int i, @NonNull Context context, @NonNull cw2 cw2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, strArr, Integer.valueOf(i), context, cw2Var}) == null) && a(context, cw2Var) && !b(context, str, cw2Var)) {
+            g(context, strArr, i, cw2Var);
+        }
+    }
+
+    @Deprecated
+    public static void f(@NonNull Context context, @NonNull String[] strArr, int i, @NonNull cw2 cw2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLIL(65542, null, context, strArr, i, cw2Var) == null) && a(context, cw2Var)) {
+            ArrayList<String> d = d(context, strArr);
+            if (c(d, cw2Var)) {
+                return;
+            }
+            ((SwanAppBaseActivity) context).y(i, (String[]) d.toArray(new String[0]), new xv2(i, cw2Var));
+        }
+    }
+
+    public static void g(@NonNull Context context, @NonNull String[] strArr, int i, @NonNull cw2 cw2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLIL(65543, null, context, strArr, i, cw2Var) == null) && a(context, cw2Var)) {
+            ArrayList<String> d = d(context, strArr);
+            if (c(d, cw2Var)) {
+                return;
+            }
+            ((SwanAppBaseActivity) context).y(i, (String[]) d.toArray(new String[0]), new yv2(context, i, cw2Var));
+        }
+    }
+
+    public static void h(@NonNull String[] strArr, int i, @NonNull Context context, @NonNull cw2 cw2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLILL(65544, null, strArr, i, context, cw2Var) == null) && a(context, cw2Var)) {
+            ArrayList<String> d = d(context, strArr);
+            if (c(d, cw2Var)) {
+                return;
+            }
+            g(context, (String[]) d.toArray(new String[0]), i, cw2Var);
+        }
+    }
+
+    @Deprecated
+    public static void requestPermissions(@NonNull String[] strArr, int i, @NonNull Context context, @NonNull cw2 cw2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLILL(65545, null, strArr, i, context, cw2Var) == null) && a(context, cw2Var)) {
+            ArrayList<String> d = d(context, strArr);
+            if (c(d, cw2Var)) {
+                return;
+            }
+            f(context, (String[]) d.toArray(new String[0]), i, cw2Var);
+        }
     }
 }

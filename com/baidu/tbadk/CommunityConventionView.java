@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CommunityConventionView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,9 +49,9 @@ public class CommunityConventionView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             this.mContext = context;
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01e6, this);
-            this.mWarningImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f0924c3);
-            this.mConventionTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f0906c9);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01e7, this);
+            this.mWarningImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f0925e8);
+            this.mConventionTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f0906e8);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -59,7 +59,7 @@ public class CommunityConventionView extends LinearLayout {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            WebPManager.setPureDrawable(this.mWarningImage, R.drawable.obfuscated_res_0x7f080a07, R.color.CAM_X0107, null);
+            WebPManager.setPureDrawable(this.mWarningImage, R.drawable.obfuscated_res_0x7f080a2c, R.color.CAM_X0107, null);
             SkinManager.setViewTextColor(this.mConventionTitle, (int) R.color.CAM_X0107);
         }
     }

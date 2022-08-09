@@ -1,25 +1,26 @@
 package com.repackage;
 
-import android.view.GestureDetector;
-import android.view.MotionEvent;
-import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.widget.multidelmenu.view.MultiDelPostMenuView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class uh5 extends GestureDetector.SimpleOnGestureListener {
+public class uh5 extends th5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WheelView a;
+    public MultiDelPostMenuView c;
+    public ViewGroup d;
 
-    public uh5(WheelView wheelView) {
+    public uh5(TbPageContext tbPageContext, ViewGroup viewGroup, jh5 jh5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wheelView};
+            Object[] objArr = {tbPageContext, viewGroup, jh5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,17 +30,52 @@ public final class uh5 extends GestureDetector.SimpleOnGestureListener {
                 return;
             }
         }
-        this.a = wheelView;
+        this.d = viewGroup;
+        rh5 rh5Var = new rh5(tbPageContext, new kh5(jh5Var));
+        this.b = rh5Var;
+        rh5Var.d(this);
+        this.c = new MultiDelPostMenuView(tbPageContext, this);
     }
 
-    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-    public final boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.th5
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            this.a.q(f2);
-            return true;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a) {
+            this.a = false;
+            MultiDelPostMenuView multiDelPostMenuView = this.c;
+            if (multiDelPostMenuView != null && this.d != null && multiDelPostMenuView.getParent() != null) {
+                this.d.removeView(this.c);
+            }
+            qh5 qh5Var = this.b;
+            if (qh5Var != null) {
+                qh5Var.dismiss();
+            }
+            this.c = null;
+            this.d = null;
+            this.b = null;
         }
-        return invokeCommon.booleanValue;
+    }
+
+    @Override // com.repackage.th5
+    public void d(int i) {
+        MultiDelPostMenuView multiDelPostMenuView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (multiDelPostMenuView = this.c) == null) {
+            return;
+        }
+        multiDelPostMenuView.setDelCount(i);
+    }
+
+    @Override // com.repackage.th5
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a) {
+            return;
+        }
+        this.a = true;
+        ViewGroup viewGroup = this.d;
+        if (viewGroup != null) {
+            viewGroup.addView(this.c, new ViewGroup.LayoutParams(-1, -1));
+        }
     }
 }

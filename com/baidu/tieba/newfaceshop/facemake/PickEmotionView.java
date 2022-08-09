@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class PickEmotionView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -51,8 +51,8 @@ public class PickEmotionView extends FrameLayout {
             this.b = new ImageView(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 53;
-            layoutParams.topMargin = pi.f(getContext(), R.dimen.obfuscated_res_0x7f070302);
-            layoutParams.rightMargin = pi.f(getContext(), R.dimen.obfuscated_res_0x7f070302);
+            layoutParams.topMargin = qi.f(getContext(), R.dimen.obfuscated_res_0x7f070302);
+            layoutParams.rightMargin = qi.f(getContext(), R.dimen.obfuscated_res_0x7f070302);
             addView(this.b, layoutParams);
         }
     }
@@ -80,9 +80,9 @@ public class PickEmotionView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             if (z) {
-                SkinManager.setBackgroundResource(this.b, R.drawable.obfuscated_res_0x7f08063e);
+                SkinManager.setBackgroundResource(this.b, R.drawable.obfuscated_res_0x7f080643);
             } else {
-                SkinManager.setBackgroundResource(this.b, R.drawable.obfuscated_res_0x7f08063d);
+                SkinManager.setBackgroundResource(this.b, R.drawable.obfuscated_res_0x7f080642);
             }
         }
     }

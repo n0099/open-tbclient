@@ -19,9 +19,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sm4;
-import com.repackage.za;
-/* loaded from: classes2.dex */
+import com.repackage.ab;
+import com.repackage.jn4;
+/* loaded from: classes3.dex */
 public class KuangAPKFragmentActivityPageContext implements TbPageContext<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,10 +53,10 @@ public class KuangAPKFragmentActivityPageContext implements TbPageContext<BaseFr
     }
 
     @Override // com.baidu.tbadk.TbPageContext
-    public sm4 getLayoutMode() {
+    public jn4 getLayoutMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.orginal.getLayoutMode() : (sm4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.orginal.getLayoutMode() : (jn4) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.TbPageContext, com.repackage.d9
@@ -88,10 +88,10 @@ public class KuangAPKFragmentActivityPageContext implements TbPageContext<BaseFr
     }
 
     @Override // com.baidu.tbadk.TbPageContext
-    public void registerListener(za zaVar) {
+    public void registerListener(ab abVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, zaVar) == null) {
-            this.orginal.registerListener(zaVar);
+        if (interceptable == null || interceptable.invokeL(1048587, this, abVar) == null) {
+            this.orginal.registerListener(abVar);
         }
     }
 
@@ -136,10 +136,10 @@ public class KuangAPKFragmentActivityPageContext implements TbPageContext<BaseFr
     }
 
     @Override // com.baidu.tbadk.TbPageContext
-    public void registerListener(int i, za zaVar) {
+    public void registerListener(int i, ab abVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048585, this, i, zaVar) == null) {
-            this.orginal.registerListener(i, zaVar);
+        if (interceptable == null || interceptable.invokeIL(1048585, this, i, abVar) == null) {
+            this.orginal.registerListener(i, abVar);
         }
     }
 

@@ -9,30 +9,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.as9;
-import com.repackage.hs9;
-import com.repackage.is9;
-import com.repackage.rw9;
-import com.repackage.ur9;
-import com.repackage.vr9;
+import com.repackage.cv9;
+import com.repackage.dv9;
+import com.repackage.mz9;
+import com.repackage.pu9;
+import com.repackage.qu9;
+import com.repackage.vu9;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.functions.Actions;
 import rx.internal.operators.NotificationLite;
 /* loaded from: classes8.dex */
-public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> implements ur9.a<T> {
+public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> implements pu9.a<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 6035251036011671568L;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean active;
     public volatile Object latest;
-    public is9<c<T>> onAdded;
-    public is9<c<T>> onStart;
-    public is9<c<T>> onTerminated;
+    public dv9<c<T>> onAdded;
+    public dv9<c<T>> onStart;
+    public dv9<c<T>> onTerminated;
 
     /* loaded from: classes8.dex */
-    public class a implements hs9 {
+    public class a implements cv9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c a;
@@ -57,7 +57,7 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
             this.a = cVar;
         }
 
-        @Override // com.repackage.hs9
+        @Override // com.repackage.cv9
         public void call() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -167,21 +167,21 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
     }
 
     /* loaded from: classes8.dex */
-    public static final class c<T> implements vr9<T> {
+    public static final class c<T> implements qu9<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final as9<? super T> a;
+        public final vu9<? super T> a;
         public boolean b;
         public boolean c;
         public List<Object> d;
         public boolean e;
 
-        public c(as9<? super T> as9Var) {
+        public c(vu9<? super T> vu9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {as9Var};
+                Object[] objArr = {vu9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -192,7 +192,7 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
                 }
             }
             this.b = true;
-            this.a = as9Var;
+            this.a = vu9Var;
         }
 
         public void a(Object obj) {
@@ -297,7 +297,7 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
             }
         }
 
-        @Override // com.repackage.vr9
+        @Override // com.repackage.qu9
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -305,7 +305,7 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
             }
         }
 
-        @Override // com.repackage.vr9
+        @Override // com.repackage.qu9
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
@@ -313,7 +313,7 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
             }
         }
 
-        @Override // com.repackage.vr9
+        @Override // com.repackage.qu9
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
@@ -362,16 +362,16 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         return invokeL.booleanValue;
     }
 
-    public void addUnsubscriber(as9<? super T> as9Var, c<T> cVar) {
+    public void addUnsubscriber(vu9<? super T> vu9Var, c<T> cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, as9Var, cVar) == null) {
-            as9Var.b(rw9.a(new a(this, cVar)));
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vu9Var, cVar) == null) {
+            vu9Var.b(mz9.a(new a(this, cVar)));
         }
     }
 
-    @Override // com.repackage.ur9.a, com.repackage.is9
+    @Override // com.repackage.pu9.a, com.repackage.dv9
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((as9) ((as9) obj));
+        call((vu9) ((vu9) obj));
     }
 
     public Object getLatest() {
@@ -431,13 +431,13 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         return (c[]) invokeL.objValue;
     }
 
-    public void call(as9<? super T> as9Var) {
+    public void call(vu9<? super T> vu9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, as9Var) == null) {
-            c<T> cVar = new c<>(as9Var);
-            addUnsubscriber(as9Var, cVar);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vu9Var) == null) {
+            c<T> cVar = new c<>(vu9Var);
+            addUnsubscriber(vu9Var, cVar);
             this.onStart.call(cVar);
-            if (!as9Var.isUnsubscribed() && add(cVar) && as9Var.isUnsubscribed()) {
+            if (!vu9Var.isUnsubscribed() && add(cVar) && vu9Var.isUnsubscribed()) {
                 remove(cVar);
             }
         }

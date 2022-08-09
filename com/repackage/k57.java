@@ -1,28 +1,19 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tieba.hottopicselect.HotSelectCacheReqMessage;
+import com.baidu.tieba.hottopicselect.HotSelectCacheResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public class k57 {
+public class k57 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public boolean d;
-    public int e;
 
     public k57() {
         Interceptable interceptable = $ic;
@@ -38,130 +29,21 @@ public class k57 {
         }
     }
 
-    public static k57 g(Object obj) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, obj)) == null) {
-            if (obj instanceof Map) {
-                Map map = (Map) obj;
-                k57 k57Var = new k57();
-                try {
-                    k57Var.a = (String) map.get("user_id");
-                    k57Var.b = (String) map.get("username");
-                    k57Var.c = (String) map.get("avatar");
-                    k57Var.d = ((Boolean) map.get("is_free")).booleanValue();
-                    k57Var.e = ((Integer) map.get("pos")).intValue();
-                } catch (Exception unused) {
-                    Log.d("GameMatchUser", "Flutter Data Parser Error!");
-                }
-                if (k57Var.f()) {
-                    return k57Var;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage == null || !(customMessage instanceof HotSelectCacheReqMessage)) {
                 return null;
             }
-            return null;
-        }
-        return (k57) invokeL.objValue;
-    }
-
-    @NonNull
-    public static List<k57> h(HashMap hashMap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hashMap)) == null) {
-            ArrayList arrayList = new ArrayList();
-            Object obj = hashMap.get("imUserList");
-            if (obj instanceof List) {
-                int i = 0;
-                while (true) {
-                    List list = (List) obj;
-                    if (i >= list.size()) {
-                        break;
-                    }
-                    k57 g = g(list.get(i));
-                    if (g != null) {
-                        arrayList.add(g);
-                    }
-                    i++;
-                }
+            HotSelectCacheResponseMessage hotSelectCacheResponseMessage = new HotSelectCacheResponseMessage();
+            try {
+                hotSelectCacheResponseMessage.decodeInBackGround(2016491, (byte[]) null);
+            } catch (Exception unused) {
             }
-            return arrayList;
+            return hotSelectCacheResponseMessage;
         }
-        return (List) invokeL.objValue;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : invokeV.intValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || k57.class != obj.getClass()) {
-                return false;
-            }
-            String str = this.a;
-            String str2 = ((k57) obj).a;
-            return str != null ? str.equals(str2) : str2 == null;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.c)) ? false : true : invokeV.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            String str = this.a;
-            if (str != null) {
-                return str.hashCode();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "GameMatchUser{userId='" + this.a + "', showName='" + this.b + "', avatar='" + this.c + "', isFree='" + this.d + "', pos='" + this.e + "'}";
-        }
-        return (String) invokeV.objValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

@@ -1,140 +1,27 @@
 package com.repackage;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class zm1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public volatile long c;
-    public long d;
-    public long e;
-    public long f;
-    public String g;
+public interface zm1 {
+    void a(@NonNull Object obj, String str, String str2);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755107309, "Lcom/repackage/zm1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755107309, "Lcom/repackage/zm1;");
-                return;
-            }
-        }
-        boolean z = sg1.a;
-    }
+    void b(@NonNull Object obj);
 
-    public zm1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.g = "1";
-    }
+    Object beginFlow(String str);
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @NonNull
-    public String a() {
-        InterceptResult invokeV;
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = this.g;
-            switch (str.hashCode()) {
-                case 48:
-                    if (str.equals("0")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 49:
-                    if (str.equals("1")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 50:
-                    if (str.equals("2")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 51:
-                    if (str.equals("3")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            return c != 0 ? c != 1 ? c != 2 ? c != 3 ? "unknown" : "fip" : "ftp" : "fcp" : "fmp";
-        }
-        return (String) invokeV.objValue;
-    }
+    void c(@NonNull Object obj);
 
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j = this.f;
-            if (j > 0) {
-                return j;
-            }
-            long[] jArr = {this.d, this.e, this.b};
-            long j2 = Long.MAX_VALUE;
-            for (int i = 0; i < 3; i++) {
-                long j3 = jArr[i];
-                if (j3 > 0 && j3 < j2) {
-                    j2 = j3;
-                }
-            }
-            if (j2 != Long.MAX_VALUE) {
-                this.f = j2;
-            }
-            return this.f;
-        }
-        return invokeV.longValue;
-    }
+    void d(String str, Map<String, String> map);
 
-    public String c(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? j == this.d ? "2" : j == this.e ? "3" : (j != this.b && j == this.c) ? "0" : "1" : (String) invokeJ.objValue;
-    }
+    boolean e();
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "WebViewPaintTiming{fp=" + this.a + ", fcp=" + this.b + ", fmp=" + this.c + ", ftp=" + this.d + ", fip=" + this.e + ", mMinCache=" + this.f + ", fmpType='" + this.g + "', fmpTypeName='" + a() + "'}";
-        }
-        return (String) invokeV.objValue;
-    }
+    void f(String str, JSONObject jSONObject);
+
+    void g(@NonNull Object obj, String str, String str2, long j);
+
+    void h(@NonNull Object obj, String str);
+
+    void i(String str, String str2);
 }

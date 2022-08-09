@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fs5;
+import com.repackage.xt5;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fs5 a;
+    public xt5 a;
     public AlaSquareTabInfo b;
     public String c;
     public String d;
@@ -38,9 +38,56 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
         }
     }
 
-    public final void A1(Intent intent) {
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.onChangeSkinType(i);
+            xt5 xt5Var = this.a;
+            if (xt5Var != null) {
+                xt5Var.h(getPageContext(), i);
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            super.onCreate(bundle);
+            this.a = new xt5(getPageContext(), true);
+            if (getIntent() != null) {
+                z1(getIntent());
+            } else {
+                finish();
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.onDestroy();
+            xt5 xt5Var = this.a;
+            if (xt5Var != null) {
+                xt5Var.i();
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onResume();
+            this.a.k();
+        }
+    }
+
+    public final void z1(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, intent) == null) {
             this.b = (AlaSquareTabInfo) intent.getParcelableExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_ENTRY_DATA);
             this.c = intent.getStringExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_ENTRY_NAME);
             this.d = intent.getStringExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_LABEL_NAME);
@@ -67,53 +114,6 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
             if (this.a.f() != null) {
                 setContentView(this.a.f());
             }
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            super.onChangeSkinType(i);
-            fs5 fs5Var = this.a;
-            if (fs5Var != null) {
-                fs5Var.h(getPageContext(), i);
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            super.onCreate(bundle);
-            this.a = new fs5(getPageContext(), true);
-            if (getIntent() != null) {
-                A1(getIntent());
-            } else {
-                finish();
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onDestroy();
-            fs5 fs5Var = this.a;
-            if (fs5Var != null) {
-                fs5Var.i();
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onResume();
-            this.a.k();
         }
     }
 }

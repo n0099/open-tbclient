@@ -15,14 +15,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yj9;
+import com.repackage.tm9;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.Collections;
 import java.util.Map;
 import java.util.WeakHashMap;
-/* loaded from: classes4.dex */
-public final class zzb extends Fragment implements yj9 {
+/* loaded from: classes5.dex */
+public final class zzb extends Fragment implements tm9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, LifecycleCallback> a;
@@ -72,9 +72,9 @@ public final class zzb extends Fragment implements yj9 {
         }
     }
 
-    @Override // com.repackage.yj9
+    @Override // com.repackage.tm9
     @Nullable
-    public final Activity h0() {
+    public final Activity g0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getActivity() : (Activity) invokeV.objValue;

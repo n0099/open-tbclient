@@ -1,67 +1,76 @@
 package com.repackage;
 
-import com.baidu.live.business.model.data.LiveHostInfo;
+import android.graphics.Typeface;
+import android.text.TextUtils;
+import com.baidu.live.LiveFeedPageSdk;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.io.File;
+import java.util.Hashtable;
 /* loaded from: classes6.dex */
 public class l80 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Hashtable<String, Typeface> a;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<k80> a;
 
-    public l80() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755575347, "Lcom/repackage/l80;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755575347, "Lcom/repackage/l80;");
+                return;
             }
         }
+        a = new Hashtable<>();
+        b = LiveFeedPageSdk.getInstance().getApplication().getFilesDir().getAbsolutePath() + File.separator + "font/";
+        new File(b).mkdirs();
     }
 
-    public void a(JSONObject jSONObject) {
-        JSONObject optJSONObject;
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        jSONObject.optInt("inner_errno");
-        jSONObject.optString("inner_msg");
-        JSONArray optJSONArray = jSONObject.optJSONArray("items");
-        if (optJSONArray != null && optJSONArray.length() > 0) {
-            this.a = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-                if (optJSONObject2 != null) {
-                    k80 k80Var = new k80();
-                    k80Var.a(optJSONObject2);
-                    this.a.add(k80Var);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                return new File(str).exists();
+            } catch (Exception unused) {
+                return false;
             }
         }
-        if (na0.c(this.a) || (optJSONObject = jSONObject.optJSONObject("more")) == null) {
-            return;
+        return invokeL.booleanValue;
+    }
+
+    public static Typeface b(String str) {
+        InterceptResult invokeL;
+        Typeface typeface;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            synchronized (a) {
+                if (!a.containsKey(str)) {
+                    String str2 = b + str;
+                    if (a(str2)) {
+                        try {
+                            a.put(str, Typeface.createFromFile(str2));
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                typeface = a.get(str) == null ? Typeface.DEFAULT : a.get(str);
+            }
+            return typeface;
         }
-        String optString = optJSONObject.optString("scheme");
-        if (ta0.a(optString)) {
-            return;
-        }
-        k80 k80Var2 = new k80();
-        k80Var2.d = optString;
-        k80Var2.a = true;
-        LiveHostInfo liveHostInfo = new LiveHostInfo();
-        liveHostInfo.name = optJSONObject.optString("txt");
-        k80Var2.e = liveHostInfo;
-        this.a.add(k80Var2);
+        return (Typeface) invokeL.objValue;
     }
 }

@@ -1,40 +1,39 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.AdRipper;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.ads.cfg.VideoOption;
-import com.qq.e.ads.nativ.ADSize;
-import com.qq.e.ads.nativ.NativeExpressAD;
-import com.qq.e.ads.nativ.NativeExpressADView;
-import com.qq.e.comm.util.AdError;
+import com.fun.ad.sdk.internal.api.utils.NumberUtils;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cg9 extends ReporterPidLoader<NativeExpressADView> {
+public final class cg9 extends hl9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final long b;
+    public final long c;
+    public final int d;
+    public final List<c> e;
 
     /* loaded from: classes5.dex */
-    public class a implements NativeExpressAD.NativeExpressADListener {
+    public class a implements Comparator<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public boolean b;
-        public final /* synthetic */ cg9 c;
 
         public a(cg9 cg9Var) {
             Interceptable interceptable = $ic;
@@ -48,206 +47,392 @@ public class cg9 extends ReporterPidLoader<NativeExpressADView> {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.util.Comparator
+        public int compare(Object obj, Object obj2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) ? -Integer.compare(((c) obj).a, ((c) obj2).a) : invokeLL.intValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b extends hl9 implements xf9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final long a;
+        public final int b;
+        public final Ssp.Pid c;
+        public final c d;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(int i, ObjectInput objectInput, Map<Long, Ssp.Pid> map, c cVar) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), objectInput, map, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = cg9Var;
+            this.d = cVar;
+            long readLong = objectInput.readLong();
+            this.a = readLong;
+            this.b = objectInput.readInt();
+            this.c = map.get(Long.valueOf(readLong));
         }
 
-        @Override // com.qq.e.ads.nativ.NativeExpressAD.NativeExpressADListener
-        public void onADClicked(NativeExpressADView nativeExpressADView) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(JSONObject jSONObject, Map<Long, Ssp.Pid> map, c cVar) {
+            super(0);
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, nativeExpressADView) == null) {
-                LogPrinter.d();
-                this.c.onAdClicked(nativeExpressADView, this.b, new String[0]);
-                this.b = true;
-            }
-        }
-
-        @Override // com.qq.e.ads.nativ.NativeExpressAD.NativeExpressADListener
-        public void onADCloseOverlay(NativeExpressADView nativeExpressADView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nativeExpressADView) == null) {
-                LogPrinter.e("GDTNativeExpressAd onADCloseOverlay", new Object[0]);
-            }
-        }
-
-        @Override // com.qq.e.ads.nativ.NativeExpressAD.NativeExpressADListener
-        public void onADClosed(NativeExpressADView nativeExpressADView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nativeExpressADView) == null) {
-                LogPrinter.e("GDTNativeExpressAd onADClosed", new Object[0]);
-                this.c.onAdClose(nativeExpressADView);
-            }
-        }
-
-        @Override // com.qq.e.ads.nativ.NativeExpressAD.NativeExpressADListener
-        public void onADExposure(NativeExpressADView nativeExpressADView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, nativeExpressADView) == null) {
-                LogPrinter.d();
-                this.c.onAdShow(nativeExpressADView, this.a, new String[0]);
-                this.a = true;
-            }
-        }
-
-        @Override // com.qq.e.ads.nativ.NativeExpressAD.NativeExpressADListener
-        public void onADLeftApplication(NativeExpressADView nativeExpressADView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, nativeExpressADView) == null) {
-                LogPrinter.e("GDTNativeExpressAd onADLeftApplication", new Object[0]);
-            }
-        }
-
-        @Override // com.qq.e.ads.nativ.NativeExpressAD.NativeExpressADListener
-        public void onADLoaded(List<NativeExpressADView> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-                LogPrinter.d();
-                if (list == null || list.isEmpty()) {
-                    this.c.onError(0, "NoFill");
-                } else {
-                    list.get(0).render();
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jSONObject, map, cVar};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
                 }
             }
+            this.d = cVar;
+            long adjustLong = NumberUtils.adjustLong(jSONObject.getLong("id"), 0L);
+            this.a = adjustLong;
+            this.b = NumberUtils.adjustInt(jSONObject.getInt("weight"), 0);
+            this.c = map.get(Long.valueOf(adjustLong));
         }
 
-        @Override // com.qq.e.ads.nativ.NativeExpressAD.NativeExpressADListener
-        public void onADOpenOverlay(NativeExpressADView nativeExpressADView) {
+        @Override // com.repackage.xf9
+        public boolean a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, nativeExpressADView) == null) {
-                LogPrinter.e("GDTNativeExpressAd onADOpenOverlay", new Object[0]);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.repackage.xf9
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
+        }
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                if (obj == null || b.class != obj.getClass()) {
+                    return false;
+                }
+                b bVar = (b) obj;
+                return this.a == bVar.a && this.b == bVar.b && Objects.equals(this.c, bVar.c);
+            }
+            return invokeL.booleanValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Objects.hash(Long.valueOf(this.a), Integer.valueOf(this.b), this.c) : invokeV.intValue;
+        }
+
+        @Override // com.repackage.hl9
+        public void srzableInternal(ObjectOutput objectOutput) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, objectOutput) == null) {
+                objectOutput.writeLong(this.a);
+                objectOutput.writeInt(this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class c extends hl9 implements xf9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int a;
+        public final List<b> b;
+
+        /* loaded from: classes5.dex */
+        public class a implements Comparator<T> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // java.util.Comparator
+            public int compare(Object obj, Object obj2) {
+                InterceptResult invokeLL;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) ? -Integer.compare(((b) obj).b, ((b) obj2).b) : invokeLL.intValue;
             }
         }
 
-        @Override // com.qq.e.ads.NativeAbstractAD.BasicADListener
-        public void onNoAD(AdError adError) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(int i, ObjectInput objectInput, Map<Long, Ssp.Pid> map) {
+            super(i);
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, adError) == null) {
-                LogPrinter.e("GDTNativeExpressAd onError code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg(), new Object[0]);
-                this.c.onError(adError.getErrorCode(), adError.getErrorMsg());
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), objectInput, map};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.a = objectInput.readInt();
+            int readInt = objectInput.readInt();
+            HashSet hashSet = new HashSet();
+            for (int i4 = 0; i4 < readInt; i4++) {
+                hashSet.add(new b(objectInput.readInt(), objectInput, map, this));
+            }
+            this.b = Collections.unmodifiableList(new ArrayList(hashSet));
         }
 
-        @Override // com.qq.e.ads.nativ.NativeExpressAD.NativeExpressADListener
-        public void onRenderFail(NativeExpressADView nativeExpressADView) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(JSONObject jSONObject, Map<Long, Ssp.Pid> map) {
+            super(0);
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, nativeExpressADView) == null) {
-                LogPrinter.e();
-                this.c.onError(0, "RenderFail");
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jSONObject, map};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
             }
+            this.a = NumberUtils.adjustInt(jSONObject.getInt("weight"), 0);
+            HashSet hashSet = new HashSet();
+            JSONArray jSONArray = jSONObject.getJSONArray(TiebaStatic.Params.PID_MERGE);
+            for (int i3 = 0; i3 < jSONArray.length(); i3++) {
+                hashSet.add(new b(jSONArray.getJSONObject(i3), map, this));
+            }
+            ArrayList arrayList = new ArrayList(hashSet);
+            a(arrayList);
+            this.b = Collections.unmodifiableList(arrayList);
         }
 
-        @Override // com.qq.e.ads.nativ.NativeExpressAD.NativeExpressADListener
-        public void onRenderSuccess(NativeExpressADView nativeExpressADView) {
+        public final <T extends b> List<T> a(List<T> list) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, nativeExpressADView) == null) {
-                LogPrinter.d();
-                this.c.onAdLoaded((cg9) nativeExpressADView);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+                Collections.sort(list, new a(this));
+                return list;
+            }
+            return (List) invokeL.objValue;
+        }
+
+        @Override // com.repackage.xf9
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.repackage.xf9
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
+        }
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                if (obj == null || c.class != obj.getClass()) {
+                    return false;
+                }
+                c cVar = (c) obj;
+                return this.a == cVar.a && Objects.equals(this.b, cVar.b);
+            }
+            return invokeL.booleanValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Objects.hash(Integer.valueOf(this.a), this.b) : invokeV.intValue;
+        }
+
+        @Override // com.repackage.hl9
+        public void srzableInternal(ObjectOutput objectOutput) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, objectOutput) == null) {
+                objectOutput.writeInt(this.a);
+                objectOutput.writeInt(this.b.size());
+                for (b bVar : this.b) {
+                    bVar.srzable(objectOutput);
+                }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cg9(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.NATIVE), pid, false);
+    public cg9(int i, ObjectInput objectInput, Map<Long, Ssp.Pid> map) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {Integer.valueOf(i), objectInput, map};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public AdRipper createAdRipper(Ssp.Pid pid) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new qg9(pid) : (AdRipper) invokeL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        NativeExpressADView nativeExpressADView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) || (nativeExpressADView = (NativeExpressADView) obj) == null) {
-            return;
+        this.a = objectInput.readUTF();
+        this.b = objectInput.readLong();
+        this.c = objectInput.readLong();
+        int readInt = objectInput.readInt();
+        HashSet hashSet = new HashSet(readInt);
+        for (int i4 = 0; i4 < readInt; i4++) {
+            hashSet.add(new c(objectInput.readInt(), objectInput, map));
         }
-        nativeExpressADView.destroy();
+        ArrayList arrayList = new ArrayList(hashSet);
+        a(arrayList);
+        this.e = Collections.unmodifiableList(arrayList);
+        if (i >= 1) {
+            this.d = objectInput.readInt();
+        } else {
+            this.d = 0;
+        }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public double getAdBiddingPrices(Object obj) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cg9(JSONObject jSONObject, Map<Long, Ssp.Pid> map) {
+        super(1);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? ((NativeExpressADView) obj).getECPM() / 100.0d : invokeL.doubleValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, context, funAdSlot) == null) {
-            onLoadStart(funAdSlot);
-            if (!(context instanceof Activity)) {
-                onError(0, "NotActvity");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject, map};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            NativeExpressAD nativeExpressAD = new NativeExpressAD((Activity) context, new ADSize(-1, -2), this.mPid.pid, new a(this));
-            nativeExpressAD.setVideoOption(new VideoOption.Builder().setAutoPlayPolicy(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart ? 1 : 0).setAutoPlayMuted(!FunAdSdk.getFunAdConfig().isVideoSoundEnable).setDetailPageMuted(false).setNeedCoverImage(true).setNeedProgressBar(true).setEnableDetailPage(false).setEnableUserControl(false).build());
-            nativeExpressAD.setMinVideoDuration(0);
-            nativeExpressAD.setMaxVideoDuration(0);
-            nativeExpressAD.setVideoPlayPolicy(1);
-            nativeExpressAD.loadAD(1);
         }
+        this.a = jSONObject.getString("sid");
+        this.b = NumberUtils.adjustLong(jSONObject.getLong("wt"), 0L);
+        this.c = NumberUtils.adjustLong(jSONObject.getLong("tmout"), 0L);
+        JSONArray jSONArray = jSONObject.getJSONArray("pGroups");
+        HashSet hashSet = new HashSet();
+        for (int i3 = 0; i3 < jSONArray.length(); i3++) {
+            hashSet.add(new c(jSONArray.getJSONObject(i3), map));
+        }
+        ArrayList arrayList = new ArrayList(hashSet);
+        a(arrayList);
+        this.e = Collections.unmodifiableList(arrayList);
+        this.d = jSONObject.optInt("ver", 0);
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void setAdBiddingResult(Object obj, double d, double d2, boolean z, int i) {
+    public final <T extends c> List<T> a(List<T> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{obj, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            NativeExpressADView nativeExpressADView = (NativeExpressADView) obj;
-            double d3 = d * 100.0d;
-            if (z) {
-                nativeExpressADView.sendWinNotification((int) d3);
-                return;
-            }
-            int i2 = 1;
-            if (i == 3) {
-                i2 = 2;
-            } else if (i == 5) {
-                i2 = 3;
-            }
-            nativeExpressADView.sendLossNotification((int) d3, i2, "");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            Collections.sort(list, new a(this));
+            return list;
         }
+        return (List) invokeL.objValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, activity, viewGroup, str, obj)) == null) {
-            NativeExpressADView nativeExpressADView = (NativeExpressADView) obj;
-            if (nativeExpressADView.getBoundData().getAdPatternType() == 2) {
-                nativeExpressADView.setMediaListener(new dg9(this));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            onShowStart(nativeExpressADView);
-            if (nativeExpressADView.getParent() != null) {
-                ((ViewGroup) nativeExpressADView.getParent()).removeView(nativeExpressADView);
+            if (obj == null || cg9.class != obj.getClass()) {
+                return false;
             }
-            viewGroup.removeAllViews();
-            viewGroup.addView(nativeExpressADView);
-            return true;
+            cg9 cg9Var = (cg9) obj;
+            return this.b == cg9Var.b && this.c == cg9Var.c && Objects.equals(this.a, cg9Var.a) && Objects.equals(this.e, cg9Var.e) && this.d == cg9Var.d;
         }
-        return invokeLLLL.booleanValue;
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Objects.hash(this.a, Long.valueOf(this.b), Long.valueOf(this.c), this.e, Integer.valueOf(this.d)) : invokeV.intValue;
+    }
+
+    @Override // com.repackage.hl9
+    public void srzableInternal(ObjectOutput objectOutput) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, objectOutput) == null) {
+            objectOutput.writeUTF(this.a);
+            objectOutput.writeLong(this.b);
+            objectOutput.writeLong(this.c);
+            objectOutput.writeInt(this.e.size());
+            for (c cVar : this.e) {
+                cVar.srzable(objectOutput);
+            }
+            objectOutput.writeInt(this.d);
+        }
     }
 }

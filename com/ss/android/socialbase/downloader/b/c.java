@@ -8,7 +8,7 @@ import android.os.RemoteException;
 import com.ss.android.socialbase.downloader.b.b;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface c extends IInterface {
     DownloadInfo a(int i, int i2) throws RemoteException;
 
@@ -82,7 +82,7 @@ public interface c extends IInterface {
 
     DownloadInfo j(int i) throws RemoteException;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class a extends Binder implements c {
         public a() {
             attachInterface(this, "com.ss.android.socialbase.downloader.db.ISqlDownloadCacheAidl");
@@ -96,11 +96,11 @@ public interface c extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof c)) {
                 return (c) queryLocalInterface;
             }
-            return new C0662a(iBinder);
+            return new C0667a(iBinder);
         }
 
         public static c f() {
-            return C0662a.a;
+            return C0667a.a;
         }
 
         @Override // android.os.IInterface
@@ -385,12 +385,12 @@ public interface c extends IInterface {
         }
 
         /* renamed from: com.ss.android.socialbase.downloader.b.c$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public static class C0662a implements c {
+        /* loaded from: classes8.dex */
+        public static class C0667a implements c {
             public static c a;
             public IBinder b;
 
-            public C0662a(IBinder iBinder) {
+            public C0667a(IBinder iBinder) {
                 this.b = iBinder;
             }
 

@@ -24,8 +24,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
-import com.repackage.vr4;
+import com.repackage.ms4;
+import com.repackage.qi;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 /* loaded from: classes3.dex */
@@ -64,37 +64,37 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.m = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+        this.m = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds6);
         this.a = view2;
-        b(view2);
-        e(TbadkCoreApplication.getInst().getSkinType());
+        a(view2);
+        d(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public final void b(View view2) {
+    public final void a(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a4f);
+            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a8a);
             this.b = headImageView;
             headImageView.setRadius(R.dimen.tbds47);
             this.b.setConrers(15);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a5c);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a5a);
-            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a59);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a4a);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a56);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f090a4e);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a97);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a95);
+            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a94);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a85);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a91);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f090a89);
             this.h = tBSpecificationBtn;
-            tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f06a2));
-            EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a4d);
+            tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f06b0));
+            EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a88);
             this.l = eMTextView;
-            eMTextView.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f06a7));
-            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a54);
-            this.j = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a55);
-            this.k = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a53);
+            eMTextView.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f06b5));
+            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a8f);
+            this.j = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a90);
+            this.k = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a8e);
         }
     }
 
-    public void c(int i) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || i <= 0) {
             return;
@@ -102,7 +102,7 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
         SkinManager.setImageResource(this.e, BitmapHelper.getGradeResourceIdInEnterForum(i));
     }
 
-    public void d(String str) {
+    public void c(String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.k == null || this.i == null) {
             return;
@@ -115,20 +115,20 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
         this.i.setVisibility(0);
     }
 
-    public void e(int i) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            vr4 d = vr4.d(this.c);
+            ms4 d = ms4.d(this.c);
             d.A(R.string.F_X01);
             d.v(R.color.CAM_X0105);
-            vr4 d2 = vr4.d(this.g);
+            ms4 d2 = ms4.d(this.g);
             d2.A(R.string.F_X01);
             d2.v(R.color.CAM_X0109);
-            vr4 d3 = vr4.d(this.l);
+            ms4 d3 = ms4.d(this.l);
             d3.A(R.string.F_X01);
             d3.v(R.color.CAM_X0107);
-            vr4.d(this.k).v(R.color.CAM_X0105);
-            vr4 d4 = vr4.d(this.j);
+            ms4.d(this.k).v(R.color.CAM_X0105);
+            ms4 d4 = ms4.d(this.j);
             d4.A(R.string.F_X02);
             d4.v(R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0109);
@@ -137,7 +137,7 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void f(int i) {
+    public void e(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             if (i == 1) {
@@ -150,18 +150,18 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void g(String str) {
+    public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             if (str != null && !str.isEmpty() && !str.equals(StringUtil.NULL_STRING)) {
-                this.g.setText(i(str));
+                this.g.setText(h(str));
             } else {
                 this.g.setVisibility(8);
             }
         }
     }
 
-    public void h(String str) {
+    public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             if ("manager".equals(str) || PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(str)) {
@@ -179,7 +179,7 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
         }
     }
 
-    public String i(String str) {
+    public String h(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {

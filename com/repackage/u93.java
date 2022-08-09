@@ -1,36 +1,73 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
-import android.util.Log;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Comparator;
 /* loaded from: classes7.dex */
-public class u93 implements SensorEventListener {
+public class u93 {
     public static /* synthetic */ Interceptable $ic;
-    @SuppressLint({"StaticFieldLeak"})
-    public static volatile u93 i;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public SensorManager b;
-    public Sensor c;
-    public a d;
-    public double[] e;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public long e;
     public boolean f;
     public long g;
-    public int h;
+    public long h;
+    public int i;
 
     /* loaded from: classes7.dex */
-    public interface a {
-        void a(double[] dArr);
+    public static final class a implements Comparator<u93> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(u93 u93Var, u93 u93Var2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, u93Var, u93Var2)) == null) {
+                int length = u93Var2.b.length() - u93Var.b.length();
+                if (length != 0) {
+                    return length;
+                }
+                int length2 = u93Var2.a.length() - u93Var.a.length();
+                if (length2 != 0) {
+                    return length2;
+                }
+                int hashCode = u93Var2.c.hashCode() - u93Var.c.hashCode();
+                if (hashCode != 0) {
+                    return hashCode;
+                }
+                if (u93Var2.d == null) {
+                    return -1;
+                }
+                return u93Var.d == null ? 1 : 0;
+            }
+            return invokeLL.intValue;
+        }
     }
 
     public u93() {
@@ -38,153 +75,80 @@ public class u93 implements SensorEventListener {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public boolean a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.a)) {
+                if (!this.a.startsWith(".")) {
+                    return str.equals(this.a);
+                }
+                if (str.endsWith(this.a.substring(1))) {
+                    int length = this.a.length();
+                    int length2 = str.length();
+                    return length2 <= length + (-1) || str.charAt(length2 - length) == '.';
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean b(u93 u93Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u93Var)) == null) ? (u93Var == null || TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.c) || !TextUtils.equals(this.a, u93Var.a) || !TextUtils.equals(this.b, u93Var.b) || !TextUtils.equals(this.c, u93Var.c)) ? false : true : invokeL.booleanValue;
+    }
+
+    public boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(this.b) || !str.startsWith(this.b)) {
+                return false;
+            }
+            int length = this.b.length();
+            return this.b.charAt(length + (-1)) == '/' || str.length() <= length || str.charAt(length) == '/';
+        }
+        return invokeL.booleanValue;
+    }
+
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "domain: " + this.a + "; path: " + this.b + "; name: " + this.c + "; value: " + this.d + "; expires: " + this.e + "; secure: " + this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public u93(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.e = new double[3];
-        this.f = false;
-        this.g = 0L;
-    }
-
-    public static u93 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (i == null) {
-                synchronized (u93.class) {
-                    if (i == null) {
-                        i = new u93();
-                    }
-                }
-            }
-            return i;
-        }
-        return (u93) invokeV.objValue;
-    }
-
-    public static synchronized void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            synchronized (u93.class) {
-                if (i == null) {
-                    return;
-                }
-                i.c();
-            }
-        }
-    }
-
-    public synchronized void b(Context context, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, context, i2) == null) {
-            synchronized (this) {
-                this.a = context;
-                this.h = i2;
-            }
-        }
-    }
-
-    public final synchronized void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                ix1.i("accelerometer", "release");
-                if (this.f) {
-                    g();
-                }
-                this.a = null;
-                i = null;
-            }
-        }
-    }
-
-    public synchronized void e(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            synchronized (this) {
-                this.d = aVar;
-            }
-        }
-    }
-
-    public synchronized void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                if (this.a == null) {
-                    ix1.c("accelerometer", "start error, none context");
-                } else if (this.f) {
-                    ix1.o("accelerometer", "has already start");
-                } else {
-                    SensorManager sensorManager = (SensorManager) this.a.getSystemService("sensor");
-                    this.b = sensorManager;
-                    if (sensorManager != null) {
-                        Sensor defaultSensor = sensorManager.getDefaultSensor(1);
-                        this.c = defaultSensor;
-                        this.b.registerListener(this, defaultSensor, 1);
-                        this.f = true;
-                        ix1.i("accelerometer", "start listen");
-                    } else {
-                        ix1.c("accelerometer", "none sensorManager");
-                    }
-                }
-            }
-        }
-    }
-
-    public synchronized void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (!this.f) {
-                    ix1.o("accelerometer", "has already stop");
-                    return;
-                }
-                if (this.b != null) {
-                    this.b.unregisterListener(this);
-                }
-                this.b = null;
-                this.c = null;
-                this.f = false;
-            }
-        }
-    }
-
-    @Override // android.hardware.SensorEventListener
-    public void onAccuracyChanged(Sensor sensor, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, sensor, i2) == null) {
-        }
-    }
-
-    @Override // android.hardware.SensorEventListener
-    public void onSensorChanged(SensorEvent sensorEvent) {
-        Sensor sensor;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, sensorEvent) == null) || sensorEvent == null || (sensor = sensorEvent.sensor) == null || sensor.getType() != 1) {
-            return;
-        }
-        float[] fArr = sensorEvent.values;
-        if (fArr != null && fArr.length == 3) {
-            synchronized (this) {
-                if (this.f && this.d != null && System.currentTimeMillis() - this.g > this.h) {
-                    this.e[0] = (-sensorEvent.values[0]) / 9.8d;
-                    this.e[1] = (-sensorEvent.values[1]) / 9.8d;
-                    this.e[2] = (-sensorEvent.values[2]) / 9.8d;
-                    this.d.a(this.e);
-                    this.g = System.currentTimeMillis();
-                }
-                if (i03.v) {
-                    Log.d("AccelerometerManager", "current Time : " + this.g + "current Acc x : " + this.e[0] + "current Acc y : " + this.e[1] + "current Acc z : " + this.e[2]);
-                }
-            }
-            return;
-        }
-        ix1.o("accelerometer", "illegal accelerometer event");
+        this.a = str;
+        this.b = str2;
+        this.e = -1L;
     }
 }

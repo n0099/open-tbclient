@@ -18,13 +18,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oj8;
-/* loaded from: classes3.dex */
+import com.repackage.am8;
+/* loaded from: classes4.dex */
 public class PostSearchActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements CustomMessageTask.CustomRunnable<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,14 +55,14 @@ public class PostSearchActivityStatic {
                 if (StringUtils.isNull(data)) {
                     return null;
                 }
-                oj8.q(data);
+                am8.q(data);
                 return new CustomResponsedMessage<>(2009003);
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b implements CustomMessageTask.CustomRunnable<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,7 +89,7 @@ public class PostSearchActivityStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                oj8.d();
+                am8.d();
                 return new CustomResponsedMessage<>(2009004);
             }
             return (CustomResponsedMessage) invokeL.objValue;

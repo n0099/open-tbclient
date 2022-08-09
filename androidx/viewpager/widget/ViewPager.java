@@ -1358,7 +1358,7 @@ public class ViewPager extends ViewGroup {
                             sb.append(" => ");
                             sb.append(parent2.getClass().getSimpleName());
                         }
-                        Log.e(TAG, "arrowScroll tried to find focus based on non-child current focused view " + sb.toString());
+                        Log.e("ViewPager", "arrowScroll tried to find focus based on non-child current focused view " + sb.toString());
                     }
                 }
                 findNextFocus = FocusFinder.getInstance().findNextFocus(this, findFocus, i);
@@ -2675,7 +2675,7 @@ public class ViewPager extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048636, this, i) == null) {
             if (i < 1) {
-                Log.w(TAG, "Requested offscreen page limit " + i + " too small; defaulting to 1");
+                Log.w("ViewPager", "Requested offscreen page limit " + i + " too small; defaulting to 1");
                 i = 1;
             }
             if (i != this.mOffscreenPageLimit) {

@@ -5,20 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.n57;
+import com.repackage.h77;
 /* loaded from: classes3.dex */
-public class ResponseNewFriendDataMessage extends CustomResponsedMessage<n57> {
+public class ResponseNewFriendDataMessage extends CustomResponsedMessage<h77> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ResponseNewFriendDataMessage(n57 n57Var) {
-        super(2001305, n57Var);
+    public ResponseNewFriendDataMessage(h77 h77Var) {
+        super(2001305, h77Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {n57Var};
+            Object[] objArr = {h77Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {

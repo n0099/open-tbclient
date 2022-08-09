@@ -1,14 +1,7 @@
 package com.repackage;
 
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.MapPoi;
-import com.baidu.mapapi.map.MapStatus;
-import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.model.LatLng;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,12 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class n54 implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapClickListener, BaiduMap.OnMapRenderCallback, BaiduMap.OnMarkerClickListener, View.OnClickListener, BaiduMap.OnMapStatusChangeListener, BaiduMap.OnMyLocationClickListener {
+public class n54 extends k54<ln2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public r54 b;
 
     static {
         InterceptResult invokeClinit;
@@ -36,131 +28,45 @@ public class n54 implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapClickLis
                 return;
             }
         }
-        boolean z = sg1.a;
+        boolean z = jh1.a;
     }
 
-    public n54(@NonNull r54 r54Var) {
+    public n54() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {r54Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = 0;
-        this.b = r54Var;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            m54.b(view2, this.b);
-            ix1.i("map", "Control View click");
-        }
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapClickListener
-    public void onMapClick(LatLng latLng) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, latLng) == null) {
-            m54.d(this.b, latLng);
-            ix1.i("map", "onMapClick LatLng " + latLng);
-        }
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapLoadedCallback
-    public void onMapLoaded() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ix1.i("map", "onMapLoaded");
-        }
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapClickListener
-    public boolean onMapPoiClick(MapPoi mapPoi) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, mapPoi)) == null) {
-            m54.c(this.b, mapPoi);
-            ix1.i("map", "onMapPoiClick MapPoi " + mapPoi.getPosition());
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapRenderCallback
-    public void onMapRenderFinished() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            m54.e(this.b);
-            ix1.i("map", "onMapRenderFinished");
-        }
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
-    public void onMapStatusChange(MapStatus mapStatus) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, mapStatus) == null) {
-            ix1.i("map", "onMapStatusChange");
-        }
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
-    public void onMapStatusChangeFinish(MapStatus mapStatus) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, mapStatus) == null) {
-            m54.g(this.b, mapStatus, this.a);
-            ix1.i("map", "onMapStatusChangeFinish");
-        }
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
-    public void onMapStatusChangeStart(MapStatus mapStatus) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, mapStatus) == null) {
-        }
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
-    public void onMapStatusChangeStart(MapStatus mapStatus, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, mapStatus, i) == null) {
-            this.a = i;
-        }
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMarkerClickListener
-    public boolean onMarkerClick(Marker marker) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, marker)) == null) {
-            q54 H = this.b.H(marker);
-            if (H != null) {
-                m54.f(marker, this.b);
-                H.b(this.b);
-                ix1.i("map", "onMarkerClick marker id " + marker.getId());
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMyLocationClickListener
-    public boolean onMyLocationClick() {
+    public static n54 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return false;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new n54() : (n54) invokeV.objValue;
+    }
+
+    @Override // com.repackage.k54
+    public boolean b(Context context, ln2 ln2Var, in2 in2Var, z03 z03Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, ln2Var, in2Var, z03Var, jSONObject)) == null) ? e(context, ln2Var, in2Var, z03Var) : invokeLLLLL.booleanValue;
+    }
+
+    public final boolean e(Context context, ln2 ln2Var, in2 in2Var, z03 z03Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ln2Var, in2Var, z03Var)) == null) {
+            zx1.i("map", "MapUpdateAction start");
+            boolean update = h54.b().update(context, ln2Var);
+            zx1.i("map", "MapUpdateAction end");
+            return update;
         }
-        return invokeV.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 }

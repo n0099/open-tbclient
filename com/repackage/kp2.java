@@ -1,13 +1,8 @@
 package com.repackage;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,10 +13,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class kp2 {
+public class kp2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public String g;
 
     static {
         InterceptResult invokeClinit;
@@ -36,68 +37,173 @@ public abstract class kp2 {
                 return;
             }
         }
-        a = sg1.a;
+        boolean z = jh1.a;
     }
 
-    public kp2(@NonNull String str) {
+    public kp2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = 60000;
+        this.b = "aac";
+        this.c = 1;
+        this.d = 8000;
+        this.e = 16000;
+        this.f = 1;
     }
 
-    public abstract boolean a(ap2 ap2Var, cp2 cp2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var);
-
-    @Nullable
-    public ap2 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        gn2 f;
+    public static kp2 a(JSONObject jSONObject, kp2 kp2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
-            if (TextUtils.isEmpty(str3) || (f = hn2.f(str, str2, str3)) == null || !(f.i() instanceof ap2)) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, kp2Var)) == null) {
+            if (jSONObject != null && jSONObject.length() > 0) {
+                kp2Var = new kp2();
+                kp2Var.a = jSONObject.optInt("duration", 60000);
+                String optString = jSONObject.optString("format");
+                kp2Var.b = optString;
+                if (TextUtils.isEmpty(optString)) {
+                    kp2Var.b = "aac";
+                }
+                kp2Var.c = jSONObject.optInt("numberOfChannels", 1);
+                kp2Var.d = jSONObject.optInt("sampleRate", 8000);
+                int optInt = jSONObject.optInt("encodeBitRate");
+                kp2Var.e = optInt;
+                if (optInt == 0) {
+                    int i = kp2Var.d;
+                    if (i == 8000) {
+                        kp2Var.e = 16000;
+                    } else if (i == 16000) {
+                        kp2Var.e = 24000;
+                    } else if (i == 44100) {
+                        kp2Var.e = 64000;
+                    }
+                }
+                kp2Var.f = b(jSONObject.optString("audioSource", "auto"));
+                kp2Var.g = jSONObject.optString("cb");
+            }
+            return kp2Var;
+        }
+        return (kp2) invokeLL.objValue;
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public static int b(String str) {
+        InterceptResult invokeL;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            switch (str.hashCode()) {
+                case -401509030:
+                    if (str.equals(BdUploadHandler.MEDIA_SOURCE_VALUE_CAMCORDER)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 108103:
+                    if (str.equals("mic")) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 3005871:
+                    if (str.equals("auto")) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1059882026:
+                    if (str.equals("voice_recognition")) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1611170697:
+                    if (str.equals("voice_communication")) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            if (c == 0 || c == 1) {
+                return 1;
+            }
+            if (c != 2) {
+                if (c != 3) {
+                    return c != 4 ? -1 : 6;
+                }
+                return 7;
+            }
+            return 5;
+        }
+        return invokeL.intValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:47:0x0086, code lost:
+        r2 = false;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x0089  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public JSONObject c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int i = this.a;
+            if (i <= 600000 && i >= 0) {
+                int i2 = this.c;
+                boolean z = true;
+                if (i2 != 1 && i2 != 2) {
+                    return UnitedSchemeUtility.wrapCallbackParams(202, "error channels");
+                }
+                if (!TextUtils.equals(this.b, "aac") && !TextUtils.equals(this.b, "pcm")) {
+                    return UnitedSchemeUtility.wrapCallbackParams(202, "error format");
+                }
+                int i3 = this.d;
+                if (i3 != 8000 && i3 != 16000 && i3 != 44100) {
+                    return UnitedSchemeUtility.wrapCallbackParams(202, "error sampleRate");
+                }
+                if (!TextUtils.equals(this.b, "pcm")) {
+                    if ((r3 = this.d) != 8000) {
+                        if (z) {
+                            return UnitedSchemeUtility.wrapCallbackParams(202, "error bitRate");
+                        }
+                    } else if (z) {
+                    }
+                }
+                if (this.f < 0) {
+                    return UnitedSchemeUtility.wrapCallbackParams(202, "error audioSource");
+                }
                 return null;
             }
-            return (ap2) f.i();
+            return UnitedSchemeUtility.wrapCallbackParams(202, "error duration");
         }
-        return (ap2) invokeLLLLL.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 
-    public boolean c(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
-        InterceptResult invokeLLLL;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
-            if (a) {
-                Log.d("VideoPlayerAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                ix1.c("video", "param is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            }
-            ap2 b = b(context, optParamsAsJo.optString("slaveId"), optParamsAsJo.optString("componentId"), optParamsAsJo.optString("componentId"), optParamsAsJo);
-            if (b != null && context != null) {
-                cp2 h = cp2.h(optParamsAsJo, b.g());
-                if (!h.isValid()) {
-                    ix1.c("video", "param is invalid");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
-                }
-                return a(b, h, context, unitedSchemeEntity, callbackHandler, i03Var);
-            }
-            ix1.c("video", "player id is invalid or context is null");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "recordTime : " + this.a + "; channel : " + this.c + "; audioFormat : " + this.b + "; sampleRate : " + this.d + "; bitRate : " + this.e + "; callbacks : " + this.g;
         }
-        return invokeLLLL.booleanValue;
+        return (String) invokeV.objValue;
     }
 }

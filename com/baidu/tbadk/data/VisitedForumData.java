@@ -3,6 +3,7 @@ package com.baidu.tbadk.data;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ForumTagInfo;
 import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.frs.FrsTabItemData;
@@ -11,18 +12,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hd7;
+import com.repackage.cf7;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.BlockPopInfo;
 import tbclient.FrsTabInfo;
 import tbclient.HistoryForumInfo;
+import tbclient.RecomTagInfo;
 import tbclient.ThemeColorInfo;
 /* loaded from: classes3.dex */
 public class VisitedForumData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String firstCategory;
+    public ForumTagInfo forumTagInfo;
     public boolean isAlaForum;
     public boolean isForumBusinessAccount;
     public String mBlockInfo;
@@ -136,12 +140,12 @@ public class VisitedForumData extends OrmObject implements Serializable {
                 return null;
             }
             ArrayList<Integer> arrayList = new ArrayList<>();
-            arrayList.add(Integer.valueOf(hd7.b(this.mThemeColorInfo.day.light_color)));
-            arrayList.add(Integer.valueOf(hd7.b(this.mThemeColorInfo.day.dark_color)));
-            arrayList.add(Integer.valueOf(hd7.b(this.mThemeColorInfo.night.light_color)));
-            arrayList.add(Integer.valueOf(hd7.b(this.mThemeColorInfo.night.dark_color)));
-            arrayList.add(Integer.valueOf(hd7.b(this.mThemeColorInfo.dark.light_color)));
-            arrayList.add(Integer.valueOf(hd7.b(this.mThemeColorInfo.dark.dark_color)));
+            arrayList.add(Integer.valueOf(cf7.b(this.mThemeColorInfo.day.light_color)));
+            arrayList.add(Integer.valueOf(cf7.b(this.mThemeColorInfo.day.dark_color)));
+            arrayList.add(Integer.valueOf(cf7.b(this.mThemeColorInfo.night.light_color)));
+            arrayList.add(Integer.valueOf(cf7.b(this.mThemeColorInfo.night.dark_color)));
+            arrayList.add(Integer.valueOf(cf7.b(this.mThemeColorInfo.dark.light_color)));
+            arrayList.add(Integer.valueOf(cf7.b(this.mThemeColorInfo.dark.dark_color)));
             return arrayList;
         }
         return (ArrayList) invokeV.objValue;
@@ -211,6 +215,16 @@ public class VisitedForumData extends OrmObject implements Serializable {
             postPrefixData.parserProtobuf(historyForumInfo.post_prefix);
         }
         this.isForumBusinessAccount = historyForumInfo.is_forum_business_account.intValue() == 1;
+        if (historyForumInfo.tag_info != null) {
+            ForumTagInfo forumTagInfo = new ForumTagInfo();
+            this.forumTagInfo = forumTagInfo;
+            forumTagInfo.id = String.valueOf(historyForumInfo.tag_info.id);
+            ForumTagInfo forumTagInfo2 = this.forumTagInfo;
+            RecomTagInfo recomTagInfo = historyForumInfo.tag_info;
+            forumTagInfo2.name = recomTagInfo.name;
+            forumTagInfo2.pic = recomTagInfo.pic;
+        }
+        this.firstCategory = historyForumInfo.first_category;
     }
 
     public void setForumId(String str) {
@@ -234,12 +248,12 @@ public class VisitedForumData extends OrmObject implements Serializable {
         }
     }
 
-    public VisitedForumData(String str, String str2, String str3, String str4, boolean z, ThemeColorInfo themeColorInfo, int i) {
+    public VisitedForumData(String str, String str2, String str3, String str4, boolean z, ThemeColorInfo themeColorInfo, int i, ForumTagInfo forumTagInfo, String str5) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4, Boolean.valueOf(z), themeColorInfo, Integer.valueOf(i)};
+            Object[] objArr = {str, str2, str3, str4, Boolean.valueOf(z), themeColorInfo, Integer.valueOf(i), forumTagInfo, str5};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -257,5 +271,7 @@ public class VisitedForumData extends OrmObject implements Serializable {
         this.mRedCount = 0;
         this.mThemeColorInfo = themeColorInfo;
         this.mFollowNumber = i;
+        this.forumTagInfo = forumTagInfo;
+        this.firstCategory = str5;
     }
 }

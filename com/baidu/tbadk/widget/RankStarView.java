@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class RankStarView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -211,7 +211,7 @@ public class RankStarView extends View {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.d = pi.f(context, R.dimen.tbds63);
+            this.d = qi.f(context, R.dimen.tbds63);
             this.l = new Rect(0, 0, 0, 0);
             this.m = new Rect(0, 0, 0, 0);
             f();

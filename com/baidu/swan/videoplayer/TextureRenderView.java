@@ -18,23 +18,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dh4;
-import com.repackage.eh4;
+import com.repackage.uh4;
+import com.repackage.vh4;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 @TargetApi(14)
-/* loaded from: classes2.dex */
-public class TextureRenderView extends TextureView implements dh4 {
+/* loaded from: classes3.dex */
+public class TextureRenderView extends TextureView implements uh4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public eh4 a;
+    public vh4 a;
     public int b;
     public SurfaceTexture c;
     public b d;
 
-    /* loaded from: classes2.dex */
-    public static final class a implements dh4.b {
+    /* loaded from: classes3.dex */
+    public static final class a implements uh4.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TextureRenderView a;
@@ -57,7 +57,7 @@ public class TextureRenderView extends TextureView implements dh4 {
             this.a = textureRenderView;
         }
 
-        @Override // com.repackage.dh4.b
+        @Override // com.repackage.uh4.b
         @TargetApi(16)
         public void a(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
@@ -73,11 +73,11 @@ public class TextureRenderView extends TextureView implements dh4 {
             this.a.setCurrentMediaPlayerCode(mediaPlayer.hashCode());
         }
 
-        @Override // com.repackage.dh4.b
-        public dh4 b() {
+        @Override // com.repackage.uh4.b
+        public uh4 b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (dh4) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (uh4) invokeV.objValue;
         }
 
         public Surface c() {
@@ -87,7 +87,7 @@ public class TextureRenderView extends TextureView implements dh4 {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class b implements TextureView.SurfaceTextureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +97,7 @@ public class TextureRenderView extends TextureView implements dh4 {
         public int d;
         public volatile boolean e;
         public WeakReference<TextureRenderView> f;
-        public Map<dh4.a, Object> g;
+        public Map<uh4.a, Object> g;
 
         public b(TextureRenderView textureRenderView) {
             Interceptable interceptable = $ic;
@@ -119,7 +119,7 @@ public class TextureRenderView extends TextureView implements dh4 {
             this.f = new WeakReference<>(textureRenderView);
         }
 
-        public void a(dh4.a aVar) {
+        public void a(uh4.a aVar) {
             a aVar2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
@@ -139,7 +139,7 @@ public class TextureRenderView extends TextureView implements dh4 {
             }
         }
 
-        public void b(dh4.a aVar) {
+        public void b(uh4.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
                 this.g.remove(aVar);
@@ -168,7 +168,7 @@ public class TextureRenderView extends TextureView implements dh4 {
                 this.c = 0;
                 this.d = 0;
                 a aVar = new a(this.f.get());
-                for (dh4.a aVar2 : this.g.keySet()) {
+                for (uh4.a aVar2 : this.g.keySet()) {
                     aVar2.b(aVar, 0, 0);
                 }
             }
@@ -184,7 +184,7 @@ public class TextureRenderView extends TextureView implements dh4 {
                 this.c = 0;
                 this.d = 0;
                 a aVar = new a(this.f.get());
-                for (dh4.a aVar2 : this.g.keySet()) {
+                for (uh4.a aVar2 : this.g.keySet()) {
                     aVar2.a(aVar);
                 }
                 return this.e;
@@ -201,7 +201,7 @@ public class TextureRenderView extends TextureView implements dh4 {
                 this.c = i;
                 this.d = i2;
                 a aVar = new a(this.f.get());
-                for (dh4.a aVar2 : this.g.keySet()) {
+                for (uh4.a aVar2 : this.g.keySet()) {
                     aVar2.c(aVar, 0, i, i2);
                 }
             }
@@ -237,16 +237,16 @@ public class TextureRenderView extends TextureView implements dh4 {
         c(context);
     }
 
-    @Override // com.repackage.dh4
-    public void a(dh4.a aVar) {
+    @Override // com.repackage.uh4
+    public void a(uh4.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             this.d.b(aVar);
         }
     }
 
-    @Override // com.repackage.dh4
-    public void b(dh4.a aVar) {
+    @Override // com.repackage.uh4
+    public void b(uh4.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             this.d.a(aVar);
@@ -256,7 +256,7 @@ public class TextureRenderView extends TextureView implements dh4 {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.a = new eh4(this);
+            this.a = new vh4(this);
             b bVar = new b(this);
             this.d = bVar;
             setSurfaceTextureListener(bVar);
@@ -275,13 +275,13 @@ public class TextureRenderView extends TextureView implements dh4 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (SurfaceTexture) invokeV.objValue;
     }
 
-    public dh4.b getSurfaceHolder() {
+    public uh4.b getSurfaceHolder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new a(this) : (dh4.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new a(this) : (uh4.b) invokeV.objValue;
     }
 
-    @Override // com.repackage.dh4
+    @Override // com.repackage.uh4
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -324,7 +324,7 @@ public class TextureRenderView extends TextureView implements dh4 {
         }
     }
 
-    @Override // com.repackage.dh4
+    @Override // com.repackage.uh4
     @TargetApi(16)
     public void release() {
         Interceptable interceptable = $ic;
@@ -339,7 +339,7 @@ public class TextureRenderView extends TextureView implements dh4 {
         this.c = null;
     }
 
-    @Override // com.repackage.dh4
+    @Override // com.repackage.uh4
     public void setAspectRatio(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
@@ -379,7 +379,7 @@ public class TextureRenderView extends TextureView implements dh4 {
         requestLayout();
     }
 
-    @Override // com.repackage.dh4
+    @Override // com.repackage.uh4
     public void setVideoSize(int i, int i2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeII(1048593, this, i, i2) == null) || i <= 0 || i2 <= 0) {

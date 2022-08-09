@@ -14,21 +14,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ab;
 import com.repackage.d9;
-import com.repackage.ni;
-import com.repackage.ry8;
-import com.repackage.wh8;
-import com.repackage.za;
+import com.repackage.h19;
+import com.repackage.kk8;
+import com.repackage.oi;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class StickerModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ry8 a;
-    public za b;
+    public h19 a;
+    public ab b;
 
     /* loaded from: classes4.dex */
-    public class a extends za {
+    public class a extends ab {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ StickerModel a;
@@ -55,7 +55,7 @@ public class StickerModel extends BdBaseModel {
             this.a = stickerModel;
         }
 
-        @Override // com.repackage.za
+        @Override // com.repackage.ab
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
@@ -99,10 +99,10 @@ public class StickerModel extends BdBaseModel {
         registerListener(aVar);
     }
 
-    public void B(ry8 ry8Var) {
+    public void A(h19 h19Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ry8Var) == null) {
-            this.a = ry8Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, h19Var) == null) {
+            this.a = h19Var;
         }
     }
 
@@ -129,9 +129,9 @@ public class StickerModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (ni.A()) {
-                wh8.h(309475, ResponseSocketGetStickerMessage.class, false, false);
-                wh8.c(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
+            if (oi.A()) {
+                kk8.h(309475, ResponseSocketGetStickerMessage.class, false, false);
+                kk8.c(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
                 RequestGetStickerMessage requestGetStickerMessage = new RequestGetStickerMessage();
                 requestGetStickerMessage.setTag(this.unique_id);
                 sendMessage(requestGetStickerMessage);

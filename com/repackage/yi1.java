@@ -1,152 +1,18 @@
 package com.repackage;
 
-import android.content.Context;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.request.db.DownloadDataConstants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.R;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class yi1 implements gl1 {
+public class yi1 implements vk1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-
-        /* renamed from: com.repackage.yi1$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C0629a implements bf3<String> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ File a;
-            public final /* synthetic */ String b;
-            public final /* synthetic */ a c;
-
-            /* renamed from: com.repackage.yi1$a$a$a  reason: collision with other inner class name */
-            /* loaded from: classes7.dex */
-            public class RunnableC0630a implements Runnable {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ File a;
-                public final /* synthetic */ C0629a b;
-
-                public RunnableC0630a(C0629a c0629a, File file) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {c0629a, file};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.b = c0629a;
-                    this.a = file;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        ud3.a(this.b.c.a, this.a);
-                    }
-                }
-            }
-
-            public C0629a(a aVar, File file, String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, file, str};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = aVar;
-                this.a = file;
-                this.b = str;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.bf3
-            /* renamed from: b */
-            public void a(String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                    try {
-                        File file = new File(this.a, "report");
-                        kg4.l(file);
-                        yi1.e(file, this.b, str);
-                        yi1.d(file);
-                        File file2 = new File(this.a, "report.zip");
-                        kg4.j(file2);
-                        kg4.X(file.getAbsolutePath(), file2.getAbsolutePath());
-                        kg4.L(file);
-                        ce3.a0(new RunnableC0630a(this, file2));
-                    } catch (Exception e) {
-                        ix1.b("DefaultSwanAppLogManager", Log.getStackTraceString(e));
-                        a03.g(AppRuntime.getAppContext(), this.c.a.getString(R.string.obfuscated_res_0x7f0f1222)).G();
-                    }
-                }
-            }
-        }
-
-        public a(yi1 yi1Var, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yi1Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                File X2 = tz1.X2();
-                if (X2 == null) {
-                    ix1.k("DefaultSwanAppLogManager", "cacheDir 为 null");
-                } else if (!X2.exists() && !X2.mkdirs()) {
-                    ix1.k("DefaultSwanAppLogManager", "cacheDir 为不存在且创建目录失败：" + X2.getAbsolutePath());
-                } else {
-                    bd3.i(this.a, new C0629a(this, X2, bd3.l(this.a) + "===== 启动信息 =====\n"));
-                }
-            }
-        }
-    }
 
     public yi1() {
         Interceptable interceptable = $ic;
@@ -162,45 +28,265 @@ public class yi1 implements gl1 {
         }
     }
 
-    public static void d(File file) {
-        File[] C;
-        File[] C2;
+    @Override // com.repackage.vk1
+    public boolean A() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, file) == null) {
-            File file2 = new File(file, "swan");
-            kg4.e(pj2.p0().a(), file2);
-            for (File file3 : kg4.C(file2)) {
-                if (file3.isDirectory()) {
-                    for (File file4 : kg4.C(file3)) {
-                        if (file4 != null && file4.isFile() && !file4.getName().endsWith(".log")) {
-                            kg4.L(file4);
-                        }
-                    }
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.vk1
+    public boolean B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.vk1
+    public boolean C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.vk1
+    public JSONObject D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    @Override // com.repackage.vk1
+    public boolean E() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.vk1
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 
-    public static void e(File file, String str, String str2) throws FileNotFoundException {
+    @Override // com.repackage.vk1
+    public long G() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, str, str2) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            String g = wc3.g(currentTimeMillis, "yyyyMMdd");
-            File file2 = new File(file, "runninginfo_" + g + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION);
-            String g2 = wc3.g(currentTimeMillis, "yyyy-MM-dd HH:mm:ss");
-            PrintWriter printWriter = new PrintWriter(file2);
-            printWriter.println(g2 + "\n" + str + str2);
-            printWriter.flush();
-            printWriter.close();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return 3000L;
         }
+        return invokeV.longValue;
     }
 
-    @Override // com.repackage.gl1
-    public void a(Context context) {
+    @Override // com.repackage.vk1
+    public boolean H() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || context == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return false;
         }
-        cd3.k(new a(this, context), "log上报");
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.vk1
+    public long I() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return 10000L;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.repackage.vk1
+    public int getSwitch(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, str, i)) == null) ? i : invokeLI.intValue;
+    }
+
+    @Override // com.repackage.vk1
+    public String getSwitch(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, str2)) == null) ? str2 : (String) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.vk1
+    public boolean getSwitch(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048587, this, str, z)) == null) ? z : invokeLZ.booleanValue;
+    }
+
+    @Override // com.repackage.vk1
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.vk1
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.vk1
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.vk1
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.vk1
+    public long n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION : invokeV.longValue;
+    }
+
+    @Override // com.repackage.vk1
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.vk1
+    public String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.vk1
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.vk1
+    public int r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return 10;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.repackage.vk1
+    public boolean s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.vk1
+    public boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.vk1
+    public boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.vk1
+    public int v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return 150;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.repackage.vk1
+    public boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.vk1
+    public boolean x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.vk1
+    public int z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 }

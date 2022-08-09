@@ -9,6 +9,7 @@ import android.os.RemoteException;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.sofire.MyProvider;
 import com.baidu.sofire.MyService;
 import com.baidu.sofire.ac.BDModuleLoadCallback;
@@ -900,7 +901,7 @@ public class e {
                         } else if (i3 == 0) {
                             CountDownLatch countDownLatch = new CountDownLatch(1);
                             a(i2, str5, new h(bundle2, callArgs3, countDownLatch, str5), clsArr, objArr3);
-                            countDownLatch.await(180000L, TimeUnit.MILLISECONDS);
+                            countDownLatch.await(LiveFeedPageSdk.REFRESH_TIME, TimeUnit.MILLISECONDS);
                         }
                         bundle2.putParcelable(TiebaStatic.LogFields.RESULT, callArgs3);
                         return bundle2;

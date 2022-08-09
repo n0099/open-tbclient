@@ -1,31 +1,36 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import com.baidu.adp.lib.util.BdLog;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class t76 implements a86 {
+public class t76 extends dp4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public v76 a;
-    public boolean b;
-    public boolean c;
-    public s76 d;
-    public boolean e;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public List<u76> i;
+    public v76 j;
+    public String k;
+    public boolean l;
+    public int m;
+    public int n;
 
-    public t76(boolean z) {
+    public t76() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,88 +40,192 @@ public class t76 implements a86 {
                 return;
             }
         }
-        this.c = false;
-        this.e = false;
-        this.a = new v76();
-        this.e = z;
+        this.l = false;
+        this.m = Integer.MIN_VALUE;
+        this.n = Integer.MIN_VALUE;
+        f(14);
     }
 
-    @Override // com.repackage.a86
-    public void a(String str, b86 b86Var) {
-        s76 s76Var;
-        s76 s76Var2;
-        float f;
+    public static t76 A(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, b86Var) == null) || b86Var == null) {
-            return;
-        }
-        if (this.b) {
-            File file = new File(b86Var.a);
-            Bitmap decodeFile = BitmapFactory.decodeFile(b86Var.a);
-            if (file.exists() && decodeFile != null) {
-                float height = decodeFile.getHeight();
-                float width = decodeFile.getWidth();
-                float f2 = height * 1.0f;
-                float f3 = f2 / width;
-                float f4 = f3 > 1.0f ? 1.7777778f : 0.75f;
-                float f5 = 0.0f;
-                if (f3 > f4) {
-                    float f6 = f4 * width;
-                    f = (height - f6) * 0.5f;
-                    height = f6;
-                } else {
-                    float f7 = f2 / f4;
-                    f5 = (width - f7) * 0.5f;
-                    width = f7;
-                    f = 0.0f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            t76 t76Var = new t76();
+            String optString = jSONObject.optString("forum_id");
+            t76Var.C(optString);
+            String optString2 = jSONObject.optString("forum_name");
+            t76Var.D(optString2);
+            t76Var.B(jSONObject.optString("avatar"));
+            t76Var.G(jSONObject.optString("member_count"));
+            t76Var.L(jSONObject.optString("thread_count"));
+            JSONArray optJSONArray = jSONObject.optJSONArray("threadlist");
+            ArrayList arrayList = new ArrayList();
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    u76 g = u76.g(optJSONArray.optJSONObject(i));
+                    g.h(optString);
+                    g.j(optString2);
+                    arrayList.add(g);
                 }
-                b86Var.a = FileHelper.saveBitmapByAbsolutelyPath(file.getPath(), file.getName(), Bitmap.createBitmap(decodeFile, (int) f5, (int) f, (int) width, (int) height), 95);
             }
+            t76Var.K(arrayList);
+            t76Var.H(jSONObject.optString("need_trans"));
+            t76Var.E(jSONObject.optString("from"));
+            t76Var.J(v76.b(jSONObject.optJSONObject("theme_color")));
+            return t76Var;
         }
-        if ("default".equals(str)) {
-            if (this.c || (s76Var2 = this.d) == null) {
-                return;
-            }
-            s76Var2.h0(b86Var.a);
-        } else if (!"manual".equals(str) || (s76Var = this.d) == null) {
-        } else {
-            s76Var.h0(b86Var.a);
+        return (t76) invokeL.objValue;
+    }
+
+    public void B(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.f = str;
         }
     }
 
-    public void b(c86 c86Var, String str) {
+    public void C(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c86Var, str) == null) {
-            this.a.a(str, this.e).a(c86Var, this);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.d = str;
         }
     }
 
-    public void c(boolean z) {
+    public void D(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.e = str;
         }
     }
 
-    public void d(boolean z) {
+    public void E(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.b = z;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.k = str;
         }
     }
 
-    public void e(s76 s76Var) {
+    public void F(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, s76Var) == null) {
-            this.d = s76Var;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.l = z;
         }
     }
 
-    @Override // com.repackage.a86
-    public void onError(String str, String str2) {
+    public void G(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
-            BdLog.e("get cover error ! type : " + str + ", err : " + str2);
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.g = str;
         }
+    }
+
+    public void H(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        }
+    }
+
+    public void I(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.n = i;
+        }
+    }
+
+    public void J(v76 v76Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v76Var) == null) {
+            this.j = v76Var;
+        }
+    }
+
+    public void K(List<u76> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
+            this.i = list;
+        }
+    }
+
+    public void L(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.h = str;
+        }
+    }
+
+    public String getFrom() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.k : (String) invokeV.objValue;
+    }
+
+    public int getPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.m : invokeV.intValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f : (String) invokeV.objValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    public String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.g : (String) invokeV.objValue;
+    }
+
+    public int r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.n : invokeV.intValue;
+    }
+
+    public v76 s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.j : (v76) invokeV.objValue;
+    }
+
+    public void setPosition(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.m = i;
+        }
+    }
+
+    public List<u76> t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.i : (List) invokeV.objValue;
+    }
+
+    public String w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.h : (String) invokeV.objValue;
+    }
+
+    public boolean z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.l : invokeV.booleanValue;
     }
 }

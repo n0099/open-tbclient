@@ -1,43 +1,19 @@
 package com.repackage;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Pair;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.LinkedList;
 /* loaded from: classes7.dex */
 public class t79 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755337701, "Lcom/repackage/t79;")) == null) {
+    public static void a(String str, String str2, LinkedList<Pair<String, Object>> linkedList) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65536, null, str, str2, linkedList) == null) || u79.c().g() == null) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755337701, "Lcom/repackage/t79;");
-        }
-    }
-
-    public static void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && a) {
-            Log.d(str, "-----------------" + str2);
-        }
-    }
-
-    public static void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && a) {
-            Log.d("muxer_publish_progress", str + "---" + str2);
-        }
+        u79.c().g().b(54, null, null, null, null, null, str, null, str2, null, linkedList);
     }
 }

@@ -478,7 +478,7 @@ public class AndroidDaydream extends DreamService implements g2 {
             e1.d = getFiles();
             e1.b = getGraphics();
             getNet();
-            this.input.K0();
+            this.input.J0();
             q2 q2Var = this.graphics;
             if (q2Var != null) {
                 q2Var.q();

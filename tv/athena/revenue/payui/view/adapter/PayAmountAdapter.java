@@ -19,12 +19,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bz9;
-import com.repackage.lz9;
-import com.repackage.mz9;
-import com.repackage.nz9;
-import com.repackage.ox9;
-import com.repackage.qy9;
+import com.repackage.f2a;
+import com.repackage.j0a;
+import com.repackage.q2a;
+import com.repackage.r2a;
+import com.repackage.s2a;
+import com.repackage.u1a;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagTagInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
@@ -39,8 +39,8 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public int b;
     public int c;
     public int d;
-    public ox9 e;
-    public List<qy9> f;
+    public j0a e;
+    public List<u1a> f;
     public String g;
     public PayUIKitConfig h;
     public b i;
@@ -76,14 +76,14 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092223);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092202);
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f090263);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090262);
-            this.e = view2.findViewById(R.id.obfuscated_res_0x7f09132d);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092269);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921f9);
-            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09229a);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092328);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092306);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f090270);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09026f);
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f0913cf);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092374);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922fd);
+            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923aa);
         }
     }
 
@@ -116,12 +116,12 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                     return;
                 }
             }
-            this.a = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f09132a);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ea7);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e66);
-            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e69);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092211);
-            this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e6a);
+            this.a = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f0913cc);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ef3);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eb2);
+            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eb5);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092316);
+            this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eb6);
         }
     }
 
@@ -168,12 +168,12 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         void a(View view2, int i);
     }
 
-    public PayAmountAdapter(Activity activity, ox9 ox9Var, List<qy9> list, PayUIKitConfig payUIKitConfig) {
+    public PayAmountAdapter(Activity activity, j0a j0aVar, List<u1a> list, PayUIKitConfig payUIKitConfig) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, ox9Var, list, payUIKitConfig};
+            Object[] objArr = {activity, j0aVar, list, payUIKitConfig};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -189,45 +189,49 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         this.a = activity;
         this.f = list;
         this.h = payUIKitConfig;
-        this.e = ox9Var;
+        this.e = j0aVar;
     }
 
-    public List<qy9> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (List) invokeV.objValue;
-    }
-
-    public qy9 e(int i) {
+    public u1a d(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            List<qy9> list = this.f;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            List<u1a> list = this.f;
             if (list == null || list.isEmpty() || i < 0 || i >= this.f.size()) {
                 return null;
             }
             return this.f.get(i);
         }
-        return (qy9) invokeI.objValue;
+        return (u1a) invokeI.objValue;
     }
 
-    public qy9 f() {
+    public u1a e() {
         InterceptResult invokeV;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (this.b >= getCount() || (i = this.b) < 0) {
                 return null;
             }
-            return e(i);
+            return d(i);
         }
-        return (qy9) invokeV.objValue;
+        return (u1a) invokeV.objValue;
     }
 
-    public int g() {
+    public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public final void g(CampaignViewHolder campaignViewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, campaignViewHolder) == null) {
+            campaignViewHolder.c.setVisibility(8);
+            campaignViewHolder.b.setVisibility(8);
+            campaignViewHolder.itemView.setLayoutParams(new LinearLayout.LayoutParams(0, 0));
+            campaignViewHolder.itemView.setVisibility(8);
+        }
     }
 
     public int getCount() {
@@ -236,102 +240,110 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f.size() : invokeV.intValue;
     }
 
+    public List<u1a> getData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : (List) invokeV.objValue;
+    }
+
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f.size() : invokeV.intValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public long getItemId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i : invokeI.longValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            qy9 e = e(i);
-            return (e == null || !e.d) ? 1 : 2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            u1a d = d(i);
+            return (d == null || !d.d) ? 1 : 2;
         }
         return invokeI.intValue;
     }
 
-    public final void h(CampaignViewHolder campaignViewHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, campaignViewHolder) == null) {
-            campaignViewHolder.c.setVisibility(8);
-            campaignViewHolder.b.setVisibility(8);
-            campaignViewHolder.itemView.setLayoutParams(new LinearLayout.LayoutParams(0, 0));
-            campaignViewHolder.itemView.setVisibility(8);
-        }
-    }
-
-    public void i(int i) {
+    public void h(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             this.c = i;
         }
     }
 
-    public void j(String str) {
+    public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             this.g = str;
         }
     }
 
-    public void k(b bVar) {
+    public void j(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
             this.i = bVar;
         }
     }
 
-    public void l(int i) {
+    public void k(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             this.b = i;
         }
     }
 
-    public void m(int i) {
+    public void l(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             this.d = i;
         }
     }
 
-    public final void n(CampaignViewHolder campaignViewHolder, qy9 qy9Var, int i) {
+    public final void m(CampaignViewHolder campaignViewHolder, u1a u1aVar, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048590, this, campaignViewHolder, qy9Var, i) == null) {
-            q(campaignViewHolder, qy9Var, i);
-            r(campaignViewHolder, qy9Var, i);
+        if (interceptable == null || interceptable.invokeLLI(1048590, this, campaignViewHolder, u1aVar, i) == null) {
+            p(campaignViewHolder, u1aVar, i);
+            q(campaignViewHolder, u1aVar, i);
         }
     }
 
-    public void o(int i) {
+    public void n(int i) {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048591, this, i) == null) || d() == null || d().isEmpty() || (i2 = this.c) < 0 || i2 >= d().size() || !d().get(this.c).d) {
+        if (!(interceptable == null || interceptable.invokeI(1048591, this, i) == null) || getData() == null || getData().isEmpty() || (i2 = this.c) < 0 || i2 >= getData().size() || !getData().get(this.c).d) {
             return;
         }
-        d().get(this.c).e = i;
+        getData().get(this.c).e = i;
         notifyDataSetChanged();
+    }
+
+    public final void o(AmountViewHolder amountViewHolder, int i) {
+        u1a d;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048592, this, amountViewHolder, i) == null) || (d = d(i)) == null) {
+            return;
+        }
+        s(amountViewHolder, d, i);
+        t(amountViewHolder, d);
+        u(amountViewHolder, d);
+        amountViewHolder.itemView.setOnClickListener(new a(this, amountViewHolder));
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048592, this, viewHolder, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048593, this, viewHolder, i) == null) {
             if (viewHolder instanceof AmountViewHolder) {
-                p((AmountViewHolder) viewHolder, i);
+                o((AmountViewHolder) viewHolder, i);
             } else if (viewHolder instanceof CampaignViewHolder) {
-                s((CampaignViewHolder) viewHolder, i);
+                r((CampaignViewHolder) viewHolder, i);
             }
         }
     }
@@ -341,44 +353,32 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048593, this, viewGroup, i)) == null) {
-            ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(this.a, nz9.a.a(this.h));
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048594, this, viewGroup, i)) == null) {
+            ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(this.a, s2a.a.a(this.h));
             if (i == 2) {
-                return new CampaignViewHolder(this, LayoutInflater.from(contextThemeWrapper).inflate(R.layout.obfuscated_res_0x7f0d0668, viewGroup, false));
+                return new CampaignViewHolder(this, LayoutInflater.from(contextThemeWrapper).inflate(R.layout.obfuscated_res_0x7f0d068b, viewGroup, false));
             }
-            return new AmountViewHolder(this, LayoutInflater.from(contextThemeWrapper).inflate(R.layout.obfuscated_res_0x7f0d066a, viewGroup, false));
+            return new AmountViewHolder(this, LayoutInflater.from(contextThemeWrapper).inflate(R.layout.obfuscated_res_0x7f0d068d, viewGroup, false));
         }
         return (RecyclerView.ViewHolder) invokeLI.objValue;
     }
 
-    public final void p(AmountViewHolder amountViewHolder, int i) {
-        qy9 e;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048594, this, amountViewHolder, i) == null) || (e = e(i)) == null) {
-            return;
-        }
-        t(amountViewHolder, e, i);
-        u(amountViewHolder, e);
-        v(amountViewHolder, e);
-        amountViewHolder.itemView.setOnClickListener(new a(this, amountViewHolder));
-    }
-
-    public final void q(CampaignViewHolder campaignViewHolder, qy9 qy9Var, int i) {
+    public final void p(CampaignViewHolder campaignViewHolder, u1a u1aVar, int i) {
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048595, this, campaignViewHolder, qy9Var, i) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048595, this, campaignViewHolder, u1aVar, i) == null) {
             int i3 = -1;
             campaignViewHolder.itemView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             campaignViewHolder.itemView.setVisibility(0);
-            int b2 = (lz9.b(this.a) - bz9.a(((this.d - 1) * 10) + 30)) / this.d;
-            int a2 = bz9.a(11.0f);
+            int b2 = (q2a.b(this.a) - f2a.a(((this.d - 1) * 10) + 30)) / this.d;
+            int a2 = f2a.a(11.0f);
             int i4 = this.d == 2 ? 4 : 6;
-            int i5 = qy9Var.e;
+            int i5 = u1aVar.e;
             if (i5 <= this.c) {
                 campaignViewHolder.c.setVisibility(8);
                 campaignViewHolder.b.setVisibility(0);
-                i3 = qy9Var.e;
-                int a3 = ((b2 / 2) - a2) + ((bz9.a(10.0f) + b2) * i3);
+                i3 = u1aVar.e;
+                int a3 = ((b2 / 2) - a2) + ((f2a.a(10.0f) + b2) * i3);
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) campaignViewHolder.b.getLayoutParams();
                 layoutParams.leftMargin = a3;
                 campaignViewHolder.b.setLayoutParams(layoutParams);
@@ -388,38 +388,38 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 campaignViewHolder.b.setVisibility(8);
                 int i6 = this.c;
                 if (i6 == 2) {
-                    i2 = qy9Var.e - 3;
+                    i2 = u1aVar.e - 3;
                 } else {
                     if (i6 == 3) {
-                        i2 = qy9Var.e - 4;
+                        i2 = u1aVar.e - 4;
                     }
-                    int a4 = ((b2 / 2) - a2) + ((bz9.a(10.0f) + b2) * i3);
+                    int a4 = ((b2 / 2) - a2) + ((f2a.a(10.0f) + b2) * i3);
                     LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) campaignViewHolder.c.getLayoutParams();
                     layoutParams2.leftMargin = a4;
                     campaignViewHolder.c.setLayoutParams(layoutParams2);
                     this.e.c(campaignViewHolder.a, this.a);
                 }
                 i3 = i2;
-                int a42 = ((b2 / 2) - a2) + ((bz9.a(10.0f) + b2) * i3);
+                int a42 = ((b2 / 2) - a2) + ((f2a.a(10.0f) + b2) * i3);
                 LinearLayout.LayoutParams layoutParams22 = (LinearLayout.LayoutParams) campaignViewHolder.c.getLayoutParams();
                 layoutParams22.leftMargin = a42;
                 campaignViewHolder.c.setLayoutParams(layoutParams22);
                 this.e.c(campaignViewHolder.a, this.a);
             } else {
                 RLog.error("PayAmountAdapter", "updateCampaignItemIndexView error config", new Object[0]);
-                h(campaignViewHolder);
+                g(campaignViewHolder);
             }
-            RLog.info("PayAmountAdapter", "updateCampaignItemIndexView position:" + i + " selectCampaignIndex:" + qy9Var.e + " itemWidth:" + b2 + " mCampaignItemPosition:" + this.c + " startIndexOfLine:" + i3 + " maxValidSelectCampaignIndex:" + i4);
+            RLog.info("PayAmountAdapter", "updateCampaignItemIndexView position:" + i + " selectCampaignIndex:" + u1aVar.e + " itemWidth:" + b2 + " mCampaignItemPosition:" + this.c + " startIndexOfLine:" + i3 + " maxValidSelectCampaignIndex:" + i4);
         }
     }
 
-    public final void r(CampaignViewHolder campaignViewHolder, qy9 qy9Var, int i) {
+    public final void q(CampaignViewHolder campaignViewHolder, u1a u1aVar, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048596, this, campaignViewHolder, qy9Var, i) == null) {
-            int i2 = nz9.a.b(this.h) ? R.drawable.obfuscated_res_0x7f080e33 : R.drawable.obfuscated_res_0x7f080e34;
-            int i3 = nz9.a.b(this.h) ? R.drawable.obfuscated_res_0x7f080e31 : R.drawable.obfuscated_res_0x7f080e32;
-            int i4 = nz9.a.b(this.h) ? R.drawable.obfuscated_res_0x7f080e35 : R.drawable.obfuscated_res_0x7f080e36;
-            int i5 = nz9.a.b(this.h) ? R.drawable.obfuscated_res_0x7f080e2f : R.drawable.obfuscated_res_0x7f080e30;
+        if (interceptable == null || interceptable.invokeLLI(1048596, this, campaignViewHolder, u1aVar, i) == null) {
+            int i2 = s2a.a.b(this.h) ? R.drawable.obfuscated_res_0x7f080e94 : R.drawable.obfuscated_res_0x7f080e95;
+            int i3 = s2a.a.b(this.h) ? R.drawable.obfuscated_res_0x7f080e92 : R.drawable.obfuscated_res_0x7f080e93;
+            int i4 = s2a.a.b(this.h) ? R.drawable.obfuscated_res_0x7f080e96 : R.drawable.obfuscated_res_0x7f080e97;
+            int i5 = s2a.a.b(this.h) ? R.drawable.obfuscated_res_0x7f080e90 : R.drawable.obfuscated_res_0x7f080e91;
             campaignViewHolder.b.setBackgroundResource(i4);
             campaignViewHolder.c.setBackgroundResource(i5);
             campaignViewHolder.d.setImageResource(i2);
@@ -439,23 +439,23 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         }
     }
 
-    public final void s(CampaignViewHolder campaignViewHolder, int i) {
-        qy9 e;
+    public final void r(CampaignViewHolder campaignViewHolder, int i) {
+        u1a d;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048597, this, campaignViewHolder, i) == null) || (e = e(i)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048597, this, campaignViewHolder, i) == null) || (d = d(i)) == null) {
             return;
         }
-        if (this.c >= 0 && e.e >= 0) {
-            n(campaignViewHolder, e, i);
+        if (this.c >= 0 && d.e >= 0) {
+            m(campaignViewHolder, d, i);
         } else {
-            h(campaignViewHolder);
+            g(campaignViewHolder);
         }
     }
 
-    public final void t(AmountViewHolder amountViewHolder, qy9 qy9Var, int i) {
+    public final void s(AmountViewHolder amountViewHolder, u1a u1aVar, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048598, this, amountViewHolder, qy9Var, i) == null) {
-            if (qy9Var.c) {
+        if (interceptable == null || interceptable.invokeLLI(1048598, this, amountViewHolder, u1aVar, i) == null) {
+            if (u1aVar.c) {
                 amountViewHolder.f.setVisibility(0);
                 amountViewHolder.e.setVisibility(8);
                 amountViewHolder.d.setVisibility(8);
@@ -464,14 +464,14 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             amountViewHolder.f.setVisibility(8);
             amountViewHolder.e.setVisibility(0);
             amountViewHolder.d.setVisibility(0);
-            amountViewHolder.a.setText(mz9.b(qy9Var.a()));
+            amountViewHolder.a.setText(r2a.b(u1aVar.a()));
             amountViewHolder.b.setText(this.g);
             amountViewHolder.d.setVisibility(0);
-            Double valueOf = Double.valueOf(qy9Var.b());
+            Double valueOf = Double.valueOf(u1aVar.b());
             if (valueOf == null) {
                 amountViewHolder.d.setText("");
             } else {
-                amountViewHolder.d.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d51), mz9.a(valueOf.doubleValue())));
+                amountViewHolder.d.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d77), r2a.a(valueOf.doubleValue())));
             }
             if (this.b == i) {
                 amountViewHolder.c.setSelected(true);
@@ -485,13 +485,13 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         }
     }
 
-    public final void u(AmountViewHolder amountViewHolder, qy9 qy9Var) {
+    public final void t(AmountViewHolder amountViewHolder, u1a u1aVar) {
         List<GiftBagsInfo> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048599, this, amountViewHolder, qy9Var) == null) {
-            ProductInfo productInfo = qy9Var.a;
+        if (interceptable == null || interceptable.invokeLL(1048599, this, amountViewHolder, u1aVar) == null) {
+            ProductInfo productInfo = u1aVar.a;
             if (productInfo != null && (list = productInfo.giftbags) != null && !list.isEmpty()) {
-                String str = qy9Var.a.giftbags.get(0).offersTips;
+                String str = u1aVar.a.giftbags.get(0).offersTips;
                 if (TextUtils.isEmpty(str)) {
                     amountViewHolder.g.setVisibility(8);
                     return;
@@ -504,13 +504,13 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         }
     }
 
-    public final void v(AmountViewHolder amountViewHolder, qy9 qy9Var) {
+    public final void u(AmountViewHolder amountViewHolder, u1a u1aVar) {
         List<GiftBagTagInfo> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048600, this, amountViewHolder, qy9Var) == null) {
-            ProductInfo productInfo = qy9Var.a;
+        if (interceptable == null || interceptable.invokeLL(1048600, this, amountViewHolder, u1aVar) == null) {
+            ProductInfo productInfo = u1aVar.a;
             if (productInfo != null && (list = productInfo.giftBagTagInfos) != null && !list.isEmpty()) {
-                String str = qy9Var.a.giftBagTagInfos.get(0).tag;
+                String str = u1aVar.a.giftBagTagInfos.get(0).tag;
                 if (TextUtils.isEmpty(str)) {
                     amountViewHolder.h.setVisibility(8);
                     return;

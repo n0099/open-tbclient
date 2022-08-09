@@ -1,72 +1,43 @@
 package com.repackage;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.internal.common.zzag;
 /* loaded from: classes6.dex */
-public class lo9 {
+public final class lo9<E> extends uo9<E> {
     public static /* synthetic */ Interceptable $ic;
-    public static lo9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public do9 a;
+    public final zzag<E> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755522213, "Lcom/repackage/lo9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755522213, "Lcom/repackage/lo9;");
-        }
-    }
-
-    public lo9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lo9(zzag<E> zzagVar, int i) {
+        super(zzagVar.size(), i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {zzagVar, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
+        this.c = zzagVar;
     }
 
-    public static lo9 b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.uo9
+    public final E a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                b = new lo9();
-            }
-            return b;
-        }
-        return (lo9) invokeV.objValue;
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            do9 do9Var = this.a;
-            if (do9Var != null) {
-                do9Var.info("authsdk", str);
-            } else {
-                Log.i("authsdk", str);
-            }
-        }
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.c.get(i) : (E) invokeI.objValue;
     }
 }

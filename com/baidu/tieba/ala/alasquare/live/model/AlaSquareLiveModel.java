@@ -22,13 +22,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ab;
 import com.repackage.d9;
-import com.repackage.nn;
-import com.repackage.po5;
-import com.repackage.qo5;
-import com.repackage.to5;
-import com.repackage.wh8;
-import com.repackage.za;
+import com.repackage.hq5;
+import com.repackage.iq5;
+import com.repackage.kk8;
+import com.repackage.lq5;
+import com.repackage.on;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -42,9 +42,9 @@ public class AlaSquareLiveModel extends BdBaseModel {
     public b b;
     public LinkedList<FunctionListInfo> c;
     public HeadLiveInfo d;
-    public List<to5> e;
-    public List<nn> f;
-    public List<nn> g;
+    public List<lq5> e;
+    public List<on> f;
+    public List<on> g;
     public int h;
     public boolean i;
     public boolean j;
@@ -52,10 +52,10 @@ public class AlaSquareLiveModel extends BdBaseModel {
     public boolean l;
     public int m;
     public List<Long> n;
-    public za o;
+    public ab o;
 
     /* loaded from: classes3.dex */
-    public class a extends za {
+    public class a extends ab {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaSquareLiveModel a;
@@ -82,9 +82,9 @@ public class AlaSquareLiveModel extends BdBaseModel {
             this.a = alaSquareLiveModel;
         }
 
-        @Override // com.repackage.za
+        @Override // com.repackage.ab
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            LinkedList<to5> linkedList;
+            LinkedList<lq5> linkedList;
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
@@ -131,13 +131,13 @@ public class AlaSquareLiveModel extends BdBaseModel {
                 boolean z2 = this.a.k;
                 if (this.a.k) {
                     this.a.k = false;
-                    po5.c(this.a.e, linkedList, this.a.n);
+                    hq5.c(this.a.e, linkedList, this.a.n);
                 } else {
                     AlaSquareLiveModel alaSquareLiveModel = this.a;
-                    alaSquareLiveModel.e = po5.g(alaSquareLiveModel.e, linkedList, this.a.i);
+                    alaSquareLiveModel.e = hq5.g(alaSquareLiveModel.e, linkedList, this.a.i);
                     this.a.j = z;
                 }
-                this.a.N();
+                this.a.M();
                 if (this.a.b != null) {
                     this.a.b.a(z, false, z2);
                 }
@@ -176,16 +176,16 @@ public class AlaSquareLiveModel extends BdBaseModel {
         this.unique_id = bdUniqueId;
         this.b = bVar;
         registerListener(aVar);
-        W();
+        V();
         this.e = new ArrayList();
         this.c = new LinkedList<>();
     }
 
-    public static void W() {
+    public static void V() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            wh8.h(AlaCmdConfigSocket.CMD_SQUARE_LIVE, AlaSquareLiveSocketResponseMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_SQUARE_LIVE, wh8.a(AlaConfig.SQUARE_LIVE, AlaCmdConfigSocket.CMD_SQUARE_LIVE));
+        if (interceptable == null || interceptable.invokeV(65549, null) == null) {
+            kk8.h(AlaCmdConfigSocket.CMD_SQUARE_LIVE, AlaSquareLiveSocketResponseMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_SQUARE_LIVE, kk8.a(AlaConfig.SQUARE_LIVE, AlaCmdConfigSocket.CMD_SQUARE_LIVE));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -195,19 +195,19 @@ public class AlaSquareLiveModel extends BdBaseModel {
         }
     }
 
-    public void N() {
-        Pair<List<nn>, List<nn>> d;
+    public void M() {
+        Pair<List<on>, List<on>> d;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (d = po5.d(this.a.getString(R.string.obfuscated_res_0x7f0f1194), this.e)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (d = hq5.d(this.a.getString(R.string.obfuscated_res_0x7f0f11ce), this.e)) == null) {
             return;
         }
         this.f = (List) d.first;
         this.g = (List) d.second;
     }
 
-    public List<Long> O() {
+    public List<Long> N() {
         InterceptResult invokeV;
-        qo5 qo5Var;
+        iq5 iq5Var;
         ThreadData threadData;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -215,9 +215,9 @@ public class AlaSquareLiveModel extends BdBaseModel {
                 return null;
             }
             LinkedList linkedList = new LinkedList();
-            for (nn nnVar : this.g) {
-                if ((nnVar instanceof qo5) && (threadData = (qo5Var = (qo5) nnVar).d) != null && threadData.getThreadAlaInfo() != null) {
-                    linkedList.add(Long.valueOf(qo5Var.d.getThreadAlaInfo().live_id));
+            for (on onVar : this.g) {
+                if ((onVar instanceof iq5) && (threadData = (iq5Var = (iq5) onVar).d) != null && threadData.getThreadAlaInfo() != null) {
+                    linkedList.add(Long.valueOf(iq5Var.d.getThreadAlaInfo().live_id));
                 }
             }
             return linkedList;
@@ -225,46 +225,46 @@ public class AlaSquareLiveModel extends BdBaseModel {
         return (List) invokeV.objValue;
     }
 
-    public List<nn> P() {
+    public List<on> O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : (List) invokeV.objValue;
     }
 
-    public LinkedList<FunctionListInfo> Q() {
+    public LinkedList<FunctionListInfo> P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (LinkedList) invokeV.objValue;
     }
 
-    public HeadLiveInfo R() {
+    public HeadLiveInfo Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (HeadLiveInfo) invokeV.objValue;
     }
 
-    public int S() {
+    public int R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.m : invokeV.intValue;
     }
 
-    public void T(List<Long> list) {
+    public void S(List<Long> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048582, this, list) == null) || ListUtils.isEmpty(list) || this.k) {
             return;
         }
         this.n = list;
-        V();
+        U();
     }
 
-    public boolean U() {
+    public boolean T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.l : invokeV.booleanValue;
     }
 
-    public void V() {
+    public void U() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.k = true;
@@ -272,15 +272,9 @@ public class AlaSquareLiveModel extends BdBaseModel {
         }
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.j : invokeV.booleanValue;
-    }
-
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && a()) {
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && hasMore()) {
             this.k = false;
             this.i = true;
             int i = this.h + 1;
@@ -293,10 +287,16 @@ public class AlaSquareLiveModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
+    }
+
+    public boolean hasMore() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.j : invokeV.booleanValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -320,17 +320,17 @@ public class AlaSquareLiveModel extends BdBaseModel {
             if (this.d != null) {
                 this.d = null;
             }
-            List<to5> list = this.e;
+            List<lq5> list = this.e;
             if (list != null) {
                 list.clear();
                 this.e = null;
             }
-            List<nn> list2 = this.f;
+            List<on> list2 = this.f;
             if (list2 != null) {
                 list2.clear();
                 this.f = null;
             }
-            List<nn> list3 = this.g;
+            List<on> list3 = this.g;
             if (list3 != null) {
                 list3.clear();
                 this.g = null;
@@ -341,15 +341,15 @@ public class AlaSquareLiveModel extends BdBaseModel {
     public void refresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            List<to5> list = this.e;
+            List<lq5> list = this.e;
             if (list != null) {
                 list.clear();
             }
-            List<nn> list2 = this.f;
+            List<on> list2 = this.f;
             if (list2 != null) {
                 list2.clear();
             }
-            List<nn> list3 = this.g;
+            List<on> list3 = this.g;
             if (list3 != null) {
                 list3.clear();
             }

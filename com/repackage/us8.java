@@ -1,38 +1,77 @@
 package com.repackage;
 
 import android.content.Context;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tieba.R;
+import com.baidu.tieba.model.VideoHolyCardModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class us8 extends m15 {
+public class us8 {
     public static /* synthetic */ Interceptable $ic;
+    public static us8 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
+    public VideoHolyCardModel a;
+    public boolean b;
+    public boolean c;
+    public VideoHolyCardModel.c d;
 
     /* loaded from: classes7.dex */
-    public class a implements l15 {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ts8 a;
-        public final /* synthetic */ us8 b;
+        public final /* synthetic */ us8 a;
 
-        public a(us8 us8Var, ts8 ts8Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(us8 us8Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {us8Var, ts8Var};
+                Object[] objArr = {us8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = us8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && oi.x()) {
+                this.a.b();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements VideoHolyCardModel.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ us8 a;
+
+        public b(us8 us8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {us8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,38 +81,16 @@ public class us8 extends m15 {
                     return;
                 }
             }
-            this.b = us8Var;
-            this.a = ts8Var;
+            this.a = us8Var;
         }
 
-        @Override // com.repackage.l15
-        public void C(k15 k15Var) {
-            ts8 ts8Var;
+        @Override // com.baidu.tieba.model.VideoHolyCardModel.c
+        public void onResult(boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, k15Var) == null) || (ts8Var = this.a) == null || ts8Var.a() == null || k15Var == null) {
-                return;
-            }
-            int i = k15Var.a;
-            if (i == 4) {
-                this.a.u((String) k15Var.c);
-            } else if (i == 7) {
-                this.a.getContext().showToast((int) R.string.obfuscated_res_0x7f0f0cf3);
-            } else if (i != 8) {
-            } else {
-                this.a.y();
-                if (this.b.h(this.a.getContext(), 25066)) {
-                    this.a.o();
-                    if (this.b.a != null) {
-                        this.b.a.a(this.a.l());
-                    }
-                }
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                this.a.b = z;
             }
         }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(String str);
     }
 
     public us8() {
@@ -86,78 +103,62 @@ public class us8 extends m15 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.repackage.m15
-    public o15 b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            EditorTools editorTools = new EditorTools(context);
-            editorTools.setHideBigEmotion(true);
-            editorTools.setBarLauncherType(4);
-            editorTools.setBackgroundColorId(R.color.CAM_X0207);
-            return new ts8(editorTools);
-        }
-        return (o15) invokeL.objValue;
-    }
-
-    @Override // com.repackage.m15
-    public void c(o15 o15Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o15Var) == null) && (o15Var instanceof ts8)) {
-            EditorTools a2 = o15Var.a();
-            a aVar = new a(this, (ts8) o15Var);
-            a2.setActionListener(4, aVar);
-            a2.setActionListener(7, aVar);
-            a2.setActionListener(8, aVar);
+        this.d = new b(this);
+        e();
+        if (PermissionUtil.isAgreePrivacyPolicy()) {
+            b();
         }
     }
 
-    @Override // com.repackage.m15
-    public void d(o15 o15Var) {
+    public static us8 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, o15Var) == null) || o15Var == null) {
-            return;
-        }
-        EditorTools a2 = o15Var.a();
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(5);
-        a2.h(arrayList);
-        v15 n = a2.n(5);
-        if (n != null) {
-            n.e(false);
-            n.d = 0;
-        }
-        a2.d(new vs8(a2.getContext()));
-        a2.f();
-        a2.A(new k15(35, 5, Boolean.FALSE));
-        a2.o();
-    }
-
-    public o15 g(Context context, b bVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, bVar)) == null) {
-            this.a = bVar;
-            return super.a(context);
-        }
-        return (o15) invokeLL.objValue;
-    }
-
-    public final boolean h(TbPageContext<?> tbPageContext, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, tbPageContext, i)) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount == null || currentAccount.length() <= 0) {
-                TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, i)));
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (e == null) {
+                synchronized (us8.class) {
+                    if (e == null) {
+                        e = new us8();
+                    }
+                }
             }
-            return true;
+            return e;
         }
-        return invokeLI.booleanValue;
+        return (us8) invokeV.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.a == null) {
+                VideoHolyCardModel videoHolyCardModel = new VideoHolyCardModel();
+                this.a = videoHolyCardModel;
+                videoHolyCardModel.E(this.d);
+            }
+            this.a.C();
+        }
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().registerListener(new a(this, 2000994));
+        }
+    }
+
+    public void f(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, context) == null) && this.b && !this.c) {
+            qi.N(context, R.string.obfuscated_res_0x7f0f06cf);
+            this.c = true;
+        }
     }
 }

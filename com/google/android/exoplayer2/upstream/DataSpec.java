@@ -14,7 +14,7 @@ import com.google.android.exoplayer2.util.Assertions;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class DataSpec {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FLAG_ALLOW_CACHING_UNKNOWN_LENGTH = 2;
@@ -29,7 +29,7 @@ public final class DataSpec {
     public final Uri uri;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public @interface Flags {
     }
 

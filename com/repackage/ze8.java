@@ -1,45 +1,29 @@
 package com.repackage;
 
-import android.content.res.Configuration;
-import android.util.Log;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.stats.SpeedStatsManager;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.AdSdkSwitch;
+import com.baidu.titan.sdk.common.TitanConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.af8;
+import java.io.File;
 /* loaded from: classes7.dex */
-public class ze8 implements qe8 {
+public class ze8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final re8 a;
-    public final se8 b;
-    public rl4 c;
-    public ViewGroup d;
-    public boolean e;
-    public long f;
-    public long g;
-    public boolean h;
-    public final Runnable i;
-    public final Runnable j;
+    public af8 a;
+    public String b;
+    public boolean c;
+    public Context d;
+    public af8.a e;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public class a implements af8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ze8 a;
@@ -62,72 +46,21 @@ public class ze8 implements qe8 {
             this.a = ze8Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.repackage.af8.a
+        public void a() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a.a()) {
-                return;
-            }
-            TiebaStatic.log(new StatisticItem("splash_request_timeout"));
-            if (TbadkCoreApplication.getInst().isDebugMode()) {
-                Log.d("IAdSdkSplash", "请求time out and switch next");
-            }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2921536, this.a.c));
-            this.a.f = System.currentTimeMillis();
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ze8 a;
-
-        public b(ze8 ze8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ze8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ze8Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.e || this.a.d == null) {
-                return;
-            }
-            SpeedStatsManager.getInstance().setIsTimeout(true);
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921657, Boolean.class);
-            if (runTask == null || runTask.getData() == null || !((Boolean) runTask.getData()).booleanValue()) {
-                TiebaStatic.log(new StatisticItem("splash_timeout_go_maintab"));
-                new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME).param("obj_source", 0).param("obj_type", "a064").param(TiebaStatic.Params.OBJ_PARAM2, this.a.a.i() ? 2 : 1).param("obj_param1", 1).eventStat();
-                if (TbadkCoreApplication.getInst().isDebugMode()) {
-                    Log.d("IAdSdkSplash", "兜底time out and jump maintab");
-                }
-                this.a.a.getRootView().removeView(this.a.d);
-                this.a.b.a();
-                BdStatisticsManager.getInstance().newDebug("VideoSplashTimeOut", 0L, null, "splashTimeOut", "true");
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.c) {
+                this.a.c = false;
             }
         }
     }
 
-    public ze8(re8 re8Var, se8 se8Var) {
+    public ze8(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {re8Var, se8Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -137,128 +70,121 @@ public class ze8 implements qe8 {
                 return;
             }
         }
-        this.e = false;
-        this.f = 0L;
-        this.g = -1L;
-        this.h = false;
-        this.i = new a(this);
-        this.j = new b(this);
-        this.a = re8Var;
-        this.b = se8Var;
+        this.b = null;
+        this.c = false;
+        this.e = new a(this);
+        this.d = context;
     }
 
-    @Override // com.repackage.qe8
-    public void a() {
+    public final String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            m();
-            rl4 rl4Var = this.c;
-            if (rl4Var != null) {
-                rl4Var.f(null);
-                this.c.e(null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.b)) {
+                return this.b;
             }
-        }
-    }
-
-    @Override // com.repackage.qe8
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            o();
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : invokeV.longValue;
-    }
-
-    public ViewGroup j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (ViewGroup) invokeV.objValue;
-    }
-
-    public long k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : invokeV.longValue;
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            qg.a().postDelayed(this.j, 500L);
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.h = true;
-            qg.a().removeCallbacks(this.j);
-            qg.a().removeCallbacks(this.i);
-        }
-    }
-
-    public void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (SwitchManager.getInstance().findType(AdSdkSwitch.KEY_AD_SDK_SWITCH) == 0) {
-                this.b.a();
-            } else if (MessageManager.getInstance().findTask(2016555) == null) {
-                this.b.a();
-            } else {
-                p();
+            String b = bf8.b();
+            this.b = b;
+            if (TextUtils.isEmpty(b)) {
+                this.b = bf8.c();
+            } else if (!this.b.endsWith(File.separator)) {
+                this.b += File.separator;
             }
+            return this.b;
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.qe8
-    public void onConfigurationChanged(Configuration configuration) {
-        rl4 rl4Var;
-        pl4 pl4Var;
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, configuration) == null) || (rl4Var = this.c) == null || (pl4Var = rl4Var.c) == null) {
-            return;
-        }
-        pl4Var.a();
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.booleanValue;
     }
 
-    public final void p() {
+    public final void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.h = false;
-            long currentTimeMillis = System.currentTimeMillis();
-            this.g = System.currentTimeMillis();
-            this.c = new rl4(this.a.i(), this.a.j());
-            this.d = new RelativeLayout(this.a.getActivity());
-            this.d.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-            this.a.getRootView().addView(this.d);
-            this.c.f(this.d);
-            this.c.e(new ye8(this.a, this.b, this));
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016555, Long.class, this.c);
-            if (this.h) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            File file = new File(str);
+            if (!file.exists()) {
+                if (file.mkdirs()) {
+                    BdLog.d("folder mkdir success: " + str);
+                } else if (!file.exists()) {
+                    BdLog.d("folder mkdir failed");
+                }
+            }
+            if (file.isDirectory()) {
                 return;
             }
-            t95.b().j(System.currentTimeMillis() - currentTimeMillis);
-            long longValue = runTask != null ? ((Long) runTask.getData()).longValue() : 1000L;
-            if (UbsABTestHelper.newSplashStrategy()) {
-                qg.a().postDelayed(this.j, wc5.l() + 500);
-            } else {
-                qg.a().postDelayed(this.i, longValue);
+            throw new IllegalArgumentException("The logcat folder path is not a directory: " + str);
+        }
+    }
+
+    public final boolean f(String str, String str2, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048579, this, str, str2, z)) == null) {
+            if (this.a == null) {
+                e(str);
+                af8 af8Var = new af8(str, str2, z);
+                this.a = af8Var;
+                af8Var.b(this.e);
+                try {
+                    this.a.start();
+                    return true;
+                } catch (IllegalThreadStateException unused) {
+                    return true;
+                } catch (Exception e) {
+                    this.a = null;
+                    BdLog.e(e);
+                    return false;
+                }
             }
+            return true;
+        }
+        return invokeLLZ.booleanValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            String c = c();
+            if (TextUtils.isEmpty(c)) {
+                return;
+            }
+            h();
+            if (bf8.e(c) && f(c, TitanConstant.KEY_INSTANT_INIT_CLASS, true)) {
+                this.c = true;
+            }
+        }
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: com.repackage.af8 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v0, types: [com.repackage.af8$a, com.repackage.af8] */
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            af8 af8Var = this.a;
+            if (af8Var != null) {
+                try {
+                    try {
+                        af8Var.c();
+                    } catch (Exception e) {
+                        BdLog.e(e);
+                    }
+                } finally {
+                    this.a.b(null);
+                    this.a = null;
+                }
+            }
+            this.c = false;
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            h();
         }
     }
 }

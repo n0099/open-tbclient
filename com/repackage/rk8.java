@@ -1,82 +1,48 @@
 package com.repackage;
 
 import android.content.Context;
-import android.location.Address;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.pass.ecommerce.bean.SuggestAddrField;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.location.LocationData;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.frs.AbsDelegateAdapterList;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class rk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public AbsDelegateAdapterList a;
+    public Context b;
 
-    public static void a(NetWork netWork, WriteData writeData) {
+    public rk8(Context context, AbsDelegateAdapterList absDelegateAdapterList) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, netWork, writeData) == null) && writeData != null && writeData.isHasLocationData()) {
-            netWork.addPostData("is_location", "2");
-            Address j = jf.n().j(false);
-            if (j != null) {
-                netWork.addPostData(SuggestAddrField.KEY_LAT, String.valueOf(j.getLatitude()));
-                netWork.addPostData(SuggestAddrField.KEY_LNG, String.valueOf(j.getLongitude()));
-            }
-            LocationData b = nj8.a().b();
-            if (b != null) {
-                netWork.addPostData("name", b.getFormatted_address());
-                netWork.addPostData("sn", b.getSn());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, absDelegateAdapterList};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = context;
+        this.a = absDelegateAdapterList;
     }
 
-    public static void b(Context context, String str, String str2, String str3) {
+    public AbsDelegateAdapterList a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, null, context, str, str2, str3) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d070b, (ViewGroup) null);
-            inflate.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(pi.f(context, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f090911);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091e65);
-            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09194d);
-            SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0101);
-            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090645);
-            SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0305);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091e64);
-            if (imageView != null) {
-                imageView.setBackgroundDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f0809c0, R.color.CAM_X0101, null));
-            }
-            if (StringUtils.isNull(str)) {
-                str = context.getString(R.string.obfuscated_res_0x7f0f10d5);
-            }
-            textView.setText(str);
-            if (str2 != null || str3 != null) {
-                findViewById.setVisibility(0);
-                textView2.setText(str2);
-                textView3.setText(str3);
-            }
-            c(context, inflate);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (AbsDelegateAdapterList) invokeV.objValue;
     }
 
-    public static void c(Context context, View view2) {
+    public Context getContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, view2) == null) {
-            Toast toast = new Toast(context);
-            toast.setView(view2);
-            toast.setGravity(17, 0, 0);
-            toast.setDuration(3000);
-            toast.show();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (Context) invokeV.objValue;
     }
 }

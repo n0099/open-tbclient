@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.ss.android.downloadlib.addownload.j;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static volatile c b;
     public SQLiteDatabase a;

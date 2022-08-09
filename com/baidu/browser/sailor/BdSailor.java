@@ -39,7 +39,7 @@ import com.baidu.webkit.sdk.dumper.CrashCallback;
 import com.baidu.webkit.sdk.dumper.ZwDebug;
 import com.baidu.webkit.sdk.location.ZeusGeoLocationInfo;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
-import com.repackage.kw;
+import com.repackage.lw;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -333,14 +333,14 @@ public class BdSailor implements INoProGuard {
         return (BdSailorSettings) invokeV.objValue;
     }
 
-    public kw getStatic() {
+    public lw getStatic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             BdSailorPlatform.getInstance();
             return BdSailorPlatform.getStatic();
         }
-        return (kw) invokeV.objValue;
+        return (lw) invokeV.objValue;
     }
 
     public String getZeusVersionName() {

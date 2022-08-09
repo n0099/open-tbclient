@@ -1,8 +1,10 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,109 +12,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class jq2 {
+public class jq2 extends pw1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
-    public static String h;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public boolean d;
-    public String e;
-    public String f;
-
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public jq2 a;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new jq2();
-        }
-
-        public jq2 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (jq2) invokeV.objValue;
-        }
-
-        public a b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.a.b = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a c(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.a.d = z;
-                return this;
-            }
-            return (a) invokeZ.objValue;
-        }
-
-        public a d(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.a.a = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a e(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.a.c = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a f(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.a.f = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a g(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.a.e = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-    }
+    public boolean A;
+    public iq2 B;
+    public boolean C;
+    public String j;
+    public boolean k;
+    public String l;
+    public String m;
+    public boolean n;
+    public boolean o;
+    public int p;
+    public boolean q;
+    public boolean r;
+    public String s;
+    public String t;
+    public boolean u;
+    public boolean v;
+    public boolean w;
+    public boolean x;
+    public int y;
+    public boolean z;
 
     static {
         InterceptResult invokeClinit;
@@ -127,11 +51,12 @@ public final class jq2 {
                 return;
             }
         }
-        g = sg1.a;
-        h = "SwanAppParam";
+        boolean z = jh1.a;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public jq2() {
+        super("vrvideo", "viewId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -139,97 +64,86 @@ public final class jq2 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.j = "";
+        this.k = false;
+        this.l = "";
+        this.m = "0";
+        this.n = false;
+        this.o = false;
+        this.p = 0;
+        this.r = true;
+        this.s = "";
+        this.t = "";
+        this.u = true;
+        this.v = true;
+        this.w = true;
+        this.x = true;
+        this.y = -1;
+        this.z = true;
+        this.A = true;
+        this.B = new iq2();
+        this.C = true;
     }
 
-    public static jq2 g(String str) {
+    public static jq2 h(JSONObject jSONObject, @NonNull jq2 jq2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, jq2Var)) == null) {
+            jq2 jq2Var2 = new jq2();
+            if (jSONObject != null) {
+                jq2Var2.e(jSONObject, jq2Var);
+                jq2Var2.j = jSONObject.optString("videoId", jq2Var.j);
+                jq2Var2.n = jSONObject.optBoolean("autoplay", jq2Var.n);
+                jq2Var2.k = jSONObject.optBoolean("muted", jq2Var.k);
+                jq2Var2.m = jSONObject.optString("initialTime", jq2Var.m);
+                jq2Var2.l = jSONObject.optString(NativeConstants.POSTER, jq2Var.l);
+                jq2Var2.p = jSONObject.optInt(CriusAttrConstants.POSITION, jq2Var.p);
+                jq2Var2.q = jSONObject.optBoolean("fullScreen", jq2Var.q);
+                jq2Var2.o = jSONObject.optBoolean("loop", jq2Var.o);
+                jq2Var2.r = jSONObject.optBoolean("controls", jq2Var.r);
+                jq2Var2.s = i(jSONObject.optString("src", jq2Var.s));
+                jq2Var2.A = !h83.E(jSONObject.optString("src", jq2Var.s));
+                jq2Var2.u = jSONObject.optBoolean("showPlayBtn", jq2Var.u);
+                jq2Var2.v = jSONObject.optBoolean("showMuteBtn", jq2Var.v);
+                jq2Var2.w = jSONObject.optBoolean("showCenterPlayBtn", jq2Var.w);
+                jq2Var2.x = jSONObject.optBoolean("showProgress", jq2Var.x);
+                jq2Var2.z = jSONObject.optBoolean("showFullscreenBtn", jq2Var.z);
+                jq2Var2.t = jSONObject.optString("sanId", jq2Var.t);
+                jq2Var2.B = jq2Var2.B.a(jSONObject.optJSONObject("vrVideoMode"));
+                jq2Var2.C = jSONObject.optBoolean("showNoWifiTip", jq2Var.C);
+            }
+            return jq2Var2;
+        }
+        return (jq2) invokeLL.objValue;
+    }
+
+    public static String i(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                jq2 jq2Var = new jq2();
-                JSONObject jSONObject = new JSONObject(str);
-                jq2Var.a = jSONObject.optString("page");
-                jq2Var.c = jSONObject.optString("params");
-                jq2Var.b = jSONObject.optString("baseUrl");
-                jq2Var.d = jSONObject.optBoolean("isFirstPage");
-                jq2Var.e = jSONObject.optString("routeType");
-                jq2Var.f = jSONObject.optString("routeId");
-                return jq2Var;
-            } catch (JSONException e) {
-                if (g) {
-                    String str2 = h;
-                    Log.e(str2, "createSwanAppParam() error: " + Log.getStackTraceString(e));
-                }
-                return null;
-            }
-        }
-        return (jq2) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (!h83.E(str) || z03.M() == null) ? str : h83.H(str, z03.M()) : (String) invokeL.objValue;
     }
 
-    public String h() {
+    @Override // com.repackage.pw1, com.repackage.yq2
+    public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.j) : invokeV.booleanValue;
     }
 
-    public String i() {
+    @Override // com.repackage.pw1
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : (String) invokeV.objValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("page", this.a);
-                jSONObject.put("params", this.c);
-                jSONObject.put("baseUrl", this.b);
-                jSONObject.put("isFirstPage", this.d);
-                jSONObject.put("routeType", this.e);
-                jSONObject.put("routeId", this.f);
-            } catch (JSONException e) {
-                if (g) {
-                    String str = h;
-                    Log.e(str, "toJSONString error: " + Log.getStackTraceString(e));
-                }
-            }
-            return jSONObject.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "VideoPlayerParams{mPlayerId='" + this.j + "', mMute=" + this.k + ", mPoster='" + this.l + "', mInitialTime=" + this.m + ", mAutoPlay=" + this.n + ", mShowNoWifiTip=" + this.C + ", mLoop=" + this.o + ", mPos=" + this.p + ", mFullScreen=" + this.q + ", mShowControlPanel=" + this.r + ", mSrc='" + this.s + "', mSanId='" + this.t + "', mShowPlayBtn=" + this.u + ", mShowMuteBtn=" + this.v + ", mShowCenterPlayBtn=" + this.w + ", mShowProgress=" + this.x + ", mDirection=" + this.y + ", mShowFullscreenBtn=" + this.z + ", mIsRemoteFile=" + this.A + ", mVrVideoMode=" + this.B.toString() + '}';
         }
         return (String) invokeV.objValue;
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.d = false;
-        }
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.tn9;
+import com.repackage.oq9;
 import com.squareup.wire2.Message;
 import com.squareup.wire2.Message.a;
 import java.io.IOException;
@@ -17,7 +17,7 @@ import java.io.Serializable;
 import okio.Buffer;
 import okio.BufferedSink;
 import okio.ByteString;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
@@ -27,12 +27,12 @@ public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implem
     public transient int hashCode;
     public final transient ByteString unknownFields;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class a<T extends Message<T, B>, B extends a<T, B>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Buffer unknownFieldsBuffer;
-        public tn9 unknownFieldsWriter;
+        public oq9 unknownFieldsWriter;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implem
                 if (this.unknownFieldsWriter == null) {
                     Buffer buffer = new Buffer();
                     this.unknownFieldsBuffer = buffer;
-                    this.unknownFieldsWriter = new tn9(buffer);
+                    this.unknownFieldsWriter = new oq9(buffer);
                 }
                 try {
                     fieldEncoding.rawProtoAdapter().encodeWithTag(this.unknownFieldsWriter, i, obj);
@@ -75,7 +75,7 @@ public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implem
                     if (this.unknownFieldsWriter == null) {
                         Buffer buffer = new Buffer();
                         this.unknownFieldsBuffer = buffer;
-                        this.unknownFieldsWriter = new tn9(buffer);
+                        this.unknownFieldsWriter = new oq9(buffer);
                     }
                     try {
                         this.unknownFieldsWriter.k(byteString);

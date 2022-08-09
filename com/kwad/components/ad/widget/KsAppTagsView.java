@@ -138,7 +138,7 @@ public class KsAppTagsView extends LinearLayout {
     public void setAppTags(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            c(list, R.layout.obfuscated_res_0x7f0d044d);
+            c(list, R.layout.obfuscated_res_0x7f0d0450);
         }
     }
 

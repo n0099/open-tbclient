@@ -1,8 +1,7 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.download.DownloadData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,17 +9,124 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class b25 implements k45 {
+public class b25 {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, Integer> a;
-    public static final ArrayList<Integer> b;
-    public static final HashMap<String, Integer> c;
-    public static final HashMap<String, String> d;
+    public static hd0 a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes5.dex */
+    public static class a implements hd0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: com.repackage.b25$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class C0449a implements c25 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ gd0 a;
+
+            public C0449a(a aVar, gd0 gd0Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, gd0Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = gd0Var;
+            }
+
+            @Override // com.repackage.c25
+            public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
+                gd0 gd0Var;
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) || (gd0Var = this.a) == null) {
+                    return;
+                }
+                gd0Var.onFailed(new Exception(str));
+            }
+
+            @Override // com.repackage.c25
+            public void onFileDownloadSucceed(DownloadData downloadData) {
+                gd0 gd0Var;
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) || (gd0Var = this.a) == null) {
+                    return;
+                }
+                gd0Var.b(downloadData.getPath());
+            }
+
+            @Override // com.repackage.c25
+            public boolean onFileDownloaded(DownloadData downloadData) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
+                    return true;
+                }
+                return invokeL.booleanValue;
+            }
+
+            @Override // com.repackage.c25
+            public void onFileUpdateProgress(DownloadData downloadData) {
+                gd0 gd0Var;
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) || (gd0Var = this.a) == null) {
+                    return;
+                }
+                gd0Var.a(0L, 100L, (int) (downloadData.getLength() / downloadData.getSize()));
+            }
+
+            @Override // com.repackage.c25
+            public boolean onPreDownload(DownloadData downloadData) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
+                    gd0 gd0Var = this.a;
+                    if (gd0Var != null) {
+                        gd0Var.onStarted();
+                        return true;
+                    }
+                    return true;
+                }
+                return invokeL.booleanValue;
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.hd0
+        public void a(String str, String str2, String str3, gd0 gd0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, gd0Var) == null) {
+                DownloadData downloadData = new DownloadData();
+                downloadData.setPath(str2 + "/" + str3);
+                downloadData.setUrl(str);
+                downloadData.setCallback(new C0449a(this, gd0Var));
+                d25.k().l(downloadData);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -35,152 +141,13 @@ public class b25 implements k45 {
                 return;
             }
         }
-        a = new HashMap<>(200);
-        b = new ArrayList<>(180);
-        c = new HashMap<>(180);
-        d = new HashMap<>(180);
+        a = new a();
     }
 
-    public b25() {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            ad0.q(a);
         }
-    }
-
-    public static void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            try {
-                Class.forName("com.repackage.y15");
-            } catch (Throwable th) {
-                BdLog.e(th);
-            }
-            try {
-                Class.forName("com.repackage.i46");
-            } catch (Throwable th2) {
-                BdLog.e(th2);
-            }
-            try {
-                Class.forName("com.repackage.k46");
-            } catch (Throwable th3) {
-                BdLog.e(th3);
-            }
-        }
-    }
-
-    @Override // com.repackage.k45
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            g();
-            return b.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.repackage.k45
-    public String b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            g();
-            int h = h(i);
-            for (Map.Entry<String, Integer> entry : c.entrySet()) {
-                if (entry.getValue().intValue() == h) {
-                    return entry.getKey();
-                }
-            }
-            return null;
-        }
-        return (String) invokeI.objValue;
-    }
-
-    @Override // com.repackage.k45
-    public String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            g();
-            return d.get(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.k45
-    public String d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            g();
-            for (Map.Entry<String, Integer> entry : a.entrySet()) {
-                if (entry.getValue().intValue() == i) {
-                    return entry.getKey();
-                }
-            }
-            return null;
-        }
-        return (String) invokeI.objValue;
-    }
-
-    @Override // com.repackage.k45
-    public int e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            g();
-            Integer num = a.get(str);
-            if ("video_icon".equals(str)) {
-                return Integer.valueOf((int) R.drawable.ico_link_video).intValue();
-            }
-            if (num != null) {
-                return num.intValue();
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    @Override // com.repackage.k45
-    public int f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            g();
-            Integer num = c.get(str);
-            if (num != null) {
-                return num.intValue();
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && d.isEmpty()) {
-            i();
-        }
-    }
-
-    public final int h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            g();
-            if (i < 0 || i >= b.size()) {
-                return 0;
-            }
-            return b.get(i).intValue();
-        }
-        return invokeI.intValue;
     }
 }

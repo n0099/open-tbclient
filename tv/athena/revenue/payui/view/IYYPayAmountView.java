@@ -2,30 +2,34 @@ package tv.athena.revenue.payui.view;
 
 import android.app.Activity;
 import android.view.View;
+import android.view.Window;
 import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qy9;
-import com.repackage.qz9;
+import com.repackage.u1a;
+import com.repackage.v2a;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
 import java.util.List;
+import java.util.Map;
 import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.payui.model.PayScene;
 @Keep
 /* loaded from: classes9.dex */
-public interface IYYPayAmountView extends qz9 {
+public interface IYYPayAmountView extends v2a {
 
     @Keep
     /* loaded from: classes9.dex */
     public interface Callback {
         void onRefreshViewFail(int i, String str);
 
-        void showInputNumberDialog(Activity activity, List<PayWayInfo> list);
+        void showInputNumberDialog(Activity activity, List<PayWayInfo> list, String str);
 
-        void toPayWayDialog(qy9 qy9Var, List<PayWayInfo> list);
+        void toHelpCenterPage();
+
+        void toPayWayDialog(u1a u1aVar, List<PayWayInfo> list, String str);
     }
 
     @Keep
@@ -34,11 +38,14 @@ public interface IYYPayAmountView extends qz9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public AppCustomExpand appCustomExpand;
+        public Map<String, String> clientInfoExpand;
         public boolean closeOnSuccess;
         public String payAmountDialogTitle;
         public PayScene payScene;
+        public boolean showFaqPage;
         public int targetAmount;
         public AbsViewEventHandler viewEventListener;
+        public WindowParams windowParams;
 
         public ViewParams() {
             Interceptable interceptable = $ic;
@@ -54,23 +61,30 @@ public interface IYYPayAmountView extends qz9 {
                 }
             }
             this.closeOnSuccess = false;
+            this.showFaqPage = false;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "ViewParams{targetAmount=" + this.targetAmount + ", payScene=" + this.payScene + ", payAmountDialogTitle=" + this.payAmountDialogTitle + ", appCustomExpand=" + this.appCustomExpand + ", closeOnSuccess='" + this.closeOnSuccess + "'}";
+                return "ViewParams{targetAmount=" + this.targetAmount + ", payScene=" + this.payScene + ", showFaqPage=" + this.showFaqPage + ", payAmountDialogTitle=" + this.payAmountDialogTitle + ", appCustomExpand=" + this.appCustomExpand + ", closeOnSuccess='" + this.closeOnSuccess + "', clientInfoExpand='" + this.clientInfoExpand + "', windowParams='" + this.windowParams + "'}";
             }
             return (String) invokeV.objValue;
         }
     }
 
-    @Override // com.repackage.qz9
+    @Override // com.repackage.v2a
+    /* synthetic */ void attachWindow(Window window);
+
+    @Override // com.repackage.v2a
     /* synthetic */ View getContentView();
 
-    @Override // com.repackage.qz9
+    @Override // com.repackage.v2a
     /* synthetic */ void refreshView();
+
+    @Override // com.repackage.v2a
+    /* synthetic */ void refreshWindow(WindowParams windowParams);
 
     void setCallback(Callback callback);
 }

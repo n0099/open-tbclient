@@ -1,173 +1,98 @@
 package com.repackage;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
-import com.baidu.swan.support.v4.app.FragmentActivity;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class un1 extends wz1 {
+public class un1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public int e;
+    public int f;
+    public boolean g;
 
-    /* loaded from: classes7.dex */
-    public class a extends t12 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ un1 c;
-
-        public a(un1 un1Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755255303, "Lcom/repackage/un1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {un1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.c = un1Var;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755255303, "Lcom/repackage/un1;");
+                return;
+            }
         }
-
-        @Override // com.repackage.t12, com.repackage.w12
-        public boolean b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? super.b(str) : invokeL.booleanValue;
-        }
+        boolean z = jh1.a;
     }
 
-    public un1() {
+    public un1(String str, String str2, String str3, int i, int i2, int i3, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
+        this.d = i;
+        this.e = i2;
+        this.f = i3;
+        this.g = z;
     }
 
-    @Override // com.repackage.wz1, com.repackage.oz1
-    public boolean L() {
+    public tp2 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            pm1 pm1Var = this.G0;
-            if (pm1Var != null && pm1Var.canGoBack()) {
-                this.G0.goBack();
-                return true;
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("showMuteBtn", true);
+                jSONObject.put("showCenterPlayBtn", true);
+                tp2 tp2Var = new tp2();
+                tp2Var.j = "SwanAdPlayer";
+                tp2Var.b = "SwanAdPlayer";
+                tp2Var.o = true;
+                tp2Var.k = false;
+                tp2Var.x = !this.g;
+                tp2Var.I = false;
+                tp2Var.l = this.a;
+                tp2Var.y = this.b;
+                tp2Var.c = this.c;
+                fr2 fr2Var = new fr2(0, 0, this.d, this.e);
+                tp2Var.h = fr2Var;
+                fr2Var.i(true);
+                tp2Var.m = this.f;
+                if (this.g) {
+                    tp2Var.q = AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY;
+                }
+                return tp2.h(jSONObject, tp2Var);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
             }
-            g3();
-            SwanAppAllianceLoginHelper.d.a(vn1.d(), vn1.a());
-            return false;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.wz1, com.repackage.oz1
-    public void U1(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            super.U1(view2);
-            this.f0.setRightZoneVisibility(true);
-        }
-    }
-
-    @Override // com.repackage.wz1
-    public w12 Z2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new a(this) : (w12) invokeV.objValue;
-    }
-
-    @Override // com.repackage.wz1
-    public void a3() {
-        FragmentActivity activity;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (activity = getActivity()) != null && this.g0 == null) {
-            this.g0 = new n64(activity, this.f0, h3(), pj2.K(), new rf3());
-            new yp2(this.g0, this).z();
-        }
-    }
-
-    @Override // com.repackage.wz1, com.repackage.oz1
-    public boolean c2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void g3() {
-        ug1 d;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || SwanAppAllianceLoginHelper.d.c() || (d = SwanAppAllianceLoginHelper.d.d()) == null) {
-            return;
-        }
-        d.onResult(-2);
-    }
-
-    public final int h3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? d2() ? 18 : 12 : invokeV.intValue;
-    }
-
-    @Override // com.repackage.wz1
-    public rm1 l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? c72.U().f0().f(getContext()) : (rm1) invokeV.objValue;
-    }
-
-    /* JADX WARN: Type inference failed for: r6v3, types: [com.repackage.pm1] */
-    @Override // com.repackage.wz1, com.baidu.swan.support.v4.app.Fragment
-    public View x0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00db, viewGroup, false);
-            U1(inflate);
-            rm1 l = l();
-            this.F0 = l;
-            l.b0(Z2());
-            this.G0 = this.F0.t();
-            this.F0.loadUrl(this.H0);
-            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901a6);
-            this.F0.k(frameLayout, this.G0.covertToView());
-            W2(frameLayout);
-            return T1() ? W1(inflate) : inflate;
-        }
-        return (View) invokeLLL.objValue;
-    }
-
-    @Override // com.repackage.wz1, com.baidu.swan.support.v4.app.Fragment
-    public void y0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            g3();
-            super.y0();
-        }
+        return (tp2) invokeV.objValue;
     }
 }

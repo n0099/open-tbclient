@@ -14,7 +14,7 @@ import com.tencent.mm.opensdk.constants.Build;
 import com.tencent.mm.opensdk.constants.ConstantsAPI;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MMessageActV2 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_ENTRY_CLASS_NAME = ".wxapi.WXEntryActivity";
@@ -23,7 +23,7 @@ public class MMessageActV2 {
     public static final String TAG = "MicroMsg.SDK.MMessageAct";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Args {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int INVALID_FLAGS = -1;
@@ -96,10 +96,10 @@ public class MMessageActV2 {
                     intent.putExtras(bundle);
                 }
                 String packageName = context.getPackageName();
-                intent.putExtra("_mmessage_sdkVersion", Build.SDK_INT);
-                intent.putExtra("_mmessage_appPackage", packageName);
-                intent.putExtra("_mmessage_content", args.content);
-                intent.putExtra("_mmessage_checksum", b.a(args.content, Build.SDK_INT, packageName));
+                intent.putExtra(ConstantsAPI.SDK_VERSION, Build.SDK_INT);
+                intent.putExtra(ConstantsAPI.APP_PACKAGE, packageName);
+                intent.putExtra(ConstantsAPI.CONTENT, args.content);
+                intent.putExtra(ConstantsAPI.CHECK_SUM, b.a(args.content, Build.SDK_INT, packageName));
                 intent.putExtra(ConstantsAPI.TOKEN, args.token);
                 int i = args.flags;
                 if (i == -1) {
@@ -109,7 +109,7 @@ public class MMessageActV2 {
                 }
                 try {
                     context.startActivity(intent);
-                    Log.d(TAG, "send mm message, intent=" + intent);
+                    Log.d(TAG, "send mm message, intent=".concat(String.valueOf(intent)));
                     return true;
                 } catch (Exception e) {
                     str = "send fail, ex = " + e.getMessage();

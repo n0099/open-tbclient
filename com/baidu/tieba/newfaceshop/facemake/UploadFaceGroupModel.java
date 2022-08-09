@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
-import com.repackage.wn7;
+import com.repackage.rp7;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -67,7 +67,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            wn7.l lVar;
+            rp7.l lVar;
             ArrayList arrayList;
             boolean z;
             Object extra;
@@ -81,31 +81,31 @@ public class UploadFaceGroupModel extends FaceBaseModel {
             } else {
                 HashMap hashMap = (HashMap) extra;
                 Object obj = hashMap.get(WebChromeClient.KEY_ARG_CALLBACK);
-                lVar = (obj == null || !(obj instanceof wn7.l)) ? null : (wn7.l) obj;
+                lVar = (obj == null || !(obj instanceof rp7.l)) ? null : (rp7.l) obj;
                 Object obj2 = hashMap.get("list");
                 arrayList = (obj2 == null || !(obj2 instanceof ArrayList)) ? null : (ArrayList) obj2;
                 Object obj3 = hashMap.get("autoInstall");
                 if (obj3 != null && (obj3 instanceof Boolean)) {
                     z = ((Boolean) obj3).booleanValue();
                     if (arrayList != null) {
-                        this.a.B(lVar, null);
+                        this.a.A(lVar, null);
                         BdLog.e("msg extra empty");
                         return;
                     } else if (httpResponsedMessage.getError() != 0) {
-                        this.a.B(lVar, httpResponsedMessage.getErrorString());
+                        this.a.A(lVar, httpResponsedMessage.getErrorString());
                         return;
                     } else {
                         String groupId = ((UploadFaceGroupResponseMessage) httpResponsedMessage).getGroupId();
                         if (TextUtils.isEmpty(groupId)) {
-                            this.a.B(lVar, httpResponsedMessage.getErrorString());
+                            this.a.A(lVar, httpResponsedMessage.getErrorString());
                             return;
                         }
                         if (lVar != null) {
                             lVar.a(groupId, arrayList);
                         }
-                        wn7.l().u(true, httpResponsedMessage.getErrorString());
+                        rp7.l().u(true, httpResponsedMessage.getErrorString());
                         if (z) {
-                            wn7.l().p(groupId, arrayList, null);
+                            rp7.l().p(groupId, arrayList, null);
                             return;
                         }
                         HashMap hashMap2 = new HashMap();
@@ -142,17 +142,17 @@ public class UploadFaceGroupModel extends FaceBaseModel {
         registerListener(this.a);
     }
 
-    public final void B(wn7.l lVar, String str) {
+    public final void A(rp7.l lVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, lVar, str) == null) {
             if (lVar != null) {
                 lVar.onFail(str);
             }
-            wn7.l().u(false, str);
+            rp7.l().u(false, str);
         }
     }
 
-    public void C(String str, List<FaceData> list, wn7.l lVar, int i) {
+    public void B(String str, List<FaceData> list, rp7.l lVar, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, list, lVar, i) == null) {
             if (list != null && !list.isEmpty()) {
@@ -182,7 +182,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
                 sendMessage(httpMessage);
                 return;
             }
-            B(lVar, "empty list");
+            A(lVar, "empty list");
         }
     }
 

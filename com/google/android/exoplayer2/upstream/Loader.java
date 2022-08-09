@@ -17,7 +17,7 @@ import com.google.android.exoplayer2.util.TraceUtil;
 import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class Loader implements LoaderErrorThrower {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DONT_RETRY = 2;
@@ -29,7 +29,7 @@ public final class Loader implements LoaderErrorThrower {
     public final ExecutorService downloadExecutorService;
     public IOException fatalError;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface Callback<T extends Loadable> {
         void onLoadCanceled(T t, long j, long j2, boolean z);
 
@@ -39,7 +39,7 @@ public final class Loader implements LoaderErrorThrower {
     }
 
     @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public final class LoadTask<T extends Loadable> extends Handler implements Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MSG_CANCEL = 1;
@@ -248,7 +248,7 @@ public final class Loader implements LoaderErrorThrower {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface Loadable {
         void cancelLoad();
 
@@ -257,12 +257,12 @@ public final class Loader implements LoaderErrorThrower {
         void load() throws IOException, InterruptedException;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface ReleaseCallback {
         void onLoaderReleased();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class ReleaseTask extends Handler implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -303,7 +303,7 @@ public final class Loader implements LoaderErrorThrower {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class UnexpectedLoaderException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

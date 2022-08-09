@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c66;
+import com.repackage.u76;
 /* loaded from: classes3.dex */
 public class RecommendThreadHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -35,10 +35,10 @@ public class RecommendThreadHolder extends TypeAdapter.ViewHolder {
         this.a = recommendThreadView;
     }
 
-    public void b(c66 c66Var) {
+    public void a(u76 u76Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, c66Var) == null) {
-            this.a.setData(c66Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, u76Var) == null) {
+            this.a.setData(u76Var);
         }
     }
 }

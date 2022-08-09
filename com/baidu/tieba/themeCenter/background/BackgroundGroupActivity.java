@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.po8;
-import com.repackage.sn8;
-import com.repackage.tn8;
-import com.repackage.un8;
-import com.repackage.z85;
+import com.repackage.gr8;
+import com.repackage.jq8;
+import com.repackage.kq8;
+import com.repackage.lq8;
+import com.repackage.x95;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivity> {
@@ -23,8 +23,8 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
     public BackgroundGroupModel b;
-    public tn8 c;
-    public un8 d;
+    public kq8 c;
+    public lq8 d;
     public BackgroundGroupModel.c e;
 
     /* loaded from: classes4.dex */
@@ -52,14 +52,14 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         }
 
         @Override // com.baidu.tieba.themeCenter.background.BackgroundGroupModel.c
-        public void a(int i, String str, po8 po8Var, List<sn8> list) {
+        public void a(int i, String str, gr8 gr8Var, List<jq8> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, po8Var, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, gr8Var, list}) == null) {
                 BackgroundGroupActivity backgroundGroupActivity = this.a;
                 backgroundGroupActivity.hideLoadingView(backgroundGroupActivity.c.d());
                 this.a.c.i();
                 if (i == 0) {
-                    this.a.c.k(po8Var, list, this.a.b.J());
+                    this.a.c.k(gr8Var, list, this.a.b.I());
                     return;
                 }
                 this.a.showToast(str);
@@ -84,13 +84,13 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         this.e = new a(this);
     }
 
-    public int C1() {
+    public int B1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d.a() : invokeV.intValue;
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.w85
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.u95
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -98,17 +98,17 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public z85 getPageStayDurationItem() {
+    public x95 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            z85 pageStayDurationItem = super.getPageStayDurationItem();
+            x95 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.a = true;
             }
             return pageStayDurationItem;
         }
-        return (z85) invokeV.objValue;
+        return (x95) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -116,9 +116,9 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            tn8 tn8Var = this.c;
-            if (tn8Var != null) {
-                tn8Var.f();
+            kq8 kq8Var = this.c;
+            if (kq8Var != null) {
+                kq8Var.f();
             }
         }
     }
@@ -132,13 +132,13 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
             this.a = getPageContext();
             BackgroundGroupModel backgroundGroupModel = new BackgroundGroupModel(this);
             this.b = backgroundGroupModel;
-            backgroundGroupModel.M(this.e);
-            un8 un8Var = new un8(this.a, this.b.getUniqueId());
-            this.d = un8Var;
-            un8Var.c(1);
-            tn8 tn8Var = new tn8(this, this.d);
-            this.c = tn8Var;
-            tn8Var.e();
+            backgroundGroupModel.L(this.e);
+            lq8 lq8Var = new lq8(this.a, this.b.getUniqueId());
+            this.d = lq8Var;
+            lq8Var.c(1);
+            kq8 kq8Var = new kq8(this, this.d);
+            this.c = kq8Var;
+            kq8Var.e();
             showLoadingView(this.c.d());
             this.b.loadData();
         }
@@ -154,12 +154,12 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        tn8 tn8Var;
+        kq8 kq8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.b == null || (tn8Var = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.b == null || (kq8Var = this.c) == null) {
             return;
         }
-        showLoadingView(tn8Var.d());
+        showLoadingView(kq8Var.d());
         this.b.loadData();
     }
 

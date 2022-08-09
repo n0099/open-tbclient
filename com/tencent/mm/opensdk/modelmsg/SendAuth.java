@@ -10,17 +10,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class SendAuth {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Req extends BaseReq {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int LENGTH_LIMIT = 1024;
         public static final String TAG = "MicroMsg.SDK.SendAuth.Req";
         public transient /* synthetic */ FieldHolder $fh;
+        public String extData;
         public String scope;
         public String state;
 
@@ -72,7 +73,7 @@ public final class SendAuth {
                     }
                     str = "checkArgs fail, state is invalid";
                 }
-                Log.e("MicroMsg.SDK.SendAuth.Req", str);
+                Log.e(TAG, str);
                 return false;
             }
             return invokeV.booleanValue;
@@ -85,6 +86,7 @@ public final class SendAuth {
                 super.fromBundle(bundle);
                 this.scope = bundle.getString("_wxapi_sendauth_req_scope");
                 this.state = bundle.getString("_wxapi_sendauth_req_state");
+                this.extData = bundle.getString("_wxapi_sendauth_req_ext_data");
             }
         }
 
@@ -105,11 +107,12 @@ public final class SendAuth {
                 super.toBundle(bundle);
                 bundle.putString("_wxapi_sendauth_req_scope", this.scope);
                 bundle.putString("_wxapi_sendauth_req_state", this.state);
+                bundle.putString("_wxapi_sendauth_req_ext_data", this.extData);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Resp extends BaseResp {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ERR_SCOPE_SNSAPI_WXAAPP_INFO_CAN_ONLY_AUTHORIZED_SEPARATELY = -1000;
@@ -167,7 +170,7 @@ public final class SendAuth {
                 if (str == null || str.length() <= 1024) {
                     return true;
                 }
-                Log.e("MicroMsg.SDK.SendAuth.Resp", "checkArgs fail, state is invalid");
+                Log.e(TAG, "checkArgs fail, state is invalid");
                 return false;
             }
             return invokeV.booleanValue;

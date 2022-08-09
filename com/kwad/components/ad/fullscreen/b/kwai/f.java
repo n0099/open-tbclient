@@ -17,6 +17,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -153,8 +154,8 @@ public final class f extends com.kwad.components.ad.reward.presenter.a implement
                     }
                 }
             });
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.eP, "translationX", f - (this.eP.getLeft() + (this.eP.getWidth() / 2.0f)));
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.eP, "translationY", f2 - (this.eP.getTop() + (this.eP.getHeight() / 2.0f)));
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.eP, Key.TRANSLATION_X, f - (this.eP.getLeft() + (this.eP.getWidth() / 2.0f)));
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.eP, Key.TRANSLATION_Y, f2 - (this.eP.getTop() + (this.eP.getHeight() / 2.0f)));
             float dimension = resources.getDimension(R.dimen.obfuscated_res_0x7f070362);
             float dimension2 = resources.getDimension(R.dimen.obfuscated_res_0x7f070366);
             float width = this.eT.getWidth();
@@ -242,8 +243,8 @@ public final class f extends com.kwad.components.ad.reward.presenter.a implement
                     }
                 }
             });
-            int color = resources.getColor(R.color.obfuscated_res_0x7f060763);
-            int color2 = resources.getColor(R.color.obfuscated_res_0x7f06075f);
+            int color = resources.getColor(R.color.obfuscated_res_0x7f060772);
+            int color2 = resources.getColor(R.color.obfuscated_res_0x7f06076e);
             int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070367);
             ValueAnimator ofArgb = com.kwad.sdk.widget.a.ofArgb(color, color2);
             ofArgb.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, color2, dimensionPixelSize) { // from class: com.kwad.components.ad.fullscreen.b.kwai.f.10
@@ -509,7 +510,7 @@ public final class f extends com.kwad.components.ad.reward.presenter.a implement
                     }
                 }
             });
-            animatorSet3.playTogether(clone, duration, ObjectAnimator.ofFloat(this.eW, "alpha", 0.0f, 1.0f).setDuration(500L));
+            animatorSet3.playTogether(clone, duration, ObjectAnimator.ofFloat(this.eW, Key.ALPHA, 0.0f, 1.0f).setDuration(500L));
             animatorSet.playSequentially(a, a.clone(), a.clone(), ofFloat5, animatorSet2, animatorSet3);
             return animatorSet;
         }
@@ -555,8 +556,8 @@ public final class f extends com.kwad.components.ad.reward.presenter.a implement
     private void bW() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091160);
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0460, (ViewGroup) adBaseFrameLayout, false);
+            AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911b6);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0463, (ViewGroup) adBaseFrameLayout, false);
             this.eP = viewGroup;
             viewGroup.setVisibility(0);
             Resources resources = this.eP.getResources();
@@ -564,9 +565,9 @@ public final class f extends com.kwad.components.ad.reward.presenter.a implement
             int dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070363);
             int dimensionPixelSize3 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070368);
             int dimensionPixelSize4 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070362);
-            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0461, (ViewGroup) adBaseFrameLayout, false);
+            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0464, (ViewGroup) adBaseFrameLayout, false);
             this.eV = frameLayout;
-            this.eW = (TextView) frameLayout.findViewById(R.id.obfuscated_res_0x7f091170);
+            this.eW = (TextView) frameLayout.findViewById(R.id.obfuscated_res_0x7f0911c6);
             this.eV.setVisibility(4);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, dimensionPixelSize4);
             layoutParams.leftMargin = dimensionPixelSize;
@@ -625,11 +626,11 @@ public final class f extends com.kwad.components.ad.reward.presenter.a implement
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            this.eQ = (TextView) this.eP.findViewById(R.id.obfuscated_res_0x7f09116d);
-            this.eR = (TextView) this.eP.findViewById(R.id.obfuscated_res_0x7f09116c);
-            this.eS = (ImageView) this.eP.findViewById(R.id.obfuscated_res_0x7f09116a);
-            this.eT = (FrameLayout) this.eP.findViewById(R.id.obfuscated_res_0x7f091168);
-            this.eU = (ImageView) this.eP.findViewById(R.id.obfuscated_res_0x7f091169);
+            this.eQ = (TextView) this.eP.findViewById(R.id.obfuscated_res_0x7f0911c3);
+            this.eR = (TextView) this.eP.findViewById(R.id.obfuscated_res_0x7f0911c2);
+            this.eS = (ImageView) this.eP.findViewById(R.id.obfuscated_res_0x7f0911c0);
+            this.eT = (FrameLayout) this.eP.findViewById(R.id.obfuscated_res_0x7f0911be);
+            this.eU = (ImageView) this.eP.findViewById(R.id.obfuscated_res_0x7f0911bf);
             this.eQ.setOnClickListener(this);
             this.eR.setOnClickListener(this);
             this.eT.setOnClickListener(this);

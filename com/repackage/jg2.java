@@ -1,6 +1,5 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes6.dex */
-public class jg2 extends ce2<tg2> {
+public class jg2 extends te2<kh2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,31 +27,22 @@ public class jg2 extends ce2<tg2> {
         }
     }
 
-    @Override // com.repackage.ce2
+    @Override // com.repackage.te2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setSoundModel" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "exitRoom" : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ce2
+    @Override // com.repackage.te2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull tg2 tg2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull kh2 kh2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, tg2Var) == null) {
-            String str = command.what;
-            d(tg2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof String) {
-                String str2 = (String) obj;
-                if (TextUtils.equals(str2, "ear")) {
-                    tg2Var.r(str2);
-                } else if (TextUtils.equals(str2, "speaker")) {
-                    tg2Var.r(str2);
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, kh2Var) == null) {
+            d(kh2Var, command.what, null, true);
+            kh2Var.exitRoom();
         }
     }
 }

@@ -1,14 +1,15 @@
 package com.repackage;
 
+import com.baidu.live.business.model.data.LiveBannerWrapData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class d80 extends a80 {
+/* loaded from: classes6.dex */
+public class d80 extends c80 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l80 b;
+    public LiveBannerWrapData b;
 
     public d80() {
         Interceptable interceptable = $ic;

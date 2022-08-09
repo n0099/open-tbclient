@@ -1,163 +1,347 @@
 package com.repackage;
 
-import android.app.Activity;
 import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.payment.PaymentManager;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.unitedscheme.SchemeConfig;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.aperf.bosuploader.FileUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-@Singleton
-@Service
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes6.dex */
-public class i71 implements k71 {
+public class i71 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755665650, "Lcom/repackage/i71;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755665650, "Lcom/repackage/i71;");
-                return;
-            }
-        }
-        a = SchemeConfig.getSchemeHead() + "://swan/";
-    }
-
-    public i71() {
+    public static boolean a(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
+        FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, str, str2)) == null) {
+            if (context == null) {
+                if (h71.a()) {
+                    Log.e(FileUtil.TAG, "copyAssetsTo: context is null");
+                }
+                return false;
+            }
+            try {
+                InputStream open = context.getAssets().open(str);
+                if (open == null) {
+                }
+                File file = new File(str2);
+                if (file.exists()) {
+                    file.delete();
+                }
+                FileOutputStream fileOutputStream2 = null;
+                try {
+                    try {
+                        fileOutputStream = new FileOutputStream(file);
+                    } catch (Throwable th) {
+                        th = th;
+                    }
+                } catch (IOException e) {
+                    e = e;
+                }
+                try {
+                    byte[] bArr = new byte[4096];
+                    if (open == null) {
+                        if (open != null) {
+                            try {
+                                open.close();
+                            } catch (IOException unused) {
+                            }
+                        }
+                        try {
+                            fileOutputStream.close();
+                        } catch (IOException unused2) {
+                        }
+                        return false;
+                    }
+                    while (true) {
+                        int read = open.read(bArr);
+                        if (read < 0) {
+                            break;
+                        }
+                        fileOutputStream.write(bArr, 0, read);
+                    }
+                    fileOutputStream.flush();
+                    if (open != null) {
+                        try {
+                            open.close();
+                        } catch (IOException unused3) {
+                        }
+                    }
+                    try {
+                        fileOutputStream.close();
+                        return true;
+                    } catch (IOException unused4) {
+                        return true;
+                    }
+                } catch (IOException e2) {
+                    e = e2;
+                    fileOutputStream2 = fileOutputStream;
+                    if (h71.a()) {
+                        Log.e(FileUtil.TAG, "copyAssetsTo: destOutputStream e=" + e.toString());
+                    }
+                    if (open != null) {
+                        try {
+                            open.close();
+                        } catch (IOException unused5) {
+                        }
+                    }
+                    if (fileOutputStream2 != null) {
+                        try {
+                            fileOutputStream2.close();
+                        } catch (IOException unused6) {
+                        }
+                    }
+                    return false;
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileOutputStream2 = fileOutputStream;
+                    if (open != null) {
+                        try {
+                            open.close();
+                        } catch (IOException unused7) {
+                        }
+                    }
+                    if (fileOutputStream2 != null) {
+                        try {
+                            fileOutputStream2.close();
+                        } catch (IOException unused8) {
+                        }
+                    }
+                    throw th;
+                }
+            } catch (IOException e3) {
+                if (h71.a()) {
+                    Log.e(FileUtil.TAG, "copyAssetsTo: sourceInputStream e=" + e3.toString());
+                }
+                return false;
+            } finally {
+                Log.e(FileUtil.TAG, "copyAssetsTo: sourceInputStream is null");
             }
         }
+        return invokeLLL.booleanValue;
     }
 
-    @Override // com.repackage.k71
-    public void a(Activity activity, String str, String str2) {
+    public static boolean b(File file, File file2) {
+        InterceptResult invokeLL;
+        FileOutputStream fileOutputStream;
+        FileOutputStream fileOutputStream2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, str2) == null) {
-            pj2.S().a(activity, str, str2);
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65537, null, file, file2)) != null) {
+            return invokeLL.booleanValue;
+        }
+        FileInputStream fileInputStream = null;
+        try {
+            FileInputStream fileInputStream2 = new FileInputStream(file);
+            try {
+                if (file2.exists()) {
+                    file2.delete();
+                }
+                fileOutputStream2 = new FileOutputStream(file2);
+                try {
+                    byte[] bArr = new byte[4096];
+                    while (true) {
+                        int read = fileInputStream2.read(bArr);
+                        if (read >= 0) {
+                            fileOutputStream2.write(bArr, 0, read);
+                        } else {
+                            fileOutputStream2.flush();
+                            try {
+                                fileInputStream2.close();
+                                fileOutputStream2.close();
+                                return true;
+                            } catch (IOException unused) {
+                                return true;
+                            }
+                        }
+                    }
+                } catch (FileNotFoundException unused2) {
+                    fileInputStream = fileInputStream2;
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (IOException unused3) {
+                            return false;
+                        }
+                    }
+                    if (fileOutputStream2 != null) {
+                        fileOutputStream2.close();
+                    }
+                    return false;
+                } catch (IOException unused4) {
+                    fileInputStream = fileInputStream2;
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (IOException unused5) {
+                            return false;
+                        }
+                    }
+                    if (fileOutputStream2 != null) {
+                        fileOutputStream2.close();
+                    }
+                    return false;
+                } catch (Throwable th) {
+                    fileInputStream = fileInputStream2;
+                    fileOutputStream = fileOutputStream2;
+                    th = th;
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (IOException unused6) {
+                            throw th;
+                        }
+                    }
+                    if (fileOutputStream != null) {
+                        fileOutputStream.close();
+                    }
+                    throw th;
+                }
+            } catch (FileNotFoundException unused7) {
+                fileOutputStream2 = null;
+            } catch (IOException unused8) {
+                fileOutputStream2 = null;
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream = null;
+                fileInputStream = fileInputStream2;
+            }
+        } catch (FileNotFoundException unused9) {
+            fileOutputStream2 = null;
+        } catch (IOException unused10) {
+            fileOutputStream2 = null;
+        } catch (Throwable th3) {
+            th = th3;
+            fileOutputStream = null;
         }
     }
 
-    @Override // com.repackage.k71
-    public void aLiAuth(Activity activity, String str, q71<JSONObject> q71Var) {
+    public static boolean c(InputStream inputStream, File file) {
+        InterceptResult invokeLL;
+        FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, q71Var) == null) {
-            pj2.S().f(activity, str, q71Var);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, inputStream, file)) == null) {
+            if (inputStream != null && file != null) {
+                if (file.exists()) {
+                    file.delete();
+                }
+                FileOutputStream fileOutputStream2 = null;
+                try {
+                    fileOutputStream = new FileOutputStream(file);
+                } catch (IOException unused) {
+                } catch (Throwable th) {
+                    th = th;
+                }
+                try {
+                    byte[] bArr = new byte[4096];
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read < 0) {
+                            break;
+                        }
+                        fileOutputStream.write(bArr, 0, read);
+                    }
+                    fileOutputStream.flush();
+                    try {
+                        fileOutputStream.close();
+                    } catch (IOException unused2) {
+                    }
+                    return true;
+                } catch (IOException unused3) {
+                    fileOutputStream2 = fileOutputStream;
+                    if (fileOutputStream2 != null) {
+                        try {
+                            fileOutputStream2.close();
+                        } catch (IOException unused4) {
+                        }
+                    }
+                    return false;
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileOutputStream2 = fileOutputStream;
+                    if (fileOutputStream2 != null) {
+                        try {
+                            fileOutputStream2.close();
+                        } catch (IOException unused5) {
+                        }
+                    }
+                    throw th;
+                }
+            }
+            return false;
         }
+        return invokeLL.booleanValue;
     }
 
-    @Override // com.repackage.k71
-    public boolean b(Context context) {
+    public static File d(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) ? new File(i(context), str) : (File) invokeLL.objValue;
+    }
+
+    public static File e(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            File file = new File(f(context, str), "lib");
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return file;
+        }
+        return (File) invokeLL.objValue;
+    }
+
+    public static File f(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
+            File file = new File(i(context), str);
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return file;
+        }
+        return (File) invokeLL.objValue;
+    }
+
+    public static File g(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) ? new File(h(context), str) : (File) invokeLL.objValue;
+    }
+
+    public static File h(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) ? pj2.S().b(context) : invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.k71
-    public void c(Activity activity, String str, f71 f71Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, str, f71Var) == null) {
-            pj2.S().c(activity, str, f71Var);
-        }
-    }
-
-    @Override // com.repackage.k71
-    public void d(Context context, JSONObject jSONObject, f71 f71Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, context, jSONObject, f71Var) == null) {
-            pj2.S().d(context, jSONObject, f71Var);
-        }
-    }
-
-    @Override // com.repackage.k71
-    public void e(Activity activity, String str, f71 f71Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, activity, str, f71Var) == null) {
-            pj2.S().e(activity, str, f71Var);
-        }
-    }
-
-    @Override // com.repackage.k71
-    public void f(Context context, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, context, jSONObject) == null) {
-            if (jSONObject == null) {
-                PaymentManager.i(3, "支付信息不能为空");
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            File dir = context.getDir("nps_download", 0);
+            if (!dir.exists()) {
+                dir.mkdirs();
             }
-            String optString = jSONObject.optString("appKey");
-            String optString2 = jSONObject.optString("redirectUrl");
-            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                SchemeRouter.invoke(context, a + optString + optString2);
-                return;
-            }
-            PaymentManager.i(3, "支付信息不能为空");
+            return dir;
         }
+        return (File) invokeL.objValue;
     }
 
-    @Override // com.repackage.k71
-    public void g(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
-            String str = ws2.b().a;
-            if (TextUtils.isEmpty(str)) {
-                c71.a(bundle);
-                return;
-            }
-            yw2 e = yw2.e();
-            ax2 ax2Var = new ax2(119, bundle);
-            ax2Var.c(str);
-            ax2Var.p(true);
-            e.h(ax2Var);
-        }
-    }
-
-    @Override // com.repackage.k71
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            ws2.b().a = str;
-        }
-    }
-
-    @Override // com.repackage.k71
-    public void i(Activity activity, JSONObject jSONObject, f71 f71Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048585, this, activity, jSONObject, f71Var) == null) {
-        }
-    }
-
-    @Override // com.repackage.k71
-    public String j(Context context) {
+    public static File i(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) ? pj2.G0().a(context) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            File dir = context.getDir("nps", 0);
+            if (!dir.exists()) {
+                dir.mkdirs();
+            }
+            return dir;
+        }
+        return (File) invokeL.objValue;
     }
 }

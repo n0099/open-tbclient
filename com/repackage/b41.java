@@ -1,28 +1,24 @@
 package com.repackage;
 
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.widget.bubble.BubbleManager;
-import com.baidu.nadcore.widget.bubble.BubblePosition;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class b41<T> {
+public abstract class b41 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public i41 a;
-    public e41 b;
+    public long a;
+    public long b;
 
-    public b41(e41 e41Var) {
+    public b41(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {e41Var};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,94 +28,31 @@ public abstract class b41<T> {
                 return;
             }
         }
-        this.a = e41Var.f();
-        this.b = e41Var;
+        this.a = j;
+        this.b = j2;
     }
 
-    public b41<T> a(boolean z) {
-        InterceptResult invokeZ;
+    public final long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            this.b.d(z);
-            return this;
-        }
-        return (b41) invokeZ.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.longValue;
     }
 
-    public b41<T> b(View view2, ViewGroup viewGroup) {
-        InterceptResult invokeLL;
+    public final long b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, viewGroup)) == null) {
-            this.a.s(view2, viewGroup);
-            return this;
-        }
-        return (b41) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.longValue;
     }
 
-    public b41<T> c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            this.b.m(i);
-            return this;
-        }
-        return (b41) invokeI.objValue;
-    }
+    public abstract void c();
 
-    public b41<T> d(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
-            if (i != -1) {
-                try {
-                    this.a.w(i);
-                } catch (Exception e) {
-                    ci0.h("BubbleBuilder", "", e);
-                    this.a.w(-1);
-                    return this;
-                }
-            }
-            if (i2 != -1) {
-                try {
-                    this.a.x(i2);
-                } catch (Exception e2) {
-                    ci0.h("BubbleBuilder", "", e2);
-                    this.a.x(-1);
-                }
-            }
-            return this;
-        }
-        return (b41) invokeII.objValue;
-    }
+    public abstract void d();
 
-    public b41<T> e(BubblePosition bubblePosition) {
-        InterceptResult invokeL;
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bubblePosition)) == null) {
-            this.b.e().d = false;
-            this.b.e().e = bubblePosition;
-            return this;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            d();
         }
-        return (b41) invokeL.objValue;
-    }
-
-    public b41<T> f(BubbleManager.b bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bVar)) == null) {
-            this.b.n(bVar);
-            return this;
-        }
-        return (b41) invokeL.objValue;
-    }
-
-    public b41<T> g(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) {
-            this.b.e().q(f);
-            return this;
-        }
-        return (b41) invokeF.objValue;
     }
 }

@@ -1,48 +1,43 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.face.data.SingleBarEmotionRecommendData;
+import com.baidu.card.view.RecommendForumLayout;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e96;
-import com.repackage.z15;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class f96 extends z15 {
+public class f96 {
     public static /* synthetic */ Interceptable $ic;
-    public static f96 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<c25> a;
+    public TbPageContext<?> a;
+    public RecommendForumLayout b;
+    public View.OnClickListener c;
+    public PullLeftRefreshLayout.f d;
+    public bn4 e;
 
     /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ f96 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(f96 f96Var, int i) {
-            super(i);
+        public a(f96 f96Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {f96Var, Integer.valueOf(i)};
+                Object[] objArr = {f96Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -51,32 +46,20 @@ public class f96 extends z15 {
             this.a = f96Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001444) {
-                Object data = customResponsedMessage.getData();
-                if (data == null || !(data instanceof SingleBarEmotionRecommendData)) {
-                    this.a.g(null);
-                    return;
-                }
-                SingleBarEmotionRecommendData singleBarEmotionRecommendData = (SingleBarEmotionRecommendData) data;
-                LinkedList linkedList = new LinkedList();
-                if (singleBarEmotionRecommendData == null || TextUtils.isEmpty(singleBarEmotionRecommendData.pkg_id) || TextUtils.isEmpty(singleBarEmotionRecommendData.cover)) {
-                    this.a.g(null);
-                    return;
-                }
-                linkedList.add(singleBarEmotionRecommendData);
-                this.a.g(linkedList);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                k66.b(this.a.a, null);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements e96.b {
+    public class b implements PullLeftRefreshLayout.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f96 a;
 
         public b(f96 f96Var) {
             Interceptable interceptable = $ic;
@@ -90,109 +73,112 @@ public class f96 extends z15 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = f96Var;
         }
 
-        @Override // com.repackage.e96.b
-        public void a(e96 e96Var) {
+        @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.f
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, e96Var) == null) {
-                MessageManager.getInstance().runTask(2004603, (Class) null);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                k66.b(this.a.a, null);
             }
         }
     }
 
-    public f96() {
+    /* loaded from: classes6.dex */
+    public class c implements bn4<uq4> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f96 a;
+
+        public c(f96 f96Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {f96Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = f96Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.bn4
+        /* renamed from: a */
+        public void d(View view2, uq4 uq4Var, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, uq4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.bn4
+        /* renamed from: b */
+        public void c(View view2, uq4 uq4Var, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, uq4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                if (uq4Var == null) {
+                    k66.b(this.a.a, null);
+                    return;
+                }
+                String l = uq4Var.l();
+                if (pi.isForumName(l)) {
+                    this.a.a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.a.getPageActivity()).createNormalCfg(l, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
+                }
+            }
+        }
+    }
+
+    public f96(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.c = new a(this);
+        this.d = new b(this);
+        this.e = new c(this);
+        this.a = tbPageContext;
+        RecommendForumLayout recommendForumLayout = new RecommendForumLayout(tbPageContext);
+        this.b = recommendForumLayout;
+        recommendForumLayout.setShowMore(true);
+        this.b.setSquareEntranceAtStart(true);
+        this.b.setTabName(null);
+        this.b.setFrom(0);
+        this.b.setOnClickRightArrowListener(this.c);
+        this.b.setOnRullOkCallbackr(this.d);
+        this.b.setOnItemCoverListener(this.e);
+    }
+
+    public void b(vq4 vq4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, vq4Var) == null) {
+            this.b.a(vq4Var);
         }
     }
 
-    public static f96 f() {
+    public RecommendForumLayout c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (f96.class) {
-                    if (b == null) {
-                        b = new f96();
-                    }
-                }
-            }
-            return b;
-        }
-        return (f96) invokeV.objValue;
-    }
-
-    @Override // com.repackage.z15
-    public void b(z15.a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && FileHelper.checkSD() && this.a != null) {
-            for (int i = 0; i < this.a.size(); i++) {
-                e96 e96Var = (e96) this.a.get(i);
-                if (e96Var.u() && mn7.i().g(e96Var.f()) == null && aVar != null) {
-                    aVar.a(e96Var);
-                }
-            }
-        }
-    }
-
-    @Override // com.repackage.z15
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.repackage.z15
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(new a(this, 2001444));
-        }
-    }
-
-    public final synchronized void g(List<o86> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            synchronized (this) {
-                if (list != null) {
-                    if (!list.isEmpty()) {
-                        if (this.a != null) {
-                            this.a = null;
-                        }
-                        LinkedList<c25> linkedList = new LinkedList<>();
-                        boolean z = false;
-                        for (o86 o86Var : list) {
-                            if (o86Var != null && !StringUtils.isNull(o86Var.getGroupId()) && o86Var.IsValid()) {
-                                e96 e96Var = new e96(o86Var);
-                                linkedList.add(e96Var);
-                                z = e96Var.v(o86Var, new b(this));
-                            }
-                        }
-                        this.a = linkedList;
-                        if (z) {
-                            MessageManager.getInstance().runTask(2004603, (Class) null);
-                        }
-                    }
-                }
-                if (this.a != null) {
-                    this.a = null;
-                    MessageManager.getInstance().runTask(2004603, (Class) null);
-                }
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (RecommendForumLayout) invokeV.objValue;
     }
 }

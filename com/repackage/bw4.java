@@ -1,76 +1,169 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
-import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter.a;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
+import com.baidu.tbadk.core.view.itemcard.download.ItemDownloadExtraData;
+import com.baidu.tbadk.download.DownloadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nn;
+import java.io.DataOutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class bw4<T extends nn, V extends BdBaseViewPagerAdapter.a> {
+public class bw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public a<T, V> b;
-    public BdUniqueId c;
 
     /* loaded from: classes5.dex */
-    public interface a<T extends nn, V extends BdBaseViewPagerAdapter.a> {
-        void a(V v, T t);
-    }
+    public static class a extends BdAsyncTask<String, Integer, Integer> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public bw4(Context context, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        this.a = context;
-        this.c = bdUniqueId;
-    }
 
-    public a<T, V> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (a) invokeV.objValue;
-    }
-
-    public abstract V b(ViewGroup viewGroup);
-
-    public void c(V v, T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, v, t) == null) {
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Type inference failed for: r2v0, types: [int] */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Integer doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            HttpURLConnection httpURLConnection;
+            DataOutputStream dataOutputStream;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                HttpURLConnection httpURLConnection2 = null;
+                if (strArr != null) {
+                    ?? length = strArr.length;
+                    try {
+                        if (length != 0) {
+                            try {
+                                httpURLConnection = (HttpURLConnection) new URL("https://appc.baidu.com/appsrv?action=appdistributionlog&native_api=1").openConnection();
+                                try {
+                                    httpURLConnection.setRequestMethod("POST");
+                                    httpURLConnection.setDoOutput(true);
+                                    httpURLConnection.setDoInput(true);
+                                    httpURLConnection.setConnectTimeout(jb.d().c().b());
+                                    httpURLConnection.setReadTimeout(jb.d().b().b());
+                                    httpURLConnection.setRequestProperty("Content-Type", "application/json");
+                                    httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
+                                    httpURLConnection.connect();
+                                    try {
+                                        dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
+                                        try {
+                                            dataOutputStream.write(strArr[0].getBytes("UTF-8"));
+                                            dataOutputStream.flush();
+                                            ng.d(dataOutputStream);
+                                            httpURLConnection.getResponseCode();
+                                        } catch (Throwable th) {
+                                            th = th;
+                                            ng.d(dataOutputStream);
+                                            throw th;
+                                        }
+                                    } catch (Throwable th2) {
+                                        th = th2;
+                                        dataOutputStream = null;
+                                    }
+                                } catch (Exception e) {
+                                    e = e;
+                                    e.printStackTrace();
+                                    ng.f(httpURLConnection);
+                                    return null;
+                                }
+                            } catch (Exception e2) {
+                                e = e2;
+                                httpURLConnection = null;
+                            } catch (Throwable th3) {
+                                th = th3;
+                                ng.f(httpURLConnection2);
+                                throw th;
+                            }
+                            ng.f(httpURLConnection);
+                            return null;
+                        }
+                    } catch (Throwable th4) {
+                        th = th4;
+                        httpURLConnection2 = length;
+                    }
+                }
+                return null;
+            }
+            return (Integer) invokeL.objValue;
         }
     }
 
-    public abstract View d(ViewGroup viewGroup, V v, T t);
-
-    public void e(a<T, V> aVar) {
+    public static void a(DownloadData downloadData, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.b = aVar;
+        if ((interceptable == null || interceptable.invokeLI(65536, null, downloadData, i) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
+            ItemDownloadExtraData itemDownloadExtraData = (ItemDownloadExtraData) downloadData.getExtra();
+            if (pi.isEmpty(itemDownloadExtraData.shouzhuSource)) {
+                itemDownloadExtraData.shouzhuSource = cw4.f().g(itemDownloadExtraData.pkgName);
+            }
+            c(downloadData, i);
+            b(itemDownloadExtraData.pkgName, itemDownloadExtraData.appName, itemDownloadExtraData.shouzhuScene, itemDownloadExtraData.shouzhuCategory, itemDownloadExtraData.shouzhuSource, i);
         }
     }
 
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public static void b(String str, String str2, int i, int i2, String str3, int i3) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), str3, Integer.valueOf(i3)}) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("pkgname", str);
+                jSONObject.put("appname", str2);
+                jSONObject.put("host", 4);
+                jSONObject.put("scene", i);
+                jSONObject.put("category", i2);
+                jSONObject.put("event", i3);
+                jSONObject.put("source", str3);
+                new a().execute(jSONObject.toString());
+            } catch (JSONException unused) {
+            }
+        }
+    }
+
+    public static void c(DownloadData downloadData, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65538, null, downloadData, i) == null) {
+            if (i != 100 && i != 200) {
+                if (i != 300) {
+                    if (i != 400) {
+                        if (i != 500) {
+                            if (i != 600) {
+                                if (i == 700 || i == 800) {
+                                    cw4.f().e(downloadData);
+                                    return;
+                                } else if (i != 900) {
+                                    return;
+                                } else {
+                                    cw4.f().k(downloadData);
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                    cw4.f().j(downloadData);
+                    return;
+                }
+                cw4.f().d(downloadData);
+                return;
+            }
+            cw4.f();
+        }
     }
 }

@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class DuplayerHandlerThreadPool {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MSG_CHECK_IDLE_LONG_TIME_OUT = 100;
@@ -35,13 +35,13 @@ public class DuplayerHandlerThreadPool {
     public c e;
 
     /* renamed from: com.baidu.cyberplayer.sdk.utils.DuplayerHandlerThreadPool$1  reason: invalid class name */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +82,7 @@ public class DuplayerHandlerThreadPool {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static DuplayerHandlerThreadPool a;
@@ -105,7 +105,7 @@ public class DuplayerHandlerThreadPool {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class c extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

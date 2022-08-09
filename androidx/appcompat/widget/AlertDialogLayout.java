@@ -105,11 +105,11 @@ public class AlertDialogLayout extends LinearLayoutCompat {
                 View childAt = getChildAt(i7);
                 if (childAt.getVisibility() != 8) {
                     int id = childAt.getId();
-                    if (id == R$id.obfuscated) {
+                    if (id == R$id.topPanel) {
                         view2 = childAt;
-                    } else if (id == R$id.obfuscated) {
+                    } else if (id == R$id.buttonPanel) {
                         view3 = childAt;
-                    } else if ((id != R$id.obfuscated && id != R$id.customPanel) || view4 != null) {
+                    } else if ((id != R$id.contentPanel && id != R$id.customPanel) || view4 != null) {
                         return false;
                     } else {
                         view4 = childAt;

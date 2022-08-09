@@ -29,16 +29,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.k15;
-import com.repackage.l86;
-import com.repackage.m86;
-import com.repackage.mx4;
-import com.repackage.pi;
-import com.repackage.tw8;
-import com.repackage.w15;
+import com.repackage.da6;
+import com.repackage.ea6;
+import com.repackage.gy4;
+import com.repackage.h25;
+import com.repackage.jz8;
+import com.repackage.qi;
+import com.repackage.t25;
 import java.util.regex.Matcher;
 /* loaded from: classes4.dex */
-public class VideoPlayInputContainer extends LinearLayout implements w15 {
+public class VideoPlayInputContainer extends LinearLayout implements t25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EditorTools a;
@@ -84,7 +84,7 @@ public class VideoPlayInputContainer extends LinearLayout implements w15 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.f = true;
-                this.a.L(new k15(1, 5, null));
+                this.a.J(new h25(1, 5, null));
             }
         }
     }
@@ -119,7 +119,7 @@ public class VideoPlayInputContainer extends LinearLayout implements w15 {
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
                 if (editable != null && editable.toString().trim() != null) {
                     VideoPlayInputContainer videoPlayInputContainer = this.a;
-                    videoPlayInputContainer.L(new k15(4, -1, videoPlayInputContainer.b.getText().toString()));
+                    videoPlayInputContainer.J(new h25(4, -1, videoPlayInputContainer.b.getText().toString()));
                 }
                 this.a.c.setEnabled((editable == null || StringUtils.isNull(editable.toString().trim())) ? false : true);
                 this.a.i();
@@ -177,7 +177,7 @@ public class VideoPlayInputContainer extends LinearLayout implements w15 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 1) {
-                    this.a.L(new k15(5, -1, null));
+                    this.a.J(new h25(5, -1, null));
                     this.a.b.requestFocus();
                 }
                 return false;
@@ -214,13 +214,13 @@ public class VideoPlayInputContainer extends LinearLayout implements w15 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.L(new k15(8, -1, null));
+                this.a.J(new h25(8, -1, null));
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class e implements m86.h {
+    public class e implements ea6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoPlayInputContainer a;
@@ -243,13 +243,13 @@ public class VideoPlayInputContainer extends LinearLayout implements w15 {
             this.a = videoPlayInputContainer;
         }
 
-        @Override // com.repackage.m86.h
+        @Override // com.repackage.ea6.h
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
                 this.a.b.setText(spannableStringBuilder);
                 this.a.b.setSelection(this.a.b.getText().length());
-                this.a.L(new k15(5, -1, null));
+                this.a.J(new h25(5, -1, null));
                 this.a.requestFocus();
             }
         }
@@ -276,18 +276,18 @@ public class VideoPlayInputContainer extends LinearLayout implements w15 {
         }
     }
 
-    @Override // com.repackage.l15
-    public void C(k15 k15Var) {
+    @Override // com.repackage.i25
+    public void A(h25 h25Var) {
         Object obj;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, k15Var) == null) || k15Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, h25Var) == null) || h25Var == null) {
             return;
         }
-        int i = k15Var.a;
+        int i = h25Var.a;
         if (i == 3) {
             if (this.b.getSelectionStart() > 0) {
                 String substring = this.b.getText().toString().substring(0, this.b.getSelectionStart());
-                Matcher matcher = l86.b.matcher(substring);
+                Matcher matcher = da6.b.matcher(substring);
                 if (matcher.find()) {
                     this.b.getText().delete(this.b.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.b.getSelectionStart());
                 } else {
@@ -295,66 +295,81 @@ public class VideoPlayInputContainer extends LinearLayout implements w15 {
                 }
             }
         } else if (i == 6) {
-            Object obj2 = k15Var.c;
+            Object obj2 = h25Var.c;
             if (obj2 == null) {
                 this.b.setText((CharSequence) null);
             } else if (obj2 instanceof String) {
                 if (TextUtils.isEmpty((String) obj2)) {
                     this.b.setText((CharSequence) null);
                 } else {
-                    m86.f(getContext(), (String) k15Var.c, new e(this));
+                    ea6.f(getContext(), (String) h25Var.c, new e(this));
                 }
             }
         } else if (i == 9) {
-            if (((Boolean) k15Var.c).booleanValue()) {
+            if (((Boolean) h25Var.c).booleanValue()) {
                 this.b.setText((CharSequence) null);
             }
             this.c.setEnabled(false);
             i();
-        } else if (i == 24 && (obj = k15Var.c) != null && (obj instanceof mx4)) {
-            mx4 mx4Var = (mx4) obj;
-            if (mx4Var.getType() == EmotionGroupType.NET_SUG) {
-                o(mx4Var);
+        } else if (i == 24 && (obj = h25Var.c) != null && (obj instanceof gy4)) {
+            gy4 gy4Var = (gy4) obj;
+            if (gy4Var.getType() == EmotionGroupType.NET_SUG) {
+                o(gy4Var);
             } else {
-                n(mx4Var);
+                n(gy4Var);
             }
         }
     }
 
-    @Override // com.repackage.w15
-    public void L(k15 k15Var) {
+    @Override // com.repackage.t25
+    public void J(h25 h25Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k15Var) == null) || (editorTools = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h25Var) == null) || (editorTools = this.a) == null) {
             return;
         }
-        editorTools.A(k15Var);
+        editorTools.A(h25Var);
+    }
+
+    @Override // com.repackage.t25
+    public void display() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            EditText editText = this.b;
+            if (editText != null) {
+                editText.setFocusable(true);
+                this.b.setFocusableInTouchMode(true);
+                this.b.requestFocus();
+                qi.M(getContext(), this.b);
+            }
+            setVisibility(0);
+        }
     }
 
     public EditText getInputView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (EditText) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (EditText) invokeV.objValue;
     }
 
-    @Override // com.repackage.w15
+    @Override // com.repackage.t25
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i : invokeV.intValue;
     }
 
-    @Override // com.repackage.w15
+    @Override // com.repackage.t25
     public void hide() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             setVisibility(8);
         }
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             if (this.c.isEnabled()) {
                 SkinManager.setViewTextColor(this.c, R.color.CAM_X0302, 1, this.m);
             } else {
@@ -363,20 +378,20 @@ public class VideoPlayInputContainer extends LinearLayout implements w15 {
         }
     }
 
-    @Override // com.repackage.w15
+    @Override // com.repackage.t25
     public void init() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
         }
     }
 
     public final void j(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
             ImageView imageView = new ImageView(context);
             this.d = imageView;
             imageView.setEnabled(true);
-            this.d.setPadding(0, 0, pi.f(context, R.dimen.tbds30), pi.f(context, R.dimen.tbds24));
+            this.d.setPadding(0, 0, qi.f(context, R.dimen.tbds30), qi.f(context, R.dimen.tbds24));
             this.d.setOnClickListener(new a(this));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 80;
@@ -386,7 +401,7 @@ public class VideoPlayInputContainer extends LinearLayout implements w15 {
 
     public final void k(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
             EditText editText = new EditText(context);
             this.b = editText;
             editText.setMinHeight(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207));
@@ -394,11 +409,11 @@ public class VideoPlayInputContainer extends LinearLayout implements w15 {
             this.b.setGravity(16);
             this.b.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207));
             this.b.setBackgroundResource(R.color.common_color_10022);
-            tw8.l(this.b, R.drawable.obfuscated_res_0x7f0804ac);
-            this.b.setPadding(0, pi.f(context, R.dimen.obfuscated_res_0x7f0701e8), pi.f(context, R.dimen.obfuscated_res_0x7f0702da), pi.f(context, R.dimen.obfuscated_res_0x7f0701e8));
+            jz8.l(this.b, R.drawable.obfuscated_res_0x7f0804ae);
+            this.b.setPadding(0, qi.f(context, R.dimen.obfuscated_res_0x7f0701e8), qi.f(context, R.dimen.obfuscated_res_0x7f0702da), qi.f(context, R.dimen.obfuscated_res_0x7f0701e8));
             this.b.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
             this.b.addTextChangedListener(new b(this));
-            this.b.setHint(context.getString(R.string.obfuscated_res_0x7f0f0fb2));
+            this.b.setHint(context.getString(R.string.obfuscated_res_0x7f0f0fe9));
             this.b.setOnTouchListener(new c(this));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
             layoutParams.weight = 1.0f;
@@ -408,17 +423,17 @@ public class VideoPlayInputContainer extends LinearLayout implements w15 {
 
     public final void l(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
             TextView textView = new TextView(context);
             this.c = textView;
             textView.setGravity(17);
             this.c.setIncludeFontPadding(false);
             this.c.setEnabled(false);
             this.c.setTextSize(0, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b7));
-            this.c.setText(R.string.obfuscated_res_0x7f0f10d2);
+            this.c.setText(R.string.obfuscated_res_0x7f0f110c);
             this.c.setOnClickListener(new d(this));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.setMargins(0, 0, 0, pi.f(context, R.dimen.tbds18));
+            layoutParams.setMargins(0, 0, 0, qi.f(context, R.dimen.tbds18));
             layoutParams.gravity = 80;
             this.g.addView(this.c, layoutParams);
         }
@@ -427,49 +442,49 @@ public class VideoPlayInputContainer extends LinearLayout implements w15 {
     public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f : invokeV.booleanValue;
     }
 
-    public final void n(mx4 mx4Var) {
+    public final void n(gy4 gy4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, mx4Var) == null) {
-            if (!this.e || mx4Var.getType() == EmotionGroupType.LOCAL) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, gy4Var) == null) {
+            if (!this.e || gy4Var.getType() == EmotionGroupType.LOCAL) {
                 String obj = this.b.getText().toString();
-                if (this.j && l86.a(obj) >= 10 && getContext() != null) {
-                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f13f3);
+                if (this.j && da6.a(obj) >= 10 && getContext() != null) {
+                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1431);
                 } else {
-                    m86.b(getContext(), mx4Var, this.b);
+                    ea6.b(getContext(), gy4Var, this.b);
                 }
             }
         }
     }
 
-    public final void o(mx4 mx4Var) {
+    public final void o(gy4 gy4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, mx4Var) == null) || mx4Var == null || TextUtils.isEmpty(mx4Var.d()) || TextUtils.isEmpty(mx4Var.g())) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, gy4Var) == null) || gy4Var == null || TextUtils.isEmpty(gy4Var.d()) || TextUtils.isEmpty(gy4Var.g())) {
             return;
         }
         String obj = this.b.getText().toString();
-        if (this.j && l86.a(obj) >= 10 && getContext() != null) {
-            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f13f3);
+        if (this.j && da6.a(obj) >= 10 && getContext() != null) {
+            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1431);
         } else {
-            m86.c(getContext(), mx4Var, this.b);
+            ea6.c(getContext(), gy4Var, this.b);
         }
     }
 
-    @Override // com.repackage.w15
+    @Override // com.repackage.t25
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
             this.m = i;
             SkinManager.setBackgroundColor(this.h, R.color.CAM_X0204, i);
             SkinManager.setViewTextColor(this.b, R.color.CAM_X0106, 2, i);
             SkinManager.setBackgroundColor(this, R.color.CAM_X0207, i);
             if (i == 0) {
-                tw8.l(this.b, R.drawable.obfuscated_res_0x7f0804ac);
+                jz8.l(this.b, R.drawable.obfuscated_res_0x7f0804ae);
                 this.b.setHintTextColor(getContext().getResources().getColor(R.color.CAM_X0109));
             } else {
-                tw8.l(this.b, R.drawable.obfuscated_res_0x7f0804ad);
+                jz8.l(this.b, R.drawable.obfuscated_res_0x7f0804af);
                 this.b.setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0109));
             }
             i();
@@ -477,22 +492,7 @@ public class VideoPlayInputContainer extends LinearLayout implements w15 {
         }
     }
 
-    @Override // com.repackage.w15
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            EditText editText = this.b;
-            if (editText != null) {
-                editText.setFocusable(true);
-                this.b.setFocusableInTouchMode(true);
-                this.b.requestFocus();
-                pi.M(getContext(), this.b);
-            }
-            setVisibility(0);
-        }
-    }
-
-    @Override // com.repackage.w15
+    @Override // com.repackage.t25
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, editorTools) == null) {
@@ -507,7 +507,7 @@ public class VideoPlayInputContainer extends LinearLayout implements w15 {
         }
     }
 
-    @Override // com.repackage.w15
+    @Override // com.repackage.t25
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
@@ -568,13 +568,13 @@ public class VideoPlayInputContainer extends LinearLayout implements w15 {
         LinearLayout linearLayout = new LinearLayout(getContext());
         this.g = linearLayout;
         linearLayout.setOrientation(0);
-        this.g.setMinimumHeight(pi.f(context, R.dimen.obfuscated_res_0x7f070308));
+        this.g.setMinimumHeight(qi.f(context, R.dimen.obfuscated_res_0x7f070308));
         addView(this.g, new LinearLayout.LayoutParams(-1, -2));
         j(context);
         k(context);
         l(context);
         this.h = new View(getContext());
-        this.h.setLayoutParams(new LinearLayout.LayoutParams(-1, pi.f(getContext(), R.dimen.obfuscated_res_0x7f070198)));
+        this.h.setLayoutParams(new LinearLayout.LayoutParams(-1, qi.f(getContext(), R.dimen.obfuscated_res_0x7f070198)));
         addView(this.h);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }

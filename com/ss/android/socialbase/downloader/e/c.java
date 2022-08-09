@@ -3,7 +3,7 @@ package com.ss.android.socialbase.downloader.e;
 import com.ss.android.socialbase.downloader.i.f;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c implements b {
     public final InputStream a;
     public final com.ss.android.socialbase.downloader.f.a b;

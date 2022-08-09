@@ -1,43 +1,38 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.yalog.LoggerManager;
+import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public class lb9 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile LoggerManager.c a;
-    public static mb9 b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755534706, "Lcom/repackage/lb9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755534706, "Lcom/repackage/lb9;");
-                return;
-            }
-        }
-        b = new mb9();
-    }
-
-    public static LoggerManager.c a() {
-        InterceptResult invokeV;
+    public static double a(ByteBuffer byteBuffer, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                a = b.a();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, byteBuffer, i)) == null) {
+            if (byteBuffer == null || i == 0) {
+                return 0.0d;
             }
-            return a;
+            byteBuffer.position(i);
+            byteBuffer.flip();
+            byte[] bArr = new byte[i];
+            byteBuffer.get(bArr);
+            byteBuffer.position(i);
+            byteBuffer.flip();
+            double d = 0.0d;
+            for (int i2 = 0; i2 < i; i2 += 2) {
+                int i3 = (bArr[i2] & 255) + ((bArr[i2 + 1] & 255) << 8);
+                if (i3 >= 32768) {
+                    i3 = 65535 - i3;
+                }
+                d += i3 * i3;
+            }
+            double d2 = (d / i) / 2.0d;
+            return Math.abs(d2 > 0.0d ? Math.log10(d2) * 10.0d : 0.0d);
         }
-        return (LoggerManager.c) invokeV.objValue;
+        return invokeLI.doubleValue;
     }
 }

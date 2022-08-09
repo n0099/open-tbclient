@@ -21,6 +21,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.Px;
 import androidx.appcompat.widget.ActionMenuView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.GravityCompat;
@@ -54,13 +55,13 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedBehavior {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long ANIMATION_DURATION = 300;
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100342 = 2131755842;
+    public static final int obfuscated_res_0x7f100346 = 2131755846;
     public static final int FAB_ALIGNMENT_MODE_CENTER = 0;
     public static final int FAB_ALIGNMENT_MODE_END = 1;
     public static final int FAB_ANIMATION_MODE_SCALE = 0;
@@ -90,14 +91,14 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
     public final boolean paddingRightSystemWindowInsets;
     public int rightInset;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface AnimationListener {
         void onAnimationEnd(BottomAppBar bottomAppBar);
 
         void onAnimationStart(BottomAppBar bottomAppBar);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class Behavior extends HideBottomViewOnScrollBehavior<BottomAppBar> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -155,7 +156,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                             bottomAppBar.setFabDiameter(height);
                             CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) view2.getLayoutParams();
                             if (this.this$0.originalBottomMargin == 0) {
-                                ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin = bottomAppBar.getBottomInset() + (bottomAppBar.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070439) - ((floatingActionButton.getMeasuredHeight() - height) / 2));
+                                ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin = bottomAppBar.getBottomInset() + (bottomAppBar.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07043a) - ((floatingActionButton.getMeasuredHeight() - height) / 2));
                                 ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin = bottomAppBar.getLeftInset();
                                 ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin = bottomAppBar.getRightInset();
                                 if (ViewUtils.isLayoutRtl(floatingActionButton)) {
@@ -262,7 +263,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                             bottomAppBar.setFabDiameter(height);
                             CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) view2.getLayoutParams();
                             if (this.this$0.originalBottomMargin == 0) {
-                                ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin = bottomAppBar.getBottomInset() + (bottomAppBar.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070439) - ((floatingActionButton.getMeasuredHeight() - height) / 2));
+                                ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin = bottomAppBar.getBottomInset() + (bottomAppBar.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07043a) - ((floatingActionButton.getMeasuredHeight() - height) / 2));
                                 ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin = bottomAppBar.getLeftInset();
                                 ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin = bottomAppBar.getRightInset();
                                 if (ViewUtils.isLayoutRtl(floatingActionButton)) {
@@ -284,16 +285,16 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public @interface FabAlignmentMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public @interface FabAnimationMode {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class SavedState extends AbsSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
@@ -514,7 +515,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
     private void createFabTranslationXAnimation(int i, @NonNull List<Animator> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65571, this, i, list) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(findDependentFab(), "translationX", getFabTranslationX(i));
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(findDependentFab(), Key.TRANSLATION_X, getFabTranslationX(i));
             ofFloat.setDuration(300L);
             list.add(ofFloat);
         }
@@ -526,9 +527,9 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
         if (!(interceptable == null || interceptable.invokeCommon(65572, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), list}) == null) || (actionMenuView = getActionMenuView()) == null) {
             return;
         }
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(actionMenuView, "alpha", 1.0f);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(actionMenuView, Key.ALPHA, 1.0f);
         if (Math.abs(actionMenuView.getTranslationX() - getActionMenuViewTranslationX(actionMenuView, i, z)) > 1.0f) {
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(actionMenuView, "alpha", 0.0f);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(actionMenuView, Key.ALPHA, 0.0f);
             ofFloat2.addListener(new AnimatorListenerAdapter(this, actionMenuView, i, z) { // from class: com.google.android.material.bottomappbar.BottomAppBar.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -1226,7 +1227,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BottomAppBar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0400e7);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0400f1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1262,7 +1263,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BottomAppBar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100342), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100346), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1366,7 +1367,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
             }
         };
         Context context2 = getContext();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.backgroundTint, R.attr.obfuscated_res_0x7f040215, R.attr.obfuscated_res_0x7f04026c, R.attr.obfuscated_res_0x7f04026d, R.attr.obfuscated_res_0x7f04026e, R.attr.obfuscated_res_0x7f04026f, R.attr.obfuscated_res_0x7f040270, R.attr.obfuscated_res_0x7f0402c8, R.attr.obfuscated_res_0x7f0404a7, R.attr.obfuscated_res_0x7f0404aa, R.attr.obfuscated_res_0x7f0404ac}, i, obfuscated_res_0x7f100342, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400b9, R.attr.obfuscated_res_0x7f04026d, R.attr.obfuscated_res_0x7f04029e, R.attr.obfuscated_res_0x7f04029f, R.attr.obfuscated_res_0x7f0402a0, R.attr.obfuscated_res_0x7f0402a1, R.attr.obfuscated_res_0x7f0402a2, R.attr.obfuscated_res_0x7f040306, R.attr.obfuscated_res_0x7f040518, R.attr.obfuscated_res_0x7f04051b, R.attr.obfuscated_res_0x7f04051d}, i, obfuscated_res_0x7f100346, new int[0]);
         ColorStateList colorStateList = MaterialResources.getColorStateList(context2, obtainStyledAttributes, 0);
         int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(1, 0);
         this.fabAlignmentMode = obtainStyledAttributes.getInt(2, 0);
@@ -1376,7 +1377,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
         this.paddingLeftSystemWindowInsets = obtainStyledAttributes.getBoolean(9, false);
         this.paddingRightSystemWindowInsets = obtainStyledAttributes.getBoolean(10, false);
         obtainStyledAttributes.recycle();
-        this.fabOffsetEndMode = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070438);
+        this.fabOffsetEndMode = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070439);
         this.materialShapeDrawable.setShapeAppearanceModel(ShapeAppearanceModel.builder().setTopEdge(new BottomAppBarTopEdgeTreatment(obtainStyledAttributes.getDimensionPixelOffset(4, 0), obtainStyledAttributes.getDimensionPixelOffset(5, 0), obtainStyledAttributes.getDimensionPixelOffset(6, 0))).build());
         this.materialShapeDrawable.setShadowCompatibilityMode(2);
         this.materialShapeDrawable.setPaintStyle(Paint.Style.FILL);
@@ -1384,7 +1385,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
         setElevation(dimensionPixelSize);
         DrawableCompat.setTintList(this.materialShapeDrawable, colorStateList);
         ViewCompat.setBackground(this, this.materialShapeDrawable);
-        ViewUtils.doOnApplyWindowInsets(this, attributeSet, i, obfuscated_res_0x7f100342, new ViewUtils.OnApplyWindowInsetsListener(this) { // from class: com.google.android.material.bottomappbar.BottomAppBar.3
+        ViewUtils.doOnApplyWindowInsets(this, attributeSet, i, obfuscated_res_0x7f100346, new ViewUtils.OnApplyWindowInsetsListener(this) { // from class: com.google.android.material.bottomappbar.BottomAppBar.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ BottomAppBar this$0;

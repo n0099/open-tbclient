@@ -6,7 +6,7 @@ import com.google.android.gms.common.zzn;
 import com.google.android.gms.common.zzq;
 import com.google.android.gms.common.zzs;
 import com.google.android.gms.dynamic.IObjectWrapper;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface zzaf extends IInterface {
     zzq zze(zzn zznVar) throws RemoteException;
 

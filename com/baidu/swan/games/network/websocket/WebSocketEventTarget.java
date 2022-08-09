@@ -14,15 +14,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.iz3;
-import com.repackage.jz3;
-import com.repackage.lz3;
-import com.repackage.mz3;
-import com.repackage.sg1;
+import com.repackage.a04;
+import com.repackage.c04;
+import com.repackage.d04;
+import com.repackage.jh1;
+import com.repackage.zz3;
 import java.nio.ByteBuffer;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketListener {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
@@ -30,7 +30,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
     public SocketTaskState a;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class SocketTaskState {
         public static final /* synthetic */ SocketTaskState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -104,7 +104,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
                 return;
             }
         }
-        b = sg1.a;
+        b = jh1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -133,7 +133,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
             this.a = SocketTaskState.CLOSE;
-            y("close", new iz3(jSONObject != null ? jSONObject.optInt("code", 0) : 0, jSONObject == null ? "" : jSONObject.optString("reason")));
+            x("close", new zz3(jSONObject != null ? jSONObject.optInt("code", 0) : 0, jSONObject == null ? "" : jSONObject.optString("reason")));
         }
     }
 
@@ -141,7 +141,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
     public void onError(Throwable th, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, jSONObject) == null) && this.a == SocketTaskState.IDLE) {
-            y("error", new jz3(th.getMessage()));
+            x("error", new a04(th.getMessage()));
         }
     }
 
@@ -149,7 +149,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
     public void onMessage(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            y("message", new lz3(str));
+            x("message", new c04(str));
         }
     }
 
@@ -158,11 +158,11 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
             this.a = SocketTaskState.OPEN;
-            y("open", new mz3(new JSONObject(map)));
+            x("open", new d04(new JSONObject(map)));
         }
     }
 
-    public final void y(String str, Object obj) {
+    public final void x(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, obj) == null) {
             if (b) {
@@ -179,7 +179,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
             int remaining = byteBuffer.remaining();
             byte[] bArr = new byte[remaining];
             byteBuffer.get(bArr);
-            y("message", new lz3(new JsArrayBuffer(bArr, remaining)));
+            x("message", new c04(new JsArrayBuffer(bArr, remaining)));
         }
     }
 }

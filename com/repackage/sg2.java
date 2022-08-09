@@ -1,29 +1,52 @@
 package com.repackage;
 
-import android.view.Surface;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes7.dex */
-public interface sg2 extends ug2 {
+public class sg2 extends te2<kh2> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public interface a {
+    public sg2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    void R(int i, int i2);
+    @Override // com.repackage.te2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setBackgroundMute" : (String) invokeV.objValue;
+    }
 
-    void X(long j);
-
-    int getVideoHeight();
-
-    int getVideoWidth();
-
-    void m(String str);
-
-    void o(@NonNull a aVar);
-
-    void s(int i, int i2, int i3, int i4);
-
-    void setSurface(Surface surface);
-
-    void z(int i);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.te2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull kh2 kh2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, kh2Var) == null) {
+            String str = command.what;
+            d(kh2Var, str, "" + command.obj, true);
+            Object obj = command.obj;
+            if (obj instanceof Boolean) {
+                kh2Var.M(((Boolean) obj).booleanValue());
+            }
+        }
+    }
 }

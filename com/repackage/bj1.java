@@ -1,13 +1,14 @@
 package com.repackage;
 
-import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes5.dex */
-public class bj1 implements il1 {
+public class bj1 implements el1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,13 +26,10 @@ public class bj1 implements il1 {
         }
     }
 
-    @Override // com.repackage.il1
-    public boolean a(Message message) {
+    @Override // com.repackage.el1
+    public InputStream a(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) ? new ir9(inputStream) : (InputStream) invokeL.objValue;
     }
 }

@@ -1,79 +1,61 @@
 package com.repackage;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.repackage.al9;
+import com.repackage.dg9;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class zk9 {
+public class zk9 implements al9.a<ag9> {
     public static /* synthetic */ Interceptable $ic;
-    public static zk9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public yk9 a;
+    public final /* synthetic */ al9 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755108983, "Lcom/repackage/zk9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755108983, "Lcom/repackage/zk9;");
-                return;
-            }
-        }
-        b = new zk9();
-    }
-
-    public zk9() {
+    public zk9(al9 al9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {al9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
+        this.a = al9Var;
     }
 
-    @NonNull
-    public static yk9 a(@NonNull Context context) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.repackage.al9.a
+    public void a(ag9 ag9Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? b.b(context) : (yk9) invokeL.objValue;
-    }
-
-    @NonNull
-    public final synchronized yk9 b(@NonNull Context context) {
-        InterceptResult invokeL;
-        yk9 yk9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            synchronized (this) {
-                if (this.a == null) {
-                    if (context.getApplicationContext() != null) {
-                        context = context.getApplicationContext();
-                    }
-                    this.a = new yk9(context);
-                }
-                yk9Var = this.a;
-            }
-            return yk9Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ag9Var) == null) {
+            LogPrinter.v("SerialSlotId:%s is totally same with oldOne", ag9Var.a);
         }
-        return (yk9) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.repackage.al9.a
+    public void b(ag9 ag9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ag9Var) == null) {
+            ag9 ag9Var2 = ag9Var;
+            LogPrinter.v("Update SerialSlotId:%s", ag9Var2.a);
+            HashMap<String, fg9> hashMap = this.a.c;
+            String str = ag9Var2.a;
+            hashMap.put(str, new fg9(str, new mg9(this, ag9Var2)));
+            dg9 dg9Var = this.a.b;
+            synchronized (dg9Var.a) {
+                dg9Var.a(ag9Var2.a).add(new dg9.b(ag9Var2));
+            }
+        }
     }
 }

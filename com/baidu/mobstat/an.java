@@ -12,6 +12,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.statistic.StatisticConstants;
@@ -491,7 +492,7 @@ public class an {
                     jSONObject3.put("w", ah.a(activity, e.width()));
                     jSONObject3.put("h", ah.a(activity, e.height()));
                     jSONObject.put("frame", jSONObject3);
-                    jSONObject.put("alpha", bj.i(view2));
+                    jSONObject.put(Key.ALPHA, bj.i(view2));
                     jSONObject.put("page", activity.getClass().getName());
                     jSONObject.put("z", bj.j(view2));
                     boolean z = view2 instanceof WebView;

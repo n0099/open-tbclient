@@ -15,7 +15,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class AtomicFile {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AtomicFile";
@@ -23,7 +23,7 @@ public final class AtomicFile {
     public final File backupName;
     public final File baseName;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class AtomicFileOutputStream extends OutputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

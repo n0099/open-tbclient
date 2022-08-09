@@ -2,11 +2,11 @@ package com.ss.android.downloadlib.g;
 
 import android.annotation.TargetApi;
 import android.os.AsyncTask;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
-    public static final a a = new C0653b();
+    public static final a a = new C0658b();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public a() {
         }
@@ -21,9 +21,9 @@ public class b {
 
     @TargetApi(11)
     /* renamed from: com.ss.android.downloadlib.g.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0653b extends a {
-        public C0653b() {
+    /* loaded from: classes8.dex */
+    public static class C0658b extends a {
+        public C0658b() {
             super();
         }
 

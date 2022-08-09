@@ -1,33 +1,25 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.constants.PlayerStatus;
-import com.baidu.nadcore.player.minivideo.view.LineLoadingView;
+import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.searchbox.player.event.ControlEvent;
 import com.baidu.searchbox.player.event.PlayerEvent;
-import com.baidu.searchbox.player.event.SystemEvent;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gv0 extends qu0 implements View.OnClickListener {
+public class gv0 extends pu0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewGroup e;
-    public ImageView f;
-    public boolean g;
-    public LineLoadingView h;
+    public AdImageView e;
+    public AdImageView f;
 
     public gv0() {
         Interceptable interceptable = $ic;
@@ -39,136 +31,85 @@ public class gv0 extends qu0 implements View.OnClickListener {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.g = false;
     }
 
-    @Override // com.repackage.iu0
-    @SuppressLint({"InflateParams"})
+    @Override // com.repackage.hu0
     public void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d05ca, (ViewGroup) null);
-            this.e = viewGroup;
-            this.f = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0923c2);
-            this.h = (LineLoadingView) this.e.findViewById(R.id.obfuscated_res_0x7f091299);
+            AdImageView adImageView = new AdImageView(this.c);
+            this.e = adImageView;
+            adImageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+            this.e.setLayoutParams(new ViewGroup.MarginLayoutParams(-1, -1));
+            AdImageView adImageView2 = new AdImageView(this.c);
+            this.f = adImageView2;
+            adImageView2.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.f.setLayoutParams(new ViewGroup.MarginLayoutParams(-1, -1));
+            this.e.setVisibility(8);
+            this.f.setVisibility(8);
         }
     }
 
-    public void L() {
+    public void L(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.h.g();
-        }
-    }
-
-    public void M(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.g = z;
-        }
-    }
-
-    public void N(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && this.g) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             this.f.setVisibility(i);
-            this.g = false;
+            this.e.setVisibility(i);
         }
     }
 
-    public final void O() {
+    public void M(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.h.f();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.e.getVisibility() == 8) {
+            this.e.setVisibility(0);
+            this.e.g(str);
         }
     }
 
-    @Override // com.repackage.iu0, com.repackage.ws0
-    public void d(@NonNull vr0 vr0Var) {
+    @Override // com.repackage.hu0, com.repackage.vs0
+    public void d(@NonNull ur0 ur0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, vr0Var) == null) {
-            if (PlayerEvent.ACTION_ON_INFO.equals(vr0Var.c())) {
-                int intValue = ((Integer) vr0Var.f(1)).intValue();
+        if (interceptable == null || interceptable.invokeL(1048579, this, ur0Var) == null) {
+            if (PlayerEvent.ACTION_ON_INFO.equals(ur0Var.c())) {
+                int intValue = ((Integer) ur0Var.f(1)).intValue();
                 if (intValue == 904 || 956 == intValue) {
-                    this.g = false;
-                    this.f.setVisibility(4);
-                    L();
-                } else if (701 == intValue) {
-                    O();
-                } else if (702 == intValue) {
-                    L();
+                    this.e.setVisibility(8);
+                    this.f.setVisibility(8);
                 }
-            } else if (PlayerEvent.ACTION_ON_PREPARED.equals(vr0Var.c())) {
-                L();
-            } else if (PlayerEvent.ACTION_ON_ERROR.equals(vr0Var.c())) {
-                L();
+            } else if (PlayerEvent.ACTION_ON_ERROR.equals(ur0Var.c())) {
+                this.e.setVisibility(8);
+                this.f.setVisibility(8);
+            } else if ((!PlayerEvent.ACTION_SET_DATA_SOURCE.equals(ur0Var.c()) && !PlayerEvent.ACTION_PLAYER_ATTACH.equals(ur0Var.c())) || u() == null || u().o1() == null) {
+            } else {
+                M(u().o1().getPoster());
             }
         }
     }
 
-    @Override // com.repackage.vu0
+    @Override // com.repackage.uu0
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.ws0
+    @Override // com.repackage.vs0
     @Nullable
     public int[] getSubscribeEvent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new int[]{4, 2, 1, 5} : (int[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new int[]{4, 2} : (int[]) invokeV.objValue;
     }
 
-    @Override // com.repackage.iu0, com.repackage.ws0
-    public void h(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
+    @Override // com.repackage.hu0, com.repackage.vs0
+    public void q(@NonNull ur0 ur0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, playerStatus, playerStatus2) == null) {
-            super.h(playerStatus, playerStatus2);
-            if (playerStatus == PlayerStatus.PLAYING || playerStatus == PlayerStatus.PAUSE || playerStatus == PlayerStatus.STOP) {
-                L();
-            }
-        }
-    }
-
-    @Override // com.repackage.iu0, com.repackage.ws0
-    public void n(@NonNull vr0 vr0Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, vr0Var) == null) || !SystemEvent.ACTION_VOLUME_CHANGED.equals(vr0Var.c()) || u().a0() || u().Q() || ((Integer) vr0Var.f(5)).intValue() <= 0 || !u().V()) {
-            return;
-        }
-        u().w0(false);
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, view2) == null) {
-        }
-    }
-
-    @Override // com.repackage.iu0, com.repackage.ws0
-    public void q(@NonNull vr0 vr0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, vr0Var) == null) {
-            if (ControlEvent.ACTION_PAUSE.equals(vr0Var.c())) {
-                if (this.g) {
-                    this.f.setVisibility(0);
-                }
-            } else if (ControlEvent.ACTION_RESUME.equals(vr0Var.c())) {
-                this.g = false;
-                this.f.setVisibility(4);
-            } else if (ControlEvent.ACTION_START.equals(vr0Var.c())) {
-                if (u().Y()) {
-                    return;
-                }
-                O();
-            } else if (ControlEvent.ACTION_STOP.equals(vr0Var.c())) {
-                L();
+        if (interceptable == null || interceptable.invokeL(1048582, this, ur0Var) == null) {
+            if (ControlEvent.ACTION_RESUME.equals(ur0Var.c()) || ControlEvent.ACTION_SHOW_TIP.equals(ur0Var.c())) {
+                this.e.setVisibility(8);
+                this.f.setVisibility(8);
             }
         }
     }

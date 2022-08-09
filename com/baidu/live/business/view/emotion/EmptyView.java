@@ -14,9 +14,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.repackage.c90;
-import com.repackage.eb0;
-import com.repackage.t80;
+import com.repackage.ab0;
+import com.repackage.m80;
 /* loaded from: classes2.dex */
 public class EmptyView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -45,36 +44,43 @@ public class EmptyView extends LinearLayout {
         }
     }
 
-    public void a(boolean z) {
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.a.getLayoutParams();
-            layoutParams.width = t80.a(getContext(), c90.a().i);
-            layoutParams.height = t80.a(getContext(), c90.a().j);
+            layoutParams.width = m80.b(getContext(), EmotionStrategy.getInstance().emptyWidth);
+            layoutParams.height = m80.b(getContext(), EmotionStrategy.getInstance().emptyHeight);
             this.a.setLayoutParams(layoutParams);
-            setImageResource(eb0.e().b(z));
-            if ("quanmin".equals(LiveFeedPageSdk.f().e())) {
-                this.b.setText(R.string.obfuscated_res_0x7f0f09de);
+            setImageResource(ab0.f().b(str));
+            if (LiveFeedPageSdk.HOST_QUANMIN.equals(LiveFeedPageSdk.getInstance().getHost())) {
+                this.b.setText(R.string.obfuscated_res_0x7f0f09f6);
             } else {
-                this.b.setText(R.string.obfuscated_res_0x7f0f09dd);
+                this.b.setText(R.string.obfuscated_res_0x7f0f09f5);
             }
-            this.b.setTextColor(eb0.e().a(getContext(), z, "color_8585852"));
+            this.b.setTextColor(ab0.f().a(getContext(), str, "color_8585852"));
         }
     }
 
-    public void b(int i, boolean z) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            c(i, LiveFeedPageSdk.HOST_LIVE_TAB);
+        }
+    }
+
+    public void c(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
             super.setVisibility(i);
             if (i == 0) {
-                a(z);
+                a(str);
             }
         }
     }
 
     public void setImageResource(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || i == -1) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || i == -1) {
             return;
         }
         this.a.setActualImageResource(i);
@@ -82,7 +88,7 @@ public class EmptyView extends LinearLayout {
 
     public void setText(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, charSequence) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, charSequence) == null) {
             this.b.setText(charSequence);
         }
     }
@@ -110,7 +116,7 @@ public class EmptyView extends LinearLayout {
 
     public void setText(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             this.b.setText(i);
         }
     }
@@ -134,10 +140,10 @@ public class EmptyView extends LinearLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0515, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0520, this);
         setOrientation(1);
         setGravity(17);
-        this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f090894);
-        this.b = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f090896);
+        this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f0908cb);
+        this.b = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f0908cd);
     }
 }

@@ -12,6 +12,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Pair;
 import android.view.TextureView;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
@@ -144,7 +145,7 @@ public class q implements TextureView.SurfaceTextureListener, Camera.PreviewCall
                     q qVar3 = this.a;
                     int a = q.a(qVar3, qVar3.a);
                     this.a.x.setDisplayOrientation(a);
-                    this.a.y.set("rotation", a);
+                    this.a.y.set(Key.ROTATION, a);
                     q qVar4 = this.a;
                     Point a2 = com.baidu.sofire.face.c.a.a(qVar4.y, qVar4.C, qVar4.D);
                     q qVar5 = this.a;

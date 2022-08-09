@@ -1,66 +1,100 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
+import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class u83 extends s83 {
+public class u83 extends w23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public u83() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u83(w13 w13Var) {
+        super(w13Var, "/swanAPI/file/save");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {w13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.repackage.s83
-    @SuppressLint({"BDThrowableCheck"})
-    public Bundle c(r83 r83Var) {
-        InterceptResult invokeL;
+    @Override // com.repackage.w23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, z03 z03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, r83Var)) == null) {
-            q83 b = w83.b(r83Var.a);
-            if (b == null) {
-                if (!s83.a) {
-                    return Bundle.EMPTY;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, z03Var)) == null) {
+            if (context != null && callbackHandler != null && z03Var != null && z03Var.f0() != null) {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    zx1.c("saveFile", "params is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
                 }
-                throw new IllegalArgumentException("illegal sp.");
-            }
-            int i = r83Var.b;
-            if (i == 1) {
-                b.putInt(r83Var.c, Integer.parseInt(r83Var.d));
-            } else if (i == 2) {
-                b.putLong(r83Var.c, Long.parseLong(r83Var.d));
-            } else if (i == 3) {
-                b.putBoolean(r83Var.c, Boolean.parseBoolean(r83Var.d));
-            } else if (i == 4) {
-                b.putString(r83Var.c, r83Var.d);
-            } else if (i != 5) {
-                if (s83.a) {
-                    throw new IllegalArgumentException("wrong info params.");
+                String M = h83.M(optParamsAsJo.optString("tempFilePath"), z03Var.getAppId());
+                if (w23.b) {
+                    Log.d("SaveFileAction", "——> handle: tempFileUrl " + optParamsAsJo.optString("tempFilePath"));
+                    Log.d("SaveFileAction", "——> handle: tempFilePath " + M);
                 }
-            } else {
-                b.putFloat(r83Var.c, Float.parseFloat(r83Var.d));
+                if (TextUtils.isEmpty(M)) {
+                    zx1.c("saveFile", "temp file path is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                int a = z03Var.f0().a(M);
+                if (w23.b) {
+                    Log.d("SaveFileAction", "——> handle: statusCode " + a);
+                }
+                if (a > 2000) {
+                    zx1.c("saveFile", "file path status code : " + a);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a, t13.a(a)));
+                    return false;
+                }
+                String o = z03Var.f0().o(M);
+                if (TextUtils.isEmpty(o)) {
+                    zx1.c("saveFile", "save file path is null");
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2003, t13.a(2003)));
+                    return false;
+                }
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("savedFilePath", h83.J(o, z03.g0()));
+                    if (w23.b) {
+                        Log.d("SaveFileAction", "——> handle: saveFilePath saveFilePath " + o + " update saveFilePath " + jSONObject.get("savedFilePath"));
+                    }
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                    return true;
+                } catch (JSONException unused) {
+                    zx1.o("saveFile", "save file path to scheme fail");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
             }
-            if (s83.a) {
-                Log.d("SwanAppSpDelegation", "Put: " + r83Var);
-            }
-            return Bundle.EMPTY;
+            zx1.c("saveFile", "execute fail");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
         }
-        return (Bundle) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

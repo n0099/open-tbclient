@@ -1,11 +1,11 @@
 package com.repackage;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.client.HttpClient;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,11 +13,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes5.dex */
-public class db extends eb<HttpMessage, HttpMessageTask, ra, HttpResponsedMessage> {
+/* loaded from: classes6.dex */
+public class db extends fb<CustomMessage<?>, CustomMessageTask, qa, CustomResponsedMessage<?>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HttpClient i;
+    public w9 i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public db(MessageManager messageManager) {
@@ -38,57 +38,60 @@ public class db extends eb<HttpMessage, HttpMessageTask, ra, HttpResponsedMessag
             }
         }
         this.i = null;
-        this.i = new HttpClient(messageManager);
-        this.e = ib.d();
+        this.i = new w9(messageManager);
+        this.e = ib.c();
     }
 
-    @Override // com.repackage.r9
-    public LinkedList<HttpMessage> e(int i, BdUniqueId bdUniqueId) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.s9
+    /* renamed from: A */
+    public void f(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, customMessage, customMessageTask) == null) {
+            this.i.f(customMessage, customMessageTask);
+        }
+    }
+
+    @Override // com.repackage.s9
+    public LinkedList<CustomMessage<?>> e(int i, BdUniqueId bdUniqueId) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bdUniqueId)) == null) ? this.i.e(i, bdUniqueId) : (LinkedList) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bdUniqueId)) == null) ? this.i.e(i, bdUniqueId) : (LinkedList) invokeIL.objValue;
     }
 
-    @Override // com.repackage.r9
+    @Override // com.repackage.s9
     public void h(int i, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bdUniqueId) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, bdUniqueId) == null) {
             this.i.h(i, bdUniqueId);
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
-    @Override // com.repackage.eb
-    public /* bridge */ /* synthetic */ HttpMessage m(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        HttpMessage httpMessage2 = httpMessage;
-        w(httpMessage2, httpMessageTask);
-        return httpMessage2;
+    public LinkedList<CustomMessage<?>> w(BdUniqueId bdUniqueId) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bdUniqueId)) == null) ? this.i.i(bdUniqueId) : (LinkedList) invokeL.objValue;
     }
 
-    public HttpMessage w(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.fb
+    /* renamed from: x */
+    public CustomMessage<?> m(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, httpMessage, httpMessageTask)) == null) ? httpMessage : (HttpMessage) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, customMessage, customMessageTask)) == null) ? this.a.getController().e(customMessage, customMessageTask) : (CustomMessage) invokeLL.objValue;
     }
 
-    public void x(BdUniqueId bdUniqueId) {
+    public void y(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
             this.i.j(bdUniqueId);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.r9
-    /* renamed from: y */
-    public void f(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+    public <T> CustomResponsedMessage<T> z(CustomMessage<?> customMessage, CustomMessageTask customMessageTask, Class<T> cls) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, httpMessage, httpMessageTask) == null) {
-            if (httpMessageTask.getConnectTimeOut() == null) {
-                httpMessageTask.setConnectTimeOut(((ib) this.e).c());
-            }
-            this.i.f(httpMessage, httpMessageTask);
-        }
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, customMessage, customMessageTask, cls)) == null) ? this.i.k(customMessage, customMessageTask, cls) : (CustomResponsedMessage) invokeLLL.objValue;
     }
 }

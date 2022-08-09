@@ -1,123 +1,101 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.app.Application;
-import android.os.Bundle;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b49;
-import java.util.Iterator;
 /* loaded from: classes6.dex */
-public final class i49 implements Application.ActivityLifecycleCallbacks {
+public class i49 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
+    public static String g;
     public transient /* synthetic */ FieldHolder $fh;
-    public b49 a;
+    public final String a;
+    public final int b;
+    public final int c;
+    public long d;
+    public int e;
 
-    public i49(b49 b49Var) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755668285, "Lcom/repackage/i49;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755668285, "Lcom/repackage/i49;");
+                return;
+            }
+        }
+        f = h49.a & true;
+        g = "ControlData";
+    }
+
+    public i49(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {b49Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = b49Var;
+        this.a = str;
+        this.b = i;
+        this.c = i2;
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public final void onActivityCreated(Activity activity, Bundle bundle) {
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
-            synchronized (this.a.b()) {
-                for (b49.a aVar : this.a.b()) {
-                    aVar.a(activity);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b != 0 && this.c != 0) {
+                Long valueOf = Long.valueOf(System.currentTimeMillis());
+                if (f) {
+                    Log.d(g, "id " + this.a + " mLimitUnit " + this.b + " mLimitCnt " + this.c + "mCount =  " + this.e + " duration " + ((valueOf.longValue() - this.d) / 1000));
                 }
+                if (this.d != 0 && (valueOf.longValue() - this.d) / 1000 <= this.b && this.e >= this.c) {
+                    if (f) {
+                        Log.d(g, "control");
+                    }
+                    return true;
+                }
+                if (this.d == 0) {
+                    this.d = valueOf.longValue();
+                } else if ((valueOf.longValue() - this.d) / 1000 > this.b) {
+                    this.d = valueOf.longValue();
+                    this.e = 0;
+                    if (f) {
+                        Log.d(g, "reset");
+                    }
+                }
+                this.e++;
             }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public final void onActivityDestroyed(Activity activity) {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            synchronized (this.a.b()) {
-                for (b49.a aVar : this.a.b()) {
-                    aVar.onActivityDestroyed(activity);
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int i = this.e;
+            return i != 0 && i == this.c;
         }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public final void onActivityPaused(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-            synchronized (this.a.b()) {
-                for (b49.a aVar : this.a.b()) {
-                    aVar.U();
-                }
-            }
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public final void onActivityResumed(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            synchronized (this.a.b()) {
-                for (b49.a aVar : this.a.b()) {
-                    aVar.b();
-                }
-            }
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public final void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
-            synchronized (this.a.b()) {
-                Iterator<b49.a> it = this.a.b().iterator();
-                while (it.hasNext()) {
-                    it.next();
-                }
-            }
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public final void onActivityStarted(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-            synchronized (this.a.b()) {
-                Iterator<b49.a> it = this.a.b().iterator();
-                while (it.hasNext()) {
-                    it.next();
-                }
-            }
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public final void onActivityStopped(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
-            synchronized (this.a.b()) {
-                Iterator<b49.a> it = this.a.b().iterator();
-                while (it.hasNext()) {
-                    it.next();
-                }
-            }
-        }
+        return invokeV.booleanValue;
     }
 }

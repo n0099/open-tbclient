@@ -10,9 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.an4;
-import com.repackage.ni;
-import com.repackage.ob;
+import com.repackage.oi;
+import com.repackage.pb;
+import com.repackage.rn4;
 /* loaded from: classes3.dex */
 public class TbImageHelper {
     public static /* synthetic */ Interceptable $ic;
@@ -78,7 +78,7 @@ public class TbImageHelper {
     public static boolean isSupportGifEmotions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? FileHelper.checkSD() && ob.c() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? FileHelper.checkSD() && pb.c() : invokeV.booleanValue;
     }
 
     private void updateAll() {
@@ -93,7 +93,7 @@ public class TbImageHelper {
     private void updateNetworkStatusCache() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            this.mIsWifiCache = ni.H();
+            this.mIsWifiCache = oi.H();
         }
     }
 
@@ -150,7 +150,7 @@ public class TbImageHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             boolean z = true;
-            if (an4.c().e() != 0 ? an4.c().e() != 1 : !this.mIsWifiCache) {
+            if (rn4.c().e() != 0 ? rn4.c().e() != 1 : !this.mIsWifiCache) {
                 z = false;
             }
             setShowBigImage(z);
@@ -166,7 +166,7 @@ public class TbImageHelper {
     public void updatePostImageSize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            int d = an4.c().d();
+            int d = rn4.c().d();
             int i = 1300;
             if (d != 0) {
                 if (d != 1) {
@@ -184,11 +184,11 @@ public class TbImageHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             String valueOf = String.valueOf(45);
-            if (an4.c().e() == 0) {
+            if (rn4.c().e() == 0) {
                 if (getIsWifi()) {
                     valueOf = String.valueOf(80);
                 }
-            } else if (an4.c().e() == 1) {
+            } else if (rn4.c().e() == 1) {
                 valueOf = String.valueOf(80);
             }
             this.mUrlQuality = valueOf;

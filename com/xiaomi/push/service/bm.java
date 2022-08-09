@@ -41,9 +41,9 @@ public class bm implements eh {
             ii iiVar = new ii();
             iiVar.b(ed.a(context).m307a());
             iiVar.d(ed.a(context).b());
-            iiVar.c(ht.I.f505a);
+            iiVar.c(ht.I.f506a);
             iiVar.a(bd.a());
-            iiVar.f644a = hashMap;
+            iiVar.f645a = hashMap;
             byte[] a = it.a(ah.a(iiVar.c(), iiVar.b(), iiVar, hj.i));
             if (!(context instanceof XMPushService)) {
                 com.xiaomi.channel.commonutils.logger.b.m89a("MoleInfo : context is not correct in pushLayer " + iiVar.m480a());

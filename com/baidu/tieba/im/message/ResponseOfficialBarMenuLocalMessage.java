@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.o57;
-import com.repackage.p57;
+import com.repackage.i77;
+import com.repackage.j77;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +19,7 @@ import tbclient.ForumMenu.SubMenu;
 public class ResponseOfficialBarMenuLocalMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public p57 officialBarMenuDatas;
+    public j77 officialBarMenuDatas;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseOfficialBarMenuLocalMessage() {
@@ -50,55 +50,55 @@ public class ResponseOfficialBarMenuLocalMessage extends CustomResponsedMessage<
         if (getError() != 0) {
             return;
         }
-        setOfficialBarMenuDatas(new p57());
+        setOfficialBarMenuDatas(new j77());
         if (forumMenuResIdl.data != null) {
             getOfficialBarMenuDatas().f(forumMenuResIdl.data.update_time.intValue());
             getOfficialBarMenuDatas().d(forumMenuResIdl.data.has_menu.intValue());
             getOfficialBarMenuDatas().e(new ArrayList());
             int size = forumMenuResIdl.data.parent_menu.size();
             for (int i2 = 0; i2 < size; i2++) {
-                o57 o57Var = new o57();
+                i77 i77Var = new i77();
                 Menu menu = forumMenuResIdl.data.parent_menu.get(i2);
-                o57Var.f(menu.action_type.intValue());
-                o57Var.g(menu.content);
-                o57Var.h(menu.create_time.intValue());
-                o57Var.i(menu.forum_id + "");
-                o57Var.j(menu.id + "");
-                o57Var.k(menu.level.intValue());
-                o57Var.l(menu.name);
-                o57Var.n(new ArrayList());
+                i77Var.f(menu.action_type.intValue());
+                i77Var.g(menu.content);
+                i77Var.h(menu.create_time.intValue());
+                i77Var.i(menu.forum_id + "");
+                i77Var.j(menu.id + "");
+                i77Var.k(menu.level.intValue());
+                i77Var.l(menu.name);
+                i77Var.n(new ArrayList());
                 List<SubMenu> list = menu.sub_menu;
                 if (list != null) {
                     int size2 = list.size();
                     for (int i3 = 0; i3 < size2; i3++) {
                         SubMenu subMenu = menu.sub_menu.get(i3);
-                        o57 o57Var2 = new o57();
-                        o57Var2.f(subMenu.action_type.intValue());
-                        o57Var2.g(subMenu.content);
-                        o57Var2.i(subMenu.forum_id + "");
-                        o57Var2.j(subMenu.id + "");
-                        o57Var2.k(subMenu.level.intValue());
-                        o57Var2.l(subMenu.name);
-                        o57Var2.m(subMenu.parent_id.intValue());
-                        o57Var2.o(subMenu.update_time.intValue());
-                        o57Var.e().add(o57Var2);
+                        i77 i77Var2 = new i77();
+                        i77Var2.f(subMenu.action_type.intValue());
+                        i77Var2.g(subMenu.content);
+                        i77Var2.i(subMenu.forum_id + "");
+                        i77Var2.j(subMenu.id + "");
+                        i77Var2.k(subMenu.level.intValue());
+                        i77Var2.l(subMenu.name);
+                        i77Var2.m(subMenu.parent_id.intValue());
+                        i77Var2.o(subMenu.update_time.intValue());
+                        i77Var.e().add(i77Var2);
                     }
                 }
-                getOfficialBarMenuDatas().a().add(o57Var);
+                getOfficialBarMenuDatas().a().add(i77Var);
             }
         }
     }
 
-    public p57 getOfficialBarMenuDatas() {
+    public j77 getOfficialBarMenuDatas() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.officialBarMenuDatas : (p57) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.officialBarMenuDatas : (j77) invokeV.objValue;
     }
 
-    public void setOfficialBarMenuDatas(p57 p57Var) {
+    public void setOfficialBarMenuDatas(j77 j77Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, p57Var) == null) {
-            this.officialBarMenuDatas = p57Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, j77Var) == null) {
+            this.officialBarMenuDatas = j77Var;
         }
     }
 }

@@ -1,89 +1,49 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.kwad.sdk.core.response.model.AdInfo;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes5.dex */
-public final class ck9 {
+public class ck9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final List<String> a;
-        public final Object b;
-
-        public /* synthetic */ a(Object obj, ik9 ik9Var) {
-            dk9.d(obj);
-            this.b = obj;
-            this.a = new ArrayList();
-        }
-
-        @NonNull
-        public a a(@NonNull String str, @Nullable Object obj) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, obj)) == null) {
-                List<String> list = this.a;
-                dk9.d(str);
-                String valueOf = String.valueOf(obj);
-                StringBuilder sb = new StringBuilder(str.length() + 1 + String.valueOf(valueOf).length());
-                sb.append(str);
-                sb.append("=");
-                sb.append(valueOf);
-                list.add(sb.toString());
-                return this;
-            }
-            return (a) invokeLL.objValue;
-        }
-
-        @NonNull
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                StringBuilder sb = new StringBuilder(100);
-                sb.append(this.b.getClass().getSimpleName());
-                sb.append('{');
-                int size = this.a.size();
-                for (int i = 0; i < size; i++) {
-                    sb.append(this.a.get(i));
-                    if (i < size - 1) {
-                        sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                    }
+    public static RippedAd a(AdInfo adInfo) {
+        InterceptResult invokeL;
+        String str;
+        String str2;
+        List<AdInfo.AdMaterialInfo.MaterialFeature> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, adInfo)) == null) {
+            AdInfo.AdBaseInfo adBaseInfo = adInfo.adBaseInfo;
+            AdInfo.AdConversionInfo adConversionInfo = adInfo.adConversionInfo;
+            RippedAd.Builder builder = new RippedAd.Builder();
+            AdInfo.AdMaterialInfo adMaterialInfo = adInfo.adMaterialInfo;
+            ArrayList arrayList = null;
+            if (adMaterialInfo == null || (list = adMaterialInfo.materialFeatureList) == null || list.isEmpty()) {
+                str = null;
+            } else if (adMaterialInfo.materialType == 1) {
+                AdInfo.AdMaterialInfo.MaterialFeature materialFeature = adMaterialInfo.materialFeatureList.get(0);
+                str2 = materialFeature.materialUrl;
+                str = materialFeature.coverUrl;
+                builder.setCorporation(adBaseInfo.corporationName).setTitle(adBaseInfo.productName).setDescription(adBaseInfo.adDescription).setAppName(adBaseInfo.appName).setAppPkg(adBaseInfo.appPackageName).setAppUrl(adConversionInfo.appDownloadUrl).setIconUrl(adBaseInfo.appIconUrl).setImageUrl(RippedAd.combineStrWithComma(arrayList)).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(adBaseInfo.clickUrl).setDeepLinkUrl(adConversionInfo.deeplinkUrl).setConvUrl(adBaseInfo.convUrl);
+                return builder.build();
+            } else {
+                ArrayList arrayList2 = new ArrayList();
+                for (AdInfo.AdMaterialInfo.MaterialFeature materialFeature2 : adMaterialInfo.materialFeatureList) {
+                    arrayList2.add(materialFeature2.materialUrl);
                 }
-                sb.append('}');
-                return sb.toString();
+                str = null;
+                arrayList = arrayList2;
             }
-            return (String) invokeV.objValue;
+            str2 = str;
+            builder.setCorporation(adBaseInfo.corporationName).setTitle(adBaseInfo.productName).setDescription(adBaseInfo.adDescription).setAppName(adBaseInfo.appName).setAppPkg(adBaseInfo.appPackageName).setAppUrl(adConversionInfo.appDownloadUrl).setIconUrl(adBaseInfo.appIconUrl).setImageUrl(RippedAd.combineStrWithComma(arrayList)).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(adBaseInfo.clickUrl).setDeepLinkUrl(adConversionInfo.deeplinkUrl).setConvUrl(adBaseInfo.convUrl);
+            return builder.build();
         }
-    }
-
-    public static boolean a(@Nullable Object obj, @Nullable Object obj2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, obj, obj2)) == null) ? obj == obj2 || (obj != null && obj.equals(obj2)) : invokeLL.booleanValue;
-    }
-
-    public static int b(@NonNull Object... objArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, objArr)) == null) ? Arrays.hashCode(objArr) : invokeL.intValue;
-    }
-
-    @NonNull
-    public static a c(@NonNull Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, obj)) == null) ? new a(obj, null) : (a) invokeL.objValue;
+        return (RippedAd) invokeL.objValue;
     }
 }

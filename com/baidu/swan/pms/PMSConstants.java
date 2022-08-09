@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.p74;
-/* loaded from: classes2.dex */
+import com.repackage.g84;
+/* loaded from: classes3.dex */
 public class PMSConstants {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class CloudSwitch {
         public static final /* synthetic */ CloudSwitch[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -77,7 +77,7 @@ public class PMSConstants {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class CustomerService {
         public static final /* synthetic */ CustomerService[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -140,7 +140,7 @@ public class PMSConstants {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class PayProtected {
         public static final /* synthetic */ PayProtected[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -202,7 +202,7 @@ public class PMSConstants {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -217,9 +217,9 @@ public class PMSConstants {
         }
     }
 
-    public static boolean a(p74 p74Var) {
+    public static boolean a(g84 g84Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, p74Var)) == null) ? p74Var != null && p74Var.x() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, g84Var)) == null) ? g84Var != null && g84Var.x() : invokeL.booleanValue;
     }
 }

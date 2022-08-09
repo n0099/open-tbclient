@@ -1,18 +1,18 @@
 package com.repackage;
 
-import android.os.Build;
-import com.baidu.live.framework.usersecurity.LiveUserSecurityDeviceInfoManagerKt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class ia0 {
+public class ia0 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile int b;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
     static {
         InterceptResult invokeClinit;
@@ -29,18 +29,43 @@ public final class ia0 {
         }
     }
 
-    @JvmStatic
-    public static final String a() {
+    public ia0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = 0;
+    }
+
+    public static synchronized ia0 a() {
+        InterceptResult invokeV;
+        ia0 ia0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (ia0.class) {
+                if (b < 1000000) {
+                    b = 1000000;
+                }
+                ia0Var = new ia0();
+                ia0Var.a = b;
+                b++;
+            }
+            return ia0Var;
+        }
+        return (ia0) invokeV.objValue;
+    }
+
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (LiveUserSecurityDeviceInfoManagerKt.d()) {
-                return LiveUserSecurityDeviceInfoManagerKt.b(null, 1, null);
-            }
-            String str = Build.MANUFACTURER;
-            Intrinsics.checkNotNullExpressionValue(str, "Build.MANUFACTURER");
-            return str;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 }

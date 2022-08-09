@@ -18,7 +18,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qa0;
 /* loaded from: classes2.dex */
 public class SmartBubbleAnimatedView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -65,7 +64,7 @@ public class SmartBubbleAnimatedView extends View {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-                layoutParams.height = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07060c);
+                layoutParams.height = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07060d);
                 this.a.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 this.a.c = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                 if (this.a.l && (layoutParams instanceof LinearLayout.LayoutParams)) {
@@ -241,16 +240,16 @@ public class SmartBubbleAnimatedView extends View {
         this.h = new RectF();
         this.i = new Rect();
         this.l = false;
-        d(null, 0);
+        d();
     }
 
-    public final void d(AttributeSet attributeSet, int i) {
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, attributeSet, i) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.f.setColor(-16711681);
             this.g.setColor(-7829368);
-            this.g.setTextSize(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07060d));
-            this.k = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07060c);
+            this.g.setTextSize(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07060e));
+            this.k = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07060d);
         }
     }
 
@@ -288,7 +287,9 @@ public class SmartBubbleAnimatedView extends View {
             this.d.addUpdateListener(new a(this));
             this.d.setDuration(400L);
             this.d.start();
-            qa0.a().postDelayed(new b(this), this.b);
+            if (getHandler() != null) {
+                getHandler().postDelayed(new b(this), this.b);
+            }
         }
     }
 
@@ -299,9 +300,29 @@ public class SmartBubbleAnimatedView extends View {
     }
 
     @Override // android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onDetachedFromWindow();
+            if (getHandler() != null) {
+                getHandler().removeCallbacksAndMessages(null);
+            }
+            ValueAnimator valueAnimator = this.d;
+            if (valueAnimator != null && valueAnimator.isRunning()) {
+                this.d.cancel();
+            }
+            ValueAnimator valueAnimator2 = this.e;
+            if (valueAnimator2 == null || !valueAnimator2.isRunning()) {
+                return;
+            }
+            this.e.cancel();
+        }
+    }
+
+    @Override // android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             float height = ((1.0f - this.c) * getHeight()) / 2.0f;
             float width = (getWidth() / 2) + ((this.c * getWidth()) / 2.0f);
             float height2 = (getHeight() / 2) + ((this.c * getHeight()) / 2.0f);
@@ -320,14 +341,14 @@ public class SmartBubbleAnimatedView extends View {
 
     public void setExtrusionRemind(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             this.l = z;
         }
     }
 
     public void setOnBubbleAnimateListener(e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, eVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, eVar) == null) {
             this.j = eVar;
         }
     }
@@ -358,7 +379,7 @@ public class SmartBubbleAnimatedView extends View {
         this.h = new RectF();
         this.i = new Rect();
         this.l = false;
-        d(attributeSet, 0);
+        d();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -387,6 +408,6 @@ public class SmartBubbleAnimatedView extends View {
         this.h = new RectF();
         this.i = new Rect();
         this.l = false;
-        d(attributeSet, i);
+        d();
     }
 }

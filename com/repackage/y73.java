@@ -1,74 +1,60 @@
 package com.repackage;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.wl2;
+import org.json.JSONException;
 import org.json.JSONObject;
-@Deprecated
 /* loaded from: classes7.dex */
-public class y73 extends f23 {
+public class y73 extends b83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String k;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y73(f13 f13Var) {
-        super(f13Var, "/swanAPI/getStorage");
+    public y73() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {f13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.k = "";
     }
 
-    @Override // com.repackage.f23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.repackage.b83
+    public JSONObject f() {
+        InterceptResult invokeV;
+        z03 D;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
-            if (f23.b) {
-                Log.d("SwanAppAction", "start get storage");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.h == null) {
+                this.h = new JSONObject();
             }
-            if (i03Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
-                return false;
+            if (TextUtils.isEmpty(this.k) && (D = mm2.U().D()) != null) {
+                wl2.a Y = D.Y();
+                this.k = Y != null ? Y.T() : "";
             }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
-                return false;
+            try {
+                this.h.put("source", this.k);
+                String b = zu2.b();
+                if (b != null) {
+                    this.h.put("launchid", b);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            String Q = jq1.Q(optParamsAsJo);
-            if (Q == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            JSONObject O = jq1.O(i03Var.f0().g().getString(Q, null));
-            if (O == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "JSONException");
-                return false;
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(O, 0));
-            return true;
+            return super.f();
         }
-        return invokeLLLL.booleanValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

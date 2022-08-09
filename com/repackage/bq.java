@@ -8,22 +8,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes5.dex */
-public final class bq extends iq {
+public final class bq extends jq {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long d;
+    public final String d;
     public final String e;
     public final String f;
-    public final String g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bq(long j, String str, String str2, String str3, Integer num, String str4) {
+    public bq(String str, String str2, String str3, Integer num, String str4) {
         super(str, num, str4);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), str, str2, str3, num, str4};
+            Object[] objArr = {str, str2, str3, num, str4};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,24 +34,23 @@ public final class bq extends iq {
                 return;
             }
         }
-        this.d = j;
-        this.e = str;
-        this.f = str2;
-        this.g = str3;
+        this.d = str;
+        this.e = str2;
+        this.f = str3;
     }
 
-    @Override // com.repackage.wq
+    @Override // com.repackage.xq
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TaskExecVisitAction" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TaskExecClickAction" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.iq
+    @Override // com.repackage.jq
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (String) invokeV.objValue;
     }
 
     public int g() {
@@ -64,10 +62,10 @@ public final class bq extends iq {
         return invokeV.intValue;
     }
 
-    public final long h() {
+    public final String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (String) invokeV.objValue;
     }
 
     public final String i() {
@@ -76,13 +74,7 @@ public final class bq extends iq {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : (String) invokeV.objValue;
     }
 
-    public final String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.g : (String) invokeV.objValue;
-    }
-
-    public /* synthetic */ bq(long j, String str, String str2, String str3, Integer num, String str4, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i & 1) != 0 ? 0L : j, str, (i & 4) != 0 ? "" : str2, (i & 8) != 0 ? "" : str3, (i & 16) != 0 ? null : num, (i & 32) != 0 ? null : str4);
+    public /* synthetic */ bq(String str, String str2, String str3, Integer num, String str4, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(str, (i & 2) != 0 ? "" : str2, (i & 4) != 0 ? "" : str3, (i & 8) != 0 ? null : num, (i & 16) != 0 ? null : str4);
     }
 }

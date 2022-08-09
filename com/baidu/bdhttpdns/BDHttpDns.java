@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.so;
 import com.repackage.to;
 import com.repackage.uo;
 import com.repackage.vo;
 import com.repackage.wo;
 import com.repackage.xo;
 import com.repackage.yo;
+import com.repackage.zo;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public final class BDHttpDns {
@@ -27,9 +27,9 @@ public final class BDHttpDns {
     public static volatile BDHttpDns k;
     public transient /* synthetic */ FieldHolder $fh;
     public final HttpDnsClient a;
-    public final to b;
-    public final vo c;
-    public final vo d;
+    public final uo b;
+    public final wo c;
+    public final wo d;
     public BDNetworkStateChangeReceiver e;
     public final Context f;
     public CachePolicy g;
@@ -175,9 +175,9 @@ public final class BDHttpDns {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ e a;
         public final /* synthetic */ BDHttpDnsResult.ResolveType b;
-        public final /* synthetic */ vo.a c;
+        public final /* synthetic */ wo.a c;
 
-        public c(BDHttpDns bDHttpDns, e eVar, BDHttpDnsResult.ResolveType resolveType, vo.a aVar) {
+        public c(BDHttpDns bDHttpDns, e eVar, BDHttpDnsResult.ResolveType resolveType, wo.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -212,9 +212,9 @@ public final class BDHttpDns {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ e a;
         public final /* synthetic */ BDHttpDnsResult.ResolveType b;
-        public final /* synthetic */ vo.a c;
+        public final /* synthetic */ wo.a c;
 
-        public d(BDHttpDns bDHttpDns, e eVar, BDHttpDnsResult.ResolveType resolveType, vo.a aVar) {
+        public d(BDHttpDns bDHttpDns, e eVar, BDHttpDnsResult.ResolveType resolveType, wo.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -264,9 +264,9 @@ public final class BDHttpDns {
             }
         }
         this.a = HttpDnsClient.z();
-        this.b = to.c();
-        this.c = new vo("DNS", true);
-        this.d = new vo("HTTPDNS", false);
+        this.b = uo.c();
+        this.c = new wo("DNS", true);
+        this.d = new wo("HTTPDNS", false);
         this.g = CachePolicy.POLICY_TOLERANT;
         this.f = context;
         i();
@@ -300,16 +300,16 @@ public final class BDHttpDns {
         BDHttpDnsResult.ResolveType resolveType;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, eVar) == null) {
-            if (so.l(str)) {
+            if (to.l(str)) {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(str);
-                yo.b().a().execute(new a(this, eVar, arrayList));
-            } else if (so.m(str)) {
+                zo.b().a().execute(new a(this, eVar, arrayList));
+            } else if (to.m(str)) {
                 ArrayList arrayList2 = new ArrayList();
                 arrayList2.add(str.replaceAll("[\\[\\]]", ""));
-                yo.b().a().execute(new b(this, eVar, arrayList2));
+                zo.b().a().execute(new b(this, eVar, arrayList2));
             } else {
-                vo.a c2 = this.d.c(str);
+                wo.a c2 = this.d.c(str);
                 long currentTimeMillis = System.currentTimeMillis();
                 ArrayList<String> arrayList3 = new ArrayList<>();
                 if (a(currentTimeMillis)) {
@@ -321,9 +321,9 @@ public final class BDHttpDns {
                     if (q(currentTimeMillis)) {
                         arrayList3.addAll(this.a.y());
                     }
-                    this.a.O(arrayList3, new wo(this.f));
+                    this.a.O(arrayList3, new xo(this.f));
                 } else {
-                    xo.a("please wait a moment to send request for %s, until preResolve finished or has passed 1000ms ", str);
+                    yo.a("please wait a moment to send request for %s, until preResolve finished or has passed 1000ms ", str);
                 }
                 if (c2 != null) {
                     if (c2.e()) {
@@ -336,11 +336,11 @@ public final class BDHttpDns {
                     objArr[1] = c2.a() != null ? c2.a().toString() : null;
                     objArr[2] = c2.b() != null ? c2.b().toString() : null;
                     objArr[3] = resolveType.toString();
-                    xo.a("Async resolve successful, host(%s) ipv4List(%s) ipv6List(%s) resolveType(%s)", objArr);
-                    yo.b().a().execute(new c(this, eVar, resolveType, c2));
+                    yo.a("Async resolve successful, host(%s) ipv4List(%s) ipv6List(%s) resolveType(%s)", objArr);
+                    zo.b().a().execute(new c(this, eVar, resolveType, c2));
                     return;
                 }
-                vo.a c3 = this.c.c(str);
+                wo.a c3 = this.c.c(str);
                 if (c3 != null) {
                     BDHttpDnsResult.ResolveType resolveType2 = BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS_CACHE;
                     Object[] objArr2 = new Object[4];
@@ -348,11 +348,11 @@ public final class BDHttpDns {
                     objArr2[1] = c3.a() != null ? c3.a().toString() : null;
                     objArr2[2] = c3.b() != null ? c3.b().toString() : null;
                     objArr2[3] = resolveType2.toString();
-                    xo.a("Async resolve successful, host(%s) ipv4List(%s) ipv6List(%s) resolveType(%s)", objArr2);
-                    yo.b().a().execute(new d(this, eVar, resolveType2, c3));
+                    yo.a("Async resolve successful, host(%s) ipv4List(%s) ipv6List(%s) resolveType(%s)", objArr2);
+                    zo.b().a().execute(new d(this, eVar, resolveType2, c3));
                     return;
                 }
-                this.b.b(str, new uo(this.f, eVar));
+                this.b.b(str, new vo(this.f, eVar));
             }
         }
     }
@@ -363,16 +363,16 @@ public final class BDHttpDns {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : (CachePolicy) invokeV.objValue;
     }
 
-    public vo d() {
+    public wo d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (vo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (wo) invokeV.objValue;
     }
 
-    public vo e() {
+    public wo e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (vo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (wo) invokeV.objValue;
     }
 
     public HttpDnsClient f() {
@@ -402,7 +402,7 @@ public final class BDHttpDns {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             if (str.length() <= 64) {
                 this.a.K(str);
-                xo.a("Set account id to %s", str);
+                yo.a("Set account id to %s", str);
                 return;
             }
             throw new IllegalArgumentException("accountID length(" + str.length() + ") is bigger than 64");
@@ -418,7 +418,7 @@ public final class BDHttpDns {
             } else {
                 this.d.f(false);
             }
-            xo.a("Set cache policy to %s", cachePolicy.name());
+            yo.a("Set cache policy to %s", cachePolicy.name());
         }
     }
 
@@ -426,15 +426,15 @@ public final class BDHttpDns {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
             this.a.L(z);
-            xo.a("Set https enabled to %b", Boolean.valueOf(z));
+            yo.a("Set https enabled to %b", Boolean.valueOf(z));
         }
     }
 
     public void m(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            xo.b(z);
-            xo.a("Set debug log enabled to %b", Boolean.valueOf(z));
+            yo.b(z);
+            yo.a("Set debug log enabled to %b", Boolean.valueOf(z));
         }
     }
 
@@ -443,7 +443,7 @@ public final class BDHttpDns {
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             this.e.setClearCache(z);
             this.e.setHttpDnsPrefetch(z2);
-            xo.a("Set network change policy, clearCache(%b), httpDnsPrefetch(%b)", Boolean.valueOf(z), Boolean.valueOf(z2));
+            yo.a("Set network change policy, clearCache(%b), httpDnsPrefetch(%b)", Boolean.valueOf(z), Boolean.valueOf(z2));
         }
     }
 
@@ -454,15 +454,15 @@ public final class BDHttpDns {
                 int i = this.j + 1;
                 this.j = i;
                 if (i > 1) {
-                    xo.a("You have already set PreResolveHosts, it is best to set it only once.", new Object[0]);
+                    yo.a("You have already set PreResolveHosts, it is best to set it only once.", new Object[0]);
                 }
-                xo.a(" Set preResolve tag : %s", str.toString());
-                wo woVar = new wo(this.f);
+                yo.a(" Set preResolve tag : %s", str.toString());
+                xo xoVar = new xo(this.f);
                 this.h = System.currentTimeMillis();
-                this.a.u(str, HttpDnsClient.RequestParamType.TAG_OF_HOSTS, woVar);
+                this.a.u(str, HttpDnsClient.RequestParamType.TAG_OF_HOSTS, xoVar);
                 return;
             }
-            xo.a("Set pre resolve hosts error, get empty tag", new Object[0]);
+            yo.a("Set pre resolve hosts error, get empty tag", new Object[0]);
         }
     }
 
@@ -476,7 +476,7 @@ public final class BDHttpDns {
                 for (int i = 0; i < length - 6; i++) {
                     substring = substring + String.valueOf('*');
                 }
-                xo.a("Set secret to %s", substring + str.substring(length - 3));
+                yo.a("Set secret to %s", substring + str.substring(length - 3));
                 return;
             }
             throw new IllegalArgumentException("secret length(" + str.length() + ") check failed");
@@ -501,17 +501,17 @@ public final class BDHttpDns {
         BDHttpDnsResult.ResolveType resolveType;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048592, this, str, z)) == null) {
-            if (so.l(str)) {
+            if (to.l(str)) {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(str);
                 return new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_NONEED, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, arrayList, null);
-            } else if (so.m(str)) {
+            } else if (to.m(str)) {
                 ArrayList arrayList2 = new ArrayList();
                 arrayList2.add(str.replaceAll("[\\[\\]]", ""));
                 return new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_NONEED, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, null, arrayList2);
             } else {
                 BDHttpDnsResult.ResolveType resolveType2 = BDHttpDnsResult.ResolveType.RESOLVE_NONE;
-                vo.a c2 = this.d.c(str);
+                wo.a c2 = this.d.c(str);
                 long currentTimeMillis = System.currentTimeMillis();
                 ArrayList<String> arrayList3 = new ArrayList<>();
                 if (a(currentTimeMillis)) {
@@ -523,9 +523,9 @@ public final class BDHttpDns {
                     if (q(currentTimeMillis)) {
                         arrayList3.addAll(this.a.y());
                     }
-                    this.a.O(arrayList3, new wo(this.f));
+                    this.a.O(arrayList3, new xo(this.f));
                 } else {
-                    xo.a("please wait a moment to send request for %s, until preResolve finished or has passed 1000ms ", str);
+                    yo.a("please wait a moment to send request for %s, until preResolve finished or has passed 1000ms ", str);
                 }
                 if (c2 != null) {
                     if (c2.e()) {
@@ -538,13 +538,13 @@ public final class BDHttpDns {
                     objArr[1] = c2.a() != null ? c2.a().toString() : null;
                     objArr[2] = c2.b() != null ? c2.b().toString() : null;
                     objArr[3] = resolveType.toString();
-                    xo.a("Sync resolve successful, host(%s) ipv4List(%s) ipv6List(%s) resolveType(%s)", objArr);
+                    yo.a("Sync resolve successful, host(%s) ipv4List(%s) ipv6List(%s) resolveType(%s)", objArr);
                     return new BDHttpDnsResult(resolveType, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, c2.a(), c2.b());
                 } else if (c2 == null && z) {
-                    xo.a("Sync resolve failed, host(%s), find no httpdns cache entry and cacheOnly is true", str);
+                    yo.a("Sync resolve failed, host(%s), find no httpdns cache entry and cacheOnly is true", str);
                     return new BDHttpDnsResult(resolveType2, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveErrorCacheMiss, null, null);
                 } else {
-                    vo.a c3 = this.c.c(str);
+                    wo.a c3 = this.c.c(str);
                     if (c3 != null) {
                         BDHttpDnsResult.ResolveType resolveType3 = BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS_CACHE;
                         Object[] objArr2 = new Object[4];
@@ -552,12 +552,12 @@ public final class BDHttpDns {
                         objArr2[1] = c3.a() != null ? c3.a().toString() : null;
                         objArr2[2] = c3.b() != null ? c3.b().toString() : null;
                         objArr2[3] = resolveType3.toString();
-                        xo.a("Sync resolve successful, host(%s) ipv4List(%s) ipv6List(%s) resolveType(%s)", objArr2);
+                        yo.a("Sync resolve successful, host(%s) ipv4List(%s) ipv6List(%s) resolveType(%s)", objArr2);
                         return new BDHttpDnsResult(resolveType3, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, c3.a(), c3.b());
                     }
                     BDHttpDnsResult e2 = this.b.e(str);
                     if (e2.c() == BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK) {
-                        vo.a aVar = new vo.a();
+                        wo.a aVar = new wo.a();
                         aVar.i(60L);
                         aVar.h(System.currentTimeMillis() / 1000);
                         aVar.f(e2.a());
@@ -568,9 +568,9 @@ public final class BDHttpDns {
                         objArr3[1] = aVar.a() != null ? aVar.a().toString() : null;
                         objArr3[2] = aVar.b() != null ? aVar.b().toString() : null;
                         objArr3[3] = e2.d().toString();
-                        xo.a("Sync resolve successful, host(%s) ipList(%s) ipv6List(%s) resolveType(%s)", objArr3);
+                        yo.a("Sync resolve successful, host(%s) ipList(%s) ipv6List(%s) resolveType(%s)", objArr3);
                     } else {
-                        xo.a("Sync resolve failed, host(%s), dns resolve failed", str);
+                        yo.a("Sync resolve failed, host(%s), dns resolve failed", str);
                     }
                     return e2;
                 }

@@ -17,9 +17,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.TextWordsEntity;
 import com.baidu.ugc.editvideo.record.entity.EffectInfo;
 import com.baidu.ugc.utils.FileUtils;
-import com.repackage.b99;
-import com.repackage.i69;
-import com.repackage.q99;
+import com.repackage.d99;
+import com.repackage.lc9;
+import com.repackage.wb9;
 import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -107,7 +107,7 @@ public class TemplateInfo implements Serializable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (q99.a(str)) {
+            if (lc9.a(str)) {
                 return null;
             }
             String str2 = str + File.separator + TEMPLATE_FILE_NAME;
@@ -141,15 +141,15 @@ public class TemplateInfo implements Serializable {
 
     public static void packageEffectConfigMap(MediaTrackConfig mediaTrackConfig, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, mediaTrackConfig, str) == null) || TextUtils.isEmpty(str) || mediaTrackConfig == null || b99.f(mediaTrackConfig.effectResourceMap)) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, mediaTrackConfig, str) == null) || TextUtils.isEmpty(str) || mediaTrackConfig == null || wb9.f(mediaTrackConfig.effectResourceMap)) {
             return;
         }
         if (mediaTrackConfig.effectConfigMap == null) {
             mediaTrackConfig.effectConfigMap = new LinkedHashMap();
         }
-        i69 i69Var = new i69();
+        d99 d99Var = new d99();
         for (Map.Entry<String, String> entry : mediaTrackConfig.effectResourceMap.entrySet()) {
-            mediaTrackConfig.effectConfigMap.put(entry.getKey(), (MediaAEffect) i69Var.b(FileUtils.readText(new File(str + File.separator + entry.getValue())), MediaAEffect.class));
+            mediaTrackConfig.effectConfigMap.put(entry.getKey(), (MediaAEffect) d99Var.b(FileUtils.readText(new File(str + File.separator + entry.getValue())), MediaAEffect.class));
         }
         mediaTrackConfig.effectResourceMap = null;
     }
@@ -161,12 +161,12 @@ public class TemplateInfo implements Serializable {
             if (TextUtils.isEmpty(str) || mediaTrackConfig == null) {
                 return;
             }
-            i69 i69Var = new i69();
+            d99 d99Var = new d99();
             Map<String, String> map = mediaTrackConfig.shaderResourceMap;
             if (map != null) {
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     String str2 = str + File.separator + entry.getValue();
-                    ShaderConfig shaderConfig = (ShaderConfig) i69Var.b(FileUtils.readText(new File(str2)), ShaderConfig.class);
+                    ShaderConfig shaderConfig = (ShaderConfig) d99Var.b(FileUtils.readText(new File(str2)), ShaderConfig.class);
                     shaderConfig.resourcePath = new File(str2).getParent();
                     hashMap.put(entry.getKey(), shaderConfig);
                     List<MediaTextureData> list = shaderConfig.textures;
@@ -191,7 +191,7 @@ public class TemplateInfo implements Serializable {
                     ShaderConfig value = entry2.getValue();
                     if (value != null) {
                         List<MediaTextureData> list2 = value.textures;
-                        if (!b99.e(list2)) {
+                        if (!wb9.e(list2)) {
                             for (MediaTextureData mediaTextureData2 : list2) {
                                 if (!TextUtils.isEmpty(mediaTextureData2.path) && mediaTextureData2.path.contains(File.separator)) {
                                     mediaTextureData2.path = str + mediaTextureData2.path;
@@ -208,14 +208,14 @@ public class TemplateInfo implements Serializable {
 
     public static void packageTransitionList(MediaTrackConfig mediaTrackConfig, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65542, null, mediaTrackConfig, str) == null) || TextUtils.isEmpty(str) || mediaTrackConfig == null || b99.e(mediaTrackConfig.transitionResourceList)) {
+        if (!(interceptable == null || interceptable.invokeLL(65542, null, mediaTrackConfig, str) == null) || TextUtils.isEmpty(str) || mediaTrackConfig == null || wb9.e(mediaTrackConfig.transitionResourceList)) {
             return;
         }
         ArrayList arrayList = new ArrayList();
-        i69 i69Var = new i69();
-        int b = b99.b(mediaTrackConfig.transitionResourceList);
+        d99 d99Var = new d99();
+        int b = wb9.b(mediaTrackConfig.transitionResourceList);
         for (int i = 0; i < b; i++) {
-            arrayList.add((MediaTransition) i69Var.b(FileUtils.readText(new File(str + File.separator + ((String) b99.c(mediaTrackConfig.transitionResourceList, i)))), MediaTransition.class));
+            arrayList.add((MediaTransition) d99Var.b(FileUtils.readText(new File(str + File.separator + ((String) wb9.c(mediaTrackConfig.transitionResourceList, i)))), MediaTransition.class));
         }
         mediaTrackConfig.transitionConfigs = arrayList;
         mediaTrackConfig.transitionResourceList = null;
@@ -230,7 +230,7 @@ public class TemplateInfo implements Serializable {
             if (str == null || "".equals(str) || (readText = FileUtils.readText((file = new File(str)))) == null || "".equals(readText)) {
                 return null;
             }
-            TemplateInfo templateInfo = (TemplateInfo) new i69().b(readText, TemplateInfo.class);
+            TemplateInfo templateInfo = (TemplateInfo) new d99().b(readText, TemplateInfo.class);
             if (templateInfo != null) {
                 templateInfo.resourcePath = file.getParent();
             }
@@ -247,7 +247,7 @@ public class TemplateInfo implements Serializable {
                 return null;
             }
             try {
-                return new i69().a(templateInfo);
+                return new d99().a(templateInfo);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;

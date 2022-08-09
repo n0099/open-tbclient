@@ -1,41 +1,37 @@
 package com.repackage;
 
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ObjectOutput;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class mi9 {
+public class mi9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int mVer;
 
-    public mi9(int i) {
+    public static RippedAd a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        String str;
+        String str2;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            JSONObject optJSONObject = jSONObject.optJSONObject("ext");
+            if (optJSONObject != null) {
+                str2 = optJSONObject.optString("appname");
+                str3 = optJSONObject.optString(EmotionResourceInfo.JSON_KEY_PKG_NAME);
+                str = optJSONObject.optString("pkgurl");
+            } else {
+                str = null;
+                str2 = null;
+                str3 = null;
             }
+            RippedAd.Builder builder = new RippedAd.Builder();
+            builder.setCorporation(jSONObject.optString("corporation_name")).setTitle(jSONObject.optString("txt")).setDescription(jSONObject.optString("desc")).setAppName(str2).setAppPkg(str3).setAppUrl(str).setIconUrl(jSONObject.optString("img2")).setImageUrl(jSONObject.optString("img")).setVideoImageUrl(null).setVideoUrl(jSONObject.optString("video")).setClickUrl(jSONObject.optString("rl")).setDeepLinkUrl(jSONObject.optString("customized_invoke_url")).setConvUrl(null);
+            return builder.build();
         }
-        this.mVer = i;
+        return (RippedAd) invokeL.objValue;
     }
-
-    public final void srzable(ObjectOutput objectOutput) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, objectOutput) == null) {
-            objectOutput.writeInt(this.mVer);
-            srzableInternal(objectOutput);
-        }
-    }
-
-    public abstract void srzableInternal(ObjectOutput objectOutput);
 }

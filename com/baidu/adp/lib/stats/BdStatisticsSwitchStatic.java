@@ -9,9 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.af;
+import com.repackage.bf;
 /* loaded from: classes.dex */
-public class BdStatisticsSwitchStatic extends af {
+public class BdStatisticsSwitchStatic extends bf {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,14 +51,14 @@ public class BdStatisticsSwitchStatic extends af {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? SwitchManager.getInstance().findType("newUrlForPerf") == 1 : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.af
+    @Override // com.repackage.bf
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    @Override // com.repackage.af
+    @Override // com.repackage.bf
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -68,7 +68,7 @@ public class BdStatisticsSwitchStatic extends af {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.repackage.af
+    @Override // com.repackage.bf
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class BdStatisticsSwitchStatic extends af {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.af
+    @Override // com.repackage.bf
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -88,14 +88,14 @@ public class BdStatisticsSwitchStatic extends af {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.af
+    @Override // com.repackage.bf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "newUrlForPerf" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.af
+    @Override // com.repackage.bf
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

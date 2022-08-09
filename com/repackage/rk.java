@@ -1,19 +1,23 @@
 package com.repackage;
 
-import android.graphics.drawable.BitmapDrawable;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.PointF;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.widget.ImageView;
+import com.baidu.adp.newwidget.ImageView.DrawerArgs;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class rk {
+public class rk extends pk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BitmapDrawable a;
-    public ym b;
-    public volatile boolean c;
+    public Rect s;
 
     public rk() {
         Interceptable interceptable = $ic;
@@ -28,70 +32,70 @@ public class rk {
                 return;
             }
         }
-        this.c = true;
+        this.s = new Rect();
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.pk
+    public void a(sk skVar, ImageView imageView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (e()) {
-                return this.a.getIntrinsicHeight();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, skVar, imageView) == null) {
+            DrawerArgs drawerArgs = this.l;
+            if (drawerArgs.c) {
+                float f = drawerArgs.d / 2.0f;
+                if (!drawerArgs.g) {
+                    this.h.set(f, f, imageView.getWidth() - f, imageView.getHeight() - f);
+                    return;
+                }
+                int width = (imageView.getWidth() - imageView.getPaddingLeft()) - imageView.getPaddingRight();
+                int height = (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom();
+                RectF rectF = this.g;
+                PointF b = b(rectF.left, rectF.top, this.f);
+                RectF rectF2 = this.g;
+                PointF b2 = b(rectF2.right, rectF2.bottom, this.f);
+                this.h.set(Math.max((int) b.x, 0) + f, Math.max((int) b.y, 0) + f, Math.min((int) b2.x, width) - f, Math.min((int) b2.y, height) - f);
             }
-            if (d()) {
-                return this.b.m();
+        }
+    }
+
+    @Override // com.repackage.pk
+    public void f(Canvas canvas, ImageView imageView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, imageView) == null) && this.l.c) {
+            canvas.drawRect(this.h, this.d);
+        }
+    }
+
+    @Override // com.repackage.pk
+    public void h(Canvas canvas, sk skVar, ImageView imageView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, canvas, skVar, imageView) == null) {
+            Matrix matrix = this.f;
+            if (matrix != null) {
+                canvas.concat(matrix);
             }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (e()) {
-                return this.a.getIntrinsicWidth();
+            if (skVar.e()) {
+                Bitmap bitmap = skVar.a.getBitmap();
+                this.s.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
+                canvas.drawBitmap(bitmap, this.s, this.g, this.c);
+            } else if (skVar.d()) {
+                this.s.set(0, 0, skVar.b(), skVar.a());
+                skVar.b.g(canvas, this.s, this.g, this.c);
             }
-            if (d()) {
-                return this.b.r();
-            }
-            return 0;
         }
-        return invokeV.intValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    @Override // com.repackage.pk
+    public void i(Canvas canvas, ImageView imageView) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? e() || d() : invokeV.booleanValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ym ymVar = this.b;
-            return ymVar != null && ymVar.w();
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, canvas, imageView) == null) || this.l.m == 0) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            BitmapDrawable bitmapDrawable = this.a;
-            return (bitmapDrawable == null || bitmapDrawable.getBitmap() == null || this.a.getBitmap().isRecycled()) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b = null;
-            this.a = null;
-        }
+        int scrollX = imageView.getScrollX();
+        int scrollY = imageView.getScrollY();
+        canvas.translate(scrollX, scrollY);
+        this.o.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
+        this.e.setColor(this.l.m);
+        canvas.drawRect(this.o, this.e);
+        canvas.translate(-scrollX, -scrollY);
     }
 }

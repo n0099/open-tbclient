@@ -29,16 +29,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.an4;
-import com.repackage.gx;
-import com.repackage.jy5;
-import com.repackage.on4;
-import com.repackage.pi;
-import com.repackage.wm;
+import com.repackage.b06;
+import com.repackage.fo4;
+import com.repackage.hx;
+import com.repackage.qi;
+import com.repackage.rn4;
+import com.repackage.xm;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class MutiImgSingleHorizontalLayout extends LinearLayout implements gx<on4> {
+public class MutiImgSingleHorizontalLayout extends LinearLayout implements hx<fo4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int f;
     public static final int g;
@@ -49,7 +49,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements gx<on
     public TbImageView b;
     public ImageView c;
     public boolean d;
-    public jy5<on4> e;
+    public b06<fo4> e;
 
     static {
         InterceptResult invokeClinit;
@@ -64,8 +64,8 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements gx<on
                 return;
             }
         }
-        f = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds88);
-        int k = pi.k(TbadkCoreApplication.getInst());
+        f = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds88);
+        int k = qi.k(TbadkCoreApplication.getInst());
         g = k;
         int i2 = k - f;
         h = i2;
@@ -97,7 +97,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements gx<on
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, threadData) == null) {
             ArrayList<MediaData> medias = threadData.getMedias();
-            if (an4.c().g() && ListUtils.getCount(medias) != 0) {
+            if (rn4.c().g() && ListUtils.getCount(medias) != 0) {
                 LinkedList linkedList = new LinkedList();
                 for (int i2 = 0; i2 < medias.size(); i2++) {
                     MediaData mediaData = (MediaData) ListUtils.getItem(medias, i2);
@@ -145,26 +145,26 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements gx<on
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0595, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05b2, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, i));
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09202f);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09212b);
             this.a = textView;
             HomeGroupUbsUIHelper.handleTextLineSpacingExtra(textView, R.dimen.tbds7, R.dimen.tbds10);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09202c);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092128);
             this.b = tbImageView;
             HomeGroupUbsUIHelper.handleContentInterval(tbImageView, R.dimen.tbds26, R.dimen.tbds14);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0918d8);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919aa);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.gx
+    @Override // com.repackage.hx
     /* renamed from: d */
-    public void a(on4 on4Var) {
+    public void a(fo4 fo4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, on4Var) == null) {
-            ThreadData threadData = on4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(1048579, this, fo4Var) == null) {
+            ThreadData threadData = fo4Var.getThreadData();
             ThreadCardUtils.setTitle(this.a, threadData);
             setImageData(threadData);
         }
@@ -179,21 +179,21 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements gx<on
                 tbImageView.F();
             }
             if (z) {
-                tbImageView.setRadius(pi.f(getContext(), R.dimen.tbds10));
+                tbImageView.setRadius(qi.f(getContext(), R.dimen.tbds10));
                 tbImageView.setDrawBorder(true);
                 tbImageView.setForegroundColor(0);
                 tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
                 tbImageView.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
                 tbImageView.setBorderSurroundContent(true);
             }
-            tbImageView.J(b, i3, false);
+            tbImageView.K(b, i3, false);
         }
     }
 
-    public jy5<on4> getSubClickListener() {
+    public b06<fo4> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (jy5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (b06) invokeV.objValue;
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -222,16 +222,16 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements gx<on
         }
     }
 
-    public void setPreloadSizeReadyCallback(wm wmVar) {
+    public void setPreloadSizeReadyCallback(xm xmVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, wmVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, xmVar) == null) {
         }
     }
 
-    public void setSubClickListener(jy5<on4> jy5Var) {
+    public void setSubClickListener(b06<fo4> b06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, jy5Var) == null) {
-            this.e = jy5Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, b06Var) == null) {
+            this.e = b06Var;
         }
     }
 

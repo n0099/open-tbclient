@@ -1,83 +1,79 @@
 package com.repackage;
 
-import android.os.IInterface;
-import android.os.Parcel;
-import android.os.Parcelable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.qq.e.ads.nativ.NativeUnifiedADDataAdapter;
+import java.lang.reflect.Field;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class mj9 {
+public class mj9 extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755497227, "Lcom/repackage/mj9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755497227, "Lcom/repackage/mj9;");
-                return;
-            }
-        }
-        mj9.class.getClassLoader();
-    }
-
-    public mj9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mj9(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static <T extends Parcelable> T a(Parcel parcel, Parcelable.Creator<T> creator) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, parcel, creator)) == null) {
-            if (parcel.readInt() == 0) {
-                return null;
-            }
-            return creator.createFromParcel(parcel);
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    public static void b(Parcel parcel, IInterface iInterface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, parcel, iInterface) == null) {
-            if (iInterface == null) {
-                parcel.writeStrongBinder(null);
-            } else {
-                parcel.writeStrongBinder(iInterface.asBinder());
-            }
-        }
-    }
-
-    public static void c(Parcel parcel, Parcelable parcelable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, parcel, parcelable) == null) {
-            if (parcelable == null) {
-                parcel.writeInt(0);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            parcel.writeInt(1);
-            parcelable.writeToParcel(parcel, 0);
         }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
+        InterceptResult invokeL;
+        Field declaredField;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj == null) {
+                return null;
+            }
+            try {
+                if (obj instanceof NativeUnifiedADDataAdapter) {
+                    NativeUnifiedADDataAdapter nativeUnifiedADDataAdapter = (NativeUnifiedADDataAdapter) obj;
+                    Field declaredField2 = nativeUnifiedADDataAdapter.getClass().getDeclaredField("a");
+                    declaredField2.setAccessible(true);
+                    Object obj2 = declaredField2.get(nativeUnifiedADDataAdapter);
+                    if (obj2 == null) {
+                        return null;
+                    }
+                    Field declaredField3 = obj2.getClass().getDeclaredField("d");
+                    declaredField3.setAccessible(true);
+                    Object obj3 = declaredField3.get(obj2);
+                    if (obj3 == null || (declaredField = obj3.getClass().getSuperclass().getDeclaredField("L")) == null) {
+                        return null;
+                    }
+                    declaredField.setAccessible(true);
+                    Object obj4 = declaredField.get(obj3);
+                    if (obj4 instanceof JSONObject) {
+                        return mi9.a((JSONObject) obj4);
+                    }
+                    return null;
+                }
+                return null;
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return null;
+            }
+        }
+        return (RippedAd) invokeL.objValue;
     }
 }

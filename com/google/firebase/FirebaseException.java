@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dk9;
+import com.repackage.ym9;
 /* loaded from: classes5.dex */
 public class FirebaseException extends Exception {
     public static /* synthetic */ Interceptable $ic;
@@ -44,7 +44,7 @@ public class FirebaseException extends Exception {
                 return;
             }
         }
-        dk9.b(str, "Detail message must not be empty");
+        ym9.b(str, "Detail message must not be empty");
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -66,6 +66,6 @@ public class FirebaseException extends Exception {
                 return;
             }
         }
-        dk9.b(str, "Detail message must not be empty");
+        ym9.b(str, "Detail message must not be empty");
     }
 }

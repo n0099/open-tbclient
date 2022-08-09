@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class CircleProgressView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -61,7 +61,7 @@ public class CircleProgressView extends View {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.h = pi.f(this.a, R.dimen.obfuscated_res_0x7f070224);
+            this.h = qi.f(this.a, R.dimen.obfuscated_res_0x7f070224);
             this.d = new RectF();
             Paint paint = new Paint();
             this.b = paint;

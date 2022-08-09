@@ -10,14 +10,14 @@ import com.ss.android.downloadlib.g.l;
 import com.yy.hiidostatis.inner.FlushManager;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static volatile d a;
     public static final String[] c = {"com", "android", "ss"};
     public static final int[] d = {3101, 3102, 3103, 3201, 3202, 3203};
     public final LinkedList<a> b = new LinkedList<>();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public final String a;
         public final int b;

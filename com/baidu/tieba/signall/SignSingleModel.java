@@ -61,7 +61,7 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         this.c = null;
     }
 
-    public void I() {
+    public void H() {
         c cVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cVar = this.c) == null) {
@@ -71,14 +71,14 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         this.c = null;
     }
 
-    public void J(b bVar) {
+    public void I(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.d = bVar;
         }
     }
 
-    public void K(String str, String str2) {
+    public void J(String str, String str2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) || str == null || str.length() <= 0 || str2 == null || str2.length() <= 0 || this.c != null) {
             return;

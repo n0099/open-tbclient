@@ -1,66 +1,26 @@
 package com.repackage;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.im.pushNotify.ChatSetting;
-import com.baidu.tieba.im.settingcache.OfficialSettingItemData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
 /* loaded from: classes7.dex */
-public class s77 extends p77 {
+public class s77 {
     public static /* synthetic */ Interceptable $ic;
-    public static s77 b;
+    public static String a;
+    public static volatile SQLiteDatabase b;
+    public static HashMap<String, SQLiteDatabase> c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public class a extends de5<Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ OfficialSettingItemData a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ s77 c;
-
-        public a(s77 s77Var, OfficialSettingItemData officialSettingItemData, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s77Var, officialSettingItemData, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = s77Var;
-            this.a = officialSettingItemData;
-            this.b = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.de5
-        /* renamed from: a */
-        public Void doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.c.b().g(this.b, OrmObject.jsonStrWithObject(this.a));
-                return null;
-            }
-            return (Void) invokeV.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -75,125 +35,98 @@ public class s77 extends p77 {
                 return;
             }
         }
-        b = new s77();
+        c = new HashMap<>();
     }
 
-    public s77() {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            try {
+                try {
+                    if (!TextUtils.isEmpty(str)) {
+                        t77.d().f();
+                        Iterator<String> it = b().iterator();
+                        while (it.hasNext()) {
+                            String next = it.next();
+                            if (next != null) {
+                                if (next.equals("tb_message_center")) {
+                                    ContentValues contentValues = new ContentValues();
+                                    contentValues.put("is_hidden", (Integer) 1);
+                                    t77.d().update("tb_message_center", contentValues, null, null);
+                                } else if (!next.equals("tb_new_friends")) {
+                                    t77.d().delete(next, null, null);
+                                }
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.deleteImDb", new Object[0]);
+                    e.printStackTrace();
+                }
+            } finally {
+                t77.d().b();
             }
         }
     }
 
-    public static s77 j() {
+    public static LinkedList<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (s77) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            SQLiteDatabase c2 = c();
+            LinkedList<String> linkedList = new LinkedList<>();
+            Cursor cursor = null;
+            try {
+                if (c2 != null) {
+                    try {
+                        cursor = c2.rawQuery("select * from sqlite_master where type='table'", null);
+                        if (cursor != null) {
+                            cursor.moveToFirst();
+                            while (cursor.moveToNext()) {
+                                linkedList.add(cursor.getString(cursor.getColumnIndex("name")));
+                            }
+                        }
+                    } catch (Exception e) {
+                        TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.getAllTables", new Object[0]);
+                        e.printStackTrace();
+                    }
+                }
+                return linkedList;
+            } finally {
+                ri.a(cursor);
+            }
+        }
+        return (LinkedList) invokeV.objValue;
     }
 
-    @Override // com.repackage.p77
-    public te<String> b() {
+    public static synchronized SQLiteDatabase c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            cr4.f();
-            return cr4.g("tb.im_official_chat_setting");
-        }
-        return (te) invokeV.objValue;
-    }
-
-    @Override // com.repackage.p77
-    public void h(ChatSetting chatSetting) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatSetting) == null) && chatSetting != null && (chatSetting instanceof OfficialSettingItemData)) {
-            OfficialSettingItemData officialSettingItemData = (OfficialSettingItemData) chatSetting;
-            String myUid = officialSettingItemData.getMyUid();
-            String toUid = officialSettingItemData.getToUid();
-            if (!TextUtils.isEmpty(myUid) && !TextUtils.isEmpty(toUid)) {
-                te<String> b2 = b();
-                String str = myUid + "@" + toUid;
-                String jsonStrWithObject = OrmObject.jsonStrWithObject(officialSettingItemData);
-                synchronized (this.a) {
-                    this.a.put(str, officialSettingItemData);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            synchronized (s77.class) {
+                try {
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.getImDataBase", new Object[0]);
                 }
-                b2.g(str, jsonStrWithObject);
-            } else if (TbConfig.getDebugSwitch()) {
-                throw new RuntimeException("key param is null");
-            }
-        }
-    }
-
-    @Override // com.repackage.p77
-    public void i(ChatSetting chatSetting, kd5<Void> kd5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, chatSetting, kd5Var) == null) && chatSetting != null && (chatSetting instanceof OfficialSettingItemData)) {
-            OfficialSettingItemData officialSettingItemData = (OfficialSettingItemData) chatSetting;
-            String myUid = officialSettingItemData.getMyUid();
-            String toUid = officialSettingItemData.getToUid();
-            if (!TextUtils.isEmpty(myUid) && !TextUtils.isEmpty(toUid)) {
-                String str = myUid + "@" + toUid;
-                synchronized (this.a) {
-                    this.a.put(str, officialSettingItemData);
+                if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                    return null;
                 }
-                he5.c(new a(this, officialSettingItemData, str), kd5Var);
-            } else if (TbConfig.getDebugSwitch()) {
-                throw new RuntimeException("key param is null");
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.p77
-    /* renamed from: k */
-    public OfficialSettingItemData a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            OfficialSettingItemData officialSettingItemData = null;
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            String str3 = str + "@" + str2;
-            synchronized (this.a) {
-                ChatSetting chatSetting = this.a.get(str3);
-                if (chatSetting != null && (chatSetting instanceof OfficialSettingItemData)) {
-                    officialSettingItemData = (OfficialSettingItemData) chatSetting;
+                String str = TbadkCoreApplication.getCurrentAccount() + ".db";
+                if (c.containsKey(str)) {
+                    return c.get(str);
                 }
+                if (b != null && str.equals(a) && b.isOpen()) {
+                    return b;
+                }
+                if (b != null) {
+                    ri.b(b);
+                }
+                r77 r77Var = new r77(TbadkCoreApplication.getInst().getApp(), str);
+                a = str;
+                b = r77Var.getWritableDatabase();
+                return b;
             }
-            if (officialSettingItemData == null) {
-                OfficialSettingItemData officialSettingItemData2 = new OfficialSettingItemData();
-                officialSettingItemData2.setMyUid(str);
-                officialSettingItemData2.setToUid(str2);
-                officialSettingItemData2.setAcceptNotify(true);
-                return officialSettingItemData2;
-            }
-            return officialSettingItemData;
         }
-        return (OfficialSettingItemData) invokeLL.objValue;
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.e(OfficialSettingItemData.class);
-        }
-    }
-
-    public void m(String str, String str2, UserData userData) {
-        OfficialSettingItemData a2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, userData) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || userData == null || (a2 = a(str, str2)) == null) {
-            return;
-        }
-        a2.setToPortrait(userData.getPortrait());
-        a2.setToName(userData.getUserName());
-        h(a2);
+        return (SQLiteDatabase) invokeV.objValue;
     }
 }

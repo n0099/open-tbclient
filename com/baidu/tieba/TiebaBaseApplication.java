@@ -33,17 +33,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ag;
+import com.repackage.at4;
+import com.repackage.bt4;
+import com.repackage.ct4;
+import com.repackage.dt4;
+import com.repackage.eh0;
 import com.repackage.f9;
-import com.repackage.hi;
-import com.repackage.ih0;
-import com.repackage.js4;
-import com.repackage.ks4;
-import com.repackage.ls4;
-import com.repackage.ms4;
-import com.repackage.t95;
-import com.repackage.wb1;
-import com.repackage.yt4;
-import com.repackage.zf;
+import com.repackage.ii;
+import com.repackage.nc1;
+import com.repackage.ra5;
+import com.repackage.ru4;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -81,12 +81,12 @@ public class TiebaBaseApplication extends TbadkApplication {
             }
             HashSet<String> hashSet = new HashSet<>();
             if (SpeedRuntime.getSpeedContext().isMainProcess()) {
-                String q = yt4.k().q("key_sync_task_switch", "");
+                String q = ru4.k().q("key_sync_task_switch", "");
                 if (!StringUtils.isNull(q) && (split = q.split("_")) != null && split.length > 0) {
                     Collections.addAll(hashSet, split);
                 }
             }
-            if (ms4.a().a) {
+            if (dt4.a().a) {
                 applicationTaskPool = new PBTaskPool();
             } else {
                 applicationTaskPool = new ApplicationTaskPool();
@@ -132,9 +132,9 @@ public class TiebaBaseApplication extends TbadkApplication {
             if (!LaunchUpApplicationSwitch.getIsOn()) {
                 SwanAppInitHelper.initContext(this);
             }
-            wb1.b(this);
+            nc1.b(this);
             if (isMainProcess(false, context)) {
-                js4.b(context);
+                at4.b(context);
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(1004);
             e();
@@ -142,7 +142,7 @@ public class TiebaBaseApplication extends TbadkApplication {
             TitanIniter.init(this);
             LoaderManager.getInstance().load();
             SpeedStatsManager.getInstance().addStatsTimeStamp(1012);
-            ih0.b(this);
+            eh0.b(this);
             SpeedStatsManager.getInstance().addStatsTimeStamp(1010);
         }
     }
@@ -152,8 +152,8 @@ public class TiebaBaseApplication extends TbadkApplication {
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && isMainProcess(false) && PermissionUtil.isAgreePrivacyPolicy()) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new TaskManagerLaunchFetchListener());
-            arrayList.add(new ls4());
-            arrayList.add(new ks4());
+            arrayList.add(new ct4());
+            arrayList.add(new bt4());
             AppLaunchInfoFetcher.e(this, arrayList);
         }
     }
@@ -170,7 +170,7 @@ public class TiebaBaseApplication extends TbadkApplication {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            hi.d().e(this.mContext);
+            ii.d().e(this.mContext);
         }
     }
 
@@ -205,7 +205,7 @@ public class TiebaBaseApplication extends TbadkApplication {
             SpeedStatsManager.getInstance().addStatsTimeStamp(2000);
             TbadkApplication.sApp = this;
             if (isMainProcess(false)) {
-                js4.a();
+                at4.a();
             }
             f9.a().b(super.getResources());
             c(this);
@@ -216,11 +216,11 @@ public class TiebaBaseApplication extends TbadkApplication {
             SpeedStatsManager.getInstance().addStatsTimeStamp(2002);
             a();
             SpeedStatsManager.getInstance().addStatsTimeStamp(2003);
-            t95.b().F(System.currentTimeMillis());
+            ra5.b().F(System.currentTimeMillis());
             if (isMainProcess(false)) {
-                js4.j();
+                at4.j();
             }
-            zf.a().b();
+            ag.a().b();
             SpeedStatsManager.getInstance().addStatsTimeStamp(2004);
             SpeedStats.getInstance().onAppCreateEnd();
         }

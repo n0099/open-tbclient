@@ -1,20 +1,17 @@
 package com.repackage;
 
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
+import com.baidu.nadcore.model.AdBaseModel;
 /* loaded from: classes6.dex */
-public interface h51<View> {
-    void a();
+public interface h51 {
+    void a(AdBaseModel adBaseModel);
 
-    void b(String str, boolean z);
+    void b(AdBaseModel adBaseModel);
 
-    void c(boolean z);
+    void c(AdBaseModel adBaseModel);
 
-    View getRealView();
+    void d(AdBaseModel adBaseModel);
 
-    void setContainer(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams);
+    void e(AdBaseModel adBaseModel, String str);
 
-    void setCriusPopListener(@NonNull f51 f51Var);
-
-    void setData(@NonNull dn0 dn0Var);
+    void f(AdBaseModel adBaseModel);
 }

@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.u41;
+import com.repackage.j51;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public abstract class AdCriusBaseView<T extends CriusData> extends RelativeLayout {
@@ -109,9 +109,9 @@ public abstract class AdCriusBaseView<T extends CriusData> extends RelativeLayou
             return;
         }
         this.b.removeAllViews();
-        u41 u41Var = (u41) ServiceManager.getService(u41.a);
-        if (u41Var != null) {
-            this.c = this.d.initCriusView(getContext(), t, u41Var.b(), z, u41Var.a());
+        j51 j51Var = (j51) ServiceManager.getService(j51.a);
+        if (j51Var != null) {
+            this.c = this.d.initCriusView(getContext(), t, j51Var.b(), z, j51Var.a());
         } else {
             this.c = this.d.initCriusView(getContext(), t, false, z, -1);
         }

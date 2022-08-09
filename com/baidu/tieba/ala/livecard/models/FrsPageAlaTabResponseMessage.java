@@ -1,6 +1,5 @@
 package com.baidu.tieba.ala.livecard.models;
 
-import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -8,8 +7,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nn;
-import com.repackage.ve6;
+import com.repackage.ng6;
+import com.repackage.on;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -20,9 +19,9 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
     public int alaLiveCount;
     public int errCode;
     public String errMsg;
-    public ArrayList<nn> mAltList;
-    public ArrayList<nn> mThreadList;
-    public ve6 pageInfo;
+    public ArrayList<on> mAltList;
+    public ArrayList<on> mThreadList;
+    public ng6 pageInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsPageAlaTabResponseMessage(int i) {
@@ -57,10 +56,10 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
             this.errMsg = jSONObject.optString("errmsg");
             this.alaLiveCount = jSONObject.optInt("ala_live_count");
             JSONObject optJSONObject = jSONObject.optJSONObject("page");
-            ve6 ve6Var = new ve6();
-            this.pageInfo = ve6Var;
-            ve6Var.g = optJSONObject.optInt("has_more") == 1;
-            this.pageInfo.c = optJSONObject.optInt(Config.PACKAGE_NAME);
+            ng6 ng6Var = new ng6();
+            this.pageInfo = ng6Var;
+            ng6Var.g = optJSONObject.optInt("has_more") == 1;
+            this.pageInfo.c = optJSONObject.optInt("pn");
             if (getOrginalMessage() instanceof FrsPageAlaTabRequestMessage) {
                 FrsPageAlaTabRequestMessage frsPageAlaTabRequestMessage = (FrsPageAlaTabRequestMessage) getOrginalMessage();
                 this.pageInfo.a = frsPageAlaTabRequestMessage.getForumName();

@@ -1,45 +1,105 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-/* loaded from: classes6.dex */
-public class oc0 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
+/* loaded from: classes7.dex */
+public final class oc0 {
     public static /* synthetic */ Interceptable $ic;
+    public static oc0 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public ExecutorService a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755444651, "Lcom/repackage/oc0;")) == null) {
-            return;
+    /* loaded from: classes7.dex */
+    public static class a implements ThreadFactory {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final AtomicInteger a;
+        public final String b;
+        public int c;
+
+        public a(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new AtomicInteger(1);
+            this.c = 5;
+            this.b = str + "-";
+            this.c = i;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+
+        @Override // java.util.concurrent.ThreadFactory
+        public Thread newThread(Runnable runnable) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+                Thread thread = new Thread(runnable, this.b + this.a.getAndIncrement());
+                if (thread.isDaemon()) {
+                    thread.setDaemon(true);
+                }
+                thread.setPriority(this.c);
+                return thread;
+            }
+            return (Thread) invokeL.objValue;
+        }
+    }
+
+    public oc0() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755444651, "Lcom/repackage/oc0;");
-        }
-    }
-
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new File(str).delete() : invokeL.booleanValue;
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            File parentFile = new File(str).getParentFile();
-            if (parentFile.exists()) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            parentFile.mkdirs();
+        }
+        new ThreadPoolExecutor(0, 5, 180L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread", 5));
+        this.a = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread-Single", 5));
+    }
+
+    public static synchronized oc0 b() {
+        InterceptResult invokeV;
+        oc0 oc0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (oc0.class) {
+                if (b == null) {
+                    b = new oc0();
+                }
+                oc0Var = b;
+            }
+            return oc0Var;
+        }
+        return (oc0) invokeV.objValue;
+    }
+
+    public void a(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+            this.a.execute(runnable);
         }
     }
 }

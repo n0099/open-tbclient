@@ -1,82 +1,139 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.webkit.ValueCallback;
+import android.webkit.WebChromeClient;
 import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.RequiresApi;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.browser.sailor.BdSailorConfig;
+import com.baidu.nadcore.webarch.feature.NadWebFeature;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public interface j21 {
-    public static final j21 a = new a();
+public class j21 extends NadWebFeature {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Map<Activity, i21> c;
 
-    /* loaded from: classes6.dex */
-    public static class a implements j21 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j21(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = new HashMap();
+    }
 
-        @Override // com.repackage.j21
-        public boolean a(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                return false;
+    @Override // com.baidu.nadcore.webarch.feature.NadWebFeature
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? BdSailorConfig.SAILOR_BASE_UPLOAD : (String) invokeV.objValue;
+    }
+
+    public i21 d(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
+            Map<Activity, i21> map = this.c;
+            if (map != null) {
+                return map.get(activity);
             }
-            return invokeI.booleanValue;
+            return null;
+        }
+        return (i21) invokeL.objValue;
+    }
+
+    public i21 e(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {
+            i21 d = d(activity);
+            if (d == null) {
+                i21 i21Var = new i21(activity);
+                this.c.put(activity, i21Var);
+                return i21Var;
+            }
+            return d;
+        }
+        return (i21) invokeL.objValue;
+    }
+
+    public void f(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            i21 d = d(activity);
+            if (activity == null || d == null) {
+                return;
+            }
+            this.c.remove(activity);
+            if (d.o()) {
+                return;
+            }
+            d.p(-1, null);
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static j21 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-321224086, "Lcom/repackage/j21$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-321224086, "Lcom/repackage/j21$b;");
-                    return;
-                }
-            }
-            a = h21.f();
+    public void g(Activity activity, int i, Intent intent) {
+        i21 d;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLIL(1048580, this, activity, i, intent) == null) || (d = d(activity)) == null) {
+            return;
         }
-
-        @NonNull
-        public static j21 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                if (a == null) {
-                    a = j21.a;
-                }
-                return a;
-            }
-            return (j21) invokeV.objValue;
-        }
+        d.p(i, intent);
+        this.c.remove(activity);
     }
 
-    boolean a(int i);
+    /* JADX WARN: Removed duplicated region for block: B:10:0x0014  */
+    @RequiresApi(api = 21)
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean h(Activity activity, @NonNull ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
+        InterceptResult invokeLLL;
+        boolean z;
+        Map<Activity, i21> map;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, activity, valueCallback, fileChooserParams)) == null) {
+            if (activity != null) {
+                i21 e = e(activity);
+                if (fileChooserParams != null) {
+                    z = e.q(valueCallback, fileChooserParams);
+                    if (!z) {
+                        valueCallback.onReceiveValue(null);
+                        if (activity != null && (map = this.c) != null) {
+                            map.remove(activity);
+                        }
+                    }
+                    return z;
+                }
+            }
+            z = false;
+            if (!z) {
+            }
+            return z;
+        }
+        return invokeLLL.booleanValue;
+    }
 }

@@ -147,9 +147,9 @@ public class SelectImageHelper {
                     intent.putExtra("output", UtilHelper.getUriFromFile(CreateFile, intent, tbPageContext.getPageActivity()));
                     tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
                 } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f05a0));
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f05ae));
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f05a0));
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f05ae));
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -187,9 +187,9 @@ public class SelectImageHelper {
                     return;
                 }
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f05a0));
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f05ae));
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f05a0));
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f05ae));
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());

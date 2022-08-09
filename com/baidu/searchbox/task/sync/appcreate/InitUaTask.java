@@ -2,15 +2,13 @@ package com.baidu.searchbox.task.sync.appcreate;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.switchs.ImgUaSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.rf5;
 /* loaded from: classes2.dex */
 public class InitUaTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -34,12 +32,7 @@ public class InitUaTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && ImgUaSwitch.isOn()) {
-            String property = System.getProperty("http.agent");
-            if (PermissionUtil.isAgreePrivacyPolicy()) {
-                System.setProperty("http.agent", property + " tieba default flow version : " + TbConfig.getVersion() + " cuid : " + TbadkCoreApplication.getInst().getCuidGalaxy2());
-                return;
-            }
-            System.setProperty("http.agent", property + " tieba default flow version : " + TbConfig.getVersion());
+            System.setProperty("http.agent", rf5.b());
         }
     }
 

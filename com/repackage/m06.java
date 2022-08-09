@@ -1,111 +1,104 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class m06 {
+public class m06 extends n06 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId N0;
+    public static final BdUniqueId O0;
     public transient /* synthetic */ FieldHolder $fh;
-    public Canvas a;
-    public Bitmap b;
-    public int c;
-    public int d;
 
-    public m06() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755553058, "Lcom/repackage/m06;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755553058, "Lcom/repackage/m06;");
+                return;
+            }
+        }
+        N0 = BdUniqueId.gen();
+        O0 = BdUniqueId.gen();
+    }
+
+    public m06(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {threadData};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new Canvas();
-        this.b = x16.b();
+        this.a = threadData;
     }
 
-    public final void a(int i, int i2, int i3, boolean z, int i4) {
+    public static boolean W(ThreadData threadData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4)}) == null) {
-            boolean z2 = !z ? i > this.c || i2 > this.d : !(i == this.c && i2 == this.d);
-            if (!Intrinsics.areEqual(this.b, x16.b()) && !this.b.isRecycled() && z2) {
-                this.b.eraseColor(0);
-                this.a.setBitmap(this.b);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) {
+            if (threadData == null) {
+                return false;
             }
-            this.c = Math.max(1, i);
-            this.d = Math.max(1, i2);
-            try {
-                Bitmap createBitmap = Bitmap.createBitmap(this.c, this.d, i4 == 32 ? Bitmap.Config.ARGB_8888 : Bitmap.Config.ARGB_4444);
-                if (i3 > 0) {
-                    createBitmap.setDensity(i3);
-                }
-                d().setBitmap(createBitmap);
-                d().setDensity(i3);
-                Unit unit = Unit.INSTANCE;
-                Intrinsics.checkNotNullExpressionValue(createBitmap, "createBitmap(width, heig…y = density\n            }");
-                this.b = createBitmap;
-            } catch (Exception unused) {
-                this.b = x16.b();
-                this.a.setBitmap(null);
-                this.c = 0;
-                this.d = 0;
+            if (threadData.getThreadType() == 49 || threadData.getThreadType() == 69) {
+                return true;
             }
+            return threadData.getThreadType() == 67 && threadData.getThreadAlaInfo() != null && threadData.getThreadAlaInfo().friendRoomStatus == 2;
         }
+        return invokeL.booleanValue;
     }
 
-    public final void b() {
+    public StatisticItem Z(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.b.isRecycled()) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            StatisticItem f = f(str);
+            f.delete("obj_type");
+            f.delete("obj_type");
+            f.param("obj_type", 3);
+            return f;
         }
-        this.b.eraseColor(0);
+        return (StatisticItem) invokeL.objValue;
     }
 
-    public final Bitmap c() {
+    @Override // com.repackage.n06, com.repackage.f06, com.repackage.fo4
+    public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (Bitmap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (ThreadData) invokeV.objValue;
     }
 
-    public final Canvas d() {
+    @Override // com.repackage.n06, com.baidu.tieba.card.data.BaseCardInfo, com.repackage.on
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (Canvas) invokeV.objValue;
-    }
-
-    public final int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public final int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || Intrinsics.areEqual(this.b, x16.b())) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ThreadData threadData = this.a;
+            if (threadData != null && threadData.getThreadType() == 67) {
+                return O0;
+            }
+            return N0;
         }
-        this.a.setBitmap(null);
-        this.b = x16.b();
-        this.c = 0;
-        this.d = 0;
+        return (BdUniqueId) invokeV.objValue;
     }
 }

@@ -10,10 +10,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ms4;
-import com.repackage.qb;
-import com.repackage.rd5;
-import com.repackage.ts7;
+import com.repackage.dt4;
+import com.repackage.pu7;
+import com.repackage.qe5;
+import com.repackage.rb;
 import java.util.Set;
 import java.util.regex.Pattern;
 /* loaded from: classes2.dex */
@@ -36,38 +36,38 @@ public class TaskManagerLaunchFetchListener implements AppLaunchInfoFetcher.a {
     }
 
     @Override // com.baidu.tbadk.util.AppLaunchInfoFetcher.a
-    public void onFinish(rd5 rd5Var) {
+    public void onFinish(qe5 qe5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, rd5Var) == null) || rd5Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, qe5Var) == null) || qe5Var == null) {
             return;
         }
-        Intent intent = rd5Var.b;
+        Intent intent = qe5Var.b;
         boolean z = false;
         if (intent != null) {
             String action = intent.getAction();
             Set<String> categories = intent.getCategories();
             if (action != null && categories != null && TextUtils.equals(action, "android.intent.action.MAIN") && categories.contains("android.intent.category.LAUNCHER")) {
-                ms4.a().b = true;
+                dt4.a().b = true;
                 z = true;
             }
             String className = intent.getComponent() != null ? intent.getComponent().getClassName() : "";
             if (TextUtils.equals(className, SchemaRouteActivity.class.getName())) {
                 String dataString = intent.getDataString();
                 if (!TextUtils.isEmpty(dataString) && dataString.contains(PbModel.UNIDISPATCH_PB)) {
-                    z = ts7.a().b();
-                    ms4.a().a = z;
+                    z = pu7.a().b();
+                    dt4.a().a = z;
                 }
             }
             if (TextUtils.equals(className, YunPushProxyActivity.class.getName())) {
                 if (Pattern.compile("http[s]?://tieba.baidu.com/p").matcher(intent.getDataString()).find()) {
-                    z = ts7.a().b();
-                    ms4.a().a = z;
+                    z = pu7.a().b();
+                    dt4.a().a = z;
                 }
             }
         }
         if (z) {
             return;
         }
-        qb.b().e();
+        rb.b().e();
     }
 }

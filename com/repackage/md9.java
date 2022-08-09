@@ -3,44 +3,39 @@ package com.repackage;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class md9 {
-    public static /* synthetic */ Interceptable $ic;
-    public static Boolean a;
-    public static final /* synthetic */ boolean b;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
+    public static boolean b = false;
+    public static boolean c = false;
+    public static boolean d = true;
+    public static long e = 300000;
+    public static int f = 10;
+    public static long g = 604800000;
+    public static long h = 104857600;
+    public static int i = 100;
+    public static int j = 5;
+    public static long k = 104857600;
+    public static int l = 0;
+    public static int m = 1;
+    public static int n;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755502993, "Lcom/repackage/md9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755502993, "Lcom/repackage/md9;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755502993, "Lcom/repackage/md9;")) == null) {
+            return;
         }
-        b = !md9.class.desiredAssertionStatus();
-    }
-
-    public md9() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755502993, "Lcom/repackage/md9;");
         }
     }
 }

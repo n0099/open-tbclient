@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nz5;
-import com.repackage.oz5;
+import com.repackage.f16;
+import com.repackage.g16;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -17,8 +17,8 @@ public class GetUserOrderHttpResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
-    public ArrayList<nz5> orderList;
-    public oz5 recommendData;
+    public ArrayList<f16> orderList;
+    public g16 recommendData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetUserOrderHttpResponseMessage(int i) {
@@ -49,9 +49,9 @@ public class GetUserOrderHttpResponseMessage extends JsonHttpResponsedMessage {
         }
         for (int i = 0; i < jSONArray.length(); i++) {
             JSONObject optJSONObject = jSONArray.optJSONObject(i);
-            nz5 nz5Var = new nz5();
-            nz5Var.n(optJSONObject);
-            this.orderList.add(nz5Var);
+            f16 f16Var = new f16();
+            f16Var.n(optJSONObject);
+            this.orderList.add(f16Var);
         }
     }
 
@@ -79,15 +79,15 @@ public class GetUserOrderHttpResponseMessage extends JsonHttpResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.hasMore : invokeV.booleanValue;
     }
 
-    public ArrayList<nz5> getOrderList() {
+    public ArrayList<f16> getOrderList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.orderList : (ArrayList) invokeV.objValue;
     }
 
-    public oz5 getRecommendInfo() {
+    public g16 getRecommendInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.recommendData : (oz5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.recommendData : (g16) invokeV.objValue;
     }
 }

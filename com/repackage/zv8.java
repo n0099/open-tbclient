@@ -1,60 +1,24 @@
 package com.repackage;
 
-import android.animation.Animator;
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.View;
+import com.baidu.tieba.videoplay.fragment.VideoAttentionListPageFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* compiled from: lambda */
 /* loaded from: classes7.dex */
-public abstract class zv8 implements Animator.AnimatorListener {
+public final /* synthetic */ class zv8 implements View.OnLongClickListener {
     public static /* synthetic */ Interceptable $ic;
+    public static final /* synthetic */ zv8 a = new zv8();
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
 
-    public zv8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = false;
+    private /* synthetic */ zv8() {
     }
 
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationCancel(Animator animator) {
+    @Override // android.view.View.OnLongClickListener
+    public final boolean onLongClick(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            this.a = true;
-        }
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationEnd(Animator animator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-        }
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationRepeat(Animator animator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-        }
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationStart(Animator animator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-            this.a = false;
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) ? VideoAttentionListPageFragment.t1(view2) : invokeL.booleanValue;
     }
 }

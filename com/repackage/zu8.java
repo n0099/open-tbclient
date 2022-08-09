@@ -1,87 +1,44 @@
 package com.repackage;
 
-import android.util.SparseArray;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class zu8 {
     public static /* synthetic */ Interceptable $ic;
-    public static zu8 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<CloudMusicData.MusicTagList.MusicList> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755099404, "Lcom/repackage/zu8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755099404, "Lcom/repackage/zu8;");
-        }
-    }
-
-    public zu8() {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_ENTER_VIDEO_PAGE);
+            if (TextUtils.isEmpty(str)) {
+                statisticItem.param("obj_type", "1");
+            } else {
+                statisticItem.param("obj_type", "2");
+                statisticItem.param("obj_id", str);
             }
-        }
-        this.a = new SparseArray<>();
-    }
-
-    public static synchronized zu8 b() {
-        InterceptResult invokeV;
-        zu8 zu8Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (zu8.class) {
-                if (b == null) {
-                    b = new zu8();
-                }
-                zu8Var = b;
-            }
-            return zu8Var;
-        }
-        return (zu8) invokeV.objValue;
-    }
-
-    public CloudMusicData.MusicTagList.MusicList a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.get(4096) : (CloudMusicData.MusicTagList.MusicList) invokeV.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = null;
-            b = null;
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public void d(CloudMusicData.MusicTagList.MusicList musicList) {
+    public static void b(String str, boolean z, long j, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, musicList) == null) {
-            this.a.put(4096, musicList);
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Boolean.valueOf(z), Long.valueOf(j), str2, str3, str4}) == null) {
+        }
+    }
+
+    public static void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_ACCOUNT_EXPOSURE);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("obj_type", i);
+            TiebaStatic.log(statisticItem);
         }
     }
 }

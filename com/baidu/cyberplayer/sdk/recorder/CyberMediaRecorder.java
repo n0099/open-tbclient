@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class CyberMediaRecorder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Keep
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public final class AudioFormat {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CYBER_ENCODING_DEFAULT = 1;
@@ -33,7 +33,7 @@ public class CyberMediaRecorder {
     }
 
     @Keep
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public final class AudioSource {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CAMCORDER = 5;

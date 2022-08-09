@@ -19,9 +19,9 @@ import com.google.android.gms.common.Feature;
 import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.common.internal.IAccountAccessor;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
-import com.repackage.rk9;
-import com.repackage.tj9;
-/* loaded from: classes4.dex */
+import com.repackage.mn9;
+import com.repackage.om9;
+/* loaded from: classes5.dex */
 public class GetServiceRequest extends AbstractSafeParcelable {
     public static /* synthetic */ Interceptable $ic;
     @NonNull
@@ -57,7 +57,7 @@ public class GetServiceRequest extends AbstractSafeParcelable {
                 return;
             }
         }
-        CREATOR = new rk9();
+        CREATOR = new mn9();
     }
 
     public GetServiceRequest(int i, int i2, int i3, String str, IBinder iBinder, Scope[] scopeArr, Bundle bundle, Account account, Feature[] featureArr, Feature[] featureArr2, boolean z, int i4, boolean z2, @Nullable String str2) {
@@ -110,7 +110,7 @@ public class GetServiceRequest extends AbstractSafeParcelable {
     public final void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
-            rk9.a(this, parcel, i);
+            mn9.a(this, parcel, i);
         }
     }
 
@@ -137,7 +137,7 @@ public class GetServiceRequest extends AbstractSafeParcelable {
             }
         }
         this.zza = 6;
-        this.zzc = tj9.a;
+        this.zzc = om9.a;
         this.zzb = i;
         this.zzk = true;
         this.zzn = str;

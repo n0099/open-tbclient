@@ -2,7 +2,7 @@ package com.ss.android.socialbase.downloader.network;
 
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class k {
     public static final String a = "k";
     public final d b;
@@ -13,7 +13,7 @@ public class k {
     public int g;
 
     /* renamed from: com.ss.android.socialbase.downloader.network.k$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] a;
 
@@ -39,12 +39,12 @@ public class k {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static final k a = new k(null);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void a(l lVar);
     }

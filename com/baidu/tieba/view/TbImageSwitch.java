@@ -10,6 +10,7 @@ import android.os.Message;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -257,16 +258,16 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
         public final void e(int i, int i2, float f, float f2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2)}) == null) {
-                this.e = PropertyValuesHolder.ofFloat("translationX", -i);
-                this.f = PropertyValuesHolder.ofFloat("alpha", f);
-                this.g = PropertyValuesHolder.ofFloat("scaleX", f2);
-                this.h = PropertyValuesHolder.ofFloat("scaleY", f2);
+                this.e = PropertyValuesHolder.ofFloat(Key.TRANSLATION_X, -i);
+                this.f = PropertyValuesHolder.ofFloat(Key.ALPHA, f);
+                this.g = PropertyValuesHolder.ofFloat(Key.SCALE_X, f2);
+                this.h = PropertyValuesHolder.ofFloat(Key.SCALE_Y, f2);
                 float f3 = -i2;
-                this.i = PropertyValuesHolder.ofFloat("translationX", f3);
-                this.j = PropertyValuesHolder.ofFloat("translationX", f3);
-                this.k = PropertyValuesHolder.ofFloat("alpha", 1.0f);
-                this.l = PropertyValuesHolder.ofFloat("scaleX", 1.0f);
-                this.m = PropertyValuesHolder.ofFloat("scaleY", 1.0f);
+                this.i = PropertyValuesHolder.ofFloat(Key.TRANSLATION_X, f3);
+                this.j = PropertyValuesHolder.ofFloat(Key.TRANSLATION_X, f3);
+                this.k = PropertyValuesHolder.ofFloat(Key.ALPHA, 1.0f);
+                this.l = PropertyValuesHolder.ofFloat(Key.SCALE_X, 1.0f);
+                this.m = PropertyValuesHolder.ofFloat(Key.SCALE_Y, 1.0f);
             }
         }
 

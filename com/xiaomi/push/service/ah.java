@@ -54,15 +54,15 @@ public final class ah {
             try {
                 fl flVar = new fl();
                 flVar.a(5);
-                flVar.c(tVar.f1004a);
+                flVar.c(tVar.f1005a);
                 flVar.b(a(cif));
                 flVar.a("SECMSG", "message");
-                String str = tVar.f1004a;
-                cif.f627a.f554a = str.substring(0, str.indexOf("@"));
-                cif.f627a.f558c = str.substring(str.indexOf("/") + 1);
+                String str = tVar.f1005a;
+                cif.f628a.f555a = str.substring(0, str.indexOf("@"));
+                cif.f628a.f559c = str.substring(str.indexOf("/") + 1);
                 flVar.a(it.a(cif), tVar.c);
                 flVar.a((short) 1);
-                com.xiaomi.channel.commonutils.logger.b.m89a("try send mi push message. packagename:" + cif.f632b + " action:" + cif.f625a);
+                com.xiaomi.channel.commonutils.logger.b.m89a("try send mi push message. packagename:" + cif.f633b + " action:" + cif.f626a);
                 return flVar;
             } catch (NullPointerException e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
@@ -99,8 +99,8 @@ public final class ah {
             byte[] a = it.a(t);
             Cif cif = new Cif();
             hy hyVar = new hy();
-            hyVar.f553a = 5L;
-            hyVar.f554a = "fakeid";
+            hyVar.f554a = 5L;
+            hyVar.f555a = "fakeid";
             cif.a(hyVar);
             cif.a(ByteBuffer.wrap(a));
             cif.a(hjVar);
@@ -118,14 +118,14 @@ public final class ah {
         Map<String, String> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, cif)) == null) {
-            hw hwVar = cif.f626a;
-            if (hwVar != null && (map = hwVar.f544b) != null) {
+            hw hwVar = cif.f627a;
+            if (hwVar != null && (map = hwVar.f545b) != null) {
                 String str = map.get("ext_traffic_source_pkg");
                 if (!TextUtils.isEmpty(str)) {
                     return str;
                 }
             }
-            return cif.f632b;
+            return cif.f633b;
         }
         return (String) invokeL.objValue;
     }
@@ -146,7 +146,7 @@ public final class ah {
             return;
         }
         bg.b a = u.m680a(xMPushService.getApplicationContext()).a(xMPushService);
-        com.xiaomi.channel.commonutils.logger.b.m89a("prepare account. " + a.f933a);
+        com.xiaomi.channel.commonutils.logger.b.m89a("prepare account. " + a.f934a);
         a(xMPushService, a);
         bg.a().a(a);
         bx.a(xMPushService).a(new ai("GAID", ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME, xMPushService, m680a));
@@ -212,7 +212,7 @@ public final class ah {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) {
             ii iiVar = new ii();
             iiVar.b(str2);
-            iiVar.c(ht.ac.f505a);
+            iiVar.c(ht.ac.f506a);
             iiVar.a(bd.a());
             iiVar.a(false);
             return a(str, str2, iiVar, hj.i);

@@ -1,160 +1,188 @@
 package com.repackage;
 
-import android.graphics.Point;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.ListView;
+import android.annotation.SuppressLint;
+import android.os.Handler;
+import android.os.Message;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.dragsort.SimpleDragSortListView;
+import com.baidu.tieba.myCollection.message.RequestQueryCollectUpdateNumMessage;
+import com.baidu.tieba.myCollection.message.ResponseQueryCollectUpdateNumMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.af5;
-/* loaded from: classes5.dex */
+import com.yy.hiidostatis.inner.FlushManager;
+/* loaded from: classes6.dex */
 public class co7 {
     public static /* synthetic */ Interceptable $ic;
+    public static co7 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SimpleDragSortListView a;
-    public final a b;
-    public final af5 c;
+    public long a;
+    @SuppressLint({"HandlerLeak"})
+    public final Handler b;
+    public final cb c;
 
-    /* loaded from: classes5.dex */
-    public static class a extends bf5 {
+    /* loaded from: classes6.dex */
+    public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int F;
-        public int G;
-        public ListView H;
+        public final /* synthetic */ co7 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(af5 af5Var, ListView listView) {
-            super(af5Var, listView, 0, 2, 0);
+        public a(co7 co7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {af5Var, listView};
+                Object[] objArr = {co7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((af5) objArr2[0], (ListView) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.F = 0;
-            this.G = Integer.MAX_VALUE;
-            s(false);
-            this.H = listView;
+            this.a = co7Var;
         }
 
-        @Override // com.repackage.ef5, com.repackage.af5.j
-        public void a(View view2) {
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            }
-        }
-
-        @Override // com.repackage.bf5, com.repackage.af5.j
-        public void c(View view2, Point point, Point point2) {
-            int top;
-            int top2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, point, point2) == null) {
-                int firstVisiblePosition = this.H.getFirstVisiblePosition();
-                int dividerHeight = this.H.getDividerHeight();
-                int headerViewsCount = (this.F - firstVisiblePosition) + this.H.getHeaderViewsCount();
-                int headerViewsCount2 = (this.G - firstVisiblePosition) + this.H.getHeaderViewsCount();
-                int childCount = this.H.getChildCount();
-                View view3 = null;
-                View childAt = (headerViewsCount < 0 || headerViewsCount >= childCount) ? null : this.H.getChildAt(headerViewsCount);
-                if (headerViewsCount2 >= 0 && headerViewsCount2 < childCount) {
-                    view3 = this.H.getChildAt(headerViewsCount2);
-                }
-                if (childAt != null && point.y < (top2 = childAt.getTop())) {
-                    point.y = top2;
-                }
-                if (view3 == null || point.y <= (top = (view3.getTop() - dividerHeight) - view2.getHeight())) {
-                    return;
-                }
-                point.y = top;
-            }
-        }
-
-        @Override // com.repackage.bf5
-        public int w(MotionEvent motionEvent) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-                int n = super.n(motionEvent);
-                int headerViewsCount = n - this.H.getHeaderViewsCount();
-                if (headerViewsCount < this.F || headerViewsCount >= this.G) {
-                    return -1;
-                }
-                return n;
-            }
-            return invokeL.intValue;
-        }
-
-        public void z(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-                this.F = i;
-                this.G = i2;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
+                this.a.a = System.currentTimeMillis();
+                MessageManager.getInstance().sendMessage(new RequestQueryCollectUpdateNumMessage());
+                this.a.b.sendMessageDelayed(this.a.b.obtainMessage(1), FlushManager.ReportTimer.DEFAULT_INTERVAL);
             }
         }
     }
 
-    public co7(SimpleDragSortListView simpleDragSortListView) {
+    /* loaded from: classes6.dex */
+    public class b extends cb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(co7 co7Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {co7Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) && socketResponsedMessage != null && socketResponsedMessage.getCmd() == 303005 && (socketResponsedMessage instanceof ResponseQueryCollectUpdateNumMessage)) {
+                jz4.h0().a0(((ResponseQueryCollectUpdateNumMessage) socketResponsedMessage).getCollectUpdateNum());
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755790394, "Lcom/repackage/co7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755790394, "Lcom/repackage/co7;");
+                return;
+            }
+        }
+        kk8.g(303005, ResponseQueryCollectUpdateNumMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
+        d = null;
+    }
+
+    public co7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {simpleDragSortListView};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = simpleDragSortListView;
-        af5 af5Var = new af5(simpleDragSortListView, simpleDragSortListView.getViewSuperMethods());
-        this.c = af5Var;
-        simpleDragSortListView.setDragSortViewEventDelegate(af5Var);
-        a aVar = new a(this.c, simpleDragSortListView);
-        this.b = aVar;
-        aVar.d(-1);
-        this.c.s0(this.b);
-        this.c.u0(this.b);
-        simpleDragSortListView.setOnTouchListener(this.b);
+        this.a = 0L;
+        this.b = new a(this);
+        this.c = new b(this, 303005);
+        MessageManager.getInstance().registerListener(this.c);
     }
 
-    public void a(boolean z) {
+    public static synchronized co7 d() {
+        InterceptResult invokeV;
+        co7 co7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.c.o0(z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            synchronized (co7.class) {
+                if (d == null) {
+                    d = new co7();
+                }
+                co7Var = d;
+            }
+            return co7Var;
+        }
+        return (co7) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.removeMessages(1);
+            this.b.removeMessages(2);
         }
     }
 
-    public void b(int i, int i2) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            this.b.z(i, i2);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = 0L;
+            c();
+            f();
         }
     }
 
-    public void c(af5.i iVar) {
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iVar) == null) {
-            this.c.t0(iVar);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis() - this.a;
+            if (currentTimeMillis <= 0) {
+                currentTimeMillis = 0;
+            }
+            if (currentTimeMillis >= FlushManager.ReportTimer.DEFAULT_INTERVAL) {
+                Handler handler = this.b;
+                handler.sendMessageDelayed(handler.obtainMessage(1), 10000L);
+            } else {
+                long j = FlushManager.ReportTimer.DEFAULT_INTERVAL - currentTimeMillis;
+                Handler handler2 = this.b;
+                handler2.sendMessageDelayed(handler2.obtainMessage(1), j);
+            }
+            this.a = System.currentTimeMillis();
         }
     }
 }

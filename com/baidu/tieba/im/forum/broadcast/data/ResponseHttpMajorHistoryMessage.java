@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.k67;
+import com.repackage.e87;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetForumBroadcastList.GetForumBroadcastListResIdl;
@@ -16,7 +16,7 @@ import tbclient.GetForumBroadcastList.GetForumBroadcastListResIdl;
 public class ResponseHttpMajorHistoryMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public k67 majorHistoryData;
+    public e87 majorHistoryData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseHttpMajorHistoryMessage() {
@@ -34,13 +34,13 @@ public class ResponseHttpMajorHistoryMessage extends TbHttpResponsedMessage {
                 return;
             }
         }
-        this.majorHistoryData = new k67();
+        this.majorHistoryData = new e87();
     }
 
-    public k67 getData() {
+    public e87 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.majorHistoryData : (k67) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.majorHistoryData : (e87) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

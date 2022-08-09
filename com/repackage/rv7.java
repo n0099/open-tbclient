@@ -1,55 +1,169 @@
 package com.repackage;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.pb.pb.main.PbPageReadLocalRequestMessage;
-import com.baidu.tieba.pb.pb.main.PbPageReadLocalResponseMessage;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class rv7 implements CustomMessageTask.CustomRunnable<Object> {
-    public static /* synthetic */ Interceptable $ic;
+public class rv7 extends bi5 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static double L = 0.5d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public rv7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public class a implements TbImageView.h {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rv7 a;
+
+        public a(rv7 rv7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rv7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.a = rv7Var;
+        }
+
+        @Override // com.baidu.tbadk.widget.TbImageView.h
+        public void a(TbImageView tbImageView, Canvas canvas) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, tbImageView, canvas) == null) {
+            }
+        }
+
+        @Override // com.baidu.tbadk.widget.TbImageView.h
+        public void b(TbImageView tbImageView, Canvas canvas) {
+            int i;
+            float f;
+            float f2;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) || tbImageView == null || tbImageView.getImageMatrix() == null || tbImageView.getScaleType() != ImageView.ScaleType.MATRIX) {
+                return;
+            }
+            Matrix imageMatrix = tbImageView.getImageMatrix();
+            zm m = i55.k().m(kg.h().g(tbImageView.getUrl(), this.a.s ? 17 : 18));
+            int i2 = 0;
+            if (m != null) {
+                i2 = m.r();
+                i = m.m();
+            } else {
+                i = 0;
+            }
+            if (i2 == 0 || i == 0) {
+                return;
+            }
+            int width = (tbImageView.getWidth() - tbImageView.getPaddingLeft()) - tbImageView.getPaddingRight();
+            int height = (tbImageView.getHeight() - tbImageView.getPaddingTop()) - tbImageView.getPaddingBottom();
+            if (i2 * height > width * i) {
+                f = height;
+                f2 = i;
+            } else {
+                f = width;
+                f2 = i2;
+            }
+            float f3 = f / f2;
+            imageMatrix.setScale(f3, f3);
+            imageMatrix.postTranslate(0.0f, 0.0f);
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        InterceptResult invokeL;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755336802, "Lcom/repackage/rv7;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755336802, "Lcom/repackage/rv7;");
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rv7(bi5 bi5Var) {
+        super(bi5Var);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage == null || !(customMessage instanceof PbPageReadLocalRequestMessage)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bi5Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((bi5) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        k(true);
+        t();
+        o(TbConfig.getPostLineSpace(), 1.0f);
+        y(0);
+        l(qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds30));
+        m(qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12));
+        i(qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
+        r(qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004), qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004));
+        j(qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004));
+        this.H = qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds749);
+        this.I = qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
+        qi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
+        this.J = new a(this);
+    }
+
+    @Override // com.repackage.bi5
+    public int[] e(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i, i2, i3, i4)) == null) {
+            if (i2 <= 0 || i <= 0 || i3 <= 0 || i4 <= 0) {
                 return null;
             }
-            PbPageReadLocalRequestMessage pbPageReadLocalRequestMessage = (PbPageReadLocalRequestMessage) customMessage;
-            byte[] a = zt7.b().a(pbPageReadLocalRequestMessage.getCacheKey(), pbPageReadLocalRequestMessage.isMarkCache());
-            PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage = new PbPageReadLocalResponseMessage();
-            pbPageReadLocalResponseMessage.setPostId(pbPageReadLocalRequestMessage.getPostId());
-            pbPageReadLocalResponseMessage.setMarkCache(pbPageReadLocalRequestMessage.isMarkCache());
-            pbPageReadLocalResponseMessage.setUpdateType(pbPageReadLocalRequestMessage.getUpdateType());
-            try {
-                pbPageReadLocalResponseMessage.decodeInBackGround(2004003, a);
-            } catch (Exception e) {
-                e.printStackTrace();
+            if (this.t) {
+                float f = bi5.K;
+                if (f > 1.0f) {
+                    float f2 = i;
+                    if (f2 * f <= i3 * L) {
+                        i3 = (int) (f2 * f);
+                    }
+                    i2 = (i2 * i3) / i;
+                    if (i2 > 4096) {
+                        this.q = ImageView.ScaleType.MATRIX;
+                        i = i3;
+                        i2 = 4096;
+                    } else {
+                        this.q = ImageView.ScaleType.CENTER_CROP;
+                        i = i3;
+                    }
+                }
             }
-            return pbPageReadLocalResponseMessage;
+            return new int[]{i, i2};
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (int[]) invokeIIII.objValue;
     }
 }

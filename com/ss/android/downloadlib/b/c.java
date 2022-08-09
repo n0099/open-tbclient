@@ -4,7 +4,7 @@ import android.os.Build;
 import androidx.annotation.NonNull;
 import com.ss.android.downloadlib.g.l;
 import com.ss.android.socialbase.downloader.a.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static void a(final com.ss.android.downloadad.api.a.b bVar, @NonNull final com.ss.android.downloadlib.guide.install.a aVar) {
         boolean b = com.ss.android.socialbase.downloader.a.a.a().b();
@@ -20,8 +20,8 @@ public class c {
         if (b2) {
             return;
         }
-        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC0660a() { // from class: com.ss.android.downloadlib.b.c.1
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0660a
+        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC0665a() { // from class: com.ss.android.downloadlib.b.c.1
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0665a
             public void b() {
                 com.ss.android.socialbase.downloader.c.a.b("AppInstallOptimiseHelper", "AppInstallOptimiseHelper-->onAppForeground");
                 com.ss.android.socialbase.downloader.a.a.a().b(this);
@@ -33,7 +33,7 @@ public class c {
                 aVar.a();
             }
 
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0660a
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0665a
             public void c() {
             }
         });

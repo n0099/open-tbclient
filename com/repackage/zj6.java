@@ -1,36 +1,43 @@
 package com.repackage;
 
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.frs.entelechy.adapter.FrsUserRecommendAdapter;
-import com.baidu.tieba.frs.gamerecommend.adapter.GameCompetitionAdapter;
-import com.baidu.tieba.frs.gamerecommend.adapter.GameRecommendGameAdapter;
-import com.baidu.tieba.frs.gamerecommend.adapter.GameSpecialTopicAdapter;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.abtest.helper.FrsTabTestHelper;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.R;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
+import tbclient.FrsTabInfo;
 /* loaded from: classes7.dex */
 public class zj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public BdTypeListView b;
-    public List<an> c;
-    public String d;
+    public View a;
+    public FrsFragment b;
+    public TextView c;
+    public FrsTabSortSwitchButton d;
     public String e;
-    public jy5 f;
+    public int f;
+    public FrsTabSortSwitchButton.e g;
 
     /* loaded from: classes7.dex */
-    public class a extends jy5 {
+    public class a implements FrsTabSortSwitchButton.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zj6 b;
+        public final /* synthetic */ zj6 a;
 
         public a(zj6 zj6Var) {
             Interceptable interceptable = $ic;
@@ -47,25 +54,54 @@ public class zj6 {
                     return;
                 }
             }
-            this.b = zj6Var;
+            this.a = zj6Var;
         }
 
-        @Override // com.repackage.jy5
-        public void a(View view2, BaseCardInfo baseCardInfo) {
+        @Override // com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton.e
+        public boolean a(int i) {
+            InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, baseCardInfo) == null) {
-                super.a(view2, baseCardInfo);
-                this.b.b();
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                boolean z = false;
+                if (!le6.f().i() && !ke6.h().j()) {
+                    if (!oi.A()) {
+                        this.a.b.showToast(R.string.obfuscated_res_0x7f0f0c3c);
+                        return false;
+                    } else if (this.a.b.K0() != null && this.a.b.k1() != null) {
+                        z = true;
+                        if (this.a.f == i) {
+                            return true;
+                        }
+                        this.a.b.K0().R0(this.a.d.w(this.a.f));
+                        this.a.f = i;
+                        if (this.a.f != 7) {
+                            ze5.c();
+                            em8.a();
+                        } else {
+                            em8.b();
+                        }
+                        this.a.b.K0().N0(this.a.d.w(this.a.f));
+                        if (UbsABTestHelper.isFrsNewAreaTabSortTestA()) {
+                            FrsTabTestHelper.storeFrsNewAreaTabSort(this.a.d.w(this.a.f));
+                        }
+                        this.a.b.K0().Q0(true);
+                        this.a.b.k1().V1();
+                        this.a.b.K0().P0(true);
+                        this.a.f();
+                    }
+                }
+                return z;
             }
+            return invokeI.booleanValue;
         }
     }
 
-    public zj6(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, String str, String str2) {
+    public zj6(FrsFragment frsFragment, RelativeLayout relativeLayout) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView, str, str2};
+            Object[] objArr = {frsFragment, relativeLayout};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -75,60 +111,73 @@ public class zj6 {
                 return;
             }
         }
-        this.f = new a(this);
-        this.a = tbPageContext;
-        this.b = bdTypeListView;
-        this.d = str;
-        this.e = str2;
-        this.c = new ArrayList();
-        a();
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ak6 ak6Var = new ak6(this.a, this.d, this.e);
-            ak6Var.e0(this.f);
-            this.c.add(ak6Var);
-            bk6 bk6Var = new bk6(this.a, this.d);
-            bk6Var.e0(this.f);
-            this.c.add(bk6Var);
-            this.c.add(new ek6(this.a, this.d));
-            this.c.add(new dk6(this.a, this.d));
-            List<an> list = this.c;
-            TbPageContext tbPageContext = this.a;
-            list.add(new GameSpecialTopicAdapter(tbPageContext, f36.b, tbPageContext.getUniqueId(), this.d));
-            ck6 ck6Var = new ck6(this.a, this.d);
-            ck6Var.c0(this.f);
-            this.c.add(ck6Var);
-            List<an> list2 = this.c;
-            TbPageContext tbPageContext2 = this.a;
-            list2.add(new GameCompetitionAdapter(tbPageContext2, a36.b, tbPageContext2.getUniqueId(), this.d));
-            List<an> list3 = this.c;
-            TbPageContext tbPageContext3 = this.a;
-            list3.add(new GameRecommendGameAdapter(tbPageContext3, d36.b, tbPageContext3.getUniqueId(), this.d));
-            TbPageContext tbPageContext4 = this.a;
-            FrsUserRecommendAdapter frsUserRecommendAdapter = new FrsUserRecommendAdapter(tbPageContext4, od6.e, tbPageContext4.getUniqueId());
-            frsUserRecommendAdapter.p0();
-            frsUserRecommendAdapter.o0(this.d);
-            this.c.add(frsUserRecommendAdapter);
-            this.b.a(this.c);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.b.getAdapter2() instanceof en)) {
-            this.b.getAdapter2().notifyDataSetChanged();
-        }
-    }
-
-    public void c(List<nn> list) {
-        BdTypeListView bdTypeListView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (bdTypeListView = this.b) == null) {
+        this.f = -1;
+        this.g = new a(this);
+        if (frsFragment == null || relativeLayout == null) {
             return;
         }
-        bdTypeListView.setData(list);
+        this.b = frsFragment;
+        View inflate = LayoutInflater.from(frsFragment.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0347, relativeLayout);
+        this.a = inflate;
+        inflate.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091ec5);
+        FrsTabSortSwitchButton frsTabSortSwitchButton = (FrsTabSortSwitchButton) this.a.findViewById(R.id.obfuscated_res_0x7f091ec6);
+        this.d = frsTabSortSwitchButton;
+        frsTabSortSwitchButton.setOnSwitchChangeListener(this.g);
+        this.f = this.d.getState();
+        i();
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            StatisticItem statisticItem = new StatisticItem("c11437");
+            statisticItem.param("obj_type", this.d.w(this.f));
+            statisticItem.param("fid", this.e);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public void g(int i) {
+        FrsTabSortSwitchButton frsTabSortSwitchButton;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (frsTabSortSwitchButton = this.d) == null) {
+            return;
+        }
+        frsTabSortSwitchButton.t(i);
+        this.f = this.d.getState();
+    }
+
+    public FrsTabSortSwitchButton h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (FrsTabSortSwitchButton) invokeV.objValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            FrsTabSortSwitchButton frsTabSortSwitchButton = this.d;
+            if (frsTabSortSwitchButton != null) {
+                frsTabSortSwitchButton.D();
+            }
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
+        }
+    }
+
+    public void j(List<FrsTabInfo> list) {
+        FrsTabSortSwitchButton frsTabSortSwitchButton;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || (frsTabSortSwitchButton = this.d) == null) {
+            return;
+        }
+        frsTabSortSwitchButton.setData(list);
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.e = str;
+        }
     }
 }

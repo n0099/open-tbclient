@@ -1,82 +1,32 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.ala.AlaCmdConfigHttp;
-import com.baidu.ala.AlaConfig;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.AlaEnterEffectEditHttpReqMessage;
-import com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.AlaEnterEffectEditHttpResMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class zv5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    public HttpMessageListener b;
+    public TbPageContext a;
+    public BdTypeListView b;
+    public List<bn> c;
+    public List<on> d;
+    public bx5 e;
+    public fw5 f;
 
-    /* loaded from: classes7.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zv5 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(zv5 zv5Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zv5Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zv5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof AlaEnterEffectEditHttpResMessage)) {
-                AlaEnterEffectEditHttpResMessage alaEnterEffectEditHttpResMessage = (AlaEnterEffectEditHttpResMessage) httpResponsedMessage;
-                if (alaEnterEffectEditHttpResMessage.getError() != 0) {
-                    if (this.a.a != null) {
-                        this.a.a.a(alaEnterEffectEditHttpResMessage.getErrorString());
-                    }
-                } else if (!(alaEnterEffectEditHttpResMessage.getOrginalMessage() instanceof AlaEnterEffectEditHttpReqMessage) || this.a.a == null) {
-                } else {
-                    this.a.a.b(((AlaEnterEffectEditHttpReqMessage) alaEnterEffectEditHttpResMessage.getOrginalMessage()).isSelected());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(String str);
-
-        void b(boolean z);
-    }
-
-    public zv5(b bVar) {
+    public zv5(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, bx5 bx5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
+            Object[] objArr = {tbPageContext, bdTypeListView, bx5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -86,24 +36,86 @@ public class zv5 {
                 return;
             }
         }
-        this.b = new a(this, AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT);
-        this.a = bVar;
-        wh8.e(AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT, AlaConfig.ALA_UPDATE_ENTER_EFFECT, AlaEnterEffectEditHttpResMessage.class, true, true, true, true);
-        this.b.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.b);
+        this.a = tbPageContext;
+        this.b = bdTypeListView;
+        this.c = new ArrayList();
+        this.d = new ArrayList();
+        this.e = bx5Var;
+        a();
     }
 
-    public void b(String str, boolean z) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
-            MessageManager.getInstance().sendMessage(new AlaEnterEffectEditHttpReqMessage(str, z));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            yv5 yv5Var = new yv5(this.a);
+            cw5 cw5Var = new cw5(this.a);
+            dw5 dw5Var = new dw5(this.a);
+            wv5 wv5Var = new wv5(this.a);
+            bw5 bw5Var = new bw5(this.a);
+            ew5 ew5Var = new ew5(this.a);
+            aw5 aw5Var = new aw5(this.a);
+            xv5 xv5Var = new xv5(this.a);
+            this.f = new fw5(this.a);
+            hw5 hw5Var = new hw5(this.a, this.e);
+            gw5 gw5Var = new gw5(this.a);
+            this.c.add(yv5Var);
+            this.c.add(this.f);
+            this.c.add(cw5Var);
+            this.c.add(dw5Var);
+            this.c.add(wv5Var);
+            this.c.add(bw5Var);
+            this.c.add(ew5Var);
+            this.c.add(aw5Var);
+            this.c.add(xv5Var);
+            this.c.add(hw5Var);
+            this.c.add(gw5Var);
+            this.b.a(this.c);
         }
     }
 
-    public void c() {
+    public void b(List<on> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.b);
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.b == null || ListUtils.isEmpty(list)) {
+            return;
         }
+        this.d.clear();
+        this.d.addAll(list);
+        this.b.setData(this.d);
+    }
+
+    public void c(String str) {
+        fw5 fw5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (fw5Var = this.f) == null) {
+            return;
+        }
+        fw5Var.D(str);
+    }
+
+    public void d(String str) {
+        fw5 fw5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (fw5Var = this.f) == null) {
+            return;
+        }
+        fw5Var.a(str);
+    }
+
+    public void e(String str) {
+        fw5 fw5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (fw5Var = this.f) == null) {
+            return;
+        }
+        fw5Var.E(str);
+    }
+
+    public void f(boolean z) {
+        fw5 fw5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (fw5Var = this.f) == null) {
+            return;
+        }
+        fw5Var.F(z);
     }
 }

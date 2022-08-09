@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.de3;
-import com.repackage.vx2;
+import com.repackage.my2;
+import com.repackage.ue3;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes2.dex */
@@ -31,7 +31,7 @@ public class EmojiEditText extends AppCompatEditText {
     public e a;
     public f b;
     public String c;
-    public de3 d;
+    public ue3 d;
     public Runnable e;
     public int f;
 
@@ -274,7 +274,7 @@ public class EmojiEditText extends AppCompatEditText {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Editable editableText = getEditableText();
             if (!TextUtils.isEmpty(editableText) && Pattern.compile("\\[([一-龥\\w])+\\]").matcher(editableText).find()) {
-                getEditableText().replace(0, editableText.length(), vx2.c().g(getContext(), editableText, this));
+                getEditableText().replace(0, editableText.length(), my2.c().g(getContext(), editableText, this));
             }
         }
     }
@@ -282,7 +282,7 @@ public class EmojiEditText extends AppCompatEditText {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.d = de3.b(getContext());
+            this.d = ue3.b(getContext());
             setText(getText());
             setOnTouchListener(new a(this));
             addTextChangedListener(new d(this, null));
@@ -383,7 +383,7 @@ public class EmojiEditText extends AppCompatEditText {
                 }
                 this.c = a2.toString();
                 this.d.c(" ");
-                SpannableString g = vx2.c().g(getContext(), this.c, this);
+                SpannableString g = my2.c().g(getContext(), this.c, this);
                 int selectionStart = getSelectionStart();
                 Editable editableText = getEditableText();
                 editableText.insert(selectionStart, g);

@@ -4,10 +4,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class UsbAbTestConst {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String KEY_ANR_TEST = "12_25_anr_test_a";
+    public static final String KEY_AGREE_NUMBER_CAN_CLICK = "12_27_agree_number_can_a";
     public static final String KEY_ENTER_FRS_ANIM_A = "12_23_homepage_enter_frs_animation_a";
     public static final String KEY_ENTER_FRS_NO_ANMI = "12.25_enter_frs_no_anim";
     public static final String KEY_FEED_VIDEO_TRANSITION = "12_19_feed_video_transition_a";
@@ -26,16 +26,17 @@ public class UsbAbTestConst {
     public static final String KEY_IMG_CLICK_TO_PB = "12_24_tupiandianji_b";
     public static final String KEY_LIVE_CARD_GAME_SHOW = "12_18_live_gameshow_style_a";
     public static final String KEY_LOOPER_BLOCK_OPT = "12_22_looper_block_opt_a";
+    public static final String KEY_MAIN_INDEX_TAB_SHOW_A = "12_26_index_tab_show_a";
     public static final String KEY_MAIN_TAB_DATA_CACHE = "12_21_main_tab_data_b";
     public static final String KEY_MAIN_TAB_DATA_OFF = "12_21_main_tab_data_c";
     public static final String KEY_MAIN_TAB_DATA_PREFETCH = "12_21_main_tab_data_a";
-    public static final String KEY_MAIN_TAB_SPLASH = "12_21_main_tab_splash_a";
     public static final String KEY_NATIVE_AD_AUTO_PLAY = "12_14_ad_video_a";
     public static final String KEY_NATIVE_AD_NO_INTERACTION_STYLE = "12_18_personalize_frs_style_a";
+    public static final String KEY_NEW_HOME_HOT_TOPIC_TAB = "12_27_index_hot_tab_a";
     public static final String KEY_NEW_INTEREST_TEST_A = "12_21_interest_card_log_a";
-    public static final String KEY_NEW_SPLASH_POLICY = "12_20_0_screen_fill_Ad_experiment";
     public static final String KEY_NICK_NAME = "12_11_nick_name_a";
     public static final String KEY_NO_REQUEST_PRO_PERMISSION = "12_26_no_req_pro_a";
+    public static final String KEY_OFFLINE_SIGN_PUSH = "12_27_signpush_a";
     public static final String KEY_ONLINE_PUSH_SHOW_TEST_A = "12_25_andriodpush_a";
     public static final String KEY_PB_FORUM_GUIDE_TEST_A = "12_22_pb_forum_guide_a";
     public static final String KEY_PB_SHARE_PATH_TEST_A = "12_25_zhuanfalujing_a";

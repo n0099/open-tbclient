@@ -1,80 +1,117 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.RemoteException;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ubs.analytics.SampleResult;
-import com.repackage.n39;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.turbonet.net.TurbonetEngine;
+import java.net.BindException;
+import java.net.ConnectException;
+import java.net.NoRouteToHostException;
+import java.net.PortUnreachableException;
+import java.net.ProtocolException;
+import java.net.SocketTimeoutException;
+import java.net.UnknownHostException;
+import javax.net.ssl.SSLHandshakeException;
+import javax.net.ssl.SSLKeyException;
+import javax.net.ssl.SSLPeerUnverifiedException;
+import javax.net.ssl.SSLProtocolException;
 /* loaded from: classes6.dex */
 public class l39 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public int c;
+    public int d;
+    public long e;
+    public long f;
+    public long g;
+    public long h;
+    public long i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755579873, "Lcom/repackage/l39;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public l39(String str) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755579873, "Lcom/repackage/l39;");
-        }
-    }
-
-    public static SampleResult a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (a) {
-                return n39.a.a.f(str);
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return SampleResult.OTHERE;
         }
-        return (SampleResult) invokeL.objValue;
+        this.c = -14;
+        this.d = -1;
+        this.e = -1L;
+        this.f = -1L;
+        this.g = -1L;
+        this.h = -1L;
+        this.i = -1L;
+        this.a = str;
+        this.g = System.nanoTime() / 1000;
+        this.f = System.currentTimeMillis();
     }
 
-    public static void b(m39 m39Var) {
+    public void a(Exception exc) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, m39Var) == null) || m39Var == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+            if (exc instanceof SocketTimeoutException) {
+                this.c = -1;
+            } else if (exc instanceof UnknownHostException) {
+                this.c = -2;
+            } else if (exc instanceof ConnectException) {
+                this.c = -5;
+            } else if (exc instanceof ProtocolException) {
+                this.c = -3;
+            } else if (exc instanceof BindException) {
+                this.c = -4;
+            } else if (exc instanceof SSLHandshakeException) {
+                this.c = -8;
+            } else if (exc instanceof SSLProtocolException) {
+                this.c = -9;
+            } else if (exc instanceof RemoteException) {
+                this.c = -13;
+            } else if (exc instanceof NoRouteToHostException) {
+                this.c = -6;
+            } else if (exc instanceof PortUnreachableException) {
+                this.c = -7;
+            } else if (exc instanceof SSLKeyException) {
+                this.c = -10;
+            } else if (exc instanceof SSLPeerUnverifiedException) {
+                this.c = -11;
+            } else {
+                this.c = -14;
+            }
         }
-        h49.b(m39Var);
     }
 
-    public static void c(String str, String str2, String str3, Map<String, String> map) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65539, null, str, str2, str3, map) == null) && a && str != null) {
-            k49.a(str, str2, str3, map);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.h = (System.nanoTime() / 1000) - this.g;
         }
     }
 
-    public static void d(String str) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && a) {
-            f49.a().b(str);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.i = (System.nanoTime() / 1000) - this.g;
         }
     }
 
-    public static void e(String str) {
+    public void d(TurbonetEngine turbonetEngine) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, str) == null) && a) {
-            f49.a().c(str);
-        }
-    }
-
-    public static void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
-            a = z;
+        if (interceptable == null || interceptable.invokeL(1048579, this, turbonetEngine) == null) {
+            Log.v("HTTPMetrics", String.format("url:%s, method:%s, netCode:%d, httpCode:%d, bytesReceived:%d, requestTime:%d, firstByteTime:%d, durationTime:%d", this.a, this.b, Integer.valueOf(this.c), Integer.valueOf(this.d), Long.valueOf(this.e), Long.valueOf(this.f), Long.valueOf(this.h), Long.valueOf(this.i)));
+            turbonetEngine.g(this.a, this.b, this.c, this.d, this.e, this.f, this.h, this.i);
         }
     }
 }

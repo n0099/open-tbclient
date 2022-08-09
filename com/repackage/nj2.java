@@ -1,100 +1,23 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.widget.EditText;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.face.platform.ConstPath;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.DataInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.repackage.ix1;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class nj2 extends DataInputStream {
+public class nj2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final mj2<String, byte[]> a;
+    public static final boolean a;
+    public static ix1.g b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static class a implements mj2<String, byte[]> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.mj2
-        @Nullable
-        public String call(@Nullable byte[] bArr) throws Exception {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
-                if (bArr == null) {
-                    return null;
-                }
-                return bArr.length == 0 ? "" : new String(bArr);
-            }
-            return (String) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements mj2<Boolean, byte[]> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nj2 a;
-
-        public b(nj2 nj2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nj2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nj2Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.mj2
-        @Nullable
-        public Boolean call(@Nullable byte[] bArr) throws Exception {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
-                return Boolean.valueOf(bArr != null);
-            }
-            return (Boolean) invokeL.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -109,138 +32,74 @@ public class nj2 extends DataInputStream {
                 return;
             }
         }
-        a = new a();
+        a = jh1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nj2(InputStream inputStream) throws IOException {
-        super(inputStream);
+    public static void a(ix1.g gVar) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((InputStream) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(65537, null, gVar) == null) {
+            b = gVar;
         }
     }
 
-    public Map<String, Boolean> a() throws IOException {
-        InterceptResult invokeV;
+    public static void b(EditText editText, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f(new b(this)) : (Map) invokeV.objValue;
-    }
-
-    public byte[] c() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int readInt = readInt();
-            if (readInt >= 0) {
-                byte[] bArr = new byte[readInt];
-                if (readInt == read(bArr)) {
-                    return bArr;
-                }
-                return null;
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeLI(65538, null, editText, i) == null) {
+            e(editText, ConstPath.KEY_BLUR, i);
         }
-        return (byte[]) invokeV.objValue;
     }
 
-    public <T> T d(@NonNull mj2<T, byte[]> mj2Var) {
-        InterceptResult invokeL;
+    public static void c(jx1 jx1Var, EditText editText, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mj2Var)) == null) {
-            try {
-                return mj2Var.call(c());
-            } catch (Exception e) {
+        if (!(interceptable == null || interceptable.invokeLLI(65539, null, jx1Var, editText, i) == null) || editText == null || b == null) {
+            return;
+        }
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("value", editText.getText());
+            jSONObject.put("eventName", "change");
+            jSONObject.put("cursorOffset", editText.getSelectionStart());
+            jSONObject.put("keyCode", i);
+        } catch (JSONException e) {
+            if (a) {
                 e.printStackTrace();
-                return null;
             }
         }
-        return (T) invokeL.objValue;
+        jx1Var.j(editText.getText().toString());
+        jx1Var.l(editText.getSelectionStart(), editText.getSelectionEnd());
+        b.a(String.valueOf(editText.getTag()), jSONObject);
     }
 
-    public <T> List<T> e(mj2<T, byte[]> mj2Var) throws IOException {
-        InterceptResult invokeL;
+    public static void d(EditText editText, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, mj2Var)) == null) {
-            int readInt = readInt();
-            if (readInt < 0) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList(readInt);
-            for (int i = 0; i < readInt; i++) {
-                try {
-                    arrayList.add(mj2Var.call(c()));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            return arrayList;
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, editText, i) == null) {
+            e(editText, "confirm", i);
         }
-        return (List) invokeL.objValue;
     }
 
-    public <T> Map<String, T> f(mj2<T, byte[]> mj2Var) throws IOException {
-        InterceptResult invokeL;
-        List<String> j;
-        List<T> e;
+    public static void e(EditText editText, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, mj2Var)) == null) {
-            if (readInt() >= 0 && (j = j()) != null && (e = e(mj2Var)) != null && j.size() == e.size()) {
-                HashMap hashMap = new HashMap();
-                for (int i = 0; i < j.size(); i++) {
-                    hashMap.put(j.get(i), e.get(i));
-                }
-                return hashMap;
-            }
-            return null;
+        if (!(interceptable == null || interceptable.invokeLLI(65541, null, editText, str, i) == null) || editText == null || b == null) {
+            return;
         }
-        return (Map) invokeL.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            try {
-                return a.call(c());
-            } catch (Exception e) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("value", editText.getText());
+            jSONObject.put("eventName", str);
+            jSONObject.put("cursorOffset", editText.getText().length());
+            jSONObject.put("keyboardHeight", "" + qe3.O(i));
+        } catch (JSONException e) {
+            if (a) {
                 e.printStackTrace();
-                return null;
             }
         }
-        return (String) invokeV.objValue;
+        b.a(String.valueOf(editText.getTag()), jSONObject);
     }
 
-    public List<String> j() throws IOException {
-        InterceptResult invokeV;
+    public static void f(EditText editText, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? e(a) : (List) invokeV.objValue;
-    }
-
-    public List<String> k(List<String> list) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, list)) == null) {
-            List<String> j = j();
-            return j == null ? list : j;
+        if (interceptable == null || interceptable.invokeLI(65542, null, editText, i) == null) {
+            e(editText, AddFriendActivityConfig.TYPE_FOCUS, i);
         }
-        return (List) invokeL.objValue;
-    }
-
-    public Map<String, String> l() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? f(a) : (Map) invokeV.objValue;
     }
 }

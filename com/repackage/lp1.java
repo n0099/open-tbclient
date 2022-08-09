@@ -1,39 +1,37 @@
 package com.repackage;
 
-import android.graphics.Rect;
-import android.view.View;
-import android.view.ViewTreeObserver;
+import android.text.TextUtils;
+import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.favordata.SwanFavorDataManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class lp1 extends lo1 {
+public class lp1 extends cp1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View f;
-    public int g;
-    public ViewTreeObserver.OnGlobalLayoutListener h;
 
     /* loaded from: classes6.dex */
-    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lp1 a;
+        public final /* synthetic */ z03 a;
+        public final /* synthetic */ JSONObject b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ lp1 d;
 
-        public a(lp1 lp1Var) {
+        public a(lp1 lp1Var, z03 z03Var, JSONObject jSONObject, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lp1Var};
+                Object[] objArr = {lp1Var, z03Var, jSONObject, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,62 +41,39 @@ public class lp1 extends lo1 {
                     return;
                 }
             }
-            this.a = lp1Var;
+            this.d = lp1Var;
+            this.a = z03Var;
+            this.b = jSONObject;
+            this.c = str;
         }
 
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Rect rect = new Rect();
-                this.a.f.getWindowVisibleDisplayFrame(rect);
-                int height = rect.height();
-                if (this.a.g == height) {
-                    return;
-                }
-                if (this.a.g - height <= 180) {
-                    if (height - this.a.g > 180) {
-                        HashMap hashMap = new HashMap();
-                        JSONObject jSONObject = new JSONObject();
-                        try {
-                            jSONObject.put("height", 0);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        hashMap.put("data", jSONObject.toString());
-                        vl2.U().u(new ja2("keyboardHeightChange", hashMap));
-                        this.a.g = height;
-                        return;
-                    }
-                    return;
-                }
-                HashMap hashMap2 = new HashMap();
-                JSONObject jSONObject2 = new JSONObject();
                 try {
-                    jSONObject2.put("height", zd3.O(this.a.g - height));
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                    this.b.put("isFavor", x72.n(this.a.O()) ? "1" : "0");
+                } catch (JSONException unused) {
+                    zx1.c("FollowStatusApi", "json put data fail");
                 }
-                hashMap2.put("data", jSONObject2.toString());
-                vl2.U().u(new ja2("keyboardHeightChange", hashMap2));
-                this.a.g = height;
+                this.d.d(this.c, new zs1(0, this.b));
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lp1(@NonNull jo1 jo1Var) {
-        super(jo1Var);
+    public lp1(@NonNull ap1 ap1Var) {
+        super(ap1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jo1Var};
+            Object[] objArr = {ap1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((jo1) newInitContext.callArgs[0]);
+                super((ap1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -106,75 +81,50 @@ public class lp1 extends lo1 {
         }
     }
 
-    public final void A() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SwanAppActivity activity = vl2.U().getActivity();
-            if (activity == null) {
-                ix1.c("SoftKeyboardApi", "activity is null");
-                return;
-            }
-            this.f = activity.getWindow().getDecorView();
-            Rect rect = new Rect();
-            this.f.getWindowVisibleDisplayFrame(rect);
-            this.g = rect.height();
-            if (this.h == null) {
-                this.h = new a(this);
-                this.f.getViewTreeObserver().addOnGlobalLayoutListener(this.h);
-            }
-        }
-    }
-
-    public void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.h != null) {
-                this.f.getViewTreeObserver().removeOnGlobalLayoutListener(this.h);
-            }
-            this.h = null;
-            this.g = 0;
-        }
-    }
-
-    public is1 C() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            q("#startKeyboardHeightChange", false);
-            if (i03.b0() == null) {
-                return new is1(1001, "swan app is null");
-            }
-            A();
-            return is1.f();
-        }
-        return (is1) invokeV.objValue;
-    }
-
-    public is1 D() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            q("#stopKeyboardHeightChange", false);
-            if (i03.b0() == null) {
-                return new is1(1001, "swan app is null");
-            }
-            B();
-            return is1.f();
-        }
-        return (is1) invokeV.objValue;
-    }
-
-    @Override // com.repackage.lo1
+    @Override // com.repackage.cp1
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "Keyboard" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Favorite" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.lo1
+    @Override // com.repackage.cp1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "SoftKeyboardApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "FollowStatusApi" : (String) invokeV.objValue;
+    }
+
+    public zs1 x(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            z03 b0 = z03.b0();
+            if (b0 == null) {
+                zx1.c("FollowStatusApi", "swan app is null");
+                return new zs1(1001, "swan app is null");
+            } else if (b0.w() == null) {
+                zx1.c("FollowStatusApi", "swan activity is null");
+                return new zs1(1001, "swan activity is null");
+            } else {
+                Pair<zs1, JSONObject> s = s(str);
+                zs1 zs1Var = (zs1) s.first;
+                if (!zs1Var.isSuccess()) {
+                    zx1.c("FollowStatusApi", "json str parse fail");
+                    return zs1Var;
+                }
+                String optString = ((JSONObject) s.second).optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    zx1.c("FollowStatusApi", "cb is empty");
+                    return new zs1(202, "cb is empty");
+                }
+                if (b0.N().e(gk2.c())) {
+                    SwanFavorDataManager.h().d();
+                }
+                td3.k(new a(this, b0, new JSONObject(), optString), "getFavorStatus");
+                return new zs1(0);
+            }
+        }
+        return (zs1) invokeL.objValue;
     }
 }

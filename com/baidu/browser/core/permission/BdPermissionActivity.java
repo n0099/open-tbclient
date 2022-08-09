@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bw;
 import com.repackage.cw;
+import com.repackage.dw;
 /* loaded from: classes.dex */
 public class BdPermissionActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
@@ -45,7 +45,7 @@ public class BdPermissionActivity extends Activity {
         }
         if (z) {
             ActivityCompat.requestPermissions(this, this.b, this.a);
-        } else if (cw.c(this, this.a)) {
+        } else if (dw.c(this, this.a)) {
             ActivityCompat.requestPermissions(this, this.b, this.a);
         } else {
             onRequestPermissionsResult(this.a, this.b, new int[0]);
@@ -75,7 +75,7 @@ public class BdPermissionActivity extends Activity {
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, strArr, iArr) == null) {
-            ActivityCompat.OnRequestPermissionsResultCallback c = bw.b().c(this.a);
+            ActivityCompat.OnRequestPermissionsResultCallback c = cw.b().c(this.a);
             if (c != null) {
                 c.onRequestPermissionsResult(i, strArr, iArr);
             }

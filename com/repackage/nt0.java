@@ -1,27 +1,51 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class nt0 {
+public class nt0 implements bl0 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile mt0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized mt0 a() {
-        InterceptResult invokeV;
-        mt0 mt0Var;
+    public nt0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (nt0.class) {
-                if (a == null) {
-                    a = new mt0();
-                }
-                mt0Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return mt0Var;
         }
-        return (mt0) invokeV.objValue;
+    }
+
+    @Override // com.repackage.bl0
+    public float getLaunchSpeedScore() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return -1.0f;
+        }
+        return invokeV.floatValue;
+    }
+
+    @Override // com.repackage.bl0
+    public float getStaticDeviceScore() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return -1.0f;
+        }
+        return invokeV.floatValue;
     }
 }

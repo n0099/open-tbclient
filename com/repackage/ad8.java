@@ -1,72 +1,48 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
-import com.baidu.tieba.R;
-import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ad8 extends xc8 {
+public class ad8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public long d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ad8(Context context) {
-        super(context);
+    public ad8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.repackage.dd8
-    public void a(ShareEntity shareEntity, ed8 ed8Var) {
-        String str;
+    public static ad8 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, shareEntity, ed8Var) == null) {
-            if (shareEntity != null && !TextUtils.isEmpty(shareEntity.getContent())) {
-                if (TextUtils.isEmpty(shareEntity.getContent())) {
-                    str = shareEntity.getTitle() + shareEntity.getLinkUrl();
-                } else {
-                    str = shareEntity.getContent() + shareEntity.getLinkUrl();
-                }
-                Intent intent = new Intent();
-                intent.setAction("android.intent.action.SEND");
-                intent.putExtra("android.intent.extra.TEXT", str);
-                intent.setType("text/plain");
-                Context context = this.b;
-                if (fd8.startActivity(context, Intent.createChooser(intent, context.getString(R.string.obfuscated_res_0x7f0f1123)))) {
-                    if (ed8Var != null) {
-                        ed8Var.e1(0, 1);
-                        return;
-                    }
-                    return;
-                } else if (ed8Var != null) {
-                    ed8Var.e1(0, 2);
-                    return;
-                } else {
-                    return;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            pi.N(d(), R.string.obfuscated_res_0x7f0f10f6);
-            if (ed8Var != null) {
-                ed8Var.e1(0, 2);
-            }
+            ad8 ad8Var = new ad8();
+            ad8Var.a = jSONObject.optInt("agree_num", -1);
+            ad8Var.b = jSONObject.optInt("share_num", -1);
+            ad8Var.c = jSONObject.optInt("reply_num", -1);
+            ad8Var.d = jSONObject.optLong("time", System.currentTimeMillis());
+            return ad8Var;
         }
+        return (ad8) invokeL.objValue;
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vr4;
+import com.repackage.ms4;
 /* loaded from: classes3.dex */
 public class PbLoadMoreItemVideoViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -37,17 +37,17 @@ public class PbLoadMoreItemVideoViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = view2;
-        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0916e3);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916e2);
+        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0917ad);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917ac);
         this.c = textView;
-        vr4 d = vr4.d(textView);
+        ms4 d = ms4.d(textView);
         d.z(R.dimen.T_X12);
         d.A(R.string.F_X01);
         d.v(R.color.CAM_X0107);
         this.b.setVisibility(0);
     }
 
-    public void b(View.OnClickListener onClickListener) {
+    public void a(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
             this.a.setOnClickListener(onClickListener);

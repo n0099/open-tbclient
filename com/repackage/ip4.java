@@ -1,17 +1,20 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
-import tbclient.LotteryRegular;
+import tbclient.FrsPage.ForumHeadlineImgInfo;
 /* loaded from: classes6.dex */
 public class ip4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Integer> a;
+    public String a;
+    public String b;
+    public ep4 c;
 
     public ip4() {
         Interceptable interceptable = $ic;
@@ -23,19 +26,41 @@ public class ip4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = "";
+        this.b = "";
     }
 
-    public void a(LotteryRegular lotteryRegular) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, lotteryRegular) == null) {
-            String str = lotteryRegular.regular;
-            this.a = new ArrayList();
-            int size = lotteryRegular.chance.size();
-            for (int i = 0; i < size; i++) {
-                this.a.add(lotteryRegular.chance.get(i));
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public void b(ForumHeadlineImgInfo forumHeadlineImgInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumHeadlineImgInfo) == null) || forumHeadlineImgInfo == null) {
+            return;
         }
+        forumHeadlineImgInfo.thread_id.longValue();
+        forumHeadlineImgInfo.thread_user_id.longValue();
+        String str = forumHeadlineImgInfo.thread_user_name;
+        forumHeadlineImgInfo.img_user_id.longValue();
+        String str2 = forumHeadlineImgInfo.img_user_name;
+        this.a = forumHeadlineImgInfo.img_url;
+        this.b = forumHeadlineImgInfo.headline_url;
+        this.c = new ep4();
+        ArrayList<hp4> arrayList = new ArrayList<>();
+        String str3 = this.a;
+        if (str3 == null) {
+            str3 = "";
+        }
+        String str4 = this.b;
+        hp4 hp4Var = new hp4(str3, str4 != null ? str4 : "", null);
+        hp4Var.t(true);
+        arrayList.add(hp4Var);
+        this.c.g(arrayList);
     }
 }

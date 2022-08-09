@@ -1,23 +1,122 @@
 package com.repackage;
 
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.Interpolator;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class u80 {
+public abstract class u80 {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, m80> a;
-    public static List<String> b;
+    public static final u80 a;
+    public static final u80 b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public static class a extends u80 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.u80
+        public float a(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) ? f : invokeF.floatValue;
+        }
+
+        @Override // com.repackage.u80
+        public float b(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) ? f : invokeF.floatValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b extends u80 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Interpolator c;
+        public final Interpolator d;
+
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        public b() {
+            this(0.8f);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    this(((Float) newInitContext.callArgs[0]).floatValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.repackage.u80
+        public float a(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) ? this.c.getInterpolation(f) : invokeF.floatValue;
+        }
+
+        @Override // com.repackage.u80
+        public float b(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) ? this.d.getInterpolation(f) : invokeF.floatValue;
+        }
+
+        @Override // com.repackage.u80
+        public float c(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f)) == null) ? 1.0f / ((1.0f - a(f)) + b(f)) : invokeF.floatValue;
+        }
+
+        public b(float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Float.valueOf(f)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.c = new AccelerateInterpolator(f);
+            this.d = new DecelerateInterpolator(f);
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -32,68 +131,49 @@ public class u80 {
                 return;
             }
         }
-        a = new HashMap();
-        b = new ArrayList();
+        a = new b();
+        b = new a();
     }
 
-    public static void a(List<String> list) {
+    public u80() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, list) == null) || a.isEmpty() || na0.c(list)) {
-            return;
-        }
-        Iterator<Map.Entry<String, m80>> it = a.entrySet().iterator();
-        while (it.hasNext()) {
-            Map.Entry<String, m80> next = it.next();
-            if (next != null && list.contains(next.getKey())) {
-                it.remove();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static String b() {
-        InterceptResult invokeV;
-        JSONObject a2;
+    public static u80 d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a.isEmpty()) {
-                return "";
-            }
-            JSONArray jSONArray = new JSONArray();
-            for (Map.Entry<String, m80> entry : a.entrySet()) {
-                if (entry != null) {
-                    String key = entry.getKey();
-                    m80 value = entry.getValue();
-                    if (value != null && (a2 = value.a()) != null) {
-                        jSONArray.put(a2);
-                        b.add(key);
-                    }
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    return a;
                 }
+                return b;
             }
-            return jSONArray.toString();
+            return a;
         }
-        return (String) invokeV.objValue;
+        return (u80) invokeI.objValue;
     }
 
-    public static void c(String str, boolean z, boolean z2) {
-        m80 m80Var;
+    public abstract float a(float f);
+
+    public abstract float b(float f);
+
+    public float c(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || ta0.a(str)) {
-            return;
+        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f)) == null) {
+            return 1.0f;
         }
-        if (a.containsKey(str)) {
-            m80Var = a.get(str);
-        } else {
-            m80Var = new m80();
-            a.put(str, m80Var);
-        }
-        m80Var.a = str;
-        if (z2) {
-            m80Var.c = 1;
-            m80Var.e = System.currentTimeMillis() / 1000;
-        }
-        if (z) {
-            m80Var.b = 1;
-            m80Var.d = System.currentTimeMillis() / 1000;
-        }
+        return invokeF.floatValue;
     }
 }

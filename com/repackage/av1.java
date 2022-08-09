@@ -1,8 +1,6 @@
 package com.repackage;
 
 import android.graphics.Canvas;
-import android.graphics.Path;
-import android.graphics.RectF;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,10 +8,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class av1 extends ot1 {
+public class av1 extends fu1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Path a;
 
     public av1() {
         Interceptable interceptable = $ic;
@@ -29,37 +26,25 @@ public class av1 extends ot1 {
         }
     }
 
-    @Override // com.repackage.ot1
-    public void a(pt1 pt1Var, Canvas canvas) {
+    @Override // com.repackage.fu1
+    public void a(gu1 gu1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, pt1Var, canvas) == null) || this.a == null) {
-            return;
-        }
-        int alpha = pt1Var.c.getAlpha();
-        pt1Var.c(pt1Var.c);
-        canvas.drawPath(this.a, pt1Var.c);
-        pt1Var.c.setAlpha(alpha);
-    }
-
-    @Override // com.repackage.ot1
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, gu1Var, canvas) == null) {
             try {
-                if (jSONArray.length() == 4) {
-                    int g = zd3.g((float) jSONArray.optDouble(0));
-                    int g2 = zd3.g((float) jSONArray.optDouble(1));
-                    int g3 = zd3.g((float) jSONArray.optDouble(2));
-                    int g4 = zd3.g((float) jSONArray.optDouble(3));
-                    Path path = new Path();
-                    this.a = path;
-                    path.addRect(new RectF(g, g2, g + g3, g2 + g4), Path.Direction.CW);
-                }
-            } catch (Exception e) {
-                if (sg1.a) {
+                gu1Var.f();
+                canvas.save();
+            } catch (CloneNotSupportedException e) {
+                if (jh1.a) {
                     e.printStackTrace();
                 }
             }
+        }
+    }
+
+    @Override // com.repackage.fu1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
         }
     }
 }

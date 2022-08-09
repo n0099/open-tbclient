@@ -22,7 +22,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zc5;
+import com.repackage.eu4;
+import com.repackage.fu4;
+import com.repackage.xd5;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
@@ -72,6 +74,8 @@ public class ImageViewerConfig extends IntentConfig {
     public static final String NEED_REQUEST_AD = "need_request_ad";
     public static final String PARAM_IS_CDN = "isCdn";
     public static final String PV_TYPE = "pv_type";
+    public static final String REMIND_LIVE_DATA = "remind_live_data";
+    public static final String REMIND_LIVE_FREQUENCY = "remind_live_frequency";
     public static final String REVERSE_MODE = "reverse_mode";
     public static final String SEE_HOST = "see_host";
     public static final String SKIN_TYPE = "skin_type";
@@ -456,6 +460,12 @@ public class ImageViewerConfig extends IntentConfig {
         intent.putExtra("from_forum_id", builder.n);
         intent.putExtra("skin_type", TbadkCoreApplication.getInst().getSkinType());
         intent.putExtra(IS_YOUNGSTER_MODE, false);
-        intent.putExtra(TiebaStatic.Params.WISE_SAMPLE_ID, zc5.c());
+        intent.putExtra(TiebaStatic.Params.WISE_SAMPLE_ID, xd5.c());
+        if (eu4.a() != null && eu4.a().a != null) {
+            intent.putExtra(REMIND_LIVE_DATA, eu4.a().a);
+        }
+        if (fu4.b() != null) {
+            intent.putExtra(REMIND_LIVE_FREQUENCY, fu4.b().a());
+        }
     }
 }

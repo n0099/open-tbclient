@@ -4,19 +4,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetForumSquare.DataRes;
+import tbclient.Page;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes7.dex */
 public class y66 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public eq4 a;
-    public ArrayList<nn> b;
-    public boolean c;
-    public boolean d;
-    public int e;
-    public int f;
-    public z66 g;
-    public boolean h;
+    public List<RecommendForumInfo> a;
+    public List<String> b;
+    public Page c;
+    public String d;
 
     public y66() {
         Interceptable interceptable = $ic;
@@ -28,15 +27,18 @@ public class y66 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = true;
-        this.d = true;
-        this.e = 0;
-        this.f = 0;
-        this.h = true;
-        this.b = new ArrayList<>();
-        this.a = new eq4();
+    }
+
+    public void a(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) || dataRes == null) {
+            return;
+        }
+        this.d = dataRes.class_name;
+        this.c = dataRes.page;
+        this.b = dataRes.page_structure;
+        this.a = dataRes.forum_info;
     }
 }

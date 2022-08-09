@@ -1,312 +1,52 @@
 package com.repackage;
 
-import android.graphics.drawable.Drawable;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tbadk.data.UserVipInfoData;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.personCenter.view.PersonHeadPendantView;
-import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
+import java.util.List;
+import tbclient.Anti;
+import tbclient.DynamicInfo;
+import tbclient.ForumDynamic;
+import tbclient.HotUserRankEntry;
+import tbclient.PostInfoList;
+import tbclient.Profile.NicknameInfo;
+import tbclient.Profile.TAInfo;
+import tbclient.Profile.UserAgreeInfo;
+import tbclient.Profile.UserGodInfo;
+import tbclient.TbBookrack;
+import tbclient.ThreadInfo;
+import tbclient.User;
 /* loaded from: classes6.dex */
-public class h28 extends jx5<s18> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int i;
-    public TextView j;
-    public TextView k;
-    public TextView l;
-    public TextView m;
-    public RelativeLayout n;
-    public PersonHeadPendantView o;
-    public RelativeLayout p;
-    public TbImageView q;
-    public TextView r;
-    public TextView s;
-    public ImageView t;
-    public UserData u;
-    public int v;
-    public int w;
+public interface h28 {
+    Anti GetAntiStat();
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h28 a;
+    List<PostInfoList> GetPostList();
 
-        public a(h28 h28Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h28Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = h28Var;
-        }
+    User GetUser();
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.u.getNewGodData() != null && this.a.u.getNewGodData().hasNewGodInvited()) {
-                TiebaStatic.log(new StatisticItem("c13690").param("uid", this.a.u.getUserId()).param("obj_locate", "1"));
-                HashMap hashMap = new HashMap();
-                hashMap.put("from", "6");
-                hashMap.put("field_id", this.a.u.getNewGodData().getFieldId());
-                hashMap.put("animated", Boolean.FALSE);
-                hashMap.put("transparent", Boolean.TRUE);
-                hashMap.put("swipeback", Boolean.FALSE);
-                hashMap.put("present", Boolean.TRUE);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a.b.getPageActivity(), "GodInvitePage", hashMap)));
-            }
-        }
-    }
+    TbBookrack getBookrackData();
 
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h28 a;
+    List<ForumDynamic> getConcernedForumList();
 
-        public b(h28 h28Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h28Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = h28Var;
-        }
+    List<DynamicInfo> getDynamicInfoList();
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.r.getWidth() <= 0) {
-                return;
-            }
-            int x = (((((int) this.a.r.getX()) + this.a.r.getWidth()) + (this.a.u.isNickNameInVerifying ? this.a.v + this.a.s.getWidth() : 0)) + this.a.w) - this.a.p.getWidth();
-            if (x > 0) {
-                int width = this.a.r.getWidth() - x;
-                ViewGroup.LayoutParams layoutParams = this.a.r.getLayoutParams();
-                layoutParams.width = width;
-                this.a.r.setLayoutParams(layoutParams);
-            }
-        }
-    }
+    int getErrorCode();
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h28(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.i = 3;
-        View h = h();
-        PersonHeadPendantView personHeadPendantView = (PersonHeadPendantView) h.findViewById(R.id.obfuscated_res_0x7f091837);
-        this.o = personHeadPendantView;
-        personHeadPendantView.setHasPendantStyle();
-        this.o.getHeadView().setIsRound(true);
-        this.o.getHeadView().setGodIconWidth(R.dimen.tbds40);
-        this.o.getHeadView().setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.o.getHeadView().setPlaceHolder(2);
-        this.n = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f091840);
-        this.p = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f091880);
-        this.q = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f09141f);
-        this.r = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091874);
-        this.s = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0915c8);
-        this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09094c);
-        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09094f);
-        this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090681);
-        this.m = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090682);
-        this.t = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f0902a4);
-        h.setOnClickListener(this);
-        this.q.setOnClickListener(this);
-        this.v = pi.f(getContext(), R.dimen.M_W_X002);
-        this.w = pi.f(getContext(), R.dimen.tbds62);
-    }
+    wt6 getGoodsWindowInfo();
 
-    public final void A() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            UserData userData = this.u;
-            this.r.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.getInstance().getMaskDrawable((userData == null || userData.getSex() != 2) ? R.drawable.icon_mask_boy16_svg : R.drawable.icon_mask_girl16_svg, null), (Drawable) null);
-        }
-    }
+    HotUserRankEntry getHotRankEntry();
 
-    public final void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            UserData userData = this.u;
-            if (userData != null && (userData.getIsMem() > 0 || this.u.isBigV())) {
-                SkinManager.setViewTextColor(this.r, R.color.CAM_X0301, 1);
-            } else {
-                SkinManager.setViewTextColor(this.r, R.color.CAM_X0105, 1);
-            }
-            vr4 d = vr4.d(this.s);
-            d.v(R.color.CAM_X0108);
-            d.n(R.string.J_X04);
-            d.f(R.color.CAM_X0203);
-        }
-    }
+    AlaLiveInfoCoreData getLiveInfo();
 
-    public final void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            UserData userData = this.u;
-            if (userData == null) {
-                this.q.setImageDrawable(SkinManager.getDrawable(R.drawable.icon_crown_super_non));
-                return;
-            }
-            UserVipInfoData userVipInfo = userData.getUserVipInfo();
-            if (this.u.getIsMem() > 0 && userVipInfo != null && !TextUtils.isEmpty(userVipInfo.getVipIconUrl())) {
-                this.q.J(userVipInfo.getVipIconUrl(), 10, false);
-            } else {
-                this.q.setImageDrawable(SkinManager.getDrawable(R.drawable.icon_crown_super_non));
-            }
-        }
-    }
+    List<AlaLiveInfoCoreData> getLiveReplayInfo();
 
-    @Override // com.repackage.jx5
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d06bb : invokeV.intValue;
-    }
+    int getMaskType();
 
-    @Override // com.repackage.jx5
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i) == null) || this.i == i) {
-            return;
-        }
-        SkinManager.setBackgroundColor(h(), R.color.CAM_X0204);
-        SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0109);
-        SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0109);
-        SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0109);
-        SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0109);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.t, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-        x();
-        this.i = i;
-    }
+    List<ThreadInfo> getNewestThreadList();
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, view2) == null) || view2 == null) {
-            return;
-        }
-        if (view2 == this.q) {
-            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 2));
-            if (ViewHelper.checkUpIsLogin(this.b.getPageActivity())) {
-                UrlManager.getInstance().dealOneLink(this.b, new String[]{TbConfig.URL_MEMBER_BUY});
-                return;
-            }
-            return;
-        }
-        TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 1));
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.b.getPageActivity()).createNormalConfig(ng.g(TbadkCoreApplication.getCurrentAccount(), 0L), true, TbadkCoreApplication.getCurrentAccountInfo() == null ? false : TbadkCoreApplication.getCurrentAccountInfo().isBigV())));
-    }
+    NicknameInfo getNicknameInfo();
 
-    public final void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            C();
-            B();
-            A();
-        }
-    }
+    TAInfo getTaInfo();
 
-    public View y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.t : (View) invokeV.objValue;
-    }
+    UserAgreeInfo getUserAgreeInfo();
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.jx5
-    /* renamed from: z */
-    public void i(s18 s18Var) {
-        UserData userData;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, s18Var) == null) || s18Var == null || (userData = s18Var.a) == null) {
-            return;
-        }
-        this.u = userData;
-        this.j.setText(Integer.toString(userData.getFansNum()));
-        this.l.setText(Integer.toString(s18Var.a.getConcernNum()));
-        this.o.n(this.u);
-        this.o.j(this.u, 3);
-        if (this.u.getNewGodData() != null && this.u.getNewGodData().hasNewGodInvited()) {
-            TiebaStatic.log(new StatisticItem("c13690").param("uid", this.u.getUserId()).param("obj_locate", "0"));
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.o.getBigVIconView(), R.drawable.icon_mask_shen_hui20_svg, SvgManager.SvgResourceStateType.NORMAL);
-            this.o.setBigVDimenSize(R.dimen.tbds57);
-            this.o.h(true);
-        } else if (this.u.getNewGodData() != null && this.u.getNewGodData().isNewGod()) {
-            this.o.setBigVDimenSize(R.dimen.tbds57);
-        }
-        this.o.getBigVIconView().setOnClickListener(new a(this));
-        UserData userData2 = this.u;
-        if (userData2.isNickNameInVerifying) {
-            this.r.setText(userData2.nickNameInVerifying);
-            this.s.setVisibility(0);
-        } else {
-            this.r.setText(userData2.getName_show());
-            this.s.setVisibility(4);
-        }
-        this.r.post(new b(this));
-        x();
-        j(this.b, TbadkCoreApplication.getInst().getSkinType());
-    }
+    UserGodInfo getUserGodInfo();
 }

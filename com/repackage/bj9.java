@@ -1,197 +1,147 @@
 package com.repackage;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.LinkedList;
-import java.util.List;
+import com.fun.ad.sdk.ChannelNativeAds;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunNativeView;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.qq.e.ads.nativ.NativeADEventListener;
+import com.qq.e.ads.nativ.NativeUnifiedADData;
+import com.qq.e.ads.nativ.widget.NativeAdContainer;
+import com.repackage.zi9;
+import java.lang.ref.WeakReference;
+import java.util.Iterator;
 /* loaded from: classes5.dex */
-public class bj9 implements dj9 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static Context sApplicationContext = null;
-    public static int sBlockThreshold = 2000;
-    public static bj9 sInstance;
+public class bj9 extends FunNativeAd2Bridger<NativeUnifiedADData, com.fun.module.gdt.u> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final zi9.c b;
+    public final /* synthetic */ ij9 c;
+    public final /* synthetic */ zi9 d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755824928, "Lcom/repackage/bj9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755824928, "Lcom/repackage/bj9;");
-        }
-    }
-
-    public bj9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bj9(zi9 zi9Var, ReporterPidLoader reporterPidLoader, NativeUnifiedADData nativeUnifiedADData, String str, ij9 ij9Var) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {zi9Var, reporterPidLoader, nativeUnifiedADData, str, ij9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = zi9Var;
+        this.c = ij9Var;
+        this.b = new zi9.c(zi9Var, nativeUnifiedADData, str);
     }
 
-    public static bj9 get() {
-        InterceptResult invokeV;
+    public static void b(com.fun.module.gdt.u uVar, NativeUnifiedADData nativeUnifiedADData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            bj9 bj9Var = sInstance;
-            if (bj9Var != null) {
-                return bj9Var;
+        if (interceptable == null || interceptable.invokeLL(65537, null, uVar, nativeUnifiedADData) == null) {
+            uVar.b(nativeUnifiedADData);
+        }
+    }
+
+    /* JADX DEBUG: Incorrect args count in method signature: (Landroid/app/Activity;Lcom/fun/ad/sdk/ExpressInflater;Ljava/lang/String;Lcom/qq/e/ads/nativ/NativeUnifiedADData;Lcom/fun/ad/sdk/internal/api/BaseNativeAd2<Lcom/qq/e/ads/nativ/NativeUnifiedADData;Lcom/fun/module/gdt/u;>;Lcom/fun/ad/sdk/FunAdInteractionListener;)V */
+    public void a(ExpressInflater expressInflater, String str, final NativeUnifiedADData nativeUnifiedADData, FunAdInteractionListener funAdInteractionListener) {
+        Ssp.Pid pid;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, expressInflater, str, nativeUnifiedADData, funAdInteractionListener) == null) {
+            final com.fun.module.gdt.u uVar = (com.fun.module.gdt.u) expressInflater.getExpressView();
+            zi9 zi9Var = this.d;
+            FunNativeAdListenerHelper<NativeUnifiedADData, NativeADEventListener> funNativeAdListenerHelper = zi9Var.e;
+            pid = zi9Var.mPid;
+            funNativeAdListenerHelper.startShow(nativeUnifiedADData, str, pid, this.b, funAdInteractionListener);
+            this.b.d = new zi9.e() { // from class: com.repackage.ji9
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.repackage.zi9.e
+                public final void onADStatusChanged() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        bj9.b(com.fun.module.gdt.u.this, nativeUnifiedADData);
+                    }
+                }
+            };
+            this.d.m(uVar, nativeUnifiedADData, this.b);
+            expressInflater.inflate();
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
+    /* JADX WARN: Type inference failed for: r1v1, types: [com.fun.module.gdt.u, android.view.View] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public com.fun.module.gdt.u createExpressView(NativeUnifiedADData nativeUnifiedADData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nativeUnifiedADData)) == null) ? this.d.f(FunAdSdk.getAppContext(), nativeUnifiedADData) : (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, NativeUnifiedADData nativeUnifiedADData, BaseNativeAd2<NativeUnifiedADData, com.fun.module.gdt.u> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        NativeAdContainer nativeAdContainer;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, customInflater, str, nativeUnifiedADData, baseNativeAd2, funAdInteractionListener}) == null) {
+            NativeUnifiedADData nativeUnifiedADData2 = nativeUnifiedADData;
+            ChannelNativeAds.GdtADStatusChangeListener gdtADStatusChangeListener = this.c.c.getGdtADStatusChangeListener();
+            if (gdtADStatusChangeListener != null) {
+                this.b.d = new aj9(this, gdtADStatusChangeListener);
+            } else {
+                this.b.d = null;
             }
-            throw new RuntimeException("BlockCanaryContext null");
-        }
-        return (bj9) invokeV.objValue;
-    }
-
-    public static void init(Context context, bj9 bj9Var, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65539, null, context, bj9Var, i) == null) {
-            sApplicationContext = context;
-            sInstance = bj9Var;
-            sBlockThreshold = i;
-        }
-    }
-
-    public List<String> concernPackages() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public boolean deleteFilesInWhiteList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public abstract boolean displayNotification();
-
-    public boolean filterNonConcernStack() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.dj9
-    public void onBlock(Context context, jj9 jj9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, context, jj9Var) == null) {
+            ViewGroup inflate = customInflater.inflate();
+            if (inflate instanceof FunNativeView) {
+                FunNativeView funNativeView = (FunNativeView) inflate;
+                Iterator<WeakReference<NativeAdContainer>> it = ni9.b.a.iterator();
+                while (it.hasNext()) {
+                    NativeAdContainer nativeAdContainer2 = it.next().get();
+                    if (nativeAdContainer2 == null) {
+                        it.remove();
+                    } else if (nativeAdContainer2 == funNativeView.getRoot()) {
+                        it.remove();
+                        nativeAdContainer = nativeAdContainer2;
+                        break;
+                    }
+                }
+                nativeAdContainer = null;
+            } else {
+                if (inflate instanceof NativeAdContainer) {
+                    nativeAdContainer = (NativeAdContainer) inflate;
+                }
+                nativeAdContainer = null;
+            }
+            this.d.p(nativeUnifiedADData2, str, nativeAdContainer, this.c.d, customInflater.getClickViews(), this.b, funAdInteractionListener);
         }
     }
 
-    public int provideBlockThreshold() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? sBlockThreshold : invokeV.intValue;
-    }
-
-    public Context provideContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? sApplicationContext : (Context) invokeV.objValue;
-    }
-
-    public int provideDumpInterval() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? provideBlockThreshold() : invokeV.intValue;
-    }
-
-    public int provideMonitorDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    public String provideNetworkType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "unknown" : (String) invokeV.objValue;
-    }
-
-    public String providePath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? "/blockcanary/" : (String) invokeV.objValue;
-    }
-
-    public String provideQualifier() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? "unknown" : (String) invokeV.objValue;
-    }
-
-    public String provideUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? "uid" : (String) invokeV.objValue;
-    }
-
-    public List<String> provideWhiteList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            LinkedList linkedList = new LinkedList();
-            linkedList.add("org.chromium");
-            return linkedList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public boolean stopWhenDebugging() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void upload(File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, file) == null) {
-            throw new UnsupportedOperationException();
-        }
-    }
-
-    public boolean zip(File[] fileArr, File file) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, fileArr, file)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public /* bridge */ /* synthetic */ void showExpress(Activity activity, ExpressInflater expressInflater, String str, NativeUnifiedADData nativeUnifiedADData, BaseNativeAd2<NativeUnifiedADData, com.fun.module.gdt.u> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        a(expressInflater, str, nativeUnifiedADData, funAdInteractionListener);
     }
 }

@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -52,11 +53,11 @@ public class VideoRecordButton extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04b3, this);
-            this.a = findViewById(R.id.obfuscated_res_0x7f091a89);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091a8a);
-            this.c = findViewById(R.id.obfuscated_res_0x7f091a8b);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0922a1);
+            FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04bc, this);
+            this.a = findViewById(R.id.obfuscated_res_0x7f091b68);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091b69);
+            this.c = findViewById(R.id.obfuscated_res_0x7f091b6a);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b1);
             this.c.setScaleX(0.766f);
             this.c.setScaleY(0.766f);
         }
@@ -70,7 +71,7 @@ public class VideoRecordButton extends FrameLayout {
                 this.f.cancel();
             }
             if (this.e == null) {
-                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.c, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
+                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.c, PropertyValuesHolder.ofFloat(Key.SCALE_X, 0.766f, 1.0f), PropertyValuesHolder.ofFloat(Key.SCALE_Y, 0.766f, 1.0f));
                 this.e = ofPropertyValuesHolder;
                 ofPropertyValuesHolder.setRepeatCount(-1);
                 this.e.setRepeatMode(2);
@@ -80,7 +81,7 @@ public class VideoRecordButton extends FrameLayout {
             if (z) {
                 this.a.setVisibility(8);
             } else {
-                this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f53);
+                this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fb7);
             }
             this.d.setVisibility(8);
             this.e.start();
@@ -95,7 +96,7 @@ public class VideoRecordButton extends FrameLayout {
                 this.g.cancel();
             }
             if (this.g == null) {
-                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.b, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
+                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.b, PropertyValuesHolder.ofFloat(Key.SCALE_X, 1.0f, 0.9f), PropertyValuesHolder.ofFloat(Key.SCALE_Y, 1.0f, 0.9f));
                 this.g = ofPropertyValuesHolder;
                 ofPropertyValuesHolder.setDuration(200L);
             }
@@ -111,12 +112,12 @@ public class VideoRecordButton extends FrameLayout {
                 this.e.cancel();
             }
             if (this.f == null) {
-                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.c, PropertyValuesHolder.ofFloat("scaleX", this.c.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.c.getScaleY(), 0.766f));
+                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.c, PropertyValuesHolder.ofFloat(Key.SCALE_X, this.c.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat(Key.SCALE_Y, this.c.getScaleY(), 0.766f));
                 this.f = ofPropertyValuesHolder;
                 ofPropertyValuesHolder.setDuration((Math.abs(0.766f - this.c.getScaleX()) * 500.0f) / 0.3f);
             }
             this.a.setVisibility(0);
-            this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f52);
+            this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fb6);
             this.f.start();
         }
     }
@@ -132,7 +133,7 @@ public class VideoRecordButton extends FrameLayout {
                 return;
             }
             if (this.h == null) {
-                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.b, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
+                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.b, PropertyValuesHolder.ofFloat(Key.SCALE_X, 0.9f, 1.0f), PropertyValuesHolder.ofFloat(Key.SCALE_Y, 0.9f, 1.0f));
                 this.h = ofPropertyValuesHolder;
                 ofPropertyValuesHolder.setDuration(200L);
             }

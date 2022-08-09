@@ -1,96 +1,115 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.view.View;
-import android.view.ViewGroup;
+import android.content.Context;
+import android.widget.Button;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.CustomInflater;
-import com.fun.ad.sdk.ExpressInflater;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.FunNativeView;
-import com.fun.ad.sdk.channel.model.jy.JYNativeAdView;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
-import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.win.opensdk.PBMediaView;
-import com.win.opensdk.PBNative;
-import com.win.opensdk.PBNativeListener;
+import com.bytedance.sdk.openadsdk.TTAppDownloadListener;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes7.dex */
-public class yg9 extends FunNativeAd2Bridger<PBNative, JYNativeAdView> {
+public class yg9 implements TTAppDownloadListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ bh9 b;
-    public final /* synthetic */ xg9 c;
+    public Button a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yg9(xg9 xg9Var, ReporterPidLoader reporterPidLoader, bh9 bh9Var) {
-        super(reporterPidLoader);
+    public yg9(Button button) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xg9Var, reporterPidLoader, bh9Var};
+            Object[] objArr = {button};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = xg9Var;
-        this.b = bh9Var;
+        this.a = button;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
-    /* JADX WARN: Type inference failed for: r1v1, types: [com.fun.ad.sdk.channel.model.jy.JYNativeAdView, android.view.View] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public JYNativeAdView createExpressView(PBNative pBNative) {
-        InterceptResult invokeL;
+    public final String a(Context context, long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pBNative)) == null) ? this.c.e(pBNative) : (View) invokeL.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, Long.valueOf(j), Long.valueOf(j2)})) == null) ? j != 0 ? context.getString(R.string.obfuscated_res_0x7f0f0779, String.format("%s/100", Long.valueOf((j2 * 100) / j))) : context.getString(R.string.obfuscated_res_0x7f0f077a) : (String) invokeCommon.objValue;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showCustom(Activity activity, CustomInflater customInflater, String str, PBNative pBNative, BaseNativeAd2<PBNative, JYNativeAdView> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        Ssp.Pid pid;
+    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+    public void onDownloadActive(long j, long j2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, pBNative, baseNativeAd2, funAdInteractionListener}) == null) {
-            PBNative pBNative2 = pBNative;
-            xg9 xg9Var = this.c;
-            FunNativeAdListenerHelper<PBNative, PBNativeListener> funNativeAdListenerHelper = xg9Var.e;
-            pid = xg9Var.mPid;
-            funNativeAdListenerHelper.startShow(pBNative2, str, pid, null, funAdInteractionListener);
-            ViewGroup inflate = customInflater.inflate();
-            if (inflate instanceof FunNativeView) {
-                inflate = ((FunNativeView) inflate).getRoot();
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
+            LogPrinter.d("CSJAppDownloadListener 下载中，点击图片暂停", new Object[0]);
+            Button button = this.a;
+            if (button != null) {
+                button.setText(a(button.getContext(), j, j2));
             }
-            pBNative2.registerViewForInteraction(inflate, (PBMediaView) this.b.getVideoView(), customInflater.getClickViews());
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, PBNative pBNative, BaseNativeAd2<PBNative, JYNativeAdView> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        Ssp.Pid pid;
+    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+    public void onDownloadFailed(long j, long j2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, pBNative, baseNativeAd2, funAdInteractionListener}) == null) {
-            xg9 xg9Var = this.c;
-            FunNativeAdListenerHelper<PBNative, PBNativeListener> funNativeAdListenerHelper = xg9Var.e;
-            pid = xg9Var.mPid;
-            funNativeAdListenerHelper.startShow(pBNative, str, pid, null, funAdInteractionListener);
-            expressInflater.inflate();
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
+            LogPrinter.e("CSJAppDownloadListener 下载失败，点击图片重新下载", new Object[0]);
+            Button button = this.a;
+            if (button != null) {
+                button.setText(R.string.obfuscated_res_0x7f0f0778);
+            }
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+    public void onDownloadFinished(long j, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
+            LogPrinter.d("CSJAppDownloadListener 点击图片安装", new Object[0]);
+            Button button = this.a;
+            if (button != null) {
+                button.setText(R.string.obfuscated_res_0x7f0f077b);
+            }
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+    public void onDownloadPaused(long j, long j2, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
+            LogPrinter.d("CSJAppDownloadListener 下载暂停，点击图片继续", new Object[0]);
+            Button button = this.a;
+            if (button != null) {
+                button.setText(a(button.getContext(), j, j2));
+            }
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener, com.kwad.sdk.api.KsAppDownloadListener
+    public void onIdle() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            LogPrinter.e("CSJAppDownloadListener 点击图片开始下载", new Object[0]);
+            Button button = this.a;
+            if (button != null) {
+                button.setText(R.string.obfuscated_res_0x7f0f0778);
+            }
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+    public void onInstalled(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
+            LogPrinter.d("CSJAppDownloadListener 安装完成，点击图片打开", new Object[0]);
+            Button button = this.a;
+            if (button != null) {
+                button.setText(R.string.obfuscated_res_0x7f0f077c);
+            }
         }
     }
 }

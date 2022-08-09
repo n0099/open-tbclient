@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hg;
-import com.repackage.kg;
-import com.repackage.m45;
-import com.repackage.pi;
-import com.repackage.ym;
+import com.repackage.i55;
+import com.repackage.ig;
+import com.repackage.lg;
+import com.repackage.qi;
+import com.repackage.zm;
 /* loaded from: classes3.dex */
-public class LocalFileImageLoaderProc2 implements kg<ym> {
+public class LocalFileImageLoaderProc2 implements lg<zm> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int height;
@@ -44,23 +44,23 @@ public class LocalFileImageLoaderProc2 implements kg<ym> {
     private void initDefalutMaxSize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.width = pi.k(TbadkCoreApplication.getInst());
-            this.height = pi.i(TbadkCoreApplication.getInst());
+            this.width = qi.k(TbadkCoreApplication.getInst());
+            this.height = qi.i(TbadkCoreApplication.getInst());
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public ym m47decodeToResource(byte[] bArr, Object... objArr) {
+    public zm m47decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bArr, objArr)) == null) {
             return null;
         }
-        return (ym) invokeLL.objValue;
+        return (zm) invokeLL.objValue;
     }
 
-    @Override // com.repackage.kg
+    @Override // com.repackage.lg
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -70,7 +70,7 @@ public class LocalFileImageLoaderProc2 implements kg<ym> {
         return (BdAsyncTaskParallel) invokeV.objValue;
     }
 
-    @Override // com.repackage.kg
+    @Override // com.repackage.lg
     public int getAsyncTaskPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -80,41 +80,41 @@ public class LocalFileImageLoaderProc2 implements kg<ym> {
         return invokeV.intValue;
     }
 
-    public ym getBitmapFromFile(String str, int i, int i2) {
+    public zm getBitmapFromFile(String str, int i, int i2) {
         Bitmap loadResizedBitmap;
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, str, i, i2)) == null) {
             try {
                 if (str.toLowerCase().endsWith(".gif")) {
-                    return new ym(BitmapHelper.loadBitmap(str), true, str);
+                    return new zm(BitmapHelper.loadBitmap(str), true, str);
                 }
                 if (i > 0 && i2 > 0 && i < this.width && i2 < this.height) {
                     loadResizedBitmap = BitmapHelper.loadResizedBitmap(str, i, i2);
                 } else {
                     loadResizedBitmap = BitmapHelper.loadResizedBitmap(str, this.width, this.height);
                 }
-                return new ym(loadResizedBitmap, false, str);
+                return new zm(loadResizedBitmap, false, str);
             } catch (Throwable unused) {
                 return null;
             }
         }
-        return (ym) invokeLII.objValue;
+        return (zm) invokeLII.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.repackage.kg
-    public ym getFromRemote(String str, String str2, int i, int i2, hg hgVar, Object... objArr) {
+    @Override // com.repackage.lg
+    public zm getFromRemote(String str, String str2, int i, int i2, ig igVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), hgVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), igVar, objArr})) == null) {
             return null;
         }
-        return (ym) invokeCommon.objValue;
+        return (zm) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.kg
+    @Override // com.repackage.lg
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -139,48 +139,48 @@ public class LocalFileImageLoaderProc2 implements kg<ym> {
         return (String) invokeLII.objValue;
     }
 
-    @Override // com.repackage.kg
+    @Override // com.repackage.lg
     public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof ym)) {
-            ym ymVar = (ym) obj;
-            if (ymVar.u()) {
-                ymVar.A(i);
-                ymVar.z(i2);
-                m45.k().d(toCacheKey(str, i, i2), ymVar);
+        if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof zm)) {
+            zm zmVar = (zm) obj;
+            if (zmVar.u()) {
+                zmVar.A(i);
+                zmVar.z(i2);
+                i55.k().d(toCacheKey(str, i, i2), zmVar);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.repackage.kg
-    public ym getFromLocal(String str, String str2, int i, int i2, hg hgVar, Object... objArr) {
+    @Override // com.repackage.lg
+    public zm getFromLocal(String str, String str2, int i, int i2, ig igVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), hgVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), igVar, objArr})) == null) {
             if (StringUtils.isNull(str)) {
                 return null;
             }
             return getBitmapFromFile(str, i, i2);
         }
-        return (ym) invokeCommon.objValue;
+        return (zm) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.repackage.kg
-    public ym getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    @Override // com.repackage.lg
+    public zm getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            ym checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str, i, i2), m45.k().m(toCacheKey(str, i, i2)), i, i2);
+            zm checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str, i, i2), i55.k().m(toCacheKey(str, i, i2)), i, i2);
             if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.p() == null || checkIsValidPicMemoryCache.p().isRecycled()) {
                 return null;
             }
             return checkIsValidPicMemoryCache;
         }
-        return (ym) invokeCommon.objValue;
+        return (zm) invokeCommon.objValue;
     }
 
     public LocalFileImageLoaderProc2(int i, int i2) {

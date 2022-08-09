@@ -1,64 +1,51 @@
 package com.repackage;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.IRevenue;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IEventReporter;
-import tv.athena.revenue.RevenueManager;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class yy9 {
+public final class yy9 extends xy9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final yy9 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static IEventReporter a(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i, i2)) == null) {
-            IRevenue revenue = RevenueManager.instance().getRevenue(i, i2);
-            if (revenue == null) {
-                RLog.error("UIStatisticReporter", "getSDKReporter error revenue null", new Object[0]);
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755125320, "Lcom/repackage/yy9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return revenue.getEventReporter();
-        }
-        return (IEventReporter) invokeII.objValue;
-    }
-
-    public static void b(int i, int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65537, null, i, i2, str) == null) {
-            IEventReporter a = a(i, i2);
-            if (a == null) {
-                RLog.error("UIStatisticReporter", "report error isdkReporter null", new Object[0]);
-            } else {
-                a.reportUiEvent(str);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755125320, "Lcom/repackage/yy9;");
+                return;
             }
         }
+        a = new yy9();
     }
 
-    public static void c(int i, int i2, String str, String str2) {
+    public yy9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2}) == null) {
-            IEventReporter a = a(i, i2);
-            if (a == null) {
-                RLog.error("UIStatisticReporter", "report error isdkReporter null", new Object[0]);
-            } else {
-                a.reportUiEvent(str, str2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void d(int i, int i2, String str, String str2, String str3, String str4) {
+    public static xy9 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3, str4}) == null) {
-            IEventReporter a = a(i, i2);
-            if (a == null) {
-                RLog.error("UIStatisticReporter", "report error isdkReporter null", new Object[0]);
-            } else {
-                a.reportUvEvent(str, str2, str3, str4);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (xy9) invokeV.objValue;
     }
 }

@@ -1,70 +1,102 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.os.Bundle;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import javax.annotation.concurrent.GuardedBy;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.api.KsInterstitialAd;
 /* loaded from: classes6.dex */
-public final class hk9 {
+public class hk9 implements KsInterstitialAd.AdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object a;
-    @GuardedBy("sLock")
-    public static boolean b;
-    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ KsInterstitialAd a;
+    public final /* synthetic */ gk9 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755645221, "Lcom/repackage/hk9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755645221, "Lcom/repackage/hk9;");
+    public hk9(gk9 gk9Var, KsInterstitialAd ksInterstitialAd) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {gk9Var, ksInterstitialAd};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new Object();
+        this.b = gk9Var;
+        this.a = ksInterstitialAd;
     }
 
-    public static int a(Context context) {
-        InterceptResult invokeL;
+    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
+    public void onAdClicked() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            b(context);
-            return c;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LogPrinter.d();
+            this.b.onAdClicked(this.a, false, new String[0]);
         }
-        return invokeL.intValue;
     }
 
-    public static void b(Context context) {
-        Bundle bundle;
+    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
+    public void onAdClosed() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            synchronized (a) {
-                if (b) {
-                    return;
-                }
-                b = true;
-                try {
-                    bundle = zk9.a(context).a(context.getPackageName(), 128).metaData;
-                } catch (PackageManager.NameNotFoundException e) {
-                    Log.wtf("MetadataValueReader", "This should never happen.", e);
-                }
-                if (bundle == null) {
-                    return;
-                }
-                bundle.getString("com.google.app.id");
-                c = bundle.getInt("com.google.android.gms.version");
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
+    public void onAdShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LogPrinter.d();
+            this.b.onAdShow(this.a, false, new String[0]);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
+    public void onPageDismiss() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LogPrinter.d();
+            this.b.onAdClose(this.a);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
+    public void onSkippedAd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
+    public void onVideoPlayEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
+    public void onVideoPlayError(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
+            LogPrinter.e("onVideoPlayError code:%d extra:%d", Integer.valueOf(i), Integer.valueOf(i2));
+            this.b.onAdError(this.a, i, String.valueOf(i2));
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
+    public void onVideoPlayStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            LogPrinter.d();
         }
     }
 }

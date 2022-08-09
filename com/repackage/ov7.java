@@ -1,25 +1,33 @@
 package com.repackage;
 
-import android.view.View;
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.abtest.UbsABTestDataManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.R;
+import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public abstract class ov7 {
+/* loaded from: classes7.dex */
+public class ov7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragmentActivity a;
-    public View b;
+    public TbPageContext a;
 
-    public ov7(BaseFragmentActivity baseFragmentActivity, View view2) {
+    public ov7(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity, view2};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,32 +37,78 @@ public abstract class ov7 {
                 return;
             }
         }
-        this.a = baseFragmentActivity;
-        this.b = view2;
+        this.a = tbPageContext;
     }
 
-    public void a() {
+    public final void a(PbModel pbModel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b(null);
-        }
-    }
-
-    public void b(vt7 vt7Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vt7Var) == null) || this.a == null || this.b == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, pbModel, i) == null) || pbModel == null) {
             return;
         }
-        c(vt7Var);
+        StatisticItem statisticItem = new StatisticItem("c13719");
+        statisticItem.param("fid", pbModel.G.m());
+        statisticItem.param("tid", pbModel.G.Q());
+        statisticItem.param("obj_type", i);
+        if (pbModel.P1() == 5) {
+            statisticItem.param("obj_source", 1);
+        } else if (pbModel.P1() == 7) {
+            statisticItem.param("obj_source", 2);
+        } else {
+            statisticItem.param("obj_source", 3);
+        }
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        TiebaStatic.log(statisticItem);
     }
 
-    public abstract void c(vt7 vt7Var);
-
-    public void d(View view2, View.OnClickListener onClickListener) {
+    public boolean b(PbModel pbModel) {
+        InterceptResult invokeL;
+        ft7 ft7Var;
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, view2, onClickListener) == null) || view2 == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pbModel)) == null) {
+            int i = 0;
+            if (this.a.getPageActivity() != null && pbModel != null && (ft7Var = pbModel.G) != null) {
+                if ("3".equals(ft7Var.h0)) {
+                    MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this.a.getPageActivity()).createNormalCfg(2);
+                    createNormalCfg.setSubTabName(this.a.getString(R.string.obfuscated_res_0x7f0f1351));
+                    this.a.sendMessage(new CustomMessage(2015002, createNormalCfg));
+                    return true;
+                }
+                String q = ru4.k().q("key_pb_back_sid1", "");
+                String q2 = ru4.k().q("key_pb_back_sid2", "");
+                if (TextUtils.isEmpty(q) || UbsABTestDataManager.getInstance().getABTestSwitchData(q) == null) {
+                    str = (TextUtils.isEmpty(q2) || UbsABTestDataManager.getInstance().getABTestSwitchData(q2) == null) ? null : "2";
+                } else {
+                    str = "1";
+                }
+                if (str == null && (str2 = pbModel.G.g0) != null) {
+                    str = str2;
+                }
+                if (str == null) {
+                    return false;
+                }
+                if (str.equals("1")) {
+                    MainTabActivityConfig createNormalCfg2 = new MainTabActivityConfig(this.a.getPageActivity()).createNormalCfg(2);
+                    createNormalCfg2.setSubTab(1, null);
+                    this.a.sendMessage(new CustomMessage(2015002, createNormalCfg2));
+                    a(pbModel, 1);
+                    return true;
+                } else if (str.equals("2")) {
+                    MainTabActivityConfig createNormalCfg3 = new MainTabActivityConfig(this.a.getPageActivity()).createNormalCfg(1);
+                    createNormalCfg3.setSubTab(0, pbModel.G.h0);
+                    this.a.sendMessage(new CustomMessage(2015002, createNormalCfg3));
+                    if ("游戏".equals(pbModel.G.h0)) {
+                        i = 2;
+                    } else if ("数码".equals(pbModel.G.h0)) {
+                        i = 3;
+                    }
+                    a(pbModel, i);
+                    return true;
+                }
+            }
+            return false;
         }
-        view2.setOnClickListener(onClickListener);
+        return invokeL.booleanValue;
     }
 }

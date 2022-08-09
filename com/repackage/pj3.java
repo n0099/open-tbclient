@@ -1,111 +1,185 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.bdtls.impl.model.Bdtls$ClientHello;
-import com.baidu.swan.bdtls.impl.model.Bdtls$ServerHello;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import android.content.Context;
+import android.telephony.TelephonyManager;
+import android.text.TextUtils;
+import android.util.Base64;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.location.BDLocation;
+import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
+import com.baidu.swan.apps.impl.nalib.encrypt.EncryptConstant;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes6.dex */
-public final class pj3 {
+import com.repackage.h73;
+import com.repackage.nj3;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class pj3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bdtls$ClientHello a;
-    public Bdtls$ServerHello b;
-    public byte[] c;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public pj3() {
-        this(null, null, null, 7, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((Bdtls$ClientHello) objArr[0], (Bdtls$ServerHello) objArr[1], (byte[]) objArr[2], ((Integer) objArr[3]).intValue(), (DefaultConstructorMarker) objArr[4]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755408040, "Lcom/repackage/pj3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755408040, "Lcom/repackage/pj3;");
                 return;
             }
         }
+        a = jh1.a;
     }
 
-    public pj3(Bdtls$ClientHello bdtls$ClientHello, Bdtls$ServerHello bdtls$ServerHello, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdtls$ClientHello, bdtls$ServerHello, bArr};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = bdtls$ClientHello;
-        this.b = bdtls$ServerHello;
-        this.c = bArr;
-    }
-
-    public final void a(Bdtls$ServerHello bdtls$ServerHello) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bdtls$ServerHello) == null) {
-            this.b = bdtls$ServerHello;
-        }
-    }
-
-    public boolean equals(Object obj) {
+    @Nullable
+    public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof pj3) {
-                    pj3 pj3Var = (pj3) obj;
-                    return Intrinsics.areEqual(this.a, pj3Var.a) && Intrinsics.areEqual(this.b, pj3Var.b) && Intrinsics.areEqual(this.c, pj3Var.c);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            try {
+                Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+                cipher.init(1, new SecretKeySpec((EncryptConstant.getPartRecommendAesKey() + "rtad@mic").getBytes(), "AES"), new IvParameterSpec((EncryptConstant.getPartRecommendAesIv() + "21248000").getBytes()));
+                return Base64.encodeToString(cipher.doFinal(str.getBytes(IMAudioTransRequest.CHARSET)), 2);
+            } catch (Exception e) {
+                e.printStackTrace();
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("info", "encrypt request param fail with exception : " + e.getMessage());
+                } catch (JSONException e2) {
+                    if (a) {
+                        e2.printStackTrace();
+                    }
                 }
-                return false;
+                f(jSONObject.toString());
+                return null;
             }
-            return true;
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public int hashCode() {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public static void b(nj3 nj3Var, oj3 oj3Var) {
+        char c;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, nj3Var, oj3Var) == null) || nj3Var == null || oj3Var == null) {
+            return;
+        }
+        String str = TextUtils.isEmpty(oj3Var.a) ? "unknown" : oj3Var.a;
+        switch (str.hashCode()) {
+            case -1395470197:
+                if (str.equals("bd09ll")) {
+                    c = 3;
+                    break;
+                }
+                c = 65535;
+                break;
+            case 3017163:
+                if (str.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09)) {
+                    c = 0;
+                    break;
+                }
+                c = 65535;
+                break;
+            case 98175376:
+                if (str.equals("gcj02")) {
+                    c = 1;
+                    break;
+                }
+                c = 65535;
+                break;
+            case 113079775:
+                if (str.equals(CoordinateType.WGS84)) {
+                    c = 2;
+                    break;
+                }
+                c = 65535;
+                break;
+            default:
+                c = 65535;
+                break;
+        }
+        int i = c != 0 ? c != 1 ? c != 2 ? c != 3 ? -1 : 3 : 2 : 1 : 0;
+        nj3.c cVar = nj3Var.c;
+        cVar.a = i;
+        cVar.b = oj3Var.b;
+        cVar.c = oj3Var.c;
+    }
+
+    public static int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Bdtls$ClientHello bdtls$ClientHello = this.a;
-            int hashCode = (bdtls$ClientHello != null ? bdtls$ClientHello.hashCode() : 0) * 31;
-            Bdtls$ServerHello bdtls$ServerHello = this.b;
-            int hashCode2 = (hashCode + (bdtls$ServerHello != null ? bdtls$ServerHello.hashCode() : 0)) * 31;
-            byte[] bArr = this.c;
-            return hashCode2 + (bArr != null ? Arrays.hashCode(bArr) : 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String e = SwanAppNetworkUtils.e();
+            if ("wifi".equals(e)) {
+                return 1;
+            }
+            if ("2g".equals(e)) {
+                return 2;
+            }
+            if ("3g".equals(e)) {
+                return 3;
+            }
+            if ("4g".equals(e)) {
+                return 4;
+            }
+            return "5g".equals(e) ? 5 : 0;
         }
         return invokeV.intValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static int d(Context context) {
+        InterceptResult invokeL;
+        TelephonyManager telephonyManager;
+        String simOperator;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "HandshakeParams(clientHello=" + this.a + ", serverHello=" + this.b + ", encodeDHPublicKey=" + Arrays.toString(this.c) + SmallTailInfo.EMOTION_SUFFIX;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            if (context == null || (telephonyManager = (TelephonyManager) context.getSystemService("phone")) == null || (simOperator = telephonyManager.getSimOperator()) == null) {
+                return 0;
+            }
+            if ("46000".equals(simOperator) || "46002".equals(simOperator) || "46007".equals(simOperator)) {
+                return 1;
+            }
+            if ("46001".equals(simOperator)) {
+                return 3;
+            }
+            return "46003".equals(simOperator) ? 2 : 0;
         }
-        return (String) invokeV.objValue;
+        return invokeL.intValue;
     }
 
-    public /* synthetic */ pj3(Bdtls$ClientHello bdtls$ClientHello, Bdtls$ServerHello bdtls$ServerHello, byte[] bArr, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i & 1) != 0 ? null : bdtls$ClientHello, (i & 2) != 0 ? null : bdtls$ServerHello, (i & 4) != 0 ? null : bArr);
+    public static boolean e(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? (context.getResources().getConfiguration().screenLayout & 15) >= 3 : invokeL.booleanValue;
+    }
+
+    public static void f(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65542, null, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        if (a) {
+            Log.d("recommend", "reportInfoWhenResponseIsNull: " + str);
+        }
+        h73.b bVar = new h73.b(10003);
+        bVar.i(str);
+        bVar.h(z03.g0());
+        bVar.m();
     }
 }

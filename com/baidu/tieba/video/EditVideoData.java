@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.pi;
 import java.io.File;
 import java.io.Serializable;
 /* loaded from: classes4.dex */
@@ -54,7 +54,7 @@ public class EditVideoData extends OrmObject implements Serializable {
 
     public void delete() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || StringHelper.equals(this.originPath, this.finalPath) || oi.isEmpty(this.finalPath)) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || StringHelper.equals(this.originPath, this.finalPath) || pi.isEmpty(this.finalPath)) {
             return;
         }
         FileHelper.deleteFile(new File(this.finalPath));
@@ -63,6 +63,6 @@ public class EditVideoData extends OrmObject implements Serializable {
     public boolean isLegal() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (oi.isEmpty(this.originPath) || oi.isEmpty(this.coverPath)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (pi.isEmpty(this.originPath) || pi.isEmpty(this.coverPath)) ? false : true : invokeV.booleanValue;
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rf;
+import com.repackage.sf;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -96,9 +96,9 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
         return invokeV.booleanValue;
     }
 
-    public void logStatInBackground(int i, rf rfVar) {
+    public void logStatInBackground(int i, sf sfVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i, rfVar) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, sfVar) == null) {
         }
     }
 

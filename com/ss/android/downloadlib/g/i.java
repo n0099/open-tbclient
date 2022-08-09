@@ -3,7 +3,7 @@ package com.ss.android.downloadlib.g;
 import android.content.Context;
 import android.net.Uri;
 import androidx.annotation.NonNull;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class i {
     public static com.ss.android.downloadlib.addownload.b.g a(Context context, Uri uri) {
         return h.a(context, uri);

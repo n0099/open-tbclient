@@ -1,185 +1,263 @@
 package com.repackage;
 
-import android.media.CamcorderProfile;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.video.record.StickerItem;
+import com.baidu.tieba.video.record.VideoEffectLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Objects;
-/* loaded from: classes6.dex */
-public class pu8 implements Comparable<pu8> {
+import java.util.List;
+/* loaded from: classes7.dex */
+public class pu8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
-    public int c;
+    public List<StickerItem> a;
+    public VideoEffectLayout.h b;
 
-    public pu8(int i, int i2) {
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ pu8 b;
+
+        public a(pu8 pu8Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pu8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = pu8Var;
+            this.a = i;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || ((StickerItem) this.b.a.get(this.a * 2)).isSelect || this.b.b == null) {
+                return;
+            }
+            this.b.b.w1((StickerItem) this.b.a.get(this.a * 2));
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ pu8 b;
+
+        public b(pu8 pu8Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pu8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = pu8Var;
+            this.a = i;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || ((StickerItem) this.b.a.get((this.a * 2) + 1)).isSelect || this.b.b == null) {
+                return;
+            }
+            this.b.b.w1((StickerItem) this.b.a.get((this.a * 2) + 1));
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public RelativeLayout a;
+        public RelativeLayout b;
+        public TbImageView c;
+        public TbImageView d;
+        public ProgressBar e;
+        public ProgressBar f;
+        public ImageView g;
+
+        public c(pu8 pu8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pu8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public pu8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = 30;
-        this.a = i;
-        this.b = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(@NonNull pu8 pu8Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pu8Var)) == null) {
-            int i = this.a;
-            int i2 = this.b;
-            int i3 = i * i2;
-            int i4 = pu8Var.a;
-            int i5 = pu8Var.b;
-            return i3 == i4 * i5 ? this.c - pu8Var.c : (i * i2) - (i4 * i5);
-        }
-        return invokeL.intValue;
-    }
-
-    public CamcorderProfile b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a == 720 && this.b == 480) {
-                return CamcorderProfile.get(4);
-            }
-            if (this.a == 1280 && this.b == 720) {
-                return CamcorderProfile.get(5);
-            }
-            if (this.a == 1920 && this.b == 1080) {
-                return CamcorderProfile.get(6);
-            }
-            if (this.a == 3840 && this.b == 2160) {
-                return CamcorderProfile.get(8);
-            }
-            return CamcorderProfile.get(5);
-        }
-        return (CamcorderProfile) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
-            if (obj == null) {
-                return false;
-            }
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof pu8) {
-                pu8 pu8Var = (pu8) obj;
-                return this.a == pu8Var.a && this.b == pu8Var.b && this.c == pu8Var.c;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean f(int i) {
+    @Override // android.widget.Adapter
+    /* renamed from: c */
+    public StickerItem getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? g(this, i) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? (StickerItem) ListUtils.getItem(this.a, i) : (StickerItem) invokeI.objValue;
     }
 
-    public boolean g(pu8 pu8Var, int i) {
-        InterceptResult invokeLI;
+    public void d(List<StickerItem> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, pu8Var, i)) == null) {
-            if (pu8Var.e() == 720 && pu8Var.d() == 480) {
-                return CamcorderProfile.hasProfile(i, 2002);
-            }
-            if (pu8Var.e() == 1280 && pu8Var.d() == 720) {
-                return CamcorderProfile.hasProfile(i, 2003);
-            }
-            if (pu8Var.e() == 1920 && pu8Var.d() == 1080) {
-                return CamcorderProfile.hasProfile(i, 2004);
-            }
-            if (pu8Var.e() == 3840 && pu8Var.d() == 2160) {
-                return CamcorderProfile.hasProfile(i, 2005);
-            }
-            return false;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.c = i;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a = list;
         }
     }
 
-    public int hashCode() {
+    public void e(VideoEffectLayout.h hVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hVar) == null) {
+            this.b = hVar;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? Objects.hash(Integer.valueOf(e()), Integer.valueOf(d()), Integer.valueOf(c())) : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.a + "x" + this.b + " " + this.c + "p";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public pu8(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (ListUtils.isEmpty(this.a)) {
+                return 0;
             }
+            return (int) Math.ceil(this.a.size() / 2.0d);
         }
-        this.c = 30;
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        c cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0516, (ViewGroup) null);
+                cVar = new c(this);
+                cVar.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092252);
+                cVar.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0903ee);
+                cVar.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f092239);
+                cVar.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0916ac);
+                cVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0903d5);
+                cVar.e = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f092251);
+                cVar.f = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0903ea);
+                view2.setTag(cVar);
+            } else {
+                cVar = (c) view2.getTag();
+            }
+            cVar.c.setAutoChangeStyle(false);
+            cVar.d.setAutoChangeStyle(false);
+            cVar.c.setGifIconSupport(false);
+            cVar.d.setGifIconSupport(false);
+            int i2 = i * 2;
+            if (ListUtils.getItem(this.a, i2) instanceof StickerItem) {
+                cVar.a.setVisibility(0);
+                if (this.a.get(i2).id == -1) {
+                    cVar.g.setVisibility(0);
+                    cVar.c.setVisibility(8);
+                    cVar.g.setImageResource(R.drawable.obfuscated_res_0x7f080b0c);
+                } else {
+                    cVar.g.setVisibility(8);
+                    cVar.c.setVisibility(0);
+                    cVar.c.K(this.a.get(i2).img, 10, true);
+                }
+                cVar.a.setOnClickListener(new a(this, i));
+                if (this.a.get(i2).isDownLoading) {
+                    cVar.e.setVisibility(0);
+                } else {
+                    cVar.e.setVisibility(8);
+                }
+                if (this.a.get(i2).isSelect) {
+                    SkinManager.setBackgroundResource(cVar.a, R.drawable.obfuscated_res_0x7f0802de);
+                } else {
+                    cVar.a.setBackgroundResource(R.color.transparent);
+                }
+            } else {
+                cVar.a.setVisibility(8);
+            }
+            int i3 = i2 + 1;
+            if (ListUtils.getItem(this.a, i3) instanceof StickerItem) {
+                cVar.b.setVisibility(0);
+                cVar.d.K(this.a.get(i3).img, 10, true);
+                cVar.b.setOnClickListener(new b(this, i));
+                if (this.a.get(i3).isDownLoading) {
+                    cVar.f.setVisibility(0);
+                } else {
+                    cVar.f.setVisibility(8);
+                }
+                if (this.a.get(i3).isSelect) {
+                    SkinManager.setBackgroundResource(cVar.b, R.drawable.obfuscated_res_0x7f0802de);
+                } else {
+                    cVar.b.setBackgroundResource(R.color.transparent);
+                }
+            } else {
+                cVar.b.setVisibility(8);
+            }
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

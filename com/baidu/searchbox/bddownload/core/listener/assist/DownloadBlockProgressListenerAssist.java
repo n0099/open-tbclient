@@ -84,7 +84,14 @@ public class DownloadBlockProgressListenerAssist<T extends Listener4Model> imple
         public long getBlockCurrentOffset(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.blockCurrentOffsetMap.get(i).longValue() : invokeI.longValue;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                Long l = this.blockCurrentOffsetMap.get(i);
+                if (l == null) {
+                    return 0L;
+                }
+                return l.longValue();
+            }
+            return invokeI.longValue;
         }
 
         public SparseArray<Long> getBlockCurrentOffsetMap() {
@@ -166,12 +173,12 @@ public class DownloadBlockProgressListenerAssist<T extends Listener4Model> imple
         if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{downloadTask, Integer.valueOf(i), Long.valueOf(j)}) == null) || (orRecoverModel = this.modelHandler.getOrRecoverModel(downloadTask, downloadTask.getInfo())) == null) {
             return;
         }
-        long longValue = orRecoverModel.blockCurrentOffsetMap.get(i).longValue() + j;
-        orRecoverModel.blockCurrentOffsetMap.put(i, Long.valueOf(longValue));
+        long blockCurrentOffset = orRecoverModel.getBlockCurrentOffset(i) + j;
+        orRecoverModel.blockCurrentOffsetMap.put(i, Long.valueOf(blockCurrentOffset));
         orRecoverModel.currentOffset += j;
         AssistExtend assistExtend = this.assistExtend;
         if ((assistExtend == null || !assistExtend.dispatchFetchProgress(downloadTask, i, j, orRecoverModel)) && (listener4Callback = this.callback) != null) {
-            listener4Callback.progressBlock(downloadTask, i, longValue);
+            listener4Callback.progressBlock(downloadTask, i, blockCurrentOffset);
             this.callback.progress(downloadTask, orRecoverModel.currentOffset);
         }
     }

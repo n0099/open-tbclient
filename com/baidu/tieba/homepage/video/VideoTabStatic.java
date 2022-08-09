@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.na5;
-import com.repackage.wh8;
+import com.repackage.kk8;
+import com.repackage.lb5;
 /* loaded from: classes3.dex */
 public class VideoTabStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -33,11 +33,11 @@ public class VideoTabStatic {
                 return;
             }
         }
-        na5 na5Var = new na5(309648);
-        na5Var.setResponsedClass(VideoTabSocketResMessage.class);
-        na5Var.g(true);
-        MessageManager.getInstance().registerTask(na5Var);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_TAB, wh8.a(TbConfig.URL_VIDEO_TAB, 309648));
+        lb5 lb5Var = new lb5(309648);
+        lb5Var.setResponsedClass(VideoTabSocketResMessage.class);
+        lb5Var.g(true);
+        MessageManager.getInstance().registerTask(lb5Var);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_TAB, kk8.a(TbConfig.URL_VIDEO_TAB, 309648));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(VideoTabHttpResMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

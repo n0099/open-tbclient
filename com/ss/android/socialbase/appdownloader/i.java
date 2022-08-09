@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import com.sina.weibo.sdk.utils.ResourceManager;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class i {
     public static int a(String str) {
         try {

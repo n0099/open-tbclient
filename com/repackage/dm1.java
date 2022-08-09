@@ -1,10 +1,7 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
+import android.content.Context;
+/* loaded from: classes6.dex */
 public interface dm1 {
-    @Nullable
-    is1 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull md2 md2Var);
+    void a(String str, ar2 ar2Var, Context context);
 }

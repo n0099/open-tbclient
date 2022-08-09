@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ab6;
-import com.repackage.oh8;
+import com.repackage.ck8;
+import com.repackage.sc6;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
@@ -31,7 +31,7 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
     public MemberGodInfo mMemberGodInfo;
     public List<MemberGroupInfo> mMemberGroupInfoList;
     public PriManagerApplyInfo mPrivateMgrApplyInfo;
-    public oh8 mUserInfo;
+    public ck8 mUserInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumMemberSocketResponseMessage() {
@@ -71,9 +71,9 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
                 DataRes dataRes = getMemberInfoResIdl.data;
                 if (dataRes != null) {
                     if (dataRes.forum_member_info != null) {
-                        oh8 oh8Var = new oh8();
-                        this.mUserInfo = oh8Var;
-                        oh8Var.y(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
+                        ck8 ck8Var = new ck8();
+                        this.mUserInfo = ck8Var;
+                        ck8Var.y(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
                         this.mUserInfo.u(getMemberInfoResIdl.data.forum_member_info.cur_score.intValue());
                         this.mUserInfo.x(getMemberInfoResIdl.data.forum_member_info.levelup_score.intValue());
                         this.mUserInfo.z(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
@@ -120,10 +120,10 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mPrivateMgrApplyInfo : (PriManagerApplyInfo) invokeV.objValue;
     }
 
-    public oh8 getUserInfo() {
+    public ck8 getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mUserInfo : (oh8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mUserInfo : (ck8) invokeV.objValue;
     }
 
     public boolean isBawuShow() {
@@ -155,8 +155,8 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
                 forumMemberRequestMessage = (ForumMemberRequestMessage) getOrginalMessage().getExtra();
             }
             if (forumMemberRequestMessage != null) {
-                ab6 ab6Var = new ab6();
-                ab6Var.c(forumMemberRequestMessage.getForumName() + "", bArr);
+                sc6 sc6Var = new sc6();
+                sc6Var.c(forumMemberRequestMessage.getForumName() + "", bArr);
             }
         }
     }

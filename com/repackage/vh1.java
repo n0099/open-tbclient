@@ -1,11 +1,11 @@
 package com.repackage;
 
-import com.baidu.searchbox.http.HttpManager;
-import okhttp3.Callback;
-import okhttp3.Request;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public interface vh1 {
-    HttpManager a();
+    void a(JSONObject jSONObject);
 
-    void call(HttpManager httpManager, Request request, Callback callback);
+    void b();
+
+    void c(JSONObject jSONObject);
 }

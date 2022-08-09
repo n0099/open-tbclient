@@ -1,171 +1,295 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
+import android.media.MediaCodec;
+import android.media.MediaCodecInfo;
+import android.media.MediaCodecList;
+import android.media.MediaCrypto;
+import android.media.MediaFormat;
+import android.view.Surface;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.ContentUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.ar.record.EncoderParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
-import java.io.UnsupportedEncodingException;
-import org.apache.commons.codec.binary4util.BaseNCodec;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+import org.webrtc.HardwareVideoEncoder;
+@SuppressLint({"NewApi"})
 /* loaded from: classes6.dex */
-public final class ka9 {
+public class ka9 implements ea9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] a;
     public transient /* synthetic */ FieldHolder $fh;
+    public MediaCodec a;
+    public MediaFormat b;
+    public ByteBuffer[] c;
+    public ByteBuffer[] d;
+    public BufferedOutputStream e;
+    public boolean f;
+    public ByteBuffer g;
+    public byte[] h;
+    public int i;
+    public int j;
+    public int k;
+    public int l;
+    public ma9 m;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755565458, "Lcom/repackage/ka9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755565458, "Lcom/repackage/ka9;");
+    public ka9(int i, int i2) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, Cea608Decoder.CTRL_END_OF_CAPTION};
+        this.k = i2;
+        this.l = g(i);
+        MediaCodecInfo h = h("audio/mp4a-latm");
+        if (h == null) {
+            ma9 ma9Var = this.m;
+            if (ma9Var != null) {
+                ma9Var.onExceptionThrown("not suport aac encoder");
+                return;
+            }
+            return;
+        }
+        this.a = MediaCodec.createByCodecName(h.getName());
+        MediaFormat mediaFormat = new MediaFormat();
+        this.b = mediaFormat;
+        mediaFormat.setString("mime", "audio/mp4a-latm");
+        this.b.setInteger("aac-profile", 2);
+        this.b.setInteger("sample-rate", i);
+        this.b.setInteger("channel-count", i2);
+        this.b.setInteger("bitrate", EncoderParams.AUDIO_BIT_RATE);
+        this.b.setInteger("max-input-size", 8192);
+        this.b.setInteger(HardwareVideoEncoder.KEY_BITRATE_MODE, 16);
+        this.a.configure(this.b, (Surface) null, (MediaCrypto) null, 1);
+        this.a.start();
+        this.c = this.a.getInputBuffers();
+        this.d = this.a.getOutputBuffers();
+        this.g = ByteBuffer.allocateDirect(8192);
+        this.h = new byte[4096];
     }
 
-    public static byte[] a(byte[] bArr) {
+    @Override // com.repackage.ea9
+    public void a() throws IOException {
+        int dequeueInputBuffer;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            rb9.j("VideoMuxer: ", "----set BUFFER_FLAG_END_OF_STREAM to encoder-----");
+            do {
+                dequeueInputBuffer = this.a.dequeueInputBuffer(10000L);
+                if (dequeueInputBuffer >= 0) {
+                    rb9.j("VideoMuxer: ", "----MediaCodec.BUFFER_FLAG_END_OF_STREAM-----");
+                    this.a.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
+                }
+                i();
+            } while (dequeueInputBuffer < 0);
+            while (!this.f) {
+                i();
+            }
+        }
+    }
+
+    @Override // com.repackage.ea9
+    public void b(String str) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.e = new BufferedOutputStream(new FileOutputStream(str));
+        }
+    }
+
+    @Override // com.repackage.ea9
+    public int c(byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2)) == null) {
+            if (this.g.capacity() < i2) {
+                this.g = ByteBuffer.allocateDirect(i2);
+            }
+            this.g.clear();
+            this.g.put(bArr, i, i2);
+            this.g.flip();
+            while (this.g.hasRemaining()) {
+                int dequeueInputBuffer = this.a.dequeueInputBuffer(10000L);
+                if (dequeueInputBuffer >= 0) {
+                    ByteBuffer byteBuffer = this.c[dequeueInputBuffer];
+                    int min = Math.min(byteBuffer.capacity(), this.g.remaining());
+                    if (min != this.h.length) {
+                        this.h = new byte[min];
+                    }
+                    this.g.get(this.h, 0, min);
+                    byteBuffer.clear();
+                    byteBuffer.put(this.h);
+                    this.a.queueInputBuffer(dequeueInputBuffer, 0, min, 0L, 0);
+                    this.i += min;
+                }
+                i();
+            }
+            return 0;
+        }
+        return invokeLII.intValue;
+    }
+
+    @Override // com.repackage.ea9
+    public void d(ma9 ma9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, ma9Var) == null) {
+            this.m = ma9Var;
+        }
+    }
+
+    public final void e(byte[] bArr, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, bArr, i) == null) {
+            int i2 = this.l;
+            int i3 = this.k;
+            bArr[0] = -1;
+            bArr[1] = -7;
+            bArr[2] = (byte) (64 + (i2 << 2) + (i3 >> 2));
+            bArr[3] = (byte) (((i3 & 3) << 6) + (i >> 11));
+            bArr[4] = (byte) ((i & 2047) >> 3);
+            bArr[5] = (byte) (((i & 7) << 5) + 31);
+            bArr[6] = -4;
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            try {
+                this.a.stop();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                this.a.release();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+            this.a = null;
+            try {
+                this.e.flush();
+                this.e.close();
+            } catch (IOException e3) {
+                e3.printStackTrace();
+            }
+        }
+    }
+
+    public final int g(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            switch (i) {
+                case 7350:
+                    return 12;
+                case 8000:
+                    return 11;
+                case 11025:
+                    return 10;
+                case 12000:
+                    return 9;
+                case 16000:
+                    return 8;
+                case 22050:
+                    return 7;
+                case 24000:
+                    return 6;
+                case 32000:
+                    return 5;
+                case 48000:
+                    return 3;
+                case 64000:
+                    return 2;
+                case 88200:
+                    return 1;
+                case 96000:
+                    return 0;
+                default:
+                    return 4;
+            }
+        }
+        return invokeI.intValue;
+    }
+
+    public final MediaCodecInfo h(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) ? b(bArr, bArr.length) : (byte[]) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            int codecCount = MediaCodecList.getCodecCount();
+            for (int i = 0; i < codecCount; i++) {
+                MediaCodecInfo codecInfoAt = MediaCodecList.getCodecInfoAt(i);
+                if (codecInfoAt.isEncoder()) {
+                    for (String str2 : codecInfoAt.getSupportedTypes()) {
+                        if (str2.equalsIgnoreCase(str)) {
+                            return codecInfoAt;
+                        }
+                    }
+                    continue;
+                }
+            }
+            return null;
+        }
+        return (MediaCodecInfo) invokeL.objValue;
     }
 
-    public static byte[] b(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        byte b;
-        int i2;
+    public final void i() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, bArr, i)) == null) {
-            int i3 = (i / 4) * 3;
-            if (i3 == 0) {
-                return new byte[0];
-            }
-            byte[] bArr2 = new byte[i3];
-            int i4 = i;
-            int i5 = 0;
-            while (true) {
-                byte b2 = bArr[i4 - 1];
-                b = 10;
-                if (b2 != 10 && b2 != 13 && b2 != 32 && b2 != 9) {
-                    if (b2 != 61) {
-                        break;
-                    }
-                    i5++;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
+            int dequeueOutputBuffer = this.a.dequeueOutputBuffer(bufferInfo, 10000L);
+            if (dequeueOutputBuffer == -2) {
+                this.b = this.a.getOutputFormat();
+            } else if (dequeueOutputBuffer == -3) {
+                this.d = this.a.getOutputBuffers();
+            } else if (dequeueOutputBuffer == -1) {
+                rb9.j("VideoMuxer", "writeOutput INFO_TRY_AGAIN_LATER");
+            } else if (dequeueOutputBuffer >= 0) {
+                if ((bufferInfo.flags & 2) != 0) {
+                    this.a.releaseOutputBuffer(dequeueOutputBuffer, false);
+                    return;
                 }
-                i4--;
-            }
-            int i6 = 0;
-            int i7 = 0;
-            int i8 = 0;
-            int i9 = 0;
-            while (i6 < i4) {
-                byte b3 = bArr[i6];
-                if (b3 != b && b3 != 13 && b3 != 32 && b3 != 9) {
-                    if (b3 >= 65 && b3 <= 90) {
-                        i2 = b3 - 65;
-                    } else if (b3 >= 97 && b3 <= 122) {
-                        i2 = b3 - 71;
-                    } else if (b3 >= 48 && b3 <= 57) {
-                        i2 = b3 + 4;
-                    } else if (b3 == 43) {
-                        i2 = 62;
-                    } else if (b3 != 47) {
-                        return null;
-                    } else {
-                        i2 = 63;
-                    }
-                    i7 = ((byte) i2) | (i7 << 6);
-                    if (i9 % 4 == 3) {
-                        int i10 = i8 + 1;
-                        bArr2[i8] = (byte) ((16711680 & i7) >> 16);
-                        int i11 = i10 + 1;
-                        bArr2[i10] = (byte) ((65280 & i7) >> 8);
-                        bArr2[i11] = (byte) (i7 & 255);
-                        i8 = i11 + 1;
-                    }
-                    i9++;
+                int i = bufferInfo.size;
+                if (i > 0) {
+                    int i2 = i + 7;
+                    ByteBuffer byteBuffer = this.d[dequeueOutputBuffer];
+                    byteBuffer.position(bufferInfo.offset);
+                    byteBuffer.limit(bufferInfo.offset + i);
+                    byte[] bArr = new byte[i2];
+                    e(bArr, i2);
+                    byteBuffer.get(bArr, 7, i);
+                    byteBuffer.position(bufferInfo.offset);
+                    this.e.write(bArr, 0, i2);
+                    this.j += bufferInfo.size;
+                    byteBuffer.clear();
                 }
-                i6++;
-                b = 10;
-            }
-            if (i5 > 0) {
-                int i12 = i7 << (i5 * 6);
-                int i13 = i8 + 1;
-                bArr2[i8] = (byte) ((i12 & 16711680) >> 16);
-                if (i5 == 1) {
-                    i8 = i13 + 1;
-                    bArr2[i13] = (byte) ((i12 & 65280) >> 8);
-                } else {
-                    i8 = i13;
+                this.a.releaseOutputBuffer(dequeueOutputBuffer, false);
+                if ((bufferInfo.flags & 4) != 0) {
+                    this.f = true;
+                    try {
+                        f();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    if (this.m != null) {
+                        rb9.j("VideoMuxer: ", "----Encode done-----,numBytesSubmitted:" + this.i + ",numBytesDequeued:" + this.j);
+                        this.m.onFinishedWriting(true);
+                    }
                 }
             }
-            byte[] bArr3 = new byte[i8];
-            System.arraycopy(bArr2, 0, bArr3, 0, i8);
-            return bArr3;
         }
-        return (byte[]) invokeLI.objValue;
-    }
-
-    public static String c(byte[] bArr, String str) throws UnsupportedEncodingException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, str)) == null) {
-            int length = (bArr.length * 4) / 3;
-            byte[] bArr2 = new byte[length + (length / 76) + 3];
-            int length2 = bArr.length - (bArr.length % 3);
-            int i = 0;
-            int i2 = 0;
-            for (int i3 = 0; i3 < length2; i3 += 3) {
-                int i4 = i + 1;
-                byte[] bArr3 = a;
-                bArr2[i] = bArr3[(bArr[i3] & 255) >> 2];
-                int i5 = i4 + 1;
-                int i6 = i3 + 1;
-                bArr2[i4] = bArr3[((bArr[i3] & 3) << 4) | ((bArr[i6] & 255) >> 4)];
-                int i7 = i5 + 1;
-                int i8 = i3 + 2;
-                bArr2[i5] = bArr3[((bArr[i6] & 15) << 2) | ((bArr[i8] & 255) >> 6)];
-                i = i7 + 1;
-                bArr2[i7] = bArr3[bArr[i8] & 63];
-                if ((i - i2) % 76 == 0 && i != 0) {
-                    bArr2[i] = 10;
-                    i2++;
-                    i++;
-                }
-            }
-            int length3 = bArr.length % 3;
-            if (length3 == 1) {
-                int i9 = i + 1;
-                byte[] bArr4 = a;
-                bArr2[i] = bArr4[(bArr[length2] & 255) >> 2];
-                int i10 = i9 + 1;
-                bArr2[i9] = bArr4[(bArr[length2] & 3) << 4];
-                int i11 = i10 + 1;
-                bArr2[i10] = BaseNCodec.PAD_DEFAULT;
-                i = i11 + 1;
-                bArr2[i11] = BaseNCodec.PAD_DEFAULT;
-            } else if (length3 == 2) {
-                int i12 = i + 1;
-                byte[] bArr5 = a;
-                bArr2[i] = bArr5[(bArr[length2] & 255) >> 2];
-                int i13 = i12 + 1;
-                int i14 = length2 + 1;
-                bArr2[i12] = bArr5[((bArr[i14] & 255) >> 4) | ((bArr[length2] & 3) << 4)];
-                int i15 = i13 + 1;
-                bArr2[i13] = bArr5[(bArr[i14] & 15) << 2];
-                i = i15 + 1;
-                bArr2[i15] = BaseNCodec.PAD_DEFAULT;
-            }
-            return new String(bArr2, 0, i, str);
-        }
-        return (String) invokeLL.objValue;
     }
 }

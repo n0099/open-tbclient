@@ -21,16 +21,16 @@ public class al {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public SharedPreferences f95a;
+    public SharedPreferences f96a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Object f96a;
+    public Object f97a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map<String, ScheduledFuture> f97a;
+    public Map<String, ScheduledFuture> f98a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ScheduledThreadPoolExecutor f98a;
+    public ScheduledThreadPoolExecutor f99a;
 
     /* loaded from: classes8.dex */
     public static abstract class a implements Runnable {
@@ -117,10 +117,10 @@ public class al {
                 return;
             }
         }
-        this.f98a = new ScheduledThreadPoolExecutor(1);
-        this.f97a = new HashMap();
-        this.f96a = new Object();
-        this.f95a = context.getSharedPreferences("mipush_extra", 0);
+        this.f99a = new ScheduledThreadPoolExecutor(1);
+        this.f98a = new HashMap();
+        this.f97a = new Object();
+        this.f96a = context.getSharedPreferences("mipush_extra", 0);
     }
 
     public static al a(Context context) {
@@ -153,8 +153,8 @@ public class al {
         ScheduledFuture scheduledFuture;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, aVar)) == null) {
-            synchronized (this.f96a) {
-                scheduledFuture = this.f97a.get(aVar.mo207a());
+            synchronized (this.f97a) {
+                scheduledFuture = this.f98a.get(aVar.mo207a());
             }
             return scheduledFuture;
         }
@@ -171,7 +171,7 @@ public class al {
     public void a(Runnable runnable, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, i) == null) {
-            this.f98a.schedule(runnable, i, TimeUnit.SECONDS);
+            this.f99a.schedule(runnable, i, TimeUnit.SECONDS);
         }
     }
 
@@ -204,15 +204,15 @@ public class al {
             String a2 = a(aVar.mo207a());
             am amVar = new am(this, aVar, z, a2);
             if (!z) {
-                long abs = Math.abs(System.currentTimeMillis() - this.f95a.getLong(a2, 0L)) / 1000;
+                long abs = Math.abs(System.currentTimeMillis() - this.f96a.getLong(a2, 0L)) / 1000;
                 if (abs < i - i2) {
                     i2 = (int) (i - abs);
                 }
             }
             try {
-                ScheduledFuture<?> scheduleAtFixedRate = this.f98a.scheduleAtFixedRate(amVar, i2, i, TimeUnit.SECONDS);
-                synchronized (this.f96a) {
-                    this.f97a.put(aVar.mo207a(), scheduleAtFixedRate);
+                ScheduledFuture<?> scheduleAtFixedRate = this.f99a.scheduleAtFixedRate(amVar, i2, i, TimeUnit.SECONDS);
+                synchronized (this.f97a) {
+                    this.f98a.put(aVar.mo207a(), scheduleAtFixedRate);
                 }
                 return true;
             } catch (Exception e) {
@@ -228,12 +228,12 @@ public class al {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            synchronized (this.f96a) {
-                ScheduledFuture scheduledFuture = this.f97a.get(str);
+            synchronized (this.f97a) {
+                ScheduledFuture scheduledFuture = this.f98a.get(str);
                 if (scheduledFuture == null) {
                     return false;
                 }
-                this.f97a.remove(str);
+                this.f98a.remove(str);
                 return scheduledFuture.cancel(false);
             }
         }
@@ -247,9 +247,9 @@ public class al {
             if (aVar == null || a(aVar) != null) {
                 return false;
             }
-            ScheduledFuture<?> schedule = this.f98a.schedule(new an(this, aVar), i, TimeUnit.SECONDS);
-            synchronized (this.f96a) {
-                this.f97a.put(aVar.mo207a(), schedule);
+            ScheduledFuture<?> schedule = this.f99a.schedule(new an(this, aVar), i, TimeUnit.SECONDS);
+            synchronized (this.f97a) {
+                this.f98a.put(aVar.mo207a(), schedule);
             }
             return true;
         }

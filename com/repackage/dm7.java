@@ -1,118 +1,121 @@
 package com.repackage;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.myCollection.baseEditMark.MarkModel;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.imageManager.TbFaceManager;
+import com.baidu.tieba.R;
+import com.baidu.tieba.memberCenter.tail.data.TailData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kl4;
-/* loaded from: classes5.dex */
-public class dm7 extends kl4 {
+/* loaded from: classes6.dex */
+public class dm7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MarkModel a;
+    public View a;
+    public TailData b;
+    public TextView c;
+    public TextView d;
+    public Context e;
+    public String f;
 
-    public dm7(BaseActivity baseActivity) {
+    public dm7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = null;
-        this.a = new MarkModel(baseActivity);
     }
 
-    @Override // com.repackage.kl4
-    public void a() {
+    public void a(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.D();
+        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
+            tbPageContext.getLayoutMode().l(TbadkCoreApplication.getInst().getSkinType() == 1);
+            tbPageContext.getLayoutMode().k(this.a);
+            d(this.f);
         }
     }
 
-    @Override // com.repackage.kl4
-    public void d() {
+    public View b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.E();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            this.e = context;
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0841, (ViewGroup) null);
+            this.a = inflate;
+            inflate.setTag(this);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092065);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092064);
+            this.d = textView;
+            textView.setTag(this);
+            return this.a;
         }
+        return (View) invokeL.objValue;
     }
 
-    @Override // com.repackage.kl4
-    public boolean e() {
+    public TailData c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.F() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (TailData) invokeV.objValue;
     }
 
-    @Override // com.repackage.kl4
-    public MarkData f() {
-        InterceptResult invokeV;
+    public final void d(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.G() : (MarkData) invokeV.objValue;
-    }
-
-    @Override // com.repackage.kl4
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.H() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.kl4
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.a.I(z);
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.f = str;
+            this.c.setTextColor(sm7.a(str));
         }
     }
 
-    @Override // com.repackage.kl4
-    public void i(MarkData markData) {
+    public final void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, markData) == null) {
-            this.a.J(markData);
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.c.setText(TbFaceManager.i().t(this.e, tm7.a(str), null));
         }
     }
 
-    @Override // com.repackage.kl4
-    public void j(kl4.a aVar) {
+    public void f(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.a.K(aVar);
+        if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
+            this.d.setOnClickListener(onClickListener);
         }
     }
 
-    public dm7(BaseFragmentActivity baseFragmentActivity) {
+    public void g(Boolean bool) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(1048582, this, bool) == null) {
+            this.d.setVisibility(bool.booleanValue() ? 0 : 8);
         }
-        this.a = null;
-        this.a = new MarkModel(baseFragmentActivity);
+    }
+
+    public void h(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, onClickListener) == null) {
+            this.a.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void i(TailData tailData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tailData) == null) {
+            this.b = tailData;
+            e(tailData.getContent());
+            d(tailData.getFontColor());
+        }
     }
 }

@@ -1,9 +1,14 @@
 package com.repackage;
+
+import android.view.KeyEvent;
+import android.view.MotionEvent;
 /* loaded from: classes7.dex */
 public interface yz1 {
-    void a();
+    boolean dispatchTouchEvent(MotionEvent motionEvent);
 
-    void b();
+    boolean onKeyDown(int i, KeyEvent keyEvent);
 
-    void c();
+    void onScrollChanged(int i, int i2, int i3, int i4);
+
+    boolean onTouchEvent(MotionEvent motionEvent);
 }

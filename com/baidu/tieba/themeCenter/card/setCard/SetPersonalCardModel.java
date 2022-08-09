@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mn8;
-import com.repackage.wh8;
-import com.repackage.za;
+import com.repackage.ab;
+import com.repackage.dq8;
+import com.repackage.kk8;
 /* loaded from: classes4.dex */
 public class SetPersonalCardModel extends BdBaseModel<BaseActivity<Object>> {
     public static /* synthetic */ Interceptable $ic = null;
@@ -27,10 +27,10 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<Object>> {
     public boolean c;
     public boolean d;
     public b e;
-    public za f;
+    public ab f;
 
     /* loaded from: classes4.dex */
-    public class a extends za {
+    public class a extends ab {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SetPersonalCardModel a;
@@ -57,7 +57,7 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<Object>> {
             this.a = setPersonalCardModel;
         }
 
-        @Override // com.repackage.za
+        @Override // com.repackage.ab
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
@@ -68,9 +68,9 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<Object>> {
                 boolean z = responsedMessage instanceof SetPersonalCardHttpResponse;
                 if (z || (responsedMessage instanceof SetPersonalCardSocketResponse)) {
                     if (responsedMessage.getError() == 0) {
-                        this.a.H(true);
+                        this.a.G(true);
                     } else {
-                        this.a.H(false);
+                        this.a.G(false);
                     }
                     if (z) {
                         SetPersonalCardHttpResponse setPersonalCardHttpResponse = (SetPersonalCardHttpResponse) responsedMessage;
@@ -82,9 +82,9 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<Object>> {
                         this.a.setType(setPersonalCardSocketResponse.getType());
                     }
                     if (this.a.e != null) {
-                        int i = mn8.b;
-                        if (responsedMessage.getError() == mn8.c) {
-                            i = mn8.a;
+                        int i = dq8.b;
+                        if (responsedMessage.getError() == dq8.c) {
+                            i = dq8.a;
                         }
                         this.a.e.a(this.a.c, this.a.a, this.a.b, responsedMessage.getErrorString(), i);
                     }
@@ -114,19 +114,19 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<Object>> {
         this.c = false;
         this.d = false;
         this.f = new a(this, CmdConfigHttp.CMD_SET_PERSONAL_CARD, 309345);
-        wh8.h(309345, SetPersonalCardSocketResponse.class, false, false);
-        wh8.c(309345, CmdConfigHttp.CMD_SET_PERSONAL_CARD, TbConfig.SET_PERSONAL_CARD, SetPersonalCardHttpResponse.class, false, false, false, false);
+        kk8.h(309345, SetPersonalCardSocketResponse.class, false, false);
+        kk8.c(309345, CmdConfigHttp.CMD_SET_PERSONAL_CARD, TbConfig.SET_PERSONAL_CARD, SetPersonalCardHttpResponse.class, false, false, false, false);
         registerListener(this.f);
     }
 
-    public void F(b bVar) {
+    public void E(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             this.e = bVar;
         }
     }
 
-    public void G(long j, int i) {
+    public void F(long j, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) || this.d) {
             return;
@@ -138,7 +138,7 @@ public class SetPersonalCardModel extends BdBaseModel<BaseActivity<Object>> {
         sendMessage(setPersonalCardRequest);
     }
 
-    public void H(boolean z) {
+    public void G(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             this.c = z;

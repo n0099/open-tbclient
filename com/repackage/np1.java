@@ -1,39 +1,41 @@
 package com.repackage;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Pair;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcher;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.storage.PathType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ik2;
-import com.repackage.mp1;
+import java.io.File;
+import java.net.URLConnection;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class np1 {
+public class np1 extends cp1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile np1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
 
     /* loaded from: classes6.dex */
-    public class a implements lv2 {
+    public class a implements ActivityResultConsumer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mp1.c a;
+        public final /* synthetic */ String a;
         public final /* synthetic */ np1 b;
 
-        public a(np1 np1Var, mp1.c cVar) {
+        public a(np1 np1Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {np1Var, cVar};
+                Object[] objArr = {np1Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,150 +46,121 @@ public class np1 {
                 }
             }
             this.b = np1Var;
-            this.a = cVar;
+            this.a = str;
         }
 
-        @Override // com.repackage.lv2
-        public void a(String str) {
+        @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
+        public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent) {
+            InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.b.c(this.a);
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, activityResultDispatcher, i, intent)) == null) {
+                this.b.d(this.a, new zs1(0));
+                return true;
             }
-        }
-
-        @Override // com.repackage.lv2
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                ix1.c("GetLocationHelper", str);
-                o73.b("getLocation", 5002, "user no permission", 10005, str);
-                this.b.a.f(this.a, str);
-            }
+            return invokeLIL.booleanValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements ik2.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mp1.c a;
-        public final /* synthetic */ np1 b;
-
-        public b(np1 np1Var, mp1.c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {np1Var, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = np1Var;
-            this.a = cVar;
-        }
-
-        @Override // com.repackage.ik2.a
-        public void a(h33 h33Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, h33Var) == null) {
-                this.b.a.g(this.a, h33Var);
-            }
-        }
-
-        @Override // com.repackage.ik2.a
-        public void onFailed(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                o73.b("getLocation", 4000, "sdk's errCode is " + i, 1001, String.valueOf(i));
-                this.b.a.b(this.a, i);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void b(mp1.c cVar, int i);
-
-        void f(mp1.c cVar, String str);
-
-        void g(mp1.c cVar, h33 h33Var);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755461918, "Lcom/repackage/np1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755461918, "Lcom/repackage/np1;");
-                return;
-            }
-        }
-        boolean z = sg1.a;
-    }
-
-    public np1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public np1(@NonNull ap1 ap1Var) {
+        super(ap1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ap1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ap1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static np1 d() {
+    @Override // com.repackage.cp1
+    public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (b == null) {
-                synchronized (np1.class) {
-                    if (b == null) {
-                        b = new np1();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "File" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.cp1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "FileApi" : (String) invokeV.objValue;
+    }
+
+    public final String x(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            int lastIndexOf = str.lastIndexOf("/");
+            if (lastIndexOf > 0) {
+                String contentTypeFor = URLConnection.getFileNameMap().getContentTypeFor(str.substring(lastIndexOf + 1));
+                return !TextUtils.isEmpty(contentTypeFor) ? contentTypeFor : "*/*";
+            }
+            return "*/*";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public zs1 y(String str) {
+        InterceptResult invokeL;
+        Uri fromFile;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            q("#shareFile", false);
+            if (n()) {
+                zx1.c("FileApi", "FileApi does not supported when app is invisible.");
+                return new zs1(1001, "FileApi does not supported when app is invisible.");
+            }
+            Pair<zs1, JSONObject> s = s(str);
+            zs1 zs1Var = (zs1) s.first;
+            if (zs1Var.isSuccess()) {
+                JSONObject jSONObject = (JSONObject) s.second;
+                String optString = jSONObject.optString("filePath");
+                String M = h83.M(optString, z03.g0());
+                if (!TextUtils.isEmpty(optString) && h83.s(optString) == PathType.BD_FILE && !TextUtils.isEmpty(M)) {
+                    String optString2 = jSONObject.optString("cb");
+                    if (TextUtils.isEmpty(optString2)) {
+                        zx1.c("FileApi", "cb is required");
+                        return new zs1(202, "cb is required");
                     }
+                    File file = new File(M);
+                    if (file.exists() && !file.isDirectory()) {
+                        SwanAppActivity activity = mm2.U().getActivity();
+                        if (activity == null) {
+                            zx1.c("FileApi", "activity null");
+                            return new zs1(1001, "activity null");
+                        }
+                        ActivityResultDispatcher resultDispatcher = activity.getResultDispatcher();
+                        Intent intent = new Intent();
+                        if (gd3.i()) {
+                            fromFile = we3.a(activity, file);
+                            intent.setFlags(3);
+                        } else {
+                            fromFile = Uri.fromFile(file);
+                        }
+                        intent.setAction("android.intent.action.SEND");
+                        intent.putExtra("android.intent.extra.STREAM", fromFile);
+                        intent.setType(x(M));
+                        resultDispatcher.addConsumer(new a(this, optString2));
+                        resultDispatcher.startActivityForResult(Intent.createChooser(intent, "分享到..."));
+                        return zs1.f();
+                    }
+                    zx1.c("FileApi", "file not exists");
+                    return new zs1(1001, "file not exists");
                 }
+                zx1.c("FileApi", "a valid filePath is required");
+                return new zs1(202, "a valid filePath is required");
             }
-            return b;
+            return zs1Var;
         }
-        return (np1) invokeV.objValue;
-    }
-
-    public final void c(mp1.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            String str = "gcj02";
-            if (!TextUtils.equals(cVar.a, "gcj02")) {
-                str = TextUtils.equals(cVar.a, "bd09ll") ? "bd09ll" : CoordinateType.WGS84;
-            }
-            pj2.I().b(str, false, cVar.b, new b(this, cVar));
-        }
-    }
-
-    public void e(@NonNull mp1.c cVar, @NonNull c cVar2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, cVar2, z) == null) {
-            this.a = cVar2;
-            if (ce3.M()) {
-                c(cVar);
-            } else if (z) {
-                o73.b("getLocation", 1002, "GetLocation does not supported when app is invisible", 10005, "GetLocation does not supported when app is invisible");
-                this.a.f(cVar, "GetLocation does not supported when app is invisible");
-            } else {
-                kv2.g(h03.K().w(), new String[]{com.kuaishou.weapon.p0.h.g, com.kuaishou.weapon.p0.h.h}, 0, new a(this, cVar));
-            }
-        }
+        return (zs1) invokeL.objValue;
     }
 }

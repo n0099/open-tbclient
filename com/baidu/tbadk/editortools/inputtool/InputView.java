@@ -23,16 +23,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.k15;
-import com.repackage.l86;
-import com.repackage.m86;
-import com.repackage.mx4;
-import com.repackage.tw8;
-import com.repackage.w15;
+import com.repackage.da6;
+import com.repackage.ea6;
+import com.repackage.gy4;
+import com.repackage.h25;
+import com.repackage.jz8;
+import com.repackage.t25;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 /* loaded from: classes3.dex */
-public class InputView extends EditText implements w15 {
+public class InputView extends EditText implements t25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EditorTools a;
@@ -73,7 +73,7 @@ public class InputView extends EditText implements w15 {
                 return;
             }
             InputView inputView = this.a;
-            inputView.L(new k15(4, -1, inputView.getText().toString()));
+            inputView.J(new h25(4, -1, inputView.getText().toString()));
         }
 
         @Override // android.text.TextWatcher
@@ -128,8 +128,8 @@ public class InputView extends EditText implements w15 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 1) {
-                    this.a.L(new k15(5, -1, null));
-                    this.a.L(new k15(64, -1, null));
+                    this.a.J(new h25(5, -1, null));
+                    this.a.J(new h25(64, -1, null));
                     this.a.requestFocus();
                 }
                 return false;
@@ -139,7 +139,7 @@ public class InputView extends EditText implements w15 {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements m86.h {
+    public class c implements ea6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ InputView a;
@@ -162,14 +162,14 @@ public class InputView extends EditText implements w15 {
             this.a = inputView;
         }
 
-        @Override // com.repackage.m86.h
+        @Override // com.repackage.ea6.h
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
                 this.a.setText(spannableStringBuilder);
                 InputView inputView = this.a;
                 inputView.setSelection(inputView.getText().length());
-                this.a.L(new k15(5, -1, null));
+                this.a.J(new h25(5, -1, null));
                 this.a.requestFocus();
             }
         }
@@ -201,9 +201,9 @@ public class InputView extends EditText implements w15 {
         setMinHeight(context.getResources().getDimensionPixelSize(R.dimen.tbds104));
         setMaxLines(5);
         if (z) {
-            setHint(context.getString(R.string.obfuscated_res_0x7f0f08a8));
+            setHint(context.getString(R.string.obfuscated_res_0x7f0f08bc));
         }
-        tw8.l(this, R.drawable.obfuscated_res_0x7f0804ac);
+        jz8.l(this, R.drawable.obfuscated_res_0x7f0804ae);
         int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.M_W_X006);
         int dimensionPixelSize2 = context.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
         setPadding(dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2);
@@ -212,18 +212,18 @@ public class InputView extends EditText implements w15 {
         setOnTouchListener(new b(this));
     }
 
-    @Override // com.repackage.l15
-    public void C(k15 k15Var) {
+    @Override // com.repackage.i25
+    public void A(h25 h25Var) {
         Object obj;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, k15Var) == null) || k15Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, h25Var) == null) || h25Var == null) {
             return;
         }
-        int i = k15Var.a;
+        int i = h25Var.a;
         if (i == 3) {
             if (getSelectionStart() > 0) {
                 String substring = getText().toString().substring(0, getSelectionStart());
-                Matcher matcher = l86.b.matcher(substring);
+                Matcher matcher = da6.b.matcher(substring);
                 if (matcher.find()) {
                     getText().delete(getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), getSelectionStart());
                 } else {
@@ -231,46 +231,54 @@ public class InputView extends EditText implements w15 {
                 }
             }
         } else if (i == 6) {
-            Object obj2 = k15Var.c;
+            Object obj2 = h25Var.c;
             if (obj2 == null) {
                 setText((CharSequence) null);
             } else if (obj2 instanceof String) {
                 if (TextUtils.isEmpty((String) obj2)) {
                     setText((CharSequence) null);
                 } else {
-                    m86.f(getContext(), (String) k15Var.c, new c(this));
+                    ea6.f(getContext(), (String) h25Var.c, new c(this));
                 }
             }
         } else if (i == 9) {
-            if (((Boolean) k15Var.c).booleanValue()) {
+            if (((Boolean) h25Var.c).booleanValue()) {
                 setText((CharSequence) null);
             }
         } else if (i == 17) {
-            Object obj3 = k15Var.c;
+            Object obj3 = h25Var.c;
             if (obj3 == null || !(obj3 instanceof ArrayList)) {
                 return;
             }
             e((ArrayList) obj3);
         } else if (i == 24) {
-            g(k15Var);
-        } else if (i == 44 && (obj = k15Var.c) != null && (obj instanceof String)) {
+            g(h25Var);
+        } else if (i == 44 && (obj = h25Var.c) != null && (obj instanceof String)) {
             f((String) obj);
         }
     }
 
-    @Override // com.repackage.w15
-    public void L(k15 k15Var) {
+    @Override // com.repackage.t25
+    public void J(h25 h25Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k15Var) == null) || (editorTools = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h25Var) == null) || (editorTools = this.a) == null) {
             return;
         }
-        editorTools.A(k15Var);
+        editorTools.A(h25Var);
+    }
+
+    @Override // com.repackage.t25
+    public void display() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            setVisibility(0);
+        }
     }
 
     public final void e(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) || arrayList == null || arrayList.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) || arrayList == null || arrayList.size() == 0) {
             return;
         }
         StringBuilder sb = new StringBuilder();
@@ -285,98 +293,90 @@ public class InputView extends EditText implements w15 {
 
     public final void f(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || StringUtils.isNull(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || StringUtils.isNull(str)) {
             return;
         }
         getText().insert(getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
     }
 
-    public final void g(k15 k15Var) {
+    public final void g(h25 h25Var) {
         Object obj;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, k15Var) == null) || k15Var == null || (obj = k15Var.c) == null || !(obj instanceof mx4)) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, h25Var) == null) || h25Var == null || (obj = h25Var.c) == null || !(obj instanceof gy4)) {
             return;
         }
-        mx4 mx4Var = (mx4) obj;
-        if (mx4Var.getType() == EmotionGroupType.NET_SUG) {
-            i(mx4Var);
+        gy4 gy4Var = (gy4) obj;
+        if (gy4Var.getType() == EmotionGroupType.NET_SUG) {
+            i(gy4Var);
         } else {
-            h(mx4Var);
+            h(gy4Var);
         }
     }
 
-    @Override // com.repackage.w15
+    @Override // com.repackage.t25
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    public final void h(mx4 mx4Var) {
+    public final void h(gy4 gy4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, mx4Var) == null) {
-            if (!this.c || mx4Var.getType() == EmotionGroupType.LOCAL) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, gy4Var) == null) {
+            if (!this.c || gy4Var.getType() == EmotionGroupType.LOCAL) {
                 String obj = getText().toString();
-                if (this.d && l86.a(obj) >= 10 && getContext() != null) {
-                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f13f3);
+                if (this.d && da6.a(obj) >= 10 && getContext() != null) {
+                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1431);
                 } else {
-                    m86.b(getContext(), mx4Var, this);
+                    ea6.b(getContext(), gy4Var, this);
                 }
             }
         }
     }
 
-    @Override // com.repackage.w15
+    @Override // com.repackage.t25
     public void hide() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             setVisibility(8);
         }
     }
 
-    public final void i(mx4 mx4Var) {
+    public final void i(gy4 gy4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mx4Var) == null) || mx4Var == null || TextUtils.isEmpty(mx4Var.d()) || TextUtils.isEmpty(mx4Var.g())) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, gy4Var) == null) || gy4Var == null || TextUtils.isEmpty(gy4Var.d()) || TextUtils.isEmpty(gy4Var.g())) {
             return;
         }
         String obj = getText().toString();
-        if (this.d && l86.a(obj) >= 10 && getContext() != null) {
-            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f13f3);
+        if (this.d && da6.a(obj) >= 10 && getContext() != null) {
+            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1431);
         } else {
-            m86.c(getContext(), mx4Var, this);
+            ea6.c(getContext(), gy4Var, this);
         }
     }
 
-    @Override // com.repackage.w15
+    @Override // com.repackage.t25
     public void init() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
         }
     }
 
-    @Override // com.repackage.w15
+    @Override // com.repackage.t25
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             SkinManager.setViewTextColor(this, R.color.CAM_X0105, 2, i);
             if (i == 0) {
-                tw8.l(this, R.drawable.obfuscated_res_0x7f0804ac);
+                jz8.l(this, R.drawable.obfuscated_res_0x7f0804ae);
             } else {
-                tw8.l(this, R.drawable.obfuscated_res_0x7f0804ad);
+                jz8.l(this, R.drawable.obfuscated_res_0x7f0804af);
             }
             setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0109));
         }
     }
 
-    @Override // com.repackage.w15
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            setVisibility(0);
-        }
-    }
-
-    @Override // com.repackage.w15
+    @Override // com.repackage.t25
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, editorTools) == null) {
@@ -398,7 +398,7 @@ public class InputView extends EditText implements w15 {
         }
     }
 
-    @Override // com.repackage.w15
+    @Override // com.repackage.t25
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {

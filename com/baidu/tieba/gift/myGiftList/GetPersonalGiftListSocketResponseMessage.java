@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yr6;
+import com.repackage.rt6;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetMyGift.GetMyGiftResIdl;
@@ -16,7 +16,7 @@ import tbclient.GetMyGift.GetMyGiftResIdl;
 public class GetPersonalGiftListSocketResponseMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yr6 giftListData;
+    public rt6 giftListData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetPersonalGiftListSocketResponseMessage() {
@@ -51,24 +51,24 @@ public class GetPersonalGiftListSocketResponseMessage extends TbSocketReponsedMe
                 setError(error.errorno.intValue());
                 setErrorString(getMyGiftResIdl.error.usermsg);
             }
-            yr6 yr6Var = new yr6();
-            this.giftListData = yr6Var;
-            yr6Var.f(getMyGiftResIdl.data);
+            rt6 rt6Var = new rt6();
+            this.giftListData = rt6Var;
+            rt6Var.f(getMyGiftResIdl.data);
             return getMyGiftResIdl;
         }
         return invokeIL.objValue;
     }
 
-    public yr6 getGiftListData() {
+    public rt6 getGiftListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.giftListData : (yr6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.giftListData : (rt6) invokeV.objValue;
     }
 
-    public void setGiftListData(yr6 yr6Var) {
+    public void setGiftListData(rt6 rt6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yr6Var) == null) {
-            this.giftListData = yr6Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rt6Var) == null) {
+            this.giftListData = rt6Var;
         }
     }
 }

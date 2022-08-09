@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.uu4;
+import com.repackage.ov4;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000P\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\u0018\u00002\u00020\u00012\u00020\u0002:\u0001\u001fB\u000f\b\u0016\u0012\u0006\u0010\u0003\u001a\u00020\u0004¢\u0006\u0002\u0010\u0005B\u0019\b\u0016\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\b\u0010\u0006\u001a\u0004\u0018\u00010\u0007¢\u0006\u0002\u0010\bB!\b\u0016\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\b\u0010\u0006\u001a\u0004\u0018\u00010\u0007\u0012\u0006\u0010\t\u001a\u00020\n¢\u0006\u0002\u0010\u000bJ\u0010\u0010\u0018\u001a\u00020\u00192\u0006\u0010\u0003\u001a\u00020\u0004H\u0002J\u000e\u0010\u001a\u001a\u00020\u00192\u0006\u0010\u001b\u001a\u00020\nJ\u0010\u0010\u001c\u001a\u00020\u00192\u0006\u0010\u001d\u001a\u00020\u001eH\u0016R\u0010\u0010\f\u001a\u0004\u0018\u00010\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000e\u001a\u0004\u0018\u00010\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0010\u001a\u0004\u0018\u00010\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u001c\u0010\u0012\u001a\u0004\u0018\u00010\u0013X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0014\u0010\u0015\"\u0004\b\u0016\u0010\u0017¨\u0006 "}, d2 = {"Lcom/baidu/tieba/videoplay/view/AttentionNotLoginLayout;", "Landroid/widget/LinearLayout;", "Landroid/view/View$OnClickListener;", "context", "Landroid/content/Context;", "(Landroid/content/Context;)V", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "emotionPic", "Landroid/widget/ImageView;", "loginButton", "Lcom/baidu/tbadk/core/view/commonBtn/TBSpecificationBtn;", "notLoginTextView", "Landroid/widget/TextView;", "onAttentionLogin", "Lcom/baidu/tieba/videoplay/view/AttentionNotLoginLayout$OnAttentionLogin;", "getOnAttentionLogin", "()Lcom/baidu/tieba/videoplay/view/AttentionNotLoginLayout$OnAttentionLogin;", "setOnAttentionLogin", "(Lcom/baidu/tieba/videoplay/view/AttentionNotLoginLayout$OnAttentionLogin;)V", "init", "", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "onClick", "v", "Landroid/view/View;", "OnAttentionLogin", "VideoPlay_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
@@ -63,21 +63,21 @@ public final class AttentionNotLoginLayout extends LinearLayout implements View.
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0121, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0122, (ViewGroup) this, true);
             Intrinsics.checkNotNullExpressionValue(inflate, "from(context).inflate(R.…login_layout, this, true)");
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0902be);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0902d1);
             if (findViewById != null) {
                 this.b = (ImageView) findViewById;
-                View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f0902c4);
+                View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f0902d7);
                 if (findViewById2 != null) {
                     this.a = (TextView) findViewById2;
-                    View findViewById3 = inflate.findViewById(R.id.obfuscated_res_0x7f0902c2);
+                    View findViewById3 = inflate.findViewById(R.id.obfuscated_res_0x7f0902d5);
                     if (findViewById3 != null) {
                         this.c = (TBSpecificationBtn) findViewById3;
-                        uu4 uu4Var = new uu4();
+                        ov4 ov4Var = new ov4();
                         TBSpecificationBtn tBSpecificationBtn = this.c;
                         if (tBSpecificationBtn != null) {
-                            tBSpecificationBtn.setText(context.getString(R.string.obfuscated_res_0x7f0f03db));
+                            tBSpecificationBtn.setText(context.getString(R.string.obfuscated_res_0x7f0f03e6));
                         }
                         TBSpecificationBtn tBSpecificationBtn2 = this.c;
                         if (tBSpecificationBtn2 != null) {
@@ -89,7 +89,7 @@ public final class AttentionNotLoginLayout extends LinearLayout implements View.
                         }
                         TBSpecificationBtn tBSpecificationBtn4 = this.c;
                         if (tBSpecificationBtn4 != null) {
-                            tBSpecificationBtn4.setConfig(uu4Var);
+                            tBSpecificationBtn4.setConfig(ov4Var);
                         }
                         TBSpecificationBtn tBSpecificationBtn5 = this.c;
                         if (tBSpecificationBtn5 == null) {
@@ -130,7 +130,7 @@ public final class AttentionNotLoginLayout extends LinearLayout implements View.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, v) == null) {
             Intrinsics.checkNotNullParameter(v, "v");
-            if (v.getId() == R.id.obfuscated_res_0x7f0902c2) {
+            if (v.getId() == R.id.obfuscated_res_0x7f0902d5) {
                 boolean checkUpIsLogin = ViewHelper.checkUpIsLogin(getContext());
                 if (!checkUpIsLogin) {
                     TbSingleton.loginFrom = 1;

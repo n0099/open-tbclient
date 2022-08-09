@@ -1,9 +1,16 @@
 package com.repackage;
 
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Pair;
+import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,101 +18,86 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bq2 extends oq1 {
+public abstract class bq2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bq2(@NonNull jo1 jo1Var) {
-        super(jo1Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755818418, "Lcom/repackage/bq2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755818418, "Lcom/repackage/bq2;");
+                return;
+            }
+        }
+        a = jh1.a;
+    }
+
+    public bq2(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jo1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((jo1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.repackage.lo1
-    public String j() {
-        InterceptResult invokeV;
+    public abstract boolean a(rp2 rp2Var, tp2 tp2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, z03 z03Var);
+
+    @Nullable
+    public rp2 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        xn2 f;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "UpdateMenuStyleApi" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
+            if (TextUtils.isEmpty(str3) || (f = yn2.f(str, str2, str3)) == null || !(f.i() instanceof rp2)) {
+                return null;
+            }
+            return (rp2) f.i();
+        }
+        return (rp2) invokeLLLLL.objValue;
     }
 
-    public is1 x(String str) {
-        InterceptResult invokeL;
+    public boolean c(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, z03 z03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#changeMenuStyle", false);
-            Pair<is1, JSONObject> s = s(str);
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (((is1) s.first).isSuccess() && jSONObject != null) {
-                String optString = jSONObject.optString("type");
-                if (TextUtils.isEmpty(optString)) {
-                    return new is1(202);
-                }
-                int y = y(optString);
-                vl2 U = vl2.U();
-                if (U == null) {
-                    return new is1(1001);
-                }
-                rz1 V = U.V();
-                if (V == null) {
-                    return new is1(1001);
-                }
-                oz1 m = V.m();
-                if (m == null) {
-                    return new is1(1001);
-                }
-                n64 O1 = m.O1();
-                if (O1 == null) {
-                    if (m instanceof vz1) {
-                        ((vz1) m).j3(y);
-                        return is1.f();
-                    }
-                    return new is1(1001);
-                }
-                O1.e(y);
-                O1.y();
-                return is1.f();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, z03Var)) == null) {
+            if (a) {
+                Log.d("VideoPlayerAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            return new is1(202);
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                zx1.c("video", "param is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
+            }
+            rp2 b = b(context, optParamsAsJo.optString("slaveId"), optParamsAsJo.optString("componentId"), optParamsAsJo.optString("componentId"), optParamsAsJo);
+            if (b != null && context != null) {
+                tp2 h = tp2.h(optParamsAsJo, b.g());
+                if (!h.isValid()) {
+                    zx1.c("video", "param is invalid");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
+                }
+                return a(b, h, context, unitedSchemeEntity, callbackHandler, z03Var);
+            }
+            zx1.c("video", "player id is invalid or context is null");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
         }
-        return (is1) invokeL.objValue;
-    }
-
-    public final int y(String str) {
-        InterceptResult invokeL;
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode != -1866956286) {
-                if (hashCode == -838846263 && str.equals("update")) {
-                    c = 0;
-                }
-                c = 65535;
-            } else {
-                if (str.equals("webDegrade")) {
-                    c = 1;
-                }
-                c = 65535;
-            }
-            if (c != 0) {
-                return c != 1 ? 12 : 20;
-            }
-            return 19;
-        }
-        return invokeL.intValue;
+        return invokeLLLL.booleanValue;
     }
 }

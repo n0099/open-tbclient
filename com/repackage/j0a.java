@@ -1,75 +1,34 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IAppPayServiceListener;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.AccountDelayMessage;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.ConsumeConfirmMessage;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import android.app.Activity;
+import android.view.ViewGroup;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
+import tv.athena.revenue.payui.view.AbsViewEventHandler;
+import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes6.dex */
-public final class j0a implements IAppPayServiceListener {
-    public static /* synthetic */ Interceptable $ic;
-    public static final j0a a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface j0a {
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755641098, "Lcom/repackage/j0a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755641098, "Lcom/repackage/j0a;");
-                return;
-            }
-        }
-        a = new j0a();
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(CancelType cancelType);
     }
 
-    public j0a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(CancelType cancelType);
+
+        void b();
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayServiceListener
-    public void onAccountDelayMessage(AccountDelayMessage accountDelayMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, accountDelayMessage) == null) {
-            RLog.debug("GiftEventCallbackImpl", "onAccountDelayMessage appId == " + accountDelayMessage.appid);
-        }
-    }
+    GiftBagsInfo a();
 
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayServiceListener
-    public void onConsumeConfirmMessage(ConsumeConfirmMessage consumeConfirmMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, consumeConfirmMessage) == null) {
-            RLog.debug("GiftEventCallbackImpl", "onConsumeConfirmMessage appId == " + consumeConfirmMessage.appid);
-        }
-    }
+    boolean b(Activity activity, b bVar, l0a l0aVar, AbsViewEventHandler absViewEventHandler);
 
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayServiceListener
-    public void onCurrencyChargeMessage(CurrencyChargeMessage currencyChargeMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, currencyChargeMessage) == null) {
-            RLog.debug("GiftEventCallbackImpl", "onCurrencyChargeMessage appId == " + currencyChargeMessage.appid);
-        }
-    }
+    void c(ViewGroup viewGroup, Activity activity);
+
+    void d(GiftBagsInfo giftBagsInfo);
+
+    boolean e(Activity activity, a aVar, l0a l0aVar, AbsViewEventHandler absViewEventHandler);
+
+    void f(GiftBagsInfo giftBagsInfo);
 }

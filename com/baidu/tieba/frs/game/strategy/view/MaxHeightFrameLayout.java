@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class MaxHeightFrameLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -47,9 +47,9 @@ public class MaxHeightFrameLayout extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             float f = this.b;
             if (f <= 0.0f) {
-                this.b = this.a * pi.i(getContext());
+                this.b = this.a * qi.i(getContext());
             } else {
-                this.b = Math.min(f, this.a * pi.i(getContext()));
+                this.b = Math.min(f, this.a * qi.i(getContext()));
             }
         }
     }
@@ -57,7 +57,7 @@ public class MaxHeightFrameLayout extends FrameLayout {
     public final void b(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040471, R.attr.obfuscated_res_0x7f040472});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0404cc, R.attr.obfuscated_res_0x7f0404cd});
             int indexCount = obtainStyledAttributes.getIndexCount();
             for (int i = 0; i < indexCount; i++) {
                 int index = obtainStyledAttributes.getIndex(i);

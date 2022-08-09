@@ -1,68 +1,124 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.TopicList.NewTopicList;
-/* loaded from: classes6.dex */
-public class op7 implements nn {
+import com.repackage.nb;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+/* loaded from: classes7.dex */
+public class op7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public int b;
-    public String c;
-    public String d;
-    public long e;
-    public String f;
-    public int g;
-    public int h;
 
-    public op7(@NonNull NewTopicList newTopicList, int i) {
+    public static Bitmap a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {newTopicList, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            Bitmap bitmap = null;
+            try {
+                File file = new File(str);
+                if (file.exists()) {
+                    if (c(file)) {
+                        zm zmVar = nb.a.b().get(str);
+                        if (zmVar != null) {
+                            bitmap = zmVar.p();
+                        }
+                    } else {
+                        BitmapFactory.Options options = new BitmapFactory.Options();
+                        options.inJustDecodeBounds = true;
+                        BitmapFactory.decodeFile(str, options);
+                        bitmap = BitmapHelper.loadResizedBitmap(str, options.outWidth, options.outHeight);
+                    }
+                }
+            } catch (OutOfMemoryError unused) {
             }
+            return bitmap;
         }
-        this.b = i + 1;
-        this.c = newTopicList.topic_name;
-        this.d = newTopicList.topic_desc;
-        this.e = newTopicList.discuss_num.longValue();
-        this.f = newTopicList.topic_image;
-        this.g = newTopicList.topic_tag.intValue();
-        this.a = newTopicList.topic_id.longValue();
-        this.h = newTopicList.is_video_topic.intValue();
+        return (Bitmap) invokeL.objValue;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public static Bitmap b(ImageFileInfo imageFileInfo) {
+        InterceptResult invokeL;
+        Bitmap f;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.h : invokeV.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imageFileInfo)) == null) {
+            l55 l55Var = new l55();
+            zm c = l55Var.c(imageFileInfo, true);
+            if (c != null) {
+                f = c.p();
+            } else {
+                f = l55Var.f(imageFileInfo, true);
+            }
+            return f == null ? a(imageFileInfo.getFilePath()) : f;
+        }
+        return (Bitmap) invokeL.objValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public static boolean c(File file) {
+        InterceptResult invokeL;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h == 1 : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.nn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? np7.a : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
+            FileInputStream fileInputStream2 = null;
+            try {
+                try {
+                    try {
+                        fileInputStream = new FileInputStream(file);
+                    } catch (Throwable th) {
+                        th = th;
+                    }
+                } catch (FileNotFoundException e) {
+                    e = e;
+                } catch (IOException e2) {
+                    e = e2;
+                }
+            } catch (Exception e3) {
+                e3.printStackTrace();
+            }
+            try {
+                byte[] bArr = new byte[7];
+                r1 = fileInputStream.read(bArr, 0, 6) == 6 ? qi.B(bArr) : false;
+                fileInputStream.close();
+            } catch (FileNotFoundException e4) {
+                e = e4;
+                fileInputStream2 = fileInputStream;
+                e.printStackTrace();
+                if (fileInputStream2 != null) {
+                    fileInputStream2.close();
+                }
+                return r1;
+            } catch (IOException e5) {
+                e = e5;
+                fileInputStream2 = fileInputStream;
+                e.printStackTrace();
+                if (fileInputStream2 != null) {
+                    fileInputStream2.close();
+                }
+                return r1;
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream2 = fileInputStream;
+                if (fileInputStream2 != null) {
+                    try {
+                        fileInputStream2.close();
+                    } catch (Exception e6) {
+                        e6.printStackTrace();
+                    }
+                }
+                throw th;
+            }
+            if (0 != 0) {
+                fileInputStream2.close();
+            }
+            return r1;
+        }
+        return invokeL.booleanValue;
     }
 }

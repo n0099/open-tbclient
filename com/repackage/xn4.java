@@ -1,62 +1,66 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.data.PersonPrivateData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.AppCode;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
 public class xn4 {
     public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, Integer> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    public xn4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755165837, "Lcom/repackage/xn4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755165837, "Lcom/repackage/xn4;");
+                return;
             }
         }
+        a = new HashMap<>();
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            String str = TbadkCoreApplication.getCurrentAccount() + "@" + i;
+            if (a.containsKey(str)) {
+                return a.get(str).intValue();
+            }
+            a.put(str, 1);
+            return 1;
+        }
+        return invokeI.intValue;
     }
 
-    public void b(JSONObject jSONObject) {
+    public static void b(PersonPrivateData personPrivateData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(65538, null, personPrivateData) == null) || personPrivateData == null) {
             return;
         }
-        try {
-            jSONObject.optString("game_icon");
-            this.a = jSONObject.optString("post_url");
-            jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
-        } catch (Exception e) {
-            BdLog.e(e.toString());
-        }
-    }
-
-    public void c(AppCode appCode) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, appCode) == null) || appCode == null) {
+        String str = TbadkCoreApplication.getCurrentAccount() + "@2";
+        int z = personPrivateData.z();
+        if (a.containsKey(str)) {
             return;
         }
-        String str = appCode.game_icon;
-        this.a = appCode.post_url;
-        String str2 = appCode.button_text;
+        a.put(str, Integer.valueOf(z));
+    }
+
+    public static void c(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65539, null, i, i2) == null) {
+            a.put(TbadkCoreApplication.getCurrentAccount() + "@" + i, Integer.valueOf(i2));
+        }
     }
 }

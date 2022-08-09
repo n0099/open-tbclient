@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.util.Log;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
@@ -84,7 +85,7 @@ public class NpsLoadChainLog {
     public JSONObject genNodeJsonObj(int i, int i2, String str) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65557, this, i, i2, str)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65558, this, i, i2, str)) == null) {
             JSONObject genNodeJsonObj = genNodeJsonObj(i, i2);
             try {
                 genNodeJsonObj.put("errorMsg", str);
@@ -97,9 +98,31 @@ public class NpsLoadChainLog {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    public JSONObject genNodeJsonObjWithTime(int i, int i2, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65559, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("time", j);
+                if (-1 != i) {
+                    jSONObject.put("status", i);
+                }
+                if (1 != i && Integer.MIN_VALUE != i2) {
+                    jSONObject.put("errorCode", i2);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeCommon.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
     public void genSessionId() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65558, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65561, this) == null) {
             this.sessionId = this.appService.getCuid() + "-" + System.currentTimeMillis();
         }
     }
@@ -107,7 +130,7 @@ public class NpsLoadChainLog {
     public static NpsLoadChainLog getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) {
             if (sInstance == null) {
                 sInstance = Holder.INSTANCE;
             }
@@ -119,7 +142,7 @@ public class NpsLoadChainLog {
     private boolean isDebug() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65560, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65563, this)) == null) {
             AppInfoService appInfoService = this.appService;
             if (appInfoService != null) {
                 return appInfoService.isDebug();
@@ -133,7 +156,7 @@ public class NpsLoadChainLog {
     public boolean notLogPathNode(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65561, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65564, this, str)) == null) {
             String str2 = this.pathTemp;
             if (str2 == null) {
                 return false;
@@ -148,7 +171,7 @@ public class NpsLoadChainLog {
 
     private void postTask(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65562, this, runnable) == null) || runnable == null) {
+        if (!(interceptable == null || interceptable.invokeL(65565, this, runnable) == null) || runnable == null) {
             return;
         }
         if (Looper.myLooper() == this.mSubHandler.getLooper()) {
@@ -163,7 +186,7 @@ public class NpsLoadChainLog {
     /* JADX INFO: Access modifiers changed from: private */
     public void ubcLog() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65563, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65566, this) == null) {
             JSONObject jSONObject = new JSONObject();
             long currentTimeMillis = System.currentTimeMillis();
             try {
@@ -254,7 +277,7 @@ public class NpsLoadChainLog {
     public void endInitYY(boolean z, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, str) == null) {
-            postTask(new Runnable(this, z, str) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.19
+            postTask(new Runnable(this, z, str) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.21
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ NpsLoadChainLog this$0;
@@ -703,7 +726,6 @@ public class NpsLoadChainLog {
                         this.this$0.hostVersion = "";
                         this.this$0.pathJsonObj = null;
                         this.this$0.pathTemp = "";
-                        this.this$0.mSubHandler.removeCallbacksAndMessages(null);
                     }
                 }
             });
@@ -854,7 +876,7 @@ public class NpsLoadChainLog {
     public void startInitYY() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            postTask(new Runnable(this) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.18
+            postTask(new Runnable(this) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.20
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ NpsLoadChainLog this$0;
@@ -1173,6 +1195,107 @@ public class NpsLoadChainLog {
         }
     }
 
+    public void yyMinilibUbc(String str, long j, @Nullable Boolean bool, @Nullable String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{str, Long.valueOf(j), bool, str2}) == null) {
+            if (bool == null) {
+                postTask(new Runnable(this, str, j) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.18
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ NpsLoadChainLog this$0;
+                    public final /* synthetic */ String val$tag;
+                    public final /* synthetic */ long val$time;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, str, Long.valueOf(j)};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$tag = str;
+                        this.val$time = j;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode(this.val$tag) || this.this$0.pathJsonObj == null) {
+                            return;
+                        }
+                        NpsLoadChainLog npsLoadChainLog = this.this$0;
+                        npsLoadChainLog.pathTemp = this.this$0.pathTemp + this.val$tag;
+                        try {
+                            this.this$0.pathJsonObj.put(this.val$tag, this.this$0.genNodeJsonObjWithTime(-1, Integer.MIN_VALUE, this.val$time));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        this.this$0.showPathAndDuration();
+                        this.this$0.ubcLog();
+                    }
+                });
+            } else {
+                postTask(new Runnable(this, str, bool, str2, j) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.19
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ NpsLoadChainLog this$0;
+                    public final /* synthetic */ String val$errorMsg;
+                    public final /* synthetic */ Boolean val$isSucc;
+                    public final /* synthetic */ String val$tag;
+                    public final /* synthetic */ long val$time;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, str, bool, str2, Long.valueOf(j)};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$tag = str;
+                        this.val$isSucc = bool;
+                        this.val$errorMsg = str2;
+                        this.val$time = j;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.notLogPathNode(this.val$tag) || this.this$0.pathJsonObj == null) {
+                            return;
+                        }
+                        NpsLoadChainLog npsLoadChainLog = this.this$0;
+                        npsLoadChainLog.pathTemp = this.this$0.pathTemp + this.val$tag;
+                        try {
+                            this.this$0.pathJsonObj.put(this.val$tag, this.this$0.genNodeJsonObjWithTime(this.val$isSucc.booleanValue() ? 1 : 0, Integer.MIN_VALUE, this.val$errorMsg, this.val$time));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        this.this$0.showPathAndDuration();
+                        this.this$0.ubcLog();
+                    }
+                });
+            }
+        }
+    }
+
     public NpsLoadChainLog() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1203,7 +1326,7 @@ public class NpsLoadChainLog {
     public JSONObject genNodeJsonObj(int i, int i2, long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65557, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)})) == null) {
             JSONObject genNodeJsonObj = genNodeJsonObj(i, i2);
             try {
                 genNodeJsonObj.put("downloadSize", j);
@@ -1217,10 +1340,26 @@ public class NpsLoadChainLog {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    public JSONObject genNodeJsonObjWithTime(int i, int i2, String str, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65560, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, Long.valueOf(j)})) == null) {
+            JSONObject genNodeJsonObjWithTime = genNodeJsonObjWithTime(i, i2, j);
+            try {
+                genNodeJsonObjWithTime.put("errorMsg", str);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return genNodeJsonObjWithTime;
+        }
+        return (JSONObject) invokeCommon.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
     public JSONObject genNodeJsonObj(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65555, this, i, i2)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65556, this, i, i2)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("time", System.currentTimeMillis());

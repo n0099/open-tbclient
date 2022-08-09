@@ -1,40 +1,109 @@
 package com.repackage;
 
-import android.content.Intent;
-import android.os.Bundle;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.env.launch.SwanLauncher;
+import android.text.TextUtils;
+import com.baidu.android.util.io.DocumentOpenUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
 public class qd3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(SwanAppActivity swanAppActivity) {
-        Intent intent;
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, swanAppActivity) == null) || swanAppActivity == null || (intent = swanAppActivity.getIntent()) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return TextUtils.equals(DocumentOpenUtil.PDF_TYPE, str) || TextUtils.equals(DocumentOpenUtil.DOCUMENT_TYPE, str) || TextUtils.equals(DocumentOpenUtil.SHEET_TYPE, str) || TextUtils.equals(DocumentOpenUtil.PRESENT_TYPE, str) || TextUtils.equals(DocumentOpenUtil.WORD_TYPE, str) || TextUtils.equals(DocumentOpenUtil.EXCEL_TYPE, str) || TextUtils.equals(DocumentOpenUtil.PPT_TYPE, str);
         }
-        if (hw2.D()) {
-            tx1.k().s();
+        return invokeL.booleanValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            String lowerCase = str.toLowerCase();
+            char c = 65535;
+            switch (lowerCase.hashCode()) {
+                case 99640:
+                    if (lowerCase.equals(DocumentOpenUtil.DOC)) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case 110834:
+                    if (lowerCase.equals(DocumentOpenUtil.PDF)) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case 111220:
+                    if (lowerCase.equals(DocumentOpenUtil.PPT)) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case 118783:
+                    if (lowerCase.equals(DocumentOpenUtil.XLS)) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 3088960:
+                    if (lowerCase.equals(DocumentOpenUtil.DOCX)) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 3447940:
+                    if (lowerCase.equals(DocumentOpenUtil.PPTX)) {
+                        c = 6;
+                        break;
+                    }
+                    break;
+                case 3682393:
+                    if (lowerCase.equals(DocumentOpenUtil.XLSX)) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    str2 = DocumentOpenUtil.PDF_TYPE;
+                    break;
+                case 1:
+                    str2 = DocumentOpenUtil.WORD_TYPE;
+                    break;
+                case 2:
+                    str2 = DocumentOpenUtil.DOCUMENT_TYPE;
+                    break;
+                case 3:
+                    str2 = DocumentOpenUtil.EXCEL_TYPE;
+                    break;
+                case 4:
+                    str2 = DocumentOpenUtil.SHEET_TYPE;
+                    break;
+                case 5:
+                    str2 = DocumentOpenUtil.PPT_TYPE;
+                    break;
+                case 6:
+                    str2 = DocumentOpenUtil.PRESENT_TYPE;
+                    break;
+                default:
+                    str2 = "";
+                    break;
+            }
+            return a(str2) ? str2 : "";
         }
-        Bundle bundle = new Bundle();
-        bundle.putAll(intent.getExtras());
-        bundle.putBoolean("should_ignore_launch_time", true);
-        Bundle bundle2 = bundle.getBundle("mExtraData");
-        if (bundle2 == null) {
-            bundle2 = new Bundle();
-            bundle.putBundle("mExtraData", bundle2);
-        }
-        bundle2.putLong("launch_flag_for_statistic", System.currentTimeMillis());
-        bundle2.putLong("page_display_flag_for_statistic", System.currentTimeMillis());
-        h03.K().n(new String[0]);
-        bundle.remove("pms_db_info_onload");
-        bundle.remove("pms_db_info_updated");
-        bundle.remove("mPage");
-        bundle.putString("launch_id", SwanLauncher.h());
-        h03.K().l(bundle, "update_tag_by_activity_on_relaunch");
+        return (String) invokeL.objValue;
     }
 }

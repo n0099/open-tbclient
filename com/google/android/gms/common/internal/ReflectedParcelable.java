@@ -1,6 +1,6 @@
 package com.google.android.gms.common.internal;
 
 import android.os.Parcelable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface ReflectedParcelable extends Parcelable {
 }

@@ -16,9 +16,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zj0;
+import com.repackage.wj0;
 /* loaded from: classes2.dex */
-public class CountDownTextView extends LinearLayout implements zj0 {
+public class CountDownTextView extends LinearLayout implements wj0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
@@ -46,7 +46,7 @@ public class CountDownTextView extends LinearLayout implements zj0 {
         }
     }
 
-    @Override // com.repackage.zj0
+    @Override // com.repackage.wj0
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
@@ -54,7 +54,7 @@ public class CountDownTextView extends LinearLayout implements zj0 {
         }
     }
 
-    @Override // com.repackage.zj0
+    @Override // com.repackage.wj0
     public void b(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -62,7 +62,7 @@ public class CountDownTextView extends LinearLayout implements zj0 {
         }
     }
 
-    @Override // com.repackage.zj0
+    @Override // com.repackage.wj0
     public void c(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -73,13 +73,13 @@ public class CountDownTextView extends LinearLayout implements zj0 {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05ad, this);
-            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090096);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090097);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05cb, this);
+            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09009b);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09009c);
         }
     }
 
-    @Override // com.repackage.zj0
+    @Override // com.repackage.wj0
     public void onProgress(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {

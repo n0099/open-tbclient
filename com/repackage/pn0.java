@@ -1,55 +1,95 @@
 package com.repackage;
 
 import androidx.annotation.NonNull;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.model.AdOperator;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public class pn0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
-    public final HashMap<AdBaseModel.STYLE, Integer> a;
-    public boolean b;
-    public boolean c;
-    public boolean d;
-    public int e;
-    public b f;
-    public float g;
-    public boolean h;
-    public String i;
-    public a j;
-    public boolean k;
-    public boolean l;
-    public boolean m;
+    public final Map<String, b> a;
 
-    /* loaded from: classes6.dex */
-    public static class a {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-        public int d;
-        public int e;
-        public int f;
-        public int g;
-        public int h;
-        public int i;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
-        public String b;
-        public String c;
+
+        public /* synthetic */ b(JSONObject jSONObject, a aVar) {
+            this(jSONObject);
+        }
+
+        public b(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jSONObject.optString("type");
+            jSONObject.optString("zip_url");
+            jSONObject.optInt("width");
+            jSONObject.optInt("height");
+        }
     }
 
-    public abstract int a(AdBaseModel.STYLE style);
+    public pn0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap();
+    }
 
-    public abstract int b(AdOperator.TYPE type);
+    @Nullable
+    public static pn0 a(@Nullable JSONArray jSONArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONArray)) == null) {
+            if (jSONArray == null || jSONArray.length() <= 0) {
+                return null;
+            }
+            pn0 pn0Var = new pn0();
+            for (int i = 0; i < jSONArray.length(); i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    b bVar = new b(optJSONObject, null);
+                    yx0.e(pn0Var.a, bVar.a, bVar);
+                }
+            }
+            return pn0Var;
+        }
+        return (pn0) invokeL.objValue;
+    }
 }

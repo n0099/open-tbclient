@@ -9,10 +9,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.af;
+import com.repackage.bf;
 @ModifyClass
 /* loaded from: classes3.dex */
-public class WorkAddTopicSwitch extends af {
+public class WorkAddTopicSwitch extends bf {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_SWITCH = "works_add_topic_on";
     public static final int TYPE_OFF = 0;
@@ -40,14 +40,14 @@ public class WorkAddTopicSwitch extends af {
         return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? SwitchManager.getInstance().findType(KEY_SWITCH) == 1 : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.af
+    @Override // com.repackage.bf
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    @Override // com.repackage.af
+    @Override // com.repackage.bf
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class WorkAddTopicSwitch extends af {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.repackage.af
+    @Override // com.repackage.bf
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public class WorkAddTopicSwitch extends af {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.af
+    @Override // com.repackage.bf
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -77,14 +77,14 @@ public class WorkAddTopicSwitch extends af {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.af
+    @Override // com.repackage.bf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? KEY_SWITCH : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.af
+    @Override // com.repackage.bf
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

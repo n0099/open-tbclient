@@ -1,108 +1,32 @@
 package com.repackage;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.concurrent.Executor;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
-public interface r91 {
+public class r91 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile Executor a;
+    public static final int b;
+    public static final int c;
+    public static final ThreadFactory d;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public static class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public String b;
-        public long c;
-        public long d;
-        public long e;
-        public String f;
-        public int g;
-        public List<C0568a> h;
-
-        /* renamed from: com.repackage.r91$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public static class C0568a {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public String a;
-            public String b;
-
-            public C0568a() {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            public static C0568a a(JSONObject jSONObject) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                    if (jSONObject == null) {
-                        return null;
-                    }
-                    C0568a c0568a = new C0568a();
-                    c0568a.a = jSONObject.isNull("promotionInsId") ? "" : jSONObject.optString("promotionInsId");
-                    c0568a.b = jSONObject.isNull("valid") ? "" : jSONObject.optString("valid");
-                    return c0568a;
-                }
-                return (C0568a) invokeL.objValue;
-            }
-
-            public static JSONObject b(C0568a c0568a) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, c0568a)) == null) {
-                    if (c0568a == null) {
-                        return null;
-                    }
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("promotionInsId", c0568a.a);
-                        jSONObject.put("valid", c0568a.b);
-                    } catch (JSONException e) {
-                        i91.d(e.getMessage());
-                    }
-                    return jSONObject;
-                }
-                return (JSONObject) invokeL.objValue;
-            }
-
-            public static List<C0568a> c(JSONArray jSONArray) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONArray)) == null) {
-                    if (jSONArray == null) {
-                        return null;
-                    }
-                    ArrayList arrayList = new ArrayList();
-                    try {
-                        jSONArray.get(0);
-                        for (int i = 0; i < jSONArray.length(); i++) {
-                            arrayList.add(a((JSONObject) jSONArray.opt(i)));
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    return arrayList;
-                }
-                return (List) invokeL.objValue;
-            }
-        }
+        public final AtomicInteger a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -117,49 +41,79 @@ public interface r91 {
                     return;
                 }
             }
-            this.a = 2;
+            this.a = new AtomicInteger(1);
         }
 
-        public static JSONObject a(a aVar) {
+        @Override // java.util.concurrent.ThreadFactory
+        public Thread newThread(Runnable runnable) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, aVar)) == null) {
-                if (aVar == null) {
-                    return null;
-                }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("statusCode", aVar.a);
-                    jSONObject.put("msg", aVar.b);
-                    jSONObject.put("totalAmount", aVar.c);
-                    jSONObject.put("userPayAmount", aVar.d);
-                    jSONObject.put("reduceAmount", aVar.e);
-                    jSONObject.put("overdueStatus", aVar.g);
-                    jSONObject.put("usedHostMarketingDetail", aVar.f);
-                    if (aVar.h != null && !aVar.h.isEmpty()) {
-                        JSONArray jSONArray = new JSONArray();
-                        for (C0568a c0568a : aVar.h) {
-                            jSONArray.put(C0568a.b(c0568a));
-                        }
-                        jSONObject.put("promotionStatus", jSONArray);
-                    }
-                } catch (JSONException e) {
-                    i91.d(e.getMessage());
-                }
-                return jSONObject;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+                return new Thread(runnable, "cashier #" + this.a.getAndIncrement());
             }
-            return (JSONObject) invokeL.objValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "Data{statusCode=" + this.a + ", message='" + this.b + "', totalAmount=" + this.c + ", userPayAmount=" + this.d + ", reduceAmount=" + this.e + ", usedHostMarketingDetail='" + this.f + "', overdueStatus='" + this.g + "'}";
-            }
-            return (String) invokeV.objValue;
+            return (Thread) invokeL.objValue;
         }
     }
 
-    void a(a aVar);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755395609, "Lcom/repackage/r91;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755395609, "Lcom/repackage/r91;");
+                return;
+            }
+        }
+        int availableProcessors = Runtime.getRuntime().availableProcessors();
+        b = availableProcessors;
+        c = (availableProcessors * 2) + 1;
+        d = new a();
+    }
+
+    public r91() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static void a(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
+            b().execute(runnable);
+        }
+    }
+
+    public static synchronized Executor b() {
+        InterceptResult invokeV;
+        Executor executor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            synchronized (r91.class) {
+                if (a == null) {
+                    synchronized (r91.class) {
+                        if (a == null) {
+                            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, c, 8L, TimeUnit.SECONDS, new LinkedBlockingQueue(), d);
+                            threadPoolExecutor.allowCoreThreadTimeOut(true);
+                            a = threadPoolExecutor;
+                        }
+                    }
+                }
+                executor = a;
+            }
+            return executor;
+        }
+        return (Executor) invokeV.objValue;
+    }
 }

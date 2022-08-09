@@ -1,65 +1,49 @@
 package com.repackage;
 
-import android.content.Context;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.AnimRes;
+import androidx.annotation.IdRes;
+import androidx.annotation.Nullable;
+import com.baidu.swan.support.v4.app.Fragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ve4 {
+public abstract class ve4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a implements LayoutInflater.Factory {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final ye4 a;
-
-        public a(ye4 ye4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ye4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ye4Var;
-        }
-
-        @Override // android.view.LayoutInflater.Factory
-        public View onCreateView(String str, Context context, AttributeSet attributeSet) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, context, attributeSet)) == null) ? this.a.onCreateView(null, str, context, attributeSet) : (View) invokeLLL.objValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return getClass().getName() + "{" + this.a + "}";
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    public static void a(LayoutInflater layoutInflater, ye4 ye4Var) {
+    public ve4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, layoutInflater, ye4Var) == null) {
-            layoutInflater.setFactory(ye4Var != null ? new a(ye4Var) : null);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
+
+    public abstract ve4 a(@IdRes int i, Fragment fragment);
+
+    public abstract ve4 b(@IdRes int i, Fragment fragment, @Nullable String str);
+
+    public abstract ve4 c(Fragment fragment, String str);
+
+    public abstract ve4 d(@Nullable String str);
+
+    public abstract int e();
+
+    public abstract int f();
+
+    public abstract ve4 g(Fragment fragment);
+
+    public abstract ve4 h(Fragment fragment);
+
+    public abstract ve4 i(@AnimRes int i, @AnimRes int i2);
+
+    public abstract ve4 j(Fragment fragment);
 }

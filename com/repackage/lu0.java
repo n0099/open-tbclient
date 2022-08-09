@@ -1,17 +1,26 @@
 package com.repackage;
 
-import android.app.Activity;
-import com.baidu.nadcore.player.strategy.IVideoUpdateStrategy;
-import com.baidu.nadcore.video.videoplayer.ui.full.BdThumbSeekBar;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoAd;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
+import com.baidu.searchbox.player.event.LayerEvent;
+import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import com.repackage.os0;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class lu0 extends uu0 {
+public class lu0 extends gu0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String g;
 
     public lu0() {
         Interceptable interceptable = $ic;
@@ -27,42 +36,171 @@ public class lu0 extends uu0 {
         }
     }
 
-    @Override // com.repackage.uu0
-    public void Z() {
+    @Override // com.repackage.hu0
+    public void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            cp0 bindPlayer = u();
-            Intrinsics.checkNotNullExpressionValue(bindPlayer, "bindPlayer");
-            IVideoUpdateStrategy n1 = bindPlayer.n1();
-            Intrinsics.checkNotNullExpressionValue(n1, "bindPlayer.strategy");
-            if (!n1.f()) {
-                BdThumbSeekBar mThumbSeekBar = this.l;
-                Intrinsics.checkNotNullExpressionValue(mThumbSeekBar, "mThumbSeekBar");
-                mThumbSeekBar.setVisibility(4);
-                return;
-            }
-            super.Z();
+            S();
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lu0(Activity activity) {
-        super(activity);
+    @Override // com.repackage.gu0
+    public void O(ms0 ms0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ms0Var) == null) {
+            super.O(ms0Var);
+            ms0 ms0Var2 = this.f;
+            if (ms0Var2 != null) {
+                ms0Var2.d(this);
+            }
+        }
+    }
+
+    public void Q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if ("ad_video_tail_frame_layer".equals(this.g) || "ad_video_detail_tail_frame_layer".equals(this.g)) {
+                R();
+            }
+        }
+    }
+
+    public final void R() {
+        BdVideoAd videoAd;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            BdVideoSeries o1 = u().o1();
+            bp0 u = u();
+            if (o1 == null || u == null || (videoAd = o1.getVideoAd()) == null || !videoAd.suffixAdEnable) {
+                return;
+            }
+            qs0 a = os0.b.a().a(new HashMap(), videoAd.mAdVideoTailFrameData);
+            a.a(u.V0());
+            O(a);
+        }
+    }
+
+    public void S() {
+        ms0 ms0Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (ms0Var = this.f) == null) {
+            return;
+        }
+        ms0Var.onDestroy();
+        this.f = null;
+    }
+
+    public final void T() {
+        BdVideoSeries o1;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (("ad_video_tail_frame_layer".equals(this.g) || "ad_video_detail_tail_frame_layer".equals(this.g)) && (this.f instanceof qs0) && (o1 = u().o1()) != null) {
+                BdVideoAd videoAd = o1.getVideoAd();
+                ((qs0) this.f).e(videoAd == null ? null : videoAd.mAdVideoTailFrameData);
+            }
+        }
+    }
+
+    @Override // com.repackage.hu0, com.repackage.vs0
+    public void d(@NonNull ur0 ur0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, ur0Var) == null) {
+            if (PlayerEvent.ACTION_SET_DATA_SOURCE.equals(ur0Var.c()) && !TextUtils.isEmpty(this.g)) {
+                if (this.f != null) {
+                    T();
+                } else {
+                    Q();
+                }
+            }
+            ms0 ms0Var = this.f;
+            if (ms0Var != null) {
+                ms0Var.c(ur0Var);
+            }
+        }
+    }
+
+    @Override // com.repackage.gu0, com.repackage.ws0
+    public boolean e(@NonNull ur0 ur0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, ur0Var)) == null) {
+            if (u().U0()) {
+                return false;
+            }
+            return super.e(ur0Var);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.vs0
+    @Nullable
+    public int[] getSubscribeEvent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? new int[]{4, 2, 3, 1} : (int[]) invokeV.objValue;
+    }
+
+    @Override // com.repackage.hu0, com.repackage.vs0
+    public void k(@NonNull ur0 ur0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, ur0Var) == null) {
+            super.k(ur0Var);
+            if (LayerEvent.ACTION_SWITCH_FULL.equals(ur0Var.c()) || LayerEvent.ACTION_SWITCH_HALF.equals(ur0Var.c())) {
+                yh0.a("AdLayer", "screen mode: " + ur0Var.c());
+            }
+            ms0 ms0Var = this.f;
+            if (ms0Var != null) {
+                ms0Var.c(ur0Var);
+            }
+        }
+    }
+
+    @Override // com.repackage.hu0, com.repackage.vs0
+    public void n(@NonNull ur0 ur0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, ur0Var) == null) {
+            super.n(ur0Var);
+            ms0 ms0Var = this.f;
+            if (ms0Var != null) {
+                ms0Var.c(ur0Var);
+            }
+        }
+    }
+
+    @Override // com.repackage.gu0, com.repackage.pu0, com.repackage.hu0, com.repackage.uu0
+    public void onLayerRelease() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            super.onLayerRelease();
+            S();
+        }
+    }
+
+    @Override // com.repackage.hu0, com.repackage.vs0
+    public void q(@NonNull ur0 ur0Var) {
+        ms0 ms0Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, ur0Var) == null) || (ms0Var = this.f) == null) {
+            return;
+        }
+        ms0Var.c(ur0Var);
+    }
+
+    public lu0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(activity, "activity");
+        this.g = str;
     }
 }

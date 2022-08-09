@@ -1,8 +1,5 @@
 package com.repackage;
 
-import android.graphics.Typeface;
-import android.widget.TextView;
-import com.baidu.nadcore.styles.Font;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,28 +8,21 @@ public class qy0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(int i) {
-        InterceptResult invokeI;
+    public static <T> int a(T[] tArr, T t) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? i >= 100 && i <= 900 && i % 100 == 0 : invokeI.booleanValue;
-    }
-
-    public static void b(TextView textView, Font font) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, textView, font) == null) || textView == null || font == null) {
-            return;
-        }
-        c(textView, font.getFontWeight());
-    }
-
-    public static void c(TextView textView, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65538, null, textView, i) == null) && textView != null && a(i)) {
-            if (i >= 600) {
-                textView.setTypeface(Typeface.defaultFromStyle(1));
-            } else {
-                textView.setTypeface(Typeface.defaultFromStyle(0));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tArr, t)) == null) {
+            if (tArr == null) {
+                return -1;
             }
+            int length = tArr.length;
+            for (int i = 0; i < length; i++) {
+                if (tArr[i] == t) {
+                    return i;
+                }
+            }
+            return -1;
         }
+        return invokeLL.intValue;
     }
 }

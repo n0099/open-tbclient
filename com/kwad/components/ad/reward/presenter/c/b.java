@@ -377,12 +377,12 @@ public final class b extends a implements com.kwad.components.ad.reward.presente
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onCreate();
-            this.to = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09106b);
-            this.tj = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09106d);
-            this.tl = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910a5);
-            this.tk = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09106a);
-            this.tn = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910ab);
-            this.tm = findViewById(R.id.obfuscated_res_0x7f091011);
+            this.to = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0910c1);
+            this.tj = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910c3);
+            this.tl = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910fe);
+            this.tk = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910c0);
+            this.tn = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091104);
+            this.tm = findViewById(R.id.obfuscated_res_0x7f091067);
         }
     }
 

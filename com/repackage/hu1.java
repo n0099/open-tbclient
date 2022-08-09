@@ -1,6 +1,8 @@
 package com.repackage;
 
 import android.graphics.Canvas;
+import android.graphics.Path;
+import android.graphics.RectF;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,9 +10,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class hu1 extends ot1 {
+public class hu1 extends fu1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public RectF a;
+    public float b;
+    public float c;
+    public boolean d;
 
     public hu1() {
         Interceptable interceptable = $ic;
@@ -26,23 +32,47 @@ public class hu1 extends ot1 {
         }
     }
 
-    @Override // com.repackage.ot1
-    public void a(pt1 pt1Var, Canvas canvas) {
+    @Override // com.repackage.fu1
+    public void a(gu1 gu1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, pt1Var, canvas) == null) {
-            pt1Var.e();
-            try {
-                canvas.restore();
-            } catch (IllegalStateException e) {
-                ix1.d("Canvas", "Underflow in restore - more restores than saves, please check", e);
-            }
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, gu1Var, canvas) == null) || this.a == null) {
+            return;
         }
+        if (!this.d && Math.abs(this.c) >= 360.0f) {
+            Path path = gu1Var.f;
+            RectF rectF = this.a;
+            float f = rectF.bottom;
+            float f2 = rectF.top;
+            path.addCircle((rectF.right + rectF.left) / 2.0f, (f + f2) / 2.0f, (f - f2) / 2.0f, Path.Direction.CW);
+            gu1Var.f.arcTo(this.a, 0.0f, this.b);
+            return;
+        }
+        float f3 = this.c % 360.0f;
+        if (f3 < 0.0f && !this.d) {
+            f3 += 360.0f;
+        } else if (f3 > 0.0f && this.d) {
+            f3 -= 360.0f;
+        }
+        gu1Var.f.arcTo(this.a, this.b, f3);
     }
 
-    @Override // com.repackage.ot1
+    @Override // com.repackage.fu1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            if (jSONArray.length() > 4) {
+                int g = qe3.g((float) jSONArray.optDouble(0));
+                int g2 = qe3.g((float) jSONArray.optDouble(1));
+                int g3 = qe3.g((float) jSONArray.optDouble(2));
+                float degrees = (float) Math.toDegrees((float) jSONArray.optDouble(3));
+                float degrees2 = (float) Math.toDegrees((float) jSONArray.optDouble(4));
+                this.a = new RectF(g - g3, g2 - g3, g + g3, g2 + g3);
+                this.b = degrees;
+                this.c = degrees2 - degrees;
+            }
+            if (jSONArray.length() > 5) {
+                this.d = jSONArray.optBoolean(5);
+            }
         }
     }
 }

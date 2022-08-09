@@ -1,11 +1,20 @@
 package com.repackage;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.nl1;
+import java.io.File;
+import java.util.HashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ij1 implements vl1 {
+public class ij1 implements nl1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -23,10 +32,47 @@ public class ij1 implements vl1 {
         }
     }
 
-    @Override // com.repackage.vl1
-    public void a() {
+    @Override // com.repackage.nl1
+    public void a(HashMap<String, String> hashMap, File file, nl1.a aVar, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, hashMap, file, aVar, str) == null) {
+            e(aVar);
+        }
+    }
+
+    @Override // com.repackage.nl1
+    public void b(Context context, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3) == null) {
+        }
+    }
+
+    @Override // com.repackage.nl1
+    public void c(HashMap<String, String> hashMap, File file, nl1.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, hashMap, file, aVar) == null) {
+            e(aVar);
+        }
+    }
+
+    @Override // com.repackage.nl1
+    public void d(Bitmap bitmap, HashMap<String, String> hashMap, File[] fileArr, nl1.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048579, this, bitmap, hashMap, fileArr, aVar) == null) {
+            e(aVar);
+        }
+    }
+
+    public final void e(nl1.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(TiebaStatic.LogFields.RESULT, "success");
+                aVar.onResult(jSONObject.toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

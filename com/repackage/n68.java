@@ -1,58 +1,56 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.BDVideoPlayer;
-import com.baidu.searchbox.player.helper.ProgressHelper;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class n68 extends ProgressHelper {
+public class n68 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BDVideoPlayer a;
+    public List<q68> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n68(@NonNull BDVideoPlayer bDVideoPlayer) {
-        super(bDVideoPlayer);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bDVideoPlayer};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((BDVideoPlayer) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755517439, "Lcom/repackage/n68;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755517439, "Lcom/repackage/n68;");
                 return;
             }
         }
-        this.a = bDVideoPlayer;
+        b = BdUniqueId.gen();
     }
 
-    public final void callPlayerBack(int i, int i2, int i3) {
+    public n68() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) || i2 <= 0) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        this.a.getPlayerCallbackManager().onUpdateProgress(i, (i3 * 100) / i2, i2);
     }
 
-    @Override // com.baidu.searchbox.player.helper.ProgressHelper, com.baidu.searchbox.player.helper.ITimerTask
-    public void doTask() {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.on
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int position = this.a.getPosition();
-            int durationMs = this.a.getDurationMs();
-            int bufferingPosition = this.a.getBufferingPosition();
-            int positionMs = this.a.getPositionMs();
-            this.a.getControlEventTrigger().syncPos(position, durationMs, bufferingPosition);
-            callPlayerBack(positionMs, durationMs, bufferingPosition);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
     }
 }

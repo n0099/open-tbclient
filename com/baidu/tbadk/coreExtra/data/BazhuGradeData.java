@@ -2,17 +2,18 @@ package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eo4;
+import com.repackage.vo4;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.BazhuSign;
 /* loaded from: classes3.dex */
-public class BazhuGradeData extends eo4 implements Serializable {
+public class BazhuGradeData extends vo4 implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String mDesc;
@@ -47,7 +48,7 @@ public class BazhuGradeData extends eo4 implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mLevel : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.eo4
+    @Override // com.repackage.vo4
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
@@ -55,7 +56,7 @@ public class BazhuGradeData extends eo4 implements Serializable {
         }
         try {
             this.mDesc = jSONObject.optString("desc", "");
-            this.mLevel = jSONObject.optString("level", "");
+            this.mLevel = jSONObject.optString(PollingModel.LEVEL, "");
         } catch (Exception e) {
             BdLog.detailException(e);
         }

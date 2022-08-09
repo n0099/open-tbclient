@@ -1,117 +1,139 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Vector;
-/* loaded from: classes6.dex */
-public class oa4 implements ea4 {
+/* loaded from: classes7.dex */
+public class oa4 extends ma4<za4> implements va4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final id4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Vector<ea4> a;
-    public Object b;
+    public volatile za4 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755446449, "Lcom/repackage/oa4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755446449, "Lcom/repackage/oa4;");
-                return;
-            }
-        }
-        c = id4.e();
-    }
-
-    public oa4(ea4 ea4Var) {
+    public oa4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ea4Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.b = new Object();
-        this.a = new Vector<>();
-        c(ea4Var);
     }
 
-    @Override // com.repackage.ea4
-    public <T> void a(ia4<T> ia4Var) {
+    @Override // com.repackage.va4
+    public <T> void a(za4<T> za4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ia4Var) == null) {
-            try {
-                synchronized (this.b) {
-                    Iterator<ea4> it = this.a.iterator();
-                    while (it.hasNext()) {
-                        it.next().a(ia4Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, za4Var) == null) {
+            this.b = za4Var;
+        }
+    }
+
+    @Override // com.repackage.va4
+    public <T> void b(za4<T> za4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, za4Var) == null) {
+            if (this.b == za4Var) {
+                this.b = null;
+            }
+            k(za4Var);
+        }
+    }
+
+    public synchronized za4 g() {
+        InterceptResult invokeV;
+        za4 za4Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                za4Var = (za4) super.c();
+            }
+            return za4Var;
+        }
+        return (za4) invokeV.objValue;
+    }
+
+    public synchronized void h(za4 za4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, za4Var) == null) {
+            synchronized (this) {
+                if (za4Var == null) {
+                    return;
+                }
+                if (this.b != null && this.b.d(za4Var)) {
+                    za4Var.e().f(za4Var.f());
+                    return;
+                }
+                za4 e = e(za4Var);
+                if (e != null) {
+                    za4Var.e().f(za4Var.f());
+                    if (za4Var.g() <= e.g()) {
+                        return;
                     }
                 }
-            } catch (Throwable th) {
-                c.g("RuntimeTaskObserver", "#notifyTaskRunning error", th);
-            }
-        }
-    }
-
-    @Override // com.repackage.ea4
-    public <T> void b(ia4<T> ia4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ia4Var) == null) {
-            Vector vector = new Vector();
-            try {
-                synchronized (this.b) {
-                    Iterator<ea4> it = this.a.iterator();
-                    while (it.hasNext()) {
-                        vector.add(it.next());
+                int g = za4Var.g();
+                if (g != 200) {
+                    if (g == 300) {
+                        j(za4Var);
+                        if (e != null) {
+                            this.a.remove(e);
+                            this.a.add(0, e);
+                        } else {
+                            this.a.add(0, za4Var);
+                        }
+                    } else if (e == null) {
+                        this.a.add(za4Var);
                     }
+                } else if (e != null) {
+                    this.a.remove(e);
+                    this.a.add(0, e);
+                } else {
+                    this.a.add(0, za4Var);
                 }
-                Iterator it2 = vector.iterator();
-                while (it2.hasNext()) {
-                    ((ea4) it2.next()).b(ia4Var);
-                }
-            } catch (Throwable th) {
-                c.g("RuntimeTaskObserver", "#notifyTaskEnd error", th);
+                notifyAll();
             }
         }
     }
 
-    public void c(ea4 ea4Var) {
+    public synchronized za4 i() {
+        InterceptResult invokeV;
+        za4 za4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ea4Var) == null) || ea4Var == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this) {
+                za4Var = (za4) super.d();
+            }
+            return za4Var;
+        }
+        return (za4) invokeV.objValue;
+    }
+
+    public final void j(za4 za4Var) {
+        za4 za4Var2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, za4Var) == null) || za4Var.g() != 300 || (za4Var2 = this.b) == null || za4Var2.g() == 300) {
             return;
         }
-        synchronized (this.b) {
-            this.a.add(ea4Var);
+        za4Var2.o();
+        for (int i = 0; i < 500 && this.b != null; i++) {
+            try {
+                Thread.sleep(10L);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    public void d(ea4 ea4Var) {
+    public final void k(za4 za4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, ea4Var) == null) || ea4Var == null) {
-            return;
-        }
-        synchronized (this.b) {
-            if (!this.a.remove(ea4Var)) {
-                this.a.remove(this.a.indexOf(ea4Var));
-            }
+        if ((interceptable == null || interceptable.invokeL(1048582, this, za4Var) == null) && za4Var.k()) {
+            za4Var.r(true);
+            this.a.add(0, za4Var);
         }
     }
 }

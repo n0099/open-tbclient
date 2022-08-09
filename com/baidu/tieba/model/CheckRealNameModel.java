@@ -14,9 +14,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ab;
 import com.repackage.d9;
-import com.repackage.wh8;
-import com.repackage.za;
+import com.repackage.kk8;
 /* loaded from: classes3.dex */
 public class CheckRealNameModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
@@ -25,10 +25,10 @@ public class CheckRealNameModel extends BdBaseModel {
     public static final String TYPE_PB_SHARE = "pb_share";
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-    public za b;
+    public ab b;
 
     /* loaded from: classes3.dex */
-    public class a extends za {
+    public class a extends ab {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CheckRealNameModel a;
@@ -55,7 +55,7 @@ public class CheckRealNameModel extends BdBaseModel {
             this.a = checkRealNameModel;
         }
 
-        @Override // com.repackage.za
+        @Override // com.repackage.ab
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
@@ -94,11 +94,11 @@ public class CheckRealNameModel extends BdBaseModel {
             }
         }
         this.b = new a(this, CmdConfigHttp.CMD_CHECK_REAL_NAME, 309456);
-        D();
+        C();
         registerListener(this.b);
     }
 
-    public void B(String str) {
+    public void A(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             CheckRealNameRequestNetMessage checkRealNameRequestNetMessage = new CheckRealNameRequestNetMessage();
@@ -107,7 +107,7 @@ public class CheckRealNameModel extends BdBaseModel {
         }
     }
 
-    public void C(String str, Object obj) {
+    public void B(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
             CheckRealNameRequestNetMessage checkRealNameRequestNetMessage = new CheckRealNameRequestNetMessage();
@@ -117,15 +117,15 @@ public class CheckRealNameModel extends BdBaseModel {
         }
     }
 
-    public final void D() {
+    public final void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            wh8.h(309456, CheckRealNameSocketResponseMessage.class, false, false);
-            wh8.c(309456, CmdConfigHttp.CMD_CHECK_REAL_NAME, TbConfig.URL_CHECK_REAL_NAME, CheckRealNameHttpResponseMessage.class, false, false, false, false);
+            kk8.h(309456, CheckRealNameSocketResponseMessage.class, false, false);
+            kk8.c(309456, CmdConfigHttp.CMD_CHECK_REAL_NAME, TbConfig.URL_CHECK_REAL_NAME, CheckRealNameHttpResponseMessage.class, false, false, false, false);
         }
     }
 
-    public void E(b bVar) {
+    public void D(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
             this.a = bVar;

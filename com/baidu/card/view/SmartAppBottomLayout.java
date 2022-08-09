@@ -23,11 +23,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gx;
-import com.repackage.on4;
-import com.repackage.pi;
+import com.repackage.fo4;
+import com.repackage.hx;
+import com.repackage.qi;
 /* loaded from: classes.dex */
-public class SmartAppBottomLayout extends LinearLayout implements gx<on4> {
+public class SmartAppBottomLayout extends LinearLayout implements hx<fo4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class SmartAppBottomLayout extends LinearLayout implements gx<on4> {
                 return;
             }
         }
-        e = (pi.k(TbadkCoreApplication.getInst()) - (pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2)) - pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds58);
+        e = (qi.k(TbadkCoreApplication.getInst()) - (qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2)) - qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds58);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -77,10 +77,10 @@ public class SmartAppBottomLayout extends LinearLayout implements gx<on4> {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.a = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d078d, (ViewGroup) this, true);
+            this.a = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07b5, (ViewGroup) this, true);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.b = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090185);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090186);
+            this.b = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09018b);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09018c);
             this.b.setIsBigV(false);
             this.b.setIsGod(false);
             this.b.setShowV(false);
@@ -88,23 +88,23 @@ public class SmartAppBottomLayout extends LinearLayout implements gx<on4> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.gx
+    @Override // com.repackage.hx
     /* renamed from: c */
-    public void a(on4 on4Var) {
+    public void a(fo4 fo4Var) {
         ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, on4Var) == null) || (threadData = on4Var.getThreadData()) == null || threadData.getSmartApp() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fo4Var) == null) || (threadData = fo4Var.getThreadData()) == null || threadData.getSmartApp() == null) {
             return;
         }
         if (!TextUtils.isEmpty(threadData.getSmartApp().avatar)) {
-            this.b.J(threadData.getSmartApp().avatar, 10, false);
+            this.b.K(threadData.getSmartApp().avatar, 10, false);
         } else {
             SkinManager.setImageResource(this.b, R.drawable.icon_avatar_smallapp_tie);
         }
         if (threadData.getSmartApp() != null && !TextUtils.isEmpty(threadData.getSmartApp().name)) {
-            ThreadCardUtils.cutAndSetTextByMaxLine(this.c, threadData.getSmartApp().name, R.string.obfuscated_res_0x7f0f00e9, R.dimen.tbds0, 1, e, false);
+            ThreadCardUtils.cutAndSetTextByMaxLine(this.c, threadData.getSmartApp().name, R.string.obfuscated_res_0x7f0f00ec, R.dimen.tbds0, 1, e, false);
         } else {
-            this.c.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f00e9));
+            this.c.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f00ec));
         }
     }
 

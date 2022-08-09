@@ -16,9 +16,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e55;
+import com.repackage.a65;
 /* loaded from: classes.dex */
-public class AlaNetRefreshView extends e55 {
+public class AlaNetRefreshView extends a65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView mNetFailTipView;
@@ -44,10 +44,10 @@ public class AlaNetRefreshView extends e55 {
                 return;
             }
         }
-        this.mNetRefreshImg = (ImageView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f0901f9);
-        this.mNetFailTipView = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f0901fa);
-        this.mNetRefreshBtn = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f0901f7);
-        this.mNetRefreshContainer = (LinearLayout) this.attachedView.findViewById(R.id.obfuscated_res_0x7f0901f8);
+        this.mNetRefreshImg = (ImageView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f090205);
+        this.mNetFailTipView = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f090206);
+        this.mNetRefreshBtn = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f090203);
+        this.mNetRefreshContainer = (LinearLayout) this.attachedView.findViewById(R.id.obfuscated_res_0x7f090204);
     }
 
     public void onChangeSkinType() {

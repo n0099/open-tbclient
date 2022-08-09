@@ -1,16 +1,13 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import rx.internal.operators.CachedObservable$ReplayProducer;
+import java.util.Iterator;
 /* loaded from: classes7.dex */
-public final class qs9<T> extends au9 implements vr9<T> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface qs9 {
+    String d(String str);
 
-    public abstract void c(CachedObservable$ReplayProducer<T> cachedObservable$ReplayProducer);
+    boolean e(String str);
 
-    public abstract void d();
+    Iterator<String> g();
 
-    public abstract void e(CachedObservable$ReplayProducer<T> cachedObservable$ReplayProducer);
+    byte[] getContent();
 }

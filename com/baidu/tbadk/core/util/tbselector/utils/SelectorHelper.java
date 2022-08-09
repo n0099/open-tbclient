@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sg8;
+import com.repackage.gj8;
 /* loaded from: classes3.dex */
 public class SelectorHelper {
     public static /* synthetic */ Interceptable $ic;
@@ -108,7 +108,7 @@ public class SelectorHelper {
     public static int getColor(@ColorRes int i, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) ? sg8.a(SkinManager.getColor(i), f) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) ? gj8.a(SkinManager.getColor(i), f) : invokeCommon.intValue;
     }
 
     public static Drawable getColorDrawable(@ColorRes int i, float f) {

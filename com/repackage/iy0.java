@@ -1,12 +1,11 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import com.baidu.nadcore.net.request.BodyStyle;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.nadcore.net.request.Headers;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
@@ -15,18 +14,17 @@ public class iy0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements Runnable {
+    public static class a extends lo0<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oy0 a;
-        public final /* synthetic */ mo0 b;
+        public final /* synthetic */ jy0 a;
 
-        public a(oy0 oy0Var, mo0 mo0Var) {
+        public a(jy0 jy0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {oy0Var, mo0Var};
+                Object[] objArr = {jy0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -36,56 +34,67 @@ public class iy0 {
                     return;
                 }
             }
-            this.a = oy0Var;
-            this.b = mo0Var;
+            this.a = jy0Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.repackage.jo0
+        public void a(Exception exc, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                iy0.d(this.a, this.b);
+            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
+                hy0.b(this.a.a(i, exc.getMessage()));
             }
         }
-    }
 
-    public static void b(@NonNull oy0 oy0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, oy0Var) == null) {
-            c(oy0Var, null);
+        @Override // com.repackage.ko0
+        public /* bridge */ /* synthetic */ Object d(Headers headers, String str, int i) throws Exception {
+            f(headers, str, i);
+            return str;
         }
-    }
 
-    public static <T> void c(@NonNull oy0 oy0Var, @Nullable mo0<T> mo0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, oy0Var, mo0Var) == null) {
-            oy0Var.a();
-            gz0.c(new a(oy0Var, mo0Var), "als_async_executor", 2);
-        }
-    }
-
-    public static <T> void d(oy0 oy0Var, @Nullable mo0<T> mo0Var) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, oy0Var, mo0Var) == null) && oy0Var != null && oy0Var.isValid()) {
-            String oy0Var2 = oy0Var.toString();
-            if (oy0Var instanceof ClogBuilder) {
-                str = xe0.a ? "http://x1250658afd00.als.nativeads-afd.otp.baidu.com/clog/clog" : "https://als.baidu.com/clog/clog";
-            } else if (oy0Var instanceof py0) {
-                str = xe0.a ? "http://x1250658afd00.als.nativeads-afd.otp.baidu.com/elog/plog" : TbConfig.REPORT_PLOG;
-            } else if (!(oy0Var instanceof my0)) {
-                return;
-            } else {
-                str = "https://afd.baidu.com/afd/close";
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ko0
+        /* renamed from: e */
+        public void b(Headers headers, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048579, this, headers, str, i) == null) {
+                hy0.b(this.a.a(i, "success"));
             }
-            to0 to0Var = new to0();
-            to0Var.h(oy0Var2);
-            to0Var.k(BodyStyle.STRING);
-            to0Var.i("application/x-www-form-urlencoded");
-            uo0 uo0Var = new uo0();
-            uo0Var.k(str);
-            uo0Var.f(to0Var);
-            co0.b().a().a(uo0Var, mo0Var);
         }
+
+        public String f(Headers headers, String str, int i) throws Exception {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) ? str : (String) invokeLLI.objValue;
+        }
+    }
+
+    public static void a(@Nullable jy0 jy0Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65536, null, jy0Var) == null) || jy0Var == null || TextUtils.isEmpty(jy0Var.d())) {
+            return;
+        }
+        if (!jy0Var.c()) {
+            b(jy0Var.d());
+            return;
+        }
+        so0 so0Var = new so0();
+        so0Var.k(jy0Var.d());
+        so0Var.g(3000);
+        so0Var.d("User-Agent", dh0.e());
+        so0Var.c();
+        zn0.b().a().a(so0Var, new a(jy0Var));
+    }
+
+    public static void b(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        so0 so0Var = new so0();
+        so0Var.k(str);
+        so0Var.g(3000);
+        so0Var.d("User-Agent", dh0.e());
+        so0Var.c();
+        zn0.b().a().a(so0Var, null);
     }
 }

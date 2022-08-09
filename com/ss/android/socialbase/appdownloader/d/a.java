@@ -5,16 +5,16 @@ import android.content.Context;
 import android.content.DialogInterface;
 import com.ss.android.socialbase.appdownloader.c.k;
 import com.ss.android.socialbase.appdownloader.c.l;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends com.ss.android.socialbase.appdownloader.c.b {
     public AlertDialog.Builder a;
 
     /* renamed from: com.ss.android.socialbase.appdownloader.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0658a implements k {
+    /* loaded from: classes8.dex */
+    public static class C0663a implements k {
         public AlertDialog a;
 
-        public C0658a(AlertDialog.Builder builder) {
+        public C0663a(AlertDialog.Builder builder) {
             if (builder != null) {
                 this.a = builder.show();
             }
@@ -89,6 +89,6 @@ public class a extends com.ss.android.socialbase.appdownloader.c.b {
 
     @Override // com.ss.android.socialbase.appdownloader.c.l
     public k a() {
-        return new C0658a(this.a);
+        return new C0663a(this.a);
     }
 }

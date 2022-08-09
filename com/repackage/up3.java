@@ -1,142 +1,199 @@
 package com.repackage;
 
+import android.content.Context;
+import android.net.Uri;
+import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.webkit.ValueCallback;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.ad.jsbridge.CommandType;
+import com.baidu.swan.game.ad.view.RewardWebView;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class up3 {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, String> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public ip3 a;
+    public RewardWebView b;
+    public Context c;
+    public String d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755253319, "Lcom/repackage/up3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements ValueCallback<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(up3 up3Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {up3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755253319, "Lcom/repackage/up3;");
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.webkit.ValueCallback
+        /* renamed from: a */
+        public void onReceiveValue(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            }
+        }
+    }
+
+    public up3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        HashMap hashMap = new HashMap();
-        a = hashMap;
-        hashMap.put("100000", "请求格式错误");
-        a.put("101000", "请求ID信息缺失");
-        a.put("101001", "请求ID不符合约定格式");
-        a.put("101002", "请求的trftp信息缺失");
-        a.put("101003", "请求的sdk版本信息有误");
-        a.put("101004", "请求的referer信息有误");
-        a.put("101005", "请求的appid不合法");
-        a.put("103000", "应用信息缺失");
-        a.put("103010", "应用ID信息缺失");
-        a.put("103011", "应用ID信息错误，MSSP未收录");
-        a.put("103012", "应用ID无效，MSSP上未生效");
-        a.put("103020", "应用ID无效，渠道ID信息错误");
-        a.put("103030", "应用版本信息缺失");
-        a.put("103040", "应用主版本信息缺失");
-        a.put("103050", "应用操作系统信息缺失");
-        a.put("103060", "应用包名信息错误，请保证注册包名和实际请求包名一致");
-        a.put("104000", "设备信息缺失");
-        a.put("104010", "设备类型信息缺失");
-        a.put("104011", "设备类型信息错误");
-        a.put("104020", "操作系统信息缺失");
-        a.put("104021", "操作系统信息错误");
-        a.put("104030", "操作系统版本信息缺失");
-        a.put("104040", "操作系统主版本信息缺失");
-        a.put("104050", "厂商信息缺失");
-        a.put("104060", "设备型号信息缺失");
-        a.put("104070", "设备唯一标识符缺失");
-        a.put("104071", "设备唯一标识符错误");
-        a.put("104080", "android id 缺失");
-        a.put("104081", "android id 格式错误");
-        a.put("104090", "设备屏幕尺寸信息缺失");
-        a.put("104100", "设备屏幕尺寸宽度缺失");
-        a.put("104110", "设备屏幕尺寸高度缺失");
-        a.put("105000", "网络环境信息缺失");
-        a.put("105010", "网络地址信息缺失");
-        a.put("105011", "网络地址信息格式错误");
-        a.put("105020", "网络连接类型缺失");
-        a.put("105021", "网络连接类型错误");
-        a.put("105030", "网络运营商类型缺失");
-        a.put("105031", "网络运营商类型错误");
-        a.put("105040", "Wi-Fi热点地址信息缺失");
-        a.put("105041", "Wi-Fi热点地址信息格式错误");
-        a.put("105050", "Wi-Fi热点信号强度信息缺失");
-        a.put("105060", "Wi-Fi热点名称缺失");
-        a.put("105070", "Wi-Fi连接状态信息缺失");
-        a.put("106000", "坐标类型信息缺失");
-        a.put("106001", "坐标类型信息错误");
-        a.put("106010", "经度信息缺失");
-        a.put("106020", "纬度信息缺失");
-        a.put("106030", "定位时间戳信息缺失");
-        a.put("107000", "广告位ID缺失");
-        a.put("107001", "广告位ID未收录");
-        a.put("107002", "广告位ID未启用");
-        a.put("107003", "广告位ID与应用ID不匹配");
-        a.put("107010", "广告位尺寸信息缺失");
-        a.put("107020", "广告位尺寸宽度缺失");
-        a.put("107030", "广告位尺寸高度缺失");
-        a.put("107040", "广告位信息缺失");
-        a.put("107050", "视频广告的网络条件无法满足");
-        a.put("107051", "视频标题名称过长");
-        a.put("107052", "SDK传递的广告位比例与MSSP的广告位比例不一致");
-        a.put("200000", "无广告返回");
-        a.put("201000", "无广告数据");
-        a.put("201010", "广告无签名");
-        a.put("201020", "广告创意类型信息缺失");
-        a.put("201021", "广告创意类型信息无法识别");
-        a.put("201030", "广告动作类型信息缺失");
-        a.put("201031", "广告动作类型信息无法识别");
-        a.put("201040", "曝光汇报地址丢失");
-        a.put("201050", "点击响应地址丢失");
-        a.put("201060", "推广标题丢失");
-        a.put("201070", "推广描述丢失");
-        a.put("201080", "推广应用包名丢失");
-        a.put("201090", "推广应用包大小丢失");
-        a.put("201100", "推广图标丢失");
-        a.put("201110", "推广图片丢失");
-        a.put("3010000", "广告组件挂载失败");
-        a.put("3010001", "播放器内部错误");
-        a.put("3010002", "广告请求失败");
-        a.put("3010003", "网络连接错误");
-        a.put("3010004", "没有可以展示的广告");
-        a.put("3010005", "广告正在拉取中，不能重复请求");
-        a.put("3010006", "广告正在展示中，不能请求广告");
-        a.put("3010007", "gameId、appsid、adUnitid其中一个为空，不能请求广告");
-        a.put("4010000", "广告组件准备完成");
-        a.put("3010008", "播放地址为空");
-        a.put("3010009", "激励视频重复调用create错误");
-        a.put("3010010", "没有可以show的banner广告");
-        a.put("3010011", "广告关闭生效中，本次请求被拒绝");
-        a.put("3010012", "小游戏启动前%d秒不允许展示banner广告");
-        a.put("3010013", "banner广告展示频控限制，%d秒内不允许重复展示banner广告");
+        this.d = null;
     }
 
-    public static String a(String str) {
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.b == null) {
+            return;
+        }
+        try {
+            if (!str.startsWith("javascript:")) {
+                str = "javascript:" + str;
+            }
+            this.b.evaluateJavascript(str, new a(this));
+        } catch (Exception unused) {
+        }
+    }
+
+    public void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        a("window.mobadssdkbridge.fireAnonymousEvent('" + str + "', '" + str2 + "')");
+    }
+
+    public final void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            a("window.mobadssdkbridge && window.mobadssdkbridge.nativeCallComplete && window.mobadssdkbridge.nativeCallComplete(" + JSONObject.quote(str) + SmallTailInfo.EMOTION_SUFFIX);
+        }
+    }
+
+    public final int d(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String str2 = a.get(str);
-            if (str2 == null) {
-                str2 = "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            try {
+                return context.getApplicationContext().getApplicationInfo().targetSdkVersion;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return -1;
             }
-            return b(str, str2);
         }
-        return (String) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    public static String b(String str, String str2) {
-        InterceptResult invokeLL;
+    public boolean e(Uri uri) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) ? TextUtils.equals("3010012", str) ? String.format(str2, Long.valueOf(zo3.a().h() / 1000)) : TextUtils.equals("3010013", str) ? String.format(str2, Long.valueOf(zo3.a().f() / 1000)) : str2 : (String) invokeLL.objValue;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, uri)) != null) {
+            return invokeL.booleanValue;
+        }
+        if (uri == null) {
+            return false;
+        }
+        String scheme = uri.getScheme();
+        String host = uri.getHost();
+        CommandType fromJavascriptString = CommandType.fromJavascriptString(host);
+        try {
+            if ("mobadssdk".equals(scheme)) {
+                if (this.a != null) {
+                    this.a.b(fromJavascriptString, uri);
+                }
+                try {
+                    c(host);
+                } catch (Exception unused) {
+                }
+                return true;
+            }
+        } catch (Exception unused2) {
+        } catch (Throwable th) {
+            try {
+                c(host);
+            } catch (Exception unused3) {
+            }
+            throw th;
+        }
+        try {
+            c(host);
+        } catch (Exception unused4) {
+            return false;
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.d = vp3.a + ";}());";
+            if (h()) {
+                return;
+            }
+            a("javascript:(function() {\n    window.baidu = {};\n    window.baidu.mobads = {};\n    window.baidu.mobads.Sdk = {\n        isIOS: false\n    };\n    window.mobadssdkbridge = window.mobadssdkbridge || {} \n    var Sdk = window.baidu.mobads.Sdk;\n    Sdk.isIOS = (/iphone|ipad|ipod/i).test(window.navigator.userAgent.toLowerCase());\n    var mob = window.baidu.mobads;\n    mob.Act = {\n        LP: 1,\n        DL: 2,\n        MAP: 4,\n        SMS: 8,\n        MAIL: 16,\n        PHONE: 32,\n        VIDEO: 64,\n        RM: 128,\n        NA: 256,\n        APO: 512\n    };\n    var win = window;\n    win.MobadsSdk = win.MobadsSdk || {};\n    var MobadsSdk = win.MobadsSdk;\n    var send3rdLog = function(isShowLog, ad) {\n        if (!ad || !ad.mon) {\n            return;\n        }\n        var url;\n        for (var i = 0; i < ad.mon.length; ++i) {\n            url = isShowLog ? ad.mon[i].s: ad.mon[i].c;\n            if (!url) {\n                continue;\n            }\n            new Image().src = url;\n        }\n    };\n     function createUniqueId(n = 12) { // 生成n位长度的字符串\n         var str = 'abcdefghijklmnopqrstuvwxyz0123456789'; // 可以作为常量放到random外面 \n         let result = '';\n         for (let i = 0; i < n; i++) {\n             result += str[parseInt(Math.random() * str.length, 10)];\n         } \n         return result;\n     };\n     // 执行回调 \n     window.mobadssdkbridge.fireAnonymousEvent = function (token = '', res = '') { \n         var jssdkNamespace = window['__baidu_adserv'] || {};\n         var callback = jssdkNamespace['baidu_' + token];\n         if (callback) { \n             let callbackRes; \n             try {\n                 callbackRes = res && JSON.parse(res); \n             } catch (e) { \n                 callbackRes = res;\n             }\n             callback(callbackRes); \n             delete jssdkNamespace['baidu_' + token]; \n         }\n     };     Sdk.device = 'baidubox';\n     Sdk.isSupportPause = 'YES';\n    Sdk.setPrivacyActionUrl = function (jsonStr) {\n        var args = ['setPrivacyActionUrl',\n            'json', jsonStr\n        ];\n        MobadsSdk.setPrivacyActionUrl(JSON.stringify(args));\n    };\n    Sdk.setPermissionActionUrl = function (jsonStr) {\n        var args = ['setPermissionActionUrl',\n            'json', jsonStr\n        ];\n        MobadsSdk.setPermissionActionUrl(JSON.stringify(args));\n    };\n    Sdk.setActionUrl = function(url, inapp, act, title, close) {\n        var opt = {};\n        if (\"[object Object]\" === Object.prototype.toString.call(url)) {\n            opt = url;\n            url = opt.url;\n            inapp = opt.inapp;\n            act = opt.act;\n            title = opt.title;\n            close = opt.close;\n               if (opt.allParamsJson) {\n                   if (opt.allParamsJson.action) {\n                       opt.action = opt.allParamsJson.action;\n                       opt.v_video = opt.allParamsJson.v_video || \"\";\n                       opt.v_video_w = opt.allParamsJson.v_video_w || \"\";\n                       opt.v_video_h = opt.allParamsJson.v_video_h || \"\";\n                       opt.v_image = opt.allParamsJson.v_image || \"\";\n                       opt.v_url = opt.allParamsJson.v_url || \"\";\n                       opt.allParamsJson = null;\n                   }\n               }\n        }\n        opt.url = url || \"\";\n        opt.inapp = inapp || false;\n        opt.act = act || 1;\n        opt.title = title || \"\";\n        opt.close = close || false;\n        opt.logurl = opt.logurl || \"\";\n        opt.weibo = opt.weibo || \"\";\n        opt.map = opt.map || \"\";\n        opt.search = opt.search || \"\";\n        opt.sms = opt.sms || \"\";\n        opt.at = opt.at || 1;\n        opt.tid = opt.tid || \"\";\n        if (MobadsSdk.setActionUrl) {\n            var DUMP_PAR = opt.inapp;\n            MobadsSdk.setActionUrl(JSON.stringify(opt), DUMP_PAR)\n        }\n    };\n    Sdk.sendClickLog = function(logurl) {\n        new Image().src = logurl;\n    };\n    Sdk.onAdPlayEnd = function() {\n        if (MobadsSdk.onAdPlayEnd) {\n            setTimeout(function() {\n                MobadsSdk.onAdPlayEnd();\n            },\n            300);\n        }\n    };\n    Sdk.open = function(url, options) {\n        var option = {\n            url: url,\n            inapp: true,\n            act: mob.Act.LP,\n            allParamsJson: options\n        };\n        Sdk.setActionUrl(option);\n        send3rdLog(false, options);\n    };\n    Sdk.startDownload = function(url, options) {\n        var ad = {};\n        ad = options || {};\n        ad.tit = options && options.tit || options.appname || \"应用\";\n        var mobadsJumpUrl = url;\n        if (/^itms-services:\\/\\//.test(url)) {\n            Sdk.setActionUrl(url, false, mob.Act.DL, ad.tit, true);\n            return;\n        }\n        if (Sdk.isIOS) {\n            var tid = options && options.pinfo && options.pinfo.tid;\n            if (tid) {\n                Sdk.sendClickLog(mobadsJumpUrl);\n            }\n            Sdk.setActionUrl({\n                url: url,\n                tid: tid || \"\",\n                inapp: true,\n                act: mob.Act.DL\n            });\n            return;\n        }\n        var mon = options && options.mon || [];\n        var id = options && options.id || 1;\n        var pk = options && options.pk || \"\";\n        var qk = options && options.qk || \"\";\n        var exp2 = options && options.exp2 || {};\n        var apoObj = options && options.apo || {};\n        var wi = options && options.wi ? true: false;\n        var title = ad.tit;\n        Sdk.setActionUrl({\n            url: mobadsJumpUrl,\n            act: mob.Act.DL,\n            apo: JSON.stringify(apoObj),\n            close: true,\n            adid: id,\n            originUrl: mobadsJumpUrl,\n            dlTunnel: 3,\n            autoOpen: true,\n            popNotif: true,\n            canCancel: true,\n            canDelete: 5,\n            mon: mon,\n            pk: pk,\n            qk: qk,\n            adid: id,\n            title: ad.tit,\n            action: options.action,\n            allParamsJson: options \n        });\n        send3rdLog(false, options);\n    };\n    Sdk.openScheme = function(url, options) {\n        var ad = {};\n        ad = options || {};\n        ad.tit = options && options.tit || \"应用\";\n        var pk = options && options.pk || \"\";\n        var option = {\n            url: url,\n            inapp: true,\n            act: ad.act,\n            title: ad.tit,\n            close: true,\n            pk: pk\n        };\n        Sdk.setActionUrl(option);\n        send3rdLog(false, options);\n    };\n    Sdk.handleClick = function(options) {\n        var ad = options || {};\n        var Act = mob.Act;\n        if (Act.LP === ad.act) {\n            Sdk.open(ad.curl, ad);\n        } else if (Act.DL === ad.act) {\n            Sdk.startDownload(ad.curl, ad);\n        } else if (Act.APO === ad.act) {\n            new Image().src = ad.curl;\n            Sdk.openScheme(ad.apo, ad);\n        }\n    };\n    Sdk.onAdPlayEnd = function() {\n        if (MobadsSdk.onAdPlayEnd) {\n            MobadsSdk.onAdPlayEnd();\n        }\n    };\n    Sdk.needsAdIcon = function() {\n        return true;\n    };\n    Sdk.getAdViewState = function(callback) {\n        if (!MobadsSdk || !MobadsSdk.getAdViewState) {\n            callback('BaiduMobAdSpamOK');\n            return;\n        }\n        MobadsSdk.getAdViewState(MobadsSdk.addAnonymousEvent(function(state) {\n            var iState = parseInt(state);\n            var sState = 'BaiduMobAdSpamOK';\n            if (iState != 0) {\n                sState = 'BaiduMobAdSpamNotOK';\n            }\n            callback(sState);\n        }));\n    };\n     // 注册回调 \n    Sdk.natRegEv = function (callback) { \n         var mobadsSdk = window['MobadsSdk'] || {};\n         var jssdkNamespace = mobadsSdk.__anoymousEvents || {}\n         var token = createUniqueId(14); \n         jssdkNamespace[token] = callback || function () { \n         }\n         mobadsSdk.__anoymousEvents = jssdkNamespace\n         return token;\n     };\n     // 获取下载状态 \n    Sdk.getDownloadStatus = function (callback, pkg) { \n         if (MobadsSdk.getDownloadStatus) {\n             var token = Sdk.natRegEv(callback);\n             MobadsSdk.getDownloadStatus(token, pkg);\n         } \n     };\n     Sdk.pauseDownload = function (pkg) { \n         if (MobadsSdk.pauseDownload) { \n             MobadsSdk.pauseDownload(pkg); \n         } \n     };\n})();");
+            a(this.d);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && h() && !TextUtils.isEmpty(this.d)) {
+            a(this.d);
+        }
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? Build.VERSION.SDK_INT >= 24 || d(this.c) >= 24 : invokeV.booleanValue;
+    }
+
+    public void i(ip3 ip3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ip3Var) == null) {
+            this.a = ip3Var;
+        }
+    }
+
+    public void j(RewardWebView rewardWebView) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, rewardWebView) == null) || rewardWebView == null) {
+            return;
+        }
+        this.b = rewardWebView;
+        this.c = rewardWebView.getContext().getApplicationContext();
+        this.b.loadUrl("javascript:(function(){})()");
+        f();
+        a(String.format("javascript:(function(){window.mobadssdkbridge.setPlacementType('%s');})()", "inline"));
     }
 }

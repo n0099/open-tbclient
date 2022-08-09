@@ -51,21 +51,21 @@ public class ck extends al.a {
         ArrayList<cj.a> arrayList6;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            arrayList = this.a.f164a;
+            arrayList = this.a.f165a;
             synchronized (arrayList) {
-                arrayList2 = this.a.f164a;
+                arrayList2 = this.a.f165a;
                 if (arrayList2.size() > 0) {
-                    arrayList3 = this.a.f164a;
+                    arrayList3 = this.a.f165a;
                     if (arrayList3.size() > 1) {
                         cj cjVar = this.a;
-                        arrayList6 = this.a.f164a;
+                        arrayList6 = this.a.f165a;
                         cjVar.a(arrayList6);
                     } else {
                         cj cjVar2 = this.a;
-                        arrayList4 = this.a.f164a;
+                        arrayList4 = this.a.f165a;
                         cjVar2.b((cj.a) arrayList4.get(0));
                     }
-                    arrayList5 = this.a.f164a;
+                    arrayList5 = this.a.f165a;
                     arrayList5.clear();
                     System.gc();
                 }

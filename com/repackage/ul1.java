@@ -1,11 +1,15 @@
 package com.repackage;
+
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 /* loaded from: classes7.dex */
 public interface ul1 {
-    String a();
+    kh2 a(ZeusPluginFactory.Invoker invoker, String str);
 
-    String b();
+    kj2 b(ZeusPluginFactory.Invoker invoker, String str);
 
-    String getAppName();
+    kj2 c(ZeusPluginFactory.Invoker invoker, String str);
 
-    String getSchemeHeader();
+    jh2 d(ZeusPluginFactory.Invoker invoker, String str);
+
+    hf2 e(ZeusPluginFactory.Invoker invoker, String str);
 }

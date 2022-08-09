@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nz5;
-import com.repackage.oz5;
+import com.repackage.f16;
+import com.repackage.g16;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActivity> {
@@ -25,8 +25,8 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     public int a;
     public int b;
     public int c;
-    public ArrayList<nz5> d;
-    public oz5 e;
+    public ArrayList<f16> d;
+    public g16 e;
     public boolean f;
     public b g;
     public HttpMessageListener h;
@@ -67,7 +67,7 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
                 if (httpResponsedMessage.getError() == 0) {
                     if (z) {
                         GetUserOrderHttpResponseMessage getUserOrderHttpResponseMessage = (GetUserOrderHttpResponseMessage) httpResponsedMessage;
-                        this.a.I(getUserOrderHttpResponseMessage.getOrderList(), getUserOrderHttpResponseMessage.getRecommendInfo(), getUserOrderHttpResponseMessage.getHasMore());
+                        this.a.H(getUserOrderHttpResponseMessage.getOrderList(), getUserOrderHttpResponseMessage.getRecommendInfo(), getUserOrderHttpResponseMessage.getHasMore());
                     }
                     if (this.a.g != null) {
                         this.a.g.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.d, this.a.e, this.a.f);
@@ -75,7 +75,7 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
                     }
                     return;
                 }
-                ConsumptionRecordsModel.A(this.a);
+                ConsumptionRecordsModel.z(this.a);
                 if (this.a.g != null) {
                     this.a.g.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.d, this.a.e, this.a.f);
                 }
@@ -87,7 +87,7 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     public interface b {
         void a();
 
-        void b(int i, String str, ArrayList<nz5> arrayList, oz5 oz5Var, boolean z);
+        void b(int i, String str, ArrayList<f16> arrayList, g16 g16Var, boolean z);
     }
 
     public ConsumptionRecordsModel(BdUniqueId bdUniqueId) {
@@ -116,13 +116,13 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
         registerListener(this.h);
     }
 
-    public static /* synthetic */ int A(ConsumptionRecordsModel consumptionRecordsModel) {
+    public static /* synthetic */ int z(ConsumptionRecordsModel consumptionRecordsModel) {
         int i = consumptionRecordsModel.a;
         consumptionRecordsModel.a = i - 1;
         return i;
     }
 
-    public void G() {
+    public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             NewGetUserOrderRequestMessage newGetUserOrderRequestMessage = new NewGetUserOrderRequestMessage();
@@ -135,7 +135,7 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
         }
     }
 
-    public void H() {
+    public void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (!this.f) {
@@ -156,11 +156,11 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
         }
     }
 
-    public final void I(ArrayList<nz5> arrayList, oz5 oz5Var, boolean z) {
+    public final void H(ArrayList<f16> arrayList, g16 g16Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, arrayList, oz5Var, z) == null) {
-            if (oz5Var != null) {
-                this.e = oz5Var;
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, arrayList, g16Var, z) == null) {
+            if (g16Var != null) {
+                this.e = g16Var;
             }
             this.f = z;
             if (arrayList == null) {
@@ -176,7 +176,7 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
         }
     }
 
-    public void J(b bVar) {
+    public void I(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
             this.g = bVar;

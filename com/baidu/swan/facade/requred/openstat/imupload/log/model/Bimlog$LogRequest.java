@@ -20,11 +20,11 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.MessageLiteOrBuilder;
 import com.google.protobuf.Parser;
-import com.repackage.an3;
+import com.repackage.rn3;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Bimlog$LogRequest extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AUTH_INFO_FIELD_NUMBER = 3;
@@ -47,7 +47,7 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
     public Object sign_;
     public long version_;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class AuthInfo extends GeneratedMessageLite implements MessageLiteOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static Parser<AuthInfo> PARSER = null;
@@ -60,7 +60,7 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
         public int memoizedSerializedSize;
         public Object token_;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static class a extends AbstractParser<AuthInfo> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -89,7 +89,7 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
             }
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static final class b extends GeneratedMessageLite.Builder<AuthInfo, b> implements Object {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -170,7 +170,7 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                    AuthInfo authInfo = new AuthInfo(this, (an3) null);
+                    AuthInfo authInfo = new AuthInfo(this, (rn3) null);
                     int i = (this.a & 1) != 1 ? 0 : 1;
                     authInfo.token_ = this.b;
                     authInfo.bitField0_ = i;
@@ -320,7 +320,7 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
             authInfo.initFields();
         }
 
-        public /* synthetic */ AuthInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, an3 an3Var) throws InvalidProtocolBufferException {
+        public /* synthetic */ AuthInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, rn3 rn3Var) throws InvalidProtocolBufferException {
             this(codedInputStream, extensionRegistryLite);
         }
 
@@ -450,7 +450,7 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
             }
         }
 
-        public /* synthetic */ AuthInfo(GeneratedMessageLite.Builder builder, an3 an3Var) {
+        public /* synthetic */ AuthInfo(GeneratedMessageLite.Builder builder, rn3 rn3Var) {
             this(builder);
         }
 
@@ -625,7 +625,7 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends AbstractParser<Bimlog$LogRequest> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -654,7 +654,7 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class b extends GeneratedMessageLite.Builder<Bimlog$LogRequest, b> implements Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -754,7 +754,7 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-                Bimlog$LogRequest bimlog$LogRequest = new Bimlog$LogRequest(this, (an3) null);
+                Bimlog$LogRequest bimlog$LogRequest = new Bimlog$LogRequest(this, (rn3) null);
                 int i = this.a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 bimlog$LogRequest.version_ = this.b;
@@ -1028,7 +1028,7 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
         bimlog$LogRequest.initFields();
     }
 
-    public /* synthetic */ Bimlog$LogRequest(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, an3 an3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bimlog$LogRequest(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, rn3 rn3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -1280,7 +1280,7 @@ public final class Bimlog$LogRequest extends GeneratedMessageLite implements Mes
         }
     }
 
-    public /* synthetic */ Bimlog$LogRequest(GeneratedMessageLite.Builder builder, an3 an3Var) {
+    public /* synthetic */ Bimlog$LogRequest(GeneratedMessageLite.Builder builder, rn3 rn3Var) {
         this(builder);
     }
 

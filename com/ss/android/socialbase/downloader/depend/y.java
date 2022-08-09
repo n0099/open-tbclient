@@ -6,7 +6,7 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface y extends IInterface {
     String a() throws RemoteException;
 
@@ -14,7 +14,7 @@ public interface y extends IInterface {
 
     boolean a(boolean z) throws RemoteException;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class a extends Binder implements y {
         public a() {
             attachInterface(this, "com.ss.android.socialbase.downloader.depend.IDownloadNotificationEventAidlListener");
@@ -28,11 +28,11 @@ public interface y extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof y)) {
                 return (y) queryLocalInterface;
             }
-            return new C0678a(iBinder);
+            return new C0683a(iBinder);
         }
 
         public static y b() {
-            return C0678a.a;
+            return C0683a.a;
         }
 
         @Override // android.os.IInterface
@@ -69,12 +69,12 @@ public interface y extends IInterface {
         }
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.y$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public static class C0678a implements y {
+        /* loaded from: classes8.dex */
+        public static class C0683a implements y {
             public static y a;
             public IBinder b;
 
-            public C0678a(IBinder iBinder) {
+            public C0683a(IBinder iBinder) {
                 this.b = iBinder;
             }
 

@@ -13,7 +13,7 @@ import com.google.android.exoplayer2.text.Subtitle;
 import com.google.android.exoplayer2.util.Assertions;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class Tx3gSubtitle implements Subtitle {
     public static /* synthetic */ Interceptable $ic;
     public static final Tx3gSubtitle EMPTY;

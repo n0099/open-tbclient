@@ -1,7 +1,7 @@
 package com.repackage;
 
-import android.content.IntentFilter;
-import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,12 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class pr3 extends ns3 {
+/* loaded from: classes7.dex */
+public class pr3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AppDownloadNetworkStateReceiver c;
+    public DownloadState a;
+    public String b;
+    public String c;
+    public int d;
+    public String e;
 
     static {
         InterceptResult invokeClinit;
@@ -29,12 +32,10 @@ public class pr3 extends ns3 {
                 return;
             }
         }
-        boolean z = sg1.a;
+        boolean z = jh1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public pr3() {
-        super("resumeAllDownloadWhileWifi");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,32 +43,37 @@ public class pr3 extends ns3 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = DownloadState.NOT_START;
+        this.d = Integer.parseInt("0");
     }
 
-    @Override // com.repackage.ns3
-    public is1 a(JSONObject jSONObject, md2 md2Var) {
+    public static pr3 a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, md2Var)) == null) {
-            if (jSONObject == null) {
-                md2Var.onFail(202, "params may be error");
-                return null;
-            }
-            if (this.c == null) {
-                this.c = new AppDownloadNetworkStateReceiver();
-            }
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            pj2.c().registerReceiver(this.c, intentFilter);
-            md2Var.a(null);
-            return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            pr3 pr3Var = new pr3();
+            pr3Var.b = str;
+            pr3Var.c = str2;
+            return pr3Var;
         }
-        return (is1) invokeLL.objValue;
+        return (pr3) invokeLL.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.e = str;
+        }
     }
 }

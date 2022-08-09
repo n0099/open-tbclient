@@ -7,9 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h67;
+import com.repackage.b87;
 import protobuf.NativeApp;
-import protobuf.PbContent;
+import tbclient.PbContent;
 /* loaded from: classes3.dex */
 public class PbContentPojo extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
@@ -34,7 +34,7 @@ public class PbContentPojo extends OrmObject {
     public Integer isLongPic;
     public Integer isNativeApp;
     public Integer isSub;
-    public h67 item;
+    public b87 item;
     public String itemForumName;
     public Long itemId;
     public String link;
@@ -81,54 +81,6 @@ public class PbContentPojo extends OrmObject {
         this.link = pbContent.link;
         this.src = pbContent.src;
         this.bsize = pbContent.bsize;
-        this.bigSrc = pbContent.bigSrc;
-        this.bigSize = pbContent.bigSize;
-        this.cdnSrc = pbContent.cdnSrc;
-        this.bigCdnSrc = pbContent.bigCdnSrc;
-        this.imgtype = pbContent.imgtype;
-        this.c = pbContent.c;
-        this.voiceMd5 = pbContent.voiceMd5;
-        this.duringTime = pbContent.duringTime;
-        this.isSub = pbContent.isSub;
-        this.uid = pbContent.uid;
-        this.dynamic = pbContent.dynamic;
-        this._static = pbContent._static;
-        this.width = pbContent.width;
-        this.height = pbContent.height;
-        this.packetName = pbContent.packetName;
-        this.phonetype = pbContent.phonetype;
-        this.isNativeApp = pbContent.isNativeApp;
-        this.eType = pbContent.eType;
-        this.originSrc = pbContent.originSrc;
-        this.btnType = pbContent.btnType;
-        this.originSize = pbContent.originSize;
-        this.count = pbContent.count;
-        this.graffitiInfo = GraffitiInfoPojo.A(pbContent.graffitiInfo);
-        this.highTogether = TogetherHiPojo.A(pbContent.highTogether);
-        this.mediaSubtitle = pbContent.mediaSubtitle;
-        this.urlType = pbContent.urlType;
-        this.memeInfo = MemeInfoPojo.A(pbContent.memeInfo);
-        this.isLongPic = pbContent.isLongPic;
-        this.showOriginalBtn = pbContent.showOriginalBtn;
-        this.cdnSrcActive = pbContent.cdnSrcActive;
-        this.topicSpecialIcon = pbContent.topicSpecialIcon;
-        this.itemId = pbContent.itemId;
-        this.itemForumName = pbContent.itemForumName;
-        this.tiebaplusInfo = TiebaPlusInfoPojo.A(pbContent.tiebaplusInfo);
-        this.item = h67.a(pbContent.item);
-        this.picId = pbContent.picId;
-    }
-
-    public void B(tbclient.PbContent pbContent) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pbContent) == null) || pbContent == null) {
-            return;
-        }
-        this.type = pbContent.type;
-        this.text = pbContent.text;
-        this.link = pbContent.link;
-        this.src = pbContent.src;
-        this.bsize = pbContent.bsize;
         this.bigSrc = pbContent.big_src;
         this.bigSize = pbContent.big_size;
         this.cdnSrc = pbContent.cdn_src;
@@ -151,25 +103,73 @@ public class PbContentPojo extends OrmObject {
         this.btnType = pbContent.btn_type;
         this.originSize = pbContent.origin_size;
         this.count = pbContent.count;
-        this.graffitiInfo = GraffitiInfoPojo.B(pbContent.graffiti_info);
-        this.highTogether = TogetherHiPojo.B(pbContent.high_together);
+        this.graffitiInfo = GraffitiInfoPojo.A(pbContent.graffiti_info);
+        this.highTogether = TogetherHiPojo.A(pbContent.high_together);
         this.mediaSubtitle = pbContent.media_subtitle;
         this.urlType = pbContent.url_type;
-        this.memeInfo = MemeInfoPojo.B(pbContent.meme_info);
+        this.memeInfo = MemeInfoPojo.A(pbContent.meme_info);
         this.isLongPic = pbContent.is_long_pic;
         this.showOriginalBtn = pbContent.show_original_btn;
         this.cdnSrcActive = pbContent.cdn_src_active;
         this.topicSpecialIcon = pbContent.topic_special_icon;
         this.itemId = pbContent.item_id;
         this.itemForumName = pbContent.item_forum_name;
-        this.tiebaplusInfo = TiebaPlusInfoPojo.B(pbContent.tiebaplus_info);
-        this.item = h67.b(pbContent.item);
+        this.tiebaplusInfo = TiebaPlusInfoPojo.A(pbContent.tiebaplus_info);
+        this.item = b87.b(pbContent.item);
         this.picId = pbContent.pic_id;
     }
 
     public Integer getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.type : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.type : (Integer) invokeV.objValue;
+    }
+
+    public void z(protobuf.PbContent pbContent) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pbContent) == null) || pbContent == null) {
+            return;
+        }
+        this.type = pbContent.type;
+        this.text = pbContent.text;
+        this.link = pbContent.link;
+        this.src = pbContent.src;
+        this.bsize = pbContent.bsize;
+        this.bigSrc = pbContent.bigSrc;
+        this.bigSize = pbContent.bigSize;
+        this.cdnSrc = pbContent.cdnSrc;
+        this.bigCdnSrc = pbContent.bigCdnSrc;
+        this.imgtype = pbContent.imgtype;
+        this.c = pbContent.c;
+        this.voiceMd5 = pbContent.voiceMd5;
+        this.duringTime = pbContent.duringTime;
+        this.isSub = pbContent.isSub;
+        this.uid = pbContent.uid;
+        this.dynamic = pbContent.dynamic;
+        this._static = pbContent._static;
+        this.width = pbContent.width;
+        this.height = pbContent.height;
+        this.packetName = pbContent.packetName;
+        this.phonetype = pbContent.phonetype;
+        this.isNativeApp = pbContent.isNativeApp;
+        this.eType = pbContent.eType;
+        this.originSrc = pbContent.originSrc;
+        this.btnType = pbContent.btnType;
+        this.originSize = pbContent.originSize;
+        this.count = pbContent.count;
+        this.graffitiInfo = GraffitiInfoPojo.z(pbContent.graffitiInfo);
+        this.highTogether = TogetherHiPojo.z(pbContent.highTogether);
+        this.mediaSubtitle = pbContent.mediaSubtitle;
+        this.urlType = pbContent.urlType;
+        this.memeInfo = MemeInfoPojo.z(pbContent.memeInfo);
+        this.isLongPic = pbContent.isLongPic;
+        this.showOriginalBtn = pbContent.showOriginalBtn;
+        this.cdnSrcActive = pbContent.cdnSrcActive;
+        this.topicSpecialIcon = pbContent.topicSpecialIcon;
+        this.itemId = pbContent.itemId;
+        this.itemForumName = pbContent.itemForumName;
+        this.tiebaplusInfo = TiebaPlusInfoPojo.z(pbContent.tiebaplusInfo);
+        this.item = b87.a(pbContent.item);
+        this.picId = pbContent.picId;
     }
 }

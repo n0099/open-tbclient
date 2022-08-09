@@ -17,16 +17,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e76;
-import com.repackage.vr4;
-import com.repackage.w46;
+import com.repackage.ms4;
+import com.repackage.o66;
+import com.repackage.w86;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class ClassFitionForumItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<w46> a;
-    public e76.b b;
+    public List<o66> a;
+    public w86.b b;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -90,13 +90,13 @@ public class ClassFitionForumItemAdapter extends RecyclerView.Adapter<RecyclerVi
                     return;
                 }
             }
-            this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09133c);
-            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0918af);
-            this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09153f);
+            this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0913e0);
+            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091982);
+            this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0915fb);
         }
     }
 
-    public ClassFitionForumItemAdapter(TbPageContext tbPageContext, List<w46> list) {
+    public ClassFitionForumItemAdapter(TbPageContext tbPageContext, List<o66> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +114,7 @@ public class ClassFitionForumItemAdapter extends RecyclerView.Adapter<RecyclerVi
         this.a = list;
     }
 
-    public void f(e76.b bVar) {
+    public void f(w86.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             this.b = bVar;
@@ -137,16 +137,16 @@ public class ClassFitionForumItemAdapter extends RecyclerView.Adapter<RecyclerVi
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        List<w46> list;
+        List<o66> list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(1048579, this, viewHolder, i) == null) || (list = this.a) == null || list.get(i) == null || !(viewHolder instanceof b)) {
             return;
         }
         b bVar = (b) viewHolder;
-        bVar.a.setImageResource(R.drawable.obfuscated_res_0x7f08098e);
+        bVar.a.setImageResource(R.drawable.obfuscated_res_0x7f0809b0);
         bVar.a.setImageDrawable(WebPManager.getMaskDrawable(this.a.get(i).a(), true));
         bVar.b.setText(this.a.get(i).b());
-        vr4 d = vr4.d(bVar.b);
+        ms4 d = ms4.d(bVar.b);
         d.z(R.dimen.T_X09);
         d.v(R.color.CAM_X0105);
         bVar.c.setOnClickListener(new a(this, i));
@@ -157,10 +157,10 @@ public class ClassFitionForumItemAdapter extends RecyclerView.Adapter<RecyclerVi
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) ? new b(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01d8, viewGroup, false)) : (RecyclerView.ViewHolder) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) ? new b(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01d9, viewGroup, false)) : (RecyclerView.ViewHolder) invokeLI.objValue;
     }
 
-    public void update(List<w46> list) {
+    public void update(List<o66> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             this.a = list;

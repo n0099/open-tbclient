@@ -14,6 +14,8 @@ public class ay4 {
     public String a;
     public String b;
     public String c;
+    public String d;
+    public int e;
 
     public ay4() {
         Interceptable interceptable = $ic;
@@ -27,22 +29,6 @@ public class ay4 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public static ay4 d(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            ay4 ay4Var = new ay4();
-            if (jSONObject != null) {
-                ay4Var.a = jSONObject.optString("scene_name");
-                jSONObject.optString("style");
-                ay4Var.b = jSONObject.optString("title");
-                ay4Var.c = jSONObject.optString("text");
-            }
-            return ay4Var;
-        }
-        return (ay4) invokeL.objValue;
     }
 
     public String a() {
@@ -61,5 +47,28 @@ public class ay4 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : invokeV.intValue;
+    }
+
+    public void f(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
+            this.a = jSONObject.optString("icon");
+            this.b = jSONObject.optString("tab_code");
+            this.c = jSONObject.optString("pop_text");
+            this.d = jSONObject.optString("thread_id");
+            this.e = jSONObject.optInt("version");
+        }
     }
 }

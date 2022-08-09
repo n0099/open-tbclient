@@ -1,127 +1,65 @@
 package com.repackage;
 
-import android.graphics.drawable.Drawable;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.R;
+import android.util.LongSparseArray;
+import android.util.SparseArray;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.List;
+import tbclient.RecomVertical.DataRes;
+import tbclient.RecomVertical.DislikeReason;
+import tbclient.RecomVertical.ThreadPersonalized;
 /* loaded from: classes7.dex */
 public class ww6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Drawable[] a(String str) {
-        InterceptResult invokeL;
+    public static void a(DataRes dataRes, List<on> list) {
+        f06 f06Var;
+        ThreadData threadData;
+        ThreadPersonalized threadPersonalized;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            Drawable[] drawableArr = new Drawable[2];
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -1581702362:
-                    if (str.equals("share_num")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case -6986408:
-                    if (str.equals("care_num")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 975378291:
-                    if (str.equals("agree_num")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case 2103869862:
-                    if (str.equals("comment_num")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-            }
-            if (c == 0) {
-                drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080e89, WebPManager.ResourceStateType.NORMAL);
-                drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080ebd, WebPManager.ResourceStateType.NORMAL);
-            } else if (c == 1) {
-                drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080e8a, WebPManager.ResourceStateType.NORMAL);
-                drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080ebe, WebPManager.ResourceStateType.NORMAL);
-            } else if (c == 2) {
-                drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080e88, WebPManager.ResourceStateType.NORMAL);
-                drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080ebc, WebPManager.ResourceStateType.NORMAL);
-            } else if (c != 3) {
-                drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080e87, WebPManager.ResourceStateType.NORMAL);
-                drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080ebb, WebPManager.ResourceStateType.NORMAL);
-            } else {
-                drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080e86, WebPManager.ResourceStateType.NORMAL);
-                drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080eba, WebPManager.ResourceStateType.NORMAL);
-            }
-            return drawableArr;
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, dataRes, list) == null) || dataRes == null || list == null) {
+            return;
         }
-        return (Drawable[]) invokeL.objValue;
+        LongSparseArray longSparseArray = new LongSparseArray();
+        for (ThreadPersonalized threadPersonalized2 : dataRes.thread_personalized) {
+            if (threadPersonalized2 != null) {
+                longSparseArray.put(threadPersonalized2.tid.longValue(), threadPersonalized2);
+            }
+        }
+        int count = ListUtils.getCount(list);
+        for (int i = 0; i < count; i++) {
+            on onVar = (on) ListUtils.getItem(list, i);
+            if ((onVar instanceof f06) && (threadData = (f06Var = (f06) onVar).getThreadData()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(og.g(threadData.getTid(), 0L))) != null) {
+                f06Var.J(threadPersonalized.source);
+                f06Var.M(threadPersonalized.weight);
+                f06Var.F(threadPersonalized.abtest_tag);
+                threadData.mRecomAbTag = threadPersonalized.abtest_tag;
+                threadData.mRecomSource = threadPersonalized.source;
+                threadData.mRecomWeight = threadPersonalized.weight;
+                if (threadData.getThreadVideoInfo() != null) {
+                    f06Var.H(threadData.getThreadVideoInfo().is_vertical);
+                }
+                List<DislikeReason> list2 = threadPersonalized.dislike_resource;
+                if (list2 != null) {
+                    SparseArray<String> sparseArray = new SparseArray<>();
+                    for (DislikeReason dislikeReason : list2) {
+                        int intValue = dislikeReason.dislike_id.intValue();
+                        sparseArray.put(intValue, dislikeReason.dislike_reason + "%" + dislikeReason.extra);
+                    }
+                    f06Var.feedBackReasonMap = sparseArray;
+                    f06Var.G(threadPersonalized.extra);
+                }
+            }
+        }
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static String b(String str) {
-        InterceptResult invokeL;
-        char c;
+    public static void b(DataRes dataRes, List<on> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            switch (str.hashCode()) {
-                case -1581702362:
-                    if (str.equals("share_num")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -6986408:
-                    if (str.equals("care_num")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 975378291:
-                    if (str.equals("agree_num")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 2103869862:
-                    if (str.equals("comment_num")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f09c1);
-                        }
-                        return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f09c0);
-                    }
-                    return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f09c2);
-                }
-                return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f09c4);
-            }
-            return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f09c3);
+        if (interceptable == null || interceptable.invokeLL(65537, null, dataRes, list) == null) {
+            a(dataRes, list);
         }
-        return (String) invokeL.objValue;
     }
 }

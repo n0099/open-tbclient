@@ -11,7 +11,7 @@ import com.sdk.a.e;
 import com.sdk.d.e;
 import java.net.HttpURLConnection;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends e.c<Params, Result> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroActivity> {
     public static /* synthetic */ Interceptable $ic;
@@ -118,7 +118,7 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
         this.r = new a(this);
     }
 
-    public final void D1() {
+    public final void C1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             boolean z = true;
@@ -126,7 +126,7 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
                 z = false;
             }
             if (z) {
-                int f = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds690);
+                int f = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds690);
                 ViewGroup.LayoutParams layoutParams = this.k.getLayoutParams();
                 if (layoutParams instanceof LinearLayout.LayoutParams) {
                     ((LinearLayout.LayoutParams) layoutParams).height = f;
@@ -168,35 +168,35 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0493);
-            this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09198f);
-            this.a = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09199a);
-            this.j = (LinearGradientView) findViewById(R.id.obfuscated_res_0x7f091990);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091997);
-            this.c = findViewById(R.id.obfuscated_res_0x7f091998);
-            this.d = findViewById(R.id.obfuscated_res_0x7f0903df);
-            this.f = findViewById(R.id.obfuscated_res_0x7f091993);
+            setContentView(R.layout.obfuscated_res_0x7f0d0496);
+            this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091a65);
+            this.a = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091a70);
+            this.j = (LinearGradientView) findViewById(R.id.obfuscated_res_0x7f091a66);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091a6d);
+            this.c = findViewById(R.id.obfuscated_res_0x7f091a6e);
+            this.d = findViewById(R.id.obfuscated_res_0x7f0903f7);
+            this.f = findViewById(R.id.obfuscated_res_0x7f091a69);
             this.e = this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.r);
-            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0eef));
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091992);
+            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0f1d));
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091a68);
             this.i = tbImageView;
             tbImageView.setDefaultBgResource(R.color.transparent);
-            this.i.setDefaultResource(R.drawable.obfuscated_res_0x7f080eac);
-            this.h = findViewById(R.id.obfuscated_res_0x7f091991);
-            this.g = findViewById(R.id.obfuscated_res_0x7f09199e);
-            this.l = findViewById(R.id.obfuscated_res_0x7f091994);
-            this.p = findViewById(R.id.obfuscated_res_0x7f091995);
-            this.n = findViewById(R.id.obfuscated_res_0x7f091996);
-            this.m = findViewById(R.id.obfuscated_res_0x7f09199b);
-            this.q = findViewById(R.id.obfuscated_res_0x7f09199c);
-            this.o = findViewById(R.id.obfuscated_res_0x7f09199d);
+            this.i.setDefaultResource(R.drawable.obfuscated_res_0x7f080f0c);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091a67);
+            this.g = findViewById(R.id.obfuscated_res_0x7f091a74);
+            this.l = findViewById(R.id.obfuscated_res_0x7f091a6a);
+            this.p = findViewById(R.id.obfuscated_res_0x7f091a6b);
+            this.n = findViewById(R.id.obfuscated_res_0x7f091a6c);
+            this.m = findViewById(R.id.obfuscated_res_0x7f091a71);
+            this.q = findViewById(R.id.obfuscated_res_0x7f091a72);
+            this.o = findViewById(R.id.obfuscated_res_0x7f091a73);
             this.b.setEnabled(true);
             this.b.setOnClickListener(this.r);
             this.c.setOnClickListener(this.r);
-            D1();
+            C1();
             String stringExtra = getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_PATTEN_BACKGROUND);
             this.j.setGradientColor(getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DAY_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DAY_DARK_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_NIGHT_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_NIGHT_DARK_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DARK_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DARK_DARK_COLOR));
-            this.i.J(stringExtra, 10, false);
+            this.i.K(stringExtra, 10, false);
         }
     }
 }

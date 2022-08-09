@@ -2,11 +2,14 @@ package com.baidu.tieba.attention;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.bean.AddressField;
+import com.baidu.tbadk.core.data.ForumTagInfo;
 import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.frs.FrsTabItemData;
+import com.baidu.tieba.write.write.message.QuestionTagListRequestMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -91,6 +94,11 @@ public class AttentionResMsg extends JsonHttpResponsedMessage {
                     selectForumData.postPrefix = postPrefixData;
                     postPrefixData.parserJson(optJSONObject);
                 }
+                JSONObject optJSONObject5 = optJSONObject2.optJSONObject("tag_info");
+                if (optJSONObject5 != null) {
+                    selectForumData.forumTagInfo = (ForumTagInfo) DataExt.toEntity(optJSONObject5.toString(), ForumTagInfo.class);
+                }
+                selectForumData.firstCategory = optJSONObject2.optString(QuestionTagListRequestMessage.KEY_CATEGORY);
                 this.mSelectForumDataList.add(selectForumData);
             }
         }

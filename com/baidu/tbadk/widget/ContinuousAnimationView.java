@@ -49,7 +49,7 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         public void onAnimationCancel(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.w();
+                this.a.v();
             }
         }
 
@@ -57,7 +57,7 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.a.x();
+                this.a.w();
                 if (this.a.i) {
                     this.a.i = false;
                 }
@@ -70,7 +70,7 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         public void onAnimationRepeat(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-                this.a.y();
+                this.a.x();
                 if (this.a.i) {
                     this.a.cancelAnimation();
                     this.a.i = false;
@@ -82,7 +82,7 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.a.z();
+                this.a.y();
                 this.a.h = true;
             }
         }
@@ -219,25 +219,25 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         }
     }
 
-    public final void w() {
+    public final void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
         }
     }
 
-    public final void x() {
+    public final void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
         }
     }
 
-    public final void y() {
+    public final void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
         }
     }
 
-    public final void z() {
+    public final void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
         }

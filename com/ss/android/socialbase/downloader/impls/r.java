@@ -19,8 +19,8 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.ArrayList;
 import java.util.Collections;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class r implements Handler.Callback, a.InterfaceC0660a {
+/* loaded from: classes8.dex */
+public class r implements Handler.Callback, a.InterfaceC0665a {
     public static volatile r a;
     public static b i;
     public final boolean e;
@@ -31,7 +31,7 @@ public class r implements Handler.Callback, a.InterfaceC0660a {
     public int g = 0;
     public final Context b = com.ss.android.socialbase.downloader.downloader.c.N();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public final int a;
         public final int b;
@@ -94,7 +94,7 @@ public class r implements Handler.Callback, a.InterfaceC0660a {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void a(DownloadInfo downloadInfo, long j, boolean z, int i);
     }
@@ -518,12 +518,12 @@ public class r implements Handler.Callback, a.InterfaceC0660a {
         a(downloadInfo, downloadInfo.isOnlyWifi() || downloadInfo.isPauseReserveOnWifi(), g());
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0660a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0665a
     public void b() {
         a(4, false);
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0660a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0665a
     public void c() {
         a(3, false);
     }

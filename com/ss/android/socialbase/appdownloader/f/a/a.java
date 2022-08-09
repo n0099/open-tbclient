@@ -2,7 +2,7 @@ package com.ss.android.socialbase.appdownloader.f.a;
 
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a implements i {
     public d b;
     public f d;
@@ -17,7 +17,7 @@ public class a implements i {
     public int n;
     public int o;
     public boolean c = false;
-    public C0659a f = new C0659a();
+    public C0664a f = new C0664a();
 
     public a() {
         g();
@@ -171,8 +171,8 @@ public class a implements i {
     }
 
     /* renamed from: com.ss.android.socialbase.appdownloader.f.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static final class C0659a {
+    /* loaded from: classes8.dex */
+    public static final class C0664a {
         public int[] a = new int[32];
         public int b;
         public int c;

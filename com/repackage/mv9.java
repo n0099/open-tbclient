@@ -1,27 +1,61 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.internal.operators.OnSubscribeAmb$Selection;
 /* loaded from: classes6.dex */
-public abstract class mv9<E> extends ov9<E> {
+public final class mv9<T> extends vu9<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long e;
-    public E[] f;
+    public final vu9<? super T> e;
+    public final OnSubscribeAmb$Selection<T> f;
+    public boolean g;
 
-    public mv9() {
+    public final boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.g) {
+                return true;
             }
+            if (this.f.get() == this) {
+                this.g = true;
+                return true;
+            } else if (this.f.compareAndSet(null, this)) {
+                this.f.unsubscribeOthers(this);
+                this.g = true;
+                return true;
+            } else {
+                this.f.unsubscribeLosers();
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.qu9
+    public void onCompleted() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && g()) {
+            this.e.onCompleted();
+        }
+    }
+
+    @Override // com.repackage.qu9
+    public void onError(Throwable th) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) && g()) {
+            this.e.onError(th);
+        }
+    }
+
+    @Override // com.repackage.qu9
+    public void onNext(T t) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, t) == null) && g()) {
+            this.e.onNext(t);
         }
     }
 }

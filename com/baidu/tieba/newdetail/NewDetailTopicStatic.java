@@ -26,8 +26,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ng;
-import com.repackage.wh8;
+import com.repackage.kk8;
+import com.repackage.og;
 /* loaded from: classes3.dex */
 public class NewDetailTopicStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -57,12 +57,22 @@ public class NewDetailTopicStatic {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
-                if (strArr == null || strArr.length == 0 || strArr[0] == null || tbPageContext == null) {
-                    return 3;
-                }
-                String lowerCase = strArr[0].toLowerCase();
-                if (!lowerCase.startsWith("https://tieba.baidu.com/mo/q/newtopic/detail") && !lowerCase.startsWith("https://tieba.baidu.com/mo/q/newtopic/detail")) {
-                    if (lowerCase.contains(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC)) {
+                if (strArr != null && strArr.length != 0 && strArr[0] != null && tbPageContext != null) {
+                    String lowerCase = strArr[0].toLowerCase();
+                    if (lowerCase.contains(UrlSchemaHelper.HTTP_JUMP_TOPIC_DETAIL)) {
+                        Uri parse = Uri.parse(lowerCase);
+                        if (parse.isHierarchical()) {
+                            String queryParameter = parse.getQueryParameter("topic_id");
+                            if (StringUtils.isNull(queryParameter)) {
+                                return 3;
+                            }
+                            TopicDetailActivityConfig topicDetailActivityConfig = new TopicDetailActivityConfig(tbPageContext.getPageActivity(), og.g(queryParameter, 0L));
+                            topicDetailActivityConfig.setIsFromYunPush(lowerCase.contains(UrlSchemaHelper.FROM_YUN_PUSH));
+                            tbPageContext.sendMessage(new CustomMessage(2002001, topicDetailActivityConfig));
+                            return 1;
+                        }
+                        return 3;
+                    } else if (lowerCase.contains(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC)) {
                         try {
                             Intent parseUri = Intent.parseUri(lowerCase, 1);
                             parseUri.setFlags(LaunchTaskConstants.OTHER_PROCESS);
@@ -74,24 +84,11 @@ public class NewDetailTopicStatic {
                         }
                         return 1;
                     } else if (lowerCase.contains("unidispatch/topicdetail")) {
-                        TopicDetailActivityConfig topicDetailActivityConfig = new TopicDetailActivityConfig(tbPageContext.getPageActivity());
-                        topicDetailActivityConfig.setUri(Uri.parse(lowerCase));
-                        tbPageContext.sendMessage(new CustomMessage(2002001, topicDetailActivityConfig));
+                        TopicDetailActivityConfig topicDetailActivityConfig2 = new TopicDetailActivityConfig(tbPageContext.getPageActivity());
+                        topicDetailActivityConfig2.setUri(Uri.parse(lowerCase));
+                        tbPageContext.sendMessage(new CustomMessage(2002001, topicDetailActivityConfig2));
                         return 0;
-                    } else {
-                        return 3;
                     }
-                }
-                Uri parse = Uri.parse(lowerCase);
-                if (parse.isHierarchical()) {
-                    String queryParameter = parse.getQueryParameter("topic_id");
-                    if (StringUtils.isNull(queryParameter)) {
-                        return 3;
-                    }
-                    TopicDetailActivityConfig topicDetailActivityConfig2 = new TopicDetailActivityConfig(tbPageContext.getPageActivity(), ng.g(queryParameter, 0L));
-                    topicDetailActivityConfig2.setIsFromYunPush(lowerCase.contains(UrlSchemaHelper.FROM_YUN_PUSH));
-                    tbPageContext.sendMessage(new CustomMessage(2002001, topicDetailActivityConfig2));
-                    return 1;
                 }
                 return 3;
             }
@@ -136,24 +133,24 @@ public class NewDetailTopicStatic {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            wh8.h(309085, BlessSocketResponseMessage.class, false, false);
-            wh8.c(309085, CmdConfigHttp.CMD_TOPIC_BLESS, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
+            kk8.h(309085, BlessSocketResponseMessage.class, false, false);
+            kk8.c(309085, CmdConfigHttp.CMD_TOPIC_BLESS, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
         }
     }
 
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            wh8.h(303050, ResponseSocketHotTopicMessage.class, false, false);
-            wh8.c(303050, CmdConfigHttp.CMD_HOT_TOPIC, TbConfig.URL_GET_HOT_TOPIC_DATA, ResponseHttpHotTopicMessage.class, false, false, true, false);
+            kk8.h(303050, ResponseSocketHotTopicMessage.class, false, false);
+            kk8.c(303050, CmdConfigHttp.CMD_HOT_TOPIC, TbConfig.URL_GET_HOT_TOPIC_DATA, ResponseHttpHotTopicMessage.class, false, false, true, false);
         }
     }
 
     public static void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            wh8.h(309005, ResponseSocketGetTopicRelateThreadMessage.class, false, false);
-            wh8.c(309005, CmdConfigHttp.CMD_TOPIC_RELATE_THREAD, TbConfig.URL_GET_TOPIC_RELATE_THREAD, ResponseHttpGetTopicRelateThreadMessage.class, false, false, true, false);
+            kk8.h(309005, ResponseSocketGetTopicRelateThreadMessage.class, false, false);
+            kk8.c(309005, CmdConfigHttp.CMD_TOPIC_RELATE_THREAD, TbConfig.URL_GET_TOPIC_RELATE_THREAD, ResponseHttpGetTopicRelateThreadMessage.class, false, false, true, false);
         }
     }
 

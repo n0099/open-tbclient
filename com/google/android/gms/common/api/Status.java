@@ -19,12 +19,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.internal.ReflectedParcelable;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
-import com.repackage.ak9;
-import com.repackage.ck9;
-import com.repackage.dk9;
-import com.repackage.fk9;
-import com.repackage.wj9;
-/* loaded from: classes4.dex */
+import com.repackage.an9;
+import com.repackage.rm9;
+import com.repackage.vm9;
+import com.repackage.xm9;
+import com.repackage.ym9;
+/* loaded from: classes5.dex */
 public final class Status extends AbstractSafeParcelable implements ReflectedParcelable {
     public static /* synthetic */ Interceptable $ic;
     @NonNull
@@ -73,7 +73,7 @@ public final class Status extends AbstractSafeParcelable implements ReflectedPar
         RESULT_CANCELED = new Status(16);
         zza = new Status(17);
         RESULT_DEAD_CLIENT = new Status(18);
-        CREATOR = new ak9();
+        CREATOR = new vm9();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -125,7 +125,7 @@ public final class Status extends AbstractSafeParcelable implements ReflectedPar
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             if (obj instanceof Status) {
                 Status status = (Status) obj;
-                return this.zzb == status.zzb && this.zzc == status.zzc && ck9.a(this.zzd, status.zzd) && ck9.a(this.zze, status.zze) && ck9.a(this.zzf, status.zzf);
+                return this.zzb == status.zzb && this.zzc == status.zzc && xm9.a(this.zzd, status.zzd) && xm9.a(this.zze, status.zze) && xm9.a(this.zzf, status.zzf);
             }
             return false;
         }
@@ -175,7 +175,7 @@ public final class Status extends AbstractSafeParcelable implements ReflectedPar
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? ck9.b(Integer.valueOf(this.zzb), Integer.valueOf(this.zzc), this.zzd, this.zze, this.zzf) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? xm9.b(Integer.valueOf(this.zzb), Integer.valueOf(this.zzc), this.zzd, this.zze, this.zzf) : invokeV.intValue;
     }
 
     public boolean isCanceled() {
@@ -200,7 +200,7 @@ public final class Status extends AbstractSafeParcelable implements ReflectedPar
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048587, this, activity, i) == null) && hasResolution()) {
             PendingIntent pendingIntent = this.zze;
-            dk9.d(pendingIntent);
+            ym9.d(pendingIntent);
             activity.startIntentSenderForResult(pendingIntent.getIntentSender(), i, null, 0, 0, 0);
         }
     }
@@ -210,7 +210,7 @@ public final class Status extends AbstractSafeParcelable implements ReflectedPar
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            ck9.a c = ck9.c(this);
+            xm9.a c = xm9.c(this);
             c.a("statusCode", zza());
             c.a("resolution", this.zze);
             return c.toString();
@@ -222,13 +222,13 @@ public final class Status extends AbstractSafeParcelable implements ReflectedPar
     public void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048589, this, parcel, i) == null) {
-            int a = fk9.a(parcel);
-            fk9.g(parcel, 1, getStatusCode());
-            fk9.k(parcel, 2, getStatusMessage(), false);
-            fk9.j(parcel, 3, this.zze, i, false);
-            fk9.j(parcel, 4, getConnectionResult(), i, false);
-            fk9.g(parcel, 1000, this.zzb);
-            fk9.b(parcel, a);
+            int a = an9.a(parcel);
+            an9.g(parcel, 1, getStatusCode());
+            an9.k(parcel, 2, getStatusMessage(), false);
+            an9.j(parcel, 3, this.zze, i, false);
+            an9.j(parcel, 4, getConnectionResult(), i, false);
+            an9.g(parcel, 1000, this.zzb);
+            an9.b(parcel, a);
         }
     }
 
@@ -238,7 +238,7 @@ public final class Status extends AbstractSafeParcelable implements ReflectedPar
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             String str = this.zzd;
-            return str != null ? str : wj9.a(this.zzc);
+            return str != null ? str : rm9.a(this.zzc);
         }
         return (String) invokeV.objValue;
     }

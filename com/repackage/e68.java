@@ -1,89 +1,72 @@
 package com.repackage;
 
-import android.widget.MediaController;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.play.OnStatusChangedListener;
-import com.baidu.tieba.play.TbVideoViewContainer;
-import com.baidu.tieba.play.cyberPlayer.TbVideoViewSet;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tieba.personPolymeric.constant.PersonStatus;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface e68 extends MediaController.MediaPlayerControl {
-    void a(long j, long j2, long j3);
+public abstract class e68 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    void b(TbVideoViewSet.b bVar);
+    public e68(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = z;
+    }
 
-    void changeRenderViewMode(int i);
+    public PersonStatus g(UserData userData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, userData)) == null) {
+            if (userData == null) {
+                if (this.a) {
+                    return PersonStatus.HOST_DEFAULT;
+                }
+                return PersonStatus.GUEST_DEFAULT;
+            } else if (userData.isBaijiahaoUser()) {
+                if (this.a) {
+                    return PersonStatus.HOST_BJH;
+                }
+                return PersonStatus.GUEST_BJH;
+            } else if (this.a) {
+                return PersonStatus.HOST_DEFAULT;
+            } else {
+                return PersonStatus.GUEST_DEFAULT;
+            }
+        }
+        return (PersonStatus) invokeL.objValue;
+    }
 
-    int getCurrentPositionSync();
-
-    f68 getMediaProgressObserver();
-
-    String getOriginUrl();
-
-    int getPcdnState();
-
-    d68 getPlayer();
-
-    int getPlayerHeight();
-
-    int getPlayerWidth();
-
-    OnStatusChangedListener.VideoStatus getVideoStatus();
-
-    void j();
-
-    void k();
-
-    boolean l();
-
-    void m();
-
-    boolean n();
-
-    void o();
-
-    void p(TbVideoViewSet.b bVar);
-
-    void q();
-
-    void setCanShowPause(boolean z);
-
-    void setContinuePlayEnable(boolean z);
-
-    void setIsVolume0(boolean z);
-
-    void setLocateSource(String str);
-
-    void setLooping(boolean z);
-
-    void setNoBussinessStats();
-
-    void setOnSurfaceDestroyedListener(TbVideoViewContainer.a aVar);
-
-    void setOperableVideoContainer(x68 x68Var);
-
-    void setPlayMode(String str);
-
-    void setStageType(String str);
-
-    void setThreadDataForStatistic(ThreadData threadData);
-
-    void setTryUseViewInSet(boolean z);
-
-    void setVideoModel(q68 q68Var);
-
-    void setVideoPath(String str);
-
-    void setVideoPath(String str, String str2);
-
-    void setVideoScalingMode(int i);
-
-    void setVideoStatData(s68 s68Var);
-
-    void setVideoStatusChangeListener(OnStatusChangedListener onStatusChangedListener);
-
-    void setVolume(float f, float f2);
-
-    void stop();
-
-    void stopPlayback();
+    public PersonStatus h(l68 l68Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l68Var)) == null) {
+            if (l68Var != null && l68Var.j() != null) {
+                return g(l68Var.j());
+            }
+            if (this.a) {
+                return PersonStatus.HOST_DEFAULT;
+            }
+            return PersonStatus.GUEST_DEFAULT;
+        }
+        return (PersonStatus) invokeL.objValue;
+    }
 }

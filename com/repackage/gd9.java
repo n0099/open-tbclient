@@ -1,9 +1,17 @@
 package com.repackage;
 
-import com.fun.ad.sdk.internal.api.PidLoader;
+import android.os.Build;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface gd9<R> {
-    R a(PidLoader pidLoader);
+public class gd9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean a(R r);
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? Build.MANUFACTURER : (String) invokeV.objValue;
+    }
 }

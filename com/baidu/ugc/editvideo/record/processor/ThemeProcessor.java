@@ -8,9 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b99;
-import com.repackage.oe0;
-import com.repackage.we0;
+import com.repackage.ke0;
+import com.repackage.se0;
+import com.repackage.wb9;
 /* loaded from: classes4.dex */
 public class ThemeProcessor extends BaseEffectProcessor {
     public static /* synthetic */ Interceptable $ic;
@@ -31,19 +31,19 @@ public class ThemeProcessor extends BaseEffectProcessor {
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.IEffectProcessor
-    public int onProcessFrame(oe0 oe0Var, int i, float[] fArr) {
+    public int onProcessFrame(ke0 ke0Var, int i, float[] fArr) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, oe0Var, i, fArr)) == null) {
-            if (oe0Var == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, ke0Var, i, fArr)) == null) {
+            if (ke0Var == null) {
                 return i;
             }
-            int b = b99.b(oe0Var.l());
+            int b = wb9.b(ke0Var.l());
             int i2 = i;
             for (int i3 = 1; i3 < b; i3++) {
-                MediaTrack mediaTrack = (MediaTrack) b99.c(oe0Var.l(), i3);
-                if (!we0.m(mediaTrack, "effect") && !we0.m(mediaTrack, "template_effect") && !we0.m(mediaTrack, "edit_sticker") && !we0.m(mediaTrack, "multi_input") && !we0.m(mediaTrack, "only_background") && !we0.m(mediaTrack, "watermark") && !we0.m(mediaTrack, NotificationCompat.WearableExtender.KEY_BACKGROUND) && !we0.m(mediaTrack, "user_background")) {
-                    i2 = oe0Var.i(mediaTrack, i2, null);
+                MediaTrack mediaTrack = (MediaTrack) wb9.c(ke0Var.l(), i3);
+                if (!se0.m(mediaTrack, "effect") && !se0.m(mediaTrack, "template_effect") && !se0.m(mediaTrack, "edit_sticker") && !se0.m(mediaTrack, "multi_input") && !se0.m(mediaTrack, "only_background") && !se0.m(mediaTrack, "watermark") && !se0.m(mediaTrack, NotificationCompat.WearableExtender.KEY_BACKGROUND) && !se0.m(mediaTrack, "user_background")) {
+                    i2 = ke0Var.i(mediaTrack, i2, null);
                 }
             }
             return i2 == 0 ? i : i2;

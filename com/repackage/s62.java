@@ -1,23 +1,16 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.ej2;
-import com.repackage.fl2;
-import java.io.File;
 /* loaded from: classes7.dex */
 public class s62 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static Boolean b;
-    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,129 +26,51 @@ public class s62 {
                 return;
             }
         }
-        a = sg1.a;
-        pj2.g0().getSwitch("swan_naview_slave_preload_type", 0);
-        c = 0;
+        a = jh1.a;
     }
 
-    public static boolean a() {
+    @NonNull
+    public static q62 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (!c72.U().r0()) {
-                Log.w("NASlaveConfig", "v8 is not enabled");
-                return false;
-            } else if (pj2.F0().j(1)) {
-                String c0 = c72.U().c0();
-                if (TextUtils.isEmpty(c0)) {
-                    Log.w("NASlaveConfig", "base path is not exists");
-                    return false;
-                } else if (!new File(c0, "slave-talos/index.js").isFile()) {
-                    Log.w("NASlaveConfig", "talos-js file is not exists");
-                    return false;
-                } else if (a && hw2.Y()) {
-                    return true;
-                } else {
-                    boolean z = c != 0;
-                    if (a) {
-                        Log.d("NASlaveConfig", "isNARenderEnabled canUseNA: " + z);
-                    }
-                    return z;
-                }
-            } else {
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static int b(@Nullable x03 x03Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, x03Var)) == null) {
-            if (x03Var == null || !d()) {
-                return 0;
-            }
-            return "na".equals(x03Var.r) ? 1 : 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str == null) {
-                return 0;
-            }
-            if (str.contains("?")) {
-                str = str.substring(0, str.indexOf("?"));
-            }
-            int b2 = b(vl2.U().f(str));
+            q62 b = b(c());
             if (a) {
-                Log.d("NASlaveConfig", "getSlaveType pageUrl: " + str + " slaveType:" + b2);
+                Log.d("PrelinkStrategyFactory", "prelink strategy - " + b.getClass().getSimpleName());
             }
-            return b2;
+            return b;
         }
-        return invokeL.intValue;
+        return (q62) invokeV.objValue;
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
+    public static q62 b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            Boolean bool = b;
-            if (bool != null) {
-                return bool.booleanValue();
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i == 0) {
+                return new o62();
             }
-            Boolean valueOf = Boolean.valueOf(a());
-            b = valueOf;
-            return valueOf.booleanValue();
+            if (i > 0) {
+                return new r62(i);
+            }
+            if (i == -1) {
+                return new p62();
+            }
+            return new o62();
         }
-        return invokeV.booleanValue;
+        return (q62) invokeI.objValue;
     }
 
-    public static boolean e() {
+    public static int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? c == 2 : invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? c == 1 : invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? c == 3 : invokeV.booleanValue;
-    }
-
-    public static boolean h(i03 i03Var) {
-        InterceptResult invokeL;
-        fl2.a W;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, i03Var)) == null) {
-            if (i03Var == null || !i03Var.E()) {
-                return false;
-            }
-            if (hw2.B(i03Var.W())) {
-                str = ej2.b.g().getPath() + File.separator;
-            } else {
-                str = ej2.e.i(W.H(), W.v1()).getPath() + File.separator;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            gk2.g0().getSwitch("swan_prelink_policy_when_prefetch", 0);
             if (a) {
-                Log.d("NASlaveConfig", "手动解析的basePath: " + str);
+                Log.d("PrelinkStrategyFactory", "swan_prelink_policy_when_prefetch = 0");
             }
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            vl2.U().K(str);
-            return true;
+            return 0;
         }
-        return invokeL.booleanValue;
+        return invokeV.intValue;
     }
 }

@@ -1,62 +1,42 @@
 package com.repackage;
 
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.relogin.ReloginManager;
-import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class fa5 extends qa {
+public class fa5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public int b;
+    public String c;
+    public Long d;
+    public ca5 e;
+    public int f;
+    public boolean g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fa5(int i) {
-        super(i);
+    public fa5(Context context, int i, String str, Long l, ca5 ca5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {context, Integer.valueOf(i), str, l, ca5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ua
-    /* renamed from: c */
-    public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage)) == null) {
-            if ((httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001536) && (httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
-                HttpMessage httpMessage = (HttpMessage) httpResponsedMessage.getOrginalMessage();
-                ReloginManager g = ReloginManager.g();
-                if (((JsonHttpResponsedMessage) httpResponsedMessage).getError() == 1) {
-                    if (httpMessage.removeParam("reloin_key") == null) {
-                        httpMessage.addParam("reloin_key", "reloin_value");
-                        g.l((HttpMessage) httpResponsedMessage.getOrginalMessage());
-                    } else {
-                        g.f(null);
-                    }
-                    return null;
-                }
-            }
-            return httpResponsedMessage;
-        }
-        return (HttpResponsedMessage) invokeL.objValue;
+        this.g = false;
+        this.a = context;
+        this.b = i;
+        this.c = str;
+        this.d = l;
+        this.e = ca5Var;
     }
 }

@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.du7;
-import com.repackage.qy7;
+import com.repackage.bw7;
+import com.repackage.t08;
 /* loaded from: classes3.dex */
-public class PbReplyLoadMoreAdapter extends du7<PostData, ReplyLoadMoreViewHolder> {
+public class PbReplyLoadMoreAdapter extends bw7<PostData, ReplyLoadMoreViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View.OnClickListener o;
+    public View.OnClickListener g;
 
     /* loaded from: classes3.dex */
     public static class ReplyLoadMoreViewHolder extends TypeAdapter.ViewHolder {
@@ -48,17 +48,17 @@ public class PbReplyLoadMoreAdapter extends du7<PostData, ReplyLoadMoreViewHolde
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09226d);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092378);
         }
 
-        public void b() {
+        public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);
             }
         }
 
-        public void c(PostData postData) {
+        public void b(PostData postData) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, postData) == null) || postData == null) {
                 return;
@@ -76,19 +76,19 @@ public class PbReplyLoadMoreAdapter extends du7<PostData, ReplyLoadMoreViewHolde
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbReplyLoadMoreAdapter(qy7 qy7Var, BdUniqueId bdUniqueId) {
-        super(qy7Var, bdUniqueId);
+    public PbReplyLoadMoreAdapter(t08 t08Var, BdUniqueId bdUniqueId) {
+        super(t08Var, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {qy7Var, bdUniqueId};
+            Object[] objArr = {t08Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((qy7) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((t08) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -97,38 +97,38 @@ public class PbReplyLoadMoreAdapter extends du7<PostData, ReplyLoadMoreViewHolde
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: b0 */
-    public ReplyLoadMoreViewHolder M(ViewGroup viewGroup) {
+    @Override // com.repackage.bn
+    /* renamed from: u */
+    public ReplyLoadMoreViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06a8, viewGroup, false);
-            inflate.findViewById(R.id.obfuscated_res_0x7f09226d).setOnClickListener(this.o);
+            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06cd, viewGroup, false);
+            inflate.findViewById(R.id.obfuscated_res_0x7f092378).setOnClickListener(this.g);
             ReplyLoadMoreViewHolder replyLoadMoreViewHolder = new ReplyLoadMoreViewHolder(inflate);
-            replyLoadMoreViewHolder.b();
+            replyLoadMoreViewHolder.a();
             return replyLoadMoreViewHolder;
         }
         return (ReplyLoadMoreViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.du7, com.repackage.an
-    /* renamed from: c0 */
-    public View S(int i, View view2, ViewGroup viewGroup, PostData postData, ReplyLoadMoreViewHolder replyLoadMoreViewHolder) {
+    @Override // com.repackage.bw7, com.repackage.bn
+    /* renamed from: v */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, PostData postData, ReplyLoadMoreViewHolder replyLoadMoreViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, postData, replyLoadMoreViewHolder})) == null) {
-            replyLoadMoreViewHolder.c(postData);
-            return replyLoadMoreViewHolder.a();
+            replyLoadMoreViewHolder.b(postData);
+            return replyLoadMoreViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
     }
 
-    public void d0(View.OnClickListener onClickListener) {
+    public void w(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.o = onClickListener;
+            this.g = onClickListener;
         }
     }
 }

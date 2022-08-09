@@ -243,12 +243,12 @@ public class ShareLoginView extends RelativeLayout {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04bd, this);
-            this.c = findViewById(R.id.obfuscated_res_0x7f091c6a);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091bdf);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091bde);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091be0);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091c65);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04c6, this);
+            this.c = findViewById(R.id.obfuscated_res_0x7f091d52);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cc7);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091cc6);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091cc8);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091d4d);
             a aVar = new a(this);
             this.c.setOnClickListener(aVar);
             this.g.setOnClickListener(aVar);
@@ -303,7 +303,7 @@ public class ShareLoginView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.e.setTextColor(Color.parseColor("#CCFFFFFF"));
             this.f.setTextColor(Color.parseColor("#80FFFFFF"));
-            this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e17));
+            this.c.setBackgroundDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e76));
         }
     }
 }

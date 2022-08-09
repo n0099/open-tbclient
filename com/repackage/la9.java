@@ -1,17 +1,11 @@
 package com.repackage;
-
-import android.os.Build;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public class la9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface la9 {
+    void onCancel();
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? Build.MANUFACTURER : (String) invokeV.objValue;
-    }
+    void onExceptionThrown(String str);
+
+    void onProgressChanged(int i, double d, long j);
+
+    void onTrackEnd(int i);
 }

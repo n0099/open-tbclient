@@ -2,62 +2,68 @@ package com.repackage;
 
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.FrameLayout;
+import com.baidu.ala.data.SdkLiveInfoData;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.TiebaStaticHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ala.alasquare.live_tab.view.TabLiveStageLiveView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gs5 extends jx5<cs5> {
+public class gs5 extends bz5<er5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hs5 i;
-    public hs5 j;
+    public View i;
+    public TabLiveStageLiveView j;
+    public int k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gs5(TbPageContext<?> tbPageContext, boolean z) {
-        super(tbPageContext);
+    public gs5(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
+        super(tbPageContext, viewGroup);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Boolean.valueOf(z)};
+            Object[] objArr = {tbPageContext, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = new hs5(g(), z);
-        this.j = new hs5(g(), z);
-        ViewGroup viewGroup = (ViewGroup) h();
-        View view2 = new View(getContext());
-        viewGroup.addView(this.i.h());
-        viewGroup.addView(view2, new LinearLayout.LayoutParams(g().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224), -1));
-        viewGroup.addView(this.j.h());
+        this.k = 0;
+        r();
     }
 
-    @Override // com.repackage.jx5
+    @Override // com.repackage.bz5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d00fd : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d082b : invokeV.intValue;
     }
 
-    @Override // com.repackage.jx5
+    @Override // com.repackage.bz5
     public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.i.j(tbPageContext, i);
-            this.j.j(tbPageContext, i);
+            SkinManager.setBackgroundColor(h(), R.color.CAM_X0201);
+            TabLiveStageLiveView tabLiveStageLiveView = this.j;
+            if (tabLiveStageLiveView != null) {
+                tabLiveStageLiveView.c();
+            }
         }
     }
 
@@ -68,23 +74,68 @@ public class gs5 extends jx5<cs5> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.jx5
-    /* renamed from: r */
-    public void i(cs5 cs5Var) {
+    public final void r() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, cs5Var) == null) || cs5Var == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.i = h();
+            int[] b = vq5.b(getContext());
+            int i = b[0];
+            int i2 = b[1];
+            TabLiveStageLiveView tabLiveStageLiveView = (TabLiveStageLiveView) this.i.findViewById(R.id.obfuscated_res_0x7f091f14);
+            this.j = tabLiveStageLiveView;
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) tabLiveStageLiveView.getLayoutParams();
+            if (layoutParams == null) {
+                layoutParams = (FrameLayout.LayoutParams) new ViewGroup.LayoutParams(i, i2);
+            } else {
+                layoutParams.width = i;
+                layoutParams.height = i2;
+            }
+            layoutParams.gravity = 1;
+            this.j.setLayoutParams(layoutParams);
         }
-        this.i.i(cs5Var.a);
-        this.j.i(cs5Var.b);
     }
 
-    public void s(ls5 ls5Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bz5
+    /* renamed from: s */
+    public void i(er5 er5Var) {
+        SdkLiveInfoData sdkLiveInfoData;
+        SdkLiveInfoData.AlaLiveInfo alaLiveInfo;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ls5Var) == null) {
-            this.i.y(ls5Var);
-            this.j.y(ls5Var);
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, er5Var) == null) || er5Var == null || er5Var.a == null) {
+            return;
         }
+        int k = qi.k(this.c);
+        if (k != this.k) {
+            int[] b = vq5.b(getContext());
+            int i = b[0];
+            int i2 = b[1];
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.j.getLayoutParams();
+            layoutParams.width = i;
+            layoutParams.height = i2;
+            this.j.setLayoutParams(layoutParams);
+            this.k = k;
+        }
+        this.j.setData(er5Var.a.a, 101);
+        StatisticItem statisticItem = new StatisticItem("c13551");
+        fr5 fr5Var = er5Var.a;
+        if (fr5Var != null && (sdkLiveInfoData = fr5Var.a) != null && (alaLiveInfo = sdkLiveInfoData.liveInfo) != null) {
+            int a = vq5.a(alaLiveInfo);
+            SdkLiveInfoData sdkLiveInfoData2 = er5Var.a.a;
+            SdkLiveInfoData.YYExt yYExt = sdkLiveInfoData2.liveInfo.yyExt;
+            if (yYExt != null) {
+                TiebaStaticHelper.addYYParam(statisticItem, vq5.j(yYExt, sdkLiveInfoData2.roomId));
+                str = TiebaStatic.YYValues.YY_LIVE;
+            } else {
+                str = "";
+            }
+            statisticItem.param("obj_param1", a);
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str);
+        }
+        statisticItem.param(TiebaStatic.Params.ENTRY_NAME, "推荐");
+        statisticItem.param("nid", er5Var.a.a.nid);
+        statisticItem.param(TiebaStatic.Params.LOGID, er5Var.a.a.logid);
+        TiebaStatic.log(statisticItem);
     }
 }

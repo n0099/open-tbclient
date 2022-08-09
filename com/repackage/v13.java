@@ -1,112 +1,93 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
+@Service
 /* loaded from: classes7.dex */
-public class v13 extends f23 {
+public class v13 extends w13 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ JSONObject b;
-
-        public a(v13 v13Var, String str, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755284071, "Lcom/repackage/v13;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v13Var, str, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = str;
-            this.b = jSONObject;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                mf4.l(this.a, this.b);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v13(f13 f13Var) {
-        super(f13Var, "/swanAPI/openStatisticEvent");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {f13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755284071, "Lcom/repackage/v13;");
                 return;
             }
         }
+        b = jh1.a;
     }
 
-    @Override // com.repackage.f23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
-        InterceptResult invokeLLLL;
+    public v13() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            String optString = optParamsAsJo.optString("bizId", "-1");
-            if (TextUtils.isEmpty(optString)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty flowId");
-                return false;
-            }
-            try {
-                optParamsAsJo.putOpt("timestamp", Long.valueOf(System.currentTimeMillis()));
-                optParamsAsJo.putOpt("eventType", "0");
-                optParamsAsJo.putOpt("propagation", id3.f(optParamsAsJo.optJSONObject("propagation"), "source", h03.K().q().W().T()));
-            } catch (JSONException e) {
-                if (f23.b) {
-                    e.printStackTrace();
+        }
+    }
+
+    @Override // com.repackage.w13
+    public void a() {
+        List<w23> b2;
+        List<w23> a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.clear();
+            b(new pl2(this));
+            b(new my1(this));
+            b(new ry1(this));
+            b(new fy1(this));
+            b(new s23(this));
+            b(new d23(this));
+            b(new e43(this));
+            b(new tb2(this));
+            b(new cc2(this));
+            b(new ub2(this));
+            b(new yb2(this));
+            b(new zb2(this));
+            b(new xb2(this));
+            b(new dc2(this));
+            b(new wb2(this));
+            b(new bc2(this));
+            b(new qg3(this));
+            b(new ac2(this));
+            b(new vb2(this));
+            ei1 d = hk2.d();
+            if (d != null && (a = d.a(this)) != null && !a.isEmpty()) {
+                for (w23 w23Var : a) {
+                    b(w23Var);
                 }
             }
-            JSONObject optJSONObject = optParamsAsJo.optJSONObject("content");
-            if (optJSONObject != null) {
-                f73.y(optJSONObject.optJSONObject("ext"));
+            if (b) {
+                b(new ec2(this));
+                b(new x13(this));
+                if (d == null || (b2 = d.b(this)) == null || b2.isEmpty()) {
+                    return;
+                }
+                for (w23 w23Var2 : b2) {
+                    b(w23Var2);
+                }
             }
-            ix1.i("OpenStatisticEvent", "OpenStat : " + optParamsAsJo);
-            cd3.k(new a(this, optString, optParamsAsJo), "OpenStatisticEvent");
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
         }
-        return invokeLLLL.booleanValue;
     }
 }

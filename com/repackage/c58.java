@@ -1,36 +1,28 @@
 package com.repackage;
 
-import android.view.LayoutInflater;
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tieba.personPolymeric.view.PersonCommonForumItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class c58 {
+public class c58 extends bn<n68, CardViewHolder<p78>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public dr4 b;
-    public boolean c;
-    public View d;
-    public TbImageView e;
-    public TextView f;
-    public TextView g;
-    public TextView h;
-    public final View.OnClickListener i;
+    public TbPageContext<?> a;
+    public fg<PersonCommonForumItemView> b;
 
     /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public class a implements gg<PersonCommonForumItemView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c58 a;
@@ -53,17 +45,60 @@ public class c58 {
             this.a = c58Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.repackage.gg
+        public /* bridge */ /* synthetic */ PersonCommonForumItemView a(PersonCommonForumItemView personCommonForumItemView) {
+            PersonCommonForumItemView personCommonForumItemView2 = personCommonForumItemView;
+            e(personCommonForumItemView2);
+            return personCommonForumItemView2;
+        }
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.repackage.gg
+        public /* bridge */ /* synthetic */ PersonCommonForumItemView c(PersonCommonForumItemView personCommonForumItemView) {
+            PersonCommonForumItemView personCommonForumItemView2 = personCommonForumItemView;
+            h(personCommonForumItemView2);
+            return personCommonForumItemView2;
+        }
+
+        public PersonCommonForumItemView e(PersonCommonForumItemView personCommonForumItemView) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.b == null) {
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, personCommonForumItemView)) == null) ? personCommonForumItemView : (PersonCommonForumItemView) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.gg
+        /* renamed from: f */
+        public void b(PersonCommonForumItemView personCommonForumItemView) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048581, this, personCommonForumItemView) == null) || personCommonForumItemView == null) {
                 return;
             }
-            this.a.b.dismiss();
+            personCommonForumItemView.removeAllViews();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.gg
+        /* renamed from: g */
+        public PersonCommonForumItemView d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new PersonCommonForumItemView(this.a.mContext) : (PersonCommonForumItemView) invokeV.objValue;
+        }
+
+        public PersonCommonForumItemView h(PersonCommonForumItemView personCommonForumItemView) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, personCommonForumItemView)) == null) ? personCommonForumItemView : (PersonCommonForumItemView) invokeL.objValue;
         }
     }
 
-    public c58(TbPageContext tbPageContext) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c58(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), n68.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,79 +108,42 @@ public class c58 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = new a(this);
+        this.b = new fg<>(new a(this), 12, 0);
         this.a = tbPageContext;
-        this.c = yt4.k().h("key_person_dynamic_tab_guide_has_shown", false);
     }
 
-    public final void b() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bn
+    /* renamed from: t */
+    public CardViewHolder<p78> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06b9, (ViewGroup) null);
-            this.d = inflate;
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090de5);
-            this.e = tbImageView;
-            e(tbImageView);
-            this.e.setAutoChangeStyle(true);
-            this.e.setRadius(pi.f(this.a.getPageActivity(), R.dimen.tbds24));
-            this.e.setConrers(3);
-            this.e.setIsBitmapPic(true);
-            this.f = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090de6);
-            this.g = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090de7);
-            TextView textView = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090de4);
-            this.h = textView;
-            textView.setOnClickListener(this.i);
-            d();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            p78 p78Var = new p78(this.a);
+            p78Var.y(this.b);
+            return new CardViewHolder<>(p78Var);
         }
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bn
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, n68 n68Var, CardViewHolder<p78> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setImageResource(this.e, R.drawable.obfuscated_res_0x7f080eee);
-            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0302);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, n68Var, cardViewHolder})) == null) {
+            cardViewHolder.a().j(this.a, TbadkCoreApplication.getInst().getSkinType());
+            cardViewHolder.a().i(n68Var);
+            return cardViewHolder.getView();
         }
-    }
-
-    public final void e(TbImageView tbImageView) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, tbImageView) == null) || tbImageView == null) {
-            return;
-        }
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) tbImageView.getLayoutParams();
-        int k = pi.k(this.a.getPageActivity()) - (pi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070225) * 2);
-        layoutParams.width = k;
-        layoutParams.height = (k * 214) / 380;
-        tbImageView.setLayoutParams(layoutParams);
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.c) {
-            return;
-        }
-        this.c = true;
-        yt4.k().u("key_person_dynamic_tab_guide_has_shown", true);
-        b();
-        dr4 dr4Var = new dr4(this.a.getPageActivity());
-        this.b = dr4Var;
-        dr4Var.setContentViewSize(1);
-        this.b.setCancelable(true);
-        this.b.setCanceledOnTouchOutside(false);
-        this.b.setContentView(this.d);
-        this.b.create(this.a).show();
+        return (View) invokeCommon.objValue;
     }
 }

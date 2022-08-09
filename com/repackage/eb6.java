@@ -1,59 +1,62 @@
 package com.repackage;
 
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.ScaleAnimation;
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.TbTitleActivityConfig;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.core.util.httpNet.WebClient;
+import com.baidu.tbadk.img.GetEmotionInfosModel;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.UploadedImageInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.forumMember.member.FrsMemberHeaderViewHolder;
-import com.baidu.tieba.tbadkCore.LikeModel;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.tieba.faceshop.DiyEmotionData;
+import com.baidu.tieba.faceshop.UserDiyModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes6.dex */
-public class eb6 extends cd6<fb6, FrsMemberHeaderViewHolder> {
+public class eb6 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile eb6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public LikeModel t;
-    public int u;
-    public int v;
-    public View.OnClickListener w;
+    public GetEmotionInfosModel a;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public class a extends BdAsyncTask<Void, Void, Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eb6 a;
+        public final /* synthetic */ k a;
+        public final /* synthetic */ List b;
+        public final /* synthetic */ boolean c;
+        public final /* synthetic */ eb6 d;
 
-        public a(eb6 eb6Var) {
+        public a(eb6 eb6Var, k kVar, List list, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {eb6Var};
+                Object[] objArr = {eb6Var, kVar, list, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -63,227 +66,973 @@ public class eb6 extends cd6<fb6, FrsMemberHeaderViewHolder> {
                     return;
                 }
             }
-            this.a = eb6Var;
+            this.d = eb6Var;
+            this.a = kVar;
+            this.b = list;
+            this.c = z;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Integer doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                Object tag = view2.getTag();
-                if (tag instanceof Integer) {
-                    nn y = this.a.y(((Integer) tag).intValue());
-                    if (y instanceof fb6) {
-                        fb6 fb6Var = (fb6) y;
-                        if (view2.getId() == R.id.obfuscated_res_0x7f091284) {
-                            if (ViewHelper.checkUpIsLogin(this.a.k.getPageActivity())) {
-                                if (!ni.z()) {
-                                    this.a.k.showToast(R.string.obfuscated_res_0x7f0f0c17);
-                                    return;
-                                }
-                                String a = fb6Var.a();
-                                this.a.t.R(fb6Var.b(), a);
-                            }
-                        } else if (view2.getId() == R.id.obfuscated_res_0x7f09232c) {
-                            String a2 = fb6Var.a();
-                            this.a.k.sendMessage(new CustomMessage(2003006, new TbTitleActivityConfig(this.a.a, fb6Var.b(), a2)));
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends c9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eb6 a;
-
-        public b(eb6 eb6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eb6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eb6Var;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) ? Integer.valueOf(qa6.o().m(TbadkCoreApplication.getCurrentAccount()) - 1) : (Integer) invokeL.objValue;
         }
 
-        @Override // com.repackage.c9
-        public void c(Object obj) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Integer num) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if (!(obj instanceof oh8) || this.a.t.getErrorCode() != 0) {
-                    if (AntiHelper.m(this.a.t.getErrorCode(), this.a.t.getErrorString())) {
-                        AntiHelper.u(this.a.k.getPageActivity(), this.a.t.getErrorString());
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num) == null) {
+                if (num.intValue() >= 300) {
+                    k kVar = this.a;
+                    if (kVar != null) {
+                        kVar.a(4, 0, 0, null);
                         return;
                     } else {
-                        this.a.k.showToast(this.a.t.getErrorString());
+                        qi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1086);
                         return;
                     }
                 }
-                oh8 oh8Var = (oh8) obj;
-                oh8Var.y(1);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, oh8Var));
+                while (this.b.size() + num.intValue() > 300) {
+                    List list = this.b;
+                    list.remove(list.size() - 1);
+                }
+                this.d.i(this.b, this.c, this.a);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public eb6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    /* loaded from: classes6.dex */
+    public class b implements GetEmotionInfosModel.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k a;
+        public final /* synthetic */ Map b;
+        public final /* synthetic */ List c;
+        public final /* synthetic */ boolean d;
+        public final /* synthetic */ eb6 e;
+
+        public b(eb6 eb6Var, k kVar, Map map, List list, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eb6Var, kVar, map, list, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = eb6Var;
+            this.a = kVar;
+            this.b = map;
+            this.c = list;
+            this.d = z;
+        }
+
+        @Override // com.baidu.tbadk.img.GetEmotionInfosModel.b
+        public void onFail(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                k kVar = this.a;
+                if (kVar == null) {
+                    qi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1085);
+                } else {
+                    kVar.a(4, 0, 0, null);
+                }
+            }
+        }
+
+        @Override // com.baidu.tbadk.img.GetEmotionInfosModel.b
+        public void onSuccess(List<m55> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                if (list == null || list.isEmpty()) {
+                    k kVar = this.a;
+                    if (kVar == null) {
+                        qi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1085);
+                    } else {
+                        kVar.a(4, 0, 0, null);
+                    }
+                }
+                for (m55 m55Var : list) {
+                    if (!na6.e().f(m55Var.a)) {
+                        m55Var.f = (String) this.b.get(m55Var.g);
+                        this.c.add(m55Var);
+                    }
+                }
+                this.e.l(this.c, this.a, this.d);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements i {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ m55 b;
+        public final /* synthetic */ AtomicInteger c;
+        public final /* synthetic */ k d;
+        public final /* synthetic */ boolean e;
+        public final /* synthetic */ eb6 f;
+
+        public c(eb6 eb6Var, List list, m55 m55Var, AtomicInteger atomicInteger, k kVar, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eb6Var, list, m55Var, atomicInteger, kVar, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = eb6Var;
+            this.a = list;
+            this.b = m55Var;
+            this.c = atomicInteger;
+            this.d = kVar;
+            this.e = z;
+        }
+
+        @Override // com.repackage.eb6.i
+        public void onFail() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c.decrementAndGet() == 0) {
+                this.f.f(this.a, this.d, this.e);
+            }
+        }
+
+        @Override // com.repackage.eb6.i
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.add(this.f.u(this.b));
+                if (this.c.decrementAndGet() == 0) {
+                    this.f.f(this.a, this.d, this.e);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d extends BdAsyncTask<Void, Void, Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ k c;
+
+        public d(eb6 eb6Var, List list, boolean z, k kVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eb6Var, list, Boolean.valueOf(z), kVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = list;
+            this.b = z;
+            this.c = kVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Boolean doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) ? Boolean.valueOf(qa6.o().d(this.a)) : (Boolean) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) {
+                if (bool != null && bool.booleanValue()) {
+                    na6.e().g();
+                    if (this.b) {
+                        new UserDiyModel().z();
+                    }
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921028));
+                    k kVar = this.c;
+                    if (kVar == null) {
+                        qi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f00bb);
+                        return;
+                    } else {
+                        kVar.a(4, 1, 0, this.a);
+                        return;
+                    }
+                }
+                k kVar2 = this.c;
+                if (kVar2 == null) {
+                    qi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1085);
+                } else {
+                    kVar2.a(4, 0, 0, null);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e extends BdAsyncTask<Void, Void, List<Integer>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ k b;
+        public final /* synthetic */ boolean c;
+
+        public e(eb6 eb6Var, List list, k kVar, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eb6Var, list, kVar, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = list;
+            this.b = kVar;
+            this.c = z;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public List<Integer> doInBackground(Void[] voidArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+                List<DiyEmotionData> r = qa6.o().r(TbadkCoreApplication.getCurrentAccountForEmotion());
+                HashMap hashMap = new HashMap();
+                for (DiyEmotionData diyEmotionData : r) {
+                    hashMap.put(diyEmotionData.getSharpText(), diyEmotionData);
+                }
+                int size = r.size() - 2;
+                for (int i = 0; i < this.a.size(); i++) {
+                    DiyEmotionData diyEmotionData2 = (DiyEmotionData) this.a.get(i);
+                    diyEmotionData2.setOrderId(size);
+                    String sharpText = diyEmotionData2.getSharpText();
+                    if (hashMap.containsKey(sharpText)) {
+                        r.remove(hashMap.get(sharpText));
+                        hashMap.remove(sharpText);
+                    }
+                    qa6.o().w(diyEmotionData2);
+                    size--;
+                }
+                if (this.a.size() > 0) {
+                    na6.e().g();
+                }
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(Integer.valueOf(this.a.size()));
+                arrayList.add(0);
+                return arrayList;
+            }
+            return (List) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(List<Integer> list) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.b == null || list == null || list.size() != 2) {
+                return;
+            }
+            this.b.a(2, list.get(0).intValue(), list.get(1).intValue(), null);
+            if (list.get(0).intValue() > 0) {
+                if (this.c) {
+                    new UserDiyModel().z();
+                }
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921028));
+                StatisticItem statisticItem = new StatisticItem("c12227");
+                statisticItem.param("obj_param1", list.get(0).intValue());
+                TiebaStatic.log(statisticItem);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class f extends BdAsyncTask<Void, Void, List<Integer>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ k b;
+        public final /* synthetic */ boolean c;
+
+        public f(eb6 eb6Var, List list, k kVar, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eb6Var, list, kVar, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = list;
+            this.b = kVar;
+            this.c = z;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public List<Integer> doInBackground(Void[] voidArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+                int i = 0;
+                for (DiyEmotionData diyEmotionData : this.a) {
+                    if (diyEmotionData != null && !"setting_icon".equals(diyEmotionData.getPid()) && !"#(meme,diysetting)".equals(diyEmotionData.getSharpText())) {
+                        qa6.o().j(diyEmotionData);
+                        ImageFileInfo imageFileInfo = diyEmotionData.imageFileInfo;
+                        if (imageFileInfo != null && !TextUtils.isEmpty(imageFileInfo.getFilePath())) {
+                            File file = new File(diyEmotionData.imageFileInfo.getFilePath());
+                            if (file.exists()) {
+                                file.delete();
+                            }
+                            String filePath = diyEmotionData.imageFileInfo.getFilePath();
+                            File file2 = new File(filePath.replace("_s.jpg", "_b.jpg"));
+                            if (file2.exists()) {
+                                file2.delete();
+                            }
+                            File file3 = new File(filePath.replace("_s.jpg", "_b.gif"));
+                            if (file3.exists()) {
+                                file3.delete();
+                            }
+                        }
+                        i++;
+                    }
+                }
+                List<DiyEmotionData> r = qa6.o().r(TbadkCoreApplication.getCurrentAccount());
+                for (int i2 = 0; i2 < r.size(); i2++) {
+                    DiyEmotionData diyEmotionData2 = r.get(i2);
+                    if (!"#(meme,diysetting)".equals(diyEmotionData2.getSharpText())) {
+                        diyEmotionData2.setOrderId((r.size() - i2) - 1);
+                        qa6.o().w(diyEmotionData2);
+                    }
+                }
+                if (i > 0) {
+                    na6.e().g();
+                }
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(Integer.valueOf(i));
+                arrayList.add(Integer.valueOf(this.a.size() - i));
+                return arrayList;
+            }
+            return (List) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(List<Integer> list) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.b == null || list == null || list.size() != 2) {
+                return;
+            }
+            this.b.a(1, list.get(0).intValue(), list.get(1).intValue(), null);
+            if (list.get(0).intValue() > 0) {
+                if (this.c) {
+                    new UserDiyModel().z();
+                }
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921028));
+                StatisticItem statisticItem = new StatisticItem("c12226");
+                statisticItem.param("obj_param1", list.get(0).intValue());
+                TiebaStatic.log(statisticItem);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class g extends BdAsyncTask<Void, Void, List<DiyEmotionData>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ eb6 a;
+
+        public g(eb6 eb6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eb6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = eb6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public List<DiyEmotionData> doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) ? this.a.o() : (List) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(List<DiyEmotionData> list) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || list == null) {
+                return;
+            }
+            for (DiyEmotionData diyEmotionData : list) {
+                if (diyEmotionData != null) {
+                    m55 m55Var = new m55();
+                    m55Var.a = diyEmotionData.getPid();
+                    m55Var.f = diyEmotionData.getPkgId();
+                    m55Var.d = diyEmotionData.getPicUrl();
+                    m55Var.e = diyEmotionData.getThumbnail();
+                    m55Var.b = diyEmotionData.getWidth();
+                    m55Var.c = diyEmotionData.getHeight();
+                    fp7.a("【表情云同步】：4 - 开始：重新下载数据库中有数据但是没文件的表情，" + m55Var.d);
+                    new j(this.a, null).execute(m55Var);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class h implements k {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public h(eb6 eb6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eb6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.eb6.k
+        public void a(int i, int i2, int i3, @Nullable Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), obj}) == null) {
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface i {
+        void onFail();
+
+        void onSuccess();
+    }
+
+    /* loaded from: classes6.dex */
+    public class j extends BdAsyncTask<m55, Void, Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public m55 a;
+        public i b;
+        public final /* synthetic */ eb6 c;
+
+        public j(eb6 eb6Var, i iVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eb6Var, iVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = eb6Var;
+            this.b = iVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Boolean doInBackground(m55[] m55VarArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, m55VarArr)) == null) {
+                if (m55VarArr != null && m55VarArr.length > 0) {
+                    this.a = m55VarArr[0];
+                    WebClient webClient = new WebClient();
+                    byte[] downloadImageBytes = webClient.downloadImageBytes(this.a.d, false);
+                    if (downloadImageBytes != null && webClient.IsRequestSuccess()) {
+                        String p = this.c.p(this.a, true);
+                        if (TextUtils.isEmpty(p)) {
+                            return Boolean.FALSE;
+                        }
+                        if (qi.B(downloadImageBytes)) {
+                            p = p.replace("_b.jpg", "_b.gif");
+                        }
+                        File file = new File(p);
+                        if (!file.getParentFile().exists()) {
+                            file.getParentFile().mkdirs();
+                        }
+                        if (!this.c.s(file, downloadImageBytes)) {
+                            return Boolean.FALSE;
+                        }
+                        byte[] downloadImageBytes2 = webClient.downloadImageBytes(this.a.e, false);
+                        if (downloadImageBytes2 != null && webClient.IsRequestSuccess()) {
+                            String p2 = this.c.p(this.a, false);
+                            if (!TextUtils.isEmpty(p2)) {
+                                if (!this.c.s(new File(p2), downloadImageBytes2)) {
+                                    return Boolean.FALSE;
+                                }
+                                return Boolean.TRUE;
+                            }
+                            return Boolean.FALSE;
+                        }
+                        return Boolean.FALSE;
+                    }
+                    return Boolean.FALSE;
+                }
+                return Boolean.FALSE;
+            }
+            return (Boolean) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) {
+                if (bool != null && bool.booleanValue()) {
+                    i iVar = this.b;
+                    if (iVar != null) {
+                        iVar.onSuccess();
+                        return;
+                    }
+                    return;
+                }
+                i iVar2 = this.b;
+                if (iVar2 != null) {
+                    iVar2.onFail();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface k {
+        void a(int i, int i2, int i3, @Nullable Object obj);
+    }
+
+    public eb6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static String n(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, null, str, z)) == null) {
+            String str2 = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + j55.c() + "/" + str + "_s.jpg";
+            if (z) {
+                String replace = str2.replace("_s.jpg", "_b.jpg");
+                if (new File(replace).exists()) {
+                    return replace;
+                }
+                String replace2 = str2.replace("_s.jpg", "_b.gif");
+                return new File(replace2).exists() ? replace2 : "";
+            }
+            return str2;
+        }
+        return (String) invokeLZ.objValue;
+    }
+
+    public static eb6 q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (b == null) {
+                synchronized (eb6.class) {
+                    if (b == null) {
+                        b = new eb6();
+                    }
+                }
+            }
+            return b;
+        }
+        return (eb6) invokeV.objValue;
+    }
+
+    public final void f(List<DiyEmotionData> list, k kVar, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048576, this, list, kVar, z) == null) {
+            new d(this, list, z, kVar).execute(new Void[0]);
+        }
+    }
+
+    public void g(String str, String str2, k kVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, kVar) == null) {
+            if (ip7.o().p()) {
+                qi.N(BdBaseApplication.getInst().getApp(), R.string.obfuscated_res_0x7f0f05e4);
                 return;
             }
+            m55 m55Var = new m55();
+            m55Var.d = str;
+            m55Var.f = str2;
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(m55Var);
+            h(arrayList, true, kVar);
         }
-        this.u = 0;
-        this.v = 0;
-        this.w = new a(this);
     }
 
-    @Override // com.repackage.cd6, com.repackage.an
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        v0(i, view2, viewGroup, (fb6) obj, (FrsMemberHeaderViewHolder) viewHolder);
-        return view2;
-    }
-
-    public final int[] s0(int i) {
-        InterceptResult invokeI;
+    public void h(List<m55> list, boolean z, k kVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? i <= 3 ? new int[]{-8331843, -10499102} : i <= 9 ? new int[]{-10499102, -154262} : i <= 15 ? new int[]{-154262, -148180} : new int[]{-148180, -100818} : (int[]) invokeI.objValue;
-    }
-
-    public final void t0() {
-        TbPageContext<?> tbPageContext;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (tbPageContext = this.k) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{list, Boolean.valueOf(z), kVar}) == null) {
+            new a(this, kVar, list, z).execute(new Void[0]);
         }
-        LikeModel likeModel = new LikeModel(tbPageContext);
-        this.t = likeModel;
-        likeModel.setLoadDataCallBack(new b(this));
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: u0 */
-    public FrsMemberHeaderViewHolder M(ViewGroup viewGroup) {
+    public void i(List<m55> list, boolean z, k kVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{list, Boolean.valueOf(z), kVar}) == null) {
+            if (list == null || list.isEmpty()) {
+                if (kVar == null) {
+                    qi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1085);
+                } else {
+                    kVar.a(4, 0, 0, null);
+                }
+            } else if (TbadkCoreApplication.isLogin()) {
+                ArrayList arrayList = new ArrayList();
+                ArrayList arrayList2 = new ArrayList();
+                HashMap hashMap = new HashMap();
+                for (m55 m55Var : list) {
+                    String str = m55Var.a;
+                    if (str != null && !TextUtils.isEmpty(str)) {
+                        if (!na6.e().f(m55Var.a)) {
+                            arrayList.add(m55Var);
+                        }
+                    } else {
+                        arrayList2.add(m55Var.d);
+                        String str2 = m55Var.f;
+                        if (str2 != null) {
+                            hashMap.put(m55Var.d, str2);
+                        }
+                    }
+                }
+                if (arrayList2.size() > 0) {
+                    if (this.a == null) {
+                        this.a = new GetEmotionInfosModel();
+                    }
+                    this.a.B(arrayList2, new b(this, kVar, hashMap, arrayList, z));
+                    return;
+                }
+                l(arrayList, kVar, z);
+            } else if (kVar == null) {
+                ViewHelper.skipToLoginActivity(TbadkCoreApplication.getInst());
+            } else {
+                kVar.a(4, 0, 0, null);
+            }
+        }
+    }
+
+    public boolean j(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+            List<DiyEmotionData> o = o();
+            if (o == null || o.isEmpty()) {
+                return true;
+            }
+            fp7.a("【表情云同步】：4 - 收藏表情：检查数据库中表情文件是否存在");
+            if (z) {
+                t(o, false, new h(this));
+            }
+            return false;
+        }
+        return invokeZ.booleanValue;
+    }
+
+    public void k(List<DiyEmotionData> list, boolean z, k kVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{list, Boolean.valueOf(z), kVar}) == null) {
+            if (list != null && list.size() > 0) {
+                new f(this, list, kVar, z).execute(new Void[0]);
+            } else if (kVar != null) {
+                kVar.a(1, 1, 0, null);
+            }
+        }
+    }
+
+    public final void l(List<m55> list, k kVar, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048582, this, list, kVar, z) == null) {
+            if (list.size() == 0) {
+                if (kVar == null) {
+                    qi.N(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f00bb);
+                    return;
+                } else {
+                    kVar.a(4, 1, 0, null);
+                    return;
+                }
+            }
+            AtomicInteger atomicInteger = new AtomicInteger(list.size());
+            CopyOnWriteArrayList copyOnWriteArrayList = new CopyOnWriteArrayList();
+            for (m55 m55Var : list) {
+                new j(this, new c(this, copyOnWriteArrayList, m55Var, atomicInteger, kVar, z)).execute(m55Var);
+            }
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            new g(this).execute(new Void[0]);
+        }
+    }
+
+    public List<DiyEmotionData> o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            List<DiyEmotionData> r = qa6.o().r(TbadkCoreApplication.getCurrentAccountForEmotion());
+            if (r != null) {
+                for (DiyEmotionData diyEmotionData : r) {
+                    if (diyEmotionData != null && !"setting_icon".equals(diyEmotionData.getPid()) && !new File(n(diyEmotionData.getPid(), false)).exists()) {
+                        arrayList.add(diyEmotionData);
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final String p(m55 m55Var, boolean z) {
+        InterceptResult invokeLZ;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048585, this, m55Var, z)) == null) {
+            if (m55Var == null || TextUtils.isEmpty(m55Var.d) || TextUtils.isEmpty(m55Var.a)) {
+                return "";
+            }
+            if (z) {
+                str = "_b.jpg";
+            } else {
+                str = "_s.jpg";
+            }
+            return TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + j55.c() + "/" + m55Var.a + str;
+        }
+        return (String) invokeLZ.objValue;
+    }
+
+    public void r(List<DiyEmotionData> list, boolean z, k kVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{list, Boolean.valueOf(z), kVar}) == null) {
+            if (list != null && list.size() > 0) {
+                new e(this, list, kVar, z).execute(new Void[0]);
+            } else if (kVar != null) {
+                kVar.a(2, 0, 0, null);
+            }
+        }
+    }
+
+    public final boolean s(File file, byte[] bArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(1048587, this, file, bArr)) != null) {
+            return invokeLL.booleanValue;
+        }
+        FileOutputStream fileOutputStream = null;
+        try {
+            try {
+                if ((!file.exists() || file.delete()) && file.createNewFile()) {
+                    FileOutputStream fileOutputStream2 = new FileOutputStream(file);
+                    try {
+                        fileOutputStream2.write(bArr, 0, bArr.length);
+                        fileOutputStream2.flush();
+                        fileOutputStream2.close();
+                        return true;
+                    } catch (IOException e2) {
+                        e = e2;
+                        fileOutputStream = fileOutputStream2;
+                        BdLog.e(e.getMessage());
+                        if (fileOutputStream != null) {
+                            try {
+                                fileOutputStream.close();
+                            } catch (Throwable th) {
+                                BdLog.e(th.getMessage());
+                            }
+                        }
+                        return false;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        fileOutputStream = fileOutputStream2;
+                        if (fileOutputStream != null) {
+                            try {
+                                fileOutputStream.close();
+                            } catch (Throwable th3) {
+                                BdLog.e(th3.getMessage());
+                            }
+                        }
+                        throw th;
+                    }
+                }
+                return false;
+            } catch (Throwable th4) {
+                th = th4;
+            }
+        } catch (IOException e3) {
+            e = e3;
+        }
+    }
+
+    public void t(List<DiyEmotionData> list, boolean z, k kVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{list, Boolean.valueOf(z), kVar}) == null) {
+            if (list == null || list.size() <= 0) {
+                if (kVar != null) {
+                    kVar.a(1, 1, 0, null);
+                    return;
+                }
+                return;
+            }
+            int i2 = 0;
+            for (DiyEmotionData diyEmotionData : list) {
+                if (diyEmotionData != null && !"setting_icon".equals(diyEmotionData.getPid()) && !"#(meme,diysetting)".equals(diyEmotionData.getSharpText())) {
+                    qa6.o().j(diyEmotionData);
+                    ImageFileInfo imageFileInfo = diyEmotionData.imageFileInfo;
+                    if (imageFileInfo != null && !TextUtils.isEmpty(imageFileInfo.getFilePath())) {
+                        File file = new File(diyEmotionData.imageFileInfo.getFilePath());
+                        if (file.exists()) {
+                            file.delete();
+                        }
+                        String filePath = diyEmotionData.imageFileInfo.getFilePath();
+                        File file2 = new File(filePath.replace("_s.jpg", "_b.jpg"));
+                        if (file2.exists()) {
+                            file2.delete();
+                        }
+                        File file3 = new File(filePath.replace("_s.jpg", "_b.gif"));
+                        if (file3.exists()) {
+                            file3.delete();
+                        }
+                    }
+                    i2++;
+                }
+            }
+            List<DiyEmotionData> r = qa6.o().r(TbadkCoreApplication.getCurrentAccount());
+            for (int i3 = 0; i3 < r.size(); i3++) {
+                DiyEmotionData diyEmotionData2 = r.get(i3);
+                if (!"#(meme,diysetting)".equals(diyEmotionData2.getSharpText())) {
+                    diyEmotionData2.setOrderId((r.size() - i3) - 1);
+                    qa6.o().w(diyEmotionData2);
+                }
+            }
+            if (i2 > 0) {
+                na6.e().g();
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(Integer.valueOf(i2));
+            arrayList.add(Integer.valueOf(list.size() - i2));
+            if (kVar == null || arrayList.size() != 2) {
+                return;
+            }
+            kVar.a(1, ((Integer) arrayList.get(0)).intValue(), ((Integer) arrayList.get(1)).intValue(), null);
+            if (((Integer) arrayList.get(0)).intValue() > 0) {
+                if (z) {
+                    new UserDiyModel().z();
+                }
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921028));
+                StatisticItem statisticItem = new StatisticItem("c12226");
+                statisticItem.param("obj_param1", ((Integer) arrayList.get(0)).intValue());
+                TiebaStatic.log(statisticItem);
+            }
+        }
+    }
+
+    public final DiyEmotionData u(m55 m55Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            if (this.t == null) {
-                t0();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, m55Var)) == null) {
+            DiyEmotionData diyEmotionData = new DiyEmotionData();
+            StringBuilder sb = new StringBuilder("meme,diy_");
+            if (TextUtils.isEmpty(m55Var.f)) {
+                sb.append(m55Var.a);
+                sb.append(",");
+            } else {
+                sb.append(m55Var.f);
+                sb.append("_");
+                sb.append(m55Var.a);
+                sb.append(",");
             }
-            return new FrsMemberHeaderViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02b3, (ViewGroup) null), this.w);
+            sb.append(m55Var.b);
+            sb.append(",");
+            sb.append(m55Var.c);
+            sb.append(",");
+            String lowerCase = wi.c(sb.toString().replace("diy_", "") + UploadedImageInfo.MD5_KEY).toLowerCase();
+            diyEmotionData.setPid(m55Var.a);
+            diyEmotionData.setUid(TbadkCoreApplication.getCurrentAccount());
+            diyEmotionData.setSharpText(SmallTailInfo.EMOTION_PREFIX + sb.toString() + lowerCase + SmallTailInfo.EMOTION_SUFFIX);
+            diyEmotionData.setOrderId(qa6.o().m(diyEmotionData.getUid()) + 1);
+            diyEmotionData.setWidth(m55Var.b);
+            diyEmotionData.setHeight(m55Var.c);
+            diyEmotionData.setPicUrl(m55Var.d);
+            diyEmotionData.setThumbnail(m55Var.e);
+            diyEmotionData.setBackup("");
+            return diyEmotionData;
         }
-        return (FrsMemberHeaderViewHolder) invokeL.objValue;
-    }
-
-    public View v0(int i, View view2, ViewGroup viewGroup, fb6 fb6Var, FrsMemberHeaderViewHolder frsMemberHeaderViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fb6Var, frsMemberHeaderViewHolder})) == null) {
-            super.S(i, view2, viewGroup, fb6Var, frsMemberHeaderViewHolder);
-            if (fb6Var != null && fb6Var.c() != null) {
-                int parseColor = Color.parseColor("#56cfa1");
-                int color = SkinManager.getColor(R.color.CAM_X0109);
-                oh8 c = fb6Var.c();
-                if (TbadkCoreApplication.isLogin()) {
-                    if (c.n() == 1) {
-                        frsMemberHeaderViewHolder.a.setVisibility(8);
-                        frsMemberHeaderViewHolder.b.setVisibility(0);
-                        frsMemberHeaderViewHolder.b.setText(R.string.obfuscated_res_0x7f0f0b35);
-                        SkinManager.setImageResource(frsMemberHeaderViewHolder.c, BitmapHelper.getSmallGradeResourceIdNew(c.m()));
-                        if (StringUtils.isNull(c.h())) {
-                            frsMemberHeaderViewHolder.d.setVisibility(8);
-                        } else {
-                            frsMemberHeaderViewHolder.d.setText(c.h());
-                            frsMemberHeaderViewHolder.d.setVisibility(0);
-                        }
-                        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                        SpannableString spannableString = new SpannableString(c.c() + "");
-                        spannableString.setSpan(new ForegroundColorSpan(parseColor), 0, spannableString.length(), 17);
-                        SpannableString spannableString2 = new SpannableString("/" + c.i());
-                        spannableString2.setSpan(new ForegroundColorSpan(color), 0, spannableString2.length(), 17);
-                        spannableStringBuilder.append((CharSequence) spannableString);
-                        spannableStringBuilder.append((CharSequence) spannableString2);
-                        frsMemberHeaderViewHolder.g.setText(spannableStringBuilder);
-                        frsMemberHeaderViewHolder.g.setVisibility(0);
-                        frsMemberHeaderViewHolder.k.setVisibility(0);
-                        frsMemberHeaderViewHolder.l.setVisibility(0);
-                    } else {
-                        frsMemberHeaderViewHolder.a.setVisibility(0);
-                        frsMemberHeaderViewHolder.b.setVisibility(8);
-                        frsMemberHeaderViewHolder.c.setVisibility(8);
-                        frsMemberHeaderViewHolder.d.setVisibility(8);
-                        frsMemberHeaderViewHolder.g.setVisibility(8);
-                        frsMemberHeaderViewHolder.k.setVisibility(8);
-                        frsMemberHeaderViewHolder.l.setVisibility(8);
-                    }
-                } else {
-                    frsMemberHeaderViewHolder.a.setVisibility(8);
-                    frsMemberHeaderViewHolder.b.setVisibility(8);
-                    frsMemberHeaderViewHolder.c.setVisibility(8);
-                    frsMemberHeaderViewHolder.d.setVisibility(8);
-                    frsMemberHeaderViewHolder.g.setVisibility(8);
-                    frsMemberHeaderViewHolder.k.setVisibility(8);
-                    frsMemberHeaderViewHolder.l.setVisibility(8);
-                }
-                frsMemberHeaderViewHolder.a.setTag(Integer.valueOf(i));
-                frsMemberHeaderViewHolder.d.setTag(Integer.valueOf(i));
-                frsMemberHeaderViewHolder.d.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
-                SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.h, R.color.CAM_X0201);
-                SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.e, R.color.CAM_X0204);
-                SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.i, R.color.CAM_X0204);
-                SkinManager.setBackgroundResource(frsMemberHeaderViewHolder.a, R.drawable.frs_btn_like);
-                SkinManager.setViewTextColor(frsMemberHeaderViewHolder.a, R.color.white_alpha100, 1);
-                SkinManager.setViewTextColor(frsMemberHeaderViewHolder.b, R.color.CAM_X0105, 1);
-                SkinManager.setViewTextColor(frsMemberHeaderViewHolder.d, R.color.CAM_X0109, 1);
-                SkinManager.setViewTextColor(frsMemberHeaderViewHolder.j, R.color.CAM_X0105, 1);
-                SkinManager.setBackgroundResource(frsMemberHeaderViewHolder.k, R.drawable.obfuscated_res_0x7f080570);
-                SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.l, R.color.CAM_X0204);
-                if (this.u != c.m() || this.v != c.c()) {
-                    this.u = c.m();
-                    this.v = c.c();
-                    frsMemberHeaderViewHolder.k.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, s0(this.u)));
-                    int c2 = c.c();
-                    this.v = c2;
-                    if (c2 > c.i()) {
-                        this.v = c.i();
-                    }
-                    float i2 = c.i() != 0 ? this.v / c.i() : 0.0f;
-                    if (i2 > 0.999f) {
-                        i2 = 1.0f;
-                    }
-                    ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, i2, 1.0f, 1.0f);
-                    scaleAnimation.setFillAfter(true);
-                    scaleAnimation.setDuration(1000L);
-                    qg8.c((TbPageContextSupport) this.k.getPageActivity(), frsMemberHeaderViewHolder.k, scaleAnimation, null);
-                }
-            }
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
+        return (DiyEmotionData) invokeL.objValue;
     }
 }

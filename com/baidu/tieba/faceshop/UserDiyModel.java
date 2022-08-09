@@ -19,9 +19,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nn7;
-import com.repackage.xl4;
-import com.repackage.y86;
+import com.repackage.ip7;
+import com.repackage.om4;
+import com.repackage.qa6;
 import com.tencent.open.SocialConstants;
 import java.util.HashSet;
 import java.util.List;
@@ -62,7 +62,7 @@ public class UserDiyModel extends FaceBaseModel {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                List<DiyEmotionData> r = y86.o().r(TbadkCoreApplication.getCurrentAccountForEmotion());
+                List<DiyEmotionData> r = qa6.o().r(TbadkCoreApplication.getCurrentAccountForEmotion());
                 HashSet hashSet = new HashSet();
                 if (r == null) {
                     return;
@@ -81,7 +81,7 @@ public class UserDiyModel extends FaceBaseModel {
                 long currentTimeMillis = System.currentTimeMillis();
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_UPLOAD_DIY_EMOTION_INFO);
                 if (jSONArray.length() > 0) {
-                    httpMessage.addParam(SocialConstants.PARAM_IMAGE, xl4.q(jSONArray.toString()));
+                    httpMessage.addParam(SocialConstants.PARAM_IMAGE, om4.q(jSONArray.toString()));
                 } else {
                     httpMessage.addParam(SocialConstants.PARAM_IMAGE, "all_delete");
                 }
@@ -162,7 +162,7 @@ public class UserDiyModel extends FaceBaseModel {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003532 && (httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
                 try {
-                    nn7.v(((Long) ((HttpMessage) ((JsonHttpResponsedMessage) httpResponsedMessage).getOrginalMessage()).getParams().get("diy_pic_update_time")).longValue());
+                    ip7.v(((Long) ((HttpMessage) ((JsonHttpResponsedMessage) httpResponsedMessage).getOrginalMessage()).getParams().get("diy_pic_update_time")).longValue());
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -192,18 +192,11 @@ public class UserDiyModel extends FaceBaseModel {
         registerListener(this.a);
     }
 
-    public void A() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            new Thread(new a(this)).start();
-        }
-    }
-
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             MessageManager.getInstance().unRegisterListener(this.a);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_UPLOAD_DIY_EMOTION_INFO);
             return true;
@@ -215,7 +208,7 @@ public class UserDiyModel extends FaceBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -223,10 +216,17 @@ public class UserDiyModel extends FaceBaseModel {
 
     public final void registerTask() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_UPLOAD_DIY_EMOTION_INFO, TbConfig.SERVER_ADDRESS + "c/e/meme/collect");
             tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            new Thread(new a(this)).start();
         }
     }
 }

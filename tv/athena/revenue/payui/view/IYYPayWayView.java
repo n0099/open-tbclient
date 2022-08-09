@@ -7,15 +7,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qy9;
-import com.repackage.qz9;
-import com.repackage.ty9;
+import com.repackage.u1a;
+import com.repackage.v2a;
+import com.repackage.x1a;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
 import java.util.List;
+import java.util.Map;
 import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.payui.model.PayFlowType;
 /* loaded from: classes9.dex */
-public interface IYYPayWayView extends qz9 {
+public interface IYYPayWayView extends v2a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
@@ -79,9 +80,11 @@ public interface IYYPayWayView extends qz9 {
 
     /* loaded from: classes9.dex */
     public interface a {
-        void a(ty9 ty9Var, qy9 qy9Var, AppCustomExpand appCustomExpand);
+        void a(x1a x1aVar, u1a u1aVar, AppCustomExpand appCustomExpand);
 
         void onRefreshViewFail(int i, String str);
+
+        void toHelpCenterPage();
     }
 
     /* loaded from: classes9.dex */
@@ -89,11 +92,15 @@ public interface IYYPayWayView extends qz9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public List<PayWayInfo> a;
-        public qy9 b;
-        public AppCustomExpand c;
-        public boolean d;
-        public AbsViewEventHandler e;
-        public PayFlowType f;
+        public String b;
+        public u1a c;
+        public AppCustomExpand d;
+        public Map<String, String> e;
+        public boolean f;
+        public AbsViewEventHandler g;
+        public PayFlowType h;
+        public WindowParams i;
+        public boolean j;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -108,7 +115,17 @@ public interface IYYPayWayView extends qz9 {
                     return;
                 }
             }
-            this.d = false;
+            this.f = false;
+            this.j = false;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return "ViewParams{payAmount=" + this.c + ", payFlowType=" + this.h + ", showFaqPage=" + this.j + ", appCustomExpand=" + this.d + ", closeOnSuccess='" + this.f + "', clientInfoExpand='" + this.e + "', windowParams='" + this.i + "'}";
+            }
+            return (String) invokeV.objValue;
         }
     }
 

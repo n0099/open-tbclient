@@ -176,11 +176,11 @@ public class TransitionSet extends Transition {
     @Override // androidx.transition.Transition
     public void captureEndValues(@NonNull TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, transitionValues) == null) && isValidTarget(transitionValues.f1027view)) {
+        if ((interceptable == null || interceptable.invokeL(1048588, this, transitionValues) == null) && isValidTarget(transitionValues.f1028view)) {
             Iterator<Transition> it = this.mTransitions.iterator();
             while (it.hasNext()) {
                 Transition next = it.next();
-                if (next.isValidTarget(transitionValues.f1027view)) {
+                if (next.isValidTarget(transitionValues.f1028view)) {
                     next.captureEndValues(transitionValues);
                     transitionValues.mTargetedTransitions.add(next);
                 }
@@ -203,11 +203,11 @@ public class TransitionSet extends Transition {
     @Override // androidx.transition.Transition
     public void captureStartValues(@NonNull TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, transitionValues) == null) && isValidTarget(transitionValues.f1027view)) {
+        if ((interceptable == null || interceptable.invokeL(1048590, this, transitionValues) == null) && isValidTarget(transitionValues.f1028view)) {
             Iterator<Transition> it = this.mTransitions.iterator();
             while (it.hasNext()) {
                 Transition next = it.next();
-                if (next.isValidTarget(transitionValues.f1027view)) {
+                if (next.isValidTarget(transitionValues.f1028view)) {
                     next.captureStartValues(transitionValues);
                     transitionValues.mTargetedTransitions.add(next);
                 }

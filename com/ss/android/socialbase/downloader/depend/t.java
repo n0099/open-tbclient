@@ -6,13 +6,13 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface t extends IInterface {
     void a(List<String> list) throws RemoteException;
 
     boolean a() throws RemoteException;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class a extends Binder implements t {
         public a() {
             attachInterface(this, "com.ss.android.socialbase.downloader.depend.IDownloadForbiddenAidlCallback");
@@ -26,11 +26,11 @@ public interface t extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof t)) {
                 return (t) queryLocalInterface;
             }
-            return new C0676a(iBinder);
+            return new C0681a(iBinder);
         }
 
         public static t b() {
-            return C0676a.a;
+            return C0681a.a;
         }
 
         @Override // android.os.IInterface
@@ -61,12 +61,12 @@ public interface t extends IInterface {
         }
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.t$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public static class C0676a implements t {
+        /* loaded from: classes8.dex */
+        public static class C0681a implements t {
             public static t a;
             public IBinder b;
 
-            public C0676a(IBinder iBinder) {
+            public C0681a(IBinder iBinder) {
                 this.b = iBinder;
             }
 

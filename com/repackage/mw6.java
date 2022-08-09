@@ -1,35 +1,36 @@
 package com.repackage;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class mw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public List<an> b;
-    public tn c;
-    public lw6 d;
-    public qw6 e;
-    public kw6 f;
-    public ow6 g;
-    public nw6 h;
-    public pw6 i;
-    public rw6 j;
+    public BdTypeRecyclerView b;
+    public LinkedList<bn> c;
+    public rw6 d;
+    public ow6 e;
+    public pw6 f;
+    public qw6 g;
 
-    public mw6(TbPageContext tbPageContext, tn tnVar) {
+    public mw6(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, tnVar};
+            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,81 +41,123 @@ public class mw6 {
             }
         }
         this.a = tbPageContext;
-        this.c = tnVar;
-        a();
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = new ArrayList();
-            lw6 lw6Var = new lw6(this.a);
-            this.d = lw6Var;
-            lw6Var.c0(this.c);
-            this.b.add(this.d);
-            qw6 qw6Var = new qw6(this.a);
-            this.e = qw6Var;
-            qw6Var.c0(this.c);
-            this.b.add(this.e);
-            kw6 kw6Var = new kw6(this.a);
-            this.f = kw6Var;
-            kw6Var.c0(this.c);
-            this.b.add(this.f);
-            ow6 ow6Var = new ow6(this.a);
-            this.g = ow6Var;
-            ow6Var.c0(this.c);
-            this.b.add(this.g);
-            nw6 nw6Var = new nw6(this.a);
-            this.h = nw6Var;
-            nw6Var.c0(this.c);
-            this.b.add(this.h);
-            pw6 pw6Var = new pw6(this.a);
-            this.i = pw6Var;
-            pw6Var.c0(this.c);
-            this.b.add(this.i);
-            rw6 rw6Var = new rw6(this.a);
-            this.j = rw6Var;
-            rw6Var.c0(this.c);
-            this.b.add(this.j);
-            this.c.a(this.b);
-        }
-    }
-
-    public void b() {
-        tn tnVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (tnVar = this.c) == null) {
-            return;
-        }
-        tnVar.getListAdapter().notifyDataSetChanged();
-    }
-
-    public void c(List<nn> list) {
-        tn tnVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (tnVar = this.c) == null) {
-            return;
-        }
-        tnVar.setData(list);
+        this.b = bdTypeRecyclerView;
+        this.c = new LinkedList<>();
         b();
     }
 
-    public void d(km4 km4Var) {
+    public List<on> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, km4Var) == null) {
-            for (an anVar : this.b) {
-                if (anVar instanceof jw6) {
-                    ((jw6) anVar).b0(km4Var);
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            BdTypeRecyclerView bdTypeRecyclerView = this.b;
+            if (bdTypeRecyclerView != null) {
+                return bdTypeRecyclerView.getData();
+            }
+            return null;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d = new rw6(this.a, n06.z0);
+            this.e = new ow6(this.a, o06.U);
+            this.f = new pw6(this.a, n06.I0);
+            this.g = new qw6(this.a, n06.G0);
+            this.d.y(this.b);
+            this.e.A(this.b);
+            this.f.x(this.b);
+            this.g.z(this.b);
+            this.c.add(this.d);
+            this.c.add(this.e);
+            this.c.add(this.f);
+            this.c.add(this.g);
+            this.b.a(this.c);
+        }
+    }
+
+    public void c() {
+        BdTypeRecyclerView bdTypeRecyclerView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bdTypeRecyclerView = this.b) == null) {
+            return;
+        }
+        bdTypeRecyclerView.getListAdapter().notifyDataSetChanged();
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public void e() {
+        ow6 ow6Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (ow6Var = this.e) == null) {
+            return;
+        }
+        ow6Var.onPause();
+    }
+
+    public void f(List<on> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+            this.b.setData(list);
+        }
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            rw6 rw6Var = this.d;
+            if (rw6Var != null) {
+                rw6Var.w(i);
+            }
+            ow6 ow6Var = this.e;
+            if (ow6Var != null) {
+                ow6Var.y(i);
+            }
+            pw6 pw6Var = this.f;
+            if (pw6Var != null) {
+                pw6Var.v(i);
+            }
+            qw6 qw6Var = this.g;
+            if (qw6Var != null) {
+                qw6Var.x(i);
             }
         }
     }
 
-    public void e(BdUniqueId bdUniqueId) {
+    public void h(NEGFeedBackView.b bVar) {
+        qw6 qw6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
-            for (an anVar : this.b) {
-                anVar.X(bdUniqueId);
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) || (qw6Var = this.g) == null) {
+            return;
+        }
+        qw6Var.w(bVar);
+    }
+
+    public void i(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
+            rw6 rw6Var = this.d;
+            if (rw6Var != null) {
+                rw6Var.x(bdUniqueId);
+            }
+            ow6 ow6Var = this.e;
+            if (ow6Var != null) {
+                ow6Var.z(bdUniqueId);
+            }
+            pw6 pw6Var = this.f;
+            if (pw6Var != null) {
+                pw6Var.w(bdUniqueId);
+            }
+            qw6 qw6Var = this.g;
+            if (qw6Var != null) {
+                qw6Var.y(bdUniqueId);
             }
         }
     }

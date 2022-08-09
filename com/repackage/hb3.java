@@ -1,251 +1,235 @@
 package com.repackage;
 
-import android.net.wifi.ScanResult;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.http.cookie.ClientCookie;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class hb3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile hb3 i;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public int d;
-    public int e;
+    public SensorManager a;
+    public SensorEventListener b;
+    public Sensor c;
+    public Sensor d;
+    public b e;
+    public float[] f;
+    public float[] g;
+    public boolean h;
+
+    /* loaded from: classes6.dex */
+    public class a implements SensorEventListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hb3 a;
+
+        public a(hb3 hb3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hb3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hb3Var;
+        }
+
+        @Override // android.hardware.SensorEventListener
+        public void onAccuracyChanged(Sensor sensor, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, sensor, i) == null) {
+            }
+        }
+
+        @Override // android.hardware.SensorEventListener
+        public void onSensorChanged(SensorEvent sensorEvent) {
+            Sensor sensor;
+            float[] g;
+            Sensor sensor2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensorEvent) == null) {
+                if (sensorEvent != null && (sensor2 = sensorEvent.sensor) != null && sensor2.getType() == 1) {
+                    float[] fArr = sensorEvent.values;
+                    if (fArr == null || fArr.length != 3) {
+                        return;
+                    }
+                    this.a.f = (float[]) fArr.clone();
+                } else if (sensorEvent == null || (sensor = sensorEvent.sensor) == null || sensor.getType() != 2) {
+                } else {
+                    float[] fArr2 = sensorEvent.values;
+                    if (fArr2 != null && fArr2.length == 3) {
+                        this.a.g = (float[]) fArr2.clone();
+                    }
+                    if (this.a.e == null || this.a.f == null || this.a.g == null || (g = this.a.g()) == null) {
+                        return;
+                    }
+                    this.a.e.a(g);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(float[] fArr);
+    }
 
     public hb3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        f();
+        this.h = false;
     }
 
-    public int a() {
+    public static hb3 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? WifiManager.calculateSignalLevel(this.d, 100) : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (i == null) {
+                synchronized (hb3.class) {
+                    if (i == null) {
+                        i = new hb3();
+                    }
+                }
+            }
+            return i;
+        }
+        return (hb3) invokeV.objValue;
     }
 
-    public String b() {
+    public static void k() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65544, null) == null) || i == null) {
+            return;
+        }
+        i.j();
+    }
+
+    @Nullable
+    public final float[] g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            float[] fArr = new float[9];
+            float[] fArr2 = new float[9];
+            float[] fArr3 = new float[3];
+            if (SensorManager.getRotationMatrix(fArr, null, this.f, this.g) && SensorManager.remapCoordinateSystem(fArr, 2, 129, fArr2)) {
+                SensorManager.getOrientation(fArr2, fArr3);
+                return fArr3;
+            }
+            return null;
+        }
+        return (float[]) invokeV.objValue;
+    }
+
+    public final SensorEventListener i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String str = this.b;
-            return str != null ? str : Config.DEF_MAC_ID;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : invokeV.intValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String str = this.a;
-            return str != null ? str : "<unknown ssid>";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (!(obj instanceof hb3)) {
-                return super.equals(obj);
+            zx1.i("SwanAppOrientationManager", "get System Sensor listener");
+            SensorEventListener sensorEventListener = this.b;
+            if (sensorEventListener != null) {
+                return sensorEventListener;
             }
-            hb3 hb3Var = (hb3) obj;
-            return hb3Var.a.equals(this.a) && hb3Var.b.equals(this.b);
+            a aVar = new a(this);
+            this.b = aVar;
+            return aVar;
         }
-        return invokeL.booleanValue;
+        return (SensorEventListener) invokeV.objValue;
     }
 
-    public final void f() {
+    public final void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.a = "<unknown ssid>";
-            this.b = Config.DEF_MAC_ID;
-            this.c = -1;
-            this.d = 0;
-            this.e = 0;
-        }
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? e() > 0 : invokeV.booleanValue;
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            if (str == null) {
-                str = Config.DEF_MAC_ID;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            zx1.i("SwanAppOrientationManager", "release");
+            if (this.h) {
+                m();
             }
-            this.b = str;
+            this.a = null;
+            this.c = null;
+            this.d = null;
+            this.b = null;
+            this.f = null;
+            this.g = null;
+            i = null;
         }
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    public boolean l(int i2, @NonNull b bVar) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a.hashCode() + this.b.hashCode() : invokeV.intValue;
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.c = kb3.c(str);
-        }
-    }
-
-    public void m(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            if (str == null) {
-                str = "<unknown ssid>";
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i2, bVar)) == null) {
+            if (this.h) {
+                zx1.o("SwanAppOrientationManager", "has already start, change new listener");
+                this.e = bVar;
+                return true;
             }
-            this.a = str;
-        }
-    }
-
-    public JSONObject n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("SSID", d());
-                jSONObject.put("BSSID", b());
-                jSONObject.put(ClientCookie.SECURE_ATTR, g());
-                jSONObject.put("signalStrength", a());
-                jSONObject.put("frequency", c());
-                return jSONObject;
-            } catch (JSONException e) {
-                if (sg1.a) {
-                    Log.d("WifiAccessPoint", Log.getStackTraceString(e));
+            SensorManager sensorManager = (SensorManager) gk2.c().getSystemService("sensor");
+            this.a = sensorManager;
+            if (sensorManager != null) {
+                this.e = bVar;
+                this.c = sensorManager.getDefaultSensor(1);
+                Sensor defaultSensor = this.a.getDefaultSensor(2);
+                this.d = defaultSensor;
+                if (this.c != null && defaultSensor != null) {
+                    this.a.registerListener(i(), this.c, i2);
+                    this.a.registerListener(i(), this.d, i2);
+                    this.h = true;
+                    zx1.i("SwanAppOrientationManager", "start listen");
+                    return true;
                 }
-                return new JSONObject();
+                zx1.c("SwanAppOrientationManager", "Accelerometer || Magnetic is null");
+                return false;
             }
+            zx1.c("SwanAppOrientationManager", "none sensorManager");
+            return false;
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeIL.booleanValue;
     }
 
-    public String o() {
-        InterceptResult invokeV;
+    public void m() {
+        SensorManager sensorManager;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? n().toString() : (String) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? o() : (String) invokeV.objValue;
-    }
-
-    public hb3(ScanResult scanResult) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {scanResult};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (!this.h) {
+                zx1.o("SwanAppOrientationManager", "has already stop");
                 return;
             }
-        }
-        if (scanResult == null) {
-            f();
-            return;
-        }
-        m(scanResult.SSID);
-        h(scanResult.BSSID);
-        j(scanResult.level);
-        l(scanResult.capabilities);
-        i(scanResult.frequency);
-    }
-
-    public hb3(WifiInfo wifiInfo, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wifiInfo, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+            this.h = false;
+            SensorEventListener sensorEventListener = this.b;
+            if (sensorEventListener != null && (sensorManager = this.a) != null) {
+                sensorManager.unregisterListener(sensorEventListener);
+                this.b = null;
             }
+            this.e = null;
+            this.a = null;
+            this.c = null;
+            this.d = null;
         }
-        if (wifiInfo == null) {
-            f();
-            return;
-        }
-        m(jb3.e(wifiInfo.getSSID()));
-        h(wifiInfo.getBSSID());
-        j(wifiInfo.getRssi());
-        k(i);
-        i(wifiInfo.getFrequency());
     }
 }

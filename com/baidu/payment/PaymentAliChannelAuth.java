@@ -6,8 +6,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a71;
-import com.repackage.q71;
+import com.repackage.h81;
+import com.repackage.r71;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class PaymentAliChannelAuth implements IChannelAuth {
@@ -29,10 +29,10 @@ public class PaymentAliChannelAuth implements IChannelAuth {
     }
 
     @Override // com.baidu.poly.wallet.paychannel.IChannelAuth
-    public void aLiAuth(Activity activity, String str, q71<JSONObject> q71Var) {
+    public void aLiAuth(Activity activity, String str, h81<JSONObject> h81Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, q71Var) == null) {
-            a71.a().aLiAuth(activity, str, q71Var);
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, h81Var) == null) {
+            r71.a().aLiAuth(activity, str, h81Var);
         }
     }
 }

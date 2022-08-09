@@ -76,7 +76,7 @@ public final class d extends b {
     public boolean dR;
 
     /* renamed from: do  reason: not valid java name */
-    public ImageView f5do;
+    public ImageView f6do;
     public com.kwad.sdk.core.video.videoview.a dp;
     public com.kwad.sdk.core.g.d eN;
     public Vibrator eO;
@@ -502,7 +502,7 @@ public final class d extends b {
             float a = a(cB, av);
             com.kwad.sdk.core.e.b.d("InterstitialWebViewPresenter", "replaceNativeView cardRatio: " + a);
             this.gh.gj.setRatio(a);
-            ViewGroup viewGroup = (ViewGroup) this.gS.findViewById(R.id.obfuscated_res_0x7f091061);
+            ViewGroup viewGroup = (ViewGroup) this.gS.findViewById(R.id.obfuscated_res_0x7f0910b7);
             viewGroup.setVisibility(0);
             viewGroup.post(new Runnable(this, cB, av, viewGroup) { // from class: com.kwad.components.ad.interstitial.b.d.22
                 public static /* synthetic */ Interceptable $ic;
@@ -932,8 +932,8 @@ public final class d extends b {
                 public final void onVideoPlaying() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
-                        if (this.hc.f5do.getVisibility() == 0) {
-                            this.hc.f5do.setVisibility(8);
+                        if (this.hc.f6do.getVisibility() == 0) {
+                            this.hc.f6do.setVisibility(8);
                         }
                         com.kwad.components.core.webview.b.a.s sVar = this.he;
                         sVar.NZ = false;
@@ -1690,15 +1690,15 @@ public final class d extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onCreate();
-            KsAdWebView ksAdWebView = (KsAdWebView) getRootView().findViewById(R.id.obfuscated_res_0x7f0911c8);
+            KsAdWebView ksAdWebView = (KsAdWebView) getRootView().findViewById(R.id.obfuscated_res_0x7f09121e);
             this.gT = ksAdWebView;
             ksAdWebView.setBackgroundColor(0);
             this.gT.setVisibility(4);
             this.aM = new com.kwad.components.core.widget.kwai.b(this.gT, 100);
-            this.gS = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f091012);
-            this.dN = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f09119f);
-            this.f5do = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f0911af);
-            this.gU = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f091069);
+            this.gS = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f091068);
+            this.dN = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f0911f5);
+            this.f6do = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f091205);
+            this.gU = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f0910bf);
             Context context = getContext();
             this.mContext = context;
             if (context != null) {

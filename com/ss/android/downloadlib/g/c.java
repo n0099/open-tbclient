@@ -1,7 +1,7 @@
 package com.ss.android.downloadlib.g;
 
 import java.lang.ref.SoftReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c<P, R> implements Runnable {
     public P a;
     public R b;
@@ -10,7 +10,7 @@ public class c<P, R> implements Runnable {
     public c<?, P> e;
     public c<R, ?> f;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a<PARAM, RESULT> {
         RESULT a(PARAM param);
     }

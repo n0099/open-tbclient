@@ -137,7 +137,7 @@ public class VodClient extends AbstractBceClient {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            InternalRequest createRequest = createRequest(HttpMethodName.POST, new GenerateMediaIdRequest(), PATH_MEDIA);
+            InternalRequest createRequest = createRequest(HttpMethodName.POST, new GenerateMediaIdRequest(), "media");
             createRequest.addParameter("apply", null);
             return (GenerateMediaIdResponse) invokeHttpClient(createRequest, GenerateMediaIdResponse.class);
         }
@@ -148,7 +148,7 @@ public class VodClient extends AbstractBceClient {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            InternalRequest createRequest = createRequest(HttpMethodName.POST, new GenerateMediaIdRequest(), PATH_MEDIA);
+            InternalRequest createRequest = createRequest(HttpMethodName.POST, new GenerateMediaIdRequest(), "media");
             createRequest.addParameter("apply", null);
             createRequest.addParameter("mode", str);
             return (GenerateMediaIdResponse) invokeHttpClient(createRequest, GenerateMediaIdResponse.class);
@@ -176,7 +176,7 @@ public class VodClient extends AbstractBceClient {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, processMediaRequest)) == null) {
-            InternalRequest createRequest = createRequest(HttpMethodName.POST, processMediaRequest, PATH_MEDIA, processMediaRequest.getMediaId());
+            InternalRequest createRequest = createRequest(HttpMethodName.POST, processMediaRequest, "media", processMediaRequest.getMediaId());
             createRequest.addParameter("process", null);
             return (ProcessMediaResponse) invokeHttpClient(createRequest, ProcessMediaResponse.class);
         }
@@ -188,7 +188,7 @@ public class VodClient extends AbstractBceClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, getMediaResourceRequest)) == null) {
             CheckUtils.checkArgument((getMediaResourceRequest.getMediaId() == null || getMediaResourceRequest.getMediaId().equals("")) ? false : true, "Media ID should not be null or empty!");
-            return (GetMediaResourceResponse) invokeHttpClient(createRequest(HttpMethodName.GET, getMediaResourceRequest, PATH_MEDIA, getMediaResourceRequest.getMediaId()), GetMediaResourceResponse.class);
+            return (GetMediaResourceResponse) invokeHttpClient(createRequest(HttpMethodName.GET, getMediaResourceRequest, "media", getMediaResourceRequest.getMediaId()), GetMediaResourceResponse.class);
         }
         return (GetMediaResourceResponse) invokeL.objValue;
     }

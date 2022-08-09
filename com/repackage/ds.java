@@ -1,5 +1,5 @@
 package com.repackage;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface ds {
-    boolean a();
+    void a(String str, cs csVar);
 }

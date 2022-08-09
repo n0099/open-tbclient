@@ -123,21 +123,21 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
     private void E(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0416, this);
-            this.cu = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911aa);
-            this.cv = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090fe7);
-            this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fec);
-            this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f090fee);
-            this.cy = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f090fef);
-            this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f090feb);
-            this.cA = (TextView) findViewById(R.id.obfuscated_res_0x7f090fe6);
-            DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f090fea);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0419, this);
+            this.cu = (ImageView) findViewById(R.id.obfuscated_res_0x7f091200);
+            this.cv = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09103d);
+            this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f091042);
+            this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f091044);
+            this.cy = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091045);
+            this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f091041);
+            this.cA = (TextView) findViewById(R.id.obfuscated_res_0x7f09103c);
+            DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f091040);
             this.cB = drawDownloadProgressBar;
             drawDownloadProgressBar.setTextSize(15);
-            this.cC = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091042);
-            this.cD = (TextView) findViewById(R.id.obfuscated_res_0x7f091041);
-            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f091045);
-            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091033);
+            this.cC = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091098);
+            this.cD = (TextView) findViewById(R.id.obfuscated_res_0x7f091097);
+            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f09109b);
+            this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091089);
         }
     }
 

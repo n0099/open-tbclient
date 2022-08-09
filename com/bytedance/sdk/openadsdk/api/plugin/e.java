@@ -6,9 +6,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.bytedance.pangle.GlobalParam;
 import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.ZeusPluginStateListener;
@@ -76,7 +76,7 @@ public class e {
         @Override // com.bytedance.sdk.openadsdk.TTAdEvent
         public void onEvent(int i, Bundle bundle) {
             if (i == 1) {
-                String string = bundle.getString(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME);
+                String string = bundle.getString("config");
                 String string2 = bundle.getString("plugin_pkg_name");
                 int i2 = bundle.getInt("code");
                 if (i2 == 0) {
@@ -252,7 +252,7 @@ public class e {
                 com.bytedance.sdk.openadsdk.api.a.b("TTPluginManager", "Load plugin failed, caused by timeout.");
                 tTPluginListener.onPluginListener(1001, null, null, null);
             }
-        }, 180000L);
+        }, LiveFeedPageSdk.REFRESH_TIME);
         String packageName = tTPluginListener.packageName();
         Plugin plugin = (Zeus.isPluginInstalled(packageName) && (Zeus.isPluginLoaded(packageName) || Zeus.loadPlugin(packageName))) ? Zeus.getPlugin(packageName) : null;
         StringBuilder sb = new StringBuilder();

@@ -15,10 +15,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d55;
-import com.repackage.ni;
-import com.repackage.qb;
-/* loaded from: classes2.dex */
+import com.repackage.oi;
+import com.repackage.rb;
+import com.repackage.z55;
+/* loaded from: classes3.dex */
 public class SocketStatic {
     public static /* synthetic */ Interceptable $ic = null;
     public static String Tag = "tag";
@@ -66,7 +66,7 @@ public class SocketStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof NetWorkChangedMessage) && PermissionUtil.isAgreePrivacyPolicy() && Build.VERSION.SDK_INT >= 24 && TbadkCoreApplication.getInst().isMainProcess(true)) {
-                    qb.b().a("startSocketService", new Runnable(this) { // from class: com.baidu.tbadk.SocketStatic.1.1
+                    rb.b().a("startSocketService", new Runnable(this) { // from class: com.baidu.tbadk.SocketStatic.1.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ AnonymousClass1 this$0;
@@ -92,8 +92,8 @@ public class SocketStatic {
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable3 = $ic;
-                            if ((interceptable3 == null || interceptable3.invokeV(1048576, this) == null) && ni.z() && BdSocketLinkService.isClose()) {
-                                d55.b(0, 0, 0, 1, 6);
+                            if ((interceptable3 == null || interceptable3.invokeV(1048576, this) == null) && oi.z() && BdSocketLinkService.isClose()) {
+                                z55.b(0, 0, 0, 1, 6);
                                 BdSocketLinkService.setAvailable(true);
                                 BdSocketLinkService.startService(false, "net succ");
                             }

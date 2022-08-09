@@ -5,11 +5,11 @@ import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.File;
 import java.io.IOException;
 import java.security.MessageDigest;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static final char[] a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public int a;
         public int b;

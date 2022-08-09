@@ -1,48 +1,43 @@
 package com.repackage;
 
-import android.animation.Animator;
-import android.content.Context;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.airbnb.lottie.LottieAnimationView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.http.request.PostBodyRequest;
+import com.baidu.swan.apps.commonsync.CommonSyncServerData;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q63;
+import java.util.Map;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public final class cw1 extends vv1<LottieAnimationView, dw1> {
+/* loaded from: classes6.dex */
+public class cw1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public String i;
 
-    /* loaded from: classes5.dex */
-    public class a implements Animator.AnimatorListener {
+    /* loaded from: classes6.dex */
+    public static class a extends ResponseCallback<CommonSyncServerData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dw1 a;
-        public final /* synthetic */ JSONObject b;
-        public final /* synthetic */ LottieAnimationView c;
+        public final /* synthetic */ ew1 a;
 
-        public a(cw1 cw1Var, dw1 dw1Var, JSONObject jSONObject, LottieAnimationView lottieAnimationView) {
+        public a(ew1 ew1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cw1Var, dw1Var, jSONObject, lottieAnimationView};
+                Object[] objArr = {ew1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,196 +47,119 @@ public final class cw1 extends vv1<LottieAnimationView, dw1> {
                     return;
                 }
             }
-            this.a = dw1Var;
-            this.b = jSONObject;
-            this.c = lottieAnimationView;
+            this.a = ew1Var;
         }
 
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(CommonSyncServerData commonSyncServerData, int i) {
+            ew1 ew1Var;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, commonSyncServerData, i) == null) || (ew1Var = this.a) == null) {
+                return;
             }
+            ew1Var.a(commonSyncServerData);
         }
 
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: b */
+        public CommonSyncServerData parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                dw1 dw1Var = this.a;
-                pf3.d(dw1Var.c, dw1Var.b, "animateview", "ended", this.b);
-                ix1.i("Component-AnimationView", "progress: " + this.c.getProgress());
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
+                if (response != null && response.body() != null) {
+                    String string = response.body().string();
+                    if (TextUtils.isEmpty(string)) {
+                        return null;
+                    }
+                    JSONObject jSONObject = new JSONObject(string);
+                    int optInt = jSONObject.optInt("errno");
+                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                    if (optInt == cw1.b && optJSONObject != null) {
+                        return CommonSyncServerData.parseFromJson(optJSONObject);
+                    }
+                }
+                return null;
             }
+            return (CommonSyncServerData) invokeLI.objValue;
         }
 
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            ew1 ew1Var;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-                ix1.i("Component-AnimationView", "onAnimationRepeat ");
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) || (ew1Var = this.a) == null) {
+                return;
             }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-            }
+            ew1Var.onFail();
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cw1(@Nullable Context context, @NonNull dw1 dw1Var, @NonNull String str) {
-        super(context, dw1Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, dw1Var, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (wv1) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755782892, "Lcom/repackage/cw1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755782892, "Lcom/repackage/cw1;");
                 return;
             }
         }
-        this.i = str;
+        a = jh1.a;
+        b = 0;
     }
 
-    public static void Z(String str, String str2) {
+    public static void b(ew1 ew1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("json", str);
-                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, str2);
-            } catch (Exception e) {
-                if (xv1.h) {
-                    e.printStackTrace();
-                }
-            }
-            String jSONObject2 = jSONObject.toString();
-            if (xv1.h && TextUtils.isEmpty(jSONObject2)) {
-                Log.d("Component-AnimationView", "reportLottieAnimationCrash: empty");
-                return;
-            }
-            if (xv1.h) {
-                Log.d("Component-AnimationView", "reportLottieAnimationCrash: " + jSONObject2);
-            }
-            q63.b bVar = new q63.b(10009);
-            bVar.i(jSONObject2);
-            bVar.h(i03.g0());
-            bVar.m();
-        }
-    }
-
-    public final void S(@NonNull LottieAnimationView lottieAnimationView, @NonNull dw1 dw1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, lottieAnimationView, dw1Var) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, dw1Var.c);
-                jSONObject.put("vtype", "ended");
-                jSONObject2.putOpt("animationViewId", dw1Var.b);
-                jSONObject.put("data", jSONObject2.toString());
-            } catch (JSONException e) {
-                if (xv1.h) {
-                    e.printStackTrace();
-                }
-            }
-            lottieAnimationView.addAnimatorListener(new a(this, dw1Var, jSONObject, lottieAnimationView));
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.xv1
-    @NonNull
-    /* renamed from: T */
-    public LottieAnimationView v(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) ? new LottieAnimationView(context) : (LottieAnimationView) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.xv1
-    /* renamed from: U */
-    public void A(@NonNull LottieAnimationView lottieAnimationView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, lottieAnimationView) == null) {
-            super.A(lottieAnimationView);
-            try {
-                dw1 dw1Var = (dw1) n();
-                lottieAnimationView.loop(dw1Var.u);
-                lottieAnimationView.enableMergePathsForKitKatAndAbove(true);
-                lottieAnimationView.setImageAssetDelegate(new bw1(dw1Var.t));
-                lottieAnimationView.setAnimationFromJson(this.i, dw1Var.b);
-                if (dw1Var.v) {
-                    lottieAnimationView.playAnimation();
-                }
-                if (dw1Var.u) {
+        if (interceptable == null || interceptable.invokeL(65538, null, ew1Var) == null) {
+            if (!SwanAppNetworkUtils.h()) {
+                if (ew1Var != null) {
+                    ew1Var.onFail();
                     return;
                 }
-                S(lottieAnimationView, dw1Var);
-            } catch (Exception unused) {
-                Z(this.i, i03.g0());
+                return;
             }
+            b84.g().getRequest().cookieManager(gk2.q().a()).url(gk2.m().processUrl(dw1.a())).build().executeAsync(new a(ew1Var));
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.vv1
-    /* renamed from: V */
-    public void O(@NonNull LottieAnimationView lottieAnimationView, @NonNull dw1 dw1Var, @NonNull ax1 ax1Var) {
+    public static RequestBody c(Map<String, Object> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, lottieAnimationView, dw1Var, ax1Var) == null) {
-            super.C(lottieAnimationView, dw1Var, ax1Var);
-            W(lottieAnimationView, dw1Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (map != null && map.size() > 0) {
+                for (String str : map.keySet()) {
+                    try {
+                        jSONObject.put(str, map.get(str));
+                    } catch (JSONException e) {
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+            return RequestBody.create(gs2.a, jSONObject.toString());
+        }
+        return (RequestBody) invokeL.objValue;
+    }
+
+    public static void d(Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map) == null) && SwanAppNetworkUtils.h()) {
+            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) b84.g().postRequest().cookieManager(gk2.q().a())).url(gk2.m().processUrl(dw1.b()))).requestBody(c(map)).build().executeAsync(null);
         }
     }
 
-    public final void W(@NonNull LottieAnimationView lottieAnimationView, @NonNull dw1 dw1Var) {
+    public static void e(Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048585, this, lottieAnimationView, dw1Var) == null) && t()) {
-            if (xv1.h) {
-                Log.d("Component-AnimationView", "renderAction");
-            }
-            String str = dw1Var.w;
-            if (TextUtils.equals(str, "play")) {
-                lottieAnimationView.resumeAnimation();
-            } else if (TextUtils.equals(str, "pause")) {
-                lottieAnimationView.pauseAnimation();
-            } else if (TextUtils.equals(str, IntentConfig.STOP)) {
-                lottieAnimationView.cancelAnimation();
-                lottieAnimationView.setProgress(0.0f);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.vv1
-    /* renamed from: X */
-    public void Q(@NonNull LottieAnimationView lottieAnimationView, @NonNull dw1 dw1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, lottieAnimationView, dw1Var) == null) {
-            if (xv1.h) {
-                Log.d("Component-AnimationView", "renderBackground");
-            }
-            lottieAnimationView.setColorFilter(new PorterDuffColorFilter(dw1Var.k, PorterDuff.Mode.ADD));
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.vv1
-    /* renamed from: Y */
-    public void R(@NonNull LottieAnimationView lottieAnimationView, @NonNull dw1 dw1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, lottieAnimationView, dw1Var) == null) {
+        if ((interceptable == null || interceptable.invokeL(65541, null, map) == null) && SwanAppNetworkUtils.h()) {
+            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) b84.g().postRequest().cookieManager(gk2.q().a())).url(gk2.m().processUrl(dw1.c()))).requestBody(c(map)).build().executeAsync(null);
         }
     }
 }

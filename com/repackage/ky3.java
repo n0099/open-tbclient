@@ -1,71 +1,43 @@
 package com.repackage;
-
-import com.baidu.searchbox.v8engine.V8JavascriptField;
-import com.baidu.searchbox.v8engine.event.JSEvent;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ky3 extends JSEvent {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ky3 {
+    String a();
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        @V8JavascriptField
-        public boolean devhook;
-        @V8JavascriptField
-        public String scene;
+    String b();
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
+    String c();
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ky3(fl2 fl2Var) {
-        super("appshow");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fl2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.data = a(fl2Var);
-    }
+    String d();
 
-    public final Object a(fl2 fl2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fl2Var)) == null) {
-            a aVar = new a();
-            aVar.scene = fl2Var.T();
-            aVar.devhook = fl2Var.m0();
-            return aVar;
-        }
-        return invokeL.objValue;
-    }
+    String e();
+
+    String f();
+
+    String g();
+
+    String h();
+
+    String i();
+
+    String j();
+
+    String k();
+
+    String l();
+
+    String m();
+
+    String n();
+
+    String o();
+
+    String p();
+
+    String q();
+
+    String r();
+
+    String s();
+
+    String t();
 }

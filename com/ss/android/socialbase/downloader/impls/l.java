@@ -1,5 +1,5 @@
 package com.ss.android.socialbase.downloader.impls;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class l {
     public static volatile com.ss.android.socialbase.downloader.downloader.m a;
     public static volatile com.ss.android.socialbase.downloader.downloader.m b;

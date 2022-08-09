@@ -1,37 +1,22 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.common.param.CommonUrlParamManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.config.QuickPersistConfig;
+import com.baidu.searchbox.config.QuickPersistConfigConst;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.utils.FileUtils;
-import java.util.List;
 /* loaded from: classes7.dex */
-public abstract class q59 {
+public class q59 implements l59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public int b;
-    public q59 c;
-    public n59 d;
-    public volatile boolean e;
-    public volatile boolean f;
-    public String g;
-
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(q59 q59Var);
-
-        void b(q59 q59Var);
-
-        void c(int i, int i2);
-
-        void d(String str, q59 q59Var);
-    }
 
     public q59() {
         Interceptable interceptable = $ic;
@@ -47,137 +32,91 @@ public abstract class q59 {
         }
     }
 
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
-        String fileNameWithOutExtention;
-        StringBuilder sb;
+    @Override // com.repackage.l59
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            if (str2 == null) {
-                str2 = "";
-            }
-            if (TextUtils.isEmpty(this.g)) {
-                sb = new StringBuilder();
-                fileNameWithOutExtention = FileUtils.removeExtention(str);
-            } else {
-                fileNameWithOutExtention = FileUtils.getFileNameWithOutExtention(str);
-                sb = new StringBuilder();
-                sb.append(this.g);
-            }
-            sb.append(fileNameWithOutExtention);
-            sb.append(str2);
-            return sb.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public abstract void b();
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            QuickPersistConfig.getInstance().putInt(QuickPersistConfigConst.KEY_FLOW_HANDLE, i);
         }
     }
 
-    public abstract void d(n59 n59Var);
-
-    public void e(a aVar) {
+    @Override // com.repackage.l59
+    public String b(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.a = aVar;
-        }
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? z ? "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox?action=zubc" : "https://tcbox.baidu.com/ztbox?action=zubc" : (String) invokeZ.objValue;
     }
 
-    public void f(q59 q59Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, q59Var) == null) {
-            this.c = q59Var;
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.f) {
-            return;
-        }
-        this.e = true;
-        a aVar = this.a;
-        if (aVar != null) {
-            aVar.d(getClass().getName() + str, this);
-        }
-    }
-
-    public abstract void h();
-
-    public void i(int i) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || (aVar = this.a) == null) {
-            return;
-        }
-        aVar.c(this.b, i);
-    }
-
-    public boolean j(n59 n59Var) {
+    @Override // com.repackage.l59
+    public String c(String str) {
         InterceptResult invokeL;
-        List<l59> a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, n59Var)) == null) {
-            if (n59Var != null && n59Var.c() != null && n59Var.c().size() == 1 && n59Var.c().get(0).a() != null && (a2 = n59Var.c().get(0).a()) != null && a2.size() == 1) {
-                l59 l59Var = a2.get(0);
-                if (l59Var.b() != null && !l59Var.b().isNeedEdit()) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? CommonUrlParamManager.getInstance().processUrl(str) : (String) invokeL.objValue;
     }
 
-    public int k() {
+    @Override // com.repackage.l59
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? QuickPersistConfig.getInstance().getInt(QuickPersistConfigConst.KEY_FLOW_HANDLE, 0) : invokeV.intValue;
     }
 
-    public void l(n59 n59Var) {
+    @Override // com.repackage.l59
+    public String e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, n59Var) == null) {
-            this.d = n59Var;
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.c(this.b, 100);
-                this.a.b(this);
-            }
-            q59 q59Var = this.c;
-            if (q59Var != null) {
-                q59Var.d(n59Var);
-            }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? CommonUrlParamManager.getInstance().spliceNoPrivacyParams(str) : (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.l59
+    public Context getAppContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? AppRuntime.getAppContext() : (Context) invokeV.objValue;
+    }
+
+    @Override // com.repackage.l59
+    public int getInt(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i)) == null) ? k59.d().getInt(str, i) : invokeLI.intValue;
+    }
+
+    @Override // com.repackage.l59
+    public long getLong(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048583, this, str, j)) == null) ? k59.d().getLong(str, j) : invokeLJ.longValue;
+    }
+
+    @Override // com.repackage.l59
+    public boolean isDebug() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? AppConfig.isDebug() : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.l59
+    public void putInt(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048585, this, str, i) == null) {
+            k59.d().putInt(str, i);
         }
     }
 
-    public boolean m() {
-        InterceptResult invokeV;
+    @Override // com.repackage.l59
+    public void putLong(String str, long j) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.c == null : invokeV.booleanValue;
-    }
-
-    public n59 n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.d : (n59) invokeV.objValue;
-    }
-
-    public void o() {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (aVar = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLJ(1048586, this, str, j) == null) {
+            k59.d().putLong(str, j);
         }
-        aVar.a(this);
+    }
+
+    @Override // com.repackage.l59
+    public void putString(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
+            k59.d().putString(str, str2);
+        }
     }
 }

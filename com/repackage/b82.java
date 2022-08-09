@@ -1,53 +1,52 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8Engine;
+import android.net.Uri;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class b82 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public static final String b;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public V8Engine a;
 
-    public b82(V8Engine v8Engine) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {v8Engine};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755873195, "Lcom/repackage/b82;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755873195, "Lcom/repackage/b82;");
                 return;
             }
         }
-        this.a = v8Engine;
+        a = "content://" + y72.b + "/history_with_app";
+        b = "content://" + y72.b + "/history";
+        c = "content://" + y72.b + "/history_with_aps_pms";
     }
 
-    public void a(String str) {
+    public static Uri a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            c(4, str);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Uri.parse(b) : (Uri) invokeV.objValue;
     }
 
-    public void b(String str) {
+    public static Uri b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            c(1, str);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Uri.parse(a) : (Uri) invokeV.objValue;
     }
 
-    public final void c(int i, String str) {
+    public static Uri c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
-            this.a.onConsoleCallBack(i, str);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? Uri.parse(c) : (Uri) invokeV.objValue;
     }
 }

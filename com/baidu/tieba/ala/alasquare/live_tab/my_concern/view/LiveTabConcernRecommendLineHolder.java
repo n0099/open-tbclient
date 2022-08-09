@@ -6,21 +6,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kq5;
+import com.repackage.cs5;
 /* loaded from: classes3.dex */
 public class LiveTabConcernRecommendLineHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kq5 a;
+    public cs5 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LiveTabConcernRecommendLineHolder(kq5 kq5Var) {
-        super(kq5Var.h());
+    public LiveTabConcernRecommendLineHolder(cs5 cs5Var) {
+        super(cs5Var.h());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {kq5Var};
+            Object[] objArr = {cs5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,6 +31,6 @@ public class LiveTabConcernRecommendLineHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = kq5Var;
+        this.a = cs5Var;
     }
 }

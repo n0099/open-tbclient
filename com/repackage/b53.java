@@ -1,237 +1,64 @@
 package com.repackage;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes5.dex */
-public class b53 {
+public class b53 extends UnitedSchemeBaseInterceptor {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static b b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ k73 a;
-
-        public a(k73 k73Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k73Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = k73Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                p63.k("4178", this.a.f());
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b extends k73 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String k;
-        public String l;
-        public String m;
-        public String n;
-        public String o;
-        public String p;
-        public String q;
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        public final void g() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.e = this.k;
-                a("isAuthorized", this.l);
-                a("isUserLogin", this.m);
-                a("isCompleteLogin", this.n);
-                a("isUserCertificated", this.o);
-                a("isAuthorizeBtnConfirm", this.q);
-                a("isCompleteCertificated", this.p);
-                b53.c(this);
-            }
-        }
-
-        public b h(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                this.q = String.valueOf(z);
-                return this;
-            }
-            return (b) invokeZ.objValue;
-        }
-
-        public b i(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.l = String.valueOf(z);
-                return this;
-            }
-            return (b) invokeZ.objValue;
-        }
-
-        public b j(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-                this.p = String.valueOf(z);
-                return this;
-            }
-            return (b) invokeZ.objValue;
-        }
-
-        public b k(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-                this.n = String.valueOf(z);
-                return this;
-            }
-            return (b) invokeZ.objValue;
-        }
-
-        public b l(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-                this.o = String.valueOf(z);
-                return this;
-            }
-            return (b) invokeZ.objValue;
-        }
-
-        public b m(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-                this.m = String.valueOf(z);
-                return this;
-            }
-            return (b) invokeZ.objValue;
-        }
-
-        public b n(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-                this.k = String.valueOf(z);
-                return this;
-            }
-            return (b) invokeZ.objValue;
-        }
-
-        public void o() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                b53.e();
-                g();
-                b53.f(this);
-            }
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755876047, "Lcom/repackage/b53;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755876047, "Lcom/repackage/b53;");
-                return;
-            }
-        }
-        a = sg1.a;
-    }
-
-    public static void c(@NonNull b bVar) {
+    public b53() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, bVar) == null) {
-            bVar.a = b73.n(h03.K().q().W().G());
-            bVar.b = "trigger";
-            bVar.g = "multiAuthorize";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static synchronized b d() {
+    @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
+    public String getInterceptorName() {
         InterceptResult invokeV;
-        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            synchronized (b53.class) {
-                if (b == null) {
-                    b = new b(null);
-                    if (a) {
-                        Log.i("MultiAuthorizeStatisticManager", "MultiAuthorizeInfo-new instance.");
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "aiapps_scheme_compat_interceptor" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor, com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeAbsInterceptor
+    public boolean shouldInterceptDispatch(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler)) == null) {
+            Uri uri = unitedSchemeEntity.getUri();
+            String firstPath = unitedSchemeEntity.getFirstPath();
+            if (uri != null && !TextUtils.isEmpty(uri.getHost()) && !TextUtils.isEmpty(firstPath)) {
+                String host = uri.getHost();
+                if (host.toLowerCase().matches("v\\d+") && TextUtils.equals(firstPath, "swan")) {
+                    String uri2 = uri.toString();
+                    if (TextUtils.isEmpty(uri2)) {
+                        return false;
                     }
+                    unitedSchemeEntity.resetUriAndPath(Uri.parse(uri2.replace(UnitedSchemeEntity.UNITED_SCHEME + host + "/" + firstPath, UnitedSchemeEntity.UNITED_SCHEME + "swanAPI")));
                 }
-                bVar = b;
             }
-            return bVar;
+            return false;
         }
-        return (b) invokeV.objValue;
-    }
-
-    public static synchronized void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            synchronized (b53.class) {
-                b = null;
-            }
-        }
-    }
-
-    public static void f(k73 k73Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, k73Var) == null) {
-            cd3.j(new a(k73Var), "SwanAppUBCOnEvent");
-        }
+        return invokeLLL.booleanValue;
     }
 }

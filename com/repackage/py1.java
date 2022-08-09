@@ -1,11 +1,10 @@
 package com.repackage;
 
-import android.util.Base64;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.console.v8inspector.websocket.WebSocketException;
-import com.baidu.swan.apps.console.v8inspector.websocket.WebSocketFrame;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,37 +12,211 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import okhttp3.internal.ws.WebSocketProtocol;
-import org.apache.http.protocol.HTTP;
+import java.util.Timer;
+import java.util.TimerTask;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class py1 {
+public abstract class py1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
+    public static final boolean a;
+    public static volatile py1 b;
+    public static f73 c;
+    public static Timer d;
+    public static boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public InputStream b;
-    public OutputStream c;
-    public a d;
-    public WebSocketFrame.OpCode e;
-    public final List<WebSocketFrame> f;
 
     /* loaded from: classes7.dex */
-    public interface a {
-        void a(WebSocketFrame webSocketFrame);
+    public class a extends TimerTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ py1 a;
 
-        void b(IOException iOException);
+        public a(py1 py1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {py1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = py1Var;
+        }
 
-        void onClose();
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (py1.a) {
+                    Log.d("RemoteDebugStatistic", "timer: send remote debug ubc flow");
+                }
+                this.a.e();
+                this.a.n();
+            }
+        }
+    }
 
-        void onOpen();
+    /* loaded from: classes7.dex */
+    public static class b extends py1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b() {
+            super(null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.repackage.py1
+        public void h(String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str)) {
+                return;
+            }
+            if (py1.a) {
+                Log.d("RemoteDebugStatistic", "remote-debug statistic event name is : " + str);
+            }
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != 50335962) {
+                if (hashCode != 1109597094) {
+                    if (hashCode == 1158237819 && str.equals("downloadsuccess")) {
+                        c = 1;
+                    }
+                } else if (str.equals("downloadfail")) {
+                    c = 2;
+                }
+            } else if (str.equals("downloadstart")) {
+                c = 0;
+            }
+            if (c == 0) {
+                p(true);
+                g73.d(py1.c, str, f());
+            } else if (c == 1) {
+                f73 f73Var = py1.c;
+                if (f73Var != null) {
+                    g73.b(f73Var);
+                }
+                n();
+            } else if (c != 2) {
+                f73 f73Var2 = py1.c;
+                if (f73Var2 != null) {
+                    g73.d(f73Var2, str, f());
+                }
+            } else {
+                e();
+                n();
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c extends py1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c() {
+            super(null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.repackage.py1
+        public void h(String str) {
+            SwanAppActivity w;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str) || qy1.c()) {
+                return;
+            }
+            if (py1.a) {
+                Log.d("RemoteDebugStatistic", "remote-debug statistic event name is : " + str);
+            }
+            char c = 65535;
+            int hashCode = str.hashCode();
+            boolean z = true;
+            if (hashCode != 511060680) {
+                if (hashCode == 900970612 && str.equals("pageready")) {
+                    c = 1;
+                }
+            } else if (str.equals("loadmaster")) {
+                c = 0;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    f73 f73Var = py1.c;
+                    if (f73Var != null) {
+                        g73.d(f73Var, str, f());
+                        return;
+                    }
+                    return;
+                }
+                f73 f73Var2 = py1.c;
+                if (f73Var2 != null) {
+                    g73.d(f73Var2, str, f());
+                    e();
+                    n();
+                    return;
+                }
+                return;
+            }
+            if (z03.b0() != null && (w = z03.b0().w()) != null && !w.isFinishing()) {
+                z = false;
+            }
+            p(z);
+            if (!z) {
+                if (py1.e) {
+                    f73 f73Var3 = py1.c;
+                    g73.d(f73Var3, str + "-preload", f());
+                    boolean unused = py1.e = false;
+                    return;
+                }
+                g73.d(py1.c, str, f());
+                return;
+            }
+            f73 f73Var4 = py1.c;
+            g73.d(f73Var4, str + "-destroy", f());
+            boolean unused2 = py1.e = false;
+        }
+
+        public /* synthetic */ c(a aVar) {
+            this();
+        }
     }
 
     static {
@@ -59,7 +232,189 @@ public class py1 {
                 return;
             }
         }
-        g = sg1.a;
+        a = jh1.a;
+    }
+
+    public /* synthetic */ py1(a aVar) {
+        this();
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            c83 c83Var = new c83();
+            c83Var.a = "swan";
+            c83Var.b = "launch";
+            c83Var.c = "remote-debug";
+            c83Var.e = "appready";
+            s73.onEvent(c83Var);
+        }
+    }
+
+    public static py1 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (b == null) {
+                synchronized (mm2.class) {
+                    if (b == null) {
+                        if (jc1.g()) {
+                            b = new b(null);
+                        } else {
+                            b = new c(null);
+                        }
+                    }
+                }
+            }
+            return b;
+        }
+        return (py1) invokeV.objValue;
+    }
+
+    public static void i(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65544, null, jSONArray) == null) || jSONArray == null || jSONArray.length() <= 0) {
+            return;
+        }
+        JSONObject optJSONObject = jSONArray.optJSONObject(0);
+        String optString = optJSONObject != null ? optJSONObject.optString("actionId") : "";
+        if (TextUtils.isEmpty(optString) || b == null) {
+            return;
+        }
+        b.h(optString);
+    }
+
+    public static void j(xl2 xl2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, xl2Var) == null) {
+            xl2Var.s0().putString("aiapp_extra_need_download", "1");
+            xl2Var.s0().putString("aiapp_extra_pkg_downloading", "0");
+            xl2Var.s0().putLong("launch_flag_for_statistic", System.currentTimeMillis());
+            c83 c83Var = new c83();
+            c83Var.a = s73.n(xl2Var.G());
+            c83Var.j(xl2Var);
+            c83Var.b = "launch";
+            c83Var.o = "1";
+            c83Var.c = "remote-debug";
+            JSONObject k = s73.k(xl2Var.W());
+            c83Var.d(xl2Var.s0().getString(UBCCloudControlProcessor.UBC_KEY));
+            c83Var.b(k);
+            s73.onEvent(c83Var);
+        }
+    }
+
+    public static void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            c83 c83Var = new c83();
+            c83Var.a = "swan";
+            c83Var.b = "launch";
+            c83Var.c = "remote-debug";
+            c83Var.e = "loadmaster";
+            s73.onEvent(c83Var);
+        }
+    }
+
+    public static void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
+            c83 c83Var = new c83();
+            c83Var.a = "swan";
+            c83Var.b = "launch";
+            c83Var.c = "remote-debug";
+            c83Var.e = "downloadstart";
+            s73.onEvent(c83Var);
+        }
+    }
+
+    public static void m(xl2 xl2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65548, null, xl2Var) == null) {
+            c83 c83Var = new c83();
+            c83Var.j(xl2Var);
+            c83Var.a = s73.n(xl2Var.G());
+            c83Var.b = "launch";
+            c83Var.c = "remote-debug";
+            c83Var.e = "downloadsuccess";
+            s73.onEvent(c83Var);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || c == null) {
+            return;
+        }
+        JSONObject jSONObject = new JSONObject();
+        JSONObject jSONObject2 = new JSONObject();
+        try {
+            z03 b0 = z03.b0();
+            jSONObject2.putOpt("appid", b0 == null ? "" : b0.O());
+            jSONObject2.putOpt("from", "remote-debug");
+            r73.a(jSONObject2);
+            jSONObject.putOpt("from", "swan");
+            jSONObject.putOpt("ext", jSONObject2);
+        } catch (JSONException unused) {
+            if (a) {
+                Log.d("RemoteDebugStatistic", "page ready statistic value is invalid ");
+            }
+        }
+        g73.f(c, jSONObject.toString());
+        g73.c(c);
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.putOpt("timestamp", Long.valueOf(System.currentTimeMillis()));
+            } catch (JSONException e2) {
+                if (a) {
+                    Log.d("RemoteDebugStatistic", "add event content fail", e2);
+                }
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public abstract void h(String str);
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Timer timer = d;
+            if (timer != null) {
+                timer.cancel();
+                d = null;
+            }
+            b = null;
+            c = null;
+        }
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            e = true;
+        }
+    }
+
+    public void p(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && c == null) {
+            f73 c2 = s73.c("1153");
+            c = c2;
+            if (!z) {
+                g73.d(c2, "downloadstart", f());
+                g73.d(c, "downloadsuccess", f());
+            }
+            Timer timer = new Timer();
+            d = timer;
+            timer.schedule(new a(this), 40000L);
+        }
     }
 
     public py1() {
@@ -72,180 +427,7 @@ public class py1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
-        }
-        this.a = 1;
-        this.e = null;
-        this.f = new LinkedList();
-    }
-
-    public static boolean f(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
-            String str = map.get("Upgrade".toLowerCase());
-            String str2 = map.get(HTTP.CONN_DIRECTIVE.toLowerCase());
-            return "websocket".equalsIgnoreCase(str) && (str2 != null && str2.toLowerCase().contains("Upgrade".toLowerCase()));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String g(String str) throws NoSuchAlgorithmException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            MessageDigest messageDigest = MessageDigest.getInstance("SHA-1");
-            messageDigest.update((str + WebSocketProtocol.ACCEPT_MAGIC).getBytes());
-            return Base64.encodeToString(messageDigest.digest(), 2);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void a(WebSocketFrame.CloseCode closeCode, String str) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, closeCode, str) == null) {
-            int i = this.a;
-            this.a = 3;
-            if (i == 2) {
-                j(new WebSocketFrame.b(closeCode, str));
-            } else {
-                b();
-            }
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a == 4) {
-            return;
-        }
-        kg4.d(this.b);
-        kg4.d(this.c);
-        this.a = 4;
-        this.d.onClose();
-    }
-
-    public final void c(WebSocketFrame webSocketFrame) throws IOException {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webSocketFrame) == null) {
-            WebSocketFrame.CloseCode closeCode = WebSocketFrame.CloseCode.NormalClosure;
-            if (webSocketFrame instanceof WebSocketFrame.b) {
-                WebSocketFrame.b bVar = (WebSocketFrame.b) webSocketFrame;
-                closeCode = bVar.v();
-                str = bVar.w();
-            } else {
-                str = "";
-            }
-            if (this.a == 3) {
-                b();
-            } else {
-                a(closeCode, str);
-            }
-        }
-    }
-
-    public final void d(WebSocketFrame webSocketFrame) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, webSocketFrame) == null) {
-            if (webSocketFrame.f() != WebSocketFrame.OpCode.Continuation) {
-                if (this.e != null && g) {
-                    throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Previous continuous frame sequence not completed.");
-                }
-                this.e = webSocketFrame.f();
-                this.f.clear();
-                this.f.add(webSocketFrame);
-            } else if (webSocketFrame.h()) {
-                if (this.e != null) {
-                    this.f.add(webSocketFrame);
-                    this.d.a(new WebSocketFrame(this.e, this.f));
-                    this.e = null;
-                    this.f.clear();
-                    return;
-                }
-                throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence was not started.");
-            } else if (this.e != null) {
-                this.f.add(webSocketFrame);
-            } else {
-                throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence was not started.");
-            }
-        }
-    }
-
-    public final void e(WebSocketFrame webSocketFrame) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, webSocketFrame) == null) {
-            if (webSocketFrame.f() == WebSocketFrame.OpCode.Close) {
-                c(webSocketFrame);
-            } else if (webSocketFrame.f() == WebSocketFrame.OpCode.Ping) {
-                j(new WebSocketFrame(WebSocketFrame.OpCode.Pong, true, webSocketFrame.d()));
-            } else if (webSocketFrame.f() == WebSocketFrame.OpCode.Pong) {
-                if (g) {
-                    Log.i("V8WebSocket", "A pong request has received.");
-                }
-            } else if (webSocketFrame.h() && webSocketFrame.f() != WebSocketFrame.OpCode.Continuation) {
-                if (this.e == null) {
-                    if (webSocketFrame.f() != WebSocketFrame.OpCode.Text && webSocketFrame.f() != WebSocketFrame.OpCode.Binary) {
-                        throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Non control or continuous frame expected.");
-                    }
-                    this.d.a(webSocketFrame);
-                    return;
-                }
-                throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence not completed.");
-            } else {
-                d(webSocketFrame);
-            }
-        }
-    }
-
-    public void h(InputStream inputStream, OutputStream outputStream) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, inputStream, outputStream) == null) {
-            this.b = inputStream;
-            this.c = outputStream;
-            this.a = 2;
-            a aVar = this.d;
-            if (aVar != null) {
-                aVar.onOpen();
-            }
-            i();
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            while (this.a == 2) {
-                try {
-                    try {
-                        e(WebSocketFrame.k(this.b));
-                    } catch (IOException e) {
-                        if (this.d != null) {
-                            this.d.b(e);
-                        }
-                        ix1.d("V8WebSocket", "parse web socket frame fail", e);
-                    }
-                } finally {
-                    b();
-                }
-            }
-        }
-    }
-
-    public synchronized void j(WebSocketFrame webSocketFrame) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, webSocketFrame) == null) {
-            synchronized (this) {
-                webSocketFrame.t(this.c);
-            }
-        }
-    }
-
-    public void k(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            this.d = aVar;
         }
     }
 }

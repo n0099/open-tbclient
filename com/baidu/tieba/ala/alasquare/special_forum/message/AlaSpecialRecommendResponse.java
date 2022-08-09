@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jr5;
-import com.repackage.kr5;
+import com.repackage.bt5;
+import com.repackage.ct5;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -19,7 +19,7 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
     public List<ThreadData> livesList;
-    public kr5 mSpecialActivityListData;
+    public ct5 mSpecialActivityListData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaSpecialRecommendResponse() {
@@ -39,7 +39,7 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
         }
         this.hasMore = false;
         this.livesList = new ArrayList();
-        this.mSpecialActivityListData = new kr5();
+        this.mSpecialActivityListData = new ct5();
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -68,17 +68,17 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
                     this.hasMore = false;
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("activity_info_detail");
-                kr5 kr5Var = this.mSpecialActivityListData;
-                if (kr5Var != null && kr5Var.a == null) {
-                    kr5Var.a = new ArrayList();
+                ct5 ct5Var = this.mSpecialActivityListData;
+                if (ct5Var != null && ct5Var.a == null) {
+                    ct5Var.a = new ArrayList();
                 }
                 if (optJSONArray2 != null) {
                     for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                         JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                         if (optJSONObject3 != null) {
-                            jr5 jr5Var = new jr5();
-                            jr5Var.c(optJSONObject3);
-                            this.mSpecialActivityListData.a.add(jr5Var);
+                            bt5 bt5Var = new bt5();
+                            bt5Var.c(optJSONObject3);
+                            this.mSpecialActivityListData.a.add(bt5Var);
                         }
                     }
                 }

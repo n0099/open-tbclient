@@ -15,6 +15,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.Dispatcher;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -227,7 +228,7 @@ public abstract class SyncStrategy {
                 LogUtils.d(TAG, "fetch msg thread sleep for 6s");
                 try {
                     Thread.currentThread();
-                    Thread.sleep(6000L);
+                    Thread.sleep(LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION);
                 } catch (Exception e3) {
                     new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
                     LogUtils.d(TAG, "fetch msg thread sleep exception");

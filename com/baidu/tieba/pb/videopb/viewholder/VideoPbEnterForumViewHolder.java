@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
-/* loaded from: classes3.dex */
+import com.repackage.qi;
+/* loaded from: classes4.dex */
 public class VideoPbEnterForumViewHolder extends TypeAdapter.ViewHolder implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,11 +49,11 @@ public class VideoPbEnterForumViewHolder extends TypeAdapter.ViewHolder implemen
         }
     }
 
-    public void b() {
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a.d();
-            SkinManager.setBackgroundShapeDrawable(this.a, pi.f(this.itemView.getContext(), R.dimen.tbds10), R.color.CAM_X0206, R.color.CAM_X0206);
+            SkinManager.setBackgroundShapeDrawable(this.a, qi.f(this.itemView.getContext(), R.dimen.tbds10), R.color.CAM_X0206, R.color.CAM_X0206);
         }
     }
 

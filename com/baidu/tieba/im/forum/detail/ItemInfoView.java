@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.pi;
 import java.util.List;
 import tbclient.PbContent;
 import tbclient.RecommendForumInfo;
@@ -54,9 +54,9 @@ public class ItemInfoView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02a4, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02a6, (ViewGroup) this, true);
             setVisibility(8);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090ebf);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090f0b);
         }
     }
 
@@ -64,8 +64,8 @@ public class ItemInfoView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumDetailActivity, i) == null) {
             SkinManager.setViewTextColor(this.a, R.color.common_color_10177, 1);
-            forumDetailActivity.getLayoutMode().k(i == 1);
-            forumDetailActivity.getLayoutMode().j(this);
+            forumDetailActivity.getLayoutMode().l(i == 1);
+            forumDetailActivity.getLayoutMode().k(this);
         }
     }
 
@@ -101,10 +101,10 @@ public class ItemInfoView extends LinearLayout {
         List<PbContent> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, recommendForumInfo) == null) {
-            if ((recommendForumInfo != null && (list = recommendForumInfo.content) != null && list.size() > 0) || (recommendForumInfo != null && !oi.isEmpty(recommendForumInfo.slogan))) {
+            if ((recommendForumInfo != null && (list = recommendForumInfo.content) != null && list.size() > 0) || (recommendForumInfo != null && !pi.isEmpty(recommendForumInfo.slogan))) {
                 this.a.setText(c(recommendForumInfo.content, recommendForumInfo.slogan));
             } else {
-                this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f065c));
+                this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f066a));
             }
             setVisibility(0);
         }

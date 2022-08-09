@@ -6,71 +6,90 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.ForumPopupInfo;
+import java.util.HashMap;
+import tbclient.ItemManage.DataReq;
+import tbclient.ItemManage.ItemManageReqIdl;
 /* loaded from: classes6.dex */
-public class j56 {
+public class j56 implements s85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public String b;
-    public long c;
-    public long d;
-    public List<String> e;
+    public final int b;
 
-    public j56() {
+    public j56(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = i;
+        this.b = i2;
     }
 
-    public List<String> a() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public long b() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.longValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : invokeV.longValue;
-    }
-
-    public void f(ForumPopupInfo forumPopupInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, forumPopupInfo) == null) || forumPopupInfo == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = 1;
         }
-        this.a = forumPopupInfo.forum_id.intValue();
-        this.c = forumPopupInfo.mem_count_static.intValue();
-        this.d = forumPopupInfo.thread_count_static.intValue();
-        this.e = forumPopupInfo.forum_names;
-        this.b = forumPopupInfo.forum_name;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a++;
+        }
+    }
+
+    @Override // com.repackage.u85
+    public Object g(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            DataReq.Builder builder = new DataReq.Builder();
+            builder.pn = Integer.valueOf(this.a);
+            builder.rn = 15;
+            builder.tab_id = Integer.valueOf(this.b);
+            ItemManageReqIdl.Builder builder2 = new ItemManageReqIdl.Builder();
+            DataReq build = builder.build(false);
+            builder2.data = build;
+            te5.a(build, false);
+            return builder2.build(false);
+        }
+        return invokeZ.objValue;
+    }
+
+    @Override // com.repackage.r85
+    public HashMap<String, Object> v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    @Override // com.repackage.r85
+    public HashMap<String, String> x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return null;
+        }
+        return (HashMap) invokeV.objValue;
     }
 }

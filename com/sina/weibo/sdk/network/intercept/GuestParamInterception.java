@@ -14,7 +14,7 @@ import com.sina.weibo.sdk.network.base.WbUserInfo;
 import com.sina.weibo.sdk.network.base.WbUserInfoHelper;
 import com.sina.weibo.sdk.network.exception.InterceptException;
 import com.sina.weibo.wcfc.sobusiness.UtilitySo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class GuestParamInterception implements IRequestIntercept {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

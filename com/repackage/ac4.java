@@ -1,114 +1,67 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ac4 {
+public class ac4 extends dc4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ac4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final a a;
-    public zb4 b;
+    public String d;
+    public String e;
+    public long f;
 
-    /* loaded from: classes5.dex */
-    public static class a extends qg4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a() {
-            super("swan_clean_stratey");
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
-
-    public ac4() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ac4(String str, String str2, long j, int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, Long.valueOf(j), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new a();
+        this.d = str;
+        this.e = str2;
+        this.f = j;
     }
 
-    public static ac4 b() {
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (ac4.class) {
-                    if (c == null) {
-                        c = new ac4();
-                    }
-                }
-            }
-            return c;
-        }
-        return (ac4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (String) invokeV.objValue;
     }
 
-    @NonNull
-    public zb4 a() {
+    public long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.b == null) {
-                synchronized (ac4.class) {
-                    if (this.b == null) {
-                        this.b = zb4.b(this.a.getString("data", ""));
-                    }
-                }
-            }
-            return this.b;
-        }
-        return (zb4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : invokeV.longValue;
     }
 
-    public String c() {
+    public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getString("version", "0") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (String) invokeV.objValue;
     }
 
-    public void d(JSONObject jSONObject) {
+    public ac4 i(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            this.e = str;
+            return this;
         }
-        String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString)) {
-            return;
-        }
-        String optString2 = jSONObject.optString("data");
-        if (TextUtils.isEmpty(optString2)) {
-            return;
-        }
-        this.a.edit().putString("version", optString).putString("data", optString2).apply();
+        return (ac4) invokeL.objValue;
     }
 }

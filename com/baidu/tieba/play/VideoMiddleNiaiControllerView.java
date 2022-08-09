@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class VideoMiddleNiaiControllerView extends VideoControllerView {
     public static /* synthetic */ Interceptable $ic;
     public static final int q;
@@ -72,9 +72,9 @@ public class VideoMiddleNiaiControllerView extends VideoControllerView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            View inflate = View.inflate(context, R.layout.obfuscated_res_0x7f0d088c, null);
+            View inflate = View.inflate(context, R.layout.obfuscated_res_0x7f0d08b7, null);
             this.o = inflate;
-            this.p = (LinearVideoLoadingSeekBar) inflate.findViewById(R.id.obfuscated_res_0x7f091788);
+            this.p = (LinearVideoLoadingSeekBar) inflate.findViewById(R.id.obfuscated_res_0x7f091856);
             return this.o;
         }
         return (View) invokeL.objValue;
@@ -130,7 +130,7 @@ public class VideoMiddleNiaiControllerView extends VideoControllerView {
             } else {
                 r();
             }
-            this.g.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0811df));
+            this.g.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081246));
             return;
         }
         seekBar.setThumb(null);
@@ -139,7 +139,7 @@ public class VideoMiddleNiaiControllerView extends VideoControllerView {
         } else {
             r();
         }
-        this.g.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0811dd));
+        this.g.setProgressDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f081244));
     }
 
     public void setLoading(boolean z) {

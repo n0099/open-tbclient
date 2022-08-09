@@ -1,159 +1,112 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.switchs.AsyncGetClipboardSwitch;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class xl8 extends CustomMessageListener {
+public class xl8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final al8 b;
 
-    /* loaded from: classes7.dex */
-    public class a extends de5<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(xl8 xl8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xl8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.de5
-        public String doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? UtilHelper.getClipBoardContent() : (String) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements kd5<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xl8 a;
-
-        public b(xl8 xl8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xl8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xl8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.kd5
-        /* renamed from: a */
-        public void onReturnDataInUI(String str) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || str == null) {
-                return;
-            }
-            this.a.a.y.q(str);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xl8(MainTabActivity mainTabActivity, al8 al8Var) {
-        super(2005016);
+    public static String a(String str) {
+        InterceptResult invokeL;
+        String[] split;
+        String[] split2;
+        String[] split3;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, al8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (pi.isEmpty(str) || (split = str.split("\\?")) == null || split.length == 0 || (split2 = split[0].split("\\/\\/")) == null || split2.length < 2 || (split3 = split2[1].split("\\/")) == null || split2.length < 2) {
+                return null;
             }
+            return split3[split3.length - 1];
         }
-        this.a = mainTabActivity;
-        this.b = al8Var;
+        return (String) invokeL.objValue;
     }
 
-    public final void b() {
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Uri parse;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            String tempString = TbSingleton.getInstance().getTempString(TbSingleton.TEMP_STRING_KEY_INTEREST_FORUM);
-            if (TextUtils.isEmpty(tempString)) {
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (pi.isEmpty(str) || (parse = Uri.parse(str)) == null) {
+                return null;
             }
-            yt4.k().D("user_interest_info");
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GUIDE_INTEREST_COMMIT);
-            httpMessage.addParam("interestList", tempString);
-            httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
-            MessageManager.getInstance().sendMessage(httpMessage);
-            TbSingleton.getInstance().removeTempString(TbSingleton.TEMP_STRING_KEY_INTEREST_FORUM);
+            return parse.getQueryParameter(WebChromeClient.KEY_ARG_CALLBACK);
         }
+        return (String) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Uri parse;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-            this.a.o = true;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
-            yt4.k().D("key_feedback_tip");
-            yt4.k().D("key_feedback_tip_show");
-            yt4.k().D("key_feedback_tip_tab_show");
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016560));
-            if (this.a.y != null) {
-                if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
-                    he5.b(new a(this), new b(this));
-                } else {
-                    this.a.y.q(UtilHelper.getClipBoardContent());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (pi.isEmpty(str) || (parse = Uri.parse(str)) == null) {
+                return null;
+            }
+            return parse.getQueryParameter("upgrade");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        String[] split;
+        String[] split2;
+        String str2;
+        String[] split3;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            try {
+                if (!pi.isEmpty(str) && (split = str.split("\\?")) != null && split.length != 0 && (split2 = split[0].split("\\/\\/")) != null && split2.length >= 2 && (split3 = (str2 = split2[1]).split("\\/")) != null && split2.length >= 2 && (str3 = split3[split3.length - 1]) != null && str3.length() != 0) {
+                    return str2.substring(0, (str2.length() - str3.length()) - 1);
                 }
+                return null;
+            } catch (Exception e) {
+                BdLog.e(e);
+                return null;
             }
-            al8 al8Var = this.b;
-            if (al8Var != null) {
-                al8Var.D();
-            }
-            this.a.w0();
-            b();
-            k65.b().a();
-            jz4.f();
         }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e(String str) {
+        InterceptResult invokeL;
+        Uri parse;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (pi.isEmpty(str) || (parse = Uri.parse(str)) == null) {
+                return null;
+            }
+            return parse.getQueryParameter("notificationName");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static JSONObject f(String str) throws JSONException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (pi.isEmpty(str)) {
+                return new JSONObject();
+            }
+            Uri parse = Uri.parse(str);
+            if (parse == null) {
+                return new JSONObject();
+            }
+            String queryParameter = parse.getQueryParameter("params");
+            if (pi.isEmpty(queryParameter)) {
+                return new JSONObject();
+            }
+            return new JSONObject(queryParameter);
+        }
+        return (JSONObject) invokeL.objValue;
     }
 }

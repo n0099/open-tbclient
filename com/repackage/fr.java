@@ -16,18 +16,18 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class fr implements kr {
+public final class fr implements lr {
     public static /* synthetic */ Interceptable $ic;
     public static final b c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Integer a;
+    public int a;
     public final byte[] b;
 
     /* loaded from: classes6.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Integer a;
+        public int a;
         public byte[] b;
 
         public a() {
@@ -40,18 +40,20 @@ public final class fr implements kr {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = -1;
         }
 
-        public final a a(Integer num) {
-            InterceptResult invokeL;
+        public final a a(int i) {
+            InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, num)) == null) {
-                this.a = num;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                this.a = i;
                 return this;
             }
-            return (a) invokeL.objValue;
+            return (a) invokeI.objValue;
         }
 
         public final a b(byte[] bArr) {
@@ -67,7 +69,7 @@ public final class fr implements kr {
         public final fr c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new fr(this.a, ft.c(this.b)) : (fr) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new fr(this.a, gt.c(this.b)) : (fr) invokeV.objValue;
         }
     }
 
@@ -103,7 +105,7 @@ public final class fr implements kr {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
-                    return new fr(Integer.valueOf(jSONObject.optInt("GMTUnixTime")), ft.b(jSONObject.optString("RandomBytes")));
+                    return new fr(jSONObject.optInt("Type"), gt.b(jSONObject.optString("Data")));
                 } catch (Exception e) {
                     e.printStackTrace();
                     DebugTrace debugTrace = DebugTrace.a;
@@ -135,40 +137,57 @@ public final class fr implements kr {
         c = new b(null);
     }
 
-    public fr(Integer num, byte[] bArr) {
+    public fr(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {num, bArr};
+            Object[] objArr = {Integer.valueOf(i), bArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = num;
+        this.a = i;
         this.b = bArr;
     }
 
     @JvmStatic
-    public static final a a() {
+    public static final a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a() : (a) invokeV.objValue;
     }
 
-    @Override // com.repackage.kr
+    public final int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public final byte[] b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            byte[] d = gt.d(this.b);
+            Intrinsics.checkExpressionValueIsNotNull(d, "StringUtils.base64Decode(dataBytes)");
+            return d;
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    @Override // com.repackage.lr
     public JSONObject c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.putOpt("GMTUnixTime", this.a);
-            jSONObject.putOpt("RandomBytes", ft.a(this.b));
+            jSONObject.putOpt("Type", Integer.valueOf(this.a));
+            jSONObject.putOpt("Data", gt.a(this.b));
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;
@@ -177,11 +196,12 @@ public final class fr implements kr {
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
             if (this != obj) {
                 if (obj instanceof fr) {
                     fr frVar = (fr) obj;
-                    return Intrinsics.areEqual(this.a, frVar.a) && Intrinsics.areEqual(this.b, frVar.b);
+                    if (!(this.a == frVar.a) || !Intrinsics.areEqual(this.b, frVar.b)) {
+                    }
                 }
                 return false;
             }
@@ -193,11 +213,10 @@ public final class fr implements kr {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Integer num = this.a;
-            int hashCode = (num != null ? num.hashCode() : 0) * 31;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int i = this.a * 31;
             byte[] bArr = this.b;
-            return hashCode + (bArr != null ? Arrays.hashCode(bArr) : 0);
+            return i + (bArr != null ? Arrays.hashCode(bArr) : 0);
         }
         return invokeV.intValue;
     }
@@ -205,8 +224,8 @@ public final class fr implements kr {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "Random(GMTUnixTime=" + this.a + ", randomBytes=" + Arrays.toString(this.b) + SmallTailInfo.EMOTION_SUFFIX;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "Extension(type=" + this.a + ", dataBytes=" + Arrays.toString(this.b) + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

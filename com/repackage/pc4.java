@@ -1,19 +1,15 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class pc4 {
+/* loaded from: classes7.dex */
+public class pc4 extends fc4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile pc4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
     public pc4() {
         Interceptable interceptable = $ic;
@@ -29,52 +25,13 @@ public class pc4 {
         }
     }
 
-    public static pc4 b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.fc4, com.repackage.ic4
+    public void b(JSONObject jSONObject, s84 s84Var, @Nullable s84 s84Var2, @Nullable s84 s84Var3) {
+        mc4 d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (pc4.class) {
-                    if (b == null) {
-                        b = new pc4();
-                    }
-                }
-            }
-            return b;
-        }
-        return (pc4) invokeV.objValue;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.a)) {
-                this.a = r74.b().i().getString("extract_js_url", null);
-            }
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? r74.b().i().getString("tts_node_version", "0") : (String) invokeV.objValue;
-    }
-
-    public void d(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, jSONObject, s84Var, s84Var2, s84Var3) == null) || jSONObject == null || (d = nc4.c().d(jSONObject)) == null) {
             return;
         }
-        String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("extract_js_url")) {
-            return;
-        }
-        String optString2 = optJSONObject.optString("extract_js_url");
-        r74.b().i().putString("tts_node_version", optString);
-        r74.b().i().putString("extract_js_url", optString2);
+        i84.b().D(d);
     }
 }

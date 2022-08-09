@@ -1,29 +1,27 @@
 package com.repackage;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class n58 extends jx5<l48> {
+public class n58 extends bn<x68, CardViewHolder<y78>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbImageView i;
-    public View j;
-    public View k;
+    public TbPageContext<?> a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n58(TbPageContext tbPageContext) {
-        super(tbPageContext);
+    public n58(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), x68.c);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -33,64 +31,36 @@ public class n58 extends jx5<l48> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        View h = h();
-        this.j = h;
-        this.i = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f0905b4);
-        this.k = this.j.findViewById(R.id.obfuscated_res_0x7f091496);
-    }
-
-    @Override // com.repackage.jx5
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01a3 : invokeV.intValue;
-    }
-
-    @Override // com.repackage.jx5
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || this.a == i) {
-            return;
-        }
-        this.a = i;
-        SkinManager.setImageResource(this.i, R.drawable.icon_mine_more);
-        SkinManager.setBackgroundResource(this.j, R.drawable.btn_look_more_selector);
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
+        this.a = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.jx5
-    /* renamed from: r */
-    public void i(l48 l48Var) {
+    @Override // com.repackage.bn
+    /* renamed from: s */
+    public CardViewHolder<y78> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, l48Var) == null) {
-            if (l48Var == null) {
-                this.j.setVisibility(8);
-            }
-            ViewGroup.LayoutParams layoutParams = this.k.getLayoutParams();
-            if (layoutParams != null) {
-                if (layoutParams.width > 0) {
-                    layoutParams.width = l48Var.a;
-                }
-                if (layoutParams.height > 0) {
-                    layoutParams.height = l48Var.b;
-                }
-            }
-            this.k.setLayoutParams(layoutParams);
-            this.j.setVisibility(0);
-            j(this.b, TbadkCoreApplication.getInst().getSkinType());
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new CardViewHolder<>(new y78(this.a)) : (CardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, x68 x68Var, CardViewHolder<y78> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, x68Var, cardViewHolder})) == null) {
+            cardViewHolder.a().i(x68Var);
+            cardViewHolder.a().j(this.a, TbadkCoreApplication.getInst().getSkinType());
+            return cardViewHolder.getView();
         }
+        return (View) invokeCommon.objValue;
     }
 }

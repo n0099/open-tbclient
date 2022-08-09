@@ -17,7 +17,7 @@ import com.sdk.n.a;
 import com.sdk.w.b;
 import com.sdk.w.c;
 import com.sdk.w.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class OauthManager extends SDKManager {
     public static /* synthetic */ Interceptable $ic;
     public static volatile OauthManager manager;

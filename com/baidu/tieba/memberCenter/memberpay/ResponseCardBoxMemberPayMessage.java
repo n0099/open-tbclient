@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rj7;
+import com.repackage.ll7;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ResponseCardBoxMemberPayMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rj7 mData;
+    public ll7 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseCardBoxMemberPayMessage(int i) {
@@ -43,22 +43,22 @@ public class ResponseCardBoxMemberPayMessage extends JsonHttpResponsedMessage {
             int statusCode = getStatusCode();
             int error = getError();
             if (statusCode == 200 && error == 0 && jSONObject != null) {
-                rj7 rj7Var = new rj7();
-                this.mData = rj7Var;
-                rj7Var.a(jSONObject);
+                ll7 ll7Var = new ll7();
+                this.mData = ll7Var;
+                ll7Var.a(jSONObject);
             }
         }
     }
 
-    public rj7 getMemberPayResult() {
+    public ll7 getMemberPayResult() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (this.mData == null) {
-                this.mData = new rj7();
+                this.mData = new ll7();
             }
             return this.mData;
         }
-        return (rj7) invokeV.objValue;
+        return (ll7) invokeV.objValue;
     }
 }

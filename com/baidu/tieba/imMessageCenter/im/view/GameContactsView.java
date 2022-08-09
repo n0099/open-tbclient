@@ -17,9 +17,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.k57;
-import com.repackage.pi;
-import com.repackage.s67;
+import com.repackage.e77;
+import com.repackage.m87;
+import com.repackage.qi;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -35,7 +35,7 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
 
     /* loaded from: classes3.dex */
     public interface a {
-        void a(View view2, k57 k57Var, int i);
+        void a(View view2, e77 e77Var, int i);
     }
 
     static {
@@ -51,8 +51,8 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
                 return;
             }
         }
-        e = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
-        f = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X007);
+        e = qi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
+        f = qi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X007);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -76,17 +76,17 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
         }
     }
 
-    public void a(@NonNull List<k57> list) {
+    public void a(@NonNull List<e77> list) {
         ImMessageCenterPojo i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
             for (int i2 = 0; i2 < list.size(); i2++) {
-                k57 k57Var = list.get(i2);
-                GameContactsItemView gameContactsItemView = this.a.get(Integer.valueOf(k57Var.b()));
+                e77 e77Var = list.get(i2);
+                GameContactsItemView gameContactsItemView = this.a.get(Integer.valueOf(e77Var.b()));
                 if (gameContactsItemView != null) {
-                    gameContactsItemView.setGameMatchUser(k57Var);
+                    gameContactsItemView.setGameMatchUser(e77Var);
                     gameContactsItemView.setVisibility(0);
-                    if (k57Var.b() != this.d && (i = s67.o().i(k57Var.d(), 2)) != null && i.getUnread_count() > 0) {
+                    if (e77Var.b() != this.d && (i = m87.o().i(e77Var.d(), 2)) != null && i.getUnread_count() > 0) {
                         gameContactsItemView.g(i.getUnread_count());
                     }
                 }
@@ -104,11 +104,11 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
         }
     }
 
-    public boolean b(k57 k57Var) {
+    public boolean b(e77 e77Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k57Var)) == null) {
-            int b = k57Var.b();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e77Var)) == null) {
+            int b = e77Var.b();
             int i = this.d;
             if (b == i) {
                 return false;
@@ -117,7 +117,7 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
             if (gameContactsItemView != null) {
                 gameContactsItemView.a();
             }
-            int b2 = k57Var.b();
+            int b2 = e77Var.b();
             this.d = b2;
             GameContactsItemView gameContactsItemView2 = this.a.get(Integer.valueOf(b2));
             if (gameContactsItemView2 != null) {

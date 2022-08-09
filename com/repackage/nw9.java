@@ -1,6 +1,5 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,37 +8,70 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicReference;
+import com.repackage.su9;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
-public final class nw9 implements bs9 {
+public final class nw9 extends su9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final hs9 b;
+    public static final nw9 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference<hs9> a;
 
     /* loaded from: classes6.dex */
-    public static class a implements hs9 {
+    public final class a extends su9.a implements wu9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final iz9 a;
+        public final /* synthetic */ nw9 b;
 
-        public a() {
+        public a(nw9 nw9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nw9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.b = nw9Var;
+            this.a = new iz9();
         }
 
-        @Override // com.repackage.hs9
-        public void call() {
+        @Override // com.repackage.su9.a
+        public wu9 b(cv9 cv9Var) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cv9Var)) == null) {
+                cv9Var.call();
+                return mz9.c();
+            }
+            return (wu9) invokeL.objValue;
+        }
+
+        @Override // com.repackage.su9.a
+        public wu9 c(cv9 cv9Var, long j, TimeUnit timeUnit) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{cv9Var, Long.valueOf(j), timeUnit})) == null) ? b(new rw9(cv9Var, this, this.b.now() + timeUnit.toMillis(j))) : (wu9) invokeCommon.objValue;
+        }
+
+        @Override // com.repackage.wu9
+        public boolean isUnsubscribed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.isUnsubscribed() : invokeV.booleanValue;
+        }
+
+        @Override // com.repackage.wu9
+        public void unsubscribe() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.a.unsubscribe();
             }
         }
     }
@@ -57,7 +89,7 @@ public final class nw9 implements bs9 {
                 return;
             }
         }
-        b = new a();
+        a = new nw9();
     }
 
     public nw9() {
@@ -70,60 +102,14 @@ public final class nw9 implements bs9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new AtomicReference<>();
     }
 
-    public static nw9 a() {
+    @Override // com.repackage.su9
+    public su9.a createWorker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new nw9() : (nw9) invokeV.objValue;
-    }
-
-    public static nw9 b(hs9 hs9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, hs9Var)) == null) ? new nw9(hs9Var) : (nw9) invokeL.objValue;
-    }
-
-    @Override // com.repackage.bs9
-    public boolean isUnsubscribed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.get() == b : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.bs9
-    public void unsubscribe() {
-        hs9 andSet;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            hs9 hs9Var = this.a.get();
-            hs9 hs9Var2 = b;
-            if (hs9Var == hs9Var2 || (andSet = this.a.getAndSet(hs9Var2)) == null || andSet == b) {
-                return;
-            }
-            andSet.call();
-        }
-    }
-
-    public nw9(hs9 hs9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hs9Var};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = new AtomicReference<>(hs9Var);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (su9.a) invokeV.objValue;
     }
 }

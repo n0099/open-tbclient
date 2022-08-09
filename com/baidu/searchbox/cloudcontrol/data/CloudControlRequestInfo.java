@@ -1,6 +1,8 @@
 package com.baidu.searchbox.cloudcontrol.data;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.cloudcontrol.processor.IProcessorDataInterceptor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,6 +14,7 @@ public class CloudControlRequestInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Object mCheckInfo;
+    public IProcessorDataInterceptor mDataInterceptor;
     public Object mFilter;
     public boolean mIsForceDispatch;
     public Object mPostData;
@@ -45,22 +48,28 @@ public class CloudControlRequestInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mCheckInfo : invokeV.objValue;
     }
 
+    public IProcessorDataInterceptor getDataInterceptor() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDataInterceptor : (IProcessorDataInterceptor) invokeV.objValue;
+    }
+
     public Object getFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mFilter : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mFilter : invokeV.objValue;
     }
 
     public Object getPostData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mPostData : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mPostData : invokeV.objValue;
     }
 
     public HashMap<String, String> getQueryData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (this.mQueryData == null) {
                 this.mQueryData = new HashMap<>();
             }
@@ -72,13 +81,27 @@ public class CloudControlRequestInfo {
     public String getServiceName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mServiceName : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mServiceName : (String) invokeV.objValue;
     }
 
     public boolean isForceDispatch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mIsForceDispatch : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mIsForceDispatch : invokeV.booleanValue;
+    }
+
+    public void setDataInterceptor(IProcessorDataInterceptor iProcessorDataInterceptor) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, iProcessorDataInterceptor) == null) {
+            this.mDataInterceptor = iProcessorDataInterceptor;
+        }
+    }
+
+    public void setPostData(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj) == null) {
+            this.mPostData = obj;
+        }
     }
 
     public CloudControlRequestInfo(String str, Object obj, HashMap<String, String> hashMap, Object obj2, Object obj3) {

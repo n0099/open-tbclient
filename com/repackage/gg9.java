@@ -1,147 +1,45 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Base64;
+import com.baidu.searchbox.retrieve.file.util.AESUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.ChannelNativeAds;
-import com.fun.ad.sdk.CustomInflater;
-import com.fun.ad.sdk.ExpressInflater;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunNativeView;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
-import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.qq.e.ads.nativ.NativeADEventListener;
-import com.qq.e.ads.nativ.NativeUnifiedADData;
-import com.qq.e.ads.nativ.widget.NativeAdContainer;
-import com.repackage.eg9;
-import java.lang.ref.WeakReference;
-import java.util.Iterator;
+import java.nio.charset.Charset;
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes6.dex */
-public class gg9 extends FunNativeAd2Bridger<NativeUnifiedADData, com.fun.module.gdt.u> {
+public class gg9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final eg9.c b;
-    public final /* synthetic */ ng9 c;
-    public final /* synthetic */ eg9 d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gg9(eg9 eg9Var, ReporterPidLoader reporterPidLoader, NativeUnifiedADData nativeUnifiedADData, String str, ng9 ng9Var) {
-        super(reporterPidLoader);
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755678856, "Lcom/repackage/gg9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {eg9Var, reporterPidLoader, nativeUnifiedADData, str, ng9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((ReporterPidLoader) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.d = eg9Var;
-        this.c = ng9Var;
-        this.b = new eg9.c(eg9Var, nativeUnifiedADData, str);
-    }
-
-    public static void b(com.fun.module.gdt.u uVar, NativeUnifiedADData nativeUnifiedADData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, uVar, nativeUnifiedADData) == null) {
-            uVar.b(nativeUnifiedADData);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755678856, "Lcom/repackage/gg9;");
         }
     }
 
-    /* JADX DEBUG: Incorrect args count in method signature: (Landroid/app/Activity;Lcom/fun/ad/sdk/ExpressInflater;Ljava/lang/String;Lcom/qq/e/ads/nativ/NativeUnifiedADData;Lcom/fun/ad/sdk/internal/api/BaseNativeAd2<Lcom/qq/e/ads/nativ/NativeUnifiedADData;Lcom/fun/module/gdt/u;>;Lcom/fun/ad/sdk/FunAdInteractionListener;)V */
-    public void a(ExpressInflater expressInflater, String str, final NativeUnifiedADData nativeUnifiedADData, FunAdInteractionListener funAdInteractionListener) {
-        Ssp.Pid pid;
+    public static String a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, expressInflater, str, nativeUnifiedADData, funAdInteractionListener) == null) {
-            final com.fun.module.gdt.u uVar = (com.fun.module.gdt.u) expressInflater.getExpressView();
-            eg9 eg9Var = this.d;
-            FunNativeAdListenerHelper<NativeUnifiedADData, NativeADEventListener> funNativeAdListenerHelper = eg9Var.e;
-            pid = eg9Var.mPid;
-            funNativeAdListenerHelper.startShow(nativeUnifiedADData, str, pid, this.b, funAdInteractionListener);
-            this.b.d = new eg9.e() { // from class: com.repackage.of9
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.repackage.eg9.e
-                public final void onADStatusChanged() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        gg9.b(com.fun.module.gdt.u.this, nativeUnifiedADData);
-                    }
-                }
-            };
-            this.d.m(uVar, nativeUnifiedADData, this.b);
-            expressInflater.inflate();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            Charset forName = Charset.forName("UTF-8");
+            SecretKeySpec secretKeySpec = new SecretKeySpec(Base64.decode(str2.getBytes(forName), 0), "AES");
+            Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
+            cipher.init(2, secretKeySpec);
+            return new String(cipher.doFinal(Base64.decode(str.getBytes(forName), 0)), forName);
         }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
-    /* JADX WARN: Type inference failed for: r1v1, types: [com.fun.module.gdt.u, android.view.View] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public com.fun.module.gdt.u createExpressView(NativeUnifiedADData nativeUnifiedADData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nativeUnifiedADData)) == null) ? this.d.f(FunAdSdk.getAppContext(), nativeUnifiedADData) : (View) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showCustom(Activity activity, CustomInflater customInflater, String str, NativeUnifiedADData nativeUnifiedADData, BaseNativeAd2<NativeUnifiedADData, com.fun.module.gdt.u> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        NativeAdContainer nativeAdContainer;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, customInflater, str, nativeUnifiedADData, baseNativeAd2, funAdInteractionListener}) == null) {
-            NativeUnifiedADData nativeUnifiedADData2 = nativeUnifiedADData;
-            ChannelNativeAds.GdtADStatusChangeListener gdtADStatusChangeListener = this.c.c.getGdtADStatusChangeListener();
-            if (gdtADStatusChangeListener != null) {
-                this.b.d = new fg9(this, gdtADStatusChangeListener);
-            } else {
-                this.b.d = null;
-            }
-            ViewGroup inflate = customInflater.inflate();
-            if (inflate instanceof FunNativeView) {
-                FunNativeView funNativeView = (FunNativeView) inflate;
-                Iterator<WeakReference<NativeAdContainer>> it = sf9.b.a.iterator();
-                while (it.hasNext()) {
-                    NativeAdContainer nativeAdContainer2 = it.next().get();
-                    if (nativeAdContainer2 == null) {
-                        it.remove();
-                    } else if (nativeAdContainer2 == funNativeView.getRoot()) {
-                        it.remove();
-                        nativeAdContainer = nativeAdContainer2;
-                        break;
-                    }
-                }
-                nativeAdContainer = null;
-            } else {
-                if (inflate instanceof NativeAdContainer) {
-                    nativeAdContainer = (NativeAdContainer) inflate;
-                }
-                nativeAdContainer = null;
-            }
-            this.d.p(nativeUnifiedADData2, str, nativeAdContainer, this.c.d, customInflater.getClickViews(), this.b, funAdInteractionListener);
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public /* bridge */ /* synthetic */ void showExpress(Activity activity, ExpressInflater expressInflater, String str, NativeUnifiedADData nativeUnifiedADData, BaseNativeAd2<NativeUnifiedADData, com.fun.module.gdt.u> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        a(expressInflater, str, nativeUnifiedADData, funAdInteractionListener);
+        return (String) invokeLL.objValue;
     }
 }

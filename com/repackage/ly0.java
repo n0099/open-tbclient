@@ -1,7 +1,6 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,10 +8,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ly0 implements oy0 {
+public class ly0 extends ky0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final StringBuilder a;
 
     public ly0() {
         Interceptable interceptable = $ic;
@@ -24,60 +22,48 @@ public class ly0 implements oy0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new StringBuilder();
     }
 
-    @Override // com.repackage.oy0
-    public void a() {
+    public ly0 e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.oy0
-    public <T extends oy0> T b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) ? (T) d(str, str2) : (T) invokeLL.objValue;
-    }
-
-    public <T extends oy0> T c(String str, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, obj)) == null) ? (T) d(str, obj) : (T) invokeLL.objValue;
-    }
-
-    public <T extends oy0> T d(String str, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, obj)) == null) {
-            if (!TextUtils.isEmpty(str) && obj != null) {
-                try {
-                    if (!TextUtils.isEmpty(String.valueOf(obj))) {
-                        if (this.a.length() > 0) {
-                            this.a.append('&');
-                        }
-                        StringBuilder sb = this.a;
-                        sb.append(str);
-                        sb.append('=');
-                        sb.append(obj);
-                    }
-                } catch (Exception unused) {
-                }
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            d("cr", str);
             return this;
         }
-        return (T) invokeLL.objValue;
+        return (ly0) invokeL.objValue;
     }
 
-    @Override // com.repackage.oy0
-    @NonNull
-    public String toString() {
+    public ly0 f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            d("ci", str);
+            return this;
+        }
+        return (ly0) invokeL.objValue;
+    }
+
+    public ly0 g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            d("ext", str);
+            return this;
+        }
+        return (ly0) invokeL.objValue;
+    }
+
+    @Override // com.repackage.ny0
+    public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.toString() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String sb = this.a.toString();
+            return !TextUtils.isEmpty(sb) && sb.contains("ci") && sb.contains("ext");
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -17,9 +17,9 @@ public final class PayType {
     public static /* synthetic */ Interceptable $ic;
     public static final PayType ALI_PAY;
     public static final PayType DXM_PAY;
+    public static final PayType DXM_PAY_H5;
     public static final PayType DXM_PAY_KJ;
     public static final PayType MOCK_TEST_PAY;
-    public static final PayType PAYTM_PAY;
     public static final PayType QQ_PAY;
     public static final PayType UNION_PAY;
     public static final PayType WECHAT_PAY;
@@ -42,14 +42,14 @@ public final class PayType {
         }
         WECHAT_PAY = new PayType("WECHAT_PAY", 0, "Weixin", "WapApp");
         ALI_PAY = new PayType("ALI_PAY", 1, "Zfb", "WapApp");
-        PAYTM_PAY = new PayType("PAYTM_PAY", 2, "Dokypay", "Gate");
-        DXM_PAY = new PayType("DXM_PAY", 3, "Dxm", "WapApp");
-        DXM_PAY_KJ = new PayType("DXM_PAY_KJ", 4, "Dxm", "WapKj");
+        DXM_PAY = new PayType("DXM_PAY", 2, "Dxm", "WapApp");
+        DXM_PAY_KJ = new PayType("DXM_PAY_KJ", 3, "Dxm", "WapKj");
+        DXM_PAY_H5 = new PayType("DXM_PAY_H5", 4, "Dxm", "Wap");
         MOCK_TEST_PAY = new PayType("MOCK_TEST_PAY", 5, "Mock", "Balance");
         QQ_PAY = new PayType("QQ_PAY", 6, "Qq", "WapApp");
         PayType payType = new PayType("UNION_PAY", 7, "Unionpay", "WapAdvance");
         UNION_PAY = payType;
-        $VALUES = new PayType[]{WECHAT_PAY, ALI_PAY, PAYTM_PAY, DXM_PAY, DXM_PAY_KJ, MOCK_TEST_PAY, QQ_PAY, payType};
+        $VALUES = new PayType[]{WECHAT_PAY, ALI_PAY, DXM_PAY, DXM_PAY_KJ, DXM_PAY_H5, MOCK_TEST_PAY, QQ_PAY, payType};
     }
 
     public PayType(String str, int i, String str2, String str3) {

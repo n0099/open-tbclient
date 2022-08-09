@@ -23,7 +23,7 @@ import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView.Renderer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView
     public int x;
     public i.a y;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a();
     }

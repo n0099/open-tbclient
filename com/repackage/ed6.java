@@ -1,99 +1,75 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class ed6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<bn> a;
+    public BdTypeListView b;
+    public ad6 c;
+    public cd6 d;
 
-    /* loaded from: classes6.dex */
-    public static class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dr4 a;
-
-        public a(dr4 dr4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dr4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public ed6(BaseActivity<?> baseActivity, BdTypeListView bdTypeListView) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseActivity, bdTypeListView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            this.a = dr4Var;
         }
+        ArrayList arrayList = new ArrayList();
+        this.a = arrayList;
+        this.b = bdTypeListView;
+        arrayList.add(new wc6(baseActivity.getPageContext(), xc6.d));
+        this.a.add(new yc6(baseActivity.getPageContext(), zc6.c));
+        this.a.add(new vc6(baseActivity.getPageContext(), xe6.c));
+        this.a.add(new mc6(baseActivity.getPageContext(), nc6.b));
+        this.a.add(new oc6(baseActivity.getPageContext(), pc6.g));
+        this.a.add(new qc6(baseActivity.getPageContext()));
+        ad6 ad6Var = new ad6(baseActivity.getPageContext(), bd6.e);
+        this.c = ad6Var;
+        this.a.add(ad6Var);
+        cd6 cd6Var = new cd6(baseActivity.getPageContext(), dd6.d);
+        this.d = cd6Var;
+        this.a.add(cd6Var);
+    }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.dismiss();
-            }
+    public List<bn> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
+    }
+
+    public void b() {
+        BdTypeListView bdTypeListView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeListView = this.b) != null && (bdTypeListView.getAdapter2() instanceof fn)) {
+            this.b.getAdapter2().notifyDataSetChanged();
         }
     }
 
-    public static void a(Activity activity, TbPageContext<?> tbPageContext) {
-        int k;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, activity, tbPageContext) == null) || activity == null || tbPageContext == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c.onDestroy();
+            this.d.onDestroy();
         }
-        View inflate = LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d0308, (ViewGroup) null);
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c3a);
-        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c37);
-        TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c38);
-        TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c39);
-        TextView textView5 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c36);
-        TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092142);
-        dr4 dr4Var = new dr4(activity);
-        dr4Var.setContentView(inflate);
-        dr4Var.setContentViewSize(2);
-        dr4Var.setCanceledOnTouchOutside(true);
-        dr4Var.setAutoNight(true);
-        dr4Var.setCancelable(true);
-        int f = pi.f(activity, R.dimen.tbds31);
-        SkinManager.setBackgroundShapeDrawable(inflate, f, R.color.CAM_X0201, R.color.CAM_X0101);
-        tbImageView.setRadius(f);
-        tbImageView.setConrers(3);
-        tbImageView.setIsBitmapPic(true);
-        int f2 = pi.f(activity, R.dimen.tbds44);
-        if (UtilHelper.getRealScreenOrientation(activity) == 2) {
-            k = pi.i(activity);
-        } else {
-            k = pi.k(activity);
-        }
-        int i = k - (f2 * 2);
-        ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
-        layoutParams.width = -1;
-        layoutParams.height = (i * 556) / 988;
-        tbImageView.setLayoutParams(layoutParams);
-        SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f08057b);
-        SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
-        SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0107);
-        SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0107);
-        SkinManager.setViewTextColor(textView4, (int) R.color.CAM_X0107);
-        SkinManager.setViewTextColor(textView5, (int) R.color.CAM_X0302);
-        textView5.setOnClickListener(new a(dr4Var));
-        dr4Var.create(tbPageContext).show();
     }
 }

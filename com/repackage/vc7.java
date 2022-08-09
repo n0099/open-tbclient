@@ -1,240 +1,46 @@
 package com.repackage;
 
-import android.util.SparseIntArray;
-import com.baidu.adp.BdUniqueId;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.lego.card.model.BigImgCard;
-import com.baidu.tieba.lego.card.model.ButtonCard;
-import com.baidu.tieba.lego.card.model.CardGroup;
-import com.baidu.tieba.lego.card.model.FocusListCard;
-import com.baidu.tieba.lego.card.model.HorRankCard;
-import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.tieba.lego.card.model.ImmersiveVideoCardEx;
-import com.baidu.tieba.lego.card.model.ImmersiveWebViewCard;
-import com.baidu.tieba.lego.card.model.LPBigImgCard;
-import com.baidu.tieba.lego.card.model.OnePicInfoCard;
-import com.baidu.tieba.lego.card.model.PlayPicInfoCard;
-import com.baidu.tieba.lego.card.model.RankDetailTrendCard;
-import com.baidu.tieba.lego.card.model.RankScoreCard;
-import com.baidu.tieba.lego.card.model.SingleLineCard;
-import com.baidu.tieba.lego.card.model.WebViewCard;
-import com.baidu.tieba.lego.card.view.BaseCardView;
-import com.baidu.tieba.lego.card.view.BigImgView;
-import com.baidu.tieba.lego.card.view.ButtonCardView;
-import com.baidu.tieba.lego.card.view.FocusListCardView;
-import com.baidu.tieba.lego.card.view.HorRankCardView;
-import com.baidu.tieba.lego.card.view.ImmersiveVideoCardViewEx;
-import com.baidu.tieba.lego.card.view.ImmersiveWebViewCardView;
-import com.baidu.tieba.lego.card.view.LPBigImgCardView;
-import com.baidu.tieba.lego.card.view.OnePicInfoCardView;
-import com.baidu.tieba.lego.card.view.PlayPicInfoCardView;
-import com.baidu.tieba.lego.card.view.RankDetailTrendCardView;
-import com.baidu.tieba.lego.card.view.RankScoreCardView;
-import com.baidu.tieba.lego.card.view.SingleLineCardView;
-import com.baidu.tieba.lego.card.view.WebViewCardView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.tbadkCore.data.AgreeData;
+import com.baidu.tieba.tbadkCore.data.FaceGroupInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class vc7 extends wc7 {
+public class vc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final vc7 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(67757001, "Lcom/repackage/vc7$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(67757001, "Lcom/repackage/vc7$b;");
-                    return;
-                }
-            }
-            a = new vc7(null);
-        }
-    }
-
-    public /* synthetic */ vc7(a aVar) {
-        this();
-    }
-
-    public static vc7 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (vc7) invokeV.objValue;
-    }
-
-    @Override // com.repackage.wc7
-    public ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
-        InterceptResult invokeLI;
-        ICardInfo playPicInfoCard;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, i)) == null) {
-            if (i == 1) {
-                playPicInfoCard = new PlayPicInfoCard(jSONObject);
-            } else if (i == 2) {
-                playPicInfoCard = new SingleLineCard(jSONObject);
-            } else if (i == 3) {
-                playPicInfoCard = new OnePicInfoCard(jSONObject);
-            } else if (i == 5) {
-                playPicInfoCard = new FocusListCard(jSONObject);
-            } else if (i == 6) {
-                playPicInfoCard = new HorRankCard(jSONObject);
-            } else if (i == 7) {
-                playPicInfoCard = new RankDetailTrendCard(jSONObject);
-            } else if (i == 8) {
-                playPicInfoCard = new RankScoreCard(jSONObject);
-            } else if (i == 11) {
-                playPicInfoCard = new CardGroup(jSONObject);
-            } else if (i == 28) {
-                playPicInfoCard = new ButtonCard(jSONObject);
-            } else if (i == 18) {
-                playPicInfoCard = new WebViewCard(jSONObject);
-            } else if (i != 19) {
-                switch (i) {
-                    case 21:
-                        playPicInfoCard = new LPBigImgCard(jSONObject);
-                        break;
-                    case 22:
-                        playPicInfoCard = new ImmersiveVideoCardEx(jSONObject);
-                        break;
-                    case 23:
-                        playPicInfoCard = new ImmersiveWebViewCard(jSONObject);
-                        break;
-                    default:
-                        return null;
-                }
-            } else {
-                playPicInfoCard = new BigImgCard(jSONObject);
-            }
-            return playPicInfoCard;
-        }
-        return (ICardInfo) invokeLI.objValue;
-    }
-
-    @Override // com.repackage.wc7
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SparseIntArray sparseIntArray = wc7.a;
-            sparseIntArray.put(1, sparseIntArray.size() + 1);
-            SparseIntArray sparseIntArray2 = wc7.a;
-            sparseIntArray2.put(2, sparseIntArray2.size() + 1);
-            SparseIntArray sparseIntArray3 = wc7.a;
-            sparseIntArray3.put(3, sparseIntArray3.size() + 1);
-            SparseIntArray sparseIntArray4 = wc7.a;
-            sparseIntArray4.put(5, sparseIntArray4.size() + 1);
-            SparseIntArray sparseIntArray5 = wc7.a;
-            sparseIntArray5.put(6, sparseIntArray5.size() + 1);
-            SparseIntArray sparseIntArray6 = wc7.a;
-            sparseIntArray6.put(7, sparseIntArray6.size() + 1);
-            SparseIntArray sparseIntArray7 = wc7.a;
-            sparseIntArray7.put(8, sparseIntArray7.size() + 1);
-            SparseIntArray sparseIntArray8 = wc7.a;
-            sparseIntArray8.put(18, sparseIntArray8.size() + 1);
-            SparseIntArray sparseIntArray9 = wc7.a;
-            sparseIntArray9.put(19, sparseIntArray9.size() + 1);
-            SparseIntArray sparseIntArray10 = wc7.a;
-            sparseIntArray10.put(21, sparseIntArray10.size() + 1);
-            SparseIntArray sparseIntArray11 = wc7.a;
-            sparseIntArray11.put(22, sparseIntArray11.size() + 1);
-            SparseIntArray sparseIntArray12 = wc7.a;
-            sparseIntArray12.put(23, sparseIntArray12.size() + 1);
-            SparseIntArray sparseIntArray13 = wc7.a;
-            sparseIntArray13.put(28, sparseIntArray13.size() + 1);
-            wc7.b.put(1, BdUniqueId.gen());
-            wc7.b.put(2, BdUniqueId.gen());
-            wc7.b.put(3, BdUniqueId.gen());
-            wc7.b.put(5, BdUniqueId.gen());
-            wc7.b.put(6, BdUniqueId.gen());
-            wc7.b.put(7, BdUniqueId.gen());
-            wc7.b.put(8, BdUniqueId.gen());
-            wc7.b.put(18, BdUniqueId.gen());
-            wc7.b.put(19, BdUniqueId.gen());
-            wc7.b.put(21, BdUniqueId.gen());
-            wc7.b.put(22, BdUniqueId.gen());
-            wc7.b.put(23, BdUniqueId.gen());
-            wc7.b.put(28, BdUniqueId.gen());
-        }
-    }
-
-    @Override // com.repackage.wc7
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "lego_main" : (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.wc7
-    /* renamed from: e */
-    public <T> BaseCardView a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
-        InterceptResult invokeLLI;
-        BaseCardView playPicInfoCardView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, tbPageContext, iCardInfo, i)) == null) {
-            int cardType = iCardInfo == null ? -1 : iCardInfo.getCardType();
-            if (cardType == 1) {
-                playPicInfoCardView = new PlayPicInfoCardView(tbPageContext);
-            } else if (cardType == 2) {
-                playPicInfoCardView = new SingleLineCardView(tbPageContext);
-            } else if (cardType == 3) {
-                playPicInfoCardView = new OnePicInfoCardView(tbPageContext);
-            } else if (cardType == 5) {
-                playPicInfoCardView = new FocusListCardView(tbPageContext);
-            } else if (cardType == 6) {
-                playPicInfoCardView = new HorRankCardView(tbPageContext);
-            } else if (cardType == 7) {
-                playPicInfoCardView = new RankDetailTrendCardView(tbPageContext);
-            } else if (cardType == 8) {
-                playPicInfoCardView = new RankScoreCardView(tbPageContext);
-            } else if (cardType == 18) {
-                playPicInfoCardView = new WebViewCardView(tbPageContext);
-            } else if (cardType == 19) {
-                playPicInfoCardView = new BigImgView(tbPageContext);
-            } else if (cardType != 28) {
-                switch (cardType) {
-                    case 21:
-                        playPicInfoCardView = new LPBigImgCardView(tbPageContext);
-                        break;
-                    case 22:
-                        playPicInfoCardView = new ImmersiveVideoCardViewEx(tbPageContext);
-                        break;
-                    case 23:
-                        playPicInfoCardView = new ImmersiveWebViewCardView(tbPageContext);
-                        break;
-                    default:
-                        return null;
-                }
-            } else {
-                playPicInfoCardView = new ButtonCardView(tbPageContext);
-            }
-            return playPicInfoCardView;
-        }
-        return (BaseCardView) invokeLLI.objValue;
-    }
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
+    public int f;
+    public String g;
+    public long h;
+    public int i;
+    public String j;
+    public int k;
+    public long l;
+    public String m;
+    public boolean n;
+    public boolean o;
+    public boolean p;
+    public boolean q;
+    public String r;
+    public String s;
+    public String t;
+    public String u;
+    public AgreeData v;
+    public JSONArray w;
+    public FaceGroupInfoData x;
 
     public vc7() {
         Interceptable interceptable = $ic;
@@ -246,6 +52,221 @@ public class vc7 extends wc7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.e = 0;
+        this.f = 0;
+        this.g = null;
+        this.h = 0L;
+        this.i = 0;
+        this.j = "";
+        this.k = -1;
+        this.l = 0L;
+        this.m = null;
+        this.u = null;
+        this.w = null;
+    }
+
+    public AgreeData a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.v : (AgreeData) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.m : (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.u : (String) invokeV.objValue;
+    }
+
+    public FaceGroupInfoData e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.x : (FaceGroupInfoData) invokeV.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : invokeV.intValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.k : invokeV.intValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.g : (String) invokeV.objValue;
+    }
+
+    public long k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.h : invokeV.longValue;
+    }
+
+    public long l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.l : invokeV.longValue;
+    }
+
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    public int n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.i : invokeV.intValue;
+    }
+
+    public JSONArray o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.w : (JSONArray) invokeV.objValue;
+    }
+
+    public String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.j : (String) invokeV.objValue;
+    }
+
+    public String q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.r : (String) invokeV.objValue;
+    }
+
+    public String r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.s : (String) invokeV.objValue;
+    }
+
+    public String s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.t : (String) invokeV.objValue;
+    }
+
+    public int t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.e : invokeV.intValue;
+    }
+
+    public boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.p : invokeV.booleanValue;
+    }
+
+    public boolean v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.n : invokeV.booleanValue;
+    }
+
+    public boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.q : invokeV.booleanValue;
+    }
+
+    public boolean x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.o : invokeV.booleanValue;
+    }
+
+    public void y(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, jSONObject) == null) {
+            try {
+                this.l = jSONObject.optLong("overall_index", 0L);
+                this.m = jSONObject.optString("post_id");
+                this.r = jSONObject.optString("user_id");
+                this.s = jSONObject.optString("user_name");
+                this.t = jSONObject.optString("nickname");
+                boolean z = true;
+                this.o = jSONObject.optInt("show_original_btn") == 1;
+                this.p = jSONObject.optInt("is_blocked_pic") == 1;
+                this.q = jSONObject.optInt("is_long_pic") == 1;
+                this.k = jSONObject.optInt("index", -1);
+                this.n = jSONObject.optInt("is_first_post") == 1;
+                this.u = jSONObject.optString("comment_num");
+                JSONObject optJSONObject2 = jSONObject.optJSONObject("agree");
+                if (optJSONObject2 != null) {
+                    int optInt = optJSONObject2.optInt("agree_num");
+                    optJSONObject2.optInt("disagree_num");
+                    int optInt2 = optJSONObject2.optInt("agree_type");
+                    if (optJSONObject2.optInt("has_agree") != 1) {
+                        z = false;
+                    }
+                    if (this.v == null) {
+                        this.v = new AgreeData();
+                    }
+                    this.v.agreeType = optInt2;
+                    this.v.hasAgree = z;
+                    this.v.agreeNum = optInt;
+                }
+                this.w = jSONObject.optJSONArray(TiebaStatic.Params.POST_CONTENT);
+                JSONObject optJSONObject3 = jSONObject.optJSONObject("img");
+                if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject("original")) != null) {
+                    this.a = optJSONObject.optString("id");
+                    this.b = optJSONObject.optString("url");
+                    this.d = optJSONObject.optString("pid");
+                    this.e = optJSONObject.optInt("width", 0);
+                    this.f = optJSONObject.optInt("height", 0);
+                    this.c = optJSONObject.optString("big_cdn_src", null);
+                    this.g = optJSONObject.optString("original_src");
+                    this.h = optJSONObject.optInt("size");
+                }
+                JSONObject optJSONObject4 = jSONObject.optJSONObject("pic_tagname");
+                if (optJSONObject4 != null) {
+                    this.i = optJSONObject4.optInt("pic_type", 0);
+                    this.j = optJSONObject4.optString("tag_name");
+                }
+                this.x = FaceGroupInfoData.parserJson(jSONObject.optJSONObject("face_group_info"));
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
         }
     }

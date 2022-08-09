@@ -1,26 +1,22 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsPage.DataRes;
-import tbclient.FrsPage.ForumInfo;
-import tbclient.ThreadInfo;
-import tbclient.VoiceRoom;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jy4 {
+public final class jy4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Long a;
-    public String b;
-    public List<VoiceRoom> c;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
 
     public jy4() {
         Interceptable interceptable = $ic;
@@ -35,45 +31,69 @@ public class jy4 {
                 return;
             }
         }
-        this.c = new ArrayList();
+        this.c = -1;
     }
 
-    public List<VoiceRoom> a() {
+    public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.intValue;
     }
 
-    public Long b() {
+    public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (Long) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.intValue;
     }
 
-    public String c() {
+    public final int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    public void d(DataRes dataRes) {
-        VoiceRoom voiceRoom;
+    public final int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, dataRes) == null) || dataRes == null) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public final void e(JSONObject jsonObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jsonObject) == null) {
+            Intrinsics.checkNotNullParameter(jsonObject, "jsonObject");
+            i(jsonObject.optInt("match_cond_registry", 0));
+            h(jsonObject.optInt("match_cond_login", 0));
+            f(jsonObject.optInt("cond_day_after_close", -1));
+            g(jsonObject.optInt("cond_time_close", 0));
         }
-        ForumInfo forumInfo = dataRes.forum;
-        if (forumInfo != null) {
-            this.a = forumInfo.id;
-            this.b = forumInfo.name;
+    }
+
+    public final void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.c = i;
         }
-        if (ListUtils.isEmpty(dataRes.voice_room_list)) {
-            return;
+    }
+
+    public final void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.d = i;
         }
-        for (ThreadInfo threadInfo : dataRes.voice_room_list) {
-            if (threadInfo != null && (voiceRoom = threadInfo.voice_room) != null && !StringUtils.isNull(voiceRoom.room_name) && voiceRoom.room_id.longValue() > 0) {
-                this.c.add(voiceRoom);
-            }
+    }
+
+    public final void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public final void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.a = i;
         }
     }
 }

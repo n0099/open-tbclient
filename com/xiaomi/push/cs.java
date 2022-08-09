@@ -18,7 +18,7 @@ public class cs {
     public String a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final ArrayList<cr> f184a;
+    public final ArrayList<cr> f185a;
 
     public cs() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class cs {
                 return;
             }
         }
-        this.f184a = new ArrayList<>();
+        this.f185a = new ArrayList<>();
     }
 
     public cs(String str) {
@@ -51,7 +51,7 @@ public class cs {
                 return;
             }
         }
-        this.f184a = new ArrayList<>();
+        this.f185a = new ArrayList<>();
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("the host is empty");
         }
@@ -63,8 +63,8 @@ public class cs {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                for (int size = this.f184a.size() - 1; size >= 0; size--) {
-                    cr crVar = this.f184a.get(size);
+                for (int size = this.f185a.size() - 1; size >= 0; size--) {
+                    cr crVar = this.f185a.get(size);
                     if (crVar.m245a()) {
                         cv.a().m255a(crVar.a());
                         return crVar;
@@ -84,7 +84,7 @@ public class cs {
                 this.a = jSONObject.getString("host");
                 JSONArray jSONArray = jSONObject.getJSONArray("fbs");
                 for (int i = 0; i < jSONArray.length(); i++) {
-                    this.f184a.add(new cr(this.a).a(jSONArray.getJSONObject(i)));
+                    this.f185a.add(new cr(this.a).a(jSONArray.getJSONObject(i)));
                 }
             }
             return this;
@@ -103,7 +103,7 @@ public class cs {
     public ArrayList<cr> m247a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f184a : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f185a : (ArrayList) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -116,7 +116,7 @@ public class cs {
                 jSONObject = new JSONObject();
                 jSONObject.put("host", this.a);
                 JSONArray jSONArray = new JSONArray();
-                Iterator<cr> it = this.f184a.iterator();
+                Iterator<cr> it = this.f185a.iterator();
                 while (it.hasNext()) {
                     jSONArray.put(it.next().m243a());
                 }
@@ -133,17 +133,17 @@ public class cs {
             synchronized (this) {
                 int i = 0;
                 while (true) {
-                    if (i >= this.f184a.size()) {
+                    if (i >= this.f185a.size()) {
                         break;
-                    } else if (this.f184a.get(i).a(crVar)) {
-                        this.f184a.set(i, crVar);
+                    } else if (this.f185a.get(i).a(crVar)) {
+                        this.f185a.set(i, crVar);
                         break;
                     } else {
                         i++;
                     }
                 }
-                if (i >= this.f184a.size()) {
-                    this.f184a.add(crVar);
+                if (i >= this.f185a.size()) {
+                    this.f185a.add(crVar);
                 }
             }
         }
@@ -154,15 +154,15 @@ public class cs {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             synchronized (this) {
-                for (int size = this.f184a.size() - 1; size >= 0; size--) {
-                    cr crVar = this.f184a.get(size);
+                for (int size = this.f185a.size() - 1; size >= 0; size--) {
+                    cr crVar = this.f185a.get(size);
                     if (z) {
                         if (crVar.c()) {
-                            arrayList = this.f184a;
+                            arrayList = this.f185a;
                             arrayList.remove(size);
                         }
                     } else if (!crVar.b()) {
-                        arrayList = this.f184a;
+                        arrayList = this.f185a;
                         arrayList.remove(size);
                     }
                 }
@@ -177,7 +177,7 @@ public class cs {
             StringBuilder sb = new StringBuilder();
             sb.append(this.a);
             sb.append("\n");
-            Iterator<cr> it = this.f184a.iterator();
+            Iterator<cr> it = this.f185a.iterator();
             while (it.hasNext()) {
                 sb.append(it.next());
             }

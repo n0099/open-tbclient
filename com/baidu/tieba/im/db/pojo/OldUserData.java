@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.pi;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
@@ -291,7 +291,7 @@ public class OldUserData extends AbstractImageProvider implements Serializable {
             return;
         }
         userData.setUserIdLong(Math.max(this.id, this.userId));
-        userData.setUserName((oi.isEmpty(this.userName) || StringUtil.NULL_STRING.equalsIgnoreCase(this.userName)) ? this.name : this.userName);
+        userData.setUserName((pi.isEmpty(this.userName) || StringUtil.NULL_STRING.equalsIgnoreCase(this.userName)) ? this.name : this.userName);
         userData.setPortrait(this.portrait);
         userData.setSex(this.sex);
         userData.setPosition(this.position);

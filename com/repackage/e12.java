@@ -1,10 +1,9 @@
 package com.repackage;
 
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
-import com.baidu.swan.apps.core.launchtips.scene.SceneType;
-import com.baidu.tieba.R;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,30 +11,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q02;
-/* loaded from: classes5.dex */
+import java.util.Timer;
+import java.util.TimerTask;
+/* loaded from: classes6.dex */
 public class e12 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final q02 a;
-    public final z02 b;
-    public final n02 c;
+    public final f12 a;
+    public boolean b;
+    public Timer c;
 
-    /* loaded from: classes5.dex */
-    public class a implements q02.b {
+    /* loaded from: classes6.dex */
+    public class a extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b12 a;
-        public final /* synthetic */ p02 b;
-        public final /* synthetic */ e12 c;
+        public final /* synthetic */ e12 a;
 
-        public a(e12 e12Var, b12 b12Var, p02 p02Var) {
+        public a(e12 e12Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {e12Var, b12Var, p02Var};
+                Object[] objArr = {e12Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,35 +43,25 @@ public class e12 {
                     return;
                 }
             }
-            this.c = e12Var;
-            this.a = b12Var;
-            this.b = p02Var;
+            this.a = e12Var;
         }
 
-        @Override // com.repackage.q02.b
-        public void a(NetworkStatus networkStatus) {
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                j02.e(SceneType.SCENE_INIT_DATA_ERROR.getType(), networkStatus.getStatus(), this.a.e().getStatus(), this.a.g(), this.a.b(), this.a.f(), this.a.a());
-                StringBuilder sb = new StringBuilder();
-                sb.append(SceneType.SCENE_INIT_DATA_ERROR.getScene());
-                sb.append(this.b.a());
-                sb.append(this.a.d());
-                sb.append(networkStatus.getDesc());
-                sb.append(this.a.c());
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (e12.d) {
-                    Log.d("SceneInitDataTips", ">> " + sb.toString());
+                    Log.d("JsErrorMonitor", ">> finish collecting jsError info.");
                 }
-                k02.g(sb.toString());
-                this.c.d(networkStatus);
+                this.a.b = false;
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class b {
+    /* loaded from: classes6.dex */
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
+        public static final e12 a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -89,16 +77,7 @@ public class e12 {
                     return;
                 }
             }
-            int[] iArr = new int[NetworkStatus.values().length];
-            a = iArr;
-            try {
-                iArr[NetworkStatus.NETWORK_BAD.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[NetworkStatus.NETWORK_OFFLINE.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
+            a = new e12(null);
         }
     }
 
@@ -115,7 +94,95 @@ public class e12 {
                 return;
             }
         }
-        d = sg1.a;
+        d = jh1.a;
+    }
+
+    public /* synthetic */ e12(a aVar) {
+        this();
+    }
+
+    public static e12 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? b.a : (e12) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a() : invokeV.booleanValue;
+    }
+
+    public void e(c12 c12Var) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c12Var) == null) && (z = this.b) && c12Var != null && z) {
+            if (d) {
+                Log.d("JsErrorMonitor", ">> add jsError " + c12Var.toString());
+            }
+            this.a.b(c12Var);
+        }
+    }
+
+    @NonNull
+    public g12 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            g12 c = this.a.c();
+            if (d) {
+                Log.d("JsErrorMonitor", ">> jsError info: " + c.a());
+            }
+            return c;
+        }
+        return (g12) invokeV.objValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b = true;
+            h();
+            this.a.d();
+        }
+    }
+
+    public final synchronized void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                if (this.c != null) {
+                    this.c.cancel();
+                    this.c = null;
+                }
+            }
+        }
+    }
+
+    public synchronized void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            synchronized (this) {
+                if (d) {
+                    Log.d("JsErrorMonitor", ">> start to collect jsError info. ");
+                }
+                h();
+                Timer timer = new Timer();
+                this.c = timer;
+                timer.schedule(new a(this), LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION);
+            }
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.b = false;
+            h();
+            if (d) {
+                Log.d("JsErrorMonitor", ">> stop to collect jsError info.");
+            }
+        }
     }
 
     public e12() {
@@ -131,33 +198,7 @@ public class e12 {
                 return;
             }
         }
-        this.c = n02.d();
-        this.a = new q02();
-        this.b = z02.d();
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (d) {
-                Log.d("SceneInitDataTips", ">> trigger init data error event.");
-            }
-            z02.d().j();
-            n02.d().j();
-            p02 f = this.c.f();
-            this.a.a(new a(this, this.b.f(), f));
-        }
-    }
-
-    public final void d(NetworkStatus networkStatus) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkStatus) == null) {
-            int i = b.a[networkStatus.ordinal()];
-            if (i != 1 && i != 2) {
-                i02.f(R.string.obfuscated_res_0x7f0f12d5);
-            } else {
-                i02.f(R.string.obfuscated_res_0x7f0f12cb);
-            }
-        }
+        this.b = true;
+        this.a = new f12();
     }
 }

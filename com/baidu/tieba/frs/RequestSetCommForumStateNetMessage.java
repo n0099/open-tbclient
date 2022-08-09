@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ud5;
+import com.repackage.te5;
 import tbclient.SetCommonForumState.DataReq;
 import tbclient.SetCommonForumState.SetCommonForumStateReqIdl;
 /* loaded from: classes3.dex */
@@ -47,7 +47,7 @@ public class RequestSetCommForumStateNetMessage extends NetMessage {
             builder.forum_id = Long.valueOf(this.mForumId);
             builder.operation = Integer.valueOf(this.operation);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                ud5.a(builder, true);
+                te5.a(builder, true);
             }
             SetCommonForumStateReqIdl.Builder builder2 = new SetCommonForumStateReqIdl.Builder();
             builder2.data = builder.build(false);

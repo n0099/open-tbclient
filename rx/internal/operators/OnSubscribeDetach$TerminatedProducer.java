@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wr9;
+import com.repackage.ru9;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes8.dex */
-public final class OnSubscribeDetach$TerminatedProducer implements wr9 {
+public final class OnSubscribeDetach$TerminatedProducer implements ru9 {
     public static final /* synthetic */ OnSubscribeDetach$TerminatedProducer[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final OnSubscribeDetach$TerminatedProducer INSTANCE;
@@ -65,7 +65,7 @@ public final class OnSubscribeDetach$TerminatedProducer implements wr9 {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (OnSubscribeDetach$TerminatedProducer[]) $VALUES.clone() : (OnSubscribeDetach$TerminatedProducer[]) invokeV.objValue;
     }
 
-    @Override // com.repackage.wr9
+    @Override // com.repackage.ru9
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {

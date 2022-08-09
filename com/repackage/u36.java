@@ -1,39 +1,32 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.danmu.layout.retainer.BottomRetainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.ApkDetail;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.c46;
 /* loaded from: classes7.dex */
-public class u36 {
+public final class u36 extends t36 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(j36 j36Var) {
-        ItemData itemData;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u36() {
+        super(new BottomRetainer(0.5f), new a46());
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, j36Var) == null) || j36Var == null || (itemData = j36Var.a) == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((c46) objArr[0], (c46.a) objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_UPLOAD_DOWNLOAD_INFO);
-        httpMessage.addParam("item_id", itemData.itemId);
-        httpMessage.addParam("app_name", itemData.mTitle);
-        httpMessage.addParam("source_type", j36Var.b);
-        httpMessage.addParam("icon_url", itemData.mIconUrl);
-        httpMessage.addParam("score", Double.valueOf(itemData.mScore));
-        httpMessage.addParam("tags", itemData.mTags);
-        httpMessage.addParam("apk_name", itemData.pkgName);
-        ApkDetail apkDetail = itemData.apkDetail;
-        if (apkDetail != null) {
-            httpMessage.addParam("developer", apkDetail.developer);
-            httpMessage.addParam("privacy_url", itemData.apkDetail.privacy_url);
-            httpMessage.addParam("authority_url", itemData.apkDetail.authority_url);
-            httpMessage.addParam("version", itemData.apkDetail.version);
-            httpMessage.addParam("version_code", itemData.apkDetail.version_code);
-        }
-        MessageManager.getInstance().sendMessageFromBackground(httpMessage);
     }
 }

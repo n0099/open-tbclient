@@ -411,7 +411,7 @@ public class LogSender {
                 d.setRequestProperty("mtj_appkey", jSONObject.getString("k"));
                 d.setRequestProperty("mtj_appversion", jSONObject.getString("n"));
                 d.setRequestProperty("mtj_os", jSONObject.getString("o"));
-                d.setRequestProperty("mtj_pn", jSONObject.getString(Config.PACKAGE_NAME));
+                d.setRequestProperty("mtj_pn", jSONObject.getString("pn"));
                 d.setRequestProperty("mtj_tg", jSONObject.getString(Config.SDK_TAG));
                 d.setRequestProperty("mtj_ii", jSONObject.getString(Config.CUID_SEC));
             } catch (JSONException e) {

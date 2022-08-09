@@ -1,94 +1,83 @@
 package com.repackage;
 
-import android.text.SpannableString;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.view.NavigationBarCoverTip;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qw;
 /* loaded from: classes7.dex */
-public class xw7 extends uw7 {
+public class xw7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout f;
-    public TextView g;
+    public d9 a;
+    public NavigationBarCoverTip b;
+    public TextView c;
+    public int d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xw7(TbPageContext tbPageContext, int i) {
-        super(tbPageContext);
+    public xw7(d9 d9Var, NavigationBarCoverTip navigationBarCoverTip) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Integer.valueOf(i)};
+            Object[] objArr = {d9Var, navigationBarCoverTip};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = d9Var;
+        this.b = navigationBarCoverTip;
+        b();
     }
 
-    @Override // com.repackage.uw7
-    public View a() {
-        InterceptResult invokeV;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            LinearLayout linearLayout = (LinearLayout) this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d020c, (ViewGroup) null);
-            this.f = linearLayout;
-            this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091fae);
-            return this.f;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.repackage.uw7
-    public void b(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) || this.e == i) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.b == null) {
             return;
         }
-        this.e = i;
-        SkinManager.setBackgroundColor(this.f, R.color.CAM_X0204);
-        SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
+        if (!pi.isEmpty(str) && this.d <= 0) {
+            this.b.setVisibility(0);
+            this.d++;
+            this.c.setText(str);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0101);
+            this.b.removeAllViews();
+            this.b.addView(this.c);
+            this.b.k(this.a.getPageActivity(), 5000);
+            return;
+        }
+        c();
+        this.b.setVisibility(8);
     }
 
-    @Override // com.repackage.uw7
-    public void c(OriginalThreadInfo originalThreadInfo) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originalThreadInfo) == null) {
-            this.g.setText(new SpannableString(this.a.getString(R.string.obfuscated_res_0x7f0f0ce7)));
-            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = new TextView(this.a.getPageActivity());
+            this.c.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+            this.c.setMinHeight(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds112));
+            this.c.setPadding(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0);
+            this.c.setGravity(19);
+            this.c.setTextSize(0, this.a.getResources().getDimensionPixelSize(R.dimen.tbfontsize42));
+            this.c.setLineSpacing(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4), 1.0f);
         }
     }
 
-    @Override // com.repackage.uw7
-    public void d(qw.a aVar) {
+    public void c() {
+        NavigationBarCoverTip navigationBarCoverTip;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            super.d(aVar);
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (navigationBarCoverTip = this.b) == null) {
+            return;
         }
-    }
-
-    @Override // com.repackage.uw7
-    public void e(jy5 jy5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jy5Var) == null) {
-            super.e(jy5Var);
-        }
+        navigationBarCoverTip.i();
     }
 }

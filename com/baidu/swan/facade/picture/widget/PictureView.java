@@ -30,12 +30,12 @@ import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
 import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import com.repackage.ae3;
-import com.repackage.gd3;
-import com.repackage.pj2;
-import com.repackage.zd3;
+import com.repackage.gk2;
+import com.repackage.qe3;
+import com.repackage.re3;
+import com.repackage.xd3;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PictureView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class PictureView extends FrameLayout {
     public boolean h;
     public c i;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements BdImageViewTouch.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +88,7 @@ public class PictureView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b extends BaseBitmapDataSubscriber {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -159,7 +159,7 @@ public class PictureView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void a();
 
@@ -200,11 +200,11 @@ public class PictureView extends FrameLayout {
     public final void g(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07d1, this);
-            this.d = (ZoomImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092574);
-            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f0918bd);
-            this.f = inflate.findViewById(R.id.obfuscated_res_0x7f091aa5);
-            this.g = inflate.findViewById(R.id.obfuscated_res_0x7f0918be);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07fb, this);
+            this.d = (ZoomImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092699);
+            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f091990);
+            this.f = inflate.findViewById(R.id.obfuscated_res_0x7f091b85);
+            this.g = inflate.findViewById(R.id.obfuscated_res_0x7f091991);
             this.d.setDisplayType(BdImageViewTouchBase.DisplayType.FIT_IF_BIGGER);
             this.d.setZoomRange(1.0f, 3.0f);
             this.d.setDoubleTapEnabled(true);
@@ -228,7 +228,7 @@ public class PictureView extends FrameLayout {
                 if (drawable instanceof BitmapDrawable) {
                     return ((BitmapDrawable) drawable).getBitmap();
                 }
-                return gd3.g(drawable);
+                return xd3.g(drawable);
             }
             return null;
         }
@@ -242,7 +242,7 @@ public class PictureView extends FrameLayout {
             String str = this.a;
             String str2 = this.b;
             String str3 = this.c;
-            Uri p = ae3.p(str);
+            Uri p = re3.p(str);
             boolean z = p == null;
             this.e.setVisibility(z ? 4 : 0);
             this.f.setVisibility(z ? 0 : 4);
@@ -256,8 +256,8 @@ public class PictureView extends FrameLayout {
                 if (!TextUtils.isEmpty(str3)) {
                     hashMap.put("User-Agent", str3);
                 }
-                ImageRequestBuilder resizeOptions = ImageRequestBuilder.newBuilderWithSource(p).setResizeOptions(new ResizeOptions(zd3.o(getContext()), zd3.o(getContext())));
-                pj2.C().e(resizeOptions, hashMap);
+                ImageRequestBuilder resizeOptions = ImageRequestBuilder.newBuilderWithSource(p).setResizeOptions(new ResizeOptions(qe3.o(getContext()), qe3.o(getContext())));
+                gk2.C().e(resizeOptions, hashMap);
                 Fresco.getImagePipeline().fetchDecodedImage(resizeOptions.build(), getContext()).subscribe(new b(this), UiThreadImmediateExecutorService.getInstance());
             }
             return !z;

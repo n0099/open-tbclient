@@ -1,90 +1,46 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.os.Bundle;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.sailor.util.BdZeusUtil;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.setting.oauth.OAuthException;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.livesdk.sdk.service.IMLikeRequest;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkCode;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m53;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.repackage.wl2;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
-public class vg3 extends m53 {
+public class vg3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String q;
+    public final HashMap<String, Long> a;
+    public final HashMap<String, String> b;
+    public boolean c;
+    public boolean d;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ wl2.a a;
+        public final /* synthetic */ vg3 b;
 
-    /* loaded from: classes7.dex */
-    public class b extends h53 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vg3 c;
-
-        /* loaded from: classes7.dex */
-        public class a implements bf3<Bundle> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.bf3
-            /* renamed from: b */
-            public void a(Bundle bundle) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-                    if (bundle == null) {
-                        this.a.e(new OAuthException("null stoken", 10001));
-                        return;
-                    }
-                    String string = bundle.getString(BdZeusUtil.URL_KEY_MACHINE, "");
-                    if (!TextUtils.isEmpty(string)) {
-                        this.a.c.q = string;
-                        this.a.d();
-                        return;
-                    }
-                    this.a.e(new OAuthException("empty stoken", 10001));
-                }
-            }
-        }
-
-        public b(vg3 vg3Var) {
+        public a(vg3 vg3Var, wl2.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vg3Var};
+                Object[] objArr = {vg3Var, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -94,111 +50,184 @@ public class vg3 extends m53 {
                     return;
                 }
             }
-            this.c = vg3Var;
+            this.b = vg3Var;
+            this.a = aVar;
         }
 
-        @Override // com.repackage.h53
-        public boolean f() throws Exception {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ig3.t(this.c.n, new a(this), BdZeusUtil.URL_KEY_MACHINE);
-                return false;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.j(this.a);
             }
-            return invokeV.booleanValue;
-        }
-
-        public /* synthetic */ b(vg3 vg3Var, a aVar) {
-            this(vg3Var);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vg3(Activity activity, boolean z, String str, String str2) {
-        super(activity, z, str, str2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, Boolean.valueOf(z), str, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Activity) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), (String) objArr2[2], (String) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755232177, "Lcom/repackage/vg3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755232177, "Lcom/repackage/vg3;");
                 return;
             }
         }
-        if (z) {
-            y();
-        }
+        boolean z = jh1.a;
     }
 
-    @Override // com.repackage.m53, com.repackage.t53
-    public void I() {
+    public vg3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap<>();
+        this.b = new HashMap<>();
+        this.c = false;
+        this.d = false;
+    }
+
+    public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.I();
-            gs2.f();
+            this.a.clear();
+            this.b.clear();
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.m53, com.repackage.f53
-    /* renamed from: P */
-    public m53.b m(JSONObject jSONObject) throws JSONException {
-        InterceptResult invokeL;
+    public synchronized void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            ig3.D(this.n, jSONObject);
-            return super.m(jSONObject);
-        }
-        return (m53.b) invokeL.objValue;
-    }
-
-    @Override // com.repackage.m53, com.repackage.f53
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ma_id", M().O());
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put(GameGuideConfigInfo.KEY_APP_KEY, M().O());
-                jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
-                jSONObject2.put("host_key_hash", g53.g());
-                jSONObject2.put("stoken", this.q);
-                String l = pj2.o().l();
-                if (!TextUtils.isEmpty(l)) {
-                    jSONObject2.put("host_api_key", l);
-                }
-                jSONObject.put("open", jSONObject2);
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("permit", Boolean.toString(this.o));
-                JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.put(this.m, jSONObject3);
-                jSONObject.put("accredits", jSONObject4);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.d = true;
             }
-            v("data", jSONObject.toString());
-            return true;
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.f53
-    public boolean k() {
+    public synchronized boolean d(@NonNull String str) {
+        InterceptResult invokeL;
+        boolean containsKey;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            synchronized (this) {
+                containsKey = this.a.containsKey(str);
+            }
+            return containsKey;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized boolean e() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            h(new b(this, null));
-            return true;
+            synchronized (this) {
+                z = this.d;
+            }
+            return z;
         }
         return invokeV.booleanValue;
+    }
+
+    public synchronized void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            synchronized (this) {
+                if (!this.d) {
+                    this.b.put(str, str2);
+                }
+            }
+        }
+    }
+
+    public synchronized void g(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            synchronized (this) {
+                if (!this.d && !this.a.containsKey(str)) {
+                    this.a.put(str, Long.valueOf(System.currentTimeMillis()));
+                }
+            }
+        }
+    }
+
+    public synchronized void h(@NonNull String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048582, this, str, j) == null) {
+            synchronized (this) {
+                if (!this.a.containsKey(str)) {
+                    this.a.put(str, Long.valueOf(j));
+                }
+            }
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.d = false;
+            this.c = false;
+        }
+    }
+
+    public final synchronized void j(wl2.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
+            synchronized (this) {
+                if (this.c) {
+                    return;
+                }
+                this.c = true;
+                eu2.r(DeepLinkCode.OpenAppSource.OPEN_SOURCE_WEB);
+                HybridUbcFlow p = eu2.p(DeepLinkCode.OpenAppSource.OPEN_SOURCE_WEB);
+                p.E("type", "naWebdegrade");
+                for (Map.Entry<String, Long> entry : this.a.entrySet()) {
+                    zx1.i("WebStaticRecorder", "submit: event key: " + entry.getKey() + " value " + entry.getValue());
+                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent(entry.getKey());
+                    ubcFlowEvent.h(entry.getValue().longValue());
+                    p.F(ubcFlowEvent);
+                }
+                for (Map.Entry<String, String> entry2 : this.b.entrySet()) {
+                    zx1.i("WebStaticRecorder", "submit: ext key: " + entry2.getKey() + " value " + entry2.getValue());
+                    p.D(entry2.getKey(), entry2.getValue());
+                }
+                String h = p.h("fmpArrived");
+                if (TextUtils.isEmpty(h)) {
+                    h = "0";
+                }
+                p.D("fmpArrived", h);
+                p.D("launchID", aVar.V());
+                p.D("scheme", aVar.W());
+                p.D("appid", aVar.H());
+                p.D("page", rg3.c().b());
+                long j = aVar.s0().getLong("click_time", 0L);
+                if (j > 0) {
+                    UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("user_action");
+                    ubcFlowEvent2.h(j);
+                    p.F(ubcFlowEvent2);
+                }
+                p.A();
+                b();
+            }
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            td3.d(new a(this, y03.K().q().W()), "WebStaticRecorder", IMLikeRequest.TIME_INTERVAL, TimeUnit.MILLISECONDS);
+        }
     }
 }

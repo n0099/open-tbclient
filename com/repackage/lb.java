@@ -10,61 +10,35 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class lb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] a;
+    public mb a;
+    public int b;
 
-    public lb(int i, int i2, int i3) {
+    public lb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.a = r0;
-        int[] iArr = {i, i2, i3};
+        this.b = 1;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int[] iArr = this.a;
-            if (iArr == null || iArr.length != 1) {
-                return 0;
-            }
-            return iArr[0];
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    public int b() {
+    public mb b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int[] iArr = this.a;
-            if (iArr == null || iArr.length != 3) {
-                return 0;
-            }
-            int I = ni.I();
-            if (I != 1) {
-                if (I != 2) {
-                    if (I != 3) {
-                        return this.a[2];
-                    }
-                    return this.a[1];
-                }
-                return this.a[0];
-            }
-            return this.a[2];
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (mb) invokeV.objValue;
     }
 }

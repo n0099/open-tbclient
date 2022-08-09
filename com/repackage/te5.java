@@ -1,211 +1,131 @@
 package com.repackage;
 
+import android.os.Build;
+import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TiebaIMConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.squareup.wire.Message;
-import com.squareup.wire.Wire;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
+import tbclient.CommonReq;
 /* loaded from: classes7.dex */
 public class te5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(Wire wire, Class<? extends Message> cls) {
-        File[] listFiles;
-        String name;
+    public static void a(Object obj, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, wire, cls) == null) || wire == null || cls == null) {
+        if (interceptable == null || interceptable.invokeLZ(65536, null, obj, z) == null) {
+            b(obj, z, false);
+        }
+    }
+
+    public static void b(Object obj, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{obj, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            c(obj, z, z2, false);
+        }
+    }
+
+    public static void c(Object obj, boolean z, boolean z2, boolean z3) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{obj, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || obj == null) {
             return;
         }
-        String str = "wire_" + cls.getName();
-        File file = new File(TbadkCoreApplication.getInst().getCacheDir(), str + "_" + TbConfig.getVersion());
-        byte[] bArr = null;
         try {
-            if (file.exists() && (bArr = b(file)) != null) {
-                wire.parseFrom(bArr, cls);
+            Field field = obj.getClass().getField("common");
+            int i = 1;
+            if (!field.isAccessible()) {
+                field.setAccessible(true);
             }
-            if (bArr == null) {
-                byte[] bArr2 = (byte[]) bc.c(cls, "toByteArray", new Object[0]).invoke(c(cls, new HashSet()), new Object[0]);
-                wire.parseFrom(bArr2, cls);
-                d(file, bArr2);
+            CommonReq.Builder builder = new CommonReq.Builder();
+            builder._client_type = 2;
+            builder._client_version = TbConfig.getVersion();
+            builder._client_id = TbadkCoreApplication.getClientId();
+            if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
+                builder.subapp_type = TbConfig.getSubappType();
             }
+            if (!TbadkCoreApplication.getInst().isOfficial()) {
+                builder.apid = TbConfig.SW_APID;
+            }
+            builder._phone_imei = TbadkCoreApplication.getInst().getImei();
+            builder.from = TbadkCoreApplication.getFrom();
+            builder.cuid = TbadkCoreApplication.getInst().getCuid();
+            builder.cuid_galaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            builder.c3_aid = TbadkCoreApplication.getInst().getCuidGalaxy3();
+            builder.cuid_gid = TbadkCoreApplication.getInst().getCuidGid();
+            builder._timestamp = Long.valueOf(System.currentTimeMillis());
+            builder.model = Build.MODEL;
+            builder._os_version = Build.VERSION.RELEASE;
+            builder.brand = Build.BRAND;
+            builder.user_agent = rf5.b();
+            if (z) {
+                if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
+                    builder.BDUSS = m75.b();
+                    if (!StringUtils.isNull(m75.e())) {
+                        builder.stoken = m75.e();
+                    }
+                } else {
+                    AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
+                    if (currentAccountInfo != null) {
+                        builder.BDUSS = currentAccountInfo.getBDUSS();
+                        String a = wn4.a(currentAccountInfo);
+                        if (!StringUtils.isNull(a)) {
+                            builder.stoken = a;
+                        }
+                    }
+                }
+            }
+            if (z2) {
+                if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
+                    builder.tbs = m75.f();
+                } else {
+                    builder.tbs = TbadkCoreApplication.getInst().getTbs();
+                }
+            }
+            if (z3) {
+                builder.applist = TbadkCoreApplication.getInst().getInstalledAppIds();
+            }
+            builder.pversion = TiebaIMConfig.PROTOBUF_VERSION;
+            builder.lego_lib_version = TbConfig.getLegoLibVersion();
+            if (ru4.k().l("android_safe_sdk_open", 0) == 1) {
+                builder.z_id = TbadkCoreApplication.getInst().getZid();
+            }
+            builder.net_type = Integer.valueOf(oi.I());
+            builder.oaid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
+            builder.sample_id = TbSingleton.getInstance().getSampleId();
+            builder.is_teenager = 0;
+            builder.sdk_ver = TbadkCoreApplication.getInst().getSdk_ver();
+            builder.framework_ver = TbadkCoreApplication.getInst().getFramework_ver();
+            builder.swan_game_ver = TbadkCoreApplication.getInst().getSwan_game_ver();
+            builder.q_type = Integer.valueOf(rn4.c().e());
+            builder.scr_h = Integer.valueOf(qi.i(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(qi.k(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Double.valueOf(qi.h(TbadkCoreApplication.getInst()));
+            builder.active_timestamp = Long.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
+            builder.first_install_time = Long.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());
+            builder.last_update_time = Long.valueOf(TbSingleton.getInstance().getAppLastUpdateTime());
+            builder.event_day = TbSingleton.getInstance().getData();
+            builder.android_id = TbadkCoreApplication.getInst().getAndroidId();
+            if (!PermissionUtil.isAgreePrivacyPolicy()) {
+                i = 2;
+            }
+            builder.cmode = Integer.valueOf(i);
+            builder.start_type = Integer.valueOf(at4.f);
+            builder.start_scheme = at4.e();
+            builder.extra = ru4.k().q("key_sync_extra_field", "");
+            builder.personalized_rec_switch = Integer.valueOf(TbSingleton.getInstance().getPersonalizedRecSwitch());
+            field.set(obj, builder.build(false));
         } catch (Throwable th) {
-            BdLog.detailException(th);
-            try {
-                file.delete();
-            } catch (Throwable unused) {
+            if (BdLog.isDebugMode()) {
+                th.printStackTrace();
             }
-        }
-        File cacheDir = TbadkCoreApplication.getInst().getCacheDir();
-        if (cacheDir == null || (listFiles = cacheDir.listFiles()) == null) {
-            return;
-        }
-        for (File file2 : listFiles) {
-            if (file2 != null && (name = file2.getName()) != null && name.startsWith(str) && !file.getName().equals(name)) {
-                try {
-                    file2.delete();
-                } catch (Throwable unused2) {
-                }
-            }
-        }
-    }
-
-    public static byte[] b(File file) {
-        InterceptResult invokeL;
-        ByteArrayOutputStream byteArrayOutputStream;
-        FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            byte[] bArr = null;
-            if (file == null) {
-                return null;
-            }
-            try {
-                fileInputStream = new FileInputStream(file);
-                try {
-                    byteArrayOutputStream = new ByteArrayOutputStream(1024);
-                    try {
-                        byte[] bArr2 = new byte[1024];
-                        while (true) {
-                            int read = fileInputStream.read(bArr2, 0, 1024);
-                            if (read == -1) {
-                                break;
-                            }
-                            byteArrayOutputStream.write(bArr2, 0, read);
-                        }
-                        bArr = byteArrayOutputStream.toByteArray();
-                    } catch (Throwable th) {
-                        th = th;
-                        try {
-                            BdLog.e(th.getMessage());
-                            return bArr;
-                        } finally {
-                            qi.e(fileInputStream);
-                            qi.f(byteArrayOutputStream);
-                        }
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    byteArrayOutputStream = null;
-                }
-            } catch (Throwable th3) {
-                th = th3;
-                byteArrayOutputStream = null;
-                fileInputStream = null;
-            }
-            return bArr;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static final Object c(Class<?> cls, HashSet<Class<?>> hashSet) {
-        InterceptResult invokeLL;
-        Field[] declaredFields;
-        Type[] actualTypeArguments;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, hashSet)) == null) {
-            if (hashSet != null && !hashSet.contains(cls)) {
-                hashSet.add(cls);
-                try {
-                    Class<?> cls2 = Class.forName(cls.getName() + "$Builder");
-                    Method declaredMethod = cls2.getDeclaredMethod("build", Boolean.TYPE);
-                    Object newInstance = cls2.newInstance();
-                    for (Field field : cls2.getDeclaredFields()) {
-                        Class<?> type = field.getType();
-                        if (type != null) {
-                            if (bc.e(type, Message.class)) {
-                                Object c = c(type, hashSet);
-                                if (c != null) {
-                                    if (bc.e(c.getClass(), Message.class)) {
-                                        field.setAccessible(true);
-                                        field.set(newInstance, c);
-                                    } else {
-                                        BdLog.e("");
-                                    }
-                                }
-                            } else if (bc.e(type, List.class)) {
-                                Type genericType = field.getGenericType();
-                                if ((genericType instanceof ParameterizedType) && (actualTypeArguments = ((ParameterizedType) genericType).getActualTypeArguments()) != null && actualTypeArguments.length > 0) {
-                                    try {
-                                        Class cls3 = (Class) actualTypeArguments[0];
-                                        if (bc.e(cls3, Message.class)) {
-                                            ArrayList arrayList = new ArrayList();
-                                            Object c2 = c(cls3, hashSet);
-                                            if (c2 != null) {
-                                                if (bc.e(c2.getClass(), Message.class)) {
-                                                    arrayList.add(c2);
-                                                } else {
-                                                    BdLog.e("");
-                                                }
-                                                field.setAccessible(true);
-                                                field.set(newInstance, arrayList);
-                                            }
-                                        }
-                                    } catch (Throwable unused) {
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    return declaredMethod.invoke(newInstance, Boolean.TRUE);
-                } catch (Throwable th) {
-                    BdLog.detailException(th);
-                }
-            }
-            return null;
-        }
-        return invokeLL.objValue;
-    }
-
-    public static final boolean d(File file, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65539, null, file, bArr)) != null) {
-            return invokeLL.booleanValue;
-        }
-        if (file == null || bArr == null) {
-            return false;
-        }
-        FileOutputStream fileOutputStream = null;
-        try {
-            if (!file.exists() || file.delete()) {
-                if (file.createNewFile()) {
-                    FileOutputStream fileOutputStream2 = new FileOutputStream(file);
-                    try {
-                        fileOutputStream2.write(bArr, 0, bArr.length);
-                        fileOutputStream2.flush();
-                        qi.f(fileOutputStream2);
-                        return true;
-                    } catch (Throwable th) {
-                        th = th;
-                        fileOutputStream = fileOutputStream2;
-                        try {
-                            BdLog.e(th.getMessage());
-                            return false;
-                        } finally {
-                            qi.f(fileOutputStream);
-                        }
-                    }
-                }
-                return false;
-            }
-            return false;
-        } catch (Throwable th2) {
-            th = th2;
         }
     }
 }

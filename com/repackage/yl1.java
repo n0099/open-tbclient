@@ -1,9 +1,19 @@
 package com.repackage;
+
+import java.io.File;
 /* loaded from: classes7.dex */
-public interface yl1 {
-    String[] a();
+public interface yl1 extends qu2 {
+    File a();
 
-    boolean b();
+    void e(String str, String str2);
 
-    String c();
+    void e(String str, String str2, Throwable th);
+
+    void flush(boolean z);
+
+    void i(String str, String str2);
+
+    void w(String str, String str2);
+
+    void w(String str, String str2, Throwable th);
 }

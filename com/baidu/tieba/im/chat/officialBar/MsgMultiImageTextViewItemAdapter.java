@@ -4,7 +4,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.chat.MsglistActivity;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c87;
+import com.repackage.w97;
 /* loaded from: classes3.dex */
 public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMultiImageTextView> {
     public static /* synthetic */ Interceptable $ic;
@@ -68,44 +67,44 @@ public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMu
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bn
+    /* renamed from: E */
+    public MsgCommonItemAdapter.MsgViewHolder<MsgMultiImageTextView> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            MsgMultiImageTextView msgMultiImageTextView = new MsgMultiImageTextView(this.a);
+            return new a(this, msgMultiImageTextView.k(), msgMultiImageTextView);
+        }
+        return (MsgCommonItemAdapter.MsgViewHolder) invokeL.objValue;
+    }
+
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.repackage.an
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
-        c0(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.repackage.bn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
+        v(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view2;
     }
 
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter
-    public View c0(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgMultiImageTextView> msgViewHolder) {
+    public View v(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgMultiImageTextView> msgViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
-            super.S(i, view2, viewGroup, chatMessage, msgViewHolder);
-            MsgMultiImageTextView b = msgViewHolder.b();
-            b.A(this.k);
-            b.B(i);
-            b.r(this.l);
-            b.x(chatMessage.getCacheData().getLastMsgTime());
-            b.R(this.i, chatMessage, viewGroup);
-            this.i.getLayoutMode().k(false);
-            this.i.getLayoutMode().j(view2);
-            c87.c().d(chatMessage, this.i.getPageActivity());
-            c87.c().e(chatMessage, this.i.getPageActivity());
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, chatMessage, msgViewHolder);
+            MsgMultiImageTextView a2 = msgViewHolder.a();
+            a2.C(this.c);
+            a2.D(i);
+            a2.t(this.d);
+            a2.z(chatMessage.getCacheData().getLastMsgTime());
+            a2.U(this.a, chatMessage, viewGroup);
+            this.a.getLayoutMode().l(false);
+            this.a.getLayoutMode().k(view2);
+            w97.c().d(chatMessage, this.a.getPageActivity());
+            w97.c().e(chatMessage, this.a.getPageActivity());
             return view2;
         }
         return (View) invokeCommon.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: l0 */
-    public MsgCommonItemAdapter.MsgViewHolder<MsgMultiImageTextView> M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            MsgMultiImageTextView msgMultiImageTextView = new MsgMultiImageTextView(this.i);
-            return new a(this, msgMultiImageTextView.h(), msgMultiImageTextView);
-        }
-        return (MsgCommonItemAdapter.MsgViewHolder) invokeL.objValue;
     }
 }

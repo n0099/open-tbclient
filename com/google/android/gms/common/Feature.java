@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
-import com.repackage.bl9;
-import com.repackage.ck9;
-import com.repackage.fk9;
-/* loaded from: classes4.dex */
+import com.repackage.an9;
+import com.repackage.wn9;
+import com.repackage.xm9;
+/* loaded from: classes5.dex */
 public class Feature extends AbstractSafeParcelable {
     public static /* synthetic */ Interceptable $ic;
     @NonNull
@@ -40,7 +40,7 @@ public class Feature extends AbstractSafeParcelable {
                 return;
             }
         }
-        CREATOR = new bl9();
+        CREATOR = new wn9();
     }
 
     public Feature(@NonNull String str, int i, long j) {
@@ -118,7 +118,7 @@ public class Feature extends AbstractSafeParcelable {
     public final int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ck9.b(getName(), Long.valueOf(getVersion())) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? xm9.b(getName(), Long.valueOf(getVersion())) : invokeV.intValue;
     }
 
     @NonNull
@@ -126,7 +126,7 @@ public class Feature extends AbstractSafeParcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ck9.a c = ck9.c(this);
+            xm9.a c = xm9.c(this);
             c.a("name", getName());
             c.a("version", Long.valueOf(getVersion()));
             return c.toString();
@@ -138,11 +138,11 @@ public class Feature extends AbstractSafeParcelable {
     public final void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i) == null) {
-            int a = fk9.a(parcel);
-            fk9.k(parcel, 1, getName(), false);
-            fk9.g(parcel, 2, this.zzb);
-            fk9.i(parcel, 3, getVersion());
-            fk9.b(parcel, a);
+            int a = an9.a(parcel);
+            an9.k(parcel, 1, getName(), false);
+            an9.g(parcel, 2, this.zzb);
+            an9.i(parcel, 3, getVersion());
+            an9.b(parcel, a);
         }
     }
 }

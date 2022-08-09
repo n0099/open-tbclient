@@ -1,183 +1,114 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public class k03 extends j03 {
+public class k03 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, Object> a;
+    public final int a;
+    public CharSequence b;
+    public Drawable c;
+    public boolean d;
+    public long e;
+    public int f;
+    public a g;
+    public Context h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755612733, "Lcom/repackage/k03;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755612733, "Lcom/repackage/k03;");
-                return;
-            }
-        }
-        b = sg1.a;
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(k03 k03Var);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k03(i03 i03Var) {
-        super(i03Var);
+    public k03(Context context, int i, CharSequence charSequence, Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {i03Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((i03) newInitContext.callArgs[0]);
+            Object[] objArr = {context, Integer.valueOf(i), charSequence, drawable};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
+        this.d = true;
+        this.e = 0L;
+        this.f = 0;
+        this.h = context;
+        this.a = i;
+        this.b = charSequence;
+        this.c = drawable;
     }
 
-    public void a() {
+    public long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.clear();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : invokeV.longValue;
     }
 
-    public boolean b(String str) {
-        InterceptResult invokeL;
+    public Drawable b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Drawable drawable = this.c;
+            if (drawable != null) {
+                return drawable;
             }
-            return this.a.containsKey(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public Boolean c(String str, Boolean bool) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bool)) == null) {
-            try {
-                return (Boolean) f(str, bool);
-            } catch (ClassCastException e) {
-                if (b) {
-                    e.printStackTrace();
-                }
-                return bool;
+            if (this.f != 0) {
+                Drawable drawable2 = this.h.getResources().getDrawable(this.f);
+                this.f = 0;
+                this.c = drawable2;
+                return drawable2;
             }
+            return null;
         }
-        return (Boolean) invokeLL.objValue;
+        return (Drawable) invokeV.objValue;
     }
 
-    public Integer d(String str, Integer num) {
-        InterceptResult invokeLL;
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, num)) == null) {
-            try {
-                return (Integer) f(str, num);
-            } catch (ClassCastException e) {
-                if (b) {
-                    e.printStackTrace();
-                }
-                return num;
-            }
-        }
-        return (Integer) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public String e(String str, String str2) {
-        InterceptResult invokeLL;
+    public a d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            try {
-                return (String) f(str, str2);
-            } catch (ClassCastException e) {
-                if (b) {
-                    e.printStackTrace();
-                }
-                return str2;
-            }
-        }
-        return (String) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g : (a) invokeV.objValue;
     }
 
-    public final <V> V f(String str, V v) {
-        InterceptResult invokeLL;
+    public CharSequence e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, v)) == null) {
-            if (b(str)) {
-                if (this.a.get(str) == null) {
-                    return null;
-                }
-                try {
-                    return (V) this.a.get(str);
-                } catch (Exception e) {
-                    if (b) {
-                        e.printStackTrace();
-                        return v;
-                    }
-                    return v;
-                }
-            }
-            return v;
-        }
-        return (V) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (CharSequence) invokeV.objValue;
     }
 
-    public void g() {
+    public boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            a();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    public void g(j03 j03Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, j03Var) == null) {
         }
     }
 
-    public void h(String str, Boolean bool) {
+    public void h(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, bool) == null) {
-            k(str, bool);
-        }
-    }
-
-    public void i(String str, Integer num) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, num) == null) {
-            k(str, num);
-        }
-    }
-
-    public void j(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
-            k(str, str2);
-        }
-    }
-
-    public final <V> void k(String str, V v) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, str, v) == null) {
-            this.a.put(str, v);
+        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
+            this.g = aVar;
         }
     }
 }

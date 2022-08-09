@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ng;
-import com.repackage.z85;
+import com.repackage.og;
+import com.repackage.x95;
 /* loaded from: classes3.dex */
 public class VideoAggregationActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -38,7 +38,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.w85
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.u95
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -46,17 +46,17 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public z85 getPageStayDurationItem() {
+    public x95 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            z85 pageStayDurationItem = super.getPageStayDurationItem();
+            x95 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null && StringUtils.isNull(this.b) && VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.c)) {
-                pageStayDurationItem.C(ng.g(this.b, 0L));
+                pageStayDurationItem.C(og.g(this.b, 0L));
             }
             return pageStayDurationItem;
         }
-        return (z85) invokeV.objValue;
+        return (x95) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
@@ -65,8 +65,8 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || this.a == null) {
             return;
         }
-        getLayoutMode().k(i == 1);
-        getLayoutMode().j(this.a.getView());
+        getLayoutMode().l(i == 1);
+        getLayoutMode().k(this.a.getView());
         this.a.onChangeSkinType(i);
     }
 
@@ -96,8 +96,8 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
             if (TextUtils.isEmpty(this.b)) {
                 finish();
             }
-            this.a = VideoAggregationFragment.w1(this.b, this.c, stringExtra, stringExtra2);
-            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f09069f, this.a).commit();
+            this.a = VideoAggregationFragment.v1(this.b, this.c, stringExtra, stringExtra2);
+            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0906bd, this.a).commit();
         }
     }
 
@@ -108,7 +108,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, keyEvent)) == null) {
             if (keyEvent != null && (videoAggregationFragment = this.a) != null) {
-                if (videoAggregationFragment.B1(i)) {
+                if (videoAggregationFragment.A1(i)) {
                     return true;
                 }
                 return super.onKeyDown(i, keyEvent);

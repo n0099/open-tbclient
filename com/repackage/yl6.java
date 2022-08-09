@@ -1,23 +1,37 @@
 package com.repackage;
 
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.data.FeatureCardGod;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetition;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardGame;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardHot;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopic;
+import com.baidu.tieba.frs.gamerecommend.data.ScoreCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class yl6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
+    public boolean a;
+    public int b;
+    public List<ThreadData> c;
+    public ScoreCardInfo d;
+    public List<FeatureCardHot> e;
+    public List<FeatureCardTopic> f;
+    public List<zl6> g;
+    public List<FeatureCardCompetition> h;
+    public List<FeatureCardGod> i;
+    public List<FeatureCardGame> j;
 
-    public yl6(String str, String str2, String str3) {
+    public yl6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,8 +41,12 @@ public class yl6 {
                 return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
+        this.c = new ArrayList();
+        this.e = new ArrayList();
+        this.f = new ArrayList();
+        this.g = new ArrayList();
+        this.h = new ArrayList();
+        this.i = new ArrayList();
+        this.j = new ArrayList();
     }
 }

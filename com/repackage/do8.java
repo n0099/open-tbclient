@@ -1,58 +1,78 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetBubbleByCategory.ThemeBubbleInMain;
-import tbclient.ThemeBgProp;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class do8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<DressItemData> b;
+    public final MainTabActivity a;
+    public PollingModel b;
+    public final Runnable c;
 
-    public do8() {
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ do8 a;
+
+        public a(do8 do8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {do8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = do8Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.b == null) {
+                return;
+            }
+            this.a.b.L(PollingModel.POLLING_TYPE_LEVEL_ICON_LIVE);
+            rg.a().postDelayed(this.a.c, 300000L);
+        }
+    }
+
+    public do8(MainTabActivity mainTabActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = new a(this);
+        this.a = mainTabActivity;
+        this.b = new PollingModel(mainTabActivity.getPageContext(), this.a.getUniqueId());
     }
 
-    public List<DressItemData> a() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (List) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public void c(ThemeBubbleInMain themeBubbleInMain) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themeBubbleInMain) == null) || themeBubbleInMain == null) {
-            return;
-        }
-        this.a = themeBubbleInMain.bubble_category;
-        this.b = new ArrayList();
-        for (ThemeBgProp themeBgProp : themeBubbleInMain.props) {
-            this.b.add(new DressItemData(themeBgProp));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            rg.a().removeCallbacks(this.c);
         }
     }
 }

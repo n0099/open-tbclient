@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.widget.TextView;
 import androidx.appcompat.widget.TooltipCompatHandler;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.animation.PathInterpolatorCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -58,10 +59,10 @@ public final class g extends v implements View.OnClickListener {
             int dimensionPixelSize = view2.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070377);
             Interpolator create = PathInterpolatorCompat.create(0.0f, 0.0f, 0.58f, 1.0f);
             AnimatorSet animatorSet = new AnimatorSet();
-            ObjectAnimator duration = ObjectAnimator.ofFloat(view2, "translationY", -dimensionPixelSize).setDuration(500L);
+            ObjectAnimator duration = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, -dimensionPixelSize).setDuration(500L);
             duration.setInterpolator(create);
-            ObjectAnimator duration2 = ObjectAnimator.ofFloat(view2, "alpha", 1.0f, 1.0f).setDuration(TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
-            ObjectAnimator duration3 = ObjectAnimator.ofFloat(view2, "translationY", 0.0f).setDuration(500L);
+            ObjectAnimator duration2 = ObjectAnimator.ofFloat(view2, Key.ALPHA, 1.0f, 1.0f).setDuration(TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
+            ObjectAnimator duration3 = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, 0.0f).setDuration(500L);
             duration3.setInterpolator(create);
             animatorSet.playSequentially(duration, duration2, duration3);
             return animatorSet;
@@ -180,9 +181,9 @@ public final class g extends v implements View.OnClickListener {
     public final void e(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) {
-            super.a(viewGroup, R.id.obfuscated_res_0x7f09100d, R.id.obfuscated_res_0x7f09100b);
+            super.a(viewGroup, R.id.obfuscated_res_0x7f091063, R.id.obfuscated_res_0x7f091061);
             if (this.eQ == null) {
-                this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09100c);
+                this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091062);
             }
             this.pV.setOnClickListener(this);
         }

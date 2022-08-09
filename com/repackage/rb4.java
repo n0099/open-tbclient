@@ -1,11 +1,107 @@
 package com.repackage;
 
-import androidx.annotation.Nullable;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
-public interface rb4 {
-    void a(JSONArray jSONArray, b84 b84Var, @Nullable b84 b84Var2, @Nullable b84 b84Var3);
+public class rb4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public List<a> a;
 
-    void b(JSONObject jSONObject, b84 b84Var, @Nullable b84 b84Var2, @Nullable b84 b84Var3);
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public String b;
+        public int c;
+        public w94 d;
+        public List<x94> e;
+        public List<y94> f;
+        public PMSAppInfo g;
+        public boolean h;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            w94 w94Var;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                if (super.equals(obj)) {
+                    return true;
+                }
+                if (obj == null || (w94Var = this.d) == null || !(obj instanceof a)) {
+                    return false;
+                }
+                return w94Var.equals(((a) obj).d);
+            }
+            return invokeL.booleanValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                w94 w94Var = this.d;
+                if (w94Var == null) {
+                    return super.hashCode();
+                }
+                return w94Var.hashCode();
+            }
+            return invokeV.intValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("PMS Item: ");
+                sb.append(this.b);
+                if (this.d != null) {
+                    sb.append(",pkgMain=");
+                    sb.append(this.d);
+                }
+                if (this.g != null) {
+                    sb.append(",appInfo=");
+                    sb.append(this.g);
+                }
+                return sb.toString();
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    public rb4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
-import com.repackage.qg;
+import com.repackage.qi;
+import com.repackage.rg;
 /* loaded from: classes2.dex */
 public class NightPluginTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -88,8 +88,8 @@ public class NightPluginTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.mNightInstallListener.setTag(this.tag);
             MessageManager.getInstance().registerListener(this.mNightInstallListener);
-            if (FixNpsAnrSwitch.getIsOn() && pi.o() > 1) {
-                qg.a().postDelayed(new Runnable(this) { // from class: com.baidu.searchbox.task.async.privacy.NightPluginTask.2
+            if (FixNpsAnrSwitch.getIsOn() && qi.o() > 1) {
+                rg.a().postDelayed(new Runnable(this) { // from class: com.baidu.searchbox.task.async.privacy.NightPluginTask.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ NightPluginTask this$0;

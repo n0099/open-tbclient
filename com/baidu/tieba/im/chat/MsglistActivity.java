@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
@@ -14,11 +13,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d47;
-import com.repackage.i47;
-import com.repackage.ld5;
+import com.repackage.c67;
+import com.repackage.ke5;
+import com.repackage.x57;
 /* loaded from: classes3.dex */
-public abstract class MsglistActivity<T> extends TalkableActivity<T> implements d47 {
+public abstract class MsglistActivity<T> extends TalkableActivity<T> implements x57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean u;
@@ -37,68 +36,25 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
     }
 
-    public abstract boolean X0(d47 d47Var);
+    public abstract void initView();
 
-    public abstract boolean a1(Bundle bundle);
+    public abstract boolean m1(x57 x57Var);
 
-    public boolean b1() {
+    public abstract boolean n1(Bundle bundle);
+
+    public boolean o1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public boolean c1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c.loadDraft() : invokeV.booleanValue;
-    }
-
-    public void d1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    public void e1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
-                this.b.showReceiver();
-            } else {
-                this.b.closeReceiver();
-            }
-        }
-    }
-
-    public void g1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.d47
-    public void i0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            d1();
-        }
-    }
-
-    public void i1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-        }
-    }
-
-    public abstract void initView();
-
     @Override // androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onBackPressed();
         }
     }
@@ -106,7 +62,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             View view2 = this.o;
             if (view2 != null) {
                 SkinManager.setBackgroundColor(view2, R.color.CAM_X0201);
@@ -121,9 +77,9 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            if (!a1(bundle)) {
+            if (!n1(bundle)) {
                 finish();
                 return;
             }
@@ -133,11 +89,11 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
             if (msglistModel != null) {
                 msglistModel.setImageUploadUIProgressCallback(this.j);
             }
-            D0();
-            if (X0(this)) {
-                c1();
-                g1();
-                i47.a = ld5.b();
+            T0();
+            if (m1(this)) {
+                p1();
+                s1();
+                c67.a = ke5.b();
             }
         }
     }
@@ -145,31 +101,31 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            i1();
+            t1();
         }
     }
 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent) == null) {
             super.onNewIntent(intent);
             MsglistModel msglistModel = this.c;
             if (msglistModel != null) {
                 msglistModel.onDestroy();
             }
             setIntent(intent);
-            if (!a1(null)) {
+            if (!n1(null)) {
                 finish();
                 return;
             }
             initView();
             adjustResizeForSoftInput(R.color.common_color_10022, false);
-            D0();
-            if (X0(this)) {
-                c1();
+            T0();
+            if (m1(this)) {
+                p1();
             }
         }
     }
@@ -177,13 +133,56 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onResume();
             AbsMsglistView absMsglistView = this.b;
             if (absMsglistView != null) {
                 absMsglistView.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-                e1();
+                r1();
             }
+        }
+    }
+
+    public boolean p1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.c.loadDraft() : invokeV.booleanValue;
+    }
+
+    public void q1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        }
+    }
+
+    public void r1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
+                this.b.showReceiver();
+            } else {
+                this.b.closeReceiver();
+            }
+        }
+    }
+
+    public void s1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        }
+    }
+
+    public void t1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.x57
+    public void x0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            q1();
         }
     }
 }

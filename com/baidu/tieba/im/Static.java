@@ -20,16 +20,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bb;
-import com.repackage.y67;
-import com.repackage.z87;
+import com.repackage.cb;
+import com.repackage.s87;
+import com.repackage.ta7;
 /* loaded from: classes3.dex */
 public class Static {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class a extends bb {
+    public static class a extends cb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -68,7 +68,7 @@ public class Static {
     }
 
     /* loaded from: classes3.dex */
-    public static class b extends bb {
+    public static class b extends cb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -101,21 +101,21 @@ public class Static {
                 RequestAddGroupMessage requestAddGroupMessage = (RequestAddGroupMessage) responseAddGroupMessage.getOrginalMessage();
                 ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                 imMessageCenterPojo.setGroup_name(requestAddGroupMessage.getName());
-                imMessageCenterPojo.setCustomGroupType(y67.a(requestAddGroupMessage.getGroupType()));
+                imMessageCenterPojo.setCustomGroupType(s87.a(requestAddGroupMessage.getGroupType()));
                 AddGroupInfoData addGroupInfo = responseAddGroupMessage.getAddGroupInfo();
                 if (addGroupInfo == null) {
                     return;
                 }
                 imMessageCenterPojo.setGroup_head(addGroupInfo.getPortrait());
                 imMessageCenterPojo.setGid(String.valueOf(addGroupInfo.getGroupId()));
-                imMessageCenterPojo.setPulled_msgId(z87.a(1L));
+                imMessageCenterPojo.setPulled_msgId(ta7.a(1L));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016016, imMessageCenterPojo));
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class c extends bb {
+    public static class c extends cb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

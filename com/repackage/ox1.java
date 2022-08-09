@@ -1,18 +1,14 @@
 package com.repackage;
 
-import android.content.Context;
 import android.text.TextUtils;
+import android.util.ArrayMap;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.SchemeConfig;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
+import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,127 +16,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fk1;
-import com.repackage.gl2;
-import java.io.File;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import okhttp3.Response;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class ox1 extends f23 {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+/* loaded from: classes7.dex */
+public final class ox1 {
     public static /* synthetic */ Interceptable $ic;
-    public static Set<String> f;
-    public static final Set<String> g;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public ExecutorService c;
-    public int d;
-    public qx1 e;
-
-    /* loaded from: classes6.dex */
-    public class a implements fk1.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ CallbackHandler c;
-        public final /* synthetic */ ox1 d;
-
-        public a(ox1 ox1Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ox1Var, context, unitedSchemeEntity, callbackHandler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = ox1Var;
-            this.a = context;
-            this.b = unitedSchemeEntity;
-            this.c = callbackHandler;
-        }
-
-        @Override // com.repackage.fk1.b
-        public void a(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                if (z) {
-                    ix1.c("LocalDebugAction", "Authentication Success");
-                    ox1.g.add(this.d.o(this.a));
-                    this.d.p(this.a, this.b, this.c);
-                    return;
-                }
-                ix1.c("LocalDebugAction", "Authentication Fail : Not developer");
-                this.d.w(this.a, this.b, 401);
-            }
-        }
-
-        @Override // com.repackage.fk1.b
-        public void b(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                ix1.d("LocalDebugAction", "onFail : Authentication exception :", exc);
-                this.d.w(this.a, this.b, 401);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ File c;
-        public final /* synthetic */ UnitedSchemeEntity d;
-        public final /* synthetic */ CallbackHandler e;
-        public final /* synthetic */ ox1 f;
-
-        public b(ox1 ox1Var, Context context, String str, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ox1Var, context, str, file, unitedSchemeEntity, callbackHandler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = ox1Var;
-            this.a = context;
-            this.b = str;
-            this.c = file;
-            this.d = unitedSchemeEntity;
-            this.e = callbackHandler;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f.x(this.a, this.b, this.c, this.d, this.e);
-            }
-        }
-    }
+    @NonNull
+    public dg3 a;
+    @NonNull
+    public ArrayMap<String, ow1> b;
+    @NonNull
+    public ArrayMap<String, List<ow1>> c;
 
     static {
         InterceptResult invokeClinit;
@@ -155,250 +44,299 @@ public class ox1 extends f23 {
                 return;
             }
         }
-        g = new HashSet();
+        d = jh1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ox1(f13 f13Var) {
-        super(f13Var, "/swanAPI/localdebuglaunch");
+    public ox1(@NonNull dg3 dg3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {f13Var};
+            Object[] objArr = {dg3Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = dg3Var;
+        this.b = new ArrayMap<>();
+        this.c = new ArrayMap<>();
     }
 
-    @Override // com.repackage.f23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
-        InterceptResult invokeLLLL;
+    @Nullable
+    public SwanAppComponentContainerView a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
-            if (!t()) {
-                ix1.c("LocalDebugAction", "switch is off");
-                w(context, unitedSchemeEntity, 1003);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            ow1 ow1Var = this.b.get(str);
+            if (ow1Var == null) {
+                zx1.c("Component-Container", "getContainerView : get a null  component#" + str);
+                return null;
+            }
+            return ow1Var.m();
+        }
+        return (SwanAppComponentContainerView) invokeL.objValue;
+    }
+
+    @UiThread
+    public boolean b(ow1 ow1Var) {
+        InterceptResult invokeL;
+        boolean b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ow1Var)) == null) {
+            if (ow1Var == null) {
+                sx1.a("Component-Container", "insert component with a null component");
                 return false;
             }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
-                this.e = qx1.c(optParamsAsJo);
-                if (n93.e(0).swanCoreVersionCode < this.e.h) {
-                    ix1.c("LocalDebugAction", "swan js version is low");
-                    w(context, unitedSchemeEntity, 1002);
+            pw1 n = ow1Var.n();
+            String str = n.a;
+            String str2 = n.b;
+            String o = ow1Var.o();
+            SwanAppComponentContainerView m = ow1Var.m();
+            if (m == null) {
+                sx1.a("Component-Container", "insert " + o + " with a null container view");
+                return false;
+            }
+            if (this.b.containsKey(str2)) {
+                zx1.o("Component-Container", o + " repeat insert: " + str2);
+            }
+            if (TextUtils.isEmpty(str2)) {
+                sx1.a("Component-Container", "insert " + o + " with a empty component id");
+                return false;
+            }
+            fr2 fr2Var = n.h;
+            if (fr2Var == null) {
+                sx1.a("Component-Container", "insert " + o + " with a null position");
+                return false;
+            }
+            if (!fr2Var.h()) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("insert ");
+                sb.append(o);
+                sb.append(" with a invalid position: ");
+                Object obj = n.h;
+                if (obj == null) {
+                    obj = StringUtil.NULL_STRING;
+                }
+                sb.append(obj);
+                sx1.a("Component-Container", sb.toString());
+                n.h = new fr2();
+            }
+            if (!nx1.c(n)) {
+                if (TextUtils.isEmpty(n.d)) {
+                    b = this.a.c(m, n.h);
+                } else {
+                    SwanAppComponentContainerView a = a(n.d);
+                    if (a == null) {
+                        zx1.c("Component-Container", "insert " + o + " to parent with a null parent container view");
+                        return false;
+                    }
+                    if (a.indexOfChild(m) >= 0) {
+                        sx1.a("Component-Container", o + " repeat insert view!");
+                        a.removeView(m);
+                    }
+                    a.addView(m, n.b());
+                    b = true;
+                }
+            } else {
+                b = nx1.b(this, n, m);
+                if (!b) {
+                    sx1.a("Component-Container", o + " insertComponentForScroll fail");
+                }
+            }
+            if (b) {
+                this.b.put(n.b, ow1Var);
+                if (ow1Var.s(2)) {
+                    zx1.o("Component-Container", o + " insert with FLAG_CAN_NO_COMPONENT_ID");
+                    List<ow1> list = this.c.get(str);
+                    if (list == null) {
+                        list = new ArrayList<>();
+                        this.c.put(str, list);
+                    }
+                    list.add(ow1Var);
+                }
+            }
+            return b;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void c() {
+        ow1 value;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (d) {
+                Log.d("Component-Container", "container destroy");
+            }
+            for (Map.Entry<String, ow1> entry : this.b.entrySet()) {
+                if (entry != null && (value = entry.getValue()) != null) {
+                    value.y();
+                }
+            }
+            this.b.clear();
+            this.c.clear();
+        }
+    }
+
+    public final boolean d(@NonNull ow1 ow1Var, @NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull pw1 pw1Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, ow1Var, swanAppComponentContainerView, pw1Var)) == null) {
+            String o = ow1Var.o();
+            if (d) {
+                Log.d("Component-Container", o + " perform position update");
+            }
+            fr2 fr2Var = pw1Var.h;
+            if (fr2Var != null && fr2Var.h()) {
+                if (nx1.c(pw1Var) && !nx1.e(this, pw1Var, swanAppComponentContainerView)) {
+                    sx1.a("Component-Container", o + " performPositionUpdateForScroll fail");
+                }
+                String str = pw1Var.d;
+                if (TextUtils.isEmpty(str)) {
+                    return this.a.a(swanAppComponentContainerView, pw1Var.h);
+                }
+                SwanAppComponentContainerView a = a(str);
+                if (a == null) {
+                    zx1.c("Component-Container", "update " + o + " to parent with a null parent container view");
                     return false;
-                } else if (!u()) {
-                    ix1.c("LocalDebugAction", "debug model invalid");
-                    w(context, unitedSchemeEntity, 202);
-                    return false;
-                } else if (!SwanAppAllianceLoginHelper.d.f() && !s().contains(pj2.h0().h(context)) && !g.contains(o(context))) {
-                    vg1.b(this.e.b, new a(this, context, unitedSchemeEntity, callbackHandler));
+                } else if (swanAppComponentContainerView.getParent() == a) {
+                    a.updateViewLayout(swanAppComponentContainerView, pw1Var.b());
                     return true;
                 } else {
-                    p(context, unitedSchemeEntity, callbackHandler);
-                    return true;
+                    sx1.a("Component-Container", "update " + o + " to parent with a illegal parent view");
+                    return false;
                 }
-            }
-            ix1.c("LocalDebugAction", "param is null");
-            w(context, unitedSchemeEntity, 202);
-            return false;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final String o(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            return pj2.h0().h(context) + this.e.b;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final void p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler) == null) {
-            File b2 = px1.b();
-            if (b2.exists()) {
-                boolean L = kg4.L(b2);
-                ix1.i("LocalDebugAction", "debug bundle delete: " + L);
-            }
-            if (px1.g()) {
-                boolean L2 = kg4.L(px1.d());
-                ix1.i("LocalDebugAction", "unzip folder delete: " + L2);
-            }
-            this.c = Executors.newFixedThreadPool(4);
-            this.d = 0;
-            rx1.e().f("downloadstart");
-            for (int i = 0; i < this.e.c.length(); i++) {
-                String a2 = this.e.a(i);
-                if (TextUtils.isEmpty(a2)) {
-                    int i2 = this.d + 1;
-                    this.d = i2;
-                    if (i2 >= this.e.c.length()) {
-                        ix1.c("LocalDebugAction", "IPs are invalid");
-                        w(context, unitedSchemeEntity, 202);
-                        rx1.e().f("downloadfail");
-                    }
-                } else {
-                    this.c.execute(new b(this, context, a2, b2, unitedSchemeEntity, callbackHandler));
-                }
-            }
-        }
-    }
-
-    public final void q() {
-        i03 b0;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (b0 = i03.b0()) == null) {
-            return;
-        }
-        rc3.j(b0.w());
-        System.exit(0);
-    }
-
-    public final String r(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            try {
-                return URLEncoder.encode(str, "UTF-8");
-            } catch (UnsupportedEncodingException e) {
-                if (f23.b) {
-                    Log.e("LocalDebugAction", "url encode fail", e);
-                    return str;
-                }
-                return str;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final Set<String> s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (f == null) {
-                f = new HashSet();
-                p74 b2 = r74.b();
-                String string = b2 != null ? b2.i().getString("auth_white_list", "") : "";
-                JSONArray jSONArray = null;
-                try {
-                    jSONArray = new JSONArray(string);
-                } catch (JSONException unused) {
-                    if (f23.b) {
-                        Log.d("LocalDebugAction", "JSONException: parse cloud white list");
-                    }
-                }
-                if (jSONArray != null) {
-                    for (int i = 0; i < jSONArray.length(); i++) {
-                        f.add(jSONArray.optString(i));
-                    }
-                }
-            }
-            return f;
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public final boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            p74 b2 = r74.b();
-            return TextUtils.equals(b2 != null ? b2.i().getString("enable_local_debug_switch", "1") : "1", "1");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean u() {
-        InterceptResult invokeV;
-        JSONArray jSONArray;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (TextUtils.isEmpty(this.e.a) || TextUtils.isEmpty(this.e.b) || (jSONArray = this.e.c) == null || jSONArray.length() <= 0 || TextUtils.isEmpty(this.e.d)) ? false : true : invokeV.booleanValue;
-    }
-
-    public final gl2.a v(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, unitedSchemeEntity)) == null) {
-            String uri = (unitedSchemeEntity == null || unitedSchemeEntity.getUri() == null) ? "" : unitedSchemeEntity.getUri().toString();
-            ix1.i("LocalDebugAction", "local debug scheme = " + uri);
-            return (gl2.a) ((gl2.a) ((gl2.a) ((gl2.a) ((gl2.a) ((gl2.a) ((gl2.a) new gl2.a().v0(this.e.b)).A0(false)).L0(true)).M0(this.e.e)).N0(this.e.f)).K0(uri)).P0(this.e.g);
-        }
-        return (gl2.a) invokeL.objValue;
-    }
-
-    public final void w(Context context, UnitedSchemeEntity unitedSchemeEntity, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048585, this, context, unitedSchemeEntity, i) == null) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(i);
-            p74 b2 = r74.b();
-            String string = b2 != null ? b2.i().getString("error_url", "") : "";
-            if (TextUtils.isEmpty(string)) {
-                a03.g(context, "IPs are invalid ：" + i).G();
-                return;
             }
             StringBuilder sb = new StringBuilder();
-            sb.append(SchemeConfig.getSchemeHead());
-            sb.append("://v1/easybrowse/open?url=");
-            sb.append(r(string + "?" + i));
-            SchemeRouter.invoke(context, sb.toString());
+            sb.append("insert ");
+            sb.append(o);
+            sb.append(" with a invalid position: ");
+            Object obj = pw1Var.h;
+            if (obj == null) {
+                obj = StringUtil.NULL_STRING;
+            }
+            sb.append(obj);
+            sx1.a("Component-Container", sb.toString());
+            return false;
         }
+        return invokeLLL.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x00c4, code lost:
-        if (r6 >= r4.e.c.length()) goto L37;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void x(Context context, String str, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+    @UiThread
+    public boolean e(ow1 ow1Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048586, this, context, str, file, unitedSchemeEntity, callbackHandler) == null) {
-            try {
-                Response executeSync = k74.g().getRequest().url(this.e.b(str)).connectionTimeout(3000).build().executeSync();
-                if (executeSync != null && executeSync.code() == 200 && executeSync.body() != null) {
-                    boolean a2 = ng4.a(executeSync.body().byteStream(), file);
-                    ix1.i("LocalDebugAction", "save debug bundle: " + a2);
-                    rx1.e().f("downloadsuccess");
-                    this.e.e = str;
-                    context.startActivity(gl2.g1(context, v(unitedSchemeEntity)));
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    if (this.c != null) {
-                        this.c.shutdownNow();
-                        this.c = null;
-                    }
-                    if (!ProcessUtils.isMainProcess()) {
-                        if (f23.b) {
-                            Log.d("LocalDebugAction", "Suicide for reload.");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, ow1Var)) == null) {
+            boolean z = false;
+            if (ow1Var == null) {
+                sx1.a("Component-Container", "remove component with a null component");
+                return false;
+            }
+            pw1 n = ow1Var.n();
+            String str = n.a;
+            String str2 = n.b;
+            String o = ow1Var.o();
+            SwanAppComponentContainerView m = ow1Var.m();
+            if (m == null) {
+                sx1.a("Component-Container", "remove " + o + " with a null container view");
+                return false;
+            } else if (TextUtils.isEmpty(str2)) {
+                sx1.a("Component-Container", "remove " + o + " with a empty component id");
+                return false;
+            } else {
+                if (!nx1.c(n)) {
+                    if (TextUtils.isEmpty(n.d)) {
+                        z = this.a.removeView(m);
+                    } else {
+                        SwanAppComponentContainerView a = a(n.d);
+                        if (a == null) {
+                            zx1.c("Component-Container", "remove " + o + " to parent with a null parent container view");
+                        } else if (a == m.getParent()) {
+                            a.removeView(m);
+                            z = true;
+                        } else {
+                            sx1.a("Component-Container", "remove " + o + " to parent with a illegal parent view");
                         }
-                        q();
+                    }
+                } else {
+                    z = nx1.g(this, n, m);
+                    if (!z) {
+                        sx1.a("Component-Container", o + " removeComponentForScroll fail");
                     }
                 }
-                if (executeSync != null) {
-                    executeSync.close();
-                }
-            } catch (IOException unused) {
-                synchronized (this) {
-                    if (this.e.c != null) {
-                        int i = this.d + 1;
-                        this.d = i;
+                if (z || ow1Var.s(1)) {
+                    this.b.remove(str2);
+                    if (ow1Var.s(2)) {
+                        zx1.o("Component-Container", o + " remove with FLAG_CAN_NO_COMPONENT_ID");
+                        List<ow1> list = this.c.get(str);
+                        if (list != null) {
+                            list.remove(ow1Var);
+                        }
                     }
-                    ix1.c("LocalDebugAction", "Host IPs are invalid");
-                    w(context, unitedSchemeEntity, 1001);
-                    rx1.e().f("downloadfail");
                 }
+                return z;
             }
         }
+        return invokeL.booleanValue;
+    }
+
+    @UiThread
+    public boolean f(ow1 ow1Var, @NonNull rx1 rx1Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, ow1Var, rx1Var)) == null) {
+            if (ow1Var == null) {
+                sx1.a("Component-Container", "update component with a null component");
+                return false;
+            }
+            pw1 n = ow1Var.n();
+            String o = ow1Var.o();
+            SwanAppComponentContainerView m = ow1Var.m();
+            if (m == null) {
+                sx1.a("Component-Container", "update " + o + " with a null container view");
+                return false;
+            }
+            if (!this.b.containsKey(n.b)) {
+                zx1.c("Component-Container", "don't insert" + o);
+            }
+            if (ow1Var instanceof gx1) {
+                if (rx1Var.a(7)) {
+                    boolean d2 = nx1.d(this, ow1Var, n, m, rx1Var);
+                    if (!d2) {
+                        sx1.a("Component-Container", o + " perform scroll type update fail");
+                    }
+                    return d2;
+                } else if (rx1Var.a(8)) {
+                    nx1.f(this, ow1Var, n, m, rx1Var);
+                }
+            }
+            if (rx1Var.a(3) && !d(ow1Var, m, n)) {
+                zx1.c("Component-Container", o + " perform position update fail");
+                return false;
+            } else if (ow1Var instanceof mw1) {
+                mw1 mw1Var = (mw1) ow1Var;
+                if (mw1Var.J()) {
+                    if (d) {
+                        Log.d("Component-Container", o + "perform position update with animation");
+                    }
+                    if (mw1Var.M()) {
+                        return true;
+                    }
+                    zx1.c("Component-Container", o + " perform position update with animation fail");
+                    return false;
+                }
+                return true;
+            } else {
+                return true;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 }

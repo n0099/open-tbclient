@@ -1,13 +1,14 @@
 package com.repackage;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
+import java.io.File;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
 public interface fm1 {
-    void a(Context context, bf3<Boolean> bf3Var);
+    void a(@NonNull JSONArray jSONArray);
 
-    void b(boolean z, bf3<String> bf3Var);
+    c52 b(Context context, File file, long j);
 
-    void c(Context context, bf3<String> bf3Var);
-
-    void d(bf3<Integer> bf3Var);
+    void c(@NonNull JSONArray jSONArray);
 }

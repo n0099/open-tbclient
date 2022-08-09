@@ -52,7 +52,7 @@ public class UpdateServerProtocolMgr {
             hashMap.put("devid", GlobalTools.APP_DEV_ID);
             hashMap.put("gslbid", DataCacheMgr.INSTANCE.getIdentity(GlobalTools.APP_CONTEXT));
             hashMap.put("appid", GlobalTools.ACCOUNT_ID);
-            hashMap.put("version", "2.2.18-lianyun");
+            hashMap.put("version", "2.2.28-live");
             if (z) {
                 return HTTPMgr.getHttps("https://" + str3, GlobalTools.HTTPDNS_SERVER_HOST, hashMap);
             }

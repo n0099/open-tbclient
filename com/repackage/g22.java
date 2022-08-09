@@ -1,121 +1,58 @@
 package com.repackage;
 
-import android.content.Context;
-import android.util.Log;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.SwanAppWebViewManager;
-import com.baidu.swan.apps.core.container.NgWebView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class g22 extends SwanAppWebViewManager implements Object<NgWebView>, e22 {
+public class g22 extends a22<JSONObject, zs1> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean x;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String w;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755730006, "Lcom/repackage/g22;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755730006, "Lcom/repackage/g22;");
-                return;
-            }
-        }
-        x = sg1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g22(Context context) {
-        super(context);
+    public g22() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.w = o22.b();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.e22
-    public void E(w62 w62Var) {
+    @NonNull
+    /* renamed from: c */
+    public zs1 a(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, w62Var) == null) || w62Var == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return new zs1(202);
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            if (optJSONObject == null) {
+                return new zs1(202, "data is required");
+            }
+            String optString = optJSONObject.optString("content");
+            String optString2 = optJSONObject.optString("type");
+            String optString3 = optJSONObject.optString("source");
+            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3)) {
+                zx1.k("Api-HandleException", String.format("发生jserror: type = %s, source = %s, content = %s", optString2, optString3, optString));
+                e12.d().e(c12.a(optString2, optString, optString3));
+                return new zs1(0);
+            }
+            return new zs1(202);
         }
-        if (x) {
-            Log.d("SwanAppMasterManager", "pathList item: " + w62Var.b);
-        }
-        this.b.getSettings().setCodeCacheSetting(bz1.a("appjs", w62Var.b));
-    }
-
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void N0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void X0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.qm1
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.w : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.e22
-    public gz1 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? t() : (gz1) invokeV.objValue;
-    }
-
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.qm1
-    public void loadUrl(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            super.loadUrl(str);
-        }
-    }
-
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.qm1
-    public void onJSLoaded() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            c72.U().w0(true);
-        }
-    }
-
-    @Override // com.repackage.e22
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-        }
+        return (zs1) invokeL.objValue;
     }
 }

@@ -1,94 +1,146 @@
 package com.repackage;
 
-import android.graphics.drawable.Drawable;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.util.SparseIntArray;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
+import com.baidu.tieba.pb.pb.sub.adapter.SubPbReplyAdapter;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class sz7 {
     public static /* synthetic */ Interceptable $ic;
-    public static SparseIntArray a;
     public transient /* synthetic */ FieldHolder $fh;
+    public wz7 a;
+    public SubPbReplyAdapter b;
+    public NewSubPbActivity c;
+    public BdTypeListView d;
+    public List<bn> e;
+    public View.OnClickListener f;
+    public yn g;
+    public boolean h;
+    public boolean i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755303167, "Lcom/repackage/sz7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755303167, "Lcom/repackage/sz7;");
+    public sz7(NewSubPbActivity newSubPbActivity, BdTypeListView bdTypeListView) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {newSubPbActivity, bdTypeListView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new SparseIntArray();
+        this.e = new ArrayList();
+        this.f = null;
+        this.h = false;
+        this.i = true;
+        this.c = newSubPbActivity;
+        this.d = bdTypeListView;
     }
 
-    public static void a(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{smallTailInfo, textView, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || smallTailInfo == null || textView == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.h : invokeV.booleanValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            wz7 wz7Var = new wz7(this.c, PostData.K0);
+            this.a = wz7Var;
+            wz7Var.e(this.f);
+            this.a.setOnAdapterItemClickListener(this.g);
+            this.a.setFromCDN(this.i);
+            this.e.add(this.a);
+            SubPbReplyAdapter subPbReplyAdapter = new SubPbReplyAdapter(this.c, zz7.b);
+            this.b = subPbReplyAdapter;
+            this.e.add(subPbReplyAdapter);
+            this.e.add(new xz7(this.c, yz7.a));
+            this.d.a(this.e);
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.d.getAdapter2() == null) {
             return;
         }
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
-        int b = b(R.dimen.obfuscated_res_0x7f070207);
-        if (z2 && z3) {
-            layoutParams.setMargins(b, b(R.dimen.obfuscated_res_0x7f070302), b, b(R.dimen.obfuscated_res_0x7f07025f));
-        } else if (z) {
-            layoutParams.setMargins(0, b(R.dimen.obfuscated_res_0x7f070302), 0, 0);
-        } else if (!z2) {
-            layoutParams.setMargins(b(R.dimen.obfuscated_res_0x7f070231), b(R.dimen.obfuscated_res_0x7f070302), b(R.dimen.obfuscated_res_0x7f07020f), b(R.dimen.obfuscated_res_0x7f0701b2));
-        } else {
-            layoutParams.setMargins(b, b(R.dimen.obfuscated_res_0x7f070302), b, b(R.dimen.obfuscated_res_0x7f0701b2));
-        }
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        spannableStringBuilder.append((CharSequence) "icon");
-        spannableStringBuilder.append((CharSequence) smallTailInfo.tailSpannable);
-        Drawable drawable = SkinManager.getDrawable(R.drawable.icon_pb_tail);
-        drawable.setBounds(0, 0, b, b);
-        ze5 ze5Var = new ze5(drawable);
-        ze5Var.c(b(R.dimen.obfuscated_res_0x7f070224));
-        spannableStringBuilder.setSpan(ze5Var, 0, 4, 33);
-        textView.setLayoutParams(layoutParams);
-        textView.setText(spannableStringBuilder);
-        textView.setTextColor(smallTailInfo.showColorId);
-        textView.setVisibility(0);
+        this.d.getAdapter2().notifyDataSetChanged();
     }
 
-    public static int b(int i) {
-        InterceptResult invokeI;
+    public void d(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            int i2 = a.get(i, -1);
-            if (i2 == -1) {
-                int f = pi.f(TbadkCoreApplication.getInst().getContext(), i);
-                a.put(i, f);
-                return f;
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            this.f = onClickListener;
+        }
+    }
+
+    public void e(ThreadData threadData, List<on> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, threadData, list) == null) {
+            this.a.G(threadData);
+            if (!pi.isEmpty(this.c.m3().s0())) {
+                this.a.F(this.c.m3().s0());
             }
-            return i2;
+            NewSubPbActivity newSubPbActivity = this.c;
+            if (newSubPbActivity != null && newSubPbActivity.m3() != null) {
+                this.a.D(this.c.m3().N0());
+            }
+            this.d.setData(list);
+            this.d.getAdapter2().notifyDataSetChanged();
         }
-        return invokeI.intValue;
     }
 
-    public static void c(SmallTailInfo smallTailInfo, TextView textView, boolean z, boolean z2, boolean z3) {
-        SpannableString spannableString;
+    public void f(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{smallTailInfo, textView, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || smallTailInfo == null || (spannableString = smallTailInfo.tailSpannable) == null || spannableString.length() == 0 || textView == null) {
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.i = z;
+        }
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.h = z;
+        }
+    }
+
+    public void h(View.OnLongClickListener onLongClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, onLongClickListener) == null) {
+            this.a.d(onLongClickListener);
+        }
+    }
+
+    public void i(boolean z) {
+        wz7 wz7Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) || (wz7Var = this.a) == null) {
             return;
         }
-        smallTailInfo.updateShowInfo();
-        a(smallTailInfo, textView, z, z2, z3);
+        wz7Var.E(z);
+    }
+
+    public void j(TbRichTextView.y yVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, yVar) == null) {
+            this.a.n(yVar);
+        }
     }
 }

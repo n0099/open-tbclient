@@ -1,48 +1,64 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes6.dex */
-public class ig1 implements dg1 {
+public final class ig1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hg1 a;
 
-    public ig1() {
+    public static byte[] a(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bArr, bArr2)) == null) {
+            try {
+                SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
+                Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
+                byte[] bArr3 = new byte[16];
+                for (int i = 0; i < 16; i++) {
+                    bArr3[i] = 0;
+                }
+                cipher.init(1, secretKeySpec, new IvParameterSpec(bArr3));
+                byte[] doFinal = cipher.doFinal(bArr2);
+                byte[] e = og1.e(bArr2);
+                byte[] bArr4 = new byte[doFinal.length + e.length];
+                System.arraycopy(doFinal, 0, bArr4, 0, doFinal.length);
+                System.arraycopy(e, 0, bArr4, doFinal.length, e.length);
+                return bArr4;
+            } catch (Throwable th) {
+                kg1.d(th);
+                return null;
             }
         }
-        this.a = null;
+        return (byte[]) invokeLL.objValue;
     }
 
-    @Override // com.repackage.dg1
-    public String a() {
-        InterceptResult invokeV;
+    public static byte[] b(byte[] bArr, byte[] bArr2, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a("OUID") : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.dg1
-    public void a(Context context, eg1 eg1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, eg1Var) == null) {
-            hg1 hg1Var = new hg1(context);
-            this.a = hg1Var;
-            hg1Var.b();
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, bArr, bArr2, z)) == null) {
+            try {
+                SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
+                Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
+                byte[] bArr3 = new byte[16];
+                for (int i = 0; i < 16; i++) {
+                    bArr3[i] = 0;
+                }
+                cipher.init(2, secretKeySpec, new IvParameterSpec(bArr3));
+                if (z) {
+                    byte[] bArr4 = new byte[bArr2.length - 16];
+                    System.arraycopy(bArr2, 0, bArr4, 0, bArr2.length - 16);
+                    bArr2 = bArr4;
+                }
+                return cipher.doFinal(bArr2);
+            } catch (Throwable unused) {
+                return null;
+            }
         }
+        return (byte[]) invokeLLZ.objValue;
     }
 }

@@ -1,162 +1,373 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.JsSerializeValue;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.connect.share.QzonePublish;
+import java.io.IOException;
+import java.util.Locale;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.HttpUrl;
+import okhttp3.Request;
+import okhttp3.Response;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class k14 extends n14 {
+public class k14 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
+    public gt1 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k14(s72 s72Var) {
-        super(s72Var);
+    /* loaded from: classes6.dex */
+    public class a implements lh1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ m14 a;
+        public final /* synthetic */ k14 b;
+
+        public a(k14 k14Var, m14 m14Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k14Var, m14Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = k14Var;
+            this.a = m14Var;
+        }
+
+        @Override // com.repackage.lh1
+        public void onResult(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i != 0) {
+                    if (k14.b) {
+                        Log.d("ShareVideoApi", "login fail");
+                    }
+                    this.b.j("shareVideo: fail, no login in");
+                    return;
+                }
+                if (k14.b) {
+                    Log.d("ShareVideoApi", "login success");
+                }
+                this.b.h(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements l14 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k14 a;
+
+        public b(k14 k14Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k14Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = k14Var;
+        }
+
+        @Override // com.repackage.l14
+        public void a(m14 m14Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, m14Var, str) == null) {
+                if (k14.b) {
+                    Log.d("ShareVideoApi", String.format("onFail params = %s;errMsg = %s", m14Var, str));
+                }
+                this.a.j(str);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c implements Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // okhttp3.Callback
+        public void onFailure(Call call, IOException iOException) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
+                if (k14.b) {
+                    iOException.printStackTrace();
+                }
+                k14.g();
+            }
+        }
+
+        @Override // okhttp3.Callback
+        public void onResponse(Call call, Response response) throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
+                try {
+                    JSONObject jSONObject = (JSONObject) new JSONObject(response.body().string()).opt("data");
+                    if (jSONObject != null) {
+                        String unused = k14.c = jSONObject.optString("community_id");
+                        k14.f(jSONObject.optString("url"));
+                        return;
+                    }
+                    k14.g();
+                } catch (JSONException e) {
+                    if (k14.b) {
+                        e.printStackTrace();
+                    }
+                    k14.g();
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755611741, "Lcom/repackage/k14;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755611741, "Lcom/repackage/k14;");
+                return;
+            }
+        }
+        b = jh1.a;
+        String str = tx1.c() + "/webpage";
+        c = "";
+    }
+
+    public k14(JsObject jsObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s72Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {jsObject};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((s72) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = gt1.F(jsObject);
     }
 
-    public final void g(JsObject jsObject, String str, String str2, r14 r14Var) {
+    public static /* synthetic */ String f(String str) {
+        return str;
+    }
+
+    public static void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, jsObject, str, str2, r14Var) == null) {
-            ps1 n = n(jsObject);
-            qu3 qu3Var = new qu3();
-            boolean g = r14Var.g();
-            qu3Var.errMsg = r14Var.c(str, str2);
-            t24.call(n, g, qu3Var);
-            if (g) {
-                return;
-            }
-            b14.i(str2, qu3Var.errMsg);
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            c = "";
         }
     }
 
-    public void h(JsObject jsObject) {
+    public static void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject) == null) {
-            g(jsObject, "clearStorage", "", a());
-        }
-    }
-
-    public final JsSerializeValue i(JsObject jsObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject)) == null) {
-            for (int i = 0; i < jsObject.length(); i++) {
-                if ("data".equals(jsObject.getPropertyName(i))) {
-                    return jsObject.toSerializeValue(i);
+        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
+            fz3 fz3Var = (fz3) z03.M().i0();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("app_type", 0);
+                jSONObject.put(GameGuideConfigInfo.KEY_APP_KEY, z03.g0());
+            } catch (JSONException e) {
+                if (b) {
+                    e.printStackTrace();
                 }
             }
-            return null;
+            HttpUrl.Builder newBuilder = HttpUrl.parse("https://gamecenter.baidu.com/api/ugc/query_community_by_app").newBuilder();
+            newBuilder.addQueryParameter("data", jSONObject.toString());
+            fz3Var.call(new Request.Builder().url(newBuilder.build()).build(), new c());
         }
-        return (JsSerializeValue) invokeL.objValue;
     }
 
-    public final r14 j(JsObject jsObject) {
-        InterceptResult invokeL;
+    public final void h(m14 m14Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jsObject)) == null) {
-            for (int i = 0; i < jsObject.length(); i++) {
-                if ("key".equals(jsObject.getPropertyName(i))) {
-                    int propertyType = jsObject.getPropertyType(i);
-                    return propertyType == 7 ? r14.i(jsObject.toString(i)) : r14.b(String.format("parameter error: the key must be string instead of %s.", r14.f(propertyType)));
-                }
-            }
-            return r14.b("parameter error: the parameter key is necessary.");
+        if (interceptable == null || interceptable.invokeL(1048576, this, m14Var) == null) {
+            px3.i().a(m14Var, new b(this));
         }
-        return (r14) invokeL.objValue;
     }
 
-    public void k(JsObject jsObject) {
-        String m;
+    public final void i() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, jsObject) == null) || (m = m(jsObject, "getStorage")) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            b83 b83Var = new b83();
+            b83Var.b = "shareVideo";
+            b83Var.e = com.baidu.pass.biometrics.face.liveness.b.a.g0;
+            s73.h(b83Var);
+        }
+    }
+
+    public final void j(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.a == null) {
             return;
         }
-        r14 c = c(m);
-        if (c.g()) {
-            p14 p14Var = new p14();
-            p14Var.errMsg = o14.b("getStorage");
-            Object d = c.d();
-            p14Var.data = d;
-            if (d instanceof JsSerializeValue) {
-                ((JsSerializeValue) d).setAutoRelease(false);
-            }
-            t24.call(n(jsObject), true, p14Var);
-            return;
-        }
-        g(jsObject, "getStorage", m, c);
+        hv3 hv3Var = new hv3();
+        hv3Var.errMsg = String.format(Locale.CHINA, "shareVideo: fail, %s", str);
+        k34.call(this.a, false, hv3Var);
+        i();
     }
 
-    public void l(JsObject jsObject) {
+    public final m14 k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jsObject) == null) {
-            ps1 n = n(jsObject);
-            q14 b = b();
-            b.errMsg = o14.b("getStorageInfo");
-            t24.call(n, true, b);
-        }
-    }
-
-    public final String m(JsObject jsObject, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, jsObject, str)) == null) {
-            r14 j = j(jsObject);
-            if (!j.g()) {
-                g(jsObject, str, "", j);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.a == null) {
+                i();
                 return null;
+            } else if (z03.M() == null) {
+                j("shareVideo: fail, swanApp is null");
+                return null;
+            } else {
+                String B = this.a.B(QzonePublish.PUBLISH_TO_QZONE_VIDEO_PATH);
+                if (TextUtils.isEmpty(B)) {
+                    j("shareVideo: videoPath is invalid");
+                    return null;
+                }
+                String B2 = jd2.B(B);
+                if (TextUtils.isEmpty(B2)) {
+                    j("shareVideo: videoPath is invalid");
+                    return null;
+                }
+                m14 m14Var = new m14();
+                m14Var.a = B2;
+                m14Var.c = this.a.B("title");
+                m14Var.b = this.a.B("query");
+                n14 n14Var = new n14();
+                n14Var.a = this.a.y("clipMaxDuration", 30L);
+                n14Var.b = this.a.y("clipMinDuration", 3L);
+                n14Var.c = this.a.B("topicSource");
+                n14Var.d = this.a.C("publishTitle", gk2.c().getResources().getString(R.string.obfuscated_res_0x7f0f1334));
+                n14Var.e = this.a.C("publishURL", "/searchbox?action=ugc&cmd=177");
+                n14Var.i = this.a.r("sourceType", 1);
+                n14Var.j = this.a.C("sourceFrom", "tiny");
+                n14Var.g = this.a.C("atURL", "baiduboxapp://v1/easybrowse/open?newbrowser=1&style=%7B%22menumode%22%3A%222%22%2C%22showtoolbar%22%3A%221%22%7D&url=https%3A%2F%2Fmbd.baidu.com%2Fwebpage%3Ftype%3Dtopic%26action%3Dat&newbrowser=1");
+                n14Var.f = this.a.C("musicURL", "https://sv.baidu.com/feedvideoui/view/videomusic");
+                n14Var.h = this.a.C("topicURL", "baiduboxapp://v1/easybrowse/open?newbrowser=1&style=%7B%22menumode%22%3A%222%22%2C%22showtoolbar%22%3A%221%22%7D&url=https%3A%2F%2Fsv.baidu.com%2Ffeedvideoui%2Fview%2Ftopiclist");
+                n14Var.k = this.a.C("publishType", "9");
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put(GameGuideConfigInfo.KEY_APP_KEY, z03.g0());
+                    jSONObject.put("frame_type", y03.K().k());
+                    jSONObject.put("query", m14Var.b);
+                    if (z03.M() != null && z03.M().Y() != null) {
+                        jSONObject.put("title", z03.M().Y().K());
+                    }
+                } catch (JSONException e) {
+                    if (b) {
+                        Log.d("ShareVideoApi", e.toString());
+                    }
+                }
+                jSONObject.toString();
+                if (!TextUtils.isEmpty(c)) {
+                    JSONObject jSONObject2 = new JSONObject();
+                    try {
+                        jSONObject2.put("id", c);
+                        if (z03.M() != null && z03.M().Y() != null) {
+                            jSONObject2.put("name", z03.M().Y().K());
+                        }
+                        jSONObject2.put("type", "interest");
+                        jSONObject2.put("post_id", "");
+                    } catch (JSONException e2) {
+                        if (b) {
+                            Log.d("ShareVideoApi", e2.toString());
+                        }
+                    }
+                    JSONArray jSONArray = new JSONArray();
+                    jSONArray.put(jSONObject2);
+                    JSONObject jSONObject3 = new JSONObject();
+                    try {
+                        jSONObject3.put("tag", jSONArray);
+                    } catch (JSONException e3) {
+                        if (b) {
+                            Log.d("ShareVideoApi", e3.toString());
+                        }
+                    }
+                    n14Var.l = jSONObject3.toString();
+                    n14Var.m = -1;
+                } else {
+                    n14Var.m = 0;
+                }
+                m14Var.e = n14Var;
+                return m14Var;
             }
-            return (String) j.d();
         }
-        return (String) invokeLL.objValue;
+        return (m14) invokeV.objValue;
     }
 
-    @NonNull
-    public final ps1 n(JsObject jsObject) {
-        InterceptResult invokeL;
+    public void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, jsObject)) == null) {
-            ps1 F = ps1.F(jsObject);
-            return F == null ? new ps1() : F;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            b83 b83Var = new b83();
+            b83Var.b = "shareVideo";
+            s73.h(b83Var);
+            m14 k = k();
+            if (k == null) {
+                return;
+            }
+            mh1 N = z03.M().N();
+            if (N.e(gk2.c())) {
+                h(k);
+                return;
+            }
+            SwanAppActivity activity = mm2.U().getActivity();
+            if (activity == null) {
+                j("shareVideo: swanAppActivity is null");
+            } else {
+                N.f(activity, null, new a(this, k));
+            }
         }
-        return (ps1) invokeL.objValue;
-    }
-
-    public void o(JsObject jsObject) {
-        String m;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsObject) == null) || (m = m(jsObject, "removeStorage")) == null) {
-            return;
-        }
-        g(jsObject, "removeStorage", m, e(m));
-    }
-
-    public void p(JsObject jsObject) {
-        String m;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, jsObject) == null) || (m = m(jsObject, "setStorage")) == null) {
-            return;
-        }
-        g(jsObject, "setStorage", m, f(m, i(jsObject)));
     }
 }

@@ -1,6 +1,9 @@
 package com.repackage;
 
 import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.text.TextPaint;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,10 +11,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class su1 extends ot1 {
+public class su1 extends fu1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public String a;
+    public int b;
+    public int c;
 
     public su1() {
         Interceptable interceptable = $ic;
@@ -23,28 +28,46 @@ public class su1 extends ot1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = -1;
     }
 
-    @Override // com.repackage.ot1
-    public void a(pt1 pt1Var, Canvas canvas) {
-        int i;
+    @Override // com.repackage.fu1
+    public void a(gu1 gu1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, pt1Var, canvas) == null) || (i = this.a) < 0) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, gu1Var, canvas) == null) || TextUtils.isEmpty(this.a)) {
             return;
         }
-        pt1Var.c.setStrokeMiter(i);
+        TextPaint textPaint = gu1Var.e;
+        int i = gu1Var.k;
+        Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
+        float f = fontMetrics.top;
+        int i2 = this.c;
+        float f2 = i2 + f;
+        float f3 = fontMetrics.ascent + i2;
+        float f4 = fontMetrics.bottom;
+        float f5 = i != 1 ? i != 2 ? i != 3 ? i2 : i2 - (f3 - f2) : (i2 + ((f4 - f) / 2.0f)) - f4 : i2 + (((i2 + f4) - f2) / 2.0f) + (f3 - f2);
+        int alpha = textPaint.getAlpha();
+        gu1Var.c(textPaint);
+        canvas.drawText(this.a, this.b, f5, textPaint);
+        textPaint.setAlpha(alpha);
     }
 
-    @Override // com.repackage.ot1
+    @Override // com.repackage.fu1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 0) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() > 2) {
+                    this.a = jSONArray.optString(0);
+                    this.b = qe3.g((float) jSONArray.optDouble(1));
+                    this.c = qe3.g((float) jSONArray.optDouble(2));
+                }
+            } catch (Exception e) {
+                if (jh1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
-        this.a = zd3.g((float) jSONArray.optDouble(0));
     }
 }

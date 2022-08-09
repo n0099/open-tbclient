@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kq7;
+import com.repackage.fs7;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {
@@ -57,7 +57,7 @@ public class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {
                 this.mScore = optJSONObject2.optInt("score");
                 this.isFirstAgree = optJSONObject2.optInt("is_first_agree") == 1;
             }
-            this.mActDialogData = kq7.a(optJSONObject);
+            this.mActDialogData = fs7.a(optJSONObject);
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("contri_info");
             ContriInfo contriInfo = new ContriInfo();
             this.mContriInfo = contriInfo;

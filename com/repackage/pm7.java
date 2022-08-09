@@ -1,53 +1,46 @@
 package com.repackage;
 
 import android.view.View;
-/* loaded from: classes6.dex */
-public interface pm7 {
-    void a();
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.ListAdapter;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class pm7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public BdListView a;
 
-    void b(boolean z);
+    public pm7(ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {viewGroup};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = (BdListView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092070);
+        View view2 = new View(viewGroup.getContext());
+        view2.setLayoutParams(new AbsListView.LayoutParams(-1, (int) viewGroup.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070201)));
+        this.a.addHeaderView(view2);
+    }
 
-    void c(int i);
-
-    void d(c37 c37Var);
-
-    void destroy();
-
-    void e();
-
-    void f(boolean z);
-
-    void g(long j, long j2);
-
-    View getRootView();
-
-    c37 h();
-
-    void i();
-
-    void j(boolean z, int i);
-
-    void k(int i);
-
-    int l();
-
-    void m();
-
-    void n(c37 c37Var);
-
-    void o(long j, long j2, int i);
-
-    b37 p(int i);
-
-    void pause();
-
-    void q();
-
-    void r();
-
-    void resume();
-
-    void s(int i);
-
-    void t(b37 b37Var, boolean z, int i);
+    public void a(jm7 jm7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jm7Var) == null) {
+            this.a.setAdapter((ListAdapter) jm7Var);
+        }
+    }
 }

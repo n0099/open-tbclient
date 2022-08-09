@@ -1,42 +1,44 @@
 package com.repackage;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.media.AudioManager;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qa3;
-import java.util.Arrays;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
-public class ra3 extends f23 {
+public class ra3 {
     public static /* synthetic */ Interceptable $ic;
+    public static ra3 e;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ConcurrentHashMap<String, b> a;
+    public AudioManager b;
+    public boolean c;
+    public BroadcastReceiver d;
 
     /* loaded from: classes7.dex */
-    public class a implements qa3.b {
+    public class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ UnitedSchemeEntity a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ ar1 c;
-        public final /* synthetic */ ra3 d;
+        public final /* synthetic */ ra3 this$0;
 
-        public a(ra3 ra3Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ar1 ar1Var) {
+        public a(ra3 ra3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ra3Var, unitedSchemeEntity, callbackHandler, ar1Var};
+                Object[] objArr = {ra3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,114 +48,156 @@ public class ra3 extends f23 {
                     return;
                 }
             }
-            this.d = ra3Var;
-            this.a = unitedSchemeEntity;
-            this.b = callbackHandler;
-            this.c = ar1Var;
+            this.this$0 = ra3Var;
         }
 
-        @Override // com.repackage.qa3.b
-        public void a(float[] fArr) {
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, fArr) == null) && fArr != null && fArr.length == 3) {
-                this.d.k(this.a, this.b, this.c, fArr);
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && "android.media.VOLUME_CHANGED_ACTION".equals(intent.getAction()) && intent.getIntExtra("android.media.EXTRA_VOLUME_STREAM_TYPE", -1) == 3) {
+                if (this.this$0.b == null) {
+                    this.this$0.b = (AudioManager) gk2.c().getSystemService("audio");
+                }
+                for (Map.Entry entry : this.this$0.a.entrySet()) {
+                    ((b) entry.getValue()).a(this.this$0.b != null ? this.this$0.b.getStreamVolume(3) : 0);
+                }
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ra3(f13 f13Var) {
-        super(f13Var, "/swanAPI/startDeviceMotion");
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(int i);
+    }
+
+    public ra3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {f13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new ConcurrentHashMap<>();
+        this.d = new a(this);
     }
 
-    @Override // com.repackage.f23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
-        InterceptResult invokeLLLL;
-        int i;
+    public static ra3 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
-            if (i03Var == null) {
-                ix1.c("StartDeviceMotionAction", "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal swanApp");
-                return false;
-            } else if (context == null) {
-                ix1.c("StartDeviceMotionAction", "none context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal context");
-                return false;
-            } else {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    ix1.c("StartDeviceMotionAction", "none params");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (e == null) {
+                synchronized (ra3.class) {
+                    if (e == null) {
+                        e = new ra3();
+                    }
                 }
-                String optString = optParamsAsJo.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    ix1.c("StartDeviceMotionAction", "cb is empty");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                String optString2 = optParamsAsJo.optString("interval");
-                if ("ui".equals(optString2)) {
-                    i = 2;
-                } else {
-                    i = "game".equals(optString2) ? 1 : 3;
-                }
-                ix1.i("StartDeviceMotionAction", "startSensor===");
-                ar1 ar1Var = new ar1("deviceMotionChange", optParamsAsJo, optString);
-                if (!qa3.h().l(i, new a(this, unitedSchemeEntity, callbackHandler, ar1Var))) {
-                    ix1.c("StartDeviceMotionAction", "start system sensor fail");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "start system sensor fail");
-                    return false;
-                }
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                ar1Var.a(unitedSchemeEntity, callbackHandler);
-                return true;
             }
+            return e;
         }
-        return invokeLLLL.booleanValue;
+        return (ra3) invokeV.objValue;
     }
 
-    public final void k(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ar1 ar1Var, float[] fArr) {
+    public static void h() {
+        ra3 ra3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, callbackHandler, ar1Var, fArr) == null) {
-            JSONObject jSONObject = new JSONObject();
-            double[] dArr = new double[3];
-            double d = fArr[0] - 1.5707963267948966d;
-            if (d < 0.0d) {
-                d += 6.283185307179586d;
-            }
-            dArr[0] = Math.toDegrees(d);
-            dArr[1] = Math.toDegrees(-fArr[2]);
-            dArr[2] = Math.toDegrees(-fArr[1]);
-            if (f23.b) {
-                Log.i("SwanAppAction", "deviceMotionChange: " + Arrays.toString(dArr));
-            }
+        if (!(interceptable == null || interceptable.invokeV(65541, null) == null) || (ra3Var = e) == null) {
+            return;
+        }
+        ra3Var.g();
+    }
+
+    private void registerReceiver() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("android.media.VOLUME_CHANGED_ACTION");
+            gk2.c().registerReceiver(this.d, intentFilter);
+            this.c = true;
+        }
+    }
+
+    private void unregisterReceiver() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             try {
-                jSONObject.put("alpha", (float) dArr[0]);
-                jSONObject.put("beta", (float) dArr[1]);
-                jSONObject.put("gamma", (float) dArr[2]);
-                ar1Var.c(unitedSchemeEntity, callbackHandler, jSONObject);
-            } catch (JSONException e) {
-                ix1.c("StartDeviceMotionAction", "handle orientation,json error，" + e.toString());
-                ar1Var.e(unitedSchemeEntity, callbackHandler, "Json error");
+                gk2.c().unregisterReceiver(this.d);
+                this.c = false;
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
+    }
+
+    public void d(@NonNull String str, @NonNull b bVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, bVar) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        synchronized (this) {
+            this.a.put(str, bVar);
+            if (!this.c) {
+                registerReceiver();
+            }
+            if (jh1.a) {
+                Log.d("SystemVolumeManager", "Id = " + str + " listener added, listeners count: " + this.a.size());
+            }
+        }
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b == null) {
+                this.b = (AudioManager) gk2.c().getSystemService("audio");
+            }
+            AudioManager audioManager = this.b;
+            if (audioManager != null) {
+                return audioManager.getStreamMaxVolume(3);
+            }
+            return 100;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                this.a.clear();
+                this.b = null;
+                this.c = false;
+            }
+            e = null;
+        }
+    }
+
+    public boolean i(@NonNull String str) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            synchronized (this) {
+                b remove = this.a.remove(str);
+                if (this.a.size() == 0 && this.c) {
+                    unregisterReceiver();
+                }
+                if (jh1.a && remove != null) {
+                    Log.d("SystemVolumeManager", "Id = " + str + " listener removed, listeners count: " + this.a.size());
+                }
+                z = remove != null;
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
     }
 }

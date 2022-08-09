@@ -1,64 +1,41 @@
 package com.repackage;
 
-import android.content.Context;
+import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
 /* loaded from: classes7.dex */
-public class s55 {
+public abstract class s55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<q55> a;
-    public Context b;
 
-    public s55(Context context) {
+    public s55() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = context;
     }
 
-    public void a(q55 q55Var) {
+    public abstract String a();
+
+    public abstract Bitmap b(Bitmap bitmap, boolean z) throws Exception;
+
+    public Bitmap c(String str) throws Exception {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, q55Var) == null) || q55Var == null || q55Var.b() == null) {
-            return;
-        }
-        Iterator<q55> it = this.a.iterator();
-        while (it.hasNext()) {
-            q55 next = it.next();
-            if (next != null && next.b() != null && next.b().e == q55Var.b().e) {
-                return;
-            }
-        }
-        this.a.add(q55Var);
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? b(BitmapHelper.loadBitmap(str), true) : (Bitmap) invokeL.objValue;
     }
 
-    public ArrayList<q55> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (Context) invokeV.objValue;
-    }
+    public abstract void d(String str);
 }

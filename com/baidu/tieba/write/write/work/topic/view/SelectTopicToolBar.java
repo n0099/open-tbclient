@@ -22,9 +22,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
-import com.repackage.v37;
-import com.repackage.vr4;
+import com.repackage.ms4;
+import com.repackage.p57;
+import com.repackage.qi;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -32,7 +32,7 @@ public class SelectTopicToolBar extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RecyclerView.Adapter<d> a;
-    public final List<v37> b;
+    public final List<p57> b;
     public int c;
     public long d;
     public SelectTopicToolItem e;
@@ -65,13 +65,13 @@ public class SelectTopicToolBar extends LinearLayout {
         }
 
         @Override // com.baidu.tieba.write.write.work.topic.view.SelectTopicToolItem.b
-        public void a(@NonNull v37 v37Var) {
+        public void a(@NonNull p57 p57Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, v37Var) == null) {
-                v37Var.k(this.a.c == 1);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, v37Var));
-                if (v37Var.j() && this.a.c == 1) {
-                    TiebaStatic.log(new StatisticItem("c14419").addParam("obj_locate", "1").addParam("is_video_topic", "1").addParam("topic_id", v37Var.d().longValue()));
+            if (interceptable == null || interceptable.invokeL(1048576, this, p57Var) == null) {
+                p57Var.k(this.a.c == 1);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, p57Var));
+                if (p57Var.j() && this.a.c == 1) {
+                    TiebaStatic.log(new StatisticItem("c14419").addParam("obj_locate", "1").addParam("is_video_topic", "1").addParam("topic_id", p57Var.d().longValue()));
                 }
             }
         }
@@ -141,7 +141,7 @@ public class SelectTopicToolBar extends LinearLayout {
         public void onBindViewHolder(@NonNull d dVar, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dVar, i) == null) {
-                dVar.a.c((v37) this.a.b.get(i));
+                dVar.a.c((p57) this.a.b.get(i));
             }
         }
 
@@ -156,7 +156,7 @@ public class SelectTopicToolBar extends LinearLayout {
                 SelectTopicToolItem selectTopicToolItem = new SelectTopicToolItem(viewGroup.getContext());
                 if (this.a.c == 1) {
                     selectTopicToolItem.setFromBar(true);
-                    selectTopicToolItem.setPadding(0, pi.f(this.a.getContext(), R.dimen.M_H_X005), 0, pi.f(this.a.getContext(), R.dimen.M_H_X007));
+                    selectTopicToolItem.setPadding(0, qi.f(this.a.getContext(), R.dimen.M_H_X005), 0, qi.f(this.a.getContext(), R.dimen.M_H_X007));
                 }
                 selectTopicToolItem.setItemClickListener(this.a.h);
                 return new d(selectTopicToolItem);
@@ -172,11 +172,11 @@ public class SelectTopicToolBar extends LinearLayout {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
                 super.onViewAttachedToWindow(dVar);
                 int adapterPosition = dVar.getAdapterPosition();
-                v37 v37Var = (v37) this.a.b.get(adapterPosition);
-                if (adapterPosition == 0 || !v37Var.j()) {
+                p57 p57Var = (p57) this.a.b.get(adapterPosition);
+                if (adapterPosition == 0 || !p57Var.j()) {
                     return;
                 }
-                TiebaStatic.log(new StatisticItem("c14417").addParam("is_video_topic", "1").addParam("topic_id", v37Var.d().longValue()));
+                TiebaStatic.log(new StatisticItem("c14417").addParam("is_video_topic", "1").addParam("topic_id", p57Var.d().longValue()));
             }
         }
 
@@ -250,7 +250,7 @@ public class SelectTopicToolBar extends LinearLayout {
         f();
     }
 
-    public void e(List<v37> list) {
+    public void e(List<p57> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
@@ -258,9 +258,9 @@ public class SelectTopicToolBar extends LinearLayout {
         this.b.clear();
         this.b.addAll(list);
         for (int i = 0; i < this.b.size(); i++) {
-            v37 v37Var = this.b.get(i);
-            if (v37Var != null) {
-                v37Var.m(this.d == v37Var.d().longValue());
+            p57 p57Var = this.b.get(i);
+            if (p57Var != null) {
+                p57Var.m(this.d == p57Var.d().longValue());
             }
         }
         this.a.notifyDataSetChanged();
@@ -300,8 +300,8 @@ public class SelectTopicToolBar extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.e.d();
             this.a.notifyDataSetChanged();
-            vr4.d(this.f).f(R.color.CAM_X0401);
-            vr4.d(this).f(R.color.CAM_X0201);
+            ms4.d(this.f).f(R.color.CAM_X0401);
+            ms4.d(this).f(R.color.CAM_X0201);
         }
     }
 
@@ -330,9 +330,9 @@ public class SelectTopicToolBar extends LinearLayout {
         if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
             this.d = j;
             for (int i = 0; i < this.b.size(); i++) {
-                v37 v37Var = this.b.get(i);
-                if (v37Var != null) {
-                    v37Var.m(j == v37Var.d().longValue());
+                p57 p57Var = this.b.get(i);
+                if (p57Var != null) {
+                    p57Var.m(j == p57Var.d().longValue());
                 }
             }
             RecyclerView.Adapter<d> adapter = this.a;
@@ -347,7 +347,7 @@ public class SelectTopicToolBar extends LinearLayout {
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             this.c = i;
             if (i == 1) {
-                this.e.setPadding(0, pi.f(getContext(), R.dimen.M_H_X005), 0, pi.f(getContext(), R.dimen.M_H_X007));
+                this.e.setPadding(0, qi.f(getContext(), R.dimen.M_H_X005), 0, qi.f(getContext(), R.dimen.M_H_X007));
             }
         }
     }

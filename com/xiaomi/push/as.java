@@ -22,23 +22,23 @@ public class as implements au {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile int f107a;
+    public volatile int f108a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f108a;
+    public Context f109a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ServiceConnection f109a;
+    public ServiceConnection f110a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Object f110a;
+    public final Object f111a;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile String f111a;
+    public volatile String f112a;
     public volatile String b;
 
     /* renamed from: b  reason: collision with other field name */
-    public volatile boolean f112b;
+    public volatile boolean f113b;
 
     /* loaded from: classes8.dex */
     public class a implements ServiceConnection {
@@ -74,31 +74,31 @@ public class as implements au {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
                 try {
-                    this.a.f111a = b.a(iBinder);
-                    this.a.f112b = b.m172a(iBinder);
+                    this.a.f112a = b.a(iBinder);
+                    this.a.f113b = b.m172a(iBinder);
                     this.a.b();
-                    this.a.f107a = 2;
-                    synchronized (this.a.f110a) {
+                    this.a.f108a = 2;
+                    synchronized (this.a.f111a) {
                         try {
-                            this.a.f110a.notifyAll();
+                            this.a.f111a.notifyAll();
                         } catch (Exception unused) {
                         }
                     }
                 } catch (Exception unused2) {
                     this.a.b();
-                    this.a.f107a = 2;
-                    synchronized (this.a.f110a) {
+                    this.a.f108a = 2;
+                    synchronized (this.a.f111a) {
                         try {
-                            this.a.f110a.notifyAll();
+                            this.a.f111a.notifyAll();
                         } catch (Exception unused3) {
                         }
                     }
                 } catch (Throwable th) {
                     this.a.b();
-                    this.a.f107a = 2;
-                    synchronized (this.a.f110a) {
+                    this.a.f108a = 2;
+                    synchronized (this.a.f111a) {
                         try {
-                            this.a.f110a.notifyAll();
+                            this.a.f111a.notifyAll();
                         } catch (Exception unused4) {
                         }
                         throw th;
@@ -175,12 +175,12 @@ public class as implements au {
                 return;
             }
         }
-        this.f107a = 0;
-        this.f111a = null;
-        this.f112b = false;
+        this.f108a = 0;
+        this.f112a = null;
+        this.f113b = false;
         this.b = null;
-        this.f110a = new Object();
-        this.f108a = context;
+        this.f111a = new Object();
+        this.f109a = context;
         a();
     }
 
@@ -188,25 +188,25 @@ public class as implements au {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.f109a = new a(this, null);
+            this.f110a = new a(this, null);
             Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
             intent.setPackage("com.huawei.hwid");
             try {
-                z = this.f108a.bindService(intent, this.f109a, 1);
+                z = this.f109a.bindService(intent, this.f110a, 1);
             } catch (Exception unused) {
                 z = false;
             }
-            this.f107a = z ? 1 : 2;
+            this.f108a = z ? 1 : 2;
         }
     }
 
     private void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, this, str) == null) && this.f107a == 1 && Looper.myLooper() != Looper.getMainLooper()) {
-            synchronized (this.f110a) {
+        if ((interceptable == null || interceptable.invokeL(65542, this, str) == null) && this.f108a == 1 && Looper.myLooper() != Looper.getMainLooper()) {
+            synchronized (this.f111a) {
                 try {
                     com.xiaomi.channel.commonutils.logger.b.m89a("huawei's " + str + " wait...");
-                    this.f110a.wait(3000L);
+                    this.f111a.wait(3000L);
                 } catch (Exception unused) {
                 }
             }
@@ -233,11 +233,11 @@ public class as implements au {
     public void b() {
         ServiceConnection serviceConnection;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || (serviceConnection = this.f109a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || (serviceConnection = this.f110a) == null) {
             return;
         }
         try {
-            this.f108a.unbindService(serviceConnection);
+            this.f109a.unbindService(serviceConnection);
         } catch (Exception unused) {
         }
     }
@@ -248,7 +248,7 @@ public class as implements au {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             a("getOAID");
-            return this.f111a;
+            return this.f112a;
         }
         return (String) invokeV.objValue;
     }

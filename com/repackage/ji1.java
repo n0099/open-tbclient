@@ -1,58 +1,32 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Intent;
+import android.view.View;
+import com.baidu.searchbox.v8engine.V8ExceptionInfo;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 /* loaded from: classes6.dex */
-public class ji1 implements hk1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ji1 {
+    SwanCoreVersion m();
 
-    public ji1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    yd2 n(SwanAppActivity swanAppActivity, String str);
 
-    @Override // com.repackage.hk1
-    public boolean a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
+    h42 o(sf3<Exception> sf3Var);
 
-    @Override // com.repackage.hk1
-    public boolean b(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
+    void p(Intent intent);
 
-    @Override // com.repackage.hk1
-    public boolean c(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
+    View q(f02 f02Var);
+
+    void r(V8ExceptionInfo v8ExceptionInfo);
+
+    void release();
+
+    ExtensionCore s();
+
+    lb2 t();
+
+    int u(String str, long j);
+
+    void v(String str, boolean z);
 }

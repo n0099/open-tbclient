@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oy4;
-import com.repackage.pi;
+import com.repackage.jz4;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class Static {
     public static /* synthetic */ Interceptable $ic;
@@ -51,7 +51,7 @@ public class Static {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    oy4.f0().g();
+                    jz4.h0().g();
                 }
             }
         }
@@ -75,8 +75,8 @@ public class Static {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (pi.C()) {
-                    oy4.f0().g();
+                if (qi.C()) {
+                    jz4.h0().g();
                     return null;
                 } else if (TbadkCoreApplication.getInst() != null) {
                     TbadkCoreApplication.getInst().handler.post(new RunnableC0190a(this));
@@ -102,7 +102,7 @@ public class Static {
                 return;
             }
         }
-        oy4.f0();
+        jz4.h0();
         CustomMessageTask customMessageTask = new CustomMessageTask(2005006, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);

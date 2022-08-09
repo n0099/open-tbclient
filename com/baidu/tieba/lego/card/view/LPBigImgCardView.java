@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
     public static /* synthetic */ Interceptable $ic;
@@ -117,13 +117,13 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
                 return;
             }
         }
-        this.r = pi.k(getContext());
+        this.r = qi.k(getContext());
     }
 
     public final int C(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? pi.d(this.i.getPageActivity(), (int) (i / 2.0d)) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? qi.d(this.i.getPageActivity(), (int) (i / 2.0d)) : invokeI.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -155,7 +155,7 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
         if (!TextUtils.isEmpty(lPBigImgCard.getBtnImgUrl()) && lPBigImgCard.getBtnWidth() > 0 && lPBigImgCard.getBtnHeight() > 0) {
             int btnHeight = lPBigImgCard.getBtnHeight();
             G(this.o, lPBigImgCard.getBtnWidth(), lPBigImgCard.getBtnHeight());
-            this.o.J(lPBigImgCard.getBtnImgUrl(), 17, false);
+            this.o.K(lPBigImgCard.getBtnImgUrl(), 17, false);
             int btnPosRatio = (int) ((i * lPBigImgCard.getBtnPosRatio()) - (btnHeight * 0.5d));
             if (btnPosRatio < 0) {
                 btnPosRatio = 0;
@@ -222,11 +222,11 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0175, (ViewGroup) null);
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0176, (ViewGroup) null);
             this.m = relativeLayout;
-            this.n = (TbImageView) l(relativeLayout, R.id.obfuscated_res_0x7f091f88);
-            this.o = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f091f89);
-            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f09220e);
+            this.n = (TbImageView) l(relativeLayout, R.id.obfuscated_res_0x7f092084);
+            this.o = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f092085);
+            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f092313);
             return this.m;
         }
         return (View) invokeV.objValue;

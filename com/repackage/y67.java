@@ -1,40 +1,54 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import com.baidu.tbadk.util.ChatStatusManager;
+import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.x67;
 /* loaded from: classes7.dex */
 public class y67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i != 1) {
-                if (i != 6) {
-                    if (i != 8) {
-                        if (i != 30) {
-                            switch (i) {
-                                case 10:
-                                    return 6;
-                                case 11:
-                                    return 7;
-                                case 12:
-                                    return 8;
-                                default:
-                                    return 1;
-                            }
-                        }
-                        return -9;
-                    }
-                    return 5;
+    /* loaded from: classes7.dex */
+    public static class a implements x67.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                return -1;
             }
-            return -2;
         }
-        return invokeI.intValue;
+
+        @Override // com.repackage.x67.c
+        public boolean a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return !TextUtils.isEmpty(str) && ChatStatusManager.getInst().getIsOpen(2) && str.equals(ChatStatusManager.getInst().getCurId(2));
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, x67.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
+            x67.d(groupMsgData, imMessageCenterPojo, bVar, new a(), false);
+        }
     }
 }

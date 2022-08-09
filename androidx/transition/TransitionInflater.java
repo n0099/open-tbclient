@@ -15,6 +15,7 @@ import androidx.collection.ArrayMap;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.ubc.MediaLivePluginLogger;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -123,7 +124,7 @@ public class TransitionInflater {
                             transition2 = new Fade(this.mContext, attributeSet);
                         } else if ("changeBounds".equals(name)) {
                             transition2 = new ChangeBounds(this.mContext, attributeSet);
-                        } else if ("slide".equals(name)) {
+                        } else if (MediaLivePluginLogger.PAGE_SELECT_SOURCE.equals(name)) {
                             transition2 = new Slide(this.mContext, attributeSet);
                         } else if ("explode".equals(name)) {
                             transition2 = new Explode(this.mContext, attributeSet);

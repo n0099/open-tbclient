@@ -1,339 +1,326 @@
 package com.repackage;
 
+import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.sweetsqlite.Column;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
-import org.json.JSONObject;
+import com.repackage.ty0;
 /* loaded from: classes6.dex */
-public class ki0 implements ni0 {
+public class ki0 extends sy0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final uy0 a;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ HashMap a;
-        public final /* synthetic */ ki0 b;
-
-        public a(ki0 ki0Var, HashMap hashMap) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ki0Var, hashMap};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ki0Var;
-            this.a = hashMap;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.a.beginTransaction();
-                try {
-                    for (Map.Entry entry : this.a.entrySet()) {
-                        si0 si0Var = (si0) entry.getValue();
-                        if (si0Var != null) {
-                            gy0 a = li0.a(si0Var);
-                            if (!TextUtils.isEmpty(a.c())) {
-                                this.b.a.a(a, new sy0[0]);
-                            }
-                        }
-                    }
-                    this.b.a.setTransactionSuccessful();
-                } finally {
-                    this.b.a.endTransaction();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gy0 a;
-        public final /* synthetic */ ki0 b;
-
-        public b(ki0 ki0Var, gy0 gy0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ki0Var, gy0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ki0Var;
-            this.a = gy0Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.a.a(this.a, new sy0[0]);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gy0 a;
-        public final /* synthetic */ ki0 b;
-
-        public c(ki0 ki0Var, gy0 gy0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ki0Var, gy0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ki0Var;
-            this.a = gy0Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.a.update(this.a, new sy0[0]);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Runnable a;
-
-        public d(ki0 ki0Var, Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ki0Var, runnable};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = runnable;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.a.run();
-                } catch (Throwable th) {
-                    if (!xe0.a) {
-                        Log.d("AdDownloadDBHelper", "wrapExecutor", th);
-                        return;
-                    }
-                    throw th;
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class e {
-        public static /* synthetic */ Interceptable $ic;
-        public static ni0 a;
-        public static final ni0 b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* loaded from: classes6.dex */
-        public static class a implements ni0 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Throwable a;
-
-            public a(Throwable th) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {th};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = th;
-                if (this.a != null) {
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("v", "5.5.0.11");
-                    hashMap.put("e", this.a.toString());
-                    iy0.b(new ClogBuilder().y(ClogBuilder.LogType.CHECK).k("12").l("4000").m(new JSONObject(hashMap).toString()));
-                }
-            }
-
-            @Override // com.repackage.ni0
-            public void a(HashMap<String, si0> hashMap) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
-                }
-            }
-
-            @Override // com.repackage.ni0
-            public void b(gy0 gy0Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gy0Var) == null) {
-                }
-            }
-
-            public void update(gy0 gy0Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gy0Var) == null) {
-                }
-            }
-        }
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-241830978, "Lcom/repackage/ki0$e;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-241830978, "Lcom/repackage/ki0$e;");
-                    return;
-                }
-            }
-            try {
-                if (y01.b()) {
-                    a = new ki0(null);
-                } else {
-                    a = b(null);
-                }
-            } catch (Throwable th) {
-                a = b(th);
-            }
-            b = a;
-        }
-
-        public static ni0 b(Throwable th) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, th)) == null) ? new a(th) : (ni0) invokeL.objValue;
-        }
-    }
-
-    public /* synthetic */ ki0(ji0 ji0Var) {
-        this();
-    }
-
-    public static ni0 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? e.b : (ni0) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ni0
-    public void a(HashMap<String, si0> hashMap) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) || zx0.c(hashMap)) {
-            return;
-        }
-        e(new a(this, hashMap), "update_apk_data", 3);
-    }
-
-    @Override // com.repackage.ni0
-    public void b(gy0 gy0Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gy0Var) == null) || TextUtils.isEmpty(gy0Var.c())) {
-            return;
-        }
-        e(new b(this, gy0Var), "update_apk_data", 3);
-    }
-
-    public final void e(@NonNull Runnable runnable, @NonNull String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, runnable, str, i) == null) {
-            gz0.c(new d(this, runnable), str, i);
-        }
-    }
-
-    public void update(gy0 gy0Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, gy0Var) == null) || TextUtils.isEmpty(gy0Var.c())) {
-            return;
-        }
-        e(new c(this, gy0Var), "update_apk_data", 3);
-    }
-
-    public ki0() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ki0(SQLiteDatabase sQLiteDatabase) {
+        super(sQLiteDatabase);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sQLiteDatabase};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((SQLiteDatabase) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        mi0 mi0Var = new mi0();
-        mi0Var.getReadableDatabase();
-        mi0Var.close();
-        SQLiteDatabase openDatabase = SQLiteDatabase.openDatabase(hh0.b().getDatabasePath("nad.core.download.db").getPath(), null, 0);
-        openDatabase.setLocale(Locale.US);
-        this.a = new oi0(openDatabase);
+    }
+
+    @Override // com.repackage.sy0, com.repackage.ty0
+    public synchronized ty0.a a(az0 az0Var, ry0... ry0VarArr) {
+        InterceptResult invokeLL;
+        ty0.a a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, az0Var, ry0VarArr)) == null) {
+            synchronized (this) {
+                a = super.a(az0Var, ry0VarArr);
+            }
+            return a;
+        }
+        return (ty0.a) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.sy0, com.repackage.ty0
+    public synchronized void beginTransaction() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                try {
+                    super.beginTransaction();
+                } catch (Exception unused) {
+                }
+            }
+        }
+    }
+
+    @Override // com.repackage.sy0
+    public synchronized int delete(String str, bz0 bz0Var) {
+        InterceptResult invokeLL;
+        int delete;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, bz0Var)) == null) {
+            synchronized (this) {
+                try {
+                    delete = super.delete(str, bz0Var);
+                } catch (Exception unused) {
+                    return -1;
+                }
+            }
+            return delete;
+        }
+        return invokeLL.intValue;
+    }
+
+    @Override // com.repackage.sy0, com.repackage.ty0
+    public synchronized void endTransaction() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                try {
+                    super.endTransaction();
+                } catch (Exception unused) {
+                }
+            }
+        }
+    }
+
+    @Override // com.repackage.sy0
+    public synchronized long insert(az0 az0Var) {
+        InterceptResult invokeL;
+        long insert;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, az0Var)) == null) {
+            synchronized (this) {
+                try {
+                    insert = super.insert(az0Var);
+                } catch (Exception unused) {
+                    return -1L;
+                }
+            }
+            return insert;
+        }
+        return invokeL.longValue;
+    }
+
+    @Override // com.repackage.sy0
+    public synchronized boolean query(az0 az0Var, bz0 bz0Var) {
+        InterceptResult invokeLL;
+        boolean query;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, az0Var, bz0Var)) == null) {
+            synchronized (this) {
+                try {
+                    query = super.query(az0Var, bz0Var);
+                } catch (Exception unused) {
+                    return false;
+                }
+            }
+            return query;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.repackage.sy0, com.repackage.ty0
+    public synchronized void setTransactionSuccessful() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            synchronized (this) {
+                try {
+                    super.setTransactionSuccessful();
+                } catch (Exception unused) {
+                }
+            }
+        }
+    }
+
+    @Override // com.repackage.sy0, com.repackage.ty0
+    public synchronized int update(az0 az0Var, ry0... ry0VarArr) {
+        InterceptResult invokeLL;
+        int update;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, az0Var, ry0VarArr)) == null) {
+            synchronized (this) {
+                try {
+                    update = super.update(az0Var, ry0VarArr);
+                } catch (Exception unused) {
+                    return -1;
+                }
+            }
+            return update;
+        }
+        return invokeLL.intValue;
+    }
+
+    @Override // com.repackage.sy0
+    public synchronized int delete(az0 az0Var, ry0... ry0VarArr) {
+        InterceptResult invokeLL;
+        int delete;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, az0Var, ry0VarArr)) == null) {
+            synchronized (this) {
+                try {
+                    delete = super.delete(az0Var, ry0VarArr);
+                } catch (Exception unused) {
+                    return -1;
+                }
+            }
+            return delete;
+        }
+        return invokeLL.intValue;
+    }
+
+    @Override // com.repackage.sy0
+    public synchronized long insert(String str, String[] strArr, Object... objArr) {
+        InterceptResult invokeLLL;
+        long insert;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, str, strArr, objArr)) == null) {
+            synchronized (this) {
+                try {
+                    insert = super.insert(str, strArr, objArr);
+                } catch (Exception unused) {
+                    return -1L;
+                }
+            }
+            return insert;
+        }
+        return invokeLLL.longValue;
+    }
+
+    @Override // com.repackage.sy0
+    public synchronized boolean query(az0 az0Var, ry0... ry0VarArr) {
+        InterceptResult invokeLL;
+        boolean query;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, az0Var, ry0VarArr)) == null) {
+            synchronized (this) {
+                try {
+                    query = super.query(az0Var, ry0VarArr);
+                } catch (Exception unused) {
+                    return false;
+                }
+            }
+            return query;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.repackage.sy0
+    public synchronized int update(Class<? extends az0> cls, bz0 bz0Var, ry0[] ry0VarArr, Object... objArr) {
+        InterceptResult invokeLLLL;
+        int update;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048590, this, cls, bz0Var, ry0VarArr, objArr)) == null) {
+            synchronized (this) {
+                try {
+                    update = super.update(cls, bz0Var, ry0VarArr, objArr);
+                } catch (Exception unused) {
+                    return -1;
+                }
+            }
+            return update;
+        }
+        return invokeLLLL.intValue;
+    }
+
+    @Override // com.repackage.sy0
+    public synchronized Cursor query(String str, ry0[] ry0VarArr, bz0 bz0Var) {
+        InterceptResult invokeLLL;
+        Cursor query;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, ry0VarArr, bz0Var)) == null) {
+            synchronized (this) {
+                try {
+                    query = super.query(str, ry0VarArr, bz0Var);
+                } catch (Exception unused) {
+                    return new dz0(null);
+                }
+            }
+            return query;
+        }
+        return (Cursor) invokeLLL.objValue;
+    }
+
+    @Override // com.repackage.sy0
+    public synchronized int update(az0 az0Var, bz0 bz0Var) {
+        InterceptResult invokeLL;
+        int update;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, az0Var, bz0Var)) == null) {
+            synchronized (this) {
+                try {
+                    update = super.update(az0Var, bz0Var);
+                } catch (Exception unused) {
+                    return -1;
+                }
+            }
+            return update;
+        }
+        return invokeLL.intValue;
+    }
+
+    @Override // com.repackage.sy0
+    public synchronized Cursor query(cz0 cz0Var) {
+        InterceptResult invokeL;
+        Cursor query;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cz0Var)) == null) {
+            synchronized (this) {
+                try {
+                    query = super.query(cz0Var);
+                } catch (Exception unused) {
+                    return new dz0(null);
+                }
+            }
+            return query;
+        }
+        return (Cursor) invokeL.objValue;
+    }
+
+    @Override // com.repackage.sy0
+    public synchronized int update(String str, ContentValues contentValues, bz0 bz0Var) {
+        InterceptResult invokeLLL;
+        int update;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048591, this, str, contentValues, bz0Var)) == null) {
+            synchronized (this) {
+                try {
+                    update = super.update(str, contentValues, bz0Var);
+                } catch (Exception unused) {
+                    return -1;
+                }
+            }
+            return update;
+        }
+        return invokeLLL.intValue;
+    }
+
+    @Override // com.repackage.sy0
+    public synchronized int update(String str, Column[] columnArr, bz0 bz0Var) {
+        InterceptResult invokeLLL;
+        int update;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048592, this, str, columnArr, bz0Var)) == null) {
+            synchronized (this) {
+                try {
+                    update = super.update(str, columnArr, bz0Var);
+                } catch (Exception unused) {
+                    return -1;
+                }
+            }
+            return update;
+        }
+        return invokeLLL.intValue;
     }
 }

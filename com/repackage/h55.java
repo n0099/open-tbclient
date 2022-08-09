@@ -1,7 +1,5 @@
 package com.repackage;
-
-import android.view.View;
 /* loaded from: classes6.dex */
 public interface h55 {
-    void a(View view2, View view3, boolean z);
+    void a(zm zmVar, String str, boolean z);
 }

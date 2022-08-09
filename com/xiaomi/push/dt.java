@@ -24,7 +24,7 @@ public abstract class dt extends al.a {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f232a;
+    public Context f233a;
 
     public dt(Context context, int i) {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public abstract class dt extends al.a {
             }
         }
         this.a = i;
-        this.f232a = context;
+        this.f233a = context;
     }
 
     public static void a(Context context, hr hrVar) {
@@ -182,7 +182,7 @@ public abstract class dt extends al.a {
     public boolean mo207a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? dp.a(this.f232a, String.valueOf(mo207a()), this.a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? dp.a(this.f233a, String.valueOf(mo207a()), this.a) : invokeV.booleanValue;
     }
 
     public abstract String b();
@@ -223,10 +223,10 @@ public abstract class dt extends al.a {
             String a = m269a == null ? "" : m269a.a();
             if (!TextUtils.isEmpty(a) && m271b()) {
                 if (m272c()) {
-                    SharedPreferences sharedPreferences = this.f232a.getSharedPreferences("mipush_extra", 0);
+                    SharedPreferences sharedPreferences = this.f233a.getSharedPreferences("mipush_extra", 0);
                     if (bp.a(b).equals(sharedPreferences.getString(d(), null))) {
                         long j = sharedPreferences.getLong(c(), 0L);
-                        int a2 = com.xiaomi.push.service.ba.a(this.f232a).a(ho.ba.a(), 604800);
+                        int a2 = com.xiaomi.push.service.ba.a(this.f233a).a(ho.ba.a(), 604800);
                         if ((System.currentTimeMillis() - j) / 1000 < this.a) {
                             return;
                         }
@@ -239,7 +239,7 @@ public abstract class dt extends al.a {
                 hrVar.a(b);
                 hrVar.a(System.currentTimeMillis());
                 hrVar.a(mo207a());
-                a(this.f232a, hrVar, a);
+                a(this.f233a, hrVar, a);
             }
         }
     }

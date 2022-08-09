@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 /* loaded from: classes4.dex */
 public class UserTropicGiftBagActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -70,7 +70,7 @@ public class UserTropicGiftBagActivity extends BaseActivity {
                 TbPageContext<?> pageContext = this.a.getPageContext();
                 if (view2.getId() == this.a.e.getId()) {
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
-                    this.a.F1(2);
+                    this.a.E1(2);
                     this.a.finish();
                 }
                 if (view2.getId() == this.a.i.getId()) {
@@ -96,24 +96,24 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         this.j = new a(this);
     }
 
-    public final void D1() {
+    public final void C1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f0921d7);
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f0922db);
             this.a = roundRelativeLayout;
-            roundRelativeLayout.setAllCornerRound(pi.f(this, R.dimen.tbds32));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0921d8);
-            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092461);
-            this.g = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09129d);
-            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09129e);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091d30);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091d31);
-            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f0921d9);
-            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090627);
+            roundRelativeLayout.setAllCornerRound(qi.f(this, R.dimen.tbds32));
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0922dc);
+            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092586);
+            this.g = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0912f7);
+            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0912f8);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091e1d);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091e1e);
+            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f0922dd);
+            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090643);
         }
     }
 
-    public final void E1() {
+    public final void D1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.e.setOnClickListener(this.j);
@@ -121,11 +121,11 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         }
     }
 
-    public final void F1(int i) {
+    public final void E1(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_BACK_USER);
-            statisticItem.param("obj_name", getResources().getString(R.string.obfuscated_res_0x7f0f11b2));
+            statisticItem.param("obj_name", getResources().getString(R.string.obfuscated_res_0x7f0f11ec));
             statisticItem.param("obj_type", i);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             TiebaStatic.log(statisticItem);
@@ -153,18 +153,18 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f080aaf);
+            SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f080ad5);
             this.f.setSkinType(i);
-            SkinManager.setImageResource(this.g, R.drawable.obfuscated_res_0x7f080ab0);
+            SkinManager.setImageResource(this.g, R.drawable.obfuscated_res_0x7f080ad6);
             this.g.setSkinType(i);
-            SkinManager.setImageResource(this.h, R.drawable.obfuscated_res_0x7f080ab1);
+            SkinManager.setImageResource(this.h, R.drawable.obfuscated_res_0x7f080ad7);
             this.h.setSkinType(i);
             SkinManager.setBackgroundColor(this.a, R.color.CAM_X0205);
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
             SkinManager.setViewTextColorSelector(this.e, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50);
-            SkinManager.setImageResource(this.i, R.drawable.obfuscated_res_0x7f0808d0);
+            SkinManager.setImageResource(this.i, R.drawable.obfuscated_res_0x7f0808eb);
             this.i.setSkinType(i);
         }
     }
@@ -176,8 +176,8 @@ public class UserTropicGiftBagActivity extends BaseActivity {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0058);
+            C1();
             D1();
-            E1();
         }
     }
 
@@ -197,7 +197,7 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onResume();
-            F1(1);
+            E1(1);
         }
     }
 }

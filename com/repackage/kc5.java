@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class kc5 implements nc5 {
+public class kc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -22,10 +22,4 @@ public abstract class kc5 implements nc5 {
             }
         }
     }
-
-    public abstract void a();
-
-    public abstract void b();
-
-    public abstract void c();
 }

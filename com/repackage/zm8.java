@@ -1,51 +1,34 @@
 package com.repackage;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class zm8 extends CustomMessageListener {
+public class zm8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final nl8 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zm8(MainTabActivity mainTabActivity, al8 al8Var) {
-        super(2921579);
+    public static void a(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, al8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_THREAD_POST_RESULT_DIALOG_SHOW).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", z ? 1 : 0).param("obj_source", z2 ? 1 : 0));
         }
-        this.a = mainTabActivity;
-        this.b = mainTabActivity.f;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        nl8 nl8Var;
+    public static void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || (nl8Var = this.b) == null || nl8Var.g() == null) {
-            return;
+        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_THREAD_POST_FAIL_DIALOG_RETRY_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_source", z ? 1 : 0));
         }
-        Runnable runnable = this.b.g().c;
-        qg.a().removeCallbacks(runnable);
-        qg.a().postDelayed(runnable, (customResponsedMessage.getData() instanceof Integer ? ((Integer) customResponsedMessage.getData()).intValue() : 0) * 1000);
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            TiebaStatic.log(new StatisticItem("c14029").param("uid", TbadkCoreApplication.getCurrentAccount()));
+        }
     }
 }

@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 import java.util.Random;
 /* loaded from: classes4.dex */
 public class SignAllForumProgressView extends FrameLayout {
@@ -163,8 +163,8 @@ public class SignAllForumProgressView extends FrameLayout {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int d = pi.d(this.a.b, 6.0f);
-                int d2 = pi.d(this.a.b, 100.0f);
+                int d = qi.d(this.a.b, 6.0f);
+                int d2 = qi.d(this.a.b, 100.0f);
                 int i = d2 - (d * 2);
                 int i2 = (d2 - i) / 2;
                 int i3 = i + i2;
@@ -211,7 +211,7 @@ public class SignAllForumProgressView extends FrameLayout {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                     if (!UrlManager.getInstance().dealOneLinkWithDialog(this.a.c.getPageContext(), "", new String[]{this.a.b}, false, null, true) && !UrlManager.getInstance().UrlValidated(this.a.b)) {
-                        this.a.c.showToast(R.string.obfuscated_res_0x7f0f0e99);
+                        this.a.c.showToast(R.string.obfuscated_res_0x7f0f0ec6);
                     } else {
                         TiebaStatic.log("c11758");
                     }
@@ -248,7 +248,7 @@ public class SignAllForumProgressView extends FrameLayout {
                     TiebaStatic.log("c11822");
                 }
                 this.d.j.setVisibility(0);
-                this.d.i.J(this.a, 10, true);
+                this.d.i.K(this.a, 10, true);
                 if (StringUtils.isNull(this.b)) {
                     return;
                 }
@@ -326,17 +326,17 @@ public class SignAllForumProgressView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             Context context = getContext();
             this.b = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0788, this);
-            this.c = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091daf);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d9f);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091db2);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091db0);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091db1);
-            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091d9b);
-            this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091d9c);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07af, this);
+            this.c = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091e9e);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e8e);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091ea1);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091e9f);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091ea0);
+            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091e8a);
+            this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091e8b);
             m();
             this.h = new Scroller(this.b, new DecelerateInterpolator());
-            BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f08023b));
+            BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f08023c));
             Shader.TileMode tileMode = Shader.TileMode.REPEAT;
             bitmapDrawable.setTileModeXY(tileMode, tileMode);
             setBackgroundDrawable(bitmapDrawable);
@@ -364,9 +364,9 @@ public class SignAllForumProgressView extends FrameLayout {
             removeCallbacks(this.m);
             removeCallbacks(this.n);
             if (this.l) {
-                this.c.setProgressDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811e9));
+                this.c.setProgressDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081251));
             } else {
-                this.c.setProgressDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081070));
+                this.c.setProgressDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810d7));
             }
             int i = this.a;
             if (i == 0) {
@@ -380,7 +380,7 @@ public class SignAllForumProgressView extends FrameLayout {
                     SkinManager.setBackgroundResource(this.c, R.drawable.btn_all_sign);
                     SkinManager.setImageResource(this.d, R.drawable.icon_all_sign);
                 }
-                this.e.setText(R.string.obfuscated_res_0x7f0f1152);
+                this.e.setText(R.string.obfuscated_res_0x7f0f118c);
             } else if (i == 1) {
                 post(this.o);
                 this.c.setClickable(false);
@@ -390,7 +390,7 @@ public class SignAllForumProgressView extends FrameLayout {
                 } else {
                     SkinManager.setImageResource(this.d, R.drawable.icon_all_sign);
                 }
-                this.e.setText(R.string.obfuscated_res_0x7f0f1157);
+                this.e.setText(R.string.obfuscated_res_0x7f0f1191);
                 int max = (this.c.getMax() * (new Random(System.currentTimeMillis()).nextInt(30) + 50)) / 100;
                 if (max - this.c.getProgress() < 0) {
                     this.h.startScroll(max, 0, this.c.getProgress() - max, 0, this.k);
@@ -409,7 +409,7 @@ public class SignAllForumProgressView extends FrameLayout {
                     SkinManager.setImageResource(this.d, R.drawable.icon_all_sign);
                 }
                 SkinManager.setBackgroundResource(this.c, R.drawable.bg_all_sign_conduct);
-                this.e.setText(R.string.obfuscated_res_0x7f0f0368);
+                this.e.setText(R.string.obfuscated_res_0x7f0f036e);
             } else {
                 this.c.setClickable(true);
                 if (this.l) {
@@ -420,7 +420,7 @@ public class SignAllForumProgressView extends FrameLayout {
                     SkinManager.setImageResource(this.d, R.drawable.icon_all_sign_ok);
                 }
                 this.c.setProgress(0);
-                this.e.setText(R.string.obfuscated_res_0x7f0f115d);
+                this.e.setText(R.string.obfuscated_res_0x7f0f1197);
             }
         }
     }

@@ -8,7 +8,6 @@ import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
@@ -21,7 +20,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
 /* loaded from: classes2.dex */
 public class LiveFeedPageRoundRect extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -117,7 +115,7 @@ public class LiveFeedPageRoundRect extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, attributeSet) == null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040404, R.attr.obfuscated_res_0x7f040405, R.attr.obfuscated_res_0x7f040406, R.attr.obfuscated_res_0x7f040407, R.attr.obfuscated_res_0x7f040408, R.attr.obfuscated_res_0x7f040409});
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04044b, R.attr.obfuscated_res_0x7f04044c, R.attr.obfuscated_res_0x7f04044d, R.attr.obfuscated_res_0x7f04044e, R.attr.obfuscated_res_0x7f04044f, R.attr.obfuscated_res_0x7f040450});
         this.e = obtainStyledAttributes.getBoolean(0, true);
         int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(1, 0);
         int dimensionPixelOffset2 = obtainStyledAttributes.getDimensionPixelOffset(4, dimensionPixelOffset);
@@ -149,7 +147,6 @@ public class LiveFeedPageRoundRect extends FrameLayout {
             this.b = new Path();
             this.c = new RectF();
             this.d = new float[8];
-            int i = Build.VERSION.SDK_INT;
         }
     }
 
@@ -159,17 +156,6 @@ public class LiveFeedPageRoundRect extends FrameLayout {
         if (interceptable == null || interceptable.invokeIIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
             this.c.set(0.0f, 0.0f, i, i2);
-        }
-    }
-
-    public void setCornerRadius(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048585, this, f) == null) {
-            if (this.d == null) {
-                this.d = new float[8];
-            }
-            Arrays.fill(this.d, f);
-            postInvalidate();
         }
     }
 
@@ -193,24 +179,5 @@ public class LiveFeedPageRoundRect extends FrameLayout {
             }
         }
         d(attributeSet);
-    }
-
-    public void setCornerRadius(float f, float f2, float f3, float f4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            if (this.d == null) {
-                this.d = new float[8];
-            }
-            float[] fArr = this.d;
-            fArr[0] = f;
-            fArr[1] = f;
-            fArr[2] = f2;
-            fArr[3] = f2;
-            fArr[4] = f3;
-            fArr[5] = f3;
-            fArr[6] = f4;
-            fArr[7] = f4;
-            postInvalidate();
-        }
     }
 }

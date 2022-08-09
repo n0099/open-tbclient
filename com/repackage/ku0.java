@@ -1,15 +1,17 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import com.baidu.nadcore.player.strategy.IVideoUpdateStrategy;
+import com.baidu.nadcore.video.videoplayer.ui.full.BdThumbSeekBar;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class ku0 extends ru0 {
+public class ku0 extends tu0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sq0 o;
 
     public ku0() {
         Interceptable interceptable = $ic;
@@ -25,32 +27,42 @@ public class ku0 extends ru0 {
         }
     }
 
-    @Override // com.repackage.ru0, com.repackage.su0
-    public void R() {
+    @Override // com.repackage.tu0
+    public void Z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            J(new ar0());
-            J(new cr0());
-            J(new br0());
-            J(new dr0());
-            n0();
-            m0();
+            bp0 bindPlayer = u();
+            Intrinsics.checkNotNullExpressionValue(bindPlayer, "bindPlayer");
+            IVideoUpdateStrategy n1 = bindPlayer.n1();
+            Intrinsics.checkNotNullExpressionValue(n1, "bindPlayer.strategy");
+            if (!n1.f()) {
+                BdThumbSeekBar mThumbSeekBar = this.l;
+                Intrinsics.checkNotNullExpressionValue(mThumbSeekBar, "mThumbSeekBar");
+                mThumbSeekBar.setVisibility(4);
+                return;
+            }
+            super.Z();
         }
     }
 
-    public void m0() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ku0(Activity activity) {
+        super(activity);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            J(new rq0());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-    }
-
-    public void n0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            sq0 sq0Var = new sq0();
-            this.o = sq0Var;
-            J(sq0Var);
-        }
+        Intrinsics.checkNotNullParameter(activity, "activity");
     }
 }

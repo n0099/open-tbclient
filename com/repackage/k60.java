@@ -1,146 +1,39 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.client.HttpClient;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.util.DisplayMetrics;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public class k60 {
+public final class k60 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ConcurrentHashMap<Integer, ResponsedMessage<?>> a;
-    public static final ConcurrentHashMap<Integer, b> b;
-    public static final ConcurrentHashMap<Integer, Integer> c;
-    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a extends HttpClient.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int e;
-        public final /* synthetic */ HttpMessage f;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(HttpMessage httpMessage, HttpMessageTask httpMessageTask, int i, HttpMessage httpMessage2) {
-            super(httpMessage, httpMessageTask);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {httpMessage, httpMessageTask, Integer.valueOf(i), httpMessage2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((HttpMessage) objArr2[0], (HttpMessageTask) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = i;
-            this.f = httpMessage2;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: e */
-        public void publishProgress(ResponsedMessage<?>... responsedMessageArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessageArr) == null) {
-                synchronized (k60.class) {
-                    k60.c.remove(Integer.valueOf(this.e));
-                    if (responsedMessageArr != null && responsedMessageArr.length > 0) {
-                        b bVar = (b) k60.b.remove(Integer.valueOf(this.e));
-                        if (bVar == null) {
-                            k60.a.put(Integer.valueOf(this.f.getCmd()), responsedMessageArr[0]);
-                        } else {
-                            bVar.a(responsedMessageArr[0]);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(ResponsedMessage<?> responsedMessage);
-
-        void b();
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755607060, "Lcom/repackage/k60;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755607060, "Lcom/repackage/k60;");
-                return;
-            }
-        }
-        a = new ConcurrentHashMap<>();
-        b = new ConcurrentHashMap<>();
-        c = new ConcurrentHashMap<>();
-        d = BdUniqueId.gen();
-    }
-
-    public k60() {
+    public static DisplayMetrics a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context == null) {
+                return null;
             }
+            return context.getResources().getDisplayMetrics();
         }
+        return (DisplayMetrics) invokeL.objValue;
     }
 
-    public static synchronized void d(int i, b bVar) {
+    public static String b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65541, null, i, bVar) == null) {
-            synchronized (k60.class) {
-                if (c.containsKey(Integer.valueOf(i))) {
-                    b.put(Integer.valueOf(i), bVar);
-                    return;
-                }
-                if (a.containsKey(Integer.valueOf(i))) {
-                    bVar.a(a.remove(Integer.valueOf(i)));
-                } else {
-                    bVar.b();
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                return "unknown";
             }
         }
-    }
-
-    public static synchronized void e(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, httpMessage, httpMessageTask) == null) {
-            synchronized (k60.class) {
-                if (httpMessage == null || httpMessageTask == null) {
-                    return;
-                }
-                int cmd = httpMessage.getCmd();
-                c.put(Integer.valueOf(cmd), 0);
-                new a(httpMessage, httpMessageTask, cmd, httpMessage).execute(new HttpMessage[0]);
-            }
-        }
+        return (String) invokeL.objValue;
     }
 }

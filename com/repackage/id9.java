@@ -1,154 +1,172 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.repackage.fd9;
-import com.repackage.hd9;
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 /* loaded from: classes6.dex */
 public class id9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, Deque<c>> a;
 
-    /* loaded from: classes6.dex */
-    public static class a implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final hd9 a;
-        public final HashSet<Ssp.Pid> b;
-
-        public a(hd9 hd9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hd9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hd9Var;
-            this.b = new HashSet<>();
-            for (hd9.c cVar : hd9Var.e) {
-                for (hd9.b bVar : cVar.b) {
-                    this.b.add(bVar.c);
-                }
-            }
-        }
-
-        @Override // com.repackage.id9.c
-        public Set<Ssp.Pid> a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Set) invokeV.objValue;
-        }
-
-        @Override // com.repackage.id9.c
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.d : invokeV.intValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final fd9 a;
-        public final HashSet<Ssp.Pid> b;
-
-        public b(fd9 fd9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fd9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fd9Var;
-            this.b = new HashSet<>();
-            for (fd9.b bVar : fd9Var.b) {
-                for (fd9.a aVar : bVar.b) {
-                    this.b.add(aVar.c);
-                }
-            }
-        }
-
-        @Override // com.repackage.id9.c
-        public Set<Ssp.Pid> a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Set) invokeV.objValue;
-        }
-
-        @Override // com.repackage.id9.c
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.c : invokeV.intValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        Set<Ssp.Pid> a();
-
-        int b();
-    }
-
-    public id9() {
+    public static long a(InputStream inputStream, OutputStream outputStream) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, inputStream, outputStream)) == null) {
+            if (inputStream != null && outputStream != null) {
+                try {
+                    byte[] bArr = new byte[3072];
+                    long j = 0;
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read > 0) {
+                            outputStream.write(bArr, 0, read);
+                            j += read;
+                        } else {
+                            outputStream.flush();
+                            return j;
+                        }
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
+            return 0L;
         }
-        this.a = new HashMap<>();
+        return invokeLL.longValue;
     }
 
-    public final Deque<c> a(String str) {
+    public static String b(File file) {
         InterceptResult invokeL;
-        Deque<c> deque;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            synchronized (this.a) {
-                deque = this.a.get(str);
-                if (deque == null) {
-                    deque = new ArrayDeque<>();
-                    this.a.put(str, deque);
-                }
-            }
-            return deque;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, file)) != null) {
+            return (String) invokeL.objValue;
         }
-        return (Deque) invokeL.objValue;
+        try {
+            fileInputStream = new FileInputStream(file);
+            try {
+                String c = c(fileInputStream);
+                try {
+                    fileInputStream.close();
+                } catch (IOException unused) {
+                }
+                return c;
+            } catch (FileNotFoundException unused2) {
+                if (fileInputStream != null) {
+                    try {
+                        fileInputStream.close();
+                    } catch (IOException unused3) {
+                    }
+                }
+                return null;
+            } catch (Throwable unused4) {
+                if (fileInputStream != null) {
+                    try {
+                        fileInputStream.close();
+                    } catch (IOException unused5) {
+                    }
+                }
+                return null;
+            }
+        } catch (FileNotFoundException unused6) {
+            fileInputStream = null;
+        } catch (Throwable unused7) {
+            fileInputStream = null;
+        }
+    }
+
+    public static String c(@NonNull FileInputStream fileInputStream) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, fileInputStream)) != null) {
+            return (String) invokeL.objValue;
+        }
+        if (fileInputStream != null) {
+            StringBuilder sb = new StringBuilder();
+            try {
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
+                while (true) {
+                    String readLine = bufferedReader.readLine();
+                    if (readLine != null) {
+                        sb.append(readLine);
+                    } else {
+                        return sb.toString();
+                    }
+                }
+            } catch (IOException unused) {
+                return sb.toString();
+            } catch (Throwable unused2) {
+                return sb.toString();
+            }
+        } else {
+            throw new NullPointerException("inputStream should not be null");
+        }
+    }
+
+    public static boolean d(InputStream inputStream, File file, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLLZ = interceptable.invokeLLZ(65539, null, inputStream, file, z)) != null) {
+            return invokeLLZ.booleanValue;
+        }
+        FileOutputStream fileOutputStream = null;
+        try {
+            FileOutputStream fileOutputStream2 = new FileOutputStream(file, z);
+            try {
+                boolean z2 = a(inputStream, fileOutputStream2) != 0;
+                try {
+                    fileOutputStream2.close();
+                } catch (IOException unused) {
+                }
+                return z2;
+            } catch (FileNotFoundException unused2) {
+                fileOutputStream = fileOutputStream2;
+                if (fileOutputStream != null) {
+                    try {
+                        fileOutputStream.close();
+                    } catch (IOException unused3) {
+                    }
+                }
+                return false;
+            } catch (Throwable th) {
+                th = th;
+                fileOutputStream = fileOutputStream2;
+                if (fileOutputStream != null) {
+                    try {
+                        fileOutputStream.close();
+                    } catch (IOException unused4) {
+                    }
+                }
+                throw th;
+            }
+        } catch (FileNotFoundException unused5) {
+        } catch (Throwable th2) {
+            th = th2;
+        }
+    }
+
+    public static boolean e(String str, File file, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, file, z)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return d(new ByteArrayInputStream(str.getBytes()), file, z);
+        }
+        return invokeLLZ.booleanValue;
     }
 }

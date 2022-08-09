@@ -12,18 +12,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ta0;
+import com.repackage.oa0;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class LiveBannerEntity implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<LiveBannerEntity> CREATOR;
     public static final int TYPE_LIVE = 1;
-    public static final int TYPE_OTHER = 0;
     public transient /* synthetic */ FieldHolder $fh;
     public int audienceCount;
     public int bannerType;
-    public b cmdInfo;
+    public BannerCmdInfo cmdInfo;
     public long endTime;
     public LiveHostInfo hostInfo;
     public LeftLableInfo leftLabel;
@@ -34,55 +33,20 @@ public class LiveBannerEntity implements Parcelable {
     public String nid;
     public String pic;
     public int position;
+    public LiveRoomEntity roomEntity;
     public String roomId;
     public long startTime;
     public LiveStatInfo statInfo;
 
     /* loaded from: classes2.dex */
-    public static class a implements Parcelable.Creator<LiveBannerEntity> {
+    public class BannerCmdInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public String action;
+        public final /* synthetic */ LiveBannerEntity this$0;
+        public int type;
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: a */
-        public LiveBannerEntity createFromParcel(Parcel parcel) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new LiveBannerEntity(parcel) : (LiveBannerEntity) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: b */
-        public LiveBannerEntity[] newArray(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new LiveBannerEntity[i] : (LiveBannerEntity[]) invokeI.objValue;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-
-        public b(LiveBannerEntity liveBannerEntity) {
+        public BannerCmdInfo(LiveBannerEntity liveBannerEntity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -94,17 +58,19 @@ public class LiveBannerEntity implements Parcelable {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.this$0 = liveBannerEntity;
         }
 
-        public void a(JSONObject jSONObject) {
+        public void parserJson(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
-            jSONObject.optInt("type");
-            this.a = jSONObject.optString("action");
+            this.type = jSONObject.optInt("type");
+            this.action = jSONObject.optString("action");
         }
     }
 
@@ -121,7 +87,42 @@ public class LiveBannerEntity implements Parcelable {
                 return;
             }
         }
-        CREATOR = new a();
+        CREATOR = new Parcelable.Creator<LiveBannerEntity>() { // from class: com.baidu.live.business.model.data.LiveBannerEntity.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // android.os.Parcelable.Creator
+            public LiveBannerEntity createFromParcel(Parcel parcel) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new LiveBannerEntity(parcel) : (LiveBannerEntity) invokeL.objValue;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // android.os.Parcelable.Creator
+            public LiveBannerEntity[] newArray(int i) {
+                InterceptResult invokeI;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new LiveBannerEntity[i] : (LiveBannerEntity[]) invokeI.objValue;
+            }
+        };
     }
 
     public LiveBannerEntity() {
@@ -153,7 +154,7 @@ public class LiveBannerEntity implements Parcelable {
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !ta0.a(this.pic) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !oa0.a(this.pic) : invokeV.booleanValue;
     }
 
     public void parserJson(JSONObject jSONObject) {
@@ -178,9 +179,9 @@ public class LiveBannerEntity implements Parcelable {
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("cmd");
         if (optJSONObject2 != null) {
-            b bVar = new b(this);
-            this.cmdInfo = bVar;
-            bVar.a(optJSONObject2);
+            BannerCmdInfo bannerCmdInfo = new BannerCmdInfo(this);
+            this.cmdInfo = bannerCmdInfo;
+            bannerCmdInfo.parserJson(optJSONObject2);
         }
         JSONObject optJSONObject3 = jSONObject.optJSONObject("left_label");
         if (optJSONObject3 != null) {
@@ -215,6 +216,7 @@ public class LiveBannerEntity implements Parcelable {
             parcel.writeParcelable(this.statInfo, i);
             parcel.writeInt(this.position);
             parcel.writeByte(this.needLogShow ? (byte) 1 : (byte) 0);
+            parcel.writeParcelable(this.roomEntity, i);
         }
     }
 
@@ -248,5 +250,6 @@ public class LiveBannerEntity implements Parcelable {
         this.statInfo = (LiveStatInfo) parcel.readParcelable(LiveStatInfo.class.getClassLoader());
         this.position = parcel.readInt();
         this.needLogShow = parcel.readByte() != 0;
+        this.roomEntity = (LiveRoomEntity) parcel.readParcelable(LiveRoomEntity.class.getClassLoader());
     }
 }

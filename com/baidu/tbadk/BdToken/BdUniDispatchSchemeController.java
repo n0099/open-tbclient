@@ -22,15 +22,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ad5;
-import com.repackage.bh;
-import com.repackage.fj4;
-import com.repackage.jk4;
-import com.repackage.li4;
-import com.repackage.mi4;
-import com.repackage.oi;
+import com.repackage.al4;
+import com.repackage.ch;
+import com.repackage.cj4;
+import com.repackage.dj4;
+import com.repackage.pi;
+import com.repackage.wj4;
+import com.repackage.zd5;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdUniDispatchSchemeController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BAIDU_BOX_APP = "shoubai";
@@ -39,6 +39,7 @@ public class BdUniDispatchSchemeController {
     public static final String IS_NEW_SCHEMA_VALUE = "1";
     public static String NATIVE_PARAM_MAINTAB_LOCATE = "maintablocate";
     public static String NATIVE_PARAM_MAINTAB_SUBTAB = "maintab_subtab";
+    public static String PARAM_AVATAR = "avatar";
     public static String PARAM_BAR_NAME = "bar_name";
     public static String PARAM_CHUSHOU_ROOM_ID = "chuchou_third_room_id";
     public static String PARAM_CHUSHOU_THIRD_LIVE_TYPE = "chushou_third_live_type";
@@ -50,6 +51,7 @@ public class BdUniDispatchSchemeController {
     public static String PARAM_FORUM_NAME = "forumName";
     public static String PARAM_FROM = "from";
     public static String PARAM_GAME_ID = "game_id";
+    public static String PARAM_GAME_NAME = "game_name";
     public static String PARAM_GOD_ID = "god_id";
     public static String PARAM_HOME_TAB_NAME_CAMEL = "homeTabName";
     public static String PARAM_HOT_TREND = "hotTrend";
@@ -61,11 +63,15 @@ public class BdUniDispatchSchemeController {
     public static String PARAM_KW = "kw";
     public static String PARAM_NEW_GOD_FROM = "newgod_from";
     public static String PARAM_OPEN_PAY = "open_pay";
+    public static String PARAM_ORDER_AMOUNT = "order_amount";
     public static String PARAM_ORDER_ID = "order_id";
+    public static String PARAM_ORDER_STATUS = "order_status";
     public static String PARAM_ORI_UGC_NID = "ori_ugc_nid";
     public static String PARAM_ORI_UGC_TID = "ori_ugc_tid";
     public static String PARAM_ORI_UGC_TYPE = "ori_ugc_type";
     public static String PARAM_ORI_UGC_VID = "ori_ugc_vid";
+    public static String PARAM_PLAY_PRICE = "play_price";
+    public static String PARAM_PLAY_TIMES = "play_times";
     public static String PARAM_PORTRAIT = "portrait";
     public static String PARAM_QQ = "QQ";
     public static String PARAM_QUERY = "query";
@@ -73,6 +79,7 @@ public class BdUniDispatchSchemeController {
     public static String PARAM_RANK_TYPE_CAMEL = "rankType";
     public static String PARAM_SCHEME_FROM = "schemefrom";
     public static String PARAM_SHOUBAI = "shoubai";
+    public static String PARAM_SHOW_REPLY_PANEL = "showReplyPanel";
     public static String PARAM_SKILL_ID = "skill_id";
     public static String PARAM_SORT_TYPE_CAMEL = "sortType";
     public static String PARAM_SOURCE = "source";
@@ -87,9 +94,11 @@ public class BdUniDispatchSchemeController {
     public static String PARAM_TID = "tid";
     public static String PARAM_TOKEN = "token";
     public static String PARAM_TOPIC_ID = "topic_id";
+    public static String PARAM_UNIT = "unit";
     public static String PARAM_URI = "param_uri";
     public static String PARAM_URL = "url";
     public static String PARAM_USER_ID = "uid";
+    public static String PARAM_USER_NAME = "user_name";
     public static String PARAM_USER_NAMESHOW = "nameShow";
     public static String PARAM_USER_PORTRAIT = "portrait";
     public static String PARAM_USE_MAIN_STATE = "useMainState";
@@ -97,6 +106,7 @@ public class BdUniDispatchSchemeController {
     public static String PARAM_WISE = "wise";
     public static String PARAM_YY_URL = "yy_url";
     public static String PATH_ACTIVITY_PAGE = "/activitypage";
+    public static String PATH_BDP_LIVE_CHANNEL = "/BDPLiveChannel";
     public static String PATH_CATEGORY_LIST = "/categorylist";
     public static String PATH_CHUSHOU_ALA_ROOM = "/tiebachushou";
     public static String PATH_ENTER_FORUM = "/enterforum";
@@ -112,6 +122,7 @@ public class BdUniDispatchSchemeController {
     public static String PATH_PB = "/pb";
     public static String PATH_RECOMMEND_FORUM = "/recommendforum";
     public static String PATH_SWAN_APP = "/minapp";
+    public static String PATH_TIEBA_BAR_FRIEND = "/yylivelist";
     public static String PATH_TIEBA_YY_ROOM = "/tiebayy";
     public static String PATH_TOPIC_DETAIL = "/topicdetail";
     public static String PATH_USER_CENTER = "/usercenter";
@@ -123,18 +134,18 @@ public class BdUniDispatchSchemeController {
     public static String SCHEME_FROM_TB_TOKEN = "from_tb_token";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(HashMap<String, Object> hashMap);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public static final BdUniDispatchSchemeController a;
@@ -213,18 +224,18 @@ public class BdUniDispatchSchemeController {
         Activity currentActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65542, this, str, str2, str3, uri) == null) {
-            jk4.f().i(uri);
-            if (oi.isEmpty(str)) {
+            al4.f().i(uri);
+            if (pi.isEmpty(str)) {
                 return;
             }
-            li4 li4Var = new li4(str);
-            li4Var.m0(str3);
-            if (li4Var.d() == 0 || li4Var.q() == 0) {
+            cj4 cj4Var = new cj4(str);
+            cj4Var.m0(str3);
+            if (cj4Var.d() == 0 || cj4Var.q() == 0) {
                 return;
             }
-            TbSingleton.getInstance().setInvokeSource(li4Var.e());
-            bh.f(String.valueOf(li4Var.d()));
-            bh.i(String.valueOf(li4Var.q()));
+            TbSingleton.getInstance().setInvokeSource(cj4Var.e());
+            ch.f(String.valueOf(cj4Var.d()));
+            ch.i(String.valueOf(cj4Var.q()));
             int i = StringHelper.equals(str2, SCHEME_FROM_TB_TOKEN) ? 2 : 1;
             String str8 = "";
             if (uri != null) {
@@ -239,23 +250,23 @@ public class BdUniDispatchSchemeController {
                 str6 = str5;
                 str7 = str6;
             }
-            if (li4Var.d() == 1111 && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
+            if (cj4Var.d() == 1111 && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
                 if (currentActivity instanceof BaseFragmentActivity) {
                     ((BaseFragmentActivity) currentActivity).showFloatingWindow();
                 } else if (currentActivity instanceof BaseActivity) {
                     ((BaseActivity) currentActivity).showFloatingWindow();
                 }
             }
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_NEW_SCHEME_PULL_UP).param("obj_source", li4Var.e()).param("obj_type", li4Var.d()).param("obj_param1", li4Var.q()).param(TiebaStatic.Params.OBJ_PARAM2, i).param(TiebaStatic.Params.OBJ_PARAM3, li4Var.s()).param("extra", li4Var.v()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fname", str8).param("tid", str5).param("query", str6).param("pid", str7).param(TiebaStatic.Params.REFER, str4).param("obj_locate", TbadkCoreApplication.getInst().getStartType()).param("obj_name", 1).param(TiebaStatic.Params.WISE_SAMPLE_ID, li4Var.G()));
-            mi4.w().m(li4Var);
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_NEW_SCHEME_PULL_UP).param("obj_source", cj4Var.e()).param("obj_type", cj4Var.d()).param("obj_param1", cj4Var.q()).param(TiebaStatic.Params.OBJ_PARAM2, i).param(TiebaStatic.Params.OBJ_PARAM3, cj4Var.s()).param("extra", cj4Var.v()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fname", str8).param("tid", str5).param("query", str6).param("pid", str7).param(TiebaStatic.Params.REFER, str4).param("obj_locate", TbadkCoreApplication.getInst().getStartType()).param("obj_name", 1).param(TiebaStatic.Params.WISE_SAMPLE_ID, cj4Var.G()));
+            dj4.w().m(cj4Var);
         }
     }
 
     private void processSchemeFrom(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65543, this, str) == null) && !TextUtils.isEmpty(str) && "shoubai".equals(str)) {
-            ad5.m().u(true);
-            ad5.m().k();
+            zd5.m().u(true);
+            zd5.m().k();
         }
     }
 
@@ -300,7 +311,7 @@ public class BdUniDispatchSchemeController {
             processActivityMissionInfo(queryParameter, queryParameter2, queryParameter3, uri);
             processSchemeFrom(uri.getQueryParameter(PARAM_FROM));
             addStaticForShemeFormH5("", uri, queryParameter2);
-            fj4.c(uri);
+            wj4.c(uri);
             if (PATH_HOMEPAGE.equals(uri.getPath())) {
                 hashMap.put(NATIVE_PARAM_MAINTAB_LOCATE, 2);
                 String str = PARAM_NEW_GOD_FROM;
@@ -346,11 +357,16 @@ public class BdUniDispatchSchemeController {
             hashMap.put(str4, uri.getQueryParameter(str4));
             String str5 = PARAM_ORI_UGC_VID;
             hashMap.put(str5, uri.getQueryParameter(str5));
+            String queryParameter = uri.getQueryParameter(PARAM_SHOW_REPLY_PANEL);
+            if (TextUtils.isEmpty(queryParameter)) {
+                queryParameter = uri.getQueryParameter(PARAM_SHOW_REPLY_PANEL.toLowerCase());
+            }
+            hashMap.put(PARAM_SHOW_REPLY_PANEL, queryParameter);
             processSchemeFrom(uri.getQueryParameter(PARAM_FROM));
-            String queryParameter = uri.getQueryParameter(PARAM_EXT_DATA);
-            String queryParameter2 = uri.getQueryParameter(PARAM_SCHEME_FROM);
-            processActivityMissionInfo(queryParameter, queryParameter2, uri.getQueryParameter(PARAM_TOKEN), uri);
-            addStaticForShemeFormH5("", uri, queryParameter2);
+            String queryParameter2 = uri.getQueryParameter(PARAM_EXT_DATA);
+            String queryParameter3 = uri.getQueryParameter(PARAM_SCHEME_FROM);
+            processActivityMissionInfo(queryParameter2, queryParameter3, uri.getQueryParameter(PARAM_TOKEN), uri);
+            addStaticForShemeFormH5("", uri, queryParameter3);
             bVar.a(hashMap);
         }
     }

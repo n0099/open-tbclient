@@ -1,45 +1,27 @@
 package com.repackage;
 
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class it3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ht3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static JSONObject a(String str) {
-        InterceptResult invokeL;
+    public static synchronized ht3 a() {
+        InterceptResult invokeV;
+        ht3 ht3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, com.baidu.pass.biometrics.face.liveness.b.a.g0);
-                jSONObject.put("errDes", up3.a(str));
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (it3.class) {
+                if (a == null) {
+                    a = new ht3();
+                }
+                ht3Var = a;
             }
-            return jSONObject;
+            return ht3Var;
         }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static JSONObject b(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("width", i);
-                jSONObject.put("height", i2);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeII.objValue;
+        return (ht3) invokeV.objValue;
     }
 }

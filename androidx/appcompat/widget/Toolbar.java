@@ -2259,7 +2259,7 @@ public class Toolbar extends ViewGroup {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public Toolbar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R$attr.obfuscated);
+        this(context, attributeSet, R$attr.toolbarStyle);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

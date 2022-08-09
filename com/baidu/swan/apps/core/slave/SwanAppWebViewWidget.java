@@ -40,40 +40,40 @@ import com.baidu.webkit.sdk.VideoPlayerFactory;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.WebResourceRequest;
 import com.baidu.webkit.sdk.WebResourceResponse;
-import com.repackage.ae3;
-import com.repackage.b73;
-import com.repackage.cd3;
-import com.repackage.ce3;
-import com.repackage.ds2;
-import com.repackage.e02;
-import com.repackage.g43;
-import com.repackage.h03;
-import com.repackage.hw2;
-import com.repackage.i43;
-import com.repackage.ix1;
-import com.repackage.iz1;
-import com.repackage.nt2;
-import com.repackage.ot2;
-import com.repackage.oz1;
-import com.repackage.pj2;
-import com.repackage.qz1;
-import com.repackage.rc3;
-import com.repackage.rm1;
-import com.repackage.rz1;
-import com.repackage.sg1;
-import com.repackage.uj1;
-import com.repackage.vl2;
-import com.repackage.vt2;
-import com.repackage.w12;
-import com.repackage.wz1;
-import com.repackage.z03;
-import com.repackage.zm1;
+import com.repackage.eu2;
+import com.repackage.f02;
+import com.repackage.fu2;
+import com.repackage.gk2;
+import com.repackage.h02;
+import com.repackage.i02;
+import com.repackage.id3;
+import com.repackage.in1;
+import com.repackage.jh1;
+import com.repackage.lk1;
+import com.repackage.mm2;
+import com.repackage.mu2;
+import com.repackage.n02;
+import com.repackage.n22;
+import com.repackage.q13;
+import com.repackage.qn1;
+import com.repackage.re3;
+import com.repackage.s73;
+import com.repackage.td3;
+import com.repackage.te3;
+import com.repackage.us2;
+import com.repackage.v02;
+import com.repackage.x43;
+import com.repackage.y03;
+import com.repackage.yw2;
+import com.repackage.z43;
+import com.repackage.zx1;
+import com.repackage.zz1;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgWebView> {
+public class SwanAppWebViewWidget extends SwanAppSlaveManager implements in1<NgWebView> {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean Z;
     public static final String[] a0;
@@ -82,11 +82,11 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
     public f O;
     public e P;
     @Nullable
-    public g43 Q;
-    public e02 R;
+    public x43 Q;
+    public v02 R;
     public int S;
     public int T;
-    public w12 U;
+    public n22 U;
     public String V;
     public SwanAppSlaveManager W;
     public boolean X;
@@ -99,7 +99,7 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
         public final /* synthetic */ SwanAppWebViewWidget this$0;
 
         /* loaded from: classes2.dex */
-        public class a implements e02.b {
+        public class a implements v02.b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -119,7 +119,7 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
                 }
             }
 
-            @Override // com.repackage.e02.b
+            @Override // com.repackage.v02.b
             public void onCustomViewHidden() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -150,7 +150,7 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bdSailorWebView)) == null) {
-                this.this$0.P1();
+                this.this$0.N1();
                 return true;
             }
             return invokeL.booleanValue;
@@ -161,13 +161,13 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdSailorWebView, str) == null) {
                 super.onReceivedTitle(bdSailorWebView, str);
-                if (ae3.r(str)) {
+                if (re3.r(str)) {
                     return;
                 }
                 this.this$0.V = str;
-                w12 w12Var = this.this$0.U;
-                if (w12Var != null) {
-                    w12Var.d(str);
+                n22 n22Var = this.this$0.U;
+                if (n22Var != null) {
+                    n22Var.d(str);
                 }
             }
         }
@@ -189,7 +189,7 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(Constants.METHOD_SEND_USER_MSG, this, bdSailorWebView, view2, i, customViewCallback)) == null) {
                 if (this.this$0.R == null) {
-                    this.this$0.R = new e02(this.this$0.a.getBaseContext());
+                    this.this$0.R = new v02(this.this$0.a.getBaseContext());
                 }
                 this.this$0.R.c(view2, i, new a(this));
                 return true;
@@ -280,20 +280,20 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
         public void onFirstContentfulPaintExt(BdSailorWebView bdSailorWebView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, bdSailorWebView, str) == null) {
-                ix1.k("SwanAppWebViewWidget", "SwanAppWebViewWidgetClientExt::onFirstContentfulPaintExt");
+                zx1.k("SwanAppWebViewWidget", "SwanAppWebViewWidgetClientExt::onFirstContentfulPaintExt");
                 super.onFirstContentfulPaintExt(bdSailorWebView, str);
                 long currentTimeMillis = System.currentTimeMillis();
                 if (SwanAppWebViewWidget.Z) {
                     Log.d("SwanAppWebViewWidget", "on fcp: real fcp = " + currentTimeMillis);
                 }
                 this.this$0.H.b = currentTimeMillis;
-                vt2.h().l().a(this.this$0.H.b);
+                mu2.h().l().a(this.this$0.H.b);
                 long b = this.this$0.H.b();
                 if (SwanAppWebViewWidget.Z) {
                     Log.d("SwanAppWebViewWidget", "onFirstContentfulPaintExt: fcp=" + currentTimeMillis + " , firstPaintTime" + b + " , aligned search=false");
                 }
-                HybridUbcFlow p = nt2.p("startup");
-                if (this.this$0.o1()) {
+                HybridUbcFlow p = eu2.p("startup");
+                if (this.this$0.m1()) {
                     this.this$0.L.e(true);
                     p.b("fmp_data_record", this.this$0.L);
                 }
@@ -305,8 +305,8 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
                 }
                 if (this.this$0.H.c == 0) {
                     this.this$0.H.c = b;
-                    zm1 zm1Var = this.this$0.H;
-                    zm1Var.g = zm1Var.c(b);
+                    qn1 qn1Var = this.this$0.H;
+                    qn1Var.g = qn1Var.c(b);
                     p.D("fmp_type", "1");
                     UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("na_first_meaningful_paint");
                     ubcFlowEvent2.h(this.this$0.H.b);
@@ -315,11 +315,11 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
                     this.this$0.L.d(ubcFlowEvent2, false);
                     return;
                 }
-                long G = pj2.g0().G();
+                long G = gk2.g0().G();
                 if (G < 0) {
                     G = 3000;
                 }
-                cd3.c(new a(this, b, p), "fmp record", G, TimeUnit.MILLISECONDS);
+                td3.c(new a(this, b, p), "fmp record", G, TimeUnit.MILLISECONDS);
             }
         }
 
@@ -327,17 +327,17 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
         public void onFirstImagePaintExt(BdSailorWebView bdSailorWebView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdSailorWebView, str) == null) {
-                ix1.k("SwanAppWebViewWidget", "SwanAppWebViewWidgetClientExt::onFirstImagePaintExt");
+                zx1.k("SwanAppWebViewWidget", "SwanAppWebViewWidgetClientExt::onFirstImagePaintExt");
                 super.onFirstImagePaintExt(bdSailorWebView, str);
                 this.this$0.H.e = System.currentTimeMillis();
-                vt2.h().l().e(this.this$0.H.e);
+                mu2.h().l().e(this.this$0.H.e);
                 if (SwanAppWebViewWidget.Z) {
                     Log.d("SwanAppWebViewWidget", "on fip: real fip = " + this.this$0.H.e);
                 }
                 if (this.this$0.H.c == 0) {
                     UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_first_meaningful_paint");
                     ubcFlowEvent.h(this.this$0.H.e);
-                    HybridUbcFlow p = nt2.p("startup");
+                    HybridUbcFlow p = eu2.p("startup");
                     p.D("fmp_type", "3");
                     p.F(ubcFlowEvent);
                     this.this$0.L.f("3", false);
@@ -354,7 +354,7 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
                 if (TextUtils.isEmpty(this.this$0.G)) {
                     return;
                 }
-                nt2.q("route", this.this$0.G).F(new UbcFlowEvent("web_widget_first_layout"));
+                eu2.q("route", this.this$0.G).F(new UbcFlowEvent("web_widget_first_layout"));
             }
         }
 
@@ -367,7 +367,7 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
                 if (TextUtils.isEmpty(this.this$0.G)) {
                     return;
                 }
-                nt2.q("route", this.this$0.G).F(new UbcFlowEvent("web_widget_first_paint"));
+                eu2.q("route", this.this$0.G).F(new UbcFlowEvent("web_widget_first_paint"));
             }
         }
 
@@ -375,15 +375,15 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
         public void onFirstScreenPaintFinishedExt(BdSailorWebView bdSailorWebView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, bdSailorWebView, str) == null) {
-                ix1.k("SwanAppWebViewWidget", "SwanAppWebViewWidgetClientExt::onFirstScreenPaintFinishedEx");
+                zx1.k("SwanAppWebViewWidget", "SwanAppWebViewWidgetClientExt::onFirstScreenPaintFinishedEx");
                 super.onFirstScreenPaintFinishedExt(bdSailorWebView, str);
                 this.this$0.H.c = System.currentTimeMillis();
                 this.this$0.H.g = "0";
-                vt2.h().l().c(this.this$0.H.c);
+                mu2.h().l().c(this.this$0.H.c);
                 if (SwanAppWebViewWidget.Z) {
                     Log.d("SwanAppWebViewWidget", "on fmp: real fmp = " + this.this$0.H.c);
                 }
-                HybridUbcFlow d = nt2.d("startup");
+                HybridUbcFlow d = eu2.d("startup");
                 if (d != null) {
                     if (TextUtils.isEmpty(str)) {
                         str = "0";
@@ -398,12 +398,12 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
                     this.this$0.L.d(ubcFlowEvent, true);
                     d.F(ubcFlowEvent);
                     d.S();
-                    zm1 zm1Var = this.this$0.H;
-                    ix1.b("SwanAppWebViewWidget", "onFirstScreenPaintFinishedExt: naPaintFlowDone with fmp=", Long.valueOf(this.this$0.H.c), " , fmpType=", zm1Var.g, " , fmpTypeName=", zm1Var.a());
-                    nt2.t();
+                    qn1 qn1Var = this.this$0.H;
+                    zx1.b("SwanAppWebViewWidget", "onFirstScreenPaintFinishedExt: naPaintFlowDone with fmp=", Long.valueOf(this.this$0.H.c), " , fmpType=", qn1Var.g, " , fmpTypeName=", qn1Var.a());
+                    eu2.t();
                 }
                 if (!TextUtils.isEmpty(this.this$0.G)) {
-                    ot2.f(this.this$0.G);
+                    fu2.f(this.this$0.G);
                     this.this$0.G = "";
                 }
                 if (this.this$0.W != null) {
@@ -417,17 +417,17 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
         public void onFirstTextPaintExt(BdSailorWebView bdSailorWebView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048581, this, bdSailorWebView, str) == null) {
-                ix1.k("SwanAppWebViewWidget", "SwanAppWebViewWidgetClientExt::onFirstTextPaintExt");
+                zx1.k("SwanAppWebViewWidget", "SwanAppWebViewWidgetClientExt::onFirstTextPaintExt");
                 super.onFirstTextPaintExt(bdSailorWebView, str);
                 this.this$0.H.d = System.currentTimeMillis();
-                vt2.h().l().d(this.this$0.H.d);
+                mu2.h().l().d(this.this$0.H.d);
                 if (SwanAppWebViewWidget.Z) {
                     Log.d("SwanAppWebViewWidget", "on ftp: real ftp = " + this.this$0.H.d);
                 }
                 if (this.this$0.H.c == 0) {
                     UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_first_meaningful_paint");
                     ubcFlowEvent.h(this.this$0.H.d);
-                    HybridUbcFlow p = nt2.p("startup");
+                    HybridUbcFlow p = eu2.p("startup");
                     p.D("fmp_type", "2");
                     p.F(ubcFlowEvent);
                     this.this$0.L.f("2", false);
@@ -441,10 +441,10 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, bdSailorWebView, str)) == null) {
-                if (pj2.g0().x() && this.this$0.X1() && z03.k()) {
+                if (gk2.g0().x() && this.this$0.V1() && q13.k()) {
                     return false;
                 }
-                if (pj2.g0().x() && this.this$0.W1() && !z03.h(str)) {
+                if (gk2.g0().x() && this.this$0.U1() && !q13.h(str)) {
                     if (SwanAppWebViewWidget.Z) {
                         Log.d("SwanAppWebViewWidget", "WebSafeCheckers.checkWebDomain() failed url: " + str);
                         return true;
@@ -490,7 +490,7 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLZ(1048576, this, bdSailorWebView, str, z) == null) {
                 super.doUpdateVisitedHistory(bdSailorWebView, str, z);
-                b73.W(str, bdSailorWebView.getSettings().getUserAgentString());
+                s73.W(str, bdSailorWebView.getSettings().getUserAgentString());
             }
         }
 
@@ -498,11 +498,11 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
         public void onPageFinished(BdSailorWebView bdSailorWebView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdSailorWebView, str) == null) {
-                ix1.b("SwanAppWebViewWidget", "onPageFinished, url: " + str);
-                if (this.this$0.X1() && z03.k()) {
-                    this.this$0.N1().c(str);
+                zx1.b("SwanAppWebViewWidget", "onPageFinished, url: " + str);
+                if (this.this$0.V1() && q13.k()) {
+                    this.this$0.L1().c(str);
                 } else {
-                    this.this$0.N1().b();
+                    this.this$0.L1().b();
                 }
             }
         }
@@ -511,13 +511,13 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
         public void onPageStarted(BdSailorWebView bdSailorWebView, String str, Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bdSailorWebView, str, bitmap) == null) {
-                ix1.b("SwanAppWebViewWidget", "onPageStarted, url: " + str);
-                if (this.this$0.X1() && z03.k()) {
-                    this.this$0.N1().f(str);
+                zx1.b("SwanAppWebViewWidget", "onPageStarted, url: " + str);
+                if (this.this$0.V1() && q13.k()) {
+                    this.this$0.L1().f(str);
                 } else {
-                    this.this$0.N1().d();
+                    this.this$0.L1().d();
                 }
-                this.this$0.J1();
+                this.this$0.H1();
             }
         }
 
@@ -529,7 +529,7 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
                 if (i == -10) {
                     return;
                 }
-                this.this$0.M1().c();
+                this.this$0.K1().c();
             }
         }
 
@@ -538,9 +538,9 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048580, this, bdSailorWebView, webResourceRequest, webResourceResponse) == null) {
                 super.onReceivedHttpError(bdSailorWebView, webResourceRequest, webResourceResponse);
-                w12 w12Var = this.this$0.U;
-                if (w12Var != null) {
-                    w12Var.a(webResourceResponse != null ? webResourceResponse.getStatusCode() : 0);
+                n22 n22Var = this.this$0.U;
+                if (n22Var != null) {
+                    n22Var.a(webResourceResponse != null ? webResourceResponse.getStatusCode() : 0);
                 }
             }
         }
@@ -553,27 +553,27 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
                 if (SwanAppWebViewWidget.Z) {
                     Log.d("SwanAppWebViewWidget", "shouldOverrideUrlLoading url: " + str);
                 }
-                Uri A = ce3.A(str);
+                Uri A = te3.A(str);
                 if (A != null) {
-                    rc3.g(this.this$0.a, new Intent("android.intent.action.DIAL", A));
+                    id3.g(this.this$0.a, new Intent("android.intent.action.DIAL", A));
                     return true;
                 }
-                w12 w12Var = this.this$0.F;
-                if (w12Var != null) {
-                    return w12Var.b(str);
+                n22 n22Var = this.this$0.F;
+                if (n22Var != null) {
+                    return n22Var.b(str);
                 }
-                if (!hw2.A()) {
+                if (!yw2.A()) {
                     if (SwanAppWebViewWidget.Z) {
                         Log.w("SwanAppWebViewWidget", "checkWebHost: Debug下鉴权未开启");
                     }
                     return false;
-                } else if (this.this$0.K1(str)) {
+                } else if (this.this$0.I1(str)) {
                     return true;
                 } else {
-                    if (!this.this$0.W1() || z03.h(str)) {
+                    if (!this.this$0.U1() || q13.h(str)) {
                         return false;
                     }
-                    this.this$0.Y1(str);
+                    this.this$0.W1(str);
                     return true;
                 }
             }
@@ -582,7 +582,7 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
     }
 
     /* loaded from: classes2.dex */
-    public class a implements ds2.b {
+    public class a implements us2.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -617,7 +617,7 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.b.t().loadUrl(this.a.a);
+                    this.a.b.r().loadUrl(this.a.a);
                 }
             }
         }
@@ -651,8 +651,8 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     a aVar = this.a;
-                    aVar.b.Y1(aVar.a);
-                    this.a.b.N1().c("none");
+                    aVar.b.W1(aVar.a);
+                    this.a.b.L1().c("none");
                 }
             }
         }
@@ -686,8 +686,8 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     a aVar = this.a;
-                    aVar.b.Y1(aVar.a);
-                    this.a.b.N1().c("none");
+                    aVar.b.W1(aVar.a);
+                    this.a.b.L1().c("none");
                 }
             }
         }
@@ -711,26 +711,26 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
             this.a = str;
         }
 
-        @Override // com.repackage.ds2.b
+        @Override // com.repackage.us2.b
         public void a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                ix1.b("SwanAppWebViewWidget", "isblockdomain request success, response data: " + jSONObject + ", url: " + this.a);
+                zx1.b("SwanAppWebViewWidget", "isblockdomain request success, response data: " + jSONObject + ", url: " + this.a);
                 if (jSONObject != null && jSONObject.optInt(TiebaStatic.LogFields.RESULT, -1) == 0) {
-                    ce3.a0(new RunnableC0176a(this));
+                    te3.a0(new RunnableC0176a(this));
                     return;
                 }
-                ix1.o("SwanAppWebViewWidget", "isblockdomain request success, but check result failed: " + jSONObject + ", url: " + this.a);
-                ce3.a0(new b(this));
+                zx1.o("SwanAppWebViewWidget", "isblockdomain request success, but check result failed: " + jSONObject + ", url: " + this.a);
+                te3.a0(new b(this));
             }
         }
 
-        @Override // com.repackage.ds2.b
+        @Override // com.repackage.us2.b
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                ix1.o("SwanAppWebViewWidget", "isblockdomain request failed, msg: " + str + ", url: " + this.a);
-                ce3.a0(new c(this));
+                zx1.o("SwanAppWebViewWidget", "isblockdomain request failed, msg: " + str + ", url: " + this.a);
+                te3.a0(new c(this));
             }
         }
     }
@@ -762,9 +762,9 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && SwanAppNetworkUtils.i(this.a.t().getContext())) {
-                if (!this.a.W1() || z03.h(this.a.t().getUrl())) {
-                    this.a.t().reload();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && SwanAppNetworkUtils.i(this.a.r().getContext())) {
+                if (!this.a.U1() || q13.h(this.a.r().getUrl())) {
+                    this.a.r().reload();
                     this.a.O.a();
                 }
             }
@@ -772,7 +772,7 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
     }
 
     /* loaded from: classes2.dex */
-    public class c implements iz1 {
+    public class c implements zz1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SwanAppWebViewWidget a;
@@ -795,20 +795,20 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
             this.a = swanAppWebViewWidget;
         }
 
-        @Override // com.repackage.iz1
-        public boolean p() {
+        @Override // com.repackage.zz1
+        public boolean n() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.a.L1().a();
-                this.a.t().setOnWebViewHookHandler(this.a);
+                this.a.J1().a();
+                this.a.r().setOnWebViewHookHandler(this.a);
                 return true;
             }
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.iz1
-        public boolean v(boolean z) {
+        @Override // com.repackage.zz1
+        public boolean t(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? z : invokeZ.booleanValue;
@@ -820,15 +820,15 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ View a;
-        public final /* synthetic */ oz1 b;
+        public final /* synthetic */ f02 b;
         public final /* synthetic */ SwanAppWebViewWidget c;
 
-        public d(SwanAppWebViewWidget swanAppWebViewWidget, View view2, oz1 oz1Var) {
+        public d(SwanAppWebViewWidget swanAppWebViewWidget, View view2, f02 f02Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {swanAppWebViewWidget, view2, oz1Var};
+                Object[] objArr = {swanAppWebViewWidget, view2, f02Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -840,7 +840,7 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
             }
             this.c = swanAppWebViewWidget;
             this.a = view2;
-            this.b = oz1Var;
+            this.b = f02Var;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -850,7 +850,7 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
                 if (SwanAppWebViewWidget.Z) {
                     Log.d("SwanAppWebViewWidget", "onGlobalLayout");
                 }
-                this.c.R1(this.a, this.b);
+                this.c.P1(this.a, this.b);
             }
         }
     }
@@ -976,7 +976,7 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
             EfficientProgressBar efficientProgressBar = new EfficientProgressBar(context);
             this.a = efficientProgressBar;
             efficientProgressBar.setProgressDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801b2));
-            this.a.setId(R.id.obfuscated_res_0x7f09019e);
+            this.a.setId(R.id.obfuscated_res_0x7f0901a4);
             this.a.setVisibility(4);
             this.a.setFocusable(false);
             this.a.setClickable(false);
@@ -1055,7 +1055,7 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
                 return;
             }
         }
-        Z = sg1.a;
+        Z = jh1.a;
         a0 = new String[]{"http", "https"};
     }
 
@@ -1080,47 +1080,47 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
         this.T = 0;
         this.X = true;
         this.Y = true;
-        a1(new WebViewWidgetClient(this));
-        Z0(new SwanAppWebChromeClient(this, null));
-        b1(new SwanAppWebViewWidgetClientExt(this, null));
-        VideoPlayerFactory b2 = pj2.g().b();
+        Y0(new WebViewWidgetClient(this));
+        X0(new SwanAppWebChromeClient(this, null));
+        Z0(new SwanAppWebViewWidgetClientExt(this, null));
+        VideoPlayerFactory b2 = gk2.g().b();
         if (b2 != null) {
             this.b.getCurrentWebView().setVideoPlayerFactory(b2);
         }
-        V1();
-        Z1(context);
-        t().setOnWebViewHookHandler(this);
+        T1();
+        X1(context);
+        r().setOnWebViewHookHandler(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean o1() {
+    public boolean m1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
             SwanAppSlaveManager swanAppSlaveManager = this.W;
             return (swanAppSlaveManager == null || swanAppSlaveManager.I.c) ? false : true;
         }
         return invokeV.booleanValue;
     }
 
-    public void J1() {
-        rz1 V;
-        oz1 m;
+    public void H1() {
+        i02 V;
+        f02 m;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (V = vl2.U().V()) == null || (m = V.m()) == null || m.U() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (V = mm2.U().V()) == null || (m = V.m()) == null || m.V() == null) {
             return;
         }
         View view2 = null;
-        if (m instanceof qz1) {
-            if (((qz1) m).o3().l() == null) {
+        if (m instanceof h02) {
+            if (((h02) m).o3().j() == null) {
                 return;
             }
-            view2 = m.U().findViewById(R.id.obfuscated_res_0x7f090175);
-        } else if (m instanceof wz1) {
-            if (((wz1) m).l() == null || m.U() == null) {
+            view2 = m.V().findViewById(R.id.obfuscated_res_0x7f09017b);
+        } else if (m instanceof n02) {
+            if (((n02) m).j() == null || m.V() == null) {
                 return;
             }
-            view2 = m.U().findViewById(R.id.obfuscated_res_0x7f091e7e);
+            view2 = m.V().findViewById(R.id.obfuscated_res_0x7f091f74);
         }
         if (view2 == null) {
             return;
@@ -1128,19 +1128,19 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
         view2.getViewTreeObserver().addOnGlobalLayoutListener(new d(this, view2, m));
     }
 
-    public final boolean K1(String str) {
+    public final boolean I1(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (X1() && z03.k()) {
-                if (z03.j(str)) {
-                    ce3.W(this.a, str);
+            if (V1() && q13.k()) {
+                if (q13.j(str)) {
+                    te3.W(this.a, str);
                     return true;
                 } else if (TextUtils.isEmpty(str) || str.startsWith("http")) {
-                    ds2 ds2Var = new ds2();
-                    ds2Var.g(str);
-                    N1().e("none");
-                    ds2Var.d(new a(this, str));
+                    us2 us2Var = new us2();
+                    us2Var.g(str);
+                    L1().e("none");
+                    us2Var.d(new a(this, str));
                     return true;
                 } else {
                     return true;
@@ -1151,24 +1151,24 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
         return invokeL.booleanValue;
     }
 
-    public final e L1() {
+    public final e J1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (this.P == null) {
-                this.P = new e(t().getContext(), t());
+                this.P = new e(r().getContext(), r());
             }
             return this.P;
         }
         return (e) invokeV.objValue;
     }
 
-    public final f M1() {
+    public final f K1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (this.O == null) {
-                f fVar = new f(t().getContext(), t());
+                f fVar = new f(r().getContext(), r());
                 this.O = fVar;
                 fVar.b(new b(this));
             }
@@ -1178,25 +1178,25 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
     }
 
     @Override // com.baidu.swan.apps.core.slave.SwanAppSlaveManager, com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void N0() {
+    public void L0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
-    public g N1() {
+    public g L1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             if (this.N == null) {
-                this.N = new g(t().getContext(), t());
+                this.N = new g(r().getContext(), r());
             }
             return this.N;
         }
         return (g) invokeV.objValue;
     }
 
-    public int O1() {
+    public int M1() {
         InterceptResult invokeV;
         EfficientProgressBar efficientProgressBar;
         Interceptable interceptable = $ic;
@@ -1210,25 +1210,25 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
         return invokeV.intValue;
     }
 
-    public final void P1() {
-        e02 e02Var;
+    public final void N1() {
+        v02 v02Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (e02Var = this.R) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (v02Var = this.R) == null) {
             return;
         }
-        e02Var.a();
+        v02Var.a();
     }
 
-    public final void Q1() {
+    public final void O1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            T0("document.querySelector('video').pause();");
+            R0("document.querySelector('video').pause();");
         }
     }
 
-    public final void R1(View view2, oz1 oz1Var) {
+    public final void P1(View view2, f02 f02Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048585, this, view2, oz1Var) == null) || oz1Var == null || oz1Var.i0()) {
+        if (!(interceptable == null || interceptable.invokeLL(1048585, this, view2, f02Var) == null) || f02Var == null || f02Var.l0()) {
             return;
         }
         Rect rect = new Rect();
@@ -1240,9 +1240,9 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
         }
         if (i2 - i > 200) {
             int i3 = 0;
-            if (oz1Var instanceof qz1) {
-                qz1 qz1Var = (qz1) oz1Var;
-                if (qz1Var.e2() && qz1Var.D3()) {
+            if (f02Var instanceof h02) {
+                h02 h02Var = (h02) f02Var;
+                if (h02Var.e2() && h02Var.D3()) {
                     i3 = view2.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700fa);
                 }
             }
@@ -1255,35 +1255,35 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void S0(SwanAppWebViewManager swanAppWebViewManager) {
+    public void Q0(SwanAppWebViewManager swanAppWebViewManager) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, swanAppWebViewManager) == null) {
-            super.S0(swanAppWebViewManager);
+            super.Q0(swanAppWebViewManager);
         }
     }
 
-    public void S1(boolean z) {
+    public void Q1(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
             this.X = z;
         }
     }
 
-    public void T1(SwanAppSlaveManager swanAppSlaveManager) {
+    public void R1(SwanAppSlaveManager swanAppSlaveManager) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, swanAppSlaveManager) == null) {
             this.W = swanAppSlaveManager;
         }
     }
 
-    public void U1(@Nullable g43 g43Var) {
+    public void S1(@Nullable x43 x43Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, g43Var) == null) {
-            this.Q = g43Var;
+        if (interceptable == null || interceptable.invokeL(1048589, this, x43Var) == null) {
+            this.Q = x43Var;
         }
     }
 
-    public final void V1() {
+    public final void T1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             this.b.getSettings().setLoadWithOverviewMode(true);
@@ -1295,38 +1295,38 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
     }
 
     @Override // com.baidu.swan.apps.core.slave.SwanAppSlaveManager, com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void W0(SwanAppWebViewManager.d dVar) {
+    public void U0(SwanAppWebViewManager.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, dVar) == null) {
-            super.W0(dVar);
+            super.U0(dVar);
             dVar.a = false;
         }
     }
 
-    public boolean W1() {
+    public boolean U1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.X : invokeV.booleanValue;
     }
 
     @Override // com.baidu.swan.apps.core.slave.SwanAppSlaveManager, com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void X0() {
+    public void V0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            super.X0();
-            i43 i43Var = new i43(this.h);
-            i43Var.j(this);
-            this.h.b(i43Var);
+            super.V0();
+            z43 z43Var = new z43(this.h);
+            z43Var.j(this);
+            this.h.b(z43Var);
         }
     }
 
-    public boolean X1() {
+    public boolean V1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.Y : invokeV.booleanValue;
     }
 
-    public final void Y1(String str) {
+    public final void W1(String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048595, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
@@ -1335,8 +1335,8 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
             URL url = new URL(str);
             for (String str2 : a0) {
                 if (TextUtils.equals(url.getProtocol(), str2)) {
-                    L1().b(str);
-                    t().setOnWebViewHookHandler(new c(this));
+                    J1().b(str);
+                    r().setOnWebViewHookHandler(new c(this));
                     return;
                 }
             }
@@ -1347,31 +1347,31 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
         }
     }
 
-    public final void Z1(Context context) {
-        uj1 a2;
+    public final void X1(Context context) {
+        lk1 a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048596, this, context) == null) || (a2 = h03.K().x().a().a()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048596, this, context) == null) || (a2 = y03.K().x().a().a()) == null) {
             return;
         }
         a2.a(context);
     }
 
-    @Override // com.baidu.swan.apps.core.slave.SwanAppSlaveManager, com.repackage.om1
-    public void b0(w12 w12Var) {
+    @Override // com.baidu.swan.apps.core.slave.SwanAppSlaveManager, com.repackage.fn1
+    public void Y(n22 n22Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, w12Var) == null) {
-            this.U = w12Var;
+        if (interceptable == null || interceptable.invokeL(1048597, this, n22Var) == null) {
+            this.U = n22Var;
         }
     }
 
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.qm1
-    public String d0() {
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.hn1
+    public String b0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? "ai_apps_widget" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.swan.apps.core.slave.SwanAppSlaveManager, com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.qm1
+    @Override // com.baidu.swan.apps.core.slave.SwanAppSlaveManager, com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.hn1
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
@@ -1380,27 +1380,27 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
         }
     }
 
-    @Override // com.baidu.swan.apps.core.slave.SwanAppSlaveManager, com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.qm1
-    public void g0() {
+    @Override // com.baidu.swan.apps.core.slave.SwanAppSlaveManager, com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.hn1
+    public void e0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            super.g0();
+            super.e0();
         }
     }
 
-    @Override // com.repackage.rm1
+    @Override // com.repackage.in1
     @Nullable
-    public g43 getParams() {
+    public x43 getParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.Q : (g43) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.Q : (x43) invokeV.objValue;
     }
 
-    @Override // com.baidu.swan.apps.core.slave.SwanAppSlaveManager, com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.qm1
+    @Override // com.baidu.swan.apps.core.slave.SwanAppSlaveManager, com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.hn1
     public void loadUrl(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
-            if (!hw2.A()) {
+            if (!yw2.A()) {
                 if (Z) {
                     Log.w("SwanAppWebViewWidget", "checkWebHost: Debug下鉴权未开启");
                 }
@@ -1409,10 +1409,10 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
                     eVar.a();
                 }
                 super.loadUrl(str);
-            } else if (K1(str)) {
+            } else if (I1(str)) {
             } else {
-                if (W1() && !z03.h(str)) {
-                    L1().b(str);
+                if (U1() && !q13.h(str)) {
+                    J1().b(str);
                     return;
                 }
                 e eVar2 = this.P;
@@ -1424,23 +1424,23 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements rm1<NgW
         }
     }
 
-    @Override // com.baidu.swan.apps.core.slave.SwanAppSlaveManager, com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.qm1
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            super.onPause();
-            Q1();
-        }
-    }
-
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.iz1
-    public boolean p() {
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.zz1
+    public boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            N1().b();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            L1().b();
             return false;
         }
         return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.swan.apps.core.slave.SwanAppSlaveManager, com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.hn1
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+            super.onPause();
+            O1();
+        }
     }
 }

@@ -4,7 +4,7 @@ import com.ss.android.socialbase.downloader.downloader.r;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class k implements r {
     @Override // com.ss.android.socialbase.downloader.downloader.r
     public void a(DownloadInfo downloadInfo, int i, int i2) {

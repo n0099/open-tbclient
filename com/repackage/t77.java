@@ -1,199 +1,224 @@
 package com.repackage;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
 import android.text.TextUtils;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.im.pushNotify.ChatSetting;
-import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class t77 extends p77 {
+public class t77 {
     public static /* synthetic */ Interceptable $ic;
-    public static t77 b;
+    public static t77 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public class a extends de5<Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PersonalSettingItemData a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ t77 c;
-
-        public a(t77 t77Var, PersonalSettingItemData personalSettingItemData, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t77Var, personalSettingItemData, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = t77Var;
-            this.a = personalSettingItemData;
-            this.b = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.de5
-        /* renamed from: a */
-        public Void doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.c.b().g(this.b, OrmObject.jsonStrWithObject(this.a));
-                return null;
-            }
-            return (Void) invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755337763, "Lcom/repackage/t77;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755337763, "Lcom/repackage/t77;");
-                return;
-            }
-        }
-        b = new t77();
-    }
 
     public t77() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static t77 j() {
+    public static t77 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (t77) invokeV.objValue;
-    }
-
-    @Override // com.repackage.p77
-    public te<String> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            cr4.f();
-            return cr4.g("tb.im_personal_chat_setting");
-        }
-        return (te) invokeV.objValue;
-    }
-
-    @Override // com.repackage.p77
-    public void h(ChatSetting chatSetting) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatSetting) == null) && chatSetting != null && (chatSetting instanceof PersonalSettingItemData)) {
-            PersonalSettingItemData personalSettingItemData = (PersonalSettingItemData) chatSetting;
-            String myUid = personalSettingItemData.getMyUid();
-            String toUid = personalSettingItemData.getToUid();
-            if (!TextUtils.isEmpty(myUid) && !TextUtils.isEmpty(toUid)) {
-                te<String> b2 = b();
-                String str = myUid + "@" + toUid;
-                String jsonStrWithObject = OrmObject.jsonStrWithObject(personalSettingItemData);
-                synchronized (this.a) {
-                    this.a.put(str, personalSettingItemData);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (t77.class) {
+                    if (a == null) {
+                        a = new t77();
+                    }
                 }
-                b2.g(str, jsonStrWithObject);
-            } else if (TbConfig.getDebugSwitch()) {
-                throw new RuntimeException("key param is null");
             }
+            return a;
         }
+        return (t77) invokeV.objValue;
     }
 
-    @Override // com.repackage.p77
-    public void i(ChatSetting chatSetting, kd5<Void> kd5Var) {
+    public SQLiteStatement a(String str) {
+        InterceptResult invokeL;
+        SQLiteDatabase c;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, chatSetting, kd5Var) == null) && chatSetting != null && (chatSetting instanceof PersonalSettingItemData)) {
-            PersonalSettingItemData personalSettingItemData = (PersonalSettingItemData) chatSetting;
-            String myUid = personalSettingItemData.getMyUid();
-            String toUid = personalSettingItemData.getToUid();
-            if (!TextUtils.isEmpty(myUid) && !TextUtils.isEmpty(toUid)) {
-                String str = myUid + "@" + toUid;
-                synchronized (this.a) {
-                    this.a.put(str, personalSettingItemData);
-                }
-                he5.c(new a(this, personalSettingItemData, str), kd5Var);
-            } else if (TbConfig.getDebugSwitch()) {
-                throw new RuntimeException("key param is null");
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.p77
-    /* renamed from: k */
-    public PersonalSettingItemData a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            PersonalSettingItemData personalSettingItemData = null;
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str) || (c = s77.c()) == null) {
                 return null;
             }
-            String str3 = str + "@" + str2;
-            synchronized (this.a) {
-                ChatSetting chatSetting = this.a.get(str3);
-                if (chatSetting != null && (chatSetting instanceof PersonalSettingItemData)) {
-                    personalSettingItemData = (PersonalSettingItemData) chatSetting;
-                }
+            try {
+                return c.compileStatement(str);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
             }
-            if (personalSettingItemData == null) {
-                PersonalSettingItemData personalSettingItemData2 = new PersonalSettingItemData();
-                personalSettingItemData2.setMyUid(str);
-                personalSettingItemData2.setToUid(str2);
-                personalSettingItemData2.setAcceptNotify(true);
-                return personalSettingItemData2;
-            }
-            return personalSettingItemData;
         }
-        return (PersonalSettingItemData) invokeLL.objValue;
+        return (SQLiteStatement) invokeL.objValue;
     }
 
-    public void l() {
+    public void b() {
+        SQLiteDatabase c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.e(PersonalSettingItemData.class);
-        }
-    }
-
-    public void m(String str, String str2, UserData userData) {
-        PersonalSettingItemData a2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, userData) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || userData == null || (a2 = a(str, str2)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (c = s77.c()) == null) {
             return;
         }
-        a2.setToPortrait(userData.getPortrait());
-        a2.setToName(userData.getUserName());
-        h(a2);
+        BdLog.i("begin commit transaction");
+        if (c.inTransaction()) {
+            try {
+                c.setTransactionSuccessful();
+                c.endTransaction();
+                return;
+            } catch (Exception e) {
+                TiebaStatic.printDBExceptionLog(e, "endTransaction", new Object[0]);
+                BdLog.e(e.getMessage());
+                gu4.a("im", -1L, 0, "im_check: endTransaction error:" + e.getMessage(), -1, "", new Object[0]);
+                return;
+            }
+        }
+        BdLog.e("there is no current transaction");
+    }
+
+    public boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            SQLiteDatabase c = s77.c();
+            if (c == null) {
+                return false;
+            }
+            try {
+                c.execSQL(str);
+                return true;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                gu4.a("im", -1L, 0, "im_check: execSQL error:" + e.getMessage(), -1, "", new Object[0]);
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean delete(String str, String str2, String[] strArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, strArr)) == null) {
+            SQLiteDatabase c = s77.c();
+            if (c == null || TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                return c.delete(str, str2, strArr) > 0;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public Cursor e(String str, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, strArr)) == null) {
+            SQLiteDatabase c = s77.c();
+            if (c == null) {
+                return null;
+            }
+            try {
+                return c.rawQuery(str, strArr);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage() + str);
+                return null;
+            }
+        }
+        return (Cursor) invokeLL.objValue;
+    }
+
+    public void f() {
+        SQLiteDatabase c;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (c = s77.c()) == null) {
+            return;
+        }
+        if (c.inTransaction()) {
+            BdLog.e("there is exist transaction");
+            return;
+        }
+        try {
+            c.beginTransaction();
+            BdLog.i("db.beginTransaction");
+        } catch (Exception e) {
+            TiebaStatic.printDBExceptionLog(e, "startTransaction", new Object[0]);
+            BdLog.e(e.getMessage());
+            gu4.a("im", -1L, 0, "im_check: startTransaction error:" + e.getMessage(), -1, "", new Object[0]);
+        }
+    }
+
+    public long insert(SQLiteStatement sQLiteStatement) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, sQLiteStatement)) == null) {
+            if (sQLiteStatement == null) {
+                return -1L;
+            }
+            try {
+                return sQLiteStatement.executeInsert();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                gu4.a("im", -1L, 0, "im_check: update error:" + e.getMessage(), -1, "", new Object[0]);
+                return -1L;
+            }
+        }
+        return invokeL.longValue;
+    }
+
+    public int update(String str, ContentValues contentValues, String str2, String[] strArr) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, contentValues, str2, strArr)) == null) {
+            SQLiteDatabase c = s77.c();
+            if (c == null || TextUtils.isEmpty(str)) {
+                return -1;
+            }
+            try {
+                return c.update(str, contentValues, str2, strArr);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                gu4.a("im", -1L, 0, "im_check: update error" + e.getMessage(), -1, "", new Object[0]);
+                return -1;
+            }
+        }
+        return invokeLLLL.intValue;
+    }
+
+    public long insert(String str, String str2, ContentValues contentValues) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, str, str2, contentValues)) == null) {
+            SQLiteDatabase c = s77.c();
+            if (c == null || TextUtils.isEmpty(str)) {
+                return -1L;
+            }
+            try {
+                return c.insert(str, str2, contentValues);
+            } catch (Exception e) {
+                gu4.a("im", -1L, 0, "im_check: insertOrUpdate error:" + e.getMessage(), -1, "", new Object[0]);
+                BdLog.e(e.getMessage());
+                return -1L;
+            }
+        }
+        return invokeLLL.longValue;
     }
 }

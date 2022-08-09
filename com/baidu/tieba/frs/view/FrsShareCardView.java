@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.pi;
 /* loaded from: classes3.dex */
 public class FrsShareCardView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -61,7 +61,7 @@ public class FrsShareCardView extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return oi.cutString(str, 18) + this.b.getString(R.string.obfuscated_res_0x7f0f064c);
+            return pi.cutString(str, 18) + this.b.getString(R.string.obfuscated_res_0x7f0f065a);
         }
         return (String) invokeL.objValue;
     }
@@ -78,14 +78,14 @@ public class FrsShareCardView extends LinearLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0341, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0343, this);
             setOrientation(1);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d40);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090ab5);
-            this.c = (EditText) findViewById(R.id.obfuscated_res_0x7f0905da);
-            this.d = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090ab1);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090ab3);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090ab6);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e2c);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090af0);
+            this.c = (EditText) findViewById(R.id.obfuscated_res_0x7f0905f6);
+            this.d = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090aec);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090aee);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090af1);
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0105, 1);
             SkinManager.setViewTextColor(this.c, R.color.CAM_X0105, 2);
             this.c.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
@@ -100,7 +100,7 @@ public class FrsShareCardView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeLZ(1048579, this, str, z) == null) || (headImageView = this.d) == null) {
             return;
         }
-        headImageView.J(str, 15, false);
+        headImageView.K(str, 15, false);
     }
 
     public final void e() {
@@ -108,7 +108,7 @@ public class FrsShareCardView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.e.setText(a(this.h.getName()));
             BdLog.e("mData.getImageUrl()的图片URL" + this.h.getImageUrl());
-            this.d.J(this.h.getImageUrl(), 15, false);
+            this.d.K(this.h.getImageUrl(), 15, false);
             this.g.setText(StringHelper.numFormatOver10000((long) this.h.getMemberNum()));
             this.f.setText(StringHelper.numFormatOver10000((long) this.h.getPostNum()));
         }
@@ -126,7 +126,7 @@ public class FrsShareCardView extends LinearLayout {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             EditText editText = this.c;
             if (editText != null) {
-                return oi.charSequence2String(editText.getText(), null);
+                return pi.charSequence2String(editText.getText(), null);
             }
             return null;
         }

@@ -1,111 +1,22 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Build;
+import android.os.Bundle;
+import android.util.AttributeSet;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
-import java.util.Map;
-import java.util.Set;
 /* loaded from: classes6.dex */
-public class ne4<K, V> extends se4<K, V> implements Map<K, V> {
+public abstract class ne4 extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public re4<K, V> h;
-
-    /* loaded from: classes6.dex */
-    public class a extends re4<K, V> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ne4 d;
-
-        public a(ne4 ne4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ne4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = ne4Var;
-        }
-
-        @Override // com.repackage.re4
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.d.clear();
-            }
-        }
-
-        @Override // com.repackage.re4
-        public Object b(int i, int i2) {
-            InterceptResult invokeII;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) ? this.d.b[(i << 1) + i2] : invokeII.objValue;
-        }
-
-        @Override // com.repackage.re4
-        public Map<K, V> c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (Map) invokeV.objValue;
-        }
-
-        @Override // com.repackage.re4
-        public int d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d.c : invokeV.intValue;
-        }
-
-        @Override // com.repackage.re4
-        public int e(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) ? this.d.e(obj) : invokeL.intValue;
-        }
-
-        @Override // com.repackage.re4
-        public int f(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) ? this.d.g(obj) : invokeL.intValue;
-        }
-
-        @Override // com.repackage.re4
-        public void g(K k, V v) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048582, this, k, v) == null) {
-                this.d.put(k, v);
-            }
-        }
-
-        @Override // com.repackage.re4
-        public void h(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-                this.d.i(i);
-            }
-        }
-
-        @Override // com.repackage.re4
-        public V i(int i, V v) {
-            InterceptResult invokeIL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, v)) == null) ? this.d.j(i, v) : (V) invokeIL.objValue;
-        }
-    }
 
     public ne4() {
         Interceptable interceptable = $ic;
@@ -121,53 +32,28 @@ public class ne4<K, V> extends se4<K, V> implements Map<K, V> {
         }
     }
 
-    @Override // java.util.Map
-    public Set<Map.Entry<K, V>> entrySet() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? l().l() : (Set) invokeV.objValue;
-    }
+    public abstract View h(View view2, String str, Context context, AttributeSet attributeSet);
 
-    @Override // java.util.Map
-    public Set<K> keySet() {
-        InterceptResult invokeV;
+    @Override // android.app.Activity
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? l().m() : (Set) invokeV.objValue;
-    }
-
-    public final re4<K, V> l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.h == null) {
-                this.h = new a(this);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            if (Build.VERSION.SDK_INT < 11 && getLayoutInflater().getFactory() == null) {
+                getLayoutInflater().setFactory(this);
             }
-            return this.h;
-        }
-        return (re4) invokeV.objValue;
-    }
-
-    public boolean m(Collection<?> collection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, collection)) == null) ? re4.p(this, collection) : invokeL.booleanValue;
-    }
-
-    @Override // java.util.Map
-    public void putAll(Map<? extends K, ? extends V> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
-            b(this.c + map.size());
-            for (Map.Entry<? extends K, ? extends V> entry : map.entrySet()) {
-                put(entry.getKey(), entry.getValue());
-            }
+            super.onCreate(bundle);
+            LogUtil.logActivity(this, "onCreate");
         }
     }
 
-    @Override // java.util.Map
-    public Collection<V> values() {
-        InterceptResult invokeV;
+    @Override // android.app.Activity, android.view.LayoutInflater.Factory
+    public View onCreateView(String str, Context context, AttributeSet attributeSet) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? l().n() : (Collection) invokeV.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, context, attributeSet)) == null) {
+            View h = h(null, str, context, attributeSet);
+            return h == null ? super.onCreateView(str, context, attributeSet) : h;
+        }
+        return (View) invokeLLL.objValue;
     }
 }

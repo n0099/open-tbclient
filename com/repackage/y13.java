@@ -1,31 +1,32 @@
 package com.repackage;
 
 import android.content.Context;
-import android.util.Log;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class y13 extends f23 {
+public abstract class y13 extends w23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y13(f13 f13Var) {
-        super(f13Var, "/swanAPI/performancePanel");
+    public y13(w13 w13Var, String str) {
+        super(w13Var, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {f13Var};
+            Object[] objArr = {w13Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,44 +40,88 @@ public class y13 extends f23 {
         }
     }
 
-    @Override // com.repackage.f23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
+    @Override // com.repackage.w23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, z03 z03Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
-            if (!vl2.U().N() && !f23.b) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not debug app model");
-                return false;
-            } else if (i03Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
-                return false;
-            } else {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
-                    return false;
-                }
-                JSONArray optJSONArray = optParamsAsJo.optJSONArray("data");
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                        if (optJSONObject != null) {
-                            String optString = optJSONObject.optString("slaveId");
-                            String optString2 = optJSONObject.optString("actionName");
-                            long optLong = optJSONObject.optLong("timestamp", -1L);
-                            if (f23.b) {
-                                Log.i("performancePanel", "slaveId: " + optString + ", actionName: " + optString2 + ", timestamp: " + optLong);
-                            }
-                            zu2.b().d(optString, optString2, optLong);
-                        }
-                    }
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                    return true;
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty data");
-                return false;
-            }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, z03Var)) == null) {
+            return false;
         }
         return invokeLLLL.booleanValue;
     }
+
+    @Override // com.repackage.w23
+    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, z03 z03Var) {
+        InterceptResult invokeLLLLL;
+        boolean n;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, z03Var)) == null) {
+            String l = l("insert");
+            String l2 = l("update");
+            String l3 = l("remove");
+            if (TextUtils.equals(l, str)) {
+                n = m(context, unitedSchemeEntity, callbackHandler, str, z03Var);
+            } else if (TextUtils.equals(l2, str)) {
+                n = p(context, unitedSchemeEntity, callbackHandler, str, z03Var);
+            } else if (TextUtils.equals(l3, str)) {
+                n = o(context, unitedSchemeEntity, callbackHandler, str, z03Var);
+            } else {
+                n = n(context, unitedSchemeEntity, callbackHandler, str, z03Var);
+            }
+            zx1.b("AbsSwanAppWidget", "subAction = " + str + " ; handle result = " + n);
+            return n;
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    @NonNull
+    public abstract String j();
+
+    public JSONObject k(UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, unitedSchemeEntity)) == null) {
+            if (unitedSchemeEntity == null) {
+                zx1.c("AbsSwanAppWidget", "getParamsJSONObject entity is null");
+                return null;
+            }
+            String param = unitedSchemeEntity.getParam("params");
+            if (TextUtils.isEmpty(param)) {
+                zx1.c("AbsSwanAppWidget", "getParamsJSONObject paramsJson is empty");
+                return null;
+            }
+            try {
+                return new JSONObject(param);
+            } catch (JSONException e) {
+                zx1.c("AbsSwanAppWidget", "getParamsJSONObject exception = " + e.getMessage());
+                if (w23.b) {
+                    e.printStackTrace();
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public final String l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return j() + "/" + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public abstract boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, z03 z03Var);
+
+    public boolean n(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, z03 z03Var) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, context, unitedSchemeEntity, callbackHandler, str, z03Var)) == null) ? super.i(context, unitedSchemeEntity, callbackHandler, str, z03Var) : invokeLLLLL.booleanValue;
+    }
+
+    public abstract boolean o(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, z03 z03Var);
+
+    public abstract boolean p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, z03 z03Var);
 }

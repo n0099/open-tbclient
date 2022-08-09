@@ -14,6 +14,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.sofire.MyService;
 import com.baidu.sofire.ac.Callback;
 import com.baidu.sofire.ac.F;
@@ -491,7 +492,7 @@ public class a {
                 } else {
                     service = PendingIntent.getService(context, 1001, intent, 134217728);
                 }
-                long currentTimeMillis = System.currentTimeMillis() + (i != 0 ? i != 1 ? i != 2 ? 600000L : 300000L : 180000L : 30000L);
+                long currentTimeMillis = System.currentTimeMillis() + (i != 0 ? i != 1 ? i != 2 ? 600000L : 300000L : LiveFeedPageSdk.REFRESH_TIME : 30000L);
                 try {
                     alarmManager.cancel(service);
                 } catch (Throwable unused) {

@@ -19,10 +19,10 @@ public class hd implements XMPushService.n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f462a;
+    public int f463a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f463a;
+    public Context f464a;
     public boolean b;
 
     static {
@@ -55,13 +55,13 @@ public class hd implements XMPushService.n {
                 return;
             }
         }
-        this.f463a = context;
+        this.f464a = context;
     }
 
     private String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) ? "com.xiaomi.xmsf".equals(str) ? "1000271" : this.f463a.getSharedPreferences("pref_registered_pkg_names", 0).getString(str, null) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) ? "com.xiaomi.xmsf".equals(str) ? "1000271" : this.f464a.getSharedPreferences("pref_registered_pkg_names", 0).getString(str, null) : (String) invokeL.objValue;
     }
 
     private void a(Context context) {
@@ -69,8 +69,8 @@ public class hd implements XMPushService.n {
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
             this.b = com.xiaomi.push.service.ba.a(context).a(ho.ak.a(), true);
             int a2 = com.xiaomi.push.service.ba.a(context).a(ho.al.a(), 7200);
-            this.f462a = a2;
-            this.f462a = Math.max(60, a2);
+            this.f463a = a2;
+            this.f463a = Math.max(60, a2);
         }
     }
 
@@ -84,17 +84,17 @@ public class hd implements XMPushService.n {
     private boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? Math.abs((System.currentTimeMillis() / 1000) - this.f463a.getSharedPreferences("mipush_extra", 4).getLong("last_tiny_data_upload_timestamp", -1L)) > ((long) this.f462a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? Math.abs((System.currentTimeMillis() / 1000) - this.f464a.getSharedPreferences("mipush_extra", 4).getLong("last_tiny_data_upload_timestamp", -1L)) > ((long) this.f463a) : invokeV.booleanValue;
     }
 
     private boolean a(hh hhVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, hhVar)) == null) {
-            if (!bj.b(this.f463a) || hhVar == null || TextUtils.isEmpty(a(this.f463a.getPackageName())) || !new File(this.f463a.getFilesDir(), "tiny_data.data").exists() || a) {
+            if (!bj.b(this.f464a) || hhVar == null || TextUtils.isEmpty(a(this.f464a.getPackageName())) || !new File(this.f464a.getFilesDir(), "tiny_data.data").exists() || a) {
                 return false;
             }
-            return !com.xiaomi.push.service.ba.a(this.f463a).a(ho.aV.a(), false) || j.m536a(this.f463a) || j.m538b(this.f463a);
+            return !com.xiaomi.push.service.ba.a(this.f464a).a(ho.aV.a(), false) || j.m536a(this.f464a) || j.m538b(this.f464a);
         }
         return invokeL.booleanValue;
     }
@@ -104,18 +104,18 @@ public class hd implements XMPushService.n {
     public void mo394a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            hh a2 = hg.a(this.f463a).a();
-            if (hi.a(this.f463a) && a2 != null) {
-                hf.a(this.f463a, a2, com.xiaomi.push.service.ca.f964a);
+            hh a2 = hg.a(this.f464a).a();
+            if (hi.a(this.f464a) && a2 != null) {
+                hf.a(this.f464a, a2, com.xiaomi.push.service.ca.f965a);
                 com.xiaomi.push.service.ca.a();
                 com.xiaomi.channel.commonutils.logger.b.c("coord data upload");
             }
-            a(this.f463a);
+            a(this.f464a);
             if (this.b && a()) {
                 com.xiaomi.channel.commonutils.logger.b.m89a("TinyData TinyDataCacheProcessor.pingFollowUpAction ts:" + System.currentTimeMillis());
                 if (a(a2)) {
                     a = true;
-                    he.a(this.f463a, a2);
+                    he.a(this.f464a, a2);
                     return;
                 }
                 com.xiaomi.channel.commonutils.logger.b.m89a("TinyData TinyDataCacheProcessor.pingFollowUpAction !canUpload(uploader) ts:" + System.currentTimeMillis());

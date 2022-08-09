@@ -1,11 +1,11 @@
 package com.repackage;
 
-import android.util.Log;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.res.Resources;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.IndicatorView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,134 +14,113 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class ts4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final c a;
-    public static final c b;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class b implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.ts4.c
-        public void a(String str, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
-                if (str2 != null) {
-                    str3 = "code:" + str2 + " message:" + str3;
-                }
-                Log.e("BridgeLogger", str3);
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface c {
-        void a(String str, String str2, String str3);
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class d implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.ts4.c
-        public void a(String str, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
-                StatisticItem statisticItem = new StatisticItem("c10729");
-                statisticItem.param("obj_param1", str);
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str3);
-                if (BdBaseApplication.getInst() != null) {
-                    TiebaStatic.log(statisticItem);
-                }
-            }
-        }
-
-        public /* synthetic */ d(a aVar) {
-            this();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755280196, "Lcom/repackage/ts4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755280196, "Lcom/repackage/ts4;");
-                return;
-            }
-        }
-        a = new b(null);
-        b = new d(null);
-        c = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
-    }
-
-    public static void a(String str) {
+    public ts4() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && c) {
-            a.a(null, null, str);
-        }
-    }
-
-    public static void b(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
-            a(str3);
-        }
-    }
-
-    public static void c(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
-            if (c) {
-                a.a(str, str2, str3);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            b.a(str, str2, str3);
+        }
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public final void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public final void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public final void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public final void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public final void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void i(IndicatorView indicatorView) {
+        Resources resources;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, indicatorView) == null) || indicatorView == null || (resources = indicatorView.getResources()) == null) {
+            return;
+        }
+        int i = this.d;
+        if (i > 0) {
+            indicatorView.setSpacing(resources.getDimensionPixelSize(i));
+        }
+        int i2 = this.b;
+        if (i2 > 0) {
+            indicatorView.setDrawable(resources.getDrawable(i2));
+        }
+        int i3 = this.c;
+        if (i3 > 0) {
+            indicatorView.setSelector(resources.getDrawable(i3));
+        }
+        ViewGroup.LayoutParams layoutParams = indicatorView.getLayoutParams();
+        if (layoutParams instanceof FrameLayout.LayoutParams) {
+            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
+            layoutParams2.gravity = this.a;
+            int i4 = this.e;
+            if (i4 > 0) {
+                layoutParams2.bottomMargin = resources.getDimensionPixelSize(i4);
+            }
+            int i5 = this.f;
+            if (i5 > 0) {
+                layoutParams2.rightMargin = resources.getDimensionPixelSize(i5);
+            }
+            indicatorView.setLayoutParams(layoutParams);
         }
     }
 }

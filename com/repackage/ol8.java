@@ -1,66 +1,36 @@
 package com.repackage;
 
-import com.baidu.adp.framework.message.CustomMessage;
+import android.webkit.JsPromptResult;
+import android.webkit.WebView;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.atomData.NewUserRedPackageActivityConfig;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public class ol8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public boolean b;
-    public Runnable c;
+    public ArrayList<pl8> a;
+    public wl8 b;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ol8 a;
-
-        public a(ol8 ol8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ol8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ol8Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-                    this.a.b = true;
-                } else {
-                    this.a.a();
-                }
-            }
-        }
-    }
-
-    public ol8(MainTabActivity mainTabActivity, al8 al8Var) {
+    public ol8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, al8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -70,42 +40,148 @@ public class ol8 {
                 return;
             }
         }
-        this.b = false;
-        this.c = new a(this);
-        this.a = mainTabActivity;
+        this.a = new ArrayList<>();
+        this.b = new wl8();
     }
 
-    public void a() {
+    public void a(pl8 pl8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TbSingleton.getInstance().getNewUserRedPackageData() == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, pl8Var) == null) {
+            if (pl8Var != null) {
+                this.a.add(pl8Var);
+            }
+            if (this.b == null || pl8Var == null || pl8Var.getClass().getAnnotation(io.class) == null) {
+                return;
+            }
+            try {
+                this.b.a((rl8) Class.forName("com.baidu.tieba.h5power." + pl8Var.getClass().getSimpleName() + rl8.PROXY_CLASS_NAME_SUFFIX).getConstructor(pl8Var.getClass()).newInstance(pl8Var));
+            } catch (Exception e) {
+                BdLog.e(e);
+            }
+        }
+    }
+
+    public boolean b(WebView webView, String str, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, jsPromptResult)) == null) {
+            if (str.startsWith("tiebaapp")) {
+                e(webView, str);
+                return false;
+            }
+            return c(str, jsPromptResult);
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public boolean c(String str, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jsPromptResult)) == null) {
+            if (StringUtils.isNull(str)) {
+                return false;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString("interfaceName");
+                String optString2 = jSONObject.optString("methodName");
+                String optString3 = jSONObject.optString("param");
+                if (!StringUtils.isNull(optString) && !StringUtils.isNull(optString2) && !StringUtils.isNull(optString3)) {
+                    return d(optString, optString2, optString3, jsPromptResult);
+                }
+            } catch (JSONException unused) {
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final boolean d(String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, str, str2, str3, jsPromptResult)) == null) {
+            if (ListUtils.getCount(this.a) > 0) {
+                Iterator<pl8> it = this.a.iterator();
+                while (it.hasNext()) {
+                    pl8 next = it.next();
+                    if (next != null && next.dealJsInterface(str, str2, str3, jsPromptResult)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final void e(WebView webView, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, webView, str) == null) || this.b == null) {
             return;
         }
-        TbSingleton.getInstance().setNewUserRedPackageShowed(true);
-        this.a.sendMessage(new CustomMessage(2002001, new NewUserRedPackageActivityConfig(this.a, TbSingleton.getInstance().getNewUserRedPackageData())));
-        TbSingleton.getInstance().setNewUserRedPackageData(null);
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b) {
-            this.b = false;
-            qg.a().removeCallbacks(this.c);
-            qg.a().postDelayed(this.c, 200L);
+        vl8 vl8Var = new vl8();
+        tl8 tl8Var = new tl8();
+        String a = xl8.a(str);
+        vl8Var.f(a);
+        String d = xl8.d(str);
+        vl8Var.h(d);
+        String b = xl8.b(str);
+        tl8Var.v(b);
+        if (pi.isEmpty(a) || pi.isEmpty(d) || pi.isEmpty(b)) {
+            tl8Var.y(101);
+        }
+        try {
+            vl8Var.j(xl8.f(str));
+        } catch (JSONException unused) {
+            vl8Var.j(new JSONObject());
+            tl8Var.y(101);
+        }
+        vl8Var.i(xl8.e(str));
+        vl8Var.g(xl8.c(str));
+        tl8 c = this.b.c(vl8Var, tl8Var);
+        if (c.g()) {
+            this.b.d(webView, c);
+        } else {
+            f(ej8.a(webView.getContext()), str, c);
         }
     }
 
-    public void c() {
+    public final boolean f(TbPageContext<?> tbPageContext, String str, tl8 tl8Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            qg.a().removeCallbacks(this.c);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, tbPageContext, str, tl8Var)) == null) {
+            if (tl8Var == null || tl8Var.i() || !SchemeActionManager.getInstance().doSchemeAction(tbPageContext, str)) {
+                return false;
+            }
+            tl8Var.r(true);
+            tl8Var.y(0);
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.a.clear();
         }
     }
 
-    public void d() {
+    public void h(pl8 pl8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            qg.a().removeCallbacks(this.c);
-            qg.a().postDelayed(this.c, 200L);
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, pl8Var) == null) || pl8Var == null) {
+            return;
         }
+        this.a.remove(pl8Var);
+    }
+
+    public void i(WebView webView, String str, @Nullable HashMap hashMap) {
+        wl8 wl8Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, str, hashMap) == null) || (wl8Var = this.b) == null) {
+            return;
+        }
+        this.b.e(webView, wl8Var.f(str, hashMap));
     }
 }

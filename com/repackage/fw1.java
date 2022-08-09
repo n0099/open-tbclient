@@ -1,39 +1,41 @@
 package com.repackage;
 
 import android.content.Context;
+import android.text.Editable;
+import android.text.InputFilter;
+import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.swan.apps.component.components.textarea.SwanEditText;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.repackage.gw1;
 /* loaded from: classes6.dex */
-public class fw1 extends h13 {
+public abstract class fw1<V extends SwanEditText, M extends gw1> extends kw1<V, M> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fw1(f13 f13Var) {
-        super(f13Var, "/swanAPI/button");
+    public fw1(@Nullable Context context, @NonNull M m) {
+        super(context, m);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {f13Var};
+            Object[] objArr = {context, m};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((f13) objArr2[0], (String) objArr2[1]);
+                super((Context) objArr2[0], (lw1) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -41,129 +43,171 @@ public class fw1 extends h13 {
         }
     }
 
-    @Override // com.repackage.h13
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.kw1, com.repackage.mw1, com.repackage.ow1
     @NonNull
-    public String j() {
-        InterceptResult invokeV;
+    /* renamed from: Z */
+    public rx1 k(@NonNull M m, @NonNull M m2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "/swanAPI/button" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, m, m2)) == null) {
+            rx1 k = super.k(m, m2);
+            if (q() != 0 && !TextUtils.equals(((SwanEditText) q()).getText().toString(), m2.t)) {
+                k.b(6);
+            }
+            if (m.D != m2.D) {
+                k.b(10);
+            }
+            if (m.F != m2.F) {
+                k.b(11);
+            }
+            if (m.G != m2.G || m.H != m2.H) {
+                k.b(12);
+            }
+            if (!TextUtils.equals(m.I, m2.I)) {
+                k.b(13);
+            }
+            return k;
+        }
+        return (rx1) invokeLL.objValue;
     }
 
-    @Override // com.repackage.h13
-    public boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, i03 i03Var) {
-        InterceptResult invokeLLLLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.kw1
+    /* renamed from: a0 */
+    public void T(@NonNull V v, @NonNull M m, @NonNull rx1 rx1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, i03Var)) == null) {
-            if (f23.b) {
-                Log.d("Component-Action-Button", "insert");
+        if (interceptable == null || interceptable.invokeLLL(1048583, this, v, m, rx1Var) == null) {
+            super.O(v, m, rx1Var);
+            if (rx1Var.a(11)) {
+                d0(v, m);
             }
-            gw1 q = q(unitedSchemeEntity);
-            if (q == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                ix1.c("Component-Action-Button", "model is null");
+            if (rx1Var.a(12)) {
+                f0(v, m);
+            }
+            if (rx1Var.a(10)) {
+                e0(v, m);
+            }
+            if (rx1Var.a(13)) {
+                c0(v, m);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.mw1
+    /* renamed from: b0 */
+    public void Q(@NonNull V v, @NonNull M m) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v, m) == null) {
+            if (ow1.h) {
+                Log.d("Component-EditText", "renderBackground");
+            }
+            v.setBackgroundColor(0);
+        }
+    }
+
+    public boolean c0(@NonNull V v, @NonNull M m) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, v, m)) == null) {
+            if (ow1.h) {
+                Log.d("Component-EditText", "renderConfirmType:" + m.I);
+            }
+            String str = m.I;
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -906336856:
+                    if (str.equals("search")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case SpeedStatsStampTable.AD_LOAD_BEAR_END_STAMP_KEY /* 3304 */:
+                    if (str.equals("go")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 3089282:
+                    if (str.equals("done")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 3377907:
+                    if (str.equals(UnitedSchemeConstants.UNITED_SCHEME_NEXT)) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 3526536:
+                    if (str.equals("send")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+            }
+            if (c == 0) {
+                v.setImeOptions(4);
+            } else if (c == 1) {
+                v.setImeOptions(3);
+            } else if (c == 2) {
+                v.setImeOptions(5);
+            } else if (c == 3) {
+                v.setImeOptions(2);
+            } else if (c != 4) {
                 return false;
-            }
-            zv1 insert = new ew1(context, q).insert();
-            boolean a = insert.a();
-            if (a) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, insert.b);
+                v.setImeOptions(6);
             }
-            return a;
+            return true;
         }
-        return invokeLLLLL.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    @Override // com.repackage.h13
-    public boolean o(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, i03 i03Var) {
-        InterceptResult invokeLLLLL;
+    public void d0(@NonNull V v, @NonNull M m) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, str, i03Var)) == null) {
-            if (f23.b) {
-                Log.d("Component-Action-Button", "remove");
+        if (interceptable == null || interceptable.invokeLL(1048586, this, v, m) == null) {
+            if (ow1.h) {
+                Log.d("Component-EditText", "renderCursor");
             }
-            gw1 q = q(unitedSchemeEntity);
-            if (q == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                ix1.c("Component-Action-Button", "model is null");
-                return false;
+            Editable text = v.getText();
+            int length = text != null ? text.length() : 0;
+            int i = m.F;
+            if (i > length || i < 0) {
+                return;
             }
-            ew1 ew1Var = (ew1) vw1.a(q);
-            if (ew1Var == null) {
-                String str2 = "can't find button component:#" + q.b;
-                ix1.c("Component-Action-Button", str2);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
-                return false;
-            }
-            zv1 B = ew1Var.B();
-            boolean a = B.a();
-            if (a) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, B.b);
-            }
-            return a;
+            v.setSelection(i);
         }
-        return invokeLLLLL.booleanValue;
     }
 
-    @Override // com.repackage.h13
-    public boolean p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, i03 i03Var) {
-        InterceptResult invokeLLLLL;
+    public final void e0(@NonNull V v, @NonNull M m) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, unitedSchemeEntity, callbackHandler, str, i03Var)) == null) {
-            if (f23.b) {
-                Log.d("Component-Action-Button", "update");
+        if (interceptable == null || interceptable.invokeLL(1048587, this, v, m) == null) {
+            if (ow1.h) {
+                Log.d("Component-EditText", "renderMaxLength");
             }
-            gw1 q = q(unitedSchemeEntity);
-            if (q == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                ix1.c("Component-Action-Button", "model is null");
-                return false;
+            if (m.D >= 0) {
+                v.setFilters(new InputFilter[]{new InputFilter.LengthFilter(m.D)});
             }
-            ew1 ew1Var = (ew1) vw1.a(q);
-            if (ew1Var == null) {
-                String str2 = "can't find button component:#" + q.b;
-                ix1.c("Component-Action-Button", str2);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
-                return false;
-            }
-            zv1 update = ew1Var.update((ew1) q);
-            boolean a = update.a();
-            if (a) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, update.b);
-            }
-            return a;
         }
-        return invokeLLLLL.booleanValue;
     }
 
-    @Nullable
-    public final gw1 q(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
+    public void f0(@NonNull V v, @NonNull M m) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, unitedSchemeEntity)) == null) {
-            if (unitedSchemeEntity == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, v, m) == null) {
+            if (ow1.h) {
+                Log.d("Component-EditText", "renderSelection");
             }
-            JSONObject k = k(unitedSchemeEntity);
-            if (k == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                ix1.c("Component-Action-Button", "params is null");
-                return null;
+            Editable text = v.getText();
+            int length = text != null ? text.length() : 0;
+            int i2 = m.H;
+            if (i2 > length || (i = m.G) < 0 || i > i2) {
+                return;
             }
-            gw1 gw1Var = new gw1();
-            try {
-                gw1Var.a(k);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                ix1.d("Component-Action-Button", "model parse exception:", e);
-            }
-            return gw1Var;
+            v.setSelection(i, i2);
         }
-        return (gw1) invokeL.objValue;
     }
 }

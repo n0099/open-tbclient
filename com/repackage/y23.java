@@ -1,201 +1,128 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.res.ui.FloatButton;
-import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
+@Deprecated
 /* loaded from: classes7.dex */
-public class y23 {
+public class y23 extends w23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    @SuppressLint({"StaticFieldLeak"})
-    public static volatile y23 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public FloatButton b;
-    public String c;
-    public JSONObject d;
-    public String e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755193737, "Lcom/repackage/y23;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755193737, "Lcom/repackage/y23;");
-                return;
-            }
-        }
-        f = sg1.a;
-    }
-
-    public y23() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y23(w13 w13Var) {
+        super(w13Var, "/swanAPI/ubcFlowJar");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {w13Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = "";
     }
 
-    public static y23 d() {
-        InterceptResult invokeV;
+    @Override // com.repackage.w23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, z03 z03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (g == null) {
-                synchronized (y23.class) {
-                    if (g == null) {
-                        g = new y23();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, z03Var)) == null) {
+            if (w23.b) {
+                Log.d("SwanAppAction", "start ubc flor jar");
+            }
+            if (z03Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+                return false;
+            }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+                return false;
+            }
+            String optString = optParamsAsJo.optString("flowId");
+            if (TextUtils.isEmpty(optString)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty flowId");
+                return false;
+            }
+            char c = 65535;
+            switch (optString.hashCode()) {
+                case 53647:
+                    if (optString.equals("670")) {
+                        c = 0;
+                        break;
                     }
+                    break;
+                case 53648:
+                    if (optString.equals("671")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 55357:
+                    if (optString.equals("805")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case 56506:
+                    if (optString.equals("967")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 1508542:
+                    if (optString.equals("1153")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 1529139648:
+                    if (optString.equals("renderMonitorLog")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+            }
+            if (c == 0) {
+                ks1.B(optParamsAsJo, z03Var);
+            } else if (c == 1) {
+                ks1.F(optParamsAsJo.optJSONArray("data"));
+            } else if (c == 2) {
+                ks1.E(optParamsAsJo.optJSONArray("data"));
+            } else if (c == 3) {
+                ks1.D(optParamsAsJo);
+            } else if (c != 4) {
+                if (c != 5) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "unknown flowId");
+                    return false;
                 }
+                ks1.C(optParamsAsJo);
+            } else if (z03Var.W().p0()) {
+                iy1.g(optParamsAsJo.optJSONArray("data"));
+            } else {
+                py1.i(optParamsAsJo.optJSONArray("data"));
             }
-            return g;
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
         }
-        return (y23) invokeV.objValue;
-    }
-
-    public static void h() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || g == null) {
-            return;
-        }
-        g = null;
-    }
-
-    public final FloatButton a(Context context, ViewGroup viewGroup) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, viewGroup)) == null) {
-            if (context == null || viewGroup == null) {
-                return null;
-            }
-            FloatButton e = e(context);
-            viewGroup.addView(e);
-            return e;
-        }
-        return (FloatButton) invokeLL.objValue;
-    }
-
-    public void b(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) || intent == null || this.b == null) {
-            return;
-        }
-        String dataString = intent.getDataString();
-        if (TextUtils.isEmpty(dataString)) {
-            return;
-        }
-        String substring = dataString.substring(8);
-        if (TextUtils.isEmpty(substring) || !substring.equals(this.e)) {
-            return;
-        }
-        if (TextUtils.equals(PackageChangedReceiver.ACTION_INSTALL, intent.getAction())) {
-            this.c = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f01de);
-        } else if (TextUtils.equals(PackageChangedReceiver.ACTION_UNINSTALL, intent.getAction())) {
-            this.c = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f11fe);
-        }
-        this.b.setFloatButtonText(this.c);
-    }
-
-    public FloatButton c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (FloatButton) invokeV.objValue;
-    }
-
-    public final FloatButton e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            return (FloatButton) LayoutInflater.from(context.getApplicationContext()).inflate(R.layout.obfuscated_res_0x7f0d07c9, (ViewGroup) null);
-        }
-        return (FloatButton) invokeL.objValue;
-    }
-
-    public FloatButton f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Activity activity = this.a;
-            if (activity instanceof SwanAppActivity) {
-                if (this.b == null) {
-                    this.b = a(activity, (ViewGroup) activity.findViewById(16908290));
-                }
-                this.b.setFloatButtonText(this.c);
-                this.b.setFloatButtonDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810b8));
-                this.b.setFloatButtonDefaultPosition();
-                this.b.setFloatButtonStyle(this.d);
-                this.b.setVisibility(0);
-                return this.b;
-            }
-            return null;
-        }
-        return (FloatButton) invokeV.objValue;
-    }
-
-    public void g(Activity activity, JSONObject jSONObject) {
-        String string;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, activity, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        if (f) {
-            Log.i("FloatButtonGuideManager", jSONObject.toString());
-        }
-        this.a = activity;
-        String optString = jSONObject.optString("name");
-        this.e = optString;
-        if (ce3.F(activity, optString)) {
-            string = activity.getString(R.string.obfuscated_res_0x7f0f01de);
-        } else {
-            string = activity.getString(R.string.obfuscated_res_0x7f0f11fe);
-        }
-        this.c = string;
-        this.d = jSONObject.optJSONObject("style");
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void j(FloatButton floatButton) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, floatButton) == null) {
-            this.b = floatButton;
-        }
+        return invokeLLLL.booleanValue;
     }
 }

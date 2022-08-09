@@ -1,18 +1,19 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.PbPage.ForumHeadlineImgInfo;
 /* loaded from: classes6.dex */
 public class nr7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
+    public String c;
+    public String d;
 
     public nr7() {
         Interceptable interceptable = $ic;
@@ -24,35 +25,38 @@ public class nr7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "";
-        this.b = "";
     }
 
-    public String a() {
+    public int a() {
         InterceptResult invokeV;
+        char c;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public void c(ForumHeadlineImgInfo forumHeadlineImgInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, forumHeadlineImgInfo) == null) || forumHeadlineImgInfo == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str = this.b;
+            int hashCode = str.hashCode();
+            if (hashCode == 2154) {
+                if (str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CMCC)) {
+                    c = 2;
+                }
+                c = 65535;
+            } else if (hashCode != 2161) {
+                if (hashCode == 2162 && str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CUCC)) {
+                    c = 0;
+                }
+                c = 65535;
+            } else {
+                if (str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CTCC)) {
+                    c = 1;
+                }
+                c = 65535;
+            }
+            if (c != 0) {
+                return c != 1 ? 3 : 2;
+            }
+            return 1;
         }
-        forumHeadlineImgInfo.img_user_id.longValue();
-        String str = forumHeadlineImgInfo.img_user_name;
-        this.a = forumHeadlineImgInfo.img_url;
-        forumHeadlineImgInfo.rank_num.intValue();
-        String str2 = forumHeadlineImgInfo.rank_up_info;
-        this.b = forumHeadlineImgInfo.rank_url;
+        return invokeV.intValue;
     }
 }

@@ -10,7 +10,7 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import com.ss.android.socialbase.downloader.model.DownloadTask;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public String globalDefaultSavePath;
     public String globalDefaultSaveTempPath;

@@ -27,13 +27,13 @@ public class d {
         public final int a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final long f976a;
+        public final long f977a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final String f977a;
+        public final String f978a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final Notification.Action[] f978a;
+        public final Notification.Action[] f979a;
 
         public a(String str, long j, int i, Notification.Action[] actionArr) {
             Interceptable interceptable = $ic;
@@ -50,10 +50,10 @@ public class d {
                     return;
                 }
             }
-            this.f977a = str;
-            this.f976a = j;
+            this.f978a = str;
+            this.f977a = j;
             this.a = i;
-            this.f978a = actionArr;
+            this.f979a = actionArr;
         }
     }
 
@@ -78,7 +78,7 @@ public class d {
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
             for (int size = a.size() - 1; size >= 0; size--) {
                 a aVar = a.get(size);
-                if (SystemClock.elapsedRealtime() - aVar.f976a > 5000) {
+                if (SystemClock.elapsedRealtime() - aVar.f977a > 5000) {
                     a.remove(aVar);
                 }
             }

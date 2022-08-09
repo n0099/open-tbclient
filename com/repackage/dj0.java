@@ -1,147 +1,128 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import android.view.View;
+import android.os.Handler;
+import android.os.Message;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.view.DefaultDownloadViewLP;
+import com.baidu.nadcore.download.consts.AdDownloadAction;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
+import com.baidu.nadcore.net.util.NetUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
-public class dj0 extends ej0 implements View.OnClickListener {
+/* loaded from: classes6.dex */
+public class dj0 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final oi0 a;
+    public float b;
+    public final float c;
+    public final float d;
+    public final float e;
     public boolean f;
-    public zi0 g;
 
-    /* loaded from: classes5.dex */
-    public class a implements DialogInterface.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dj0 a;
-
-        public a(dj0 dj0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dj0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dj0Var;
-        }
-
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.a.e.clear();
-                this.a.e = null;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    /* JADX WARN: Type inference failed for: r8v1, types: [android.view.View] */
-    public dj0(@NonNull si0 si0Var, @NonNull kj0<?> kj0Var) {
-        super(si0Var, kj0Var);
+    public dj0(@NonNull oi0 oi0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {si0Var, kj0Var};
+            Object[] objArr = {oi0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((si0) objArr2[0], (kj0) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        kj0Var.getRealView().setOnClickListener(this);
+        this.b = -1.0f;
+        this.f = false;
+        this.c = (float) qk0.b().a().b("nad_fake_progress", 0.5950000286102295d);
+        this.b = (float) qk0.b().a().b("nad_fake_max_progress_time", 0.0d);
+        this.d = (float) qk0.b().a().b("nad_fake_speed", 768000.0d);
+        this.e = (float) qk0.b().a().b("nad_fake_progress_step", 0.009999999776482582d);
+        this.a = oi0Var;
     }
 
-    public void A(zi0 zi0Var, Activity activity) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, zi0Var, activity) == null) && (this.e.get() instanceof DefaultDownloadViewLP)) {
-            DefaultDownloadViewLP defaultDownloadViewLP = (DefaultDownloadViewLP) this.e.get();
-            defaultDownloadViewLP.d(false);
-            wj0.c(zi0Var, defaultDownloadViewLP, activity, new a(this), null);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            b(false);
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            m();
-        }
-    }
-
-    /* JADX WARN: Type inference failed for: r5v1, types: [android.view.View] */
-    @Override // com.repackage.ej0
-    public void t(kj0<?> kj0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kj0Var) == null) {
-            super.t(kj0Var);
-            kj0Var.getRealView().setOnClickListener(this);
-        }
-    }
-
-    public zi0 v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g : (zi0) invokeV.objValue;
-    }
-
-    public boolean w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : invokeV.booleanValue;
-    }
-
-    public boolean x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            WeakReference<kj0<?>> weakReference = this.e;
-            if (weakReference != null && weakReference.get() != null) {
-                kj0<?> kj0Var = this.e.get();
-                if (kj0Var instanceof View) {
-                    return !((View) kj0Var).isAttachedToWindow();
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            if (!this.f || z) {
+                d();
+                long j = this.a.q.e;
+                if (j > 0) {
+                    float f = this.d;
+                    if (f > 0.0f) {
+                        this.b = (((float) j) * this.c) / f;
+                    }
+                }
+                if (this.b <= 0.0f) {
+                    this.f = false;
+                } else if (this.e <= 0.0f) {
+                    this.f = false;
+                } else {
+                    this.f = true;
+                    Message obtain = Message.obtain();
+                    obtain.what = 1;
+                    sendMessage(obtain);
                 }
             }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void y(zi0 zi0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, zi0Var) == null) {
-            this.g = zi0Var;
         }
     }
 
-    public void z(boolean z) {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f = z;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Message obtain = Message.obtain();
+            obtain.what = 1;
+            sendMessageDelayed(obtain, (this.b / (this.c / this.e)) * 1000.0f);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            removeMessages(1);
+            this.f = false;
+        }
+    }
+
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, message) == null) {
+            super.handleMessage(message);
+            if (message.what != 1) {
+                d();
+            } else if (this.a.q.g == 1) {
+                this.f = false;
+            } else if (!NetUtil.a(dh0.b())) {
+                d();
+            } else {
+                oi0 oi0Var = this.a;
+                if (oi0Var.c != AdDownloadStatus.DOWNLOADING) {
+                    d();
+                    return;
+                }
+                float f = oi0Var.j;
+                if (f >= this.c) {
+                    d();
+                    return;
+                }
+                this.f = true;
+                oi0Var.j = Math.max(oi0Var.i, f) + this.e;
+                ai0.b().f(AdDownloadAction.PROGRESS_UPDATE, this.a);
+                c();
+            }
         }
     }
 }

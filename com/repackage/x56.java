@@ -1,64 +1,104 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.WindowManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.Gson;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class x56 {
+public class x56 extends sa {
     public static /* synthetic */ Interceptable $ic;
-    public static x56 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public r56 a;
+    public HashMap<String, String> b;
+    public Gson c;
 
-    public x56() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x56(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static x56 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (x56.class) {
-                    if (a == null) {
-                        a = new x56();
-                    }
-                }
-            }
-            return a;
-        }
-        return (x56) invokeV.objValue;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a = null;
-        }
-    }
-
-    public void c(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i) == null) {
-            if (context != null) {
-                WindowManager windowManager = (WindowManager) context.getSystemService("window");
                 return;
             }
-            throw new IllegalArgumentException("context cannot be null");
         }
+        this.c = new Gson();
+    }
+
+    public String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (str.contains("?")) {
+                str = str.split("[?]")[0];
+            }
+            String replace = str.replace(TbConfig.SERVER_ADDRESS, "");
+            HashMap<String, String> hashMap = this.b;
+            if (hashMap != null) {
+                return hashMap.get(replace);
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void b(r56 r56Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r56Var) == null) {
+            this.a = r56Var;
+        }
+    }
+
+    public void c(HashMap<String, String> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
+            this.b = hashMap;
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
+    @Override // com.repackage.ua
+    public /* bridge */ /* synthetic */ HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+        HttpMessage httpMessage2 = httpMessage;
+        process2(httpMessage2, httpMessageTask);
+        return httpMessage2;
+    }
+
+    /* renamed from: process  reason: avoid collision after fix types in other method */
+    public HttpMessage process2(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+        InterceptResult invokeLL;
+        String json;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, httpMessage, httpMessageTask)) == null) {
+            String a = a(httpMessageTask.getUrl());
+            if (a != null && this.a != null) {
+                if (httpMessage.getExtra() instanceof NetMessage) {
+                    NetMessage netMessage = (NetMessage) httpMessage.getExtra();
+                    json = netMessage.getSocketMessage() != null ? this.c.toJson(netMessage.getSocketMessage().getData()) : "";
+                } else {
+                    json = this.c.toJson(httpMessage.getParams());
+                }
+                this.a.a(httpMessageTask.getUrl(), this.c.toJson(a), this.c.toJson(json));
+            }
+            return httpMessage;
+        }
+        return (HttpMessage) invokeLL.objValue;
     }
 }

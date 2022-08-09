@@ -1,60 +1,34 @@
 package com.repackage;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.VelocityTracker;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
-import com.baidu.tbadk.ala.AlaLiveInfoListCoreData;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.R;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.live.FrsLiveTipResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fm6;
-import com.yy.hiidostatis.inner.FlushManager;
-/* loaded from: classes5.dex */
+import com.repackage.n56;
+/* loaded from: classes6.dex */
 public class dm6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrameLayout a;
-    public TextView b;
-    public ImageView c;
-    public we6 d;
+    public Context a;
+    public BdUniqueId b;
+    public boolean c;
+    public o56 d;
     public boolean e;
-    public int f;
-    public FrsFragment g;
-    public int h;
-    public String i;
-    public AlaLiveInfoCoreData j;
-    public AlaLiveInfoListCoreData k;
-    public fm6 l;
-    public int m;
-    public fm6.b n;
-    public Runnable o;
+    public VelocityTracker f;
+    public n56.b g;
 
-    /* loaded from: classes5.dex */
-    public class a implements fm6.b {
+    /* loaded from: classes6.dex */
+    public class a implements n56.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dm6 a;
@@ -77,400 +51,142 @@ public class dm6 {
             this.a = dm6Var;
         }
 
-        @Override // com.repackage.fm6.b
-        public void a(FrsLiveTipResponseMessage frsLiveTipResponseMessage) {
+        @Override // com.repackage.n56.b
+        public void a(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, frsLiveTipResponseMessage) == null) || frsLiveTipResponseMessage == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && e(i2)) {
+                this.a.e(true);
             }
-            this.a.h = frsLiveTipResponseMessage.remindType;
-            this.a.i = frsLiveTipResponseMessage.remindText;
-            this.a.j = frsLiveTipResponseMessage.infoCoreData;
-            this.a.k = frsLiveTipResponseMessage.listCoreData;
-            if (this.a.d != null) {
-                this.a.d.f();
+        }
+
+        @Override // com.repackage.n56.b
+        public void b(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) && e(i2)) {
+                this.a.e(false);
             }
-            if (this.a.h == 0) {
-                return;
+        }
+
+        @Override // com.repackage.n56.b
+        public void c(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
             }
-            this.a.y();
+        }
+
+        @Override // com.repackage.n56.b
+        public void d(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            }
+        }
+
+        public final boolean e(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) ? Math.abs(f) >= 10.0f : invokeF.booleanValue;
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dm6 a;
-
-        public b(dm6 dm6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dm6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dm6Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.l == null) {
-                return;
-            }
-            this.a.l.b(this.a.m);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dm6 a;
-
-        public c(dm6 dm6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dm6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dm6Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.u();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dm6 a;
-
-        public d(dm6 dm6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dm6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dm6Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.t();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dm6 a;
-
-        public e(dm6 dm6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dm6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dm6Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.l();
-            }
-        }
-    }
-
-    public dm6(FrsFragment frsFragment, int i) {
+    public dm6(Context context, BdUniqueId bdUniqueId, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment, Integer.valueOf(i)};
+            Object[] objArr = {context, bdUniqueId, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = true;
-        this.n = new a(this);
-        this.o = new b(this);
-        this.g = frsFragment;
-        this.m = i;
-        this.f = n();
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f++;
-            yt4.k().w("FRS_HOT_LIVE_TIP_CLOSE_NUM" + p(), this.f);
+        this.c = false;
+        this.g = new a(this);
+        this.a = context;
+        this.b = bdUniqueId;
+        this.e = z;
+        if (z) {
+            o56 o56Var = new o56(context);
+            this.d = o56Var;
+            o56Var.d(this.g);
         }
     }
 
-    public void l() {
-        FrsFragment frsFragment;
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x001e, code lost:
+        if (r5 != 3) goto L12;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void b(View view2, MotionEvent motionEvent) {
+        o56 o56Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (frsFragment = this.g) == null) {
-            return;
-        }
-        frsFragment.D3().b(49);
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f = 0;
-            yt4 k = yt4.k();
-            k.w("FRS_HOT_LIVE_TIP_CLOSE_NUM" + p(), this.f);
-        }
-    }
-
-    public final int n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            yt4 k = yt4.k();
-            return k.l("FRS_HOT_LIVE_TIP_CLOSE_NUM" + p(), 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public final long o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            yt4 k = yt4.k();
-            return k.m("FRS_HOT_LIVE_TIP_LAST_SHOWTIME" + p(), 0L);
-        }
-        return invokeV.longValue;
-    }
-
-    public final String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-            if (currentAccountInfo != null) {
-                String id = currentAccountInfo.getID();
-                return !TextUtils.isEmpty(id) ? id : "";
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, motionEvent) == null) {
+            if (this.f == null) {
+                this.f = VelocityTracker.obtain();
             }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void q(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, context) == null) && context != null && this.a == null) {
-            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d031c, (ViewGroup) null);
-            this.a = frameLayout;
-            frameLayout.setOnClickListener(new c(this));
-            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090b08);
-            ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090b07);
-            this.c = imageView;
-            imageView.setOnClickListener(new d(this));
-            s();
-        }
-    }
-
-    public final boolean r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.e : invokeV.booleanValue;
-    }
-
-    public final void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            SkinManager.setBackgroundResource(this.a, R.drawable.bg_frs_hot_live_tip_selector);
-            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0101);
-            SkinManager.setImageResource(this.c, R.drawable.icon_home_card_close_white);
-            this.b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow_more_white), (Drawable) null);
-        }
-    }
-
-    public final void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (this.h == 2) {
-                k();
-            }
-            we6 we6Var = this.d;
-            if (we6Var != null) {
-                we6Var.d();
-            }
-        }
-    }
-
-    public final void u() {
-        FrsFragment frsFragment;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            m();
-            if (this.j == null || (frsFragment = this.g) == null || !frsFragment.isAdded()) {
+            this.f.addMovement(motionEvent);
+            int action = motionEvent.getAction();
+            if (action != 1) {
+                if (action == 2) {
+                    this.f.computeCurrentVelocity(1000);
+                    if (Math.abs(this.f.getXVelocity()) > Math.abs(this.f.getYVelocity())) {
+                        this.e = false;
+                    } else {
+                        this.e = true;
+                    }
+                }
+                if (this.e || (o56Var = this.d) == null) {
+                }
+                o56Var.c(motionEvent);
                 return;
             }
-            boolean equals = TextUtils.equals(p(), String.valueOf(this.j.userID));
-            int i = this.h;
-            if (i == 1) {
-                TiebaStatic.log(new StatisticItem("c12540"));
-                we6 we6Var = this.d;
-                if (we6Var != null) {
-                    we6Var.d();
-                }
-                str = AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_FRS_FOLLOWED_LIVE_TIP;
-            } else if (i == 2) {
-                TiebaStatic.log(new StatisticItem("c12331"));
-                str = AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_FRS_HOT_LIVE_TIP;
-            } else {
-                str = "";
+            c();
+            if (this.e) {
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.g.getPageContext().getPageActivity(), this.j, this.k, str, p(), equals, null, null)));
-            if (this.g.Q0().getForum().isGameForumType()) {
-                CustomMessage customMessage = new CustomMessage(2001622);
-                customMessage.setTag(this.g.getBaseFragmentActivity().getUniqueId());
-                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001622);
+        }
+    }
+
+    public final void c() {
+        VelocityTracker velocityTracker;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (velocityTracker = this.f) == null) {
+            return;
+        }
+        velocityTracker.clear();
+        this.f.recycle();
+        this.f = null;
+    }
+
+    public final void d(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            if (z) {
+                CustomMessage customMessage = new CustomMessage(2001617);
+                customMessage.setTag(this.b);
+                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001617, Boolean.valueOf(z2));
                 customResponsedMessage.setOrginalMessage(customMessage);
                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                 return;
             }
-            qg.a().post(new e(this));
+            CustomMessage customMessage2 = new CustomMessage(2001618);
+            customMessage2.setTag(this.b);
+            CustomResponsedMessage customResponsedMessage2 = new CustomResponsedMessage(2001618, Boolean.valueOf(z2));
+            customResponsedMessage2.setOrginalMessage(customMessage2);
+            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage2);
         }
     }
 
-    public void v() {
+    public final void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            we6 we6Var = this.d;
-            if (we6Var != null) {
-                we6Var.f();
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.c = z;
+            if (this.e) {
+                d(!z, true);
             }
-            qg.a().removeCallbacks(this.o);
-            fm6 fm6Var = this.l;
-            if (fm6Var != null) {
-                fm6Var.c();
-            }
-        }
-    }
-
-    public void w() {
-        FrsFragment frsFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (frsFragment = this.g) != null && frsFragment.isAdded()) {
-            if (System.currentTimeMillis() - o() < FlushManager.ReportTimer.DEFAULT_INTERVAL) {
-                return;
-            }
-            if (this.g.V3() && r()) {
-                this.e = false;
-                return;
-            }
-            if (this.l == null) {
-                this.l = new fm6(this.n);
-            }
-            qg.a().removeCallbacks(this.o);
-            qg.a().postDelayed(this.o, 5000L);
-        }
-    }
-
-    public final void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            yt4 k = yt4.k();
-            k.x("FRS_HOT_LIVE_TIP_LAST_SHOWTIME" + p(), currentTimeMillis);
-        }
-    }
-
-    public void y() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || StringUtils.isNull(this.i) || this.j == null) {
-            return;
-        }
-        if (this.h != 2 || n() < 3) {
-            q(this.g.getPageContext().getPageActivity());
-            TextView textView = this.b;
-            if (textView != null) {
-                textView.setText(this.i);
-            }
-            s();
-            z();
-            x();
-        }
-    }
-
-    public final void z() {
-        FrsFragment frsFragment;
-        id6 l1;
-        FrameLayout frameLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (frsFragment = this.g) == null || (l1 = frsFragment.l1()) == null || l1.d0() == null || (frameLayout = (FrameLayout) l1.W()) == null) {
-            return;
-        }
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, pi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702dd));
-        if (this.d == null) {
-            this.d = new we6();
-        }
-        int i = this.h;
-        if (i == 2) {
-            this.d.h(this.a, frameLayout, layoutParams, 5000);
-        } else if (i == 1) {
-            this.d.g(this.a, frameLayout, layoutParams);
-            TiebaStatic.log(new StatisticItem("c12539"));
         }
     }
 }

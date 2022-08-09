@@ -1,364 +1,81 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.atomData.MembercenterActivityConfig;
-import com.baidu.tbadk.mvc.message.MvcHttpMessage;
-import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
-import com.baidu.tbadk.mvc.message.MvcNetMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tbadk.mvc.model.NetModel;
-import com.baidu.tieba.R;
-import com.baidu.tieba.frs.profession.permission.FrsProfessionPermissionModel;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dr4;
+import com.repackage.dy;
 /* loaded from: classes7.dex */
-public class xm6 implements NetModel.k {
+public class xm6 extends ue6<mn6, ThreadCardViewHolder<mn6>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public FrsProfessionPermissionModel b;
-    public vm6 c;
-    public d d;
-    public int e;
 
-    /* loaded from: classes7.dex */
-    public class a implements dr4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ dr4 b;
-        public final /* synthetic */ xm6 c;
-
-        public a(xm6 xm6Var, String str, dr4 dr4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xm6Var, str, dr4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = xm6Var;
-            this.a = str;
-            this.b = dr4Var;
-        }
-
-        @Override // com.repackage.dr4.e
-        public void onClick(dr4 dr4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
-                MembercenterActivityConfig membercenterActivityConfig = new MembercenterActivityConfig(this.c.a.getPageActivity());
-                membercenterActivityConfig.setUrl("https://tieba.baidu.com/mo/q/prozone/view?fid=" + this.a);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, membercenterActivityConfig));
-                this.b.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements dr4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dr4 a;
-
-        public b(xm6 xm6Var, dr4 dr4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xm6Var, dr4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dr4Var;
-        }
-
-        @Override // com.repackage.dr4.e
-        public void onClick(dr4 dr4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
-                this.a.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements dr4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dr4 a;
-
-        public c(xm6 xm6Var, dr4 dr4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xm6Var, dr4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dr4Var;
-        }
-
-        @Override // com.repackage.dr4.e
-        public void onClick(dr4 dr4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
-                this.a.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface d {
-        void a(boolean z, int i);
-
-        void b(boolean z);
-
-        void c(boolean z);
-    }
-
-    public xm6(TbPageContext<?> tbPageContext) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xm6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        vm6 vm6Var = new vm6();
-        this.c = vm6Var;
-        FrsProfessionPermissionModel frsProfessionPermissionModel = new FrsProfessionPermissionModel(tbPageContext, vm6Var);
-        this.b = frsProfessionPermissionModel;
-        frsProfessionPermissionModel.c0(this);
+        this.c = tbPageContext;
+        this.mPageId = bdUniqueId2;
     }
 
-    public final void b(wm6 wm6Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bn
+    /* renamed from: E */
+    public ThreadCardViewHolder<mn6> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, wm6Var) == null) && wm6Var != null && wm6Var.b == 0) {
-            if (!wm6Var.a && wm6Var.d == 2) {
-                l(wm6Var.e);
-            }
-            d dVar = this.d;
-            if (dVar != null) {
-                dVar.c(wm6Var.a);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            dy.b bVar = new dy.b(this.c.getPageActivity(), true);
+            bVar.n(new fn6(this.c.getPageActivity()));
+            bVar.l().b(0);
+            bVar.l().c(0);
+            bVar.l().f(0);
+            bVar.l().e(0);
+            bVar.l().i(0);
+            bVar.l().h(0);
+            ThreadCardViewHolder<mn6> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.e));
+            threadCardViewHolder.i(this.mPageId);
+            return threadCardViewHolder;
         }
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    public final void c(wm6 wm6Var, String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ue6, com.repackage.bn
+    /* renamed from: F */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, mn6 mn6Var, ThreadCardViewHolder<mn6> threadCardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wm6Var, str) == null) || wm6Var == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, mn6Var, threadCardViewHolder})) == null) {
+            threadCardViewHolder.a().q(i);
+            threadCardViewHolder.e(mn6Var);
+            threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
+            return threadCardViewHolder.getView();
         }
-        if (wm6Var.b != 0) {
-            if (StringUtils.isNull(wm6Var.c)) {
-                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0c17);
-                return;
-            } else {
-                this.a.showToast(wm6Var.c);
-                return;
-            }
-        }
-        if (!wm6Var.a) {
-            int i = wm6Var.d;
-            if (i == 1) {
-                k(wm6Var.e, str);
-            } else if (i == 3) {
-                l(wm6Var.e);
-            }
-        }
-        d dVar = this.d;
-        if (dVar != null) {
-            dVar.b(wm6Var.a);
-        }
-    }
-
-    public final void d(wm6 wm6Var, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, wm6Var, i) == null) || wm6Var == null) {
-            return;
-        }
-        if (wm6Var.b != 0) {
-            if (StringUtils.isNull(wm6Var.c)) {
-                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0c17);
-                return;
-            } else {
-                this.a.showToast(wm6Var.c);
-                return;
-            }
-        }
-        d dVar = this.d;
-        if (dVar != null) {
-            dVar.a(wm6Var.a, i);
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.b.U()) {
-            return;
-        }
-        this.b.loadData();
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            vm6 vm6Var = this.c;
-            vm6Var.d = 1;
-            vm6Var.c = str;
-            e();
-        }
-    }
-
-    public void g(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048581, this, str, j) == null) {
-            if (UbsABTestHelper.isNotRequestProPermission()) {
-                this.d.b(true);
-                return;
-            }
-            vm6 vm6Var = this.c;
-            vm6Var.c = str;
-            vm6Var.b = j;
-            vm6Var.d = 3;
-            e();
-        }
-    }
-
-    public void h(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, str, i) == null) {
-            if (UbsABTestHelper.isNotRequestProPermission()) {
-                this.d.a(true, i);
-                return;
-            }
-            vm6 vm6Var = this.c;
-            vm6Var.a = i;
-            vm6Var.c = str;
-            vm6Var.d = 2;
-            e();
-        }
-    }
-
-    public void i(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, dVar) == null) {
-            this.d = dVar;
-        }
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.e = i;
-            this.c.e = i;
-        }
-    }
-
-    public final void k(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
-            dr4 dr4Var = new dr4(this.a.getPageActivity());
-            dr4Var.setCanceledOnTouchOutside(false);
-            dr4Var.setCancelable(false);
-            dr4Var.setMessage(str);
-            dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f03fa, new a(this, str2, dr4Var));
-            dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03f9, new b(this, dr4Var));
-            dr4Var.create(this.a);
-            dr4Var.show();
-        }
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            dr4 dr4Var = new dr4(this.a.getPageActivity());
-            dr4Var.setCanceledOnTouchOutside(false);
-            dr4Var.setCancelable(false);
-            dr4Var.setMessage(str);
-            dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0989, new c(this, dr4Var));
-            dr4Var.create(this.a);
-            dr4Var.show();
-        }
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel.m
-    public void o(MvcSocketResponsedMessage mvcSocketResponsedMessage, MvcSocketMessage mvcSocketMessage, MvcNetMessage mvcNetMessage) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048587, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) && mvcNetMessage != null && (mvcNetMessage.getRequestData() instanceof vm6) && mvcSocketResponsedMessage != null && (mvcSocketResponsedMessage.getData() instanceof wm6)) {
-            vm6 vm6Var = (vm6) mvcNetMessage.getRequestData();
-            wm6 wm6Var = (wm6) mvcSocketResponsedMessage.getData();
-            if (vm6Var.e != this.e) {
-                return;
-            }
-            int i = vm6Var.d;
-            if (i == 1) {
-                b(wm6Var);
-            } else if (i == 2) {
-                d(wm6Var, vm6Var.a);
-            } else if (i != 3) {
-            } else {
-                c(wm6Var, vm6Var.c);
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel.l
-    public void t(MvcHttpResponsedMessage mvcHttpResponsedMessage, MvcHttpMessage mvcHttpMessage, MvcNetMessage mvcNetMessage) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048588, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) && mvcNetMessage != null && (mvcNetMessage.getRequestData() instanceof vm6) && mvcHttpResponsedMessage != null && (mvcHttpResponsedMessage.getData() instanceof wm6)) {
-            vm6 vm6Var = (vm6) mvcNetMessage.getRequestData();
-            wm6 wm6Var = (wm6) mvcHttpResponsedMessage.getData();
-            if (vm6Var.e != this.e) {
-                return;
-            }
-            int i = vm6Var.d;
-            if (i == 1) {
-                b(wm6Var);
-            } else if (i == 2) {
-                d(wm6Var, vm6Var.a);
-            } else if (i != 3) {
-            } else {
-                c(wm6Var, vm6Var.c);
-            }
-        }
+        return (View) invokeCommon.objValue;
     }
 }

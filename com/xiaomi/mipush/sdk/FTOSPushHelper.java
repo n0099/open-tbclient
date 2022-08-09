@@ -18,7 +18,7 @@ public class FTOSPushHelper {
     public static long a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static volatile boolean f33a;
+    public static volatile boolean f34a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -77,7 +77,7 @@ public class FTOSPushHelper {
     public static boolean getNeedRegister() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f33a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f34a : invokeV.booleanValue;
     }
 
     public static boolean hasNetwork(Context context) {
@@ -105,7 +105,7 @@ public class FTOSPushHelper {
     public static void setNeedRegister(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
-            f33a = z;
+            f34a = z;
         }
     }
 

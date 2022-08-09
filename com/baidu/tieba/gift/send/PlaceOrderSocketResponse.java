@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bs6;
+import com.repackage.ut6;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.PlaceOrder.PlaceOrderResIdl;
@@ -16,7 +16,7 @@ import tbclient.PlaceOrder.PlaceOrderResIdl;
 public class PlaceOrderSocketResponse extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bs6 orderInfo;
+    public ut6 orderInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PlaceOrderSocketResponse() {
@@ -52,18 +52,18 @@ public class PlaceOrderSocketResponse extends TbSocketReponsedMessage {
                 setErrorString(placeOrderResIdl.error.usermsg);
             }
             if (placeOrderResIdl.data != null) {
-                bs6 bs6Var = new bs6();
-                this.orderInfo = bs6Var;
-                bs6Var.c(placeOrderResIdl.data);
+                ut6 ut6Var = new ut6();
+                this.orderInfo = ut6Var;
+                ut6Var.c(placeOrderResIdl.data);
             }
             return placeOrderResIdl;
         }
         return invokeIL.objValue;
     }
 
-    public bs6 getOrderInfo() {
+    public ut6 getOrderInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.orderInfo : (bs6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.orderInfo : (ut6) invokeV.objValue;
     }
 }

@@ -22,17 +22,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ab;
 import com.repackage.d9;
 import com.repackage.e9;
 import com.repackage.f9;
 import com.repackage.g9;
-import com.repackage.jg;
-import com.repackage.pi;
-import com.repackage.rn;
-import com.repackage.vk;
+import com.repackage.kg;
+import com.repackage.qi;
+import com.repackage.sn;
+import com.repackage.wk;
 import com.repackage.y8;
 import com.repackage.z8;
-import com.repackage.za;
 /* loaded from: classes.dex */
 public abstract class BdBaseActivity<T> extends Activity implements View.OnClickListener, e9<T>, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, g9, Handler.Callback {
     public static /* synthetic */ Interceptable $ic = null;
@@ -101,8 +101,8 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         if (!(interceptable == null || interceptable.invokeL(65537, this, view2) == null) || view2 == null) {
             return;
         }
-        if (view2 instanceof vk) {
-            ((vk) view2).refresh();
+        if (view2 instanceof wk) {
+            ((wk) view2).refresh();
         }
         if (view2 instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view2;
@@ -190,19 +190,19 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
             super.onDestroy();
             MessageManager.getInstance().unRegisterListener(this.mId);
             MessageManager.getInstance().removeMessage(this.mId);
-            jg.h().b(this.mId);
+            kg.h().b(this.mId);
             z8.g().m(getPageContext().getPageActivity());
             this.mHandler.removeCallbacks(this.preLoadRunnable);
         }
     }
 
-    public rn onGetPreLoadListView() {
+    public sn onGetPreLoadListView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return null;
         }
-        return (rn) invokeV.objValue;
+        return (sn) invokeV.objValue;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -237,15 +237,15 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onPause();
-            jg.h().e(this.mId);
+            kg.h().e(this.mId);
             this.mHandler.removeCallbacks(this.preLoadRunnable);
         }
     }
 
     @Override // com.repackage.g9
-    public void onPreLoad(rn rnVar) {
+    public void onPreLoad(sn snVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, rnVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, snVar) == null) {
         }
     }
 
@@ -276,20 +276,20 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onStop();
-            rn onGetPreLoadListView = onGetPreLoadListView();
+            sn onGetPreLoadListView = onGetPreLoadListView();
             if (onGetPreLoadListView != null) {
                 onGetPreLoadListView.cancelRefresh();
             }
         }
     }
 
-    public void registerListener(za zaVar) {
+    public void registerListener(ab abVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, zaVar) == null) {
-            if (zaVar != null && zaVar.getTag() == null) {
-                zaVar.setTag(this.mId);
+        if (interceptable == null || interceptable.invokeL(1048598, this, abVar) == null) {
+            if (abVar != null && abVar.getTag() == null) {
+                abVar.setTag(this.mId);
             }
-            MessageManager.getInstance().registerListener(zaVar);
+            MessageManager.getInstance().registerListener(abVar);
         }
     }
 
@@ -357,17 +357,17 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
     public void showToast(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
-            pi.O(getApplicationContext(), str);
+            qi.O(getApplicationContext(), str);
         }
     }
 
-    public void registerListener(int i, za zaVar) {
+    public void registerListener(int i, ab abVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048596, this, i, zaVar) == null) {
-            if (zaVar != null && zaVar.getTag() == null) {
-                zaVar.setTag(this.mId);
+        if (interceptable == null || interceptable.invokeIL(1048596, this, i, abVar) == null) {
+            if (abVar != null && abVar.getTag() == null) {
+                abVar.setTag(this.mId);
             }
-            MessageManager.getInstance().registerListener(i, zaVar);
+            MessageManager.getInstance().registerListener(i, abVar);
         }
     }
 

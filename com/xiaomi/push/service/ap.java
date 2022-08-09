@@ -25,10 +25,10 @@ public class ap {
     public static long a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static ThreadPoolExecutor f904a;
+    public static ThreadPoolExecutor f905a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Pattern f905a;
+    public static final Pattern f906a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,9 +44,9 @@ public class ap {
                 return;
             }
         }
-        f905a = Pattern.compile("([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})");
+        f906a = Pattern.compile("([0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3})");
         a = 0L;
-        f904a = new ThreadPoolExecutor(1, 1, 20L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        f905a = new ThreadPoolExecutor(1, 1, 20L, TimeUnit.SECONDS, new LinkedBlockingQueue());
     }
 
     public static String a(String str) {
@@ -92,7 +92,7 @@ public class ap {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if ((f904a.getActiveCount() <= 0 || currentTimeMillis - a >= FlushManager.ReportTimer.DEFAULT_INTERVAL) && fh.m328a().m333a() && (m652a = bv.a().m652a()) != null && m652a.e() > 0) {
+            if ((f905a.getActiveCount() <= 0 || currentTimeMillis - a >= FlushManager.ReportTimer.DEFAULT_INTERVAL) && fh.m328a().m333a() && (m652a = bv.a().m652a()) != null && m652a.e() > 0) {
                 a = currentTimeMillis;
                 a(m652a.a(), true);
             }
@@ -102,7 +102,7 @@ public class ap {
     public static void a(List<String> list, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65539, null, list, z) == null) {
-            f904a.execute(new aq(list, z));
+            f905a.execute(new aq(list, z));
         }
     }
 

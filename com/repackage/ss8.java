@@ -1,98 +1,187 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.videoplay.VideoPlayView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class ss8 {
+public final class ss8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public int b;
-    public ms8 c;
-    public VideoPlayView.f d;
-    public int e;
-    public Set<String> f;
+    public boolean b;
+    public Object c;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755309863, "Lcom/repackage/ss8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755309863, "Lcom/repackage/ss8;");
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @JvmOverloads
     public ss8() {
+        this(0, false, null, 7, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this(((Integer) objArr[0]).intValue(), ((Boolean) objArr[1]).booleanValue(), objArr[2], ((Integer) objArr[3]).intValue(), (DefaultConstructorMarker) objArr[4]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.b = 0;
-        this.f = new HashSet();
     }
 
-    public void a() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @JvmOverloads
+    public ss8(int i) {
+        this(i, false, null, 6, null);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = Math.min(7, TbConfig.PREFETCH_NEXT_VIDEO_NUM);
-            this.b = this.a + 1;
-            b();
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.c == null || this.e <= 0) {
-            return;
-        }
-        while (this.b < this.c.k()) {
-            VideoItemData s = this.c.s(this.b);
-            this.b++;
-            if (s != null && !TextUtils.isEmpty(s.video_url)) {
-                this.e--;
-                if (!this.f.contains(s.video_url)) {
-                    CyberPlayerManager.prefetch(s.video_url, null, null, TbConfig.PREFETCH_NEXT_VIDEO_SIZE, null);
-                    this.f.add(s.video_url);
-                }
-                if (this.e <= 0) {
-                    break;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue(), objArr2[2], ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
         }
-        if (this.e <= 0 || this.d == null || this.c.k() - this.a >= 10) {
-            return;
-        }
-        this.d.a();
     }
 
-    public void c(int i) {
+    @JvmOverloads
+    public ss8(int i, boolean z, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), obj};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.a = i;
+        this.b = z;
+        this.c = obj;
+    }
+
+    public final int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
+    public final Object c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.objValue;
+    }
+
+    public final void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             this.a = i;
         }
     }
 
-    public void d(ms8 ms8Var) {
+    public final void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ms8Var) == null) {
-            this.c = ms8Var;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.b = z;
         }
     }
 
-    public void e(VideoPlayView.f fVar) {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
-            this.d = fVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof ss8) {
+                ss8 ss8Var = (ss8) obj;
+                return this.a == ss8Var.a && this.b == ss8Var.b && Intrinsics.areEqual(this.c, ss8Var.c);
+            }
+            return false;
         }
+        return invokeL.booleanValue;
+    }
+
+    public final void f(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
+            this.c = obj;
+        }
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int i = this.a * 31;
+            boolean z = this.b;
+            int i2 = z;
+            if (z != 0) {
+                i2 = 1;
+            }
+            int i3 = (i + i2) * 31;
+            Object obj = this.c;
+            return i3 + (obj == null ? 0 : obj.hashCode());
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "VideoAdData(agreeNum=" + this.a + ", agreed=" + this.b + ", funNativeAd=" + this.c + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public /* synthetic */ ss8(int i, boolean z, Object obj, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i2 & 1) != 0 ? 0 : i, (i2 & 2) != 0 ? false : z, (i2 & 4) != 0 ? null : obj);
     }
 }

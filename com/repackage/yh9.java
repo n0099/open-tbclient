@@ -1,48 +1,47 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.api.KsRewardVideoAd;
+import com.bytedance.sdk.openadsdk.TTRewardVideoAd;
 /* loaded from: classes7.dex */
-public abstract class yh9 implements KsRewardVideoAd.RewardAdInteractionListener {
+public class yh9 extends ih9<TTRewardVideoAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public yh9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yh9(TTRewardVideoAd tTRewardVideoAd) {
+        super(tTRewardVideoAd);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tTRewardVideoAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onExtraRewardVerify(int i) {
+    @Override // com.repackage.ih9
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b.isEmpty()) {
+                this.b = (String) ((TTRewardVideoAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
+            }
+            return this.b;
         }
-    }
-
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onRewardStepVerify(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onVideoSkipToEnd(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-        }
+        return (String) invokeV.objValue;
     }
 }

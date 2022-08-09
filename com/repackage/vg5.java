@@ -1,48 +1,58 @@
 package com.repackage;
 
 import android.content.Context;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.ItemCardView;
-import com.baidu.tbadk.gif.GifView;
-import com.baidu.tbadk.widget.tiejia.TiebaPlusRecommendCard;
+import android.graphics.BitmapRegionDecoder;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 /* loaded from: classes7.dex */
-public interface vg5 {
-    eg<LinearLayout> A();
+public class vg5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final int[] a;
+    public Context b;
 
-    int E();
+    public vg5(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new int[2];
+        this.b = context;
+    }
 
-    void H(Context context, String str);
+    public BitmapRegionDecoder a(byte[] bArr) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
+            if (bArr == null || bArr.length <= 0) {
+                return null;
+            }
+            BitmapRegionDecoder newInstance = BitmapRegionDecoder.newInstance(bArr, 0, bArr.length, false);
+            this.a[0] = newInstance.getWidth();
+            this.a[1] = newInstance.getHeight();
+            return newInstance;
+        }
+        return (BitmapRegionDecoder) invokeL.objValue;
+    }
 
-    void J(Context context, String str);
-
-    eg<RelativeLayout> M();
-
-    eg<ImageView> O();
-
-    eg<View> P();
-
-    void Q(Context context, String str);
-
-    void R(Context context, String str, boolean z);
-
-    void V(Context context, String str, String str2);
-
-    void Y(Context context, String str);
-
-    eg<TextView> Z0();
-
-    eg<ItemCardView> e0();
-
-    ListView getListView();
-
-    void h1(Context context, String str);
-
-    eg<GifView> x();
-
-    eg<TiebaPlusRecommendCard> z1();
+    public int[] b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (int[]) invokeV.objValue;
+    }
 }

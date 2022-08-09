@@ -1,149 +1,32 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.fl2;
-import java.util.HashSet;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public final class a73 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755903916, "Lcom/repackage/a73;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755903916, "Lcom/repackage/a73;");
-                return;
-            }
-        }
-        boolean z = sg1.a;
-        a = 0;
-    }
-
-    public static void a(JSONObject jSONObject) {
+    public a73() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        fl2.a W = h03.K().q().W();
-        String i = n93.i(W.j0(), W.G());
-        if (!jSONObject.has("appid")) {
-            id3.f(jSONObject, "appid", W.H());
-        }
-        if (!jSONObject.has("swan")) {
-            id3.f(jSONObject, "swan", i);
-        }
-        if (!jSONObject.has("appversion")) {
-            id3.f(jSONObject, "appversion", W.v1());
-        }
-        if (!jSONObject.has("swanNativeVersion")) {
-            id3.f(jSONObject, "swanNativeVersion", tg1.a());
-        }
-        if (!jSONObject.has("thirdversion")) {
-            id3.f(jSONObject, "thirdversion", W.w1());
-        }
-        if (!h03.K().q().y0() || jSONObject.has("isWebDowngrade")) {
-            return;
-        }
-        id3.f(jSONObject, "isWebDowngrade", "1");
     }
 
-    public static String b(String str) {
+    public static ab2 a(a73 a73Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            String o = ae3.o(str);
-            if (TextUtils.isEmpty(o)) {
-                return str;
-            }
-            HashSet hashSet = new HashSet();
-            hashSet.add("bduss");
-            hashSet.add("bduss".toUpperCase());
-            String i = ae3.i(o, hashSet);
-            String f = ae3.f(str);
-            return f + "?" + i;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a : invokeV.intValue;
-    }
-
-    public static void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
-            a = i;
-        }
-    }
-
-    public static <EvenT extends k73> EvenT e(EvenT event, String str, Object obj) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, event, str, obj)) == null) {
-            if (event != null && !TextUtils.isEmpty(str)) {
-                event.a(str, obj);
-            }
-            return event;
-        }
-        return (EvenT) invokeLLL.objValue;
-    }
-
-    public static <EvenT extends k73> EvenT f(EvenT event) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, event)) == null) {
-            e(event, "isDownloading", String.valueOf(h03.K().q().F0() ? 1 : 0));
-            return event;
-        }
-        return (EvenT) invokeL.objValue;
-    }
-
-    public static <EvenT extends k73> EvenT g(EvenT event) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, event)) == null) {
-            e(event, "launchType", c() == 2 ? "2" : "1");
-            return event;
-        }
-        return (EvenT) invokeL.objValue;
-    }
-
-    public static <EvenT extends k73> EvenT h(EvenT event) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, event)) == null) {
-            e(event, "packageState", String.valueOf(h03.K().q().E0()));
-            return event;
-        }
-        return (EvenT) invokeL.objValue;
-    }
-
-    public static <EvenT extends k73> EvenT i(EvenT event) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, event)) == null) {
-            e(event, "coreState", String.valueOf(c72.B0()));
-            return event;
-        }
-        return (EvenT) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, a73Var)) == null) ? new ab2("CollectTraceError", null) : (ab2) invokeL.objValue;
     }
 }

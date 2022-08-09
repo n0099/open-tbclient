@@ -1,167 +1,120 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.FileHelper;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ListAdapter;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.util.BdListViewHelper;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import org.json.JSONArray;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class hl7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public NoNetworkView a;
+    public NavigationBar b;
+    public BdListView c;
+    public View d;
+    public fl7 e;
+    public View f;
+    public TbImageView g;
+    public TextView h;
+    public MemberTaskCenterActivity i;
 
-    public static void a(String str) {
+    public hl7(MemberTaskCenterActivity memberTaskCenterActivity, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, str) == null) || StringUtils.isNull(str)) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {memberTaskCenterActivity, onClickListener};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        File file = new File(str);
-        if (file.exists()) {
-            return;
-        }
-        file.mkdirs();
+        this.i = memberTaskCenterActivity;
+        memberTaskCenterActivity.setContentView(R.layout.obfuscated_res_0x7f0d0569);
+        this.d = memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f091c31);
+        this.a = (NoNetworkView) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f09255d);
+        NavigationBar navigationBar = (NavigationBar) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f09255b);
+        this.b = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.b.setTitleText(R.string.obfuscated_res_0x7f0f0ac2);
+        this.c = (BdListView) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f0914d7);
+        this.f = LayoutInflater.from(memberTaskCenterActivity.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d056a, (ViewGroup) null);
+        BdListViewHelper.d(memberTaskCenterActivity.getActivity(), this.c, BdListViewHelper.HeadType.DEFAULT);
+        TbImageView tbImageView = (TbImageView) this.f.findViewById(R.id.obfuscated_res_0x7f09014a);
+        this.g = tbImageView;
+        tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090730);
+        this.g.setOnClickListener(onClickListener);
+        fl7 fl7Var = new fl7(memberTaskCenterActivity);
+        this.e = fl7Var;
+        fl7Var.d(onClickListener);
+        this.c.addHeaderView(this.f);
+        this.c.setAdapter((ListAdapter) this.e);
     }
 
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, str) == null) || StringUtils.isNull(str)) {
-            return;
-        }
-        FileHelper.deleteFileOrDir(new File(jl7.e + jl7.a + str));
-    }
-
-    public static void c(String str, JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, str, jSONArray) == null) || StringUtils.isNull(str) || jSONArray == null) {
-            return;
-        }
-        try {
-            JSONArray jSONArray2 = new JSONArray(str);
-            for (int i = 0; i < jSONArray2.length(); i++) {
-                jSONArray.put(jSONArray2.optJSONObject(i));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static JSONArray d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            if (StringUtils.isNull(str)) {
-                return jSONArray;
-            }
-            File file = new File(str);
-            if (file.exists()) {
-                String e = e(file);
-                String[] split = e.split("\n");
-                if (split.length > 0) {
-                    for (String str2 : split) {
-                        c(str2, jSONArray);
-                    }
-                } else {
-                    c(e, jSONArray);
-                }
-                FileHelper.deleteFile(file);
-                return jSONArray;
-            }
-            return jSONArray;
-        }
-        return (JSONArray) invokeL.objValue;
-    }
-
-    public static String e(File file) {
-        InterceptResult invokeL;
-        FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
-            StringBuilder sb = new StringBuilder();
-            FileInputStream fileInputStream2 = null;
-            try {
-                try {
-                    fileInputStream = new FileInputStream(file);
-                } catch (Exception e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                byte[] bArr = new byte[1024];
-                while (true) {
-                    int read = fileInputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    sb.append(new String(bArr, 0, read));
-                }
-                mg.c(fileInputStream);
-            } catch (Exception e2) {
-                e = e2;
-                fileInputStream2 = fileInputStream;
-                e.printStackTrace();
-                mg.c(fileInputStream2);
-                return sb.toString();
-            } catch (Throwable th2) {
-                th = th2;
-                fileInputStream2 = fileInputStream;
-                mg.c(fileInputStream2);
-                throw th;
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean f(File file, String str) {
+    public final SpannableString a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, file, str)) == null) ? g(file, str, true) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            SpannableString spannableString = new SpannableString(str + str2);
+            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0109)), 0, str.length(), 33);
+            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301)), str.length(), spannableString.length(), 33);
+            return spannableString;
+        }
+        return (SpannableString) invokeLL.objValue;
     }
 
-    public static boolean g(File file, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        FileOutputStream fileOutputStream;
+    public BdListView b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, null, file, str, z)) == null) {
-            FileOutputStream fileOutputStream2 = null;
-            try {
-                try {
-                    if (!file.exists()) {
-                        file.createNewFile();
-                    }
-                    fileOutputStream = new FileOutputStream(file, z);
-                } catch (Exception e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                fileOutputStream.write(str.getBytes());
-                fileOutputStream.flush();
-                mg.d(fileOutputStream);
-                return true;
-            } catch (Exception e2) {
-                e = e2;
-                fileOutputStream2 = fileOutputStream;
-                e.printStackTrace();
-                mg.d(fileOutputStream2);
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                mg.d(fileOutputStream2);
-                throw th;
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (BdListView) invokeV.objValue;
+    }
+
+    public View c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (View) invokeV.objValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.b.onChangeSkinType(this.i.getPageContext(), i);
+            this.a.d(this.i.getPageContext(), i);
+            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0205);
         }
-        return invokeLLZ.booleanValue;
+    }
+
+    public void e(String str, List<cl7> list, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, list, Long.valueOf(j)}) == null) {
+            this.g.K(str, 10, false);
+            this.h.setText(a(this.i.getResources().getString(R.string.obfuscated_res_0x7f0f047f), String.valueOf(j)));
+            this.e.c(list);
+            this.e.notifyDataSetChanged();
+        }
     }
 }

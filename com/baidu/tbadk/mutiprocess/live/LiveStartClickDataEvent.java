@@ -1,0 +1,32 @@
+package com.baidu.tbadk.mutiprocess.live;
+
+import com.baidu.tbadk.mutiprocess.SerializableEvent;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes3.dex */
+public class LiveStartClickDataEvent extends SerializableEvent {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int JUMP_LIVE_CHANNEL = 2;
+    public static final int JUMP_LIVE_ROOM = 1;
+    public static final long serialVersionUID = 3427568968125136917L;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Integer viewTag;
+
+    public LiveStartClickDataEvent() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        setType(3);
+    }
+}

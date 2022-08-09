@@ -1,65 +1,27 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.facade.init.SwanAppInitHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes6.dex */
-public class im3 implements el1 {
+public class im3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile hm3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public im3() {
+    public static synchronized hm3 a() {
+        InterceptResult invokeV;
+        hm3 hm3Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.repackage.el1
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            d();
-        }
-    }
-
-    @Override // com.repackage.el1
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            d();
-        }
-    }
-
-    @Override // com.repackage.el1
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            d();
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (SwanAppInitHelper.class) {
-                if (SwanAppInitHelper.isDelayInit()) {
-                    SwanAppInitHelper.initModules(AppRuntime.getApplication(), false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (im3.class) {
+                if (a == null) {
+                    a = new hm3();
                 }
+                hm3Var = a;
             }
+            return hm3Var;
         }
+        return (hm3) invokeV.objValue;
     }
 }

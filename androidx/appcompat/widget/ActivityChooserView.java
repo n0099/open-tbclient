@@ -661,7 +661,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v17 */
     /* JADX WARN: Type inference failed for: r0v8 */
-    /* JADX WARN: Type inference failed for: r0v9, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r0v9, types: [boolean, int] */
     public void showPopupUnchecked(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
@@ -863,7 +863,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
         this.mDefaultActivityButton = frameLayout;
         frameLayout.setOnClickListener(this.mCallbacks);
         this.mDefaultActivityButton.setOnLongClickListener(this.mCallbacks);
-        this.mDefaultActivityButtonImage = (ImageView) this.mDefaultActivityButton.findViewById(R$id.obfuscated);
+        this.mDefaultActivityButtonImage = (ImageView) this.mDefaultActivityButton.findViewById(R$id.image);
         FrameLayout frameLayout2 = (FrameLayout) findViewById(R$id.expand_activities_button);
         frameLayout2.setOnClickListener(this.mCallbacks);
         frameLayout2.setAccessibilityDelegate(new View.AccessibilityDelegate(this) { // from class: androidx.appcompat.widget.ActivityChooserView.3
@@ -954,7 +954,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
             }
         });
         this.mExpandActivityOverflowButton = frameLayout2;
-        ImageView imageView = (ImageView) frameLayout2.findViewById(R$id.obfuscated);
+        ImageView imageView = (ImageView) frameLayout2.findViewById(R$id.image);
         this.mExpandActivityOverflowButtonImage = imageView;
         imageView.setImageDrawable(drawable);
         ActivityChooserViewAdapter activityChooserViewAdapter = new ActivityChooserViewAdapter(this);

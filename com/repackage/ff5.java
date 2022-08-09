@@ -1,149 +1,106 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.PointF;
+import android.view.MotionEvent;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class ff5<T> extends gf5 {
+public class ff5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int b;
-    public List<T> c;
-    public Context d;
-    public LayoutInflater e;
-    public jm4<T> f;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public T a;
-        public int b;
-        public final /* synthetic */ ff5 c;
+    public static float a(float f, float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? (float) Math.sqrt(Math.pow(f - f3, 2.0d) + Math.pow(f2 - f4, 2.0d)) : invokeCommon.floatValue;
+    }
 
-        public a(ff5 ff5Var, T t, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ff5Var, t, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static PointF b(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, motionEvent)) == null) {
+            if (motionEvent == null) {
+                return null;
+            }
+            PointF pointF = new PointF();
+            pointF.set((motionEvent.getX(0) + motionEvent.getX(1)) / 2.0f, (motionEvent.getY(0) + motionEvent.getY(1)) / 2.0f);
+            return pointF;
+        }
+        return (PointF) invokeL.objValue;
+    }
+
+    public static float c(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, motionEvent)) == null) {
+            if (motionEvent == null) {
+                return 0.0f;
+            }
+            return (float) Math.toDegrees(Math.atan2(motionEvent.getY(0) - motionEvent.getY(1), motionEvent.getX(0) - motionEvent.getX(1)));
+        }
+        return invokeL.floatValue;
+    }
+
+    public static float d(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, motionEvent)) == null) {
+            if (motionEvent == null) {
+                return 0.0f;
+            }
+            float x = motionEvent.getX(0) - motionEvent.getX(1);
+            float y = motionEvent.getY(0) - motionEvent.getY(1);
+            return (float) Math.sqrt((x * x) + (y * y));
+        }
+        return invokeL.floatValue;
+    }
+
+    public static boolean e(float[] fArr, float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{fArr, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            if (fArr != null && fArr.length == 8) {
+                float f3 = fArr[0];
+                float f4 = fArr[1];
+                float f5 = fArr[2];
+                float f6 = fArr[3];
+                float f7 = fArr[4];
+                float f8 = fArr[5];
+                float f9 = fArr[6];
+                float f10 = fArr[7];
+                float a = a(f3, f4, f5, f6);
+                float f11 = f(f3, f4, f5, f6, f, f2);
+                float a2 = a(f5, f6, f9, f10);
+                float f12 = f(f5, f6, f9, f10, f, f2);
+                float f13 = f(f9, f10, f7, f8, f, f2);
+                float f14 = f(f7, f8, f3, f4, f, f2);
+                if (a > 0.0f && a2 > 0.0f && f11 <= a2 && f13 <= a2 && f12 <= a && f14 <= a) {
+                    return true;
                 }
             }
-            this.c = ff5Var;
-            this.a = t;
-            this.b = i;
+            return false;
         }
+        return invokeCommon.booleanValue;
+    }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            jm4<T> jm4Var;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (jm4Var = this.c.f) == null) {
-                return;
+    public static float f(float f, float f2, float f3, float f4, float f5, float f6) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)})) == null) {
+            float a = a(f, f2, f3, f4);
+            float a2 = a(f, f2, f5, f6);
+            float a3 = a(f3, f4, f5, f6);
+            if (a == 0.0f) {
+                return a2;
             }
-            T t = this.a;
-            int i = this.b;
-            jm4Var.c(view2, t, i, i);
-        }
-    }
-
-    public ff5(Context context, List<T> list, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, list, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            if (a2 == 0.0f || a3 == 0.0f) {
+                return 0.0f;
             }
+            float f7 = ((a + a2) + a3) / 2.0f;
+            return (((float) Math.sqrt((((f7 - a) * f7) * (f7 - a2)) * (f7 - a3))) * 2.0f) / a;
         }
-        this.d = context;
-        this.c = list == null ? new ArrayList() : new ArrayList(list);
-        this.b = i;
-        this.e = LayoutInflater.from(this.d);
-    }
-
-    @Override // com.repackage.gf5
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c.size() : invokeV.intValue;
-    }
-
-    @Override // com.repackage.gf5
-    public View b(int i, ViewGroup viewGroup) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, viewGroup)) == null) {
-            View inflate = this.e.inflate(this.b, viewGroup, false);
-            hf5 hf5Var = new hf5(inflate);
-            T t = this.c.get(i);
-            f(hf5Var, t, i);
-            hf5Var.c(new a(this, t, i));
-            return inflate;
-        }
-        return (View) invokeIL.objValue;
-    }
-
-    public abstract void f(hf5 hf5Var, T t, int i);
-
-    public void g(List<T> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            if (list == null) {
-                list = new ArrayList<>();
-            }
-            this.c = list;
-            c();
-        }
-    }
-
-    public void h(jm4<T> jm4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jm4Var) == null) {
-            this.f = jm4Var;
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ff5(Context context, int i) {
-        this(context, null, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (List) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
+        return invokeCommon.floatValue;
     }
 }

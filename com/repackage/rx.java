@@ -2,23 +2,67 @@ package com.repackage;
 
 import android.content.Context;
 import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.view.MutiImgTextLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.MultiLinkCardView;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.oy;
 /* loaded from: classes7.dex */
-public class rx extends xw {
+public class rx extends rw<fo4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MultiLinkCardView h;
+    public MutiImgTextLayout f;
+    public fo4 g;
+    public int h;
+    public String i;
+
+    /* loaded from: classes7.dex */
+    public class a implements oy.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rx a;
+
+        public a(rx rxVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rxVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rxVar;
+        }
+
+        @Override // com.repackage.oy.b
+        public boolean a(oy.a aVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+                if (this.a.g != null && this.a.g.getThreadData() != null) {
+                    mz5.a(this.a.g.getThreadData().getId());
+                    mz5.l(this.a.f.a, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    mz5.l(this.a.f.b, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public rx(Context context) {
@@ -38,53 +82,76 @@ public class rx extends xw {
                 return;
             }
         }
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().n instanceof MultiLinkCardView) && TbadkCoreApplication.getInst().getPersonalizeViewData().n.getParent() == null) {
-            this.h = (MultiLinkCardView) TbadkCoreApplication.getInst().getPersonalizeViewData().n;
+        this.h = 3;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().g instanceof MutiImgTextLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().g.getParent() == null) {
+            this.f = (MutiImgTextLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().g;
         } else {
-            this.h = new MultiLinkCardView(context);
+            this.f = new MutiImgTextLayout(context);
         }
-        s(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
+        this.f.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
     }
 
-    @Override // com.repackage.qw
+    @Override // com.repackage.rw
     public View h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.hx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+    @Override // com.repackage.rw
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.h.b();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            j(1, new a(this));
         }
     }
 
-    public final boolean t(on4 on4Var) {
-        InterceptResult invokeL;
+    @Override // com.repackage.rw
+    public void m(b06<fo4> b06Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, on4Var)) == null) ? (on4Var == null || on4Var.getThreadData() == null || !on4Var.getThreadData().isVideoThreadType() || on4Var.getThreadData().getThreadVideoInfo() == null) ? false : true : invokeL.booleanValue;
+        if (interceptable == null || interceptable.invokeL(1048579, this, b06Var) == null) {
+            this.f.setSubClickListener(b06Var);
+        }
     }
 
-    public final boolean u(on4 on4Var) {
-        InterceptResult invokeL;
+    @Override // com.repackage.ix
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, on4Var)) == null) ? (on4Var == null || on4Var.getThreadData() == null || on4Var.getThreadData().getPollData() == null || on4Var.getThreadData().getPollData().getOptions() == null || on4Var.getThreadData().getPollData().getOptions().size() <= 0) ? false : true : invokeL.booleanValue;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
+            this.h = i;
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.gx
-    /* renamed from: v */
-    public void a(on4 on4Var) {
+    @Override // com.repackage.hx
+    /* renamed from: r */
+    public void a(fo4 fo4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, on4Var) == null) {
-            if (!u(on4Var) && !t(on4Var) && on4Var != null && on4Var.getThreadData() != null && ((!ListUtils.isEmpty(on4Var.getThreadData().getLinkDataList()) || ListUtils.getCount(on4Var.getThreadData().getGoodsDataList()) > 1) && ((!ListUtils.isEmpty(on4Var.getThreadData().getGoodsDataList()) || ListUtils.getCount(on4Var.getThreadData().getLinkDataList()) > 1) && ListUtils.getCount(on4Var.getThreadData().getLinkDataList()) + ListUtils.getCount(on4Var.getThreadData().getGoodsDataList()) > 1))) {
-                this.h.a(on4Var.getThreadData().getLinkDataList(), on4Var.getThreadData().getGoodsDataList());
-                this.h.setVisibility(0);
-                return;
-            }
-            this.h.setVisibility(8);
+        if (interceptable == null || interceptable.invokeL(1048581, this, fo4Var) == null) {
+            this.g = fo4Var;
+            this.f.setFrom(this.i);
+            this.f.a(fo4Var);
+        }
+    }
+
+    public void s(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.i = str;
+        }
+    }
+
+    public void t(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.f.setFromCDN(z);
+        }
+    }
+
+    public void u(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.f.setNeedFrsTabName(z);
         }
     }
 }

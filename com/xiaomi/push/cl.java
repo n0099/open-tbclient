@@ -14,7 +14,7 @@ public class cl implements Runnable {
     public final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ cj.a f176a;
+    public final /* synthetic */ cj.a f177a;
 
     public cl(cj.a aVar, Context context) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class cl implements Runnable {
                 return;
             }
         }
-        this.f176a = aVar;
+        this.f177a = aVar;
         this.a = context;
     }
 
@@ -43,10 +43,10 @@ public class cl implements Runnable {
             SQLiteDatabase sQLiteDatabase = null;
             try {
                 try {
-                    sQLiteDatabase = this.f176a.a();
+                    sQLiteDatabase = this.f177a.a();
                     if (sQLiteDatabase != null && sQLiteDatabase.isOpen()) {
                         sQLiteDatabase.beginTransaction();
-                        this.f176a.a(this.a, sQLiteDatabase);
+                        this.f177a.a(this.a, sQLiteDatabase);
                         sQLiteDatabase.setTransactionSuccessful();
                     }
                     if (sQLiteDatabase != null) {
@@ -55,11 +55,11 @@ public class cl implements Runnable {
                         } catch (Exception e) {
                             e = e;
                             com.xiaomi.channel.commonutils.logger.b.a(e);
-                            this.f176a.a(this.a);
+                            this.f177a.a(this.a);
                         }
                     }
-                    if (this.f176a.f167a != null) {
-                        this.f176a.f167a.close();
+                    if (this.f177a.f168a != null) {
+                        this.f177a.f168a.close();
                     }
                 } catch (Exception e2) {
                     com.xiaomi.channel.commonutils.logger.b.a(e2);
@@ -69,28 +69,28 @@ public class cl implements Runnable {
                         } catch (Exception e3) {
                             e = e3;
                             com.xiaomi.channel.commonutils.logger.b.a(e);
-                            this.f176a.a(this.a);
+                            this.f177a.a(this.a);
                         }
                     }
-                    if (this.f176a.f167a != null) {
-                        this.f176a.f167a.close();
+                    if (this.f177a.f168a != null) {
+                        this.f177a.f168a.close();
                     }
                 }
-                this.f176a.a(this.a);
+                this.f177a.a(this.a);
             } catch (Throwable th) {
                 if (sQLiteDatabase != null) {
                     try {
                         sQLiteDatabase.endTransaction();
                     } catch (Exception e4) {
                         com.xiaomi.channel.commonutils.logger.b.a(e4);
-                        this.f176a.a(this.a);
+                        this.f177a.a(this.a);
                         throw th;
                     }
                 }
-                if (this.f176a.f167a != null) {
-                    this.f176a.f167a.close();
+                if (this.f177a.f168a != null) {
+                    this.f177a.f168a.close();
                 }
-                this.f176a.a(this.a);
+                this.f177a.a(this.a);
                 throw th;
             }
         }

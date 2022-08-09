@@ -109,6 +109,7 @@ public class Constant {
         /* loaded from: classes2.dex */
         public static class TYPE {
             public static /* synthetic */ Interceptable $ic = null;
+            public static final int BUNDLE_TYPE_BACKUP = 4;
             public static final int BUNDLE_TYPE_DOWNLOADED = 2;
             public static final int BUNDLE_TYPE_INSTALLED = 3;
             public static final int BUNDLE_TYPE_UPDATED = 1;
@@ -154,12 +155,14 @@ public class Constant {
         public static final int RET_CLASS_INIT_ERROR = 16;
         public static final int RET_CLASS_LOAD_ERROR = 18;
         public static final int RET_COPY_ERROR = 11;
+        public static final int RET_DEPENDENCY_NOT_MATCH = 57;
         public static final int RET_DOWNLOAD_BUNDLE_GROUP_NULL_ERROR = 26;
         public static final int RET_DOWNLOAD_CPU_ERROR = 53;
         public static final int RET_DOWNLOAD_HAS_PRESET = 55;
         public static final int RET_DOWNLOAD_NETWOKR_ERROR = 51;
         public static final int RET_DOWNLOAD_NO_DATA = 3;
         public static final int RET_DOWNLOAD_RETBUNDLE_NULL_ERROR = 31;
+        public static final int RET_DOWNLOAD_SUB_NOT_COMPATIBLE = 54;
         public static final int RET_DOWNLOAD_SUCCESS = 2;
         public static final int RET_FETCH_RETBUNDLE_NULL_ERROR = 30;
         public static final int RET_FILE_NOT_EXIST = 7;
@@ -444,6 +447,7 @@ public class Constant {
     public static class TAG {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String PARAM_DOWNLOAD_TYPE = "param_download_type";
+        public static final String PARAM_MULTI_BUNDLE_ENABLE = "param_multi_bundle_enable";
         public static final String PARAM_PKG_NAME = "param_pkg_name";
         public static final String PARAM_PKG_STUS = "param_pkg_status";
         public static final String PARAM_VALUE = "param_value";

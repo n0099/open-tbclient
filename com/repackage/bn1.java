@@ -1,158 +1,117 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import okhttp3.HttpUrl;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bn1 extends sr2 {
+public final class bn1 extends cm2<bn1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ i03 a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ CallbackHandler c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ bn1 e;
-
-        public a(bn1 bn1Var, i03 i03Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bn1Var, i03Var, unitedSchemeEntity, callbackHandler, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = bn1Var;
-            this.a = i03Var;
-            this.b = unitedSchemeEntity;
-            this.c = callbackHandler;
-            this.d = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.e.C(this.a, this.b, this.c, this.d);
-            }
-        }
+    public interface a {
+        public static final String a = cm2.r("SwanApkFetcher.Params", "title");
+        public static final String b = cm2.r("SwanApkFetcher.Params", EmotionResourceInfo.JSON_KEY_PKG_NAME);
+        public static final String c = cm2.r("SwanApkFetcher.Params", "description");
+        public static final String d = cm2.r("SwanApkFetcher.Params", "should_auto_install");
+        public static final String e = cm2.r("SwanApkFetcher.Params", "current_swan_app");
+        public static final String f = cm2.r("SwanApkFetcher.Params", "content_disposition");
+        public static final String g = cm2.r("SwanApkFetcher.Params", "mime_type");
+        public static final String h = cm2.r("SwanApkFetcher.Params", HttpRequest.USER_AGENT);
+        public static final String i = cm2.r("SwanApkFetcher.Params", BreakpointSQLiteKey.CONTENT_LENGTH);
+        public static final String j = cm2.r("SwanApkFetcher.Params", "ext_info");
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bn1(f13 f13Var) {
-        super(f13Var, "/swanAPI/adRequest");
+    public bn1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {f13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((f13) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.repackage.sr2
-    public boolean A(@NonNull i03 i03Var, @NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull CallbackHandler callbackHandler, @NonNull String str) {
-        InterceptResult invokeLLLL;
+    public bn1 E(Boolean bool) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, i03Var, unitedSchemeEntity, callbackHandler, str)) == null) {
-            cd3.j(new a(this, i03Var, unitedSchemeEntity, callbackHandler, str), "execRequest");
-            return true;
-        }
-        return invokeLLLL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bool)) == null) ? t(a.d, bool.booleanValue()) : (bn1) invokeL.objValue;
     }
 
-    public final void C(@NonNull i03 i03Var, @NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull CallbackHandler callbackHandler, @NonNull String str) {
+    public bn1 F(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i03Var, unitedSchemeEntity, callbackHandler, str) == null) {
-            JSONObject a2 = f23.a(unitedSchemeEntity, "params");
-            String optString = a2.optString("cb");
-            try {
-                String optString2 = a2.optString("url");
-                D(a2, optString2, ae3.q(optString2));
-                unitedSchemeEntity.putParams("params", a2.toString());
-                if (super.A(i03Var, unitedSchemeEntity, callbackHandler, str)) {
-                    return;
-                }
-                ix1.c("AdRequest", "request fail");
-                callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
-            } catch (JSONException unused) {
-                callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
-            }
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? z(a.f, str) : (bn1) invokeL.objValue;
     }
 
-    public final void D(JSONObject jSONObject, String str, boolean z) throws JSONException {
-        HttpUrl parse;
-        JSONObject optJSONObject;
-        String str2;
-        String l;
+    public bn1 G(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str, z) == null) || jSONObject == null || TextUtils.isEmpty(str) || (parse = HttpUrl.parse(str)) == null || (optJSONObject = jSONObject.optJSONObject("extParams")) == null) {
-            return;
-        }
-        if (z) {
-            str2 = o();
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("header");
-            if (optJSONObject2 == null) {
-                optJSONObject2 = new JSONObject();
-            }
-            j(optJSONObject2, str2);
-            jSONObject.put("header", optJSONObject2);
-        } else {
-            str2 = "";
-        }
-        if (f23.b) {
-            Log.d("AdRequestAction", "appendUrlQueryAndHeader: isBaiduDomain=" + z + ", cookie=" + str2);
-        }
-        HttpUrl.Builder newBuilder = parse.newBuilder();
-        Iterator<String> keys = optJSONObject.keys();
-        while (keys.hasNext()) {
-            String next = keys.next();
-            String optString = optJSONObject.optString(next);
-            if (TextUtils.equals(optString, "cuid")) {
-                l = pj2.h0().i(pj2.c());
-            } else {
-                l = (TextUtils.equals(optString, "baiduid") && z) ? ae3.l(str2, "BAIDUID") : "";
-            }
-            if (TextUtils.isEmpty(l)) {
-                l = "";
-            }
-            ix1.i("AdRequest", "key=" + next + ", value=" + l);
-            newBuilder.addQueryParameter(next, l);
-        }
-        jSONObject.put("url", newBuilder.build().toString());
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? z(a.i, str) : (bn1) invokeL.objValue;
+    }
+
+    public bn1 H(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? z(a.e, str) : (bn1) invokeL.objValue;
+    }
+
+    public bn1 I(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? z(a.c, str) : (bn1) invokeL.objValue;
+    }
+
+    public bn1 J(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? z(a.j, str) : (bn1) invokeL.objValue;
+    }
+
+    public bn1 K(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? z(a.g, str) : (bn1) invokeL.objValue;
+    }
+
+    public bn1 L(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) ? z(a.b, str) : (bn1) invokeL.objValue;
+    }
+
+    public bn1 M() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this : (bn1) invokeV.objValue;
+    }
+
+    public bn1 N(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? z(a.a, str) : (bn1) invokeL.objValue;
+    }
+
+    public bn1 O(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) ? z(a.h, str) : (bn1) invokeL.objValue;
+    }
+
+    @Override // com.repackage.vf3
+    public /* bridge */ /* synthetic */ vf3 a() {
+        M();
+        return this;
     }
 }

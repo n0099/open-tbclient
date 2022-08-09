@@ -1,91 +1,134 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import android.util.LruCache;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebResourceResponse;
+import com.baidubce.http.Headers;
+import com.repackage.u52;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class w52 implements t52 {
+public class w52 extends n52 implements i52 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LruCache<String, Long> a;
+    public f52 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755250467, "Lcom/repackage/w52;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755250467, "Lcom/repackage/w52;");
-                return;
-            }
-        }
-        b = sg1.a;
-    }
-
-    public w52(int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w52(@NonNull Context context, c52 c52Var) {
+        super(context, c52Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {context, c52Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (c52) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        i = i <= 0 ? 10 : i;
-        this.a = new LruCache<>(i);
-        if (b) {
-            Log.d("SwanPrelinkLocalRecorder", "lru size - " + i);
-        }
+        this.b = new x52();
     }
 
-    @Override // com.repackage.t52
-    public u52 a(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.u52
+    @SuppressLint({"BDThrowableCheck"})
+    public WebResourceResponse a(@NonNull u52.a aVar) {
+        InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (b) {
-                Log.d("SwanPrelinkLocalRecorder", "prelink LRU size - " + this.a.size());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+            String d = aVar.d();
+            if (!d(aVar)) {
+                return aVar.b(d, aVar.getRequestHeaders(), aVar.c());
             }
-            Long l = this.a.get(str2);
-            if (l == null) {
+            if (i52.a) {
+                Log.d("HybridIntercept", "intercept file = " + d);
+            }
+            String c = c(d);
+            if (TextUtils.isEmpty(c)) {
+                if (i52.a) {
+                    throw new IllegalArgumentException("file path can't be null, src = " + d);
+                }
                 return null;
             }
-            u52 u52Var = new u52();
-            u52Var.a = ProcessUtils.getCurProcessName();
-            u52Var.b = l.longValue();
-            return u52Var;
+            File file = new File(c);
+            if (file.exists() && file.isFile()) {
+                try {
+                    FileInputStream fileInputStream = new FileInputStream(file);
+                    if (c.endsWith(FileHelper.FILE_CACHE_CSS)) {
+                        str = "text/css";
+                    } else {
+                        str = c.endsWith(".js") ? "application/javascript" : "text/plan";
+                    }
+                    return b(str, fileInputStream);
+                } catch (Throwable th) {
+                    if (i52.a) {
+                        Log.e("HybridIntercept", Log.getStackTraceString(th));
+                    }
+                }
+            }
+            zx1.c("HybridIntercept", "file intercept error, src = " + d);
+            return null;
         }
-        return (u52) invokeLL.objValue;
+        return (WebResourceResponse) invokeL.objValue;
     }
 
-    @Override // com.repackage.t52
-    public void b(String str, String str2, boolean z) {
+    public final WebResourceResponse b(String str, InputStream inputStream) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z) == null) || TextUtils.isEmpty(str2)) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, inputStream)) == null) {
+            HashMap hashMap = new HashMap(1);
+            hashMap.put(Headers.CACHE_CONTROL, "max-age=86400");
+            return new WebResourceResponse(true, str, "UTF-8", 200, "ok", hashMap, new BufferedInputStream(inputStream));
         }
-        if (b) {
-            Log.d("SwanPrelinkLocalRecorder", "record : appId-" + str + ", url-" + str2);
+        return (WebResourceResponse) invokeLL.objValue;
+    }
+
+    public String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            if (str.startsWith("interceptfile://") && str.length() > 16) {
+                str = str.substring(16);
+            }
+            if (i52.a) {
+                Log.d("HybridIntercept", "file request url = " + str);
+            }
+            return str;
         }
-        this.a.put(str2, Long.valueOf(System.currentTimeMillis()));
+        return (String) invokeL.objValue;
+    }
+
+    public boolean d(@NonNull u52.a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) {
+            if (aVar.c()) {
+                return this.b.a(aVar);
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

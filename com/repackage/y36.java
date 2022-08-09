@@ -1,9 +1,32 @@
 package com.repackage;
 
-import android.webkit.JsPromptResult;
+import com.baidu.tieba.danmu.layout.retainer.AkTopRetainer;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.c46;
 /* loaded from: classes7.dex */
-public interface y36 {
-    void a(String str, String str2, String str3, String str4, JsPromptResult jsPromptResult);
+public final class y36 extends t36 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String b();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y36() {
+        super(new AkTopRetainer(0.0f, 0.0f, 3, null), new b46());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((c46) objArr[0], (c46.a) objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 }

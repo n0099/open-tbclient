@@ -1,42 +1,49 @@
 package com.repackage;
 
-import android.os.Bundle;
-import com.baidu.payment.PaymentManager;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.CountDownLatch;
 /* loaded from: classes5.dex */
-public class c71 {
+public class c71 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public CountDownLatch b;
 
-    public static void a(Bundle bundle) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c71(Context context, CountDownLatch countDownLatch) {
+        super(Looper.getMainLooper());
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, bundle) == null) {
-            if (bundle == null) {
-                PaymentManager.i(3, "闪付返回信息为空");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, countDownLatch};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Looper) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            String string = bundle.getString("statusCode");
-            try {
-                PaymentManager.i(Integer.parseInt(string), bundle.getString("payInfo"));
-            } catch (NumberFormatException e) {
-                PaymentManager.i(3, e.getMessage());
-            }
         }
+        this.a = context;
+        this.b = countDownLatch;
     }
 
-    public static void b(Bundle bundle) {
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, bundle) == null) {
-            a71.a().g(bundle);
-        }
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && ProcessUtils.isMainProcess()) {
-            a71.a().h("");
+        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+            d71.a().b(this.a);
+            this.b.countDown();
         }
     }
 }

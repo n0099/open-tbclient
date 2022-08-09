@@ -8,10 +8,10 @@ import com.fun.ad.sdk.FunAdType;
 import com.fun.ad.sdk.FunNativeAd2;
 import com.fun.ad.sdk.FunSplashAd;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.repackage.qc9;
+import com.repackage.lf9;
 /* loaded from: classes4.dex */
 public interface PidLoader {
-    void addListener(qc9 qc9Var);
+    void addListener(lf9 lf9Var);
 
     void destroy();
 
@@ -31,7 +31,7 @@ public interface PidLoader {
 
     boolean load(Context context, FunAdSlot funAdSlot, SidSessionMeta sidSessionMeta);
 
-    void removeListener(qc9 qc9Var);
+    void removeListener(lf9 lf9Var);
 
     void setBiddingResult(double d, double d2, int i);
 

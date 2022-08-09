@@ -6,27 +6,27 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class e38 extends an<o48, CardViewHolder<q58>> {
+/* loaded from: classes6.dex */
+public class e38 extends bn<w38, CardViewHolder<m48>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> i;
+    public TbPageContext a;
+    public b06<w38> b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e38(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), o48.e);
+    public e38(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,29 +38,40 @@ public class e38 extends an<o48, CardViewHolder<q58>> {
                 return;
             }
         }
-        this.i = tbPageContext;
+        this.a = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: Z */
-    public CardViewHolder<q58> M(ViewGroup viewGroup) {
+    @Override // com.repackage.bn
+    /* renamed from: s */
+    public CardViewHolder<m48> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new CardViewHolder<>(new q58(this.i)) : (CardViewHolder) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            m48 m48Var = new m48(this.a);
+            m48Var.n(this.b);
+            return new CardViewHolder<>(m48Var);
+        }
+        return (CardViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, o48 o48Var, CardViewHolder<q58> cardViewHolder) {
+    @Override // com.repackage.bn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, w38 w38Var, CardViewHolder<m48> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, o48Var, cardViewHolder})) == null) {
-            cardViewHolder.b().i(o48Var);
-            cardViewHolder.b().j(this.i, TbadkCoreApplication.getInst().getSkinType());
-            return cardViewHolder.a();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, w38Var, cardViewHolder})) == null) {
+            cardViewHolder.a().i(w38Var);
+            return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
+    }
+
+    public void u(b06<w38> b06Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, b06Var) == null) {
+            this.b = b06Var;
+        }
     }
 }

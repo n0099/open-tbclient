@@ -1,105 +1,112 @@
 package com.repackage;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Collection;
+import org.json.JSONArray;
+import org.json.JSONException;
 /* loaded from: classes5.dex */
 public class ce6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<q55> a;
-    public Context b;
-    public String c;
-    public String d;
-    public String e;
 
-    public ce6(Context context) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            ru4.k().y(ru4.o("search_forum_history"), "");
         }
-        this.a = new LinkedList();
-        this.b = context;
     }
 
-    public void a(q55 q55Var) {
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, q55Var) == null) || q55Var == null || q55Var.b() == null) {
+        if (!(interceptable == null || interceptable.invokeL(65537, null, str) == null) || StringUtils.isNull(str)) {
             return;
         }
-        for (q55 q55Var2 : this.a) {
-            if (q55Var2 != null && q55Var2.b() != null && q55Var2.b().e == q55Var.b().e) {
+        String q = ru4.k().q(ru4.o("search_forum_history"), "");
+        if (StringUtils.isNull(q)) {
+            return;
+        }
+        try {
+            JSONArray jSONArray = new JSONArray(q);
+            if (jSONArray.length() <= 0) {
                 return;
             }
-        }
-        this.a.add(q55Var);
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public List<q55> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.e = str;
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < jSONArray.length(); i++) {
+                Object obj = jSONArray.get(i);
+                if (!str.equals(obj)) {
+                    arrayList.add((String) obj);
+                }
+            }
+            ru4.k().y(ru4.o("search_forum_history"), new JSONArray((Collection) arrayList).toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
-    public void g(String str) {
+    public static ArrayList<String> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.c = str;
+        if (interceptable != null && (invokeV = interceptable.invokeV(65538, null)) != null) {
+            return (ArrayList) invokeV.objValue;
+        }
+        String q = ru4.k().q(ru4.o("search_forum_history"), "");
+        ArrayList<String> arrayList = null;
+        if (StringUtils.isNull(q)) {
+            return null;
+        }
+        try {
+            JSONArray jSONArray = new JSONArray(q);
+            if (jSONArray.length() <= 0) {
+                return null;
+            }
+            ArrayList<String> arrayList2 = new ArrayList<>();
+            for (int i = 0; i < jSONArray.length(); i++) {
+                try {
+                    Object obj = jSONArray.get(i);
+                    if (obj instanceof String) {
+                        arrayList2.add((String) obj);
+                    }
+                } catch (JSONException e) {
+                    e = e;
+                    arrayList = arrayList2;
+                    e.printStackTrace();
+                    return arrayList;
+                }
+            }
+            return arrayList2;
+        } catch (JSONException e2) {
+            e = e2;
         }
     }
 
-    public Context getContext() {
-        InterceptResult invokeV;
+    public static void d(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : (Context) invokeV.objValue;
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.d = str;
+        if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || StringUtils.isNull(str)) {
+            return;
+        }
+        String q = ru4.k().q(ru4.o("search_forum_history"), "");
+        try {
+            JSONArray jSONArray = StringUtils.isNull(q) ? new JSONArray() : new JSONArray(q);
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(str);
+            int i = 1;
+            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                Object obj = jSONArray.get(i2);
+                if ((obj instanceof String) && !str.equals(obj)) {
+                    arrayList.add((String) obj);
+                    i++;
+                }
+                if (i == 6) {
+                    break;
+                }
+            }
+            ru4.k().y(ru4.o("search_forum_history"), new JSONArray((Collection) arrayList).toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 }

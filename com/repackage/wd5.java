@@ -1,13 +1,13 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.diskCache.ImagesInvalidService;
-import com.baidu.tbadk.coreExtra.data.NewGodData;
-import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
+import com.baidu.android.util.io.FileUtils;
+import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,31 +15,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.concurrent.TimeUnit;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import rx.schedulers.Schedulers;
 /* loaded from: classes7.dex */
 public class wd5 {
     public static /* synthetic */ Interceptable $ic;
-    public static wd5 g;
+    public static JSONObject a;
+    public static ArrayList<Long> b;
+    public static final Hashtable<String, ArrayList<c<Integer, Integer>>> c;
+    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public int d;
-    public String e;
-    public Runnable f;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public static class a implements dv9<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wd5 a;
+        public final /* synthetic */ String a;
 
-        public a(wd5 wd5Var) {
+        public a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wd5Var};
+                Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,47 +55,111 @@ public class wd5 {
                     return;
                 }
             }
-            this.a = wd5Var;
+            this.a = str;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.dv9
+        public void call(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                HashMap hashMap = new HashMap();
-                hashMap.put("from", String.valueOf(this.a.a));
-                hashMap.put("field_id", this.a.b);
-                hashMap.put("type", Integer.valueOf(this.a.d));
-                hashMap.put("type_name", this.a.e);
-                if (this.a.a == 2) {
-                    hashMap.put("fid", this.a.c);
-                }
-                hashMap.put("animated", Boolean.FALSE);
-                hashMap.put("transparent", Boolean.TRUE);
-                hashMap.put("swipeback", Boolean.FALSE);
-                if (MessageManager.getInstance().findTask(2002015) == null) {
-                    qg.a().postDelayed(this.a.f, 0L);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                String q = ru4.k().q("old_sniff_url", "");
+                if (TextUtils.isEmpty(this.a) || this.a.equals(q)) {
+                    wd5.p(false);
                     return;
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(TbadkApplication.getInst().getApplicationContext(), "GodInvitePage", hashMap)));
-                yt4.k().x("key_new_god_dialog_showed_time", System.currentTimeMillis());
+                File file = new File(BdBaseApplication.getInst().getApp().getApplicationContext().getFilesDir(), "sniff");
+                if (!file.exists()) {
+                    file.mkdir();
+                }
+                if (ud5.j().b(new File(file, "sniff.json"), this.a) > 0) {
+                    ru4.k().y("old_sniff_url", "");
+                }
+                wd5.p(true);
             }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b implements dv9<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+
+        public b(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.dv9
+        public void call(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                if (wd5.a == null || this.a) {
+                    wd5.g();
+                }
+                wd5.o();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c<X, Y> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final X a;
+        public final Y b;
+
+        public c(X x, Y y) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x, y};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = x;
+            this.b = y;
         }
     }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755205207, "Lcom/repackage/wd5;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755205207, "Lcom/repackage/wd5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755205207, "Lcom/repackage/wd5;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755205207, "Lcom/repackage/wd5;");
-        }
+        b = new ArrayList<>();
+        c = new Hashtable<>();
+        d = true;
     }
 
     public wd5() {
@@ -102,72 +172,215 @@ public class wd5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? if0.e() : (String) invokeV.objValue;
+    }
+
+    public static void f(PackageManager packageManager, String str, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(65543, null, packageManager, str, i, i2) == null) {
+            try {
+                packageManager.getApplicationInfo(str, 0);
+                j(i, i2);
+            } catch (PackageManager.NameNotFoundException unused) {
+                k(i, i2);
+            }
+        }
+    }
+
+    public static void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            File file = new File(BdBaseApplication.getInst().getApp().getApplicationContext().getFilesDir(), "sniff");
+            if (file.exists()) {
+                File file2 = new File(file, "sniff.json");
+                if (file2.exists()) {
+                    String readFileData = FileUtils.readFileData(file2);
+                    if (TextUtils.isEmpty(readFileData)) {
+                        return;
+                    }
+                    synchronized (wd5.class) {
+                        try {
+                            a = new JSONObject(readFileData);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public static void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
+            pu9.f("").k(Schedulers.io()).w(new a(str));
+        }
+    }
+
+    public static String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            ArrayList<Long> arrayList = b;
+            if (arrayList == null || arrayList.size() == 0) {
+                return "";
+            }
+            ArrayList arrayList2 = new ArrayList();
+            Iterator<Long> it = arrayList.iterator();
+            while (it.hasNext()) {
+                arrayList2.add(String.valueOf(it.next()));
+            }
+            return TextUtils.join(",", arrayList2);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void j(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65547, null, i, i2) == null) {
+            ArrayList<Long> arrayList = b;
+            if (i < arrayList.size()) {
+                arrayList.set(i, Long.valueOf(arrayList.get(i).longValue() | (1 << i2)));
+            }
+        }
+    }
+
+    public static void k(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65548, null, i, i2) == null) {
+            ArrayList<Long> arrayList = b;
+            if (i < arrayList.size()) {
+                arrayList.set(i, Long.valueOf(arrayList.get(i).longValue() & (~(1 << i2))));
+            }
+        }
+    }
+
+    public static void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65549, null, i) == null) {
+            k(i, 0);
+        }
+    }
+
+    public static void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65550, null, i) == null) {
+            j(i, 0);
+        }
+    }
+
+    public static void n(int i, JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65551, null, i, jSONArray) == null) {
+            if (i >= b.size()) {
+                Log.e("AD_SNIFF_RESULT_KEY", "group index should NOT greater or equal group size!!!");
                 return;
             }
-        }
-        this.f = new a(this);
-    }
-
-    public static synchronized wd5 g() {
-        InterceptResult invokeV;
-        wd5 wd5Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            synchronized (wd5.class) {
-                if (g == null) {
-                    g = new wd5();
+            PackageManager packageManager = BdBaseApplication.getInst().getApp().getApplicationContext().getPackageManager();
+            l(i);
+            int i2 = 0;
+            while (i2 < jSONArray.length()) {
+                String optString = jSONArray.optString(i2);
+                i2++;
+                c<Integer, Integer> cVar = new c<>(Integer.valueOf(i), Integer.valueOf(i2));
+                ArrayList<c<Integer, Integer>> arrayList = c.get(optString);
+                if (arrayList == null) {
+                    arrayList = new ArrayList<>();
                 }
-                wd5Var = g;
+                arrayList.add(cVar);
+                c.put(optString, arrayList);
+                f(packageManager, optString, i, i2);
             }
-            return wd5Var;
+            m(i);
+            ru4.k().y("AD_SNIFF_RESULT_KEY", i());
         }
-        return (wd5) invokeV.objValue;
     }
 
-    public final boolean h(int i, NewGodData newGodData) {
-        InterceptResult invokeIL;
+    public static void o() {
+        JSONObject jSONObject;
+        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, newGodData)) == null) {
-            if (i != 5) {
-                return (((((System.currentTimeMillis() - yt4.k().m("key_new_god_dialog_showed_time", 0L)) + 3000) > ImagesInvalidService.FILE_VALID_TIME ? 1 : (((System.currentTimeMillis() - yt4.k().m("key_new_god_dialog_showed_time", 0L)) + 3000) == ImagesInvalidService.FILE_VALID_TIME ? 0 : -1)) < 0) || newGodData == null || !newGodData.isNewGodInvited()) ? false : true;
+        if (!(interceptable == null || interceptable.invokeV(65552, null) == null) || (jSONObject = a) == null || (optJSONArray = jSONObject.optJSONArray("data")) == null) {
+            return;
+        }
+        int length = optJSONArray.length();
+        int size = b.size();
+        ArrayList<Long> arrayList = new ArrayList<>();
+        for (int i = 0; i < length; i++) {
+            if (i < size) {
+                arrayList.add(b.get(i));
+            } else {
+                arrayList.add(0L);
             }
-            return true;
         }
-        return invokeIL.booleanValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            qg.a().removeCallbacks(this.f);
+        b = arrayList;
+        for (int i2 = 0; i2 < length; i2++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+            if (optJSONObject == null) {
+                return;
+            }
+            q(i2, optJSONObject.optString("name"), optJSONObject.optInt("interval"), optJSONObject.optJSONArray("list"), d);
         }
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.c = str;
+        if (d) {
+            d = false;
         }
     }
 
-    public void k(int i, NewGodData newGodData) {
+    public static void p(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, newGodData) == null) {
-            l(i, newGodData, true);
+        if (interceptable == null || interceptable.invokeZ(65553, null, z) == null) {
+            pu9.f("").k(Schedulers.io()).w(new b(z));
         }
     }
 
-    public void l(int i, NewGodData newGodData, boolean z) {
+    public static void q(int i, String str, int i2, JSONArray jSONArray, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), newGodData, Boolean.valueOf(z)}) == null) && h(i, newGodData)) {
-            i();
-            this.a = i;
-            this.b = newGodData.getFieldId();
-            this.d = newGodData.getType();
-            this.e = newGodData.getTypeName();
-            qg.a().postDelayed(this.f, z ? 3000L : 0L);
-            if (i == 5 || i == 1) {
-                TbSingleton.getInstance().setExceptInsertAdDiaShow(true);
+        if (!(interceptable == null || interceptable.invokeCommon(65554, null, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), jSONArray, Boolean.valueOf(z)}) == null) || i < 0 || TextUtils.isEmpty(str) || i2 < 0 || jSONArray == null || jSONArray.length() == 0) {
+            return;
+        }
+        long time = new Date().getTime();
+        String str2 = "AD_SNIFF_RESULT_KEY_" + str + "_TS";
+        long m = ru4.k().m(str2, 0L);
+        long millis = TimeUnit.MINUTES.toMillis(i2);
+        boolean z2 = true;
+        int i3 = (m > 0L ? 1 : (m == 0L ? 0 : -1));
+        boolean z3 = i3 == 0;
+        z2 = (i3 <= 0 || time - m <= millis) ? false : false;
+        if (z || z3 || z2) {
+            ru4.k().x(str2, time);
+            n(i, jSONArray);
+        }
+    }
+
+    public static void r(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65555, null, intent) == null) || TextUtils.isEmpty(intent.getDataString())) {
+            return;
+        }
+        String substring = intent.getDataString().length() > 8 ? intent.getDataString().substring(8) : "";
+        String action = intent.getAction();
+        ArrayList<c<Integer, Integer>> arrayList = c.get(substring);
+        if (arrayList == null || arrayList.size() == 0) {
+            return;
+        }
+        Iterator<c<Integer, Integer>> it = arrayList.iterator();
+        while (it.hasNext()) {
+            c<Integer, Integer> next = it.next();
+            if (next != null) {
+                int intValue = next.a.intValue();
+                int intValue2 = next.b.intValue();
+                if (PackageChangedReceiver.ACTION_INSTALL.equals(action)) {
+                    j(intValue, intValue2);
+                } else {
+                    k(intValue, intValue2);
+                }
             }
         }
     }

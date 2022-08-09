@@ -31,15 +31,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cu6;
-import com.repackage.du6;
-import com.repackage.hx;
-import com.repackage.nn;
-import com.repackage.pi;
-import com.repackage.vr4;
+import com.repackage.ix;
+import com.repackage.ms4;
+import com.repackage.on;
+import com.repackage.qi;
+import com.repackage.vv6;
+import com.repackage.wv6;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes3.dex */
-public class RecommendBarLayout extends LinearLayout implements hx, View.OnClickListener {
+public class RecommendBarLayout extends LinearLayout implements ix, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
@@ -96,17 +96,17 @@ public class RecommendBarLayout extends LinearLayout implements hx, View.OnClick
         public void onPageSelected(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                nn b = this.a.h.b(i);
-                if (b instanceof du6) {
-                    du6 du6Var = (du6) b;
+                on b = this.a.h.b(i);
+                if (b instanceof wv6) {
+                    wv6 wv6Var = (wv6) b;
                     StatisticItem param = new StatisticItem("c14004").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.a.j).param("obj_param1", i);
-                    if (!StringUtils.isNull(du6Var.a)) {
-                        param = param.param("obj_name", du6Var.a);
+                    if (!StringUtils.isNull(wv6Var.a)) {
+                        param = param.param("obj_name", wv6Var.a);
                     }
                     TiebaStatic.log(param);
-                    StatisticItem param2 = new StatisticItem("c13643").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", du6Var.a()).param("obj_locate", (int) this.a.j);
-                    if (!StringUtils.isNull(du6Var.a)) {
-                        param2 = param2.param("obj_name", du6Var.a);
+                    StatisticItem param2 = new StatisticItem("c13643").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", wv6Var.a()).param("obj_locate", (int) this.a.j);
+                    if (!StringUtils.isNull(wv6Var.a)) {
+                        param2 = param2.param("obj_name", wv6Var.a);
                     }
                     TiebaStatic.log(param2);
                 }
@@ -187,13 +187,13 @@ public class RecommendBarLayout extends LinearLayout implements hx, View.OnClick
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0728, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d074f, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091a6e);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091a6c);
-            this.e = (ViewPager) findViewById(R.id.obfuscated_res_0x7f091a6f);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a6a);
+            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091b4d);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091b4b);
+            this.e = (ViewPager) findViewById(R.id.obfuscated_res_0x7f091b4e);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091b49);
             this.e.setOffscreenPageLimit(2);
             RecommendBarPageAdapter recommendBarPageAdapter = new RecommendBarPageAdapter(this.i, this.j);
             this.h = recommendBarPageAdapter;
@@ -212,12 +212,12 @@ public class RecommendBarLayout extends LinearLayout implements hx, View.OnClick
         }
     }
 
-    @Override // com.repackage.hx
+    @Override // com.repackage.ix
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
             if (i != this.b) {
-                vr4 d = vr4.d(this.d);
+                ms4 d = ms4.d(this.d);
                 d.A(R.string.F_X02);
                 d.v(R.color.CAM_X0105);
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0111, SvgManager.SvgResourceStateType.NORMAL_PRESS);
@@ -230,28 +230,28 @@ public class RecommendBarLayout extends LinearLayout implements hx, View.OnClick
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091a6e) {
-            nn b2 = this.h.b(this.e.getCurrentItem());
-            if (b2 instanceof du6) {
-                du6 du6Var = (du6) b2;
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.a, du6Var.c)));
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091b4d) {
+            on b2 = this.h.b(this.e.getCurrentItem());
+            if (b2 instanceof wv6) {
+                wv6 wv6Var = (wv6) b2;
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.a, wv6Var.c)));
                 StatisticItem param = new StatisticItem("c13645").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.j);
-                if (!StringUtils.isNull(du6Var.a)) {
-                    param = param.param("obj_name", du6Var.a);
+                if (!StringUtils.isNull(wv6Var.a)) {
+                    param = param.param("obj_name", wv6Var.a);
                 }
                 TiebaStatic.log(param);
             }
         }
     }
 
-    public void setData(cu6 cu6Var) {
+    public void setData(vv6 vv6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, cu6Var) == null) {
-            if (cu6Var != null && !ListUtils.isEmpty(cu6Var.d())) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, vv6Var) == null) {
+            if (vv6Var != null && !ListUtils.isEmpty(vv6Var.f())) {
                 setVisibility(0);
-                ((LinearLayout.LayoutParams) this.e.getLayoutParams()).height = pi.f(this.i.getPageActivity(), cu6Var.g() ? R.dimen.tbds660 : R.dimen.tbds728);
+                ((LinearLayout.LayoutParams) this.e.getLayoutParams()).height = qi.f(this.i.getPageActivity(), vv6Var.h() ? R.dimen.tbds660 : R.dimen.tbds728);
                 this.e.setCurrentItem(0, true);
-                this.h.d(cu6Var);
+                this.h.d(vv6Var);
                 TiebaStatic.log(new StatisticItem("c13907").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.j));
                 return;
             }

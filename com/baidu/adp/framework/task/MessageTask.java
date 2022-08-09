@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lb;
+import com.repackage.mb;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public abstract class MessageTask {
@@ -19,7 +19,7 @@ public abstract class MessageTask {
     public BdAsyncTaskParallel mParallel;
     public int mPriority;
     public int mRetry;
-    public lb mTimeOut;
+    public mb mTimeOut;
 
     public MessageTask(int i) {
         Interceptable interceptable = $ic;
@@ -81,10 +81,10 @@ public abstract class MessageTask {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mRetry : invokeV.intValue;
     }
 
-    public lb getTimeOut() {
+    public mb getTimeOut() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mTimeOut : (lb) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mTimeOut : (mb) invokeV.objValue;
     }
 
     public void setNeedEncrypt(boolean z) {
@@ -115,10 +115,10 @@ public abstract class MessageTask {
         }
     }
 
-    public void setTimeOut(lb lbVar) {
+    public void setTimeOut(mb mbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, lbVar) == null) {
-            this.mTimeOut = lbVar;
+        if (interceptable == null || interceptable.invokeL(1048587, this, mbVar) == null) {
+            this.mTimeOut = mbVar;
         }
     }
 }

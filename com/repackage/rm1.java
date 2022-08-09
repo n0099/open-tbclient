@@ -1,9 +1,25 @@
 package com.repackage;
 
-import androidx.annotation.Nullable;
-import com.repackage.pm1;
+import android.content.Context;
 /* loaded from: classes7.dex */
-public interface rm1<T extends pm1> extends om1<T> {
-    @Nullable
-    g43 getParams();
+public interface rm1 {
+    void b();
+
+    void c();
+
+    rm1 create();
+
+    void d(jq2 jq2Var, boolean z);
+
+    void e(jq2 jq2Var, Context context);
+
+    boolean isPlaying();
+
+    boolean onBackPressed();
+
+    void pause();
+
+    void resume();
+
+    void stop();
 }

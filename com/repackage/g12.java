@@ -1,211 +1,82 @@
 package com.repackage;
 
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
-import com.baidu.swan.apps.core.launchtips.scene.SceneType;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q02;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class g12 {
+public final class g12 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Timer a;
-    public final q02 b;
-
-    /* loaded from: classes6.dex */
-    public class a extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g12 a;
-
-        public a(g12 g12Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g12Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = g12Var;
-        }
-
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (g12.c) {
-                    Log.d("SceneQueryPkgTips", ">> start collecting network status.");
-                }
-                this.a.d();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements q02.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g12 a;
-
-        public b(g12 g12Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g12Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = g12Var;
-        }
-
-        @Override // com.repackage.q02.b
-        public void a(NetworkStatus networkStatus) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                k02.g(SceneType.SCENE_PMS_TIMEOUT.getScene() + networkStatus.getDesc());
-                j02.c(SceneType.SCENE_PMS_TIMEOUT.getType(), networkStatus.getStatus());
-                this.a.e(networkStatus);
-                if (g12.c) {
-                    Log.d("SceneQueryPkgTips", ">> " + SceneType.SCENE_PMS_TIMEOUT.getScene() + networkStatus.getDesc());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-408005238, "Lcom/repackage/g12$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-408005238, "Lcom/repackage/g12$c;");
-                    return;
-                }
-            }
-            int[] iArr = new int[NetworkStatus.values().length];
-            a = iArr;
-            try {
-                iArr[NetworkStatus.NETWORK_BAD.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[NetworkStatus.NETWORK_OFFLINE.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755730967, "Lcom/repackage/g12;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755730967, "Lcom/repackage/g12;");
-                return;
-            }
-        }
-        c = sg1.a;
-    }
+    public List<c12> a;
+    public boolean b;
 
     public g12() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new q02();
+        this.a = new ArrayList();
+        this.b = false;
     }
 
-    public final void d() {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.a(new b(this));
-        }
-    }
-
-    public final void e(NetworkStatus networkStatus) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkStatus) == null) {
-            int i = c.a[networkStatus.ordinal()];
-            if (i != 1 && i != 2) {
-                i02.f(R.string.obfuscated_res_0x7f0f12d5);
-            } else {
-                i02.f(R.string.obfuscated_res_0x7f0f12cb);
-            }
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (g12.class) {
-                if (c) {
-                    Log.d("SceneQueryPkgTips", ">> start to collect network status.");
-                }
-                Timer timer = new Timer();
-                this.a = timer;
-                timer.schedule(new a(this), 3000L);
-            }
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (g12.class) {
-                if (this.a != null) {
-                    if (c) {
-                        Log.d("SceneQueryPkgTips", ">> stop collecting network status.");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String g = nd3.g(System.currentTimeMillis(), "【HH:mm:ss】");
+            List<c12> list = this.a;
+            if (list != null && !list.isEmpty()) {
+                int i = 0;
+                int i2 = 0;
+                int i3 = 0;
+                for (c12 c12Var : this.a) {
+                    if (c12Var.c()) {
+                        i++;
+                        if (c12Var.b()) {
+                            i2++;
+                        } else {
+                            i3++;
+                        }
                     }
-                    this.a.cancel();
-                    this.a = null;
                 }
+                return String.format("\n%s jserror：共%d个，影响渲染%d个（框架%d个，开发者%d个）；", g, Integer.valueOf(this.a.size()), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3));
             }
+            return String.format("\n%s jserror：共0个；", g);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
+    public void c(List<c12> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || list == null || list.isEmpty()) {
+            return;
+        }
+        this.a = list;
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.b = z;
         }
     }
 }

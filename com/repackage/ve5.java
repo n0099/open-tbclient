@@ -1,120 +1,174 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
-import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.diskCache.ImagesInvalidService;
+import com.baidu.tbadk.coreExtra.data.NewGodData;
+import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
 public class ve5 {
     public static /* synthetic */ Interceptable $ic;
-    @Nullable
-    public static PostWriteCallBackData a;
-    @Nullable
-    public static gy4 b;
-    @Nullable
-    public static WriteData c;
-    @Nullable
-    public static AntiData d;
+    public static ve5 g;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public String c;
+    public int d;
+    public String e;
+    public Runnable f;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ve5 a;
+
+        public a(ve5 ve5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            int indexOf = str.indexOf("(");
-            int indexOf2 = str.indexOf(SmallTailInfo.EMOTION_SUFFIX);
-            if (indexOf == -1 || indexOf2 == -1 || (i = indexOf + 1) >= indexOf2) {
-                return null;
-            }
-            return str.substring(i, indexOf2);
+            this.a = ve5Var;
         }
-        return (String) invokeL.objValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("from", String.valueOf(this.a.a));
+                hashMap.put("field_id", this.a.b);
+                hashMap.put("type", Integer.valueOf(this.a.d));
+                hashMap.put("type_name", this.a.e);
+                if (this.a.a == 2) {
+                    hashMap.put("fid", this.a.c);
+                }
+                hashMap.put("animated", Boolean.FALSE);
+                hashMap.put("transparent", Boolean.TRUE);
+                hashMap.put("swipeback", Boolean.FALSE);
+                if (MessageManager.getInstance().findTask(2002015) == null) {
+                    rg.a().postDelayed(this.a.f, 0L);
+                    return;
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(TbadkApplication.getInst().getApplicationContext(), "GodInvitePage", hashMap)));
+                ru4.k().x("key_new_god_dialog_showed_time", System.currentTimeMillis());
+            }
+        }
     }
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
-            }
-            return str.equals("4") || str.equals("5");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755234037, "Lcom/repackage/ve5;")) == null) {
+            return;
         }
-        return invokeL.booleanValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755234037, "Lcom/repackage/ve5;");
+        }
     }
 
-    public static boolean c(int i, int i2, @Nullable Intent intent) {
-        InterceptResult invokeIIL;
-        PostWriteCallBackData postWriteCallBackData;
+    public ve5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65538, null, i, i2, intent)) == null) {
-            if (i != 12006) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            boolean z = i2 == -1 && intent != null;
-            if (a != null && b != null && c != null && d != null && z) {
-                try {
-                    postWriteCallBackData = (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data");
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    postWriteCallBackData = null;
+        }
+        this.f = new a(this);
+    }
+
+    public static synchronized ve5 g() {
+        InterceptResult invokeV;
+        ve5 ve5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            synchronized (ve5.class) {
+                if (g == null) {
+                    g = new ve5();
                 }
-                if (postWriteCallBackData == null) {
-                    return false;
-                }
-                kk8.k().h(true, postWriteCallBackData, b, c, d);
-            } else {
-                kk8.k().h(false, a, null, c, d);
+                ve5Var = g;
             }
-            a = null;
-            b = null;
-            c = null;
-            d = null;
+            return ve5Var;
+        }
+        return (ve5) invokeV.objValue;
+    }
+
+    public final boolean h(int i, NewGodData newGodData) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, newGodData)) == null) {
+            if (i != 5) {
+                return (((((System.currentTimeMillis() - ru4.k().m("key_new_god_dialog_showed_time", 0L)) + 3000) > ImagesInvalidService.FILE_VALID_TIME ? 1 : (((System.currentTimeMillis() - ru4.k().m("key_new_god_dialog_showed_time", 0L)) + 3000) == ImagesInvalidService.FILE_VALID_TIME ? 0 : -1)) < 0) || newGodData == null || !newGodData.isNewGodInvited()) ? false : true;
+            }
             return true;
         }
-        return invokeIIL.booleanValue;
+        return invokeIL.booleanValue;
     }
 
-    public static boolean d(@Nullable PostWriteCallBackData postWriteCallBackData, @Nullable gy4 gy4Var, @Nullable WriteData writeData, @Nullable AntiData antiData) {
-        InterceptResult invokeLLLL;
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, postWriteCallBackData, gy4Var, writeData, antiData)) == null) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            boolean z = (currentActivity == null || writeData == null || gy4Var == null || TextUtils.isEmpty(gy4Var.c())) ? false : true;
-            if (z) {
-                a = postWriteCallBackData;
-                b = gy4Var;
-                c = writeData;
-                d = antiData;
-                writeData.setVcodeMD5(gy4Var.b());
-                writeData.setVcodeUrl(gy4Var.c());
-                writeData.setVcodeExtra(gy4Var.a());
-                if (b(gy4Var.d())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(currentActivity, 12006, writeData, false, gy4Var.d())));
-                } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(currentActivity, writeData, 12006)));
-                }
-            }
-            return z;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            rg.a().removeCallbacks(this.f);
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void k(int i, NewGodData newGodData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, newGodData) == null) {
+            l(i, newGodData, true);
+        }
+    }
+
+    public void l(int i, NewGodData newGodData, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), newGodData, Boolean.valueOf(z)}) == null) && h(i, newGodData)) {
+            i();
+            this.a = i;
+            this.b = newGodData.getFieldId();
+            this.d = newGodData.getType();
+            this.e = newGodData.getTypeName();
+            rg.a().postDelayed(this.f, z ? 3000L : 0L);
+            if (i == 5 || i == 1) {
+                TbSingleton.getInstance().setExceptInsertAdDiaShow(true);
+            }
+        }
     }
 }

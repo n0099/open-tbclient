@@ -1,5 +1,6 @@
 package com.repackage;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,466 +9,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ur9;
-import com.repackage.xr9;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicLong;
-import rx.Notification;
-import rx.schedulers.Schedulers;
+import com.baidu.webkit.internal.Base64;
+import com.bumptech.glide.disklrucache.StrictLineReader;
+import com.google.android.exoplayer2.text.cea.Cea608Decoder;
+import java.io.ByteArrayOutputStream;
+import java.io.FilterOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.util.zip.GZIPOutputStream;
+import org.apache.commons.codec.binary4util.BaseNCodec;
 /* loaded from: classes7.dex */
-public final class ws9<T> implements ur9.a<T> {
+public class ws9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ms9<ur9<? extends Notification<?>>, ur9<?>> f;
+    public static final byte[] a;
+    public static final byte[] b;
+    public static final byte[] c;
+    public static final byte[] d;
+    public static final byte[] e;
+    public static final byte[] f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ur9<T> a;
-    public final ms9<? super ur9<? extends Notification<?>>, ? extends ur9<?>> b;
-    public final boolean c;
-    public final boolean d;
-    public final xr9 e;
-
-    /* loaded from: classes7.dex */
-    public static class a implements ms9<ur9<? extends Notification<?>>, ur9<?>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: com.repackage.ws9$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C0612a implements ms9<Notification<?>, Notification<?>> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public C0612a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.ms9
-            public Notification<?> call(Notification<?> notification) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, notification)) == null) ? Notification.c(null) : (Notification) invokeL.objValue;
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX DEBUG: Type inference failed for r5v1. Raw type applied. Possible types: com.repackage.ur9<R>, com.repackage.ur9<?> */
-        @Override // com.repackage.ms9
-        public ur9<?> call(ur9<? extends Notification<?>> ur9Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ur9Var)) == null) ? ur9Var.h(new C0612a(this)) : (ur9) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements hs9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ as9 a;
-        public final /* synthetic */ mw9 b;
-        public final /* synthetic */ nt9 c;
-        public final /* synthetic */ AtomicLong d;
-        public final /* synthetic */ qw9 e;
-        public final /* synthetic */ ws9 f;
-
-        /* loaded from: classes7.dex */
-        public class a extends as9<T> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public boolean e;
-            public final /* synthetic */ b f;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f = bVar;
-            }
-
-            @Override // com.repackage.as9
-            public void f(wr9 wr9Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, wr9Var) == null) {
-                    this.f.c.c(wr9Var);
-                }
-            }
-
-            public final void g() {
-                long j;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    do {
-                        j = this.f.d.get();
-                        if (j == Long.MAX_VALUE) {
-                            return;
-                        }
-                    } while (!this.f.d.compareAndSet(j, j - 1));
-                }
-            }
-
-            @Override // com.repackage.vr9
-            public void onCompleted() {
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.e) {
-                    return;
-                }
-                this.e = true;
-                unsubscribe();
-                this.f.b.onNext(Notification.a());
-            }
-
-            @Override // com.repackage.vr9
-            public void onError(Throwable th) {
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048579, this, th) == null) || this.e) {
-                    return;
-                }
-                this.e = true;
-                unsubscribe();
-                this.f.b.onNext(Notification.b(th));
-            }
-
-            @Override // com.repackage.vr9
-            public void onNext(T t) {
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || this.e) {
-                    return;
-                }
-                this.f.a.onNext(t);
-                g();
-                this.f.c.b(1L);
-            }
-        }
-
-        public b(ws9 ws9Var, as9 as9Var, mw9 mw9Var, nt9 nt9Var, AtomicLong atomicLong, qw9 qw9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ws9Var, as9Var, mw9Var, nt9Var, atomicLong, qw9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = ws9Var;
-            this.a = as9Var;
-            this.b = mw9Var;
-            this.c = nt9Var;
-            this.d = atomicLong;
-            this.e = qw9Var;
-        }
-
-        @Override // com.repackage.hs9
-        public void call() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.isUnsubscribed()) {
-                return;
-            }
-            a aVar = new a(this);
-            this.e.a(aVar);
-            this.f.a.B(aVar);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements ur9.b<Notification<?>, Notification<?>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ws9 a;
-
-        /* loaded from: classes7.dex */
-        public class a extends as9<Notification<?>> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ as9 e;
-            public final /* synthetic */ c f;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public a(c cVar, as9 as9Var, as9 as9Var2) {
-                super(as9Var);
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar, as9Var, as9Var2};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        super((as9) newInitContext.callArgs[0]);
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f = cVar;
-                this.e = as9Var2;
-            }
-
-            @Override // com.repackage.as9
-            public void f(wr9 wr9Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, wr9Var) == null) {
-                    wr9Var.request(Long.MAX_VALUE);
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.vr9
-            /* renamed from: g */
-            public void onNext(Notification<?> notification) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, notification) == null) {
-                    if (notification.i() && this.f.a.c) {
-                        this.e.onCompleted();
-                    } else if (notification.j() && this.f.a.d) {
-                        this.e.onError(notification.e());
-                    } else {
-                        this.e.onNext(notification);
-                    }
-                }
-            }
-
-            @Override // com.repackage.vr9
-            public void onCompleted() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    this.e.onCompleted();
-                }
-            }
-
-            @Override // com.repackage.vr9
-            public void onError(Throwable th) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                    this.e.onError(th);
-                }
-            }
-        }
-
-        public c(ws9 ws9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ws9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ws9Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ur9.b, com.repackage.ms9
-        public as9<? super Notification<?>> call(as9<? super Notification<?>> as9Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, as9Var)) == null) ? new a(this, as9Var, as9Var) : (as9) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class d implements hs9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ur9 a;
-        public final /* synthetic */ as9 b;
-        public final /* synthetic */ AtomicLong c;
-        public final /* synthetic */ xr9.a d;
-        public final /* synthetic */ hs9 e;
-        public final /* synthetic */ AtomicBoolean f;
-
-        /* loaded from: classes7.dex */
-        public class a extends as9<Object> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d e;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public a(d dVar, as9 as9Var) {
-                super(as9Var);
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar, as9Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        super((as9) newInitContext.callArgs[0]);
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.e = dVar;
-            }
-
-            @Override // com.repackage.as9
-            public void f(wr9 wr9Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, wr9Var) == null) {
-                    wr9Var.request(Long.MAX_VALUE);
-                }
-            }
-
-            @Override // com.repackage.vr9
-            public void onCompleted() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.e.b.onCompleted();
-                }
-            }
-
-            @Override // com.repackage.vr9
-            public void onError(Throwable th) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-                    this.e.b.onError(th);
-                }
-            }
-
-            @Override // com.repackage.vr9
-            public void onNext(Object obj) {
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048579, this, obj) == null) || this.e.b.isUnsubscribed()) {
-                    return;
-                }
-                if (this.e.c.get() > 0) {
-                    d dVar = this.e;
-                    dVar.d.b(dVar.e);
-                    return;
-                }
-                this.e.f.compareAndSet(false, true);
-            }
-        }
-
-        public d(ws9 ws9Var, ur9 ur9Var, as9 as9Var, AtomicLong atomicLong, xr9.a aVar, hs9 hs9Var, AtomicBoolean atomicBoolean) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ws9Var, ur9Var, as9Var, atomicLong, aVar, hs9Var, atomicBoolean};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ur9Var;
-            this.b = as9Var;
-            this.c = atomicLong;
-            this.d = aVar;
-            this.e = hs9Var;
-            this.f = atomicBoolean;
-        }
-
-        @Override // com.repackage.hs9
-        public void call() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.B(new a(this, this.b));
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class e implements wr9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AtomicLong a;
-        public final /* synthetic */ nt9 b;
-        public final /* synthetic */ AtomicBoolean c;
-        public final /* synthetic */ xr9.a d;
-        public final /* synthetic */ hs9 e;
-
-        public e(ws9 ws9Var, AtomicLong atomicLong, nt9 nt9Var, AtomicBoolean atomicBoolean, xr9.a aVar, hs9 hs9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ws9Var, atomicLong, nt9Var, atomicBoolean, aVar, hs9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = atomicLong;
-            this.b = nt9Var;
-            this.c = atomicBoolean;
-            this.d = aVar;
-            this.e = hs9Var;
-        }
-
-        @Override // com.repackage.wr9
-        public void request(long j) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeJ(1048576, this, j) == null) || j <= 0) {
-                return;
-            }
-            ps9.b(this.a, j);
-            this.b.request(j);
-            if (this.c.compareAndSet(true, false)) {
-                this.d.b(this.e);
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -482,63 +43,436 @@ public final class ws9<T> implements ur9.a<T> {
                 return;
             }
         }
-        f = new a();
+        a = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, Cea608Decoder.CTRL_END_OF_CAPTION};
+        b = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, -9, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, BaseNCodec.PAD_DEFAULT, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, Constants.GZIP_CAST_TYPE, 12, StrictLineReader.CR, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, -9, -9, 26, 27, 28, 29, 30, 31, 32, 33, 34, Base64.INTERNAL_PADDING, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 40, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 42, 43, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 45, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, Cea608Decoder.CTRL_END_OF_CAPTION, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
+        c = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 45, 95};
+        d = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, 52, 53, 54, 55, 56, 57, 58, 59, 60, BaseNCodec.PAD_DEFAULT, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, Constants.GZIP_CAST_TYPE, 12, StrictLineReader.CR, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, 63, -9, 26, 27, 28, 29, 30, 31, 32, 33, 34, Base64.INTERNAL_PADDING, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 40, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 42, 43, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 45, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, Cea608Decoder.CTRL_END_OF_CAPTION, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
+        e = new byte[]{45, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 95, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122};
+        f = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 0, -9, -9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -9, -9, -9, -1, -9, -9, -9, Constants.GZIP_CAST_TYPE, 12, StrictLineReader.CR, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, Base64.INTERNAL_PADDING, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, -9, -9, -9, -9, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, -9, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 40, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 42, 43, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 45, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, Cea608Decoder.CTRL_END_OF_CAPTION, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, BaseNCodec.PAD_DEFAULT, 62, 63, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
     }
 
-    public ws9(ur9<T> ur9Var, ms9<? super ur9<? extends Notification<?>>, ? extends ur9<?>> ms9Var, boolean z, boolean z2, xr9 xr9Var) {
+    public static int d(byte[] bArr, int i, byte[] bArr2, int i2, int i3) {
+        InterceptResult invokeCommon;
+        int i4;
+        int i5;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ur9Var, ms9Var, Boolean.valueOf(z), Boolean.valueOf(z2), xr9Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{bArr, Integer.valueOf(i), bArr2, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            if (bArr != null) {
+                if (bArr2 != null) {
+                    if (i >= 0 && (i4 = i + 3) < bArr.length) {
+                        if (i2 >= 0 && (i5 = i2 + 2) < bArr2.length) {
+                            byte[] k = k(i3);
+                            int i6 = i + 2;
+                            if (bArr[i6] == 61) {
+                                bArr2[i2] = (byte) ((((k[bArr[i + 1]] & 255) << 12) | ((k[bArr[i]] & 255) << 18)) >>> 16);
+                                return 1;
+                            } else if (bArr[i4] == 61) {
+                                int i7 = ((k[bArr[i6]] & 255) << 6) | ((k[bArr[i + 1]] & 255) << 12) | ((k[bArr[i]] & 255) << 18);
+                                bArr2[i2] = (byte) (i7 >>> 16);
+                                bArr2[i2 + 1] = (byte) (i7 >>> 8);
+                                return 2;
+                            } else {
+                                int i8 = (k[bArr[i4]] & 255) | ((k[bArr[i + 1]] & 255) << 12) | ((k[bArr[i]] & 255) << 18) | ((k[bArr[i6]] & 255) << 6);
+                                bArr2[i2] = (byte) (i8 >> 16);
+                                bArr2[i2 + 1] = (byte) (i8 >> 8);
+                                bArr2[i5] = (byte) i8;
+                                return 3;
+                            }
+                        }
+                        throw new IllegalArgumentException(String.format("Destination array with length %d cannot have offset of %d and still store three bytes.", Integer.valueOf(bArr2.length), Integer.valueOf(i2)));
+                    }
+                    throw new IllegalArgumentException(String.format("Source array with length %d cannot have offset of %d and still process four bytes.", Integer.valueOf(bArr.length), Integer.valueOf(i)));
+                }
+                throw new IllegalArgumentException("Destination array was null.");
+            }
+            throw new IllegalArgumentException("Source array was null.");
+        }
+        return invokeCommon.intValue;
+    }
+
+    public static byte[] e(byte[] bArr, int i, int i2, byte[] bArr2, int i3, int i4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+            byte[] j = j(i4);
+            int i5 = (i2 > 0 ? (bArr[i] << 24) >>> 8 : 0) | (i2 > 1 ? (bArr[i + 1] << 24) >>> 16 : 0) | (i2 > 2 ? (bArr[i + 2] << 24) >>> 24 : 0);
+            if (i2 == 1) {
+                bArr2[i3] = j[i5 >>> 18];
+                bArr2[i3 + 1] = j[(i5 >>> 12) & 63];
+                bArr2[i3 + 2] = BaseNCodec.PAD_DEFAULT;
+                bArr2[i3 + 3] = BaseNCodec.PAD_DEFAULT;
+                return bArr2;
+            } else if (i2 == 2) {
+                bArr2[i3] = j[i5 >>> 18];
+                bArr2[i3 + 1] = j[(i5 >>> 12) & 63];
+                bArr2[i3 + 2] = j[(i5 >>> 6) & 63];
+                bArr2[i3 + 3] = BaseNCodec.PAD_DEFAULT;
+                return bArr2;
+            } else if (i2 != 3) {
+                return bArr2;
+            } else {
+                bArr2[i3] = j[i5 >>> 18];
+                bArr2[i3 + 1] = j[(i5 >>> 12) & 63];
+                bArr2[i3 + 2] = j[(i5 >>> 6) & 63];
+                bArr2[i3 + 3] = j[i5 & 63];
+                return bArr2;
             }
         }
-        this.a = ur9Var;
-        this.b = ms9Var;
-        this.c = z;
-        this.d = z2;
-        this.e = xr9Var;
+        return (byte[]) invokeCommon.objValue;
     }
 
-    public static <T> ur9<T> a(ur9<T> ur9Var) {
+    public static byte[] f(byte[] bArr, byte[] bArr2, int i, int i2) {
+        InterceptResult invokeLLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65542, null, bArr, bArr2, i, i2)) == null) {
+            e(bArr2, 0, i, bArr, 0, i2);
+            return bArr;
+        }
+        return (byte[]) invokeLLII.objValue;
+    }
+
+    public static String g(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ur9Var)) == null) ? b(ur9Var, f) : (ur9) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) {
+            try {
+                return h(bArr, 0, bArr.length, 0);
+            } catch (IOException unused) {
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
     }
 
-    public static <T> ur9<T> b(ur9<T> ur9Var, ms9<? super ur9<? extends Notification<?>>, ? extends ur9<?>> ms9Var) {
-        InterceptResult invokeLL;
+    public static String h(byte[] bArr, int i, int i2, int i3) throws IOException {
+        InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, ur9Var, ms9Var)) == null) ? ur9.a(new ws9(ur9Var, ms9Var, true, false, Schedulers.trampoline())) : (ur9) invokeLL.objValue;
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65544, null, bArr, i, i2, i3)) == null) {
+            byte[] i4 = i(bArr, i, i2, i3);
+            try {
+                return new String(i4, "US-ASCII");
+            } catch (UnsupportedEncodingException unused) {
+                return new String(i4);
+            }
+        }
+        return (String) invokeLIII.objValue;
     }
 
-    @Override // com.repackage.ur9.a, com.repackage.is9
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((as9) ((as9) obj));
-    }
-
-    public void call(as9<? super T> as9Var) {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:22:0x0040 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x0044 */
+    /* JADX DEBUG: Multi-variable search result rejected for r2v16, resolved type: java.io.ByteArrayOutputStream */
+    /* JADX DEBUG: Multi-variable search result rejected for r2v17, resolved type: java.io.ByteArrayOutputStream */
+    /* JADX DEBUG: Multi-variable search result rejected for r2v18, resolved type: java.io.ByteArrayOutputStream */
+    /* JADX DEBUG: Multi-variable search result rejected for r2v19, resolved type: java.io.ByteArrayOutputStream */
+    /* JADX DEBUG: Multi-variable search result rejected for r2v20, resolved type: java.io.ByteArrayOutputStream */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static byte[] i(byte[] bArr, int i, int i2, int i3) throws IOException {
+        InterceptResult invokeLIII;
+        ByteArrayOutputStream byteArrayOutputStream;
+        a aVar;
+        GZIPOutputStream gZIPOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, as9Var) == null) {
-            AtomicBoolean atomicBoolean = new AtomicBoolean(true);
-            AtomicLong atomicLong = new AtomicLong();
-            xr9.a createWorker = this.e.createWorker();
-            as9Var.b(createWorker);
-            qw9 qw9Var = new qw9();
-            as9Var.b(qw9Var);
-            lw9<T, T> C = jw9.D().C();
-            C.u(yv9.a());
-            nt9 nt9Var = new nt9();
-            b bVar = new b(this, as9Var, C, nt9Var, atomicLong, qw9Var);
-            createWorker.b(new d(this, this.b.call(C.g(new c(this))), as9Var, atomicLong, createWorker, bVar, atomicBoolean));
-            as9Var.f(new e(this, atomicLong, nt9Var, atomicBoolean, createWorker, bVar));
+        if (interceptable != null && (invokeLIII = interceptable.invokeLIII(65545, null, bArr, i, i2, i3)) != null) {
+            return (byte[]) invokeLIII.objValue;
+        }
+        if (bArr == null) {
+            throw new IllegalArgumentException("Cannot serialize a null array.");
+        }
+        if (i < 0) {
+            throw new IllegalArgumentException("Cannot have negative offset: " + i);
+        } else if (i2 >= 0) {
+            if (i + i2 > bArr.length) {
+                throw new IllegalArgumentException(String.format("Cannot have offset of %d and length of %d with array of length %d", Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(bArr.length)));
+            }
+            if ((i3 & 2) != 0) {
+                GZIPOutputStream gZIPOutputStream2 = null;
+                try {
+                    byteArrayOutputStream = new ByteArrayOutputStream();
+                    try {
+                        aVar = new a(byteArrayOutputStream, i3 | 1);
+                        try {
+                            gZIPOutputStream = new GZIPOutputStream(aVar);
+                            try {
+                                gZIPOutputStream.write(bArr, i, i2);
+                                gZIPOutputStream.close();
+                                try {
+                                    gZIPOutputStream.close();
+                                } catch (Exception unused) {
+                                }
+                                try {
+                                    aVar.close();
+                                } catch (Exception unused2) {
+                                }
+                                try {
+                                    byteArrayOutputStream.close();
+                                } catch (Exception unused3) {
+                                }
+                                return byteArrayOutputStream.toByteArray();
+                            } catch (IOException e2) {
+                                e = e2;
+                                gZIPOutputStream2 = byteArrayOutputStream;
+                                try {
+                                    throw e;
+                                } catch (Throwable th) {
+                                    th = th;
+                                    byteArrayOutputStream = gZIPOutputStream2;
+                                    gZIPOutputStream2 = gZIPOutputStream;
+                                    try {
+                                        gZIPOutputStream2.close();
+                                    } catch (Exception unused4) {
+                                    }
+                                    try {
+                                        aVar.close();
+                                    } catch (Exception unused5) {
+                                    }
+                                    try {
+                                        byteArrayOutputStream.close();
+                                    } catch (Exception unused6) {
+                                    }
+                                    throw th;
+                                }
+                            } catch (Throwable th2) {
+                                th = th2;
+                                gZIPOutputStream2 = gZIPOutputStream;
+                                gZIPOutputStream2.close();
+                                aVar.close();
+                                byteArrayOutputStream.close();
+                                throw th;
+                            }
+                        } catch (IOException e3) {
+                            e = e3;
+                            gZIPOutputStream = null;
+                        } catch (Throwable th3) {
+                            th = th3;
+                            gZIPOutputStream2.close();
+                            aVar.close();
+                            byteArrayOutputStream.close();
+                            throw th;
+                        }
+                    } catch (IOException e4) {
+                        e = e4;
+                        aVar = null;
+                        gZIPOutputStream = null;
+                    } catch (Throwable th4) {
+                        th = th4;
+                        aVar = null;
+                    }
+                } catch (IOException e5) {
+                    e = e5;
+                    aVar = null;
+                    gZIPOutputStream = null;
+                } catch (Throwable th5) {
+                    th = th5;
+                    byteArrayOutputStream = 0;
+                    aVar = null;
+                }
+            } else {
+                boolean z = (i3 & 8) != 0;
+                int i4 = ((i2 / 3) * 4) + (i2 % 3 > 0 ? 4 : 0);
+                if (z) {
+                    i4 += i4 / 76;
+                }
+                int i5 = i4;
+                byte[] bArr2 = new byte[i5];
+                int i6 = i2 - 2;
+                int i7 = 0;
+                int i8 = 0;
+                int i9 = 0;
+                while (i7 < i6) {
+                    int i10 = i7;
+                    e(bArr, i7 + i, 3, bArr2, i8, i3);
+                    int i11 = i9 + 4;
+                    if (!z || i11 < 76) {
+                        i9 = i11;
+                    } else {
+                        bArr2[i8 + 4] = 10;
+                        i8++;
+                        i9 = 0;
+                    }
+                    i7 = i10 + 3;
+                    i8 += 4;
+                }
+                int i12 = i7;
+                if (i12 < i2) {
+                    e(bArr, i12 + i, i2 - i12, bArr2, i8, i3);
+                    i8 += 4;
+                }
+                int i13 = i8;
+                if (i13 <= i5 - 1) {
+                    byte[] bArr3 = new byte[i13];
+                    System.arraycopy(bArr2, 0, bArr3, 0, i13);
+                    return bArr3;
+                }
+                return bArr2;
+            }
+        } else {
+            throw new IllegalArgumentException("Cannot have length offset: " + i2);
+        }
+    }
+
+    public static final byte[] j(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) {
+            if ((i & 16) == 16) {
+                return c;
+            }
+            if ((i & 32) == 32) {
+                return e;
+            }
+            return a;
+        }
+        return (byte[]) invokeI.objValue;
+    }
+
+    public static final byte[] k(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i)) == null) {
+            if ((i & 16) == 16) {
+                return d;
+            }
+            if ((i & 32) == 32) {
+                return f;
+            }
+            return b;
+        }
+        return (byte[]) invokeI.objValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public static class a extends FilterOutputStream {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public int b;
+        public byte[] c;
+        public int d;
+        public int e;
+        public boolean f;
+        public byte[] g;
+        public boolean h;
+        public int i;
+        public byte[] j;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(OutputStream outputStream, int i) {
+            super(outputStream);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {outputStream, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((OutputStream) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = (i & 8) != 0;
+            boolean z = (i & 1) != 0;
+            this.a = z;
+            int i4 = z ? 3 : 4;
+            this.d = i4;
+            this.c = new byte[i4];
+            this.b = 0;
+            this.e = 0;
+            this.h = false;
+            this.g = new byte[4];
+            this.i = i;
+            this.j = ws9.k(i);
+        }
+
+        public void a() throws IOException {
+            int i;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (i = this.b) <= 0) {
+                return;
+            }
+            if (this.a) {
+                OutputStream outputStream = ((FilterOutputStream) this).out;
+                byte[] bArr = this.g;
+                ws9.f(bArr, this.c, i, this.i);
+                outputStream.write(bArr);
+                this.b = 0;
+                return;
+            }
+            throw new IOException("Base64 input not properly padded.");
+        }
+
+        @Override // java.io.FilterOutputStream, java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
+        public void close() throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                a();
+                super.close();
+                this.c = null;
+                ((FilterOutputStream) this).out = null;
+            }
+        }
+
+        @Override // java.io.FilterOutputStream, java.io.OutputStream
+        public void write(int i) throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+                if (this.h) {
+                    ((FilterOutputStream) this).out.write(i);
+                } else if (this.a) {
+                    byte[] bArr = this.c;
+                    int i2 = this.b;
+                    int i3 = i2 + 1;
+                    this.b = i3;
+                    bArr[i2] = (byte) i;
+                    int i4 = this.d;
+                    if (i3 >= i4) {
+                        OutputStream outputStream = ((FilterOutputStream) this).out;
+                        byte[] bArr2 = this.g;
+                        ws9.f(bArr2, bArr, i4, this.i);
+                        outputStream.write(bArr2);
+                        int i5 = this.e + 4;
+                        this.e = i5;
+                        if (this.f && i5 >= 76) {
+                            ((FilterOutputStream) this).out.write(10);
+                            this.e = 0;
+                        }
+                        this.b = 0;
+                    }
+                } else {
+                    byte[] bArr3 = this.j;
+                    int i6 = i & 127;
+                    if (bArr3[i6] > -5) {
+                        byte[] bArr4 = this.c;
+                        int i7 = this.b;
+                        int i8 = i7 + 1;
+                        this.b = i8;
+                        bArr4[i7] = (byte) i;
+                        if (i8 >= this.d) {
+                            ((FilterOutputStream) this).out.write(this.g, 0, ws9.d(bArr4, 0, this.g, 0, this.i));
+                            this.b = 0;
+                        }
+                    } else if (bArr3[i6] != -5) {
+                        throw new IOException("Invalid character in Base64 data.");
+                    }
+                }
+            }
+        }
+
+        @Override // java.io.FilterOutputStream, java.io.OutputStream
+        public void write(byte[] bArr, int i, int i2) throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048579, this, bArr, i, i2) == null) {
+                if (this.h) {
+                    ((FilterOutputStream) this).out.write(bArr, i, i2);
+                    return;
+                }
+                for (int i3 = 0; i3 < i2; i3++) {
+                    write(bArr[i + i3]);
+                }
+            }
         }
     }
 }

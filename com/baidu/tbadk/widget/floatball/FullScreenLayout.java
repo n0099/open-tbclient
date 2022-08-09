@@ -32,25 +32,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.if5;
-import com.repackage.jf5;
-import com.repackage.mf5;
-import com.repackage.nf5;
-import com.repackage.of5;
-import com.repackage.pf5;
-import com.repackage.pi;
+import com.repackage.hg5;
+import com.repackage.ig5;
+import com.repackage.lg5;
+import com.repackage.mg5;
+import com.repackage.ng5;
+import com.repackage.og5;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
-public class FullScreenLayout extends FrameLayout implements of5 {
+public class FullScreenLayout extends FrameLayout implements ng5 {
     public static /* synthetic */ Interceptable $ic;
     public static final int G;
     public transient /* synthetic */ FieldHolder $fh;
     public ValueAnimator A;
     public ObjectAnimator B;
-    public jf5 C;
-    public nf5 D;
-    public mf5 E;
+    public ig5 C;
+    public mg5 D;
+    public lg5 E;
     public ViewTreeObserver.OnGlobalLayoutListener F;
-    public if5 a;
+    public hg5 a;
     public ImageView b;
     public FrameLayout.LayoutParams c;
     public ImageView d;
@@ -68,7 +68,7 @@ public class FullScreenLayout extends FrameLayout implements of5 {
     public int p;
     public int q;
     public int r;
-    public pf5 s;
+    public og5 s;
     public boolean t;
     public int u;
     public int v;
@@ -127,7 +127,7 @@ public class FullScreenLayout extends FrameLayout implements of5 {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements jf5.b {
+    public class b implements ig5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FullScreenLayout a;
@@ -150,7 +150,7 @@ public class FullScreenLayout extends FrameLayout implements of5 {
             this.a = fullScreenLayout;
         }
 
-        @Override // com.repackage.jf5.b
+        @Override // com.repackage.ig5.b
         public void a() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.a.J() && this.a.isAttachedToWindow()) {
@@ -504,7 +504,7 @@ public class FullScreenLayout extends FrameLayout implements of5 {
                 return;
             }
         }
-        G = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds45);
+        G = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds45);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -558,8 +558,8 @@ public class FullScreenLayout extends FrameLayout implements of5 {
                 this.B.cancel();
                 this.b.setRotation(0.0f);
             }
-            pf5 pf5Var = this.s;
-            if (pf5Var != null && pf5Var.a()) {
+            og5 og5Var = this.s;
+            if (og5Var != null && og5Var.a()) {
                 this.s.d();
             }
             this.d.setAlpha(1.0f);
@@ -579,7 +579,7 @@ public class FullScreenLayout extends FrameLayout implements of5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             this.h = ViewConfiguration.get(context).getScaledTouchSlop();
-            this.s = new pf5(this);
+            this.s = new og5(this);
             G(context);
             E(context);
             W();
@@ -754,9 +754,9 @@ public class FullScreenLayout extends FrameLayout implements of5 {
     }
 
     public final void O() {
-        nf5 nf5Var;
+        mg5 mg5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (nf5Var = this.D) == null || StringUtils.isNull(nf5Var.c())) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (mg5Var = this.D) == null || StringUtils.isNull(mg5Var.c())) {
             return;
         }
         if (this.f == null) {
@@ -766,9 +766,9 @@ public class FullScreenLayout extends FrameLayout implements of5 {
         }
         this.f.j(this.D.c());
         x(this.a.l());
-        mf5 mf5Var = this.E;
-        if (mf5Var != null) {
-            mf5Var.a(this.j);
+        lg5 lg5Var = this.E;
+        if (lg5Var != null) {
+            lg5Var.a(this.j);
         }
     }
 
@@ -817,8 +817,8 @@ public class FullScreenLayout extends FrameLayout implements of5 {
                     this.c.leftMargin = -this.u;
                     this.e.leftMargin = this.a.e();
                 } else {
-                    this.c.leftMargin = pi.k(getContext()) - (this.u + this.a.i());
-                    this.e.leftMargin = pi.k(getContext()) - (this.w + this.a.e());
+                    this.c.leftMargin = qi.k(getContext()) - (this.u + this.a.i());
+                    this.e.leftMargin = qi.k(getContext()) - (this.w + this.a.e());
                 }
                 this.j = false;
                 requestLayout();
@@ -918,7 +918,7 @@ public class FullScreenLayout extends FrameLayout implements of5 {
         }
     }
 
-    @Override // com.repackage.of5
+    @Override // com.repackage.ng5
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
@@ -926,7 +926,7 @@ public class FullScreenLayout extends FrameLayout implements of5 {
         }
     }
 
-    @Override // com.repackage.of5
+    @Override // com.repackage.ng5
     public void b(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048600, this, i2, i3, i4, i5) == null) {
@@ -939,9 +939,9 @@ public class FullScreenLayout extends FrameLayout implements of5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             super.onAttachedToWindow();
-            jf5 jf5Var = this.C;
-            if (jf5Var != null) {
-                jf5Var.e();
+            ig5 ig5Var = this.C;
+            if (ig5Var != null) {
+                ig5Var.e();
             }
         }
     }
@@ -985,23 +985,23 @@ public class FullScreenLayout extends FrameLayout implements of5 {
         return invokeL.booleanValue;
     }
 
-    public void setClickListener(mf5 mf5Var) {
+    public void setClickListener(lg5 lg5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, mf5Var) == null) {
-            this.E = mf5Var;
+        if (interceptable == null || interceptable.invokeL(1048604, this, lg5Var) == null) {
+            this.E = lg5Var;
         }
     }
 
-    public void setFloatData(nf5 nf5Var) {
+    public void setFloatData(mg5 mg5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, nf5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048605, this, mg5Var) == null) {
             if (this.C == null) {
-                jf5 jf5Var = new jf5(this.b, this.d);
-                this.C = jf5Var;
-                jf5Var.f(new b(this));
+                ig5 ig5Var = new ig5(this.b, this.d);
+                this.C = ig5Var;
+                ig5Var.f(new b(this));
             }
-            this.C.g(nf5Var);
-            this.D = nf5Var;
+            this.C.g(mg5Var);
+            this.D = mg5Var;
         }
     }
 
@@ -1086,7 +1086,7 @@ public class FullScreenLayout extends FrameLayout implements of5 {
                 return;
             }
         }
-        this.a = if5.a();
+        this.a = hg5.a();
         this.g = new RectF();
         this.j = true;
         this.k = true;

@@ -1,113 +1,39 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.AbstractQueue;
-import java.util.Iterator;
-import java.util.concurrent.atomic.AtomicReference;
-import rx.internal.util.atomic.LinkedQueueNode;
+import javax.annotation.Nullable;
+import org.webrtc.EglBase;
+import org.webrtc.EglBase10;
+import org.webrtc.EglBase14;
+/* compiled from: EglBase.java */
 /* loaded from: classes6.dex */
-public abstract class hu9<E> extends AbstractQueue<E> {
+public final /* synthetic */ class hu9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference<LinkedQueueNode<E>> a;
-    public final AtomicReference<LinkedQueueNode<E>> b;
 
-    public hu9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new AtomicReference<>();
-        this.b = new AtomicReference<>();
-    }
-
-    public final LinkedQueueNode<E> a() {
+    public static EglBase a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b.get() : (LinkedQueueNode) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? c(null, EglBase.CONFIG_PLAIN) : (EglBase) invokeV.objValue;
     }
 
-    public final LinkedQueueNode<E> b() {
-        InterceptResult invokeV;
+    public static EglBase b(EglBase.Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.get() : (LinkedQueueNode) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? c(context, EglBase.CONFIG_PLAIN) : (EglBase) invokeL.objValue;
     }
 
-    public final LinkedQueueNode<E> c() {
-        InterceptResult invokeV;
+    public static EglBase c(@Nullable EglBase.Context context, int[] iArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b.get() : (LinkedQueueNode) invokeV.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, iArr)) == null) ? (EglBase14.isEGL14Supported() && (context == null || (context instanceof EglBase14.Context))) ? new EglBase14((EglBase14.Context) context, iArr) : new EglBase10((EglBase10.Context) context, iArr) : (EglBase) invokeLL.objValue;
     }
 
-    public final LinkedQueueNode<E> d() {
-        InterceptResult invokeV;
+    public static EglBase d(int[] iArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.get() : (LinkedQueueNode) invokeV.objValue;
-    }
-
-    public final void e(LinkedQueueNode<E> linkedQueueNode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, linkedQueueNode) == null) {
-            this.b.lazySet(linkedQueueNode);
-        }
-    }
-
-    public final void f(LinkedQueueNode<E> linkedQueueNode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, linkedQueueNode) == null) {
-            this.a.lazySet(linkedQueueNode);
-        }
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection
-    public final boolean isEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? c() == d() : invokeV.booleanValue;
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
-    public final Iterator<E> iterator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return (Iterator) invokeV.objValue;
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection
-    public final int size() {
-        InterceptResult invokeV;
-        LinkedQueueNode<E> lvNext;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            LinkedQueueNode<E> c = c();
-            LinkedQueueNode<E> d = d();
-            int i = 0;
-            while (c != d && i < Integer.MAX_VALUE) {
-                do {
-                    lvNext = c.lvNext();
-                } while (lvNext == null);
-                i++;
-                c = lvNext;
-            }
-            return i;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iArr)) == null) ? new EglBase10(null, iArr) : (EglBase) invokeL.objValue;
     }
 }

@@ -8,22 +8,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dc1;
-import com.repackage.mf;
-/* loaded from: classes2.dex */
-public class NetExperimentFetcher extends dc1<mf> {
+import com.repackage.nf;
+import com.repackage.uc1;
+/* loaded from: classes3.dex */
+public class NetExperimentFetcher extends uc1<nf> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.tbadk.abtest.helper.NetExperimentFetcher$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
-    public static final class NetExperimentImpl implements mf {
+    /* loaded from: classes3.dex */
+    public static final class NetExperimentImpl implements nf {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -41,21 +41,21 @@ public class NetExperimentFetcher extends dc1<mf> {
             }
         }
 
-        @Override // com.repackage.mf
+        @Override // com.repackage.nf
         public boolean netABTest() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? UbsABTestHelper.isNetABTest() : invokeV.booleanValue;
         }
 
-        @Override // com.repackage.mf
+        @Override // com.repackage.nf
         public boolean netBdABTest() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? UbsABTestHelper.isBdNetABTest() : invokeV.booleanValue;
         }
 
-        @Override // com.repackage.mf
+        @Override // com.repackage.nf
         public boolean qaHttpsTest() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -83,10 +83,10 @@ public class NetExperimentFetcher extends dc1<mf> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.repackage.dc1
-    public mf createService() throws ServiceNotFoundException {
+    @Override // com.repackage.uc1
+    public nf createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new NetExperimentImpl(null) : (mf) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new NetExperimentImpl(null) : (nf) invokeV.objValue;
     }
 }

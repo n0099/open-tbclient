@@ -1,37 +1,90 @@
 package com.repackage;
 
-import android.content.SharedPreferences;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.compatible.EditorHelper;
-import com.baidu.tieba.funAd.strategy.FunAdHistoryData;
+import com.baidu.tbadk.TbDomainConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tieba.R;
+import com.baidu.tieba.share.ImplicitShareMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class dr6 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile dr6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, ArrayList<FunAdHistoryData>> a;
+    public TbPageContext a;
+    public Context b;
+    public View c;
+    public Bitmap d;
+    public ForumData e;
+    public b f;
+    public sx7 g;
+    public PermissionJudgePolicy h;
 
-    public dr6() {
+    /* loaded from: classes6.dex */
+    public class a extends cf5<ShareItem> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Bitmap a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ dr6 c;
+
+        public a(dr6 dr6Var, Bitmap bitmap, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dr6Var, bitmap, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = dr6Var;
+            this.a = bitmap;
+            this.b = i;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.cf5
+        /* renamed from: a */
+        public ShareItem doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c.e(this.a, this.b) : (ShareItem) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a();
+
+        void b();
+    }
+
+    public dr6(TbPageContext tbPageContext, Context context, View view2, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, context, view2, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,166 +94,126 @@ public class dr6 {
                 return;
             }
         }
-        HashMap hashMap = new HashMap();
-        this.a = hashMap;
-        hashMap.clear();
-        this.a.putAll(d());
+        this.a = tbPageContext;
+        this.b = context;
+        this.c = view2;
+        this.f = bVar;
     }
 
-    public static dr6 f() {
+    public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (dr6.class) {
-                    if (b == null) {
-                        b = new dr6();
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a == null) {
+                return true;
+            }
+            if (this.h == null) {
+                this.h = new PermissionJudgePolicy();
+            }
+            this.h.clearRequestPermissionList();
+            this.h.appendRequestPermission(this.a.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
+            return this.h.startRequestPermission(this.a.getPageActivity());
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            d();
+            g(this.d);
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.d == null) {
+            b bVar = this.f;
+            if (bVar != null) {
+                bVar.a();
+            }
+            this.c.buildDrawingCache();
+            this.d = this.c.getDrawingCache();
+            b bVar2 = this.f;
+            if (bVar2 != null) {
+                bVar2.b();
+            }
+        }
+    }
+
+    public final ShareItem e(Bitmap bitmap, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, bitmap, i)) == null) {
+            if (this.b == null || this.e == null) {
+                return null;
+            }
+            ShareItem shareItem = new ShareItem();
+            shareItem.n0 = false;
+            shareItem.m0 = false;
+            shareItem.g0 = 1;
+            shareItem.u = this.b.getString(R.string.obfuscated_res_0x7f0f029e);
+            shareItem.v = "";
+            shareItem.i(bitmap);
+            shareItem.g();
+            Bundle bundle = new Bundle();
+            bundle.putInt("obj_locate", 21);
+            shareItem.k(bundle);
+            return shareItem;
+        }
+        return (ShareItem) invokeLI.objValue;
+    }
+
+    public /* synthetic */ void f(int i, ShareItem shareItem) {
+        if (shareItem == null) {
+            return;
+        }
+        MessageManager.getInstance().sendMessage(new ImplicitShareMessage(this.a.getPageActivity(), i, shareItem, false));
+    }
+
+    public final void g(Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, bitmap) == null) || this.a == null || b()) {
+            return;
+        }
+        if (this.g == null) {
+            this.g = new sx7(this.a);
+        }
+        ForumData forumData = this.e;
+        this.g.b((forumData == null || TextUtils.isEmpty(forumData.forum_share_link)) ? TbDomainConfig.DOMAIN_HTTPS_TIEBA : this.e.forum_share_link, BitmapHelper.Bitmap2Bytes(bitmap, 100));
+    }
+
+    public void h(ForumData forumData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, forumData) == null) {
+            this.e = forumData;
+        }
+    }
+
+    public final void i(Bitmap bitmap, final int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048583, this, bitmap, i) == null) || this.a == null || bitmap == null || b()) {
+            return;
+        }
+        gf5.b(new a(this, bitmap, i), new je5() { // from class: com.repackage.rq6
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // com.repackage.je5
+            public final void onReturnDataInUI(Object obj) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
+                    dr6.this.f(i, (ShareItem) obj);
                 }
             }
-            return b;
-        }
-        return (dr6) invokeV.objValue;
+        });
     }
 
-    public void a(String str, FunAdHistoryData funAdHistoryData) {
+    public void j(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, funAdHistoryData) == null) || !UbsABTestHelper.isDuplicateRemovalFunAdABTest() || TextUtils.isEmpty(str) || funAdHistoryData == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            d();
+            i(this.d, i);
         }
-        ArrayList<FunAdHistoryData> c = c(str);
-        if (c == null) {
-            c = new ArrayList<>();
-        }
-        c.add(funAdHistoryData);
-        g(c);
-        fr6.e().a(str);
-        j(str);
-    }
-
-    public final ArrayList<FunAdHistoryData> b(JSONArray jSONArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray)) == null) {
-            if (jSONArray == null) {
-                return null;
-            }
-            ArrayList<FunAdHistoryData> arrayList = new ArrayList<>();
-            int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                FunAdHistoryData funAdHistoryData = new FunAdHistoryData();
-                try {
-                    funAdHistoryData.parserJson(jSONArray.getJSONObject(i));
-                    arrayList.add(funAdHistoryData);
-                } catch (JSONException e) {
-                    BdLog.detailException(e);
-                }
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public ArrayList<FunAdHistoryData> c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.a == null || TextUtils.isEmpty(str) || !this.a.containsKey(str)) {
-                return null;
-            }
-            return this.a.get(str);
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public final Map<String, ArrayList<FunAdHistoryData>> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            HashMap hashMap = new HashMap();
-            for (String str : fr6.e().c()) {
-                if (!TextUtils.isEmpty(str)) {
-                    ArrayList<FunAdHistoryData> e = e(str);
-                    if (e == null) {
-                        e = new ArrayList<>();
-                    }
-                    hashMap.put(str, e);
-                }
-            }
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public final ArrayList<FunAdHistoryData> e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            JSONArray jSONArray = null;
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            SharedPreferences g = fr6.g();
-            String string = g.getString(str + "_fun_ad_history_key_suffix", "");
-            if (TextUtils.isEmpty(string)) {
-                return null;
-            }
-            try {
-                jSONArray = new JSONArray(string);
-            } catch (JSONException e) {
-                BdLog.detailException(e);
-            }
-            return b(jSONArray);
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public final void g(ArrayList<FunAdHistoryData> arrayList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) || arrayList == null) {
-            return;
-        }
-        h(arrayList);
-        i(arrayList);
-    }
-
-    public final void h(ArrayList<FunAdHistoryData> arrayList) {
-        int size;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) || arrayList == null || (size = arrayList.size()) <= 600) {
-            return;
-        }
-        ListUtils.removeSubList(arrayList, 0, size - 600);
-    }
-
-    public final void i(ArrayList<FunAdHistoryData> arrayList) {
-        FunAdHistoryData next;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, arrayList) == null) || arrayList == null) {
-            return;
-        }
-        Iterator<FunAdHistoryData> it = arrayList.iterator();
-        long currentTimeMillis = System.currentTimeMillis() / 1000;
-        while (it.hasNext() && (next = it.next()) != null && currentTimeMillis - next.getShowTime() > 86400) {
-            it.remove();
-        }
-    }
-
-    public final void j(String str) {
-        ArrayList<FunAdHistoryData> arrayList;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || this.a == null || TextUtils.isEmpty(str) || !this.a.containsKey(str) || (arrayList = this.a.get(str)) == null) {
-            return;
-        }
-        JSONArray jSONArray = new JSONArray();
-        Iterator<FunAdHistoryData> it = arrayList.iterator();
-        while (it.hasNext()) {
-            JSONObject json = it.next().toJson();
-            if (json != null) {
-                jSONArray.put(json);
-            }
-        }
-        SharedPreferences g = fr6.g();
-        EditorHelper.putString(g, str + "_fun_ad_history_key_suffix", jSONArray.toString());
     }
 }

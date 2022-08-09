@@ -1,167 +1,233 @@
 package com.repackage;
 
-import android.os.Bundle;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.extcore.cores.SwanAppCores;
+import com.baidu.swan.apps.res.widget.floatlayer.Container;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class g03 extends h03 {
+public class g03 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final i03 l;
+    public final ViewGroup a;
+    public int b;
+    public final int c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
 
-    public g03() {
+    /* loaded from: classes6.dex */
+    public interface a {
+        g03 d();
+    }
+
+    public g03(@NonNull a aVar, @NonNull ViewGroup viewGroup, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar, viewGroup, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = new i03(this, "");
+        this.e = false;
+        this.f = true;
+        this.a = viewGroup;
+        this.b = i;
+        this.c = i;
     }
 
-    @Override // com.repackage.l03
-    public boolean E() {
+    private Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? this.a.getContext() : (Context) invokeV.objValue;
+    }
+
+    @Nullable
+    public final Container a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this.a) {
+                for (int i = 0; i < this.a.getChildCount(); i++) {
+                    View childAt = this.a.getChildAt(i);
+                    if (childAt instanceof Container) {
+                        return (Container) childAt;
+                    }
+                }
+                return null;
+            }
+        }
+        return (Container) invokeV.objValue;
+    }
+
+    @NonNull
+    public final Container b() {
+        InterceptResult invokeV;
+        Container a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this.a) {
+                a2 = a();
+                if (a2 == null) {
+                    a2 = new Container(getContext());
+                    int height = this.a.getHeight() - this.b;
+                    int i = this.a instanceof LinearLayout ? -height : this.b;
+                    if (height <= 0) {
+                        height = -1;
+                        i = 0;
+                    }
+                    if (!(this.a instanceof LinearLayout) && this.b == 0) {
+                        height = -1;
+                    }
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, height);
+                    layoutParams.setMargins(0, i, 0, 0);
+                    a2.setLayoutParams(layoutParams);
+                    this.a.addView(a2);
+                }
+            }
+            return a2;
+        }
+        return (Container) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    @Nullable
+    public View d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Container a2 = a();
+            if (a2 != null && a2.getChildCount() > 0) {
+                return a2.getChildAt(0);
+            }
+            return null;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : invokeV.booleanValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            Container a2 = a();
+            if (a2 == null) {
+                return false;
+            }
+            int childCount = a2.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                View childAt = a2.getChildAt(i);
+                if (childAt != null && childAt.getVisibility() == 0) {
+                    return true;
+                }
+            }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.l03
-    public void G() {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            h(false);
+            i();
         }
     }
 
-    @Override // com.repackage.h03
-    public p94 I() {
+    public final void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            synchronized (this.a) {
+                Container a2 = a();
+                if (!z || a2 == null || a2.getChildCount() <= 0) {
+                    if (a2 != null) {
+                        this.a.removeView(a2);
+                    }
+                }
+            }
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.f = true;
+            this.e = false;
+            this.b = this.c;
+        }
+    }
+
+    public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (p94) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.h03
-    public s23 J() {
-        InterceptResult invokeV;
+    public void k(boolean z) {
+        Container a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
+        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || (a2 = a()) == null) {
+            return;
         }
-        return (s23) invokeV.objValue;
+        a2.setClickable(z);
     }
 
-    @Override // com.repackage.h03
-    public void Q() {
+    public void l(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.f = z;
         }
     }
 
-    @Override // com.repackage.l03
-    public String getAppId() {
-        InterceptResult invokeV;
+    public void m(boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.l03
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.repackage.l03
-    public void l(Bundle bundle, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, bundle, str) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.d = z;
+            this.b = 0;
         }
     }
 
-    @Override // com.repackage.l03
-    public SwanAppCores m() {
-        InterceptResult invokeV;
+    public void n(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return null;
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, view2) == null) || view2 == d()) {
+            return;
         }
-        return (SwanAppCores) invokeV.objValue;
+        h(false);
+        b().addView(view2);
     }
 
-    @Override // com.repackage.l03
-    public String n(String... strArr) {
-        InterceptResult invokeL;
+    public void o(@NonNull View view2, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, strArr)) == null) ? "" : (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.l03
-    public i03 q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.l : (i03) invokeV.objValue;
-    }
-
-    @Override // com.repackage.l03
-    public void r(SwanAppActivity swanAppActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, swanAppActivity) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048590, this, view2, layoutParams) == null) || view2 == d()) {
+            return;
         }
-    }
-
-    @Override // com.repackage.l03
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.l03
-    public void t(SwanAppActivity swanAppActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, swanAppActivity) == null) {
-        }
-    }
-
-    @Override // com.repackage.l03
-    public SwanAppActivity w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return null;
-        }
-        return (SwanAppActivity) invokeV.objValue;
-    }
-
-    @Override // com.repackage.l03
-    public dx2 y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return null;
-        }
-        return (dx2) invokeV.objValue;
+        h(false);
+        b().addView(view2, layoutParams);
     }
 }

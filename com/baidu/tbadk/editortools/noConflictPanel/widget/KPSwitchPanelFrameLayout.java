@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b35;
-import com.repackage.c35;
-import com.repackage.e35;
+import com.repackage.a45;
+import com.repackage.x35;
+import com.repackage.y35;
 /* loaded from: classes3.dex */
-public class KPSwitchPanelFrameLayout extends FrameLayout implements c35, b35 {
+public class KPSwitchPanelFrameLayout extends FrameLayout implements y35, x35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e35 a;
+    public a45 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KPSwitchPanelFrameLayout(Context context) {
@@ -40,7 +40,7 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements c35, b35 {
         c(null);
     }
 
-    @Override // com.repackage.c35
+    @Override // com.repackage.y35
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -48,7 +48,7 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements c35, b35 {
         }
     }
 
-    @Override // com.repackage.b35
+    @Override // com.repackage.x35
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -58,11 +58,11 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements c35, b35 {
     public final void c(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, attributeSet) == null) {
-            this.a = new e35(this, attributeSet);
+            this.a = new a45(this, attributeSet);
         }
     }
 
-    @Override // com.repackage.b35
+    @Override // com.repackage.x35
     public void handleHide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -70,7 +70,7 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements c35, b35 {
         }
     }
 
-    @Override // com.repackage.b35
+    @Override // com.repackage.x35
     public void handleShow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -78,7 +78,7 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements c35, b35 {
         }
     }
 
-    @Override // com.repackage.b35
+    @Override // com.repackage.x35
     public boolean isVisible() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -94,7 +94,7 @@ public class KPSwitchPanelFrameLayout extends FrameLayout implements c35, b35 {
         }
     }
 
-    @Override // com.repackage.c35
+    @Override // com.repackage.y35
     public void refreshHeight(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {

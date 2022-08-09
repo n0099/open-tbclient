@@ -1,30 +1,22 @@
 package com.repackage;
 
-import android.content.res.Resources;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
-import com.baidu.tieba.R;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.kp1;
+import java.util.ArrayList;
+import java.util.Iterator;
+@Service
 /* loaded from: classes7.dex */
-public class r34 {
+public class r34 extends kp1 implements li1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public volatile float height;
-    @V8JavascriptField
-    public volatile float left;
-    @V8JavascriptField
-    public volatile float top;
-    @V8JavascriptField
-    public volatile float width;
-
-    /* loaded from: classes7.dex */
-    public interface a {
-    }
+    public ArrayList<kp1.a> a;
 
     public r34() {
         Interceptable interceptable = $ic;
@@ -39,37 +31,66 @@ public class r34 {
                 return;
             }
         }
-        Resources resources = pj2.c() != null ? pj2.c().getResources() : null;
-        this.left = a(resources, R.dimen.obfuscated_res_0x7f07070b);
-        this.top = a(resources, R.dimen.obfuscated_res_0x7f07070c);
-        this.width = a(resources, R.dimen.obfuscated_res_0x7f07070d);
-        this.height = a(resources, R.dimen.obfuscated_res_0x7f07070a);
+        this.a = new ArrayList<>();
     }
 
-    public final float a(Resources resources, int i) {
-        InterceptResult invokeLI;
+    @Nullable
+    public static r34 c() {
+        InterceptResult invokeV;
+        vw3 vw3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, resources, i)) == null) {
-            if (resources == null || i == 0) {
-                return 0.0f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            i02 V = mm2.U().V();
+            if (V == null || (vw3Var = (vw3) V.n(vw3.class)) == null) {
+                return null;
             }
-            return x24.b(resources.getDimension(i));
+            return vw3Var.u3();
         }
-        return invokeLI.floatValue;
+        return (r34) invokeV.objValue;
     }
 
-    public void b(a aVar) {
+    @Override // com.repackage.kp1
+    public synchronized void a(kp1.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            synchronized (this) {
+                if (!this.a.contains(aVar)) {
+                    this.a.add(aVar);
+                }
+            }
         }
     }
 
-    public String toString() {
+    @Override // com.repackage.kp1
+    public synchronized void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            synchronized (this) {
+                Iterator<kp1.a> it = this.a.iterator();
+                while (it.hasNext()) {
+                    it.next().b(i);
+                }
+            }
+        }
+    }
+
+    public synchronized void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                Iterator<kp1.a> it = this.a.iterator();
+                while (it.hasNext()) {
+                    it.next().a();
+                }
+                this.a.clear();
+            }
+        }
+    }
+
+    @Override // com.repackage.li1
+    public kp1 getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "{left=" + this.left + ", top=" + this.top + ", width=" + this.width + ", height=" + this.height + "}";
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? c() : (kp1) invokeV.objValue;
     }
 }

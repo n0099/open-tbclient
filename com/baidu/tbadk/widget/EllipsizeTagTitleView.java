@@ -25,14 +25,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hx;
-import com.repackage.pi;
+import com.repackage.ix;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
-public class EllipsizeTagTitleView extends View implements hx {
+public class EllipsizeTagTitleView extends View implements ix {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: A */
-    public static final int CAM_X0301 = 2131099745;
+    public static final int CAM_X0301 = 2131099751;
     public static final int B;
     public static final int C;
     public static final int D;
@@ -83,13 +83,13 @@ public class EllipsizeTagTitleView extends View implements hx {
                 return;
             }
         }
-        B = pi.f(TbadkCoreApplication.getInst(), R.dimen.T_X06);
-        C = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds16);
-        D = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
-        E = pi.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
-        F = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds12);
-        G = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds6);
-        H = pi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+        B = qi.f(TbadkCoreApplication.getInst(), R.dimen.T_X06);
+        C = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds16);
+        D = qi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
+        E = qi.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
+        F = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds12);
+        G = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+        H = qi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -306,7 +306,7 @@ public class EllipsizeTagTitleView extends View implements hx {
     public final void k(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040610, R.attr.obfuscated_res_0x7f040611, R.attr.obfuscated_res_0x7f040612, R.attr.obfuscated_res_0x7f040613, R.attr.obfuscated_res_0x7f040614, R.attr.obfuscated_res_0x7f040615, R.attr.obfuscated_res_0x7f040616, R.attr.obfuscated_res_0x7f040617, R.attr.obfuscated_res_0x7f040618, R.attr.obfuscated_res_0x7f040619, R.attr.obfuscated_res_0x7f04061a, R.attr.obfuscated_res_0x7f04061b});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040696, R.attr.obfuscated_res_0x7f040697, R.attr.obfuscated_res_0x7f040698, R.attr.obfuscated_res_0x7f040699, R.attr.obfuscated_res_0x7f04069a, R.attr.obfuscated_res_0x7f04069b, R.attr.obfuscated_res_0x7f04069c, R.attr.obfuscated_res_0x7f04069d, R.attr.obfuscated_res_0x7f04069e, R.attr.obfuscated_res_0x7f04069f, R.attr.obfuscated_res_0x7f0406a0, R.attr.obfuscated_res_0x7f0406a1});
             this.c = obtainStyledAttributes.getInt(9, CAM_X0105);
             this.b = obtainStyledAttributes.getInt(11, 0);
             this.a = obtainStyledAttributes.getDimensionPixelSize(10, B);
@@ -337,7 +337,7 @@ public class EllipsizeTagTitleView extends View implements hx {
             TextPaint textPaint2 = new TextPaint(1);
             this.w = textPaint2;
             textPaint2.setColor(SkinManager.getColor(this.k));
-            this.w.setTextSize(pi.f(TbadkCoreApplication.getInst(), R.dimen.T_X10));
+            this.w.setTextSize(qi.f(TbadkCoreApplication.getInst(), R.dimen.T_X10));
             if (this.w.getFontMetrics() != null) {
                 this.p = this.w.getFontMetrics().descent - this.w.getFontMetrics().ascent;
                 this.q = this.w.getFontMetrics().descent;
@@ -345,7 +345,7 @@ public class EllipsizeTagTitleView extends View implements hx {
         }
     }
 
-    @Override // com.repackage.hx
+    @Override // com.repackage.ix
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048587, this, tbPageContext, i) == null) {

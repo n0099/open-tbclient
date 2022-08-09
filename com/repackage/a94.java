@@ -1,102 +1,79 @@
 package com.repackage;
 
+import android.content.ContentValues;
+import android.database.Cursor;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class a94 {
+public class a94 extends x84<u94> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public int f;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public a94(int i, String str) {
-        this(i, str, "");
+    public a94() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (String) objArr2[2]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public a94 a(String str) {
+    @Override // com.repackage.x84
+    public List<u94> e(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            this.d = str;
-            return this;
-        }
-        return (a94) invokeL.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "PMSError{errorNo=" + this.a + ", errorMsg='" + this.b + "', httpCode=" + this.f + ", tipMsg='" + this.e + "', errorDetail='" + this.d + "'}";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public a94(int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
+                return arrayList;
             }
+            do {
+                u94 u94Var = new u94();
+                if (b(cursor, u94Var)) {
+                    arrayList.add(u94Var);
+                }
+            } while (cursor.moveToNext());
+            return arrayList;
         }
-        this.d = "";
-        this.a = i;
-        this.b = str;
-        this.e = str2;
+        return (List) invokeL.objValue;
     }
 
-    public a94(int i, String str, String str2, String str3) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.x84
+    /* renamed from: f */
+    public ContentValues c(u94 u94Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, str2, str3};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, u94Var)) == null) ? a(u94Var) : (ContentValues) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.x84
+    /* renamed from: g */
+    public u94 d(Cursor cursor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
+            if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
+                return null;
             }
+            u94 u94Var = new u94();
+            if (b(cursor, u94Var)) {
+                return u94Var;
+            }
+            return null;
         }
-        this.d = "";
-        this.a = i;
-        this.b = str;
-        this.e = str2;
-        this.c = str3;
+        return (u94) invokeL.objValue;
     }
 }

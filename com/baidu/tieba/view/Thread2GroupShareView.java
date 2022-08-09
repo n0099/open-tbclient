@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.pi;
 /* loaded from: classes4.dex */
 public final class Thread2GroupShareView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -63,13 +63,13 @@ public final class Thread2GroupShareView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0843, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d086d, this);
             setOrientation(1);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d40);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091d71);
-            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f0905da);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0905d3);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905d2);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e2c);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091e5d);
+            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f0905f6);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0905ef);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905ee);
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0105, 1);
             SkinManager.setViewTextColor(this.b, R.color.CAM_X0105, 2);
             SkinManager.setViewTextColor(this.d, R.color.CAM_X0106, 1);
@@ -85,7 +85,7 @@ public final class Thread2GroupShareView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) || (tbImageView = this.c) == null) {
             return;
         }
-        tbImageView.J(str, z ? 17 : 18, false);
+        tbImageView.K(str, z ? 17 : 18, false);
     }
 
     public final void d() {
@@ -109,7 +109,7 @@ public final class Thread2GroupShareView extends LinearLayout {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             EditText editText = this.b;
             if (editText != null) {
-                return oi.charSequence2String(editText.getText(), null);
+                return pi.charSequence2String(editText.getText(), null);
             }
             return null;
         }

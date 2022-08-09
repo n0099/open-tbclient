@@ -1,22 +1,19 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ForumList;
+import tbclient.GetDislikeList.DataRes;
 /* loaded from: classes6.dex */
 public class me8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public ee8 e;
+    public List<ke8> a;
+    public boolean b;
 
     public me8() {
         Interceptable interceptable = $ic;
@@ -31,55 +28,22 @@ public class me8 {
                 return;
             }
         }
-        this.e = new ee8();
+        this.a = new ArrayList();
+        this.b = true;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public void a(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public ee8 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (ee8) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public void f(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) || dataRes == null) {
             return;
         }
-        try {
-            this.e.c(jSONObject.optJSONObject("error"));
-            this.a = jSONObject.optInt("forum_id");
-            jSONObject.optString("forum_name");
-            this.b = jSONObject.optInt("signed");
-            jSONObject.optInt("is_on");
-            jSONObject.optInt("is_filter");
-            this.c = jSONObject.optInt("sign_day_count");
-            this.d = jSONObject.optInt("cur_score");
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+        for (ForumList forumList : dataRes.forum_list) {
+            ke8 ke8Var = new ke8();
+            ke8Var.a = forumList.avatar;
+            ke8Var.b = forumList.forum_name;
+            ke8Var.c = String.valueOf(forumList.forum_id);
+            this.a.add(ke8Var);
         }
+        this.b = dataRes.has_more.intValue() == 1;
     }
 }

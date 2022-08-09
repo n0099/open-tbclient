@@ -27,10 +27,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mq7;
-import com.repackage.ng;
-import com.repackage.se5;
-import com.repackage.wh8;
+import com.repackage.hs7;
+import com.repackage.kk8;
+import com.repackage.og;
+import com.repackage.rf5;
 /* loaded from: classes3.dex */
 public class BarVoteActivityStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -163,10 +163,10 @@ public class BarVoteActivityStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof mq7)) {
-                    mq7 mq7Var = (mq7) customMessage.getData();
-                    CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(mq7Var.a(), mq7Var.b(), mq7Var.d(), mq7Var.c());
-                    commitVoteReqMsg.setTag(mq7Var.e());
+                if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof hs7)) {
+                    hs7 hs7Var = (hs7) customMessage.getData();
+                    CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(hs7Var.a(), hs7Var.b(), hs7Var.d(), hs7Var.c());
+                    commitVoteReqMsg.setTag(hs7Var.e());
                     MessageManager.getInstance().sendMessage(commitVoteReqMsg);
                 }
                 return null;
@@ -202,7 +202,7 @@ public class BarVoteActivityStatic {
                 if (tbPageContext != null && strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_BAR_VOTE)) {
-                        long g = ng.g(se5.c(str, "fid="), 0L);
+                        long g = og.g(rf5.c(str, "fid="), 0L);
                         if (g != 0) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2921408, new BarVoteActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(g, 4)));
                             return 0;
@@ -242,7 +242,7 @@ public class BarVoteActivityStatic {
                 if (tbPageContext != null && strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if (str.startsWith(UrlSchemaHelper.SCHEME_TYPE_ID_CARD)) {
-                        long g = ng.g(se5.c(str, "fid="), 0L);
+                        long g = og.g(rf5.c(str, "fid="), 0L);
                         if (g != 0) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2921413, new IdentityReviewActivityConfig(tbPageContext.getPageActivity(), g, 25042)));
                             return 0;
@@ -357,8 +357,8 @@ public class BarVoteActivityStatic {
     public static void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, null) == null) {
-            wh8.h(309642, VoteElectionSocketResMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BAR_ELECTION, wh8.a("c/f/bawu/electionInfo", 309642));
+            kk8.h(309642, VoteElectionSocketResMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BAR_ELECTION, kk8.a("c/f/bawu/electionInfo", 309642));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setIsNeedLogin(true);
             tbHttpMessageTask.setResponsedClass(VoteElectionHttpResMessage.class);

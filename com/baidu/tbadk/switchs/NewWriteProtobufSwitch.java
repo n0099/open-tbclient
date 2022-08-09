@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yt4;
+import com.repackage.ru4;
 @ModifyClass
 /* loaded from: classes3.dex */
 public class NewWriteProtobufSwitch extends BaseNormalSwitch {
@@ -61,7 +61,7 @@ public class NewWriteProtobufSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (type > 2) {
-                int l = yt4.k().l("key_new_write_protobuf", 0);
+                int l = ru4.k().l("key_new_write_protobuf", 0);
                 type = l;
                 if (l == 2) {
                     switchOn = true;
@@ -76,7 +76,7 @@ public class NewWriteProtobufSwitch extends BaseNormalSwitch {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.repackage.af
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.repackage.bf
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

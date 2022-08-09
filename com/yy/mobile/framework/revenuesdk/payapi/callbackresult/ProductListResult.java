@@ -16,6 +16,7 @@ import java.util.List;
 public class ProductListResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String bubbleActMsg;
     public String currencyName;
     public int currencyType;
     public int defaultCid;
@@ -23,12 +24,12 @@ public class ProductListResult {
     public PaysSettingInfo paysSettingInfo;
     public List<ProductInfo> productInfoList;
 
-    public ProductListResult(int i, String str, PaysSettingInfo paysSettingInfo, List<ProductInfo> list, List<PayWayInfo> list2, int i2) {
+    public ProductListResult(int i, String str, PaysSettingInfo paysSettingInfo, List<ProductInfo> list, List<PayWayInfo> list2, int i2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, paysSettingInfo, list, list2, Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i), str, paysSettingInfo, list, list2, Integer.valueOf(i2), str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -44,43 +45,50 @@ public class ProductListResult {
         this.currencyName = str;
         this.paysSettingInfo = paysSettingInfo;
         this.defaultCid = i2;
+        this.bubbleActMsg = str2;
+    }
+
+    public String getBubbleActMsg() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.bubbleActMsg : (String) invokeV.objValue;
     }
 
     public String getCurrencyName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.currencyName : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.currencyName : (String) invokeV.objValue;
     }
 
     public int getCurrencyType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.currencyType : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.currencyType : invokeV.intValue;
     }
 
     public List<PayWayInfo> getPayWayInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.payWayInfoList : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.payWayInfoList : (List) invokeV.objValue;
     }
 
     public PaysSettingInfo getPaysSettingInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.paysSettingInfo : (PaysSettingInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.paysSettingInfo : (PaysSettingInfo) invokeV.objValue;
     }
 
     public List<ProductInfo> getProductInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.productInfoList : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.productInfoList : (List) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "ProductListResult{currencyType=" + this.currencyType + ", productInfoList=" + this.productInfoList + ", payWayInfoList=" + this.payWayInfoList + ", currencyName=" + this.currencyName + ", paysSettingInfo=" + this.paysSettingInfo + ", defaultCid=" + this.defaultCid + '}';
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "ProductListResult{currencyType=" + this.currencyType + ", productInfoList=" + this.productInfoList + ", payWayInfoList=" + this.payWayInfoList + ", currencyName=" + this.currencyName + ", paysSettingInfo=" + this.paysSettingInfo + ", defaultCid=" + this.defaultCid + ", bubbleActMsg=" + this.bubbleActMsg + '}';
         }
         return (String) invokeV.objValue;
     }

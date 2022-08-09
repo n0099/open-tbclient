@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.annotation.KeepName;
-import com.repackage.nk9;
+import com.repackage.in9;
 @KeepName
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class BinderWrapper implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     @NonNull
@@ -36,7 +36,7 @@ public final class BinderWrapper implements Parcelable {
                 return;
             }
         }
-        CREATOR = new nk9();
+        CREATOR = new in9();
     }
 
     public BinderWrapper(@NonNull IBinder iBinder) {

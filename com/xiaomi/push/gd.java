@@ -22,12 +22,12 @@ public abstract class gd extends fw {
     public Exception a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Socket f423a;
+    public Socket f424a;
     public XMPushService b;
     public int c;
 
     /* renamed from: c  reason: collision with other field name */
-    public String f424c;
+    public String f425c;
     public String d;
     public volatile long e;
     public volatile long f;
@@ -54,7 +54,7 @@ public abstract class gd extends fw {
             }
         }
         this.a = null;
-        this.f424c = null;
+        this.f425c = null;
         this.e = 0L;
         this.f = 0L;
         this.g = 0L;
@@ -129,19 +129,19 @@ public abstract class gd extends fw {
             while (it3.hasNext()) {
                 String next2 = it3.next();
                 long currentTimeMillis = System.currentTimeMillis();
-                ((fw) this).f404a++;
+                ((fw) this).f405a++;
                 int i4 = i3 + 1;
                 try {
                     com.xiaomi.channel.commonutils.logger.b.m89a("begin to connect to " + next2);
-                    this.f423a = a();
-                    this.f423a.connect(ct.m249a(next2, i), 8000);
+                    this.f424a = a();
+                    this.f424a.connect(ct.m249a(next2, i), 8000);
                     com.xiaomi.channel.commonutils.logger.b.m89a("tcp connected");
-                    this.f423a.setTcpNoDelay(true);
+                    this.f424a.setTcpNoDelay(true);
                     this.d = next2;
                     a();
                     long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                    ((fw) this).f405a = currentTimeMillis2;
-                    ((fw) this).f414b = m194a;
+                    ((fw) this).f406a = currentTimeMillis2;
+                    ((fw) this).f415b = m194a;
                     if (a != null) {
                         it = it3;
                         sb = sb2;
@@ -294,7 +294,7 @@ public abstract class gd extends fw {
                         j = 0;
                     }
                     this.g = SystemClock.elapsedRealtime();
-                    com.xiaomi.channel.commonutils.logger.b.m89a("connected to " + next2 + " in " + ((fw) this).f405a);
+                    com.xiaomi.channel.commonutils.logger.b.m89a("connected to " + next2 + " in " + ((fw) this).f406a);
                     str2 = str10;
                     i2 = i4;
                     z = true;
@@ -380,9 +380,9 @@ public abstract class gd extends fw {
                     return;
                 }
                 a(2, i, exc);
-                ((fw) this).f409a = "";
+                ((fw) this).f410a = "";
                 try {
-                    this.f423a.close();
+                    this.f424a.close();
                 } catch (Throwable unused) {
                 }
                 this.e = 0L;
@@ -462,7 +462,7 @@ public abstract class gd extends fw {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? ((fw) this).f409a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? ((fw) this).f410a : (String) invokeV.objValue;
     }
 
     public void c(int i, Exception exc) {
@@ -479,7 +479,7 @@ public abstract class gd extends fw {
                 try {
                     if (!m360c() && !m359b()) {
                         a(0, 0, (Exception) null);
-                        a(((fw) this).f406a);
+                        a(((fw) this).f407a);
                         return;
                     }
                     com.xiaomi.channel.commonutils.logger.b.m89a("WARNING: current xmpp has connected");

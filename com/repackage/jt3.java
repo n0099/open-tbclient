@@ -1,83 +1,85 @@
 package com.repackage;
 
-import android.util.Log;
-import android.webkit.JavascriptInterface;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import android.app.Application;
+import android.net.Uri;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
+import com.baidu.searchbox.unitedscheme.SchemeRouter;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.wl2;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jt3 {
+public final class jt3 extends et3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    @V8JavascriptField
-    public int height;
-    @V8JavascriptField
-    public int left;
-    @V8JavascriptField
-    public int realHeight;
-    @V8JavascriptField
-    public int realWidth;
-    @V8JavascriptField
-    public int top;
-    @V8JavascriptField
-    public int width;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void j(String str);
-    }
-
-    public jt3(@NonNull ps1 ps1Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jt3() {
+        super("navigateToSwanGame");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ps1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a(ps1Var);
     }
 
-    public final void a(@NonNull ps1 ps1Var) {
+    @Override // com.repackage.et3
+    public zs1 a(JSONObject paramsJson, de2 callback) {
+        InterceptResult invokeLL;
+        wl2.a W;
+        String I;
+        wl2.a W2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ps1Var) == null) {
-            this.left = ps1Var.r("left", this.left);
-            this.top = ps1Var.r("top", this.top);
-            this.width = ps1Var.r("width", this.width);
-            this.height = ps1Var.r("height", this.height);
-        }
-    }
-
-    public void b(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.a = aVar;
-        }
-    }
-
-    @JavascriptInterface
-    public void onFieldChangedCallback(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (sg1.a) {
-                Log.d("BannerAdStyle", "onFieldChangedCallback fieldName=" + str);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, paramsJson, callback)) == null) {
+            Intrinsics.checkNotNullParameter(paramsJson, "paramsJson");
+            Intrinsics.checkNotNullParameter(callback, "callback");
+            Application c = gk2.c();
+            if (c == null) {
+                callback.onFail(202, "params may be error");
+                return null;
             }
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.j(str);
+            String optString = paramsJson.optString("appKey");
+            boolean z = false;
+            if (optString == null || optString.length() == 0) {
+                callback.onFail(202, "params may be error");
+                return null;
             }
+            JSONObject jSONObject = new JSONObject();
+            z03 b0 = z03.b0();
+            String str = "";
+            jSONObject.put("pre_source", (b0 == null || (W2 = b0.W()) == null || (r8 = W2.T()) == null) ? "" : "");
+            z03 b02 = z03.b0();
+            if (b02 != null && (W = b02.W()) != null && (I = W.I()) != null) {
+                str = I;
+            }
+            jSONObject.put("pre_appid", str);
+            paramsJson.put(UBCCloudControlProcessor.UBC_KEY, jSONObject);
+            String d1 = xl2.d1(optString, 1, paramsJson);
+            Uri parse = (d1 == null || d1.length() == 0) ? true : true ? null : Uri.parse(d1);
+            if (parse == null) {
+                callback.onFail(202, "params may be error");
+                return null;
+            }
+            if (SchemeRouter.invokeScheme(c, parse, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
+                callback.a(null);
+            } else {
+                callback.onFail(202, "params may be error");
+            }
+            return null;
         }
+        return (zs1) invokeLL.objValue;
     }
 }

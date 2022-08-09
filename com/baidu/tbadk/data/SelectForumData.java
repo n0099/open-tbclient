@@ -3,6 +3,7 @@ package com.baidu.tbadk.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ForumTagInfo;
 import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tieba.frs.FrsTabItemData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,8 +22,10 @@ public class SelectForumData implements Parcelable {
     public transient /* synthetic */ FieldHolder $fh;
     public String avatarUrl;
     public String blockInfo;
+    public String firstCategory;
     public String forumId;
     public String forumName;
+    public ForumTagInfo forumTagInfo;
     public int index;
     public boolean isCanPost;
     public boolean isForumBusinessAccount;
@@ -125,6 +128,8 @@ public class SelectForumData implements Parcelable {
             parcel.readList(arrayList, FrsTabItemData.class.getClassLoader());
             this.postPrefix = (PostPrefixData) parcel.readSerializable();
             this.isForumBusinessAccount = parcel.readByte() != 0;
+            this.forumTagInfo = (ForumTagInfo) parcel.readSerializable();
+            this.firstCategory = parcel.readString();
             this.isInterestForumSelected = parcel.readByte() != 0;
             this.index = parcel.readInt();
         }
@@ -144,6 +149,8 @@ public class SelectForumData implements Parcelable {
             parcel.writeList(this.tabInfoList);
             parcel.writeSerializable(this.postPrefix);
             parcel.writeByte(this.isForumBusinessAccount ? (byte) 1 : (byte) 0);
+            parcel.writeSerializable(this.forumTagInfo);
+            parcel.writeString(this.firstCategory);
             parcel.writeByte(this.isInterestForumSelected ? (byte) 1 : (byte) 0);
             parcel.writeInt(this.index);
         }
@@ -176,6 +183,8 @@ public class SelectForumData implements Parcelable {
         parcel.readList(arrayList, FrsTabItemData.class.getClassLoader());
         this.postPrefix = (PostPrefixData) parcel.readSerializable();
         this.isForumBusinessAccount = parcel.readByte() != 0;
+        this.forumTagInfo = (ForumTagInfo) parcel.readSerializable();
+        this.firstCategory = parcel.readString();
         this.isInterestForumSelected = parcel.readByte() != 0;
         this.index = parcel.readInt();
     }

@@ -1,86 +1,79 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.MessageDigest;
 /* loaded from: classes5.dex */
 public class ac9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
 
-    public ac9(boolean z, long j, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Long.valueOf(j), Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755861446, "Lcom/repackage/ac9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755861446, "Lcom/repackage/ac9;");
                 return;
             }
         }
-        this.b = j;
-        this.a = i;
+        a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
-    public static ac9 b(String str, int i, int i2) {
-        InterceptResult invokeLII;
-        long j;
-        int i3;
+    public static String a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, str, i, i2)) == null) {
-            if (i >= i2) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            if (bArr == null) {
                 return null;
             }
-            long j2 = 0;
-            int i4 = i;
-            while (i4 < i2) {
-                char charAt = str.charAt(i4);
-                if (charAt < '0' || charAt > '9') {
-                    if (charAt >= 'A' && charAt <= 'F') {
-                        j = j2 * 16;
-                        i3 = charAt - 'A';
-                    } else if (charAt < 'a' || charAt > 'f') {
-                        break;
-                    } else {
-                        j = j2 * 16;
-                        i3 = charAt - 'a';
-                    }
-                    j2 = j + i3 + 10;
-                } else {
-                    j2 = (j2 * 16) + (charAt - '0');
-                }
-                if (j2 > 4294967295L) {
-                    return null;
-                }
-                i4++;
+            StringBuilder sb = new StringBuilder(bArr.length * 2);
+            for (int i = 0; i < bArr.length; i++) {
+                sb.append(a[(bArr[i] & 240) >>> 4]);
+                sb.append(a[bArr[i] & 15]);
             }
-            if (i4 == i) {
-                return null;
-            }
-            return new ac9(false, j2, i4);
+            return sb.toString();
         }
-        return (ac9) invokeLII.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            try {
+                return c(str.getBytes("UTF-8"));
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
     }
 
-    public int c() {
-        InterceptResult invokeV;
+    public static String c(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (int) this.b : invokeV.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(bArr);
+                return a(messageDigest.digest());
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

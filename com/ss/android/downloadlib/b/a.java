@@ -13,7 +13,7 @@ import com.ss.android.download.api.model.DeepLink;
 import com.ss.android.downloadad.api.download.AdDownloadModel;
 import com.ss.android.downloadlib.g.l;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static boolean a(@NonNull com.ss.android.downloadlib.addownload.b.e eVar) {
         boolean z;

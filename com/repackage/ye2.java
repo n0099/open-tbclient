@@ -1,5 +1,6 @@
 package com.repackage;
 
+import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,9 +39,11 @@ public class ye2 implements ZeusPluginFactory {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invoker)) == null) {
-            tg2 a = pj2.D().a(invoker, this.a);
-            ix1.i("【RtcRoomPluginFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline RtcRoom「Hash:" + a.hashCode() + "」");
-            return new we2(a);
+            ze2 ze2Var = new ze2(invoker, this.a);
+            if (jh1.a) {
+                Log.i("【InlineInputFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline input「Hash:" + ze2Var.hashCode() + "」");
+            }
+            return new xe2(ze2Var);
         }
         return (ZeusPlugin) invokeL.objValue;
     }
@@ -49,6 +52,6 @@ public class ye2 implements ZeusPluginFactory {
     public String name() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "swan_rtc_room" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "swan_input" : (String) invokeV.objValue;
     }
 }

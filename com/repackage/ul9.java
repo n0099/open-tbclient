@@ -1,108 +1,53 @@
 package com.repackage;
 
-import android.os.IInterface;
-import android.os.Parcel;
-import android.os.Parcelable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Looper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedHashMap;
 /* loaded from: classes7.dex */
-public final class ul9 {
+public class ul9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755256977, "Lcom/repackage/ul9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755256977, "Lcom/repackage/ul9;");
-                return;
-            }
-        }
-        ul9.class.getClassLoader();
-    }
+    public final LinkedHashMap<Long, StackTraceElement[]> a;
+    public int b;
 
     public ul9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static <T extends Parcelable> T a(Parcel parcel, Parcelable.Creator<T> creator) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, parcel, creator)) == null) {
-            if (parcel.readInt() == 0) {
-                return null;
-            }
-            return creator.createFromParcel(parcel);
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    public static void b(Parcel parcel, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65539, null, parcel, z) == null) {
-            parcel.writeInt(z ? 1 : 0);
-        }
-    }
-
-    public static void c(Parcel parcel, Parcelable parcelable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, parcel, parcelable) == null) {
-            if (parcelable == null) {
-                parcel.writeInt(0);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            parcel.writeInt(1);
-            parcelable.writeToParcel(parcel, 0);
         }
+        this.a = new LinkedHashMap<>();
+        this.b = 100;
     }
 
-    public static void d(Parcel parcel, Parcelable parcelable) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, parcel, parcelable) == null) {
-            if (parcelable == null) {
-                parcel.writeInt(0);
-                return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            int size = this.a.size();
+            int i = this.b;
+            if (size == i && i > 0) {
+                LinkedHashMap<Long, StackTraceElement[]> linkedHashMap = this.a;
+                linkedHashMap.remove(linkedHashMap.keySet().iterator().next());
             }
-            parcel.writeInt(1);
-            parcelable.writeToParcel(parcel, 1);
+            this.a.put(Long.valueOf(System.currentTimeMillis()), Looper.getMainLooper().getThread().getStackTrace());
         }
     }
 
-    public static void e(Parcel parcel, IInterface iInterface) {
+    public LinkedHashMap<Long, StackTraceElement[]> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, parcel, iInterface) == null) {
-            if (iInterface == null) {
-                parcel.writeStrongBinder(null);
-            } else {
-                parcel.writeStrongBinder(iInterface.asBinder());
-            }
-        }
-    }
-
-    public static boolean f(Parcel parcel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, parcel)) == null) ? parcel.readInt() != 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (LinkedHashMap) invokeV.objValue;
     }
 }

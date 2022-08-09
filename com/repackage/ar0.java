@@ -1,26 +1,24 @@
 package com.repackage;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.player.constants.PlayerStatus;
+import com.baidu.nadcore.player.ui.BdLayerTitleBarView;
+import com.baidu.searchbox.player.event.InteractiveEvent;
 import com.baidu.searchbox.player.event.LayerEvent;
 import com.baidu.searchbox.player.event.PlayerEvent;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ar0 extends wq0 {
+public class ar0 extends vq0 implements BdLayerTitleBarView.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View b;
-    public View c;
-    public View d;
-    public boolean e;
+    public BdLayerTitleBarView b;
 
     public ar0() {
         Interceptable interceptable = $ic;
@@ -32,13 +30,11 @@ public class ar0 extends wq0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = true;
     }
 
-    @Override // com.repackage.xq0
+    @Override // com.repackage.wq0
     @NonNull
     public View getContentView() {
         InterceptResult invokeV;
@@ -46,49 +42,70 @@ public class ar0 extends wq0 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.qq0
+    @Override // com.repackage.pq0
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05a2, (ViewGroup) null);
-            this.b = inflate;
-            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f090bd9);
-            this.d = this.b.findViewById(R.id.obfuscated_res_0x7f090bce);
+            this.b = new BdLayerTitleBarView(getContext());
+            this.b.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
+            this.b.setVisibility(4);
+            this.b.setListener(this);
         }
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.repackage.qq0
-    public void k(@NonNull vr0 vr0Var) {
+    @Override // com.repackage.pq0
+    public void k(@NonNull ur0 ur0Var) {
         char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vr0Var) == null) {
-            String c2 = vr0Var.c();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ur0Var) == null) {
+            String c2 = ur0Var.c();
             switch (c2.hashCode()) {
-                case -1043170264:
-                    if (c2.equals(PlayerEvent.ACTION_PLAYER_ATTACH)) {
-                        c = 2;
+                case -882902390:
+                    if (c2.equals(PlayerEvent.ACTION_SET_DATA_SOURCE)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -745690976:
+                    if (c2.equals(InteractiveEvent.ACTION_INTERACTIVE_START)) {
+                        c = 5;
                         break;
                     }
                     c = 65535;
                     break;
                 case -552621273:
                     if (c2.equals(LayerEvent.ACTION_SWITCH_FULL)) {
-                        c = 1;
+                        c = 6;
                         break;
                     }
                     c = 65535;
                     break;
                 case -552580917:
                     if (c2.equals(LayerEvent.ACTION_SWITCH_HALF)) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -461848373:
+                    if (c2.equals(PlayerEvent.ACTION_ON_ERROR)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 154871702:
+                    if (c2.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
                         c = 0;
                         break;
                     }
                     c = 65535;
                     break;
-                case -56310521:
-                    if (c2.equals(LayerEvent.ACTION_VIDEO_VIEW_CHANGED)) {
-                        c = 3;
+                case 250537257:
+                    if (c2.equals(LayerEvent.ACTION_NET_ERROR_SHOW)) {
+                        c = 2;
                         break;
                     }
                     c = 65535;
@@ -97,29 +114,55 @@ public class ar0 extends wq0 {
                     c = 65535;
                     break;
             }
-            if (c == 0) {
-                this.b.setVisibility(0);
-            } else if (c == 1 || c == 2 || c == 3) {
-                this.b.setVisibility(8);
+            if (c == 0 || c == 1 || c == 2) {
+                if (q().V0()) {
+                    this.b.e(false, true, q().r1());
+                }
+            } else if (c != 4 && c != 5) {
+                if (c == 6 && !q().Y()) {
+                    s(true, false);
+                }
+            } else {
+                this.b.a(false);
             }
         }
     }
 
-    @Override // com.repackage.wq0
-    public void s(boolean z, boolean z2) {
+    @Override // com.repackage.pq0
+    public void n(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if (z) {
-                if (this.e) {
-                    this.b.setVisibility(0);
-                    this.c.setVisibility(0);
-                    this.d.setVisibility(0);
+        if (interceptable == null || interceptable.invokeLL(1048579, this, playerStatus, playerStatus2) == null) {
+            super.n(playerStatus, playerStatus2);
+            if (playerStatus == PlayerStatus.PLAYING && q().V0()) {
+                ru0 ru0Var = this.a;
+                if (!(ru0Var instanceof iu0) || ((iu0) ru0Var).V()) {
                     return;
                 }
-                this.b.setVisibility(8);
-                return;
+                this.b.a(true);
             }
-            this.b.setVisibility(8);
+        }
+    }
+
+    @Override // com.baidu.nadcore.player.ui.BdLayerTitleBarView.a
+    public void onBack() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            q().d1(2);
+        }
+    }
+
+    @Override // com.repackage.vq0
+    public void s(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            super.s(z, z2);
+            if (z) {
+                if (q().V0() && q().f1() == 0) {
+                    this.b.e(true, !q().Y(), q().r1());
+                }
+            } else if (q().V0() && q().f1() == 0 && this.b.getVisibility() != 4 && q().Y()) {
+                this.b.a(true);
+            }
         }
     }
 }

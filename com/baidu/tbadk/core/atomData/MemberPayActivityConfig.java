@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,6 +15,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class MemberPayActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String AUTOPAY_FROM_LOW_INCOME_FRS = "autopay_from_low_income_frs";
+    public static final String AUTOPAY_FROM_LOW_INCOME_HOME = "autopay_from_low_income_home";
+    public static final String AUTOPAY_FROM_LOW_INCOME_HOME_FEEDBACK = "autopay_from_low_income_home_feedback";
+    public static final String AUTOPAY_FROM_LOW_INCOME_PB = "autopay_from_low_income_pb";
+    public static final String FID = "fid";
     public static final String FROM = "from";
     public static final int FROM_AVATAR_PENDANT_LIST = 22;
     public static final int FROM_BACKGROUND_DETAIL_DIALOG = 14;
@@ -42,12 +48,18 @@ public class MemberPayActivityConfig extends IntentConfig {
     public static final int FROM_SKIN_ITEM_DIALOG = 10;
     public static final int FROM_TAIL = 6;
     public static final int FROM_THEME_LIST_PAGE = 9;
+    public static final int FROM_VIP_AD_FREE_GUID_TIP = 27;
     public static final String IS_WRITE = "is_write";
     public static final String MEMBER_TYPE = "member_type";
     public static final String PAY_TYPE = "pay_type";
+    public static final int SCENE_FROM_FEEDBACK = 100019;
+    public static final int SCENE_FROM_FRS = 100015;
+    public static final int SCENE_FROM_HOME = 100013;
     public static final int SCENE_FROM_MEMBER_DEFAULT_COMMON = 0;
     public static final int SCENE_FROM_MEMBER_YEAR_COMMON = 9;
+    public static final int SCENE_FROM_PB = 100017;
     public static final String SCENE_ID = "scene_id";
+    public static final String SHOW_VIP_TIP = "show_vip_tip";
     public static final String ST_TYPE = "st_type";
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -79,9 +91,17 @@ public class MemberPayActivityConfig extends IntentConfig {
         }
     }
 
+    public void setFid(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        getIntent().putExtra("fid", str);
+    }
+
     public void setFrom(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || i <= 0) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || i <= 0) {
             return;
         }
         getIntent().putExtra("from", i);
@@ -89,14 +109,14 @@ public class MemberPayActivityConfig extends IntentConfig {
 
     public void setFromScence(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             getIntent().putExtra(FROM_SCENE, i);
         }
     }
 
     public void setReferPageClickZone(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
             if (!StringUtils.isNull(str)) {
                 getIntent().putExtra(MemberPayStatistic.REFER_PAGE, str);
             }
@@ -109,14 +129,14 @@ public class MemberPayActivityConfig extends IntentConfig {
 
     public void setSceneId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             getIntent().putExtra(SCENE_ID, str);
         }
     }
 
     public void setStType(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             getIntent().putExtra("st_type", str);
         }
     }
@@ -129,13 +149,13 @@ public class MemberPayActivityConfig extends IntentConfig {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            interceptable.invokeUnInit(65541, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
                 int i4 = i3 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                interceptable.invokeInitBody(65541, newInitContext);
                 return;
             }
         }
@@ -152,13 +172,13 @@ public class MemberPayActivityConfig extends IntentConfig {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)};
-            interceptable.invokeUnInit(65541, newInitContext);
+            interceptable.invokeUnInit(65542, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
                 int i5 = i4 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65541, newInitContext);
+                interceptable.invokeInitBody(65542, newInitContext);
                 return;
             }
         }
@@ -189,6 +209,30 @@ public class MemberPayActivityConfig extends IntentConfig {
         getIntent().putExtra("member_type", i);
         getIntent().putExtra("st_type", str);
         getIntent().putExtra("from", i2);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public MemberPayActivityConfig(Context context, int i, String str, int i2, boolean z) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i), str, Integer.valueOf(i2), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                return;
+            }
+        }
+        getIntent().putExtra("member_type", i);
+        getIntent().putExtra("st_type", str);
+        getIntent().putExtra("from", i2);
+        getIntent().putExtra(SHOW_VIP_TIP, z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -224,13 +268,13 @@ public class MemberPayActivityConfig extends IntentConfig {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, Boolean.valueOf(z), Integer.valueOf(i), str};
-            interceptable.invokeUnInit(65542, newInitContext);
+            interceptable.invokeUnInit(65543, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65542, newInitContext);
+                interceptable.invokeInitBody(65543, newInitContext);
                 return;
             }
         }
@@ -251,13 +295,13 @@ public class MemberPayActivityConfig extends IntentConfig {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, Boolean.valueOf(z), Integer.valueOf(i), str, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65543, newInitContext);
+            interceptable.invokeUnInit(65544, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
                 int i4 = i3 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65543, newInitContext);
+                interceptable.invokeInitBody(65544, newInitContext);
                 return;
             }
         }

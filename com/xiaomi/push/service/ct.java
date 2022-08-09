@@ -13,7 +13,7 @@ public class ct implements u.a {
     public final /* synthetic */ XMPushService.j a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ XMPushService f973a;
+    public final /* synthetic */ XMPushService f974a;
 
     public ct(XMPushService xMPushService, XMPushService.j jVar) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class ct implements u.a {
                 return;
             }
         }
-        this.f973a = xMPushService;
+        this.f974a = xMPushService;
         this.a = jVar;
     }
 
@@ -38,7 +38,7 @@ public class ct implements u.a {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f973a.a(this.a);
+            this.f974a.a(this.a);
         }
     }
 }

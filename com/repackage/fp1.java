@@ -1,160 +1,33 @@
 package com.repackage;
 
-import android.animation.ValueAnimator;
+import android.content.Context;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.container.NgWebView;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lo1;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class fp1 extends bp1 {
+public class fp1 extends ep1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a implements lo1.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fp1 a;
-
-        /* renamed from: com.repackage.fp1$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class RunnableC0477a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ int a;
-            public final /* synthetic */ int b;
-            public final /* synthetic */ a c;
-
-            /* renamed from: com.repackage.fp1$a$a$a  reason: collision with other inner class name */
-            /* loaded from: classes6.dex */
-            public class C0478a implements ValueAnimator.AnimatorUpdateListener {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ pm1 a;
-
-                public C0478a(RunnableC0477a runnableC0477a, pm1 pm1Var) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC0477a, pm1Var};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = pm1Var;
-                }
-
-                @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                        this.a.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
-                    }
-                }
-            }
-
-            public RunnableC0477a(a aVar, int i, int i2) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, Integer.valueOf(i), Integer.valueOf(i2)};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = aVar;
-                this.a = i;
-                this.b = i2;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                pm1 i;
-                int f;
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (i = vl2.U().i()) == null) {
-                    return;
-                }
-                if (!(i instanceof NgWebView)) {
-                    f = zd3.f(this.c.a.getContext(), this.a);
-                } else {
-                    f = fp1.z(i, zd3.f(this.c.a.getContext(), this.a));
-                }
-                ValueAnimator ofInt = ValueAnimator.ofInt(i.getWebViewScrollY(), f);
-                ofInt.setDuration(this.b);
-                ofInt.addUpdateListener(new C0478a(this, i));
-                ofInt.start();
-            }
-        }
-
-        public a(fp1 fp1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fp1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fp1Var;
-        }
-
-        @Override // com.repackage.lo1.a
-        public is1 a(i03 i03Var, JSONObject jSONObject, @Nullable String str) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, i03Var, jSONObject, str)) == null) {
-                int optInt = jSONObject.optInt("scrollTop", -1);
-                int optInt2 = jSONObject.optInt("duration", -1);
-                if (optInt > -1 && optInt2 > -1) {
-                    ce3.e0(new RunnableC0477a(this, optInt, optInt2));
-                    return new is1(0);
-                }
-                ix1.c("PageScrollToApi", "illegal scrollTop or duration");
-                return new is1(1001, "illegal params");
-            }
-            return (is1) invokeLLL.objValue;
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fp1(@NonNull jo1 jo1Var) {
-        super(jo1Var);
+    public fp1(@NonNull ap1 ap1Var) {
+        super(ap1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jo1Var};
+            Object[] objArr = {ap1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((jo1) newInitContext.callArgs[0]);
+                super((ap1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -162,33 +35,40 @@ public class fp1 extends bp1 {
         }
     }
 
-    public static int z(@NonNull pm1 pm1Var, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, pm1Var, i)) == null) {
-            int contentHeight = ((int) (pm1Var.getContentHeight() * pm1Var.getScale())) - ((Integer) vl2.U().r().second).intValue();
-            if (contentHeight <= 0) {
-                return 0;
-            }
-            return i > contentHeight ? contentHeight : i;
-        }
-        return invokeLI.intValue;
-    }
-
-    public is1 A(String str) {
+    public static boolean y(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            q("#pageScrollTo", false);
-            return l(str, false, new a(this));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            boolean h = SwanAppAllianceLoginHelper.d.h();
+            if (h) {
+                return h;
+            }
+            wk1 h0 = gk2.h0();
+            return h0 instanceof zi1 ? ((zi1) h0).k(context) : h;
         }
-        return (is1) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.lo1
+    @Override // com.repackage.cp1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "PageScrollToApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "BaiduAccountApi" : (String) invokeV.objValue;
+    }
+
+    public zs1 x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            q("#isBaiduAccountSync", false);
+            if (z03.b0() == null) {
+                return new zs1(1001, "swan app is null");
+            }
+            boolean y = y(getContext());
+            JSONObject jSONObject = new JSONObject();
+            zd3.f(jSONObject, "isBaiduAccount", Boolean.valueOf(y));
+            return new zs1(0, jSONObject);
+        }
+        return (zs1) invokeV.objValue;
     }
 }

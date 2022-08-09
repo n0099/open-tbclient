@@ -42,7 +42,7 @@ public class HotUserRankActivityConfig extends IntentConfig {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || getIntent() == null) {
             return;
         }
-        getIntent().putExtra(KEY_CATEGORY, str);
+        getIntent().putExtra("key_category", str);
     }
 
     public void setForumId(Long l) {

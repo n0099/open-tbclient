@@ -13,21 +13,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qp7;
-import com.repackage.rp7;
-import com.repackage.sp7;
-import com.repackage.tp7;
-import com.repackage.up7;
-import com.repackage.vp7;
-import com.repackage.wp7;
+import com.repackage.lr7;
+import com.repackage.mr7;
+import com.repackage.nr7;
+import com.repackage.or7;
+import com.repackage.pr7;
+import com.repackage.qr7;
+import com.repackage.rr7;
 /* loaded from: classes3.dex */
 public class OneKeyLoginActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public sp7 b;
-    public rp7 c;
-    public qp7 d;
+    public nr7 b;
+    public mr7 c;
+    public lr7 d;
 
     public OneKeyLoginActivity() {
         Interceptable interceptable = $ic;
@@ -47,9 +47,9 @@ public class OneKeyLoginActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = getIntent().getStringExtra(LoginDialogActivityConfig.SHARE_MODEL_JSON_STRING);
-            sp7 sp7Var = new sp7();
-            this.b = sp7Var;
-            sp7Var.a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
+            nr7 nr7Var = new nr7();
+            this.b = nr7Var;
+            nr7Var.a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
             this.b.b = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_OPERATOR);
             this.b.c = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_SIGN);
             this.b.d = this.a;
@@ -82,14 +82,14 @@ public class OneKeyLoginActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0045);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091b4c);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091c31);
             initData();
             if (TextUtils.isEmpty(this.a)) {
-                this.c = new up7(getPageContext(), findViewById);
-                this.d = new tp7(getPageContext(), this.c);
+                this.c = new pr7(getPageContext(), findViewById);
+                this.d = new or7(getPageContext(), this.c);
             } else {
-                this.c = new wp7(getPageContext(), findViewById);
-                this.d = new vp7(getPageContext(), this.c);
+                this.c = new rr7(getPageContext(), findViewById);
+                this.d = new qr7(getPageContext(), this.c);
             }
             this.c.c(this.b);
             this.d.j(this.b);

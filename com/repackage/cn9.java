@@ -1,117 +1,70 @@
 package com.repackage;
 
-import android.graphics.Canvas;
-import android.widget.ImageView;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.opensource.svgaplayer.SVGAVideoEntity;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes5.dex */
-public class cn9 {
+import javax.annotation.concurrent.GuardedBy;
+/* loaded from: classes6.dex */
+public final class cn9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Object a;
+    @GuardedBy("sLock")
+    public static boolean b;
+    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final pn9 a;
-    public final SVGAVideoEntity b;
 
-    /* loaded from: classes5.dex */
-    public final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final kn9 b;
-
-        public a(cn9 cn9Var, String str, kn9 kn9Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755791293, "Lcom/repackage/cn9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cn9Var, str, kn9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = str;
-            this.b = kn9Var;
-        }
-
-        public final kn9 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (kn9) invokeV.objValue;
-        }
-
-        public final String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-        }
-    }
-
-    public cn9(SVGAVideoEntity sVGAVideoEntity) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sVGAVideoEntity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755791293, "Lcom/repackage/cn9;");
                 return;
             }
         }
-        this.b = sVGAVideoEntity;
-        this.a = new pn9();
+        a = new Object();
     }
 
-    public void a(Canvas canvas, int i, ImageView.ScaleType scaleType) {
+    public static int a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, canvas, i, scaleType) == null) {
-            this.a.f(canvas.getWidth(), canvas.getHeight(), (float) this.b.h().b(), (float) this.b.h().a(), scaleType);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            b(context);
+            return c;
         }
+        return invokeL.intValue;
     }
 
-    public final pn9 b() {
-        InterceptResult invokeV;
+    public static void b(Context context) {
+        Bundle bundle;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (pn9) invokeV.objValue;
-    }
-
-    public final SVGAVideoEntity c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (SVGAVideoEntity) invokeV.objValue;
-    }
-
-    public final List<a> d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            List<jn9> g = this.b.g();
-            ArrayList arrayList = new ArrayList();
-            for (jn9 jn9Var : g) {
-                a aVar = null;
-                if (i >= 0 && i < jn9Var.a().size() && jn9Var.a().get(i).a() > 0.0d) {
-                    aVar = new a(this, jn9Var.b(), jn9Var.a().get(i));
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+            synchronized (a) {
+                if (b) {
+                    return;
                 }
-                if (aVar != null) {
-                    arrayList.add(aVar);
+                b = true;
+                try {
+                    bundle = un9.a(context).a(context.getPackageName(), 128).metaData;
+                } catch (PackageManager.NameNotFoundException e) {
+                    Log.wtf("MetadataValueReader", "This should never happen.", e);
                 }
+                if (bundle == null) {
+                    return;
+                }
+                bundle.getString("com.google.app.id");
+                c = bundle.getInt("com.google.android.gms.version");
             }
-            return arrayList;
         }
-        return (List) invokeI.objValue;
     }
 }

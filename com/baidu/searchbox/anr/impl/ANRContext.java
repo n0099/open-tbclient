@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rb1;
+import com.repackage.ic1;
 @Autowired
 /* loaded from: classes2.dex */
 public class ANRContext {
@@ -65,7 +65,7 @@ public class ANRContext {
                     if (AppConfig.isDebug()) {
                         Log.d(BlockMonitor.TAG, "onAppNotResponding");
                     }
-                    rb1<IANRRegister> iANRUploadList = ANRRuntime.getInstance().getIANRUploadList();
+                    ic1<IANRRegister> iANRUploadList = ANRRuntime.getInstance().getIANRUploadList();
                     if (iANRUploadList == null || iANRUploadList.getList() == null || aNRInfo == null) {
                         return;
                     }

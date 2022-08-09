@@ -1,90 +1,48 @@
 package com.repackage;
 
-import android.annotation.TargetApi;
-import android.content.Context;
-import android.content.pm.PackageManager;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.api.KsSplashScreenAd;
 /* loaded from: classes7.dex */
-public final class uk9 {
+public abstract class uk9 implements KsSplashScreenAd.SplashScreenAdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
-    @Nullable
-    public static Boolean a;
-    @Nullable
-    public static Boolean b;
-    @Nullable
-    public static Boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @TargetApi(20)
-    public static boolean a(@NonNull Context context) {
-        InterceptResult invokeL;
+    public uk9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            PackageManager packageManager = context.getPackageManager();
-            if (a == null) {
-                boolean z = false;
-                if (vk9.b() && packageManager.hasSystemFeature("android.hardware.type.watch")) {
-                    z = true;
-                }
-                a = Boolean.valueOf(z);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return a.booleanValue();
         }
-        return invokeL.booleanValue;
     }
 
-    @TargetApi(26)
-    public static boolean b(@NonNull Context context) {
-        InterceptResult invokeL;
+    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
+    public void onDownloadTipsDialogCancel() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (a(context)) {
-                if (!vk9.d()) {
-                    return true;
-                }
-                if (c(context) && !vk9.e()) {
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
-        return invokeL.booleanValue;
     }
 
-    @TargetApi(21)
-    public static boolean c(@NonNull Context context) {
-        InterceptResult invokeL;
+    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
+    public void onDownloadTipsDialogDismiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (b == null) {
-                boolean z = false;
-                if (vk9.c() && context.getPackageManager().hasSystemFeature("cn.google")) {
-                    z = true;
-                }
-                b = Boolean.valueOf(z);
-            }
-            return b.booleanValue();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
-        return invokeL.booleanValue;
     }
 
-    public static boolean d(@NonNull Context context) {
-        InterceptResult invokeL;
+    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
+    public void onDownloadTipsDialogShow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (c == null) {
-                boolean z = true;
-                if (!context.getPackageManager().hasSystemFeature("android.hardware.type.iot") && !context.getPackageManager().hasSystemFeature("android.hardware.type.embedded")) {
-                    z = false;
-                }
-                c = Boolean.valueOf(z);
-            }
-            return c.booleanValue();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
-        return invokeL.booleanValue;
     }
 }

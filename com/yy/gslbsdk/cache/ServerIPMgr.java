@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.db.DBAccessMgr;
 import com.yy.gslbsdk.db.ServerTB;
+import com.yy.gslbsdk.device.DeviceMgr;
 import com.yy.gslbsdk.protocol.UpdateServerInfo;
 import com.yy.gslbsdk.protocol.UpdateServerProtocolMgr;
 import com.yy.gslbsdk.thread.AsynTaskMgr;
@@ -377,7 +378,7 @@ public class ServerIPMgr {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, context, str) == null) {
             curLocalDNSIp = RuntimeTools.execCmd(GlobalTools.CMD_GET_LOCALDNS_IP);
-            initUsedIsp(str);
+            initUsedIsp(str, context);
             ConcurrentMap<Integer, ArrayList<ServerTB>> concurrentMap = this.mIspServerIpCache;
             if (concurrentMap == null || concurrentMap.isEmpty()) {
                 List<ServerTB> allServer = DBAccessMgr.getInstance(context).getAllServer();
@@ -470,9 +471,9 @@ public class ServerIPMgr {
         }
     }
 
-    public void initUsedIsp(String str) {
+    public void initUsedIsp(String str, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048587, this, str, context) == null) {
             List<Integer> list = this.mListUsedIsp;
             if (list == null) {
                 this.mListUsedIsp = new LinkedList();
@@ -485,6 +486,11 @@ public class ServerIPMgr {
                 this.mListUsedIsp.add(3);
                 this.mListUsedIsp.add(4);
                 this.mListUsedIsp.add(5);
+                int isp = DeviceMgr.getISP(context);
+                if (isp == 0 || !this.mListUsedIsp.remove(Integer.valueOf(isp))) {
+                    return;
+                }
+                this.mListUsedIsp.add(0, Integer.valueOf(isp));
                 return;
             }
             this.mListUsedIsp.add(6);

@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wh8;
-/* loaded from: classes3.dex */
+import com.repackage.kk8;
+/* loaded from: classes4.dex */
 public class QuickWebViewStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,8 +33,8 @@ public class QuickWebViewStatic {
                 return;
             }
         }
-        wh8.h(309485, WebViewCacheResSocketMsg.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.WEBVIEW_CACHE_INFO, wh8.a(TbConfig.WEBVIEW_CACHE_URL, 309485));
+        kk8.h(309485, WebViewCacheResSocketMsg.class, false, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.WEBVIEW_CACHE_INFO, kk8.a(TbConfig.WEBVIEW_CACHE_URL, 309485));
         tbHttpMessageTask.setResponsedClass(WebViewCacheResHttpMsg.class);
         if (TbSingleton.getInstance().isDebugToolMode()) {
             if (MessageManager.getInstance().findTask(tbHttpMessageTask.getCmd()) == null) {

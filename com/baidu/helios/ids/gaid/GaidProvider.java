@@ -20,34 +20,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a40;
-import com.repackage.d40;
-import com.repackage.g40;
-import com.repackage.j40;
-import com.repackage.x30;
+import com.repackage.c40;
+import com.repackage.f40;
+import com.repackage.i40;
+import com.repackage.l40;
+import com.repackage.z30;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class GaidProvider extends g40 {
+public class GaidProvider extends i40 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d40.a d;
+    public f40.a d;
     public c e;
     public f f;
     public b g;
-    public List<g40.c<String>> h;
+    public List<i40.c<String>> h;
     public g i;
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g40.c a;
+        public final /* synthetic */ i40.c a;
         public final /* synthetic */ GaidProvider b;
 
-        public a(GaidProvider gaidProvider, g40.c cVar) {
+        public a(GaidProvider gaidProvider, i40.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -110,7 +110,7 @@ public class GaidProvider extends g40 {
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
         public boolean b;
-        public a40 c;
+        public c40 c;
         public String d;
         public ArrayList<String> e;
         public final /* synthetic */ GaidProvider f;
@@ -132,7 +132,7 @@ public class GaidProvider extends g40 {
             }
             this.f = gaidProvider;
             this.b = true;
-            this.c = new a40();
+            this.c = new c40();
             this.e = new ArrayList<>();
         }
 
@@ -305,7 +305,7 @@ public class GaidProvider extends g40 {
                         this.c.b.a.e.b(this.b ? 1L : 2L, 3L);
                         if (!TextUtils.isEmpty(this.a)) {
                             try {
-                                String b = g40.b("A20", new x30("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).c(this.a.getBytes("UTF-8")));
+                                String b = i40.b("A20", new z30("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).c(this.a.getBytes("UTF-8")));
                                 this.c.b.a.e.f(b);
                                 this.c.b.a.e.c(b);
                             } catch (Exception unused) {
@@ -412,7 +412,7 @@ public class GaidProvider extends g40 {
             }
             this.a = iBinder;
             try {
-                this.b = com.baidu.helios.ids.gaid.c.a(j40.a());
+                this.b = com.baidu.helios.ids.gaid.c.a(l40.a());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -486,8 +486,8 @@ public class GaidProvider extends g40 {
                 }
             }
             try {
-                this.a = com.baidu.helios.ids.gaid.c.a(j40.b());
-                this.b = com.baidu.helios.ids.gaid.c.a(j40.c());
+                this.a = com.baidu.helios.ids.gaid.c.a(l40.b());
+                this.b = com.baidu.helios.ids.gaid.c.a(l40.c());
             } catch (Exception unused) {
             }
         }
@@ -600,15 +600,15 @@ public class GaidProvider extends g40 {
         this.h = new ArrayList();
     }
 
-    @Override // com.repackage.g40
+    @Override // com.repackage.i40
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e.a() : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.g40
-    public void f(g40.b bVar) {
+    @Override // com.repackage.i40
+    public void f(i40.b bVar) {
         String a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
@@ -655,8 +655,8 @@ public class GaidProvider extends g40 {
         }
     }
 
-    @Override // com.repackage.g40
-    public void g(g40.c<String> cVar) {
+    @Override // com.repackage.i40
+    public void g(i40.c<String> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
             this.b.d.submit(new a(this, cVar));
@@ -666,14 +666,14 @@ public class GaidProvider extends g40 {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (g40.c<String> cVar : this.h) {
+            for (i40.c<String> cVar : this.h) {
                 j(cVar);
             }
             this.h.clear();
         }
     }
 
-    public final void j(g40.c<String> cVar) {
+    public final void j(i40.c<String> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
             Bundle bundle = new Bundle();

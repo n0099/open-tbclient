@@ -22,6 +22,7 @@ public class Configuration implements Parcelable {
     public int mExitAnimationId;
     public int mFullingColorId;
     public int mFullingViewId;
+    public boolean mKeyBackEventDismiss;
     public boolean mOutsideTouchable;
     public boolean mOverlayTarget;
     public boolean mShowCloseButton;
@@ -60,6 +61,7 @@ public class Configuration implements Parcelable {
                 configuration.mTargetViewId = parcel.readInt();
                 configuration.mFullingColorId = parcel.readInt();
                 configuration.mAutoDismiss = parcel.readByte() == 1;
+                configuration.mKeyBackEventDismiss = parcel.readByte() == 1;
                 configuration.mOverlayTarget = parcel.readByte() == 1;
                 return configuration;
             }
@@ -136,6 +138,7 @@ public class Configuration implements Parcelable {
             parcel.writeInt(this.mTargetViewId);
             parcel.writeInt(this.mFullingColorId);
             parcel.writeByte(this.mAutoDismiss ? (byte) 1 : (byte) 0);
+            parcel.writeByte(this.mKeyBackEventDismiss ? (byte) 1 : (byte) 0);
             parcel.writeByte(this.mOverlayTarget ? (byte) 1 : (byte) 0);
         }
     }

@@ -1,9 +1,17 @@
 package com.repackage;
-
-import android.content.Context;
-import androidx.annotation.NonNull;
 /* loaded from: classes7.dex */
 public interface q82 {
-    @NonNull
-    Context a();
+    void a(h82 h82Var);
+
+    void b(h82 h82Var);
+
+    void c(h82 h82Var);
+
+    void d(h82 h82Var);
+
+    void e(h82 h82Var);
+
+    void f(h82 h82Var);
+
+    void g(h82 h82Var);
 }

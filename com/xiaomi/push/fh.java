@@ -24,19 +24,19 @@ public class fh {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f363a;
+    public long f364a;
 
     /* renamed from: a  reason: collision with other field name */
-    public bl f364a;
+    public bl f365a;
 
     /* renamed from: a  reason: collision with other field name */
-    public fg f365a;
+    public fg f366a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f366a;
+    public String f367a;
 
     /* renamed from: a  reason: collision with other field name */
-    public boolean f367a;
+    public boolean f368a;
 
     /* loaded from: classes8.dex */
     public static class a {
@@ -74,16 +74,16 @@ public class fh {
                 return;
             }
         }
-        this.f367a = false;
-        this.f364a = bl.a();
+        this.f368a = false;
+        this.f365a = bl.a();
     }
 
     private fa a(bl.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, aVar)) == null) {
-            if (aVar.f142a == 0) {
-                Object obj = aVar.f143a;
+            if (aVar.f143a == 0) {
+                Object obj = aVar.f144a;
                 if (obj instanceof fa) {
                     return (fa) obj;
                 }
@@ -91,8 +91,8 @@ public class fh {
             }
             fa m330a = m330a();
             m330a.a(ez.k.a());
-            m330a.c(aVar.f142a);
-            m330a.c(aVar.f144a);
+            m330a.c(aVar.f143a);
+            m330a.c(aVar.f145a);
             return m330a;
         }
         return (fa) invokeL.objValue;
@@ -103,9 +103,9 @@ public class fh {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) {
             ArrayList arrayList = new ArrayList();
-            fb fbVar = new fb(this.f366a, arrayList);
-            if (!bj.e(this.f365a.f360a)) {
-                fbVar.a(j.k(this.f365a.f360a));
+            fb fbVar = new fb(this.f367a, arrayList);
+            if (!bj.e(this.f366a.f361a)) {
+                fbVar.a(j.k(this.f366a.f361a));
             }
             jn jnVar = new jn(i);
             jf a2 = new jl.a().a(jnVar);
@@ -113,7 +113,7 @@ public class fh {
                 fbVar.b(a2);
             } catch (iz unused) {
             }
-            LinkedList<bl.a> m201a = this.f364a.m201a();
+            LinkedList<bl.a> m201a = this.f365a.m201a();
             while (m201a.size() > 0) {
                 try {
                     fa a3 = a(m201a.getLast());
@@ -141,7 +141,7 @@ public class fh {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             synchronized (a.a) {
-                fgVar = a.a.f365a;
+                fgVar = a.a.f366a;
             }
             return fgVar;
         }
@@ -158,9 +158,9 @@ public class fh {
     /* renamed from: a  reason: collision with other method in class */
     private void m329a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65541, this) == null) && this.f367a && System.currentTimeMillis() - this.f363a > this.a) {
-            this.f367a = false;
-            this.f363a = 0L;
+        if ((interceptable == null || interceptable.invokeV(65541, this) == null) && this.f368a && System.currentTimeMillis() - this.f364a > this.a) {
+            this.f368a = false;
+            this.f364a = 0L;
         }
     }
 
@@ -172,9 +172,9 @@ public class fh {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
                 faVar = new fa();
-                faVar.a(bj.m194a((Context) this.f365a.f360a));
-                faVar.f337a = (byte) 0;
-                faVar.f341b = 1;
+                faVar.a(bj.m194a((Context) this.f366a.f361a));
+                faVar.f338a = (byte) 0;
+                faVar.f342b = 1;
                 faVar.d((int) (System.currentTimeMillis() / 1000));
             }
             return faVar;
@@ -192,7 +192,7 @@ public class fh {
                 fbVar = null;
                 if (b()) {
                     int i = PassBiometricUtil.k;
-                    if (!bj.e(this.f365a.f360a)) {
+                    if (!bj.e(this.f366a.f361a)) {
                         i = 375;
                     }
                     fbVar = a(i);
@@ -213,20 +213,20 @@ public class fh {
         if (i2 > 604800000) {
             i2 = 604800000;
         }
-        if (this.a == i2 && this.f367a) {
+        if (this.a == i2 && this.f368a) {
             return;
         }
-        this.f367a = true;
-        this.f363a = System.currentTimeMillis();
+        this.f368a = true;
+        this.f364a = System.currentTimeMillis();
         this.a = i2;
-        com.xiaomi.channel.commonutils.logger.b.c("enable dot duration = " + i2 + " start = " + this.f363a);
+        com.xiaomi.channel.commonutils.logger.b.c("enable dot duration = " + i2 + " start = " + this.f364a);
     }
 
     public synchronized void a(fa faVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, faVar) == null) {
             synchronized (this) {
-                this.f364a.a(faVar);
+                this.f365a.a(faVar);
             }
         }
     }
@@ -235,8 +235,8 @@ public class fh {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, xMPushService) == null) {
             synchronized (this) {
-                this.f365a = new fg(xMPushService);
-                this.f366a = "";
+                this.f366a = new fg(xMPushService);
+                this.f367a = "";
                 com.xiaomi.push.service.bv.a().a(new fi(this));
             }
         }
@@ -246,7 +246,7 @@ public class fh {
     public boolean m333a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f367a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f368a : invokeV.booleanValue;
     }
 
     public boolean b() {
@@ -254,7 +254,7 @@ public class fh {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             m329a();
-            return this.f367a && this.f364a.m200a() > 0;
+            return this.f368a && this.f365a.m200a() > 0;
         }
         return invokeV.booleanValue;
     }

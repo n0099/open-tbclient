@@ -1,22 +1,22 @@
 package com.repackage;
 
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.im.message.RequestOfficialBarMenuLocalMessage;
-import com.baidu.tieba.im.message.ResponseOfficialBarMenuLocalMessage;
-import com.baidu.tieba.im.message.ResponseOfficialBarMenuMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.MemoryChangedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class o87 implements CustomMessageTask.CustomRunnable<Object> {
+/* loaded from: classes7.dex */
+public class o87 extends pa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o87() {
+        super(2016004);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -24,29 +24,35 @@ public class o87 implements CustomMessageTask.CustomRunnable<Object> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.va
+    /* renamed from: c */
+    public CustomResponsedMessage a(CustomResponsedMessage customResponsedMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage == null || !(customMessage instanceof RequestOfficialBarMenuLocalMessage)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage)) == null) {
+            if (customResponsedMessage == null) {
                 return null;
             }
-            cr4.f();
-            byte[] bArr = cr4.d("tb.official_bar_menu").get(ResponseOfficialBarMenuMessage.OFFICIAL_BAR_MENU_KEY_PRE + ((RequestOfficialBarMenuLocalMessage) customMessage).getForum_id());
-            ResponseOfficialBarMenuLocalMessage responseOfficialBarMenuLocalMessage = new ResponseOfficialBarMenuLocalMessage();
-            try {
-                responseOfficialBarMenuLocalMessage.decodeInBackGround(2001177, bArr);
-            } catch (Exception e) {
-                e.printStackTrace();
+            if (customResponsedMessage instanceof MemoryChangedMessage) {
+                MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
+                ImMessageCenterPojo data = memoryChangedMessage.getData();
+                if (data != null && data.getCustomGroupType() == -8) {
+                    return new MemoryChangedMessage(t57.a(data), memoryChangedMessage.isFromServer(), memoryChangedMessage.getType());
+                }
+                if (data != null && data.getCustomGroupType() == -7) {
+                    return new MemoryChangedMessage(u57.a(data), memoryChangedMessage.isFromServer(), memoryChangedMessage.getType());
+                }
             }
-            return responseOfficialBarMenuLocalMessage;
+            return customResponsedMessage;
         }
         return (CustomResponsedMessage) invokeL.objValue;
     }

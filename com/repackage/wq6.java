@@ -1,41 +1,93 @@
 package com.repackage;
 
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.download.DownloadMessage;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
-import tbclient.User;
-import tbclient.VoiceRoom;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
 public class wq6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static List<sq6> a(List<VoiceRoom> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (VoiceRoom voiceRoom : list) {
-                if (voiceRoom != null) {
-                    ArrayList arrayList2 = new ArrayList();
-                    sq6 sq6Var = new sq6();
-                    sq6Var.a = voiceRoom.room_name;
-                    sq6Var.c = String.valueOf(voiceRoom.talker_num);
-                    sq6Var.d = String.valueOf(voiceRoom.joined_num);
-                    sq6Var.e = voiceRoom.room_id.longValue();
-                    for (User user : voiceRoom.talker) {
-                        if (user != null) {
-                            arrayList2.add(user.portrait);
-                        }
-                    }
-                    sq6Var.b = arrayList2;
-                    arrayList.add(sq6Var);
+    /* loaded from: classes7.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ af6 a;
+
+        public a(af6 af6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {af6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return arrayList;
+            this.a = af6Var;
         }
-        return (List) invokeL.objValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.K0();
+            }
+        }
+    }
+
+    public static void a(ResponsedMessage<?> responsedMessage, af6 af6Var, FrsViewData frsViewData) {
+        List<DownloadData> data;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65536, null, responsedMessage, af6Var, frsViewData) == null) || frsViewData == null || af6Var == null || !(responsedMessage instanceof DownloadMessage) || (data = ((DownloadMessage) responsedMessage).getData()) == null) {
+            return;
+        }
+        boolean z = false;
+        Iterator<DownloadData> it = data.iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                break;
+            } else if (it.next().getStatus() == 0) {
+                z = true;
+                break;
+            }
+        }
+        if (z) {
+            rg.a().postDelayed(new a(af6Var), TimeUnit.SECONDS.toMillis(2L));
+        }
+    }
+
+    public static void b(af6 af6Var) {
+        HashMap<Integer, ThreadData> h;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, af6Var) == null) || af6Var == null || af6Var.X() == null || (h = af6Var.X().h()) == null) {
+            return;
+        }
+        ArrayList<AdvertAppInfo> arrayList = new ArrayList<>();
+        for (Map.Entry<Integer, ThreadData> entry : h.entrySet()) {
+            ThreadData value = entry.getValue();
+            if (value != null && (value instanceof AdvertAppInfo)) {
+                arrayList.add((AdvertAppInfo) value);
+            }
+        }
+        oc8.n().w(arrayList);
     }
 }

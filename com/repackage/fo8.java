@@ -1,57 +1,31 @@
 package com.repackage;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.R;
-import com.baidu.tieba.themeCenter.background.DressItemData;
-import com.baidu.tieba.themeCenter.bubble.all.BubbleItemView;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class fo8 extends BaseAdapter {
+public class fo8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<List<DressItemData>> a;
-    public TbPageContext<?> b;
-    public bo8 c;
+    public final MainTabActivity a;
+    public final mn8 b;
+    public final zn8 c;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public View a;
-        public BubbleItemView b;
-        public BubbleItemView c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public fo8(TbPageContext<?> tbPageContext, bo8 bo8Var) {
+    public fo8(MainTabActivity mainTabActivity, mn8 mn8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bo8Var};
+            Object[] objArr = {mainTabActivity, mn8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -61,94 +35,64 @@ public class fo8 extends BaseAdapter {
                 return;
             }
         }
-        this.b = tbPageContext;
-        this.c = bo8Var;
+        this.a = mainTabActivity;
+        this.b = mn8Var;
+        this.c = mainTabActivity.f;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public List<DressItemData> getItem(int i) {
-        InterceptResult invokeI;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<List<DressItemData>> list = this.a;
-            if (list == null || list.size() <= 0 || i < 0 || i >= this.a.size()) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            mn8 mn8Var = this.b;
+            if (mn8Var != null && mn8Var.A() != null && this.b.A().getAnimationView() != null && this.b.A().getAnimationView().getVisibility() != 0) {
+                this.b.A().setLottieView(false);
             }
-            return this.a.get(i);
-        }
-        return (List) invokeI.objValue;
-    }
-
-    public void b(List<List<DressItemData>> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<List<DressItemData>> list = this.a;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            List<DressItemData> item = getItem(i);
-            if (view2 != null) {
-                aVar = (a) view2.getTag();
+            if (TbadkCoreApplication.getInst().getActivityPrizeData().isSwitchTurn()) {
+                if (!StringUtils.isNull(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getInst().getActivityPrizeData().isUserSatisfy()) {
+                    String h5Url = TbadkCoreApplication.getInst().getActivityPrizeData().getH5Url();
+                    if (!StringUtils.isNull(h5Url)) {
+                        ru4 k = ru4.k();
+                        if (k.h("activity_prize_get_tip" + TbadkCoreApplication.getCurrentAccount(), true)) {
+                            UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.a.getPageContext(), new String[]{h5Url}, true);
+                            ru4 k2 = ru4.k();
+                            k2.u("activity_prize_get_tip" + TbadkCoreApplication.getCurrentAccount(), false);
+                        }
+                    }
+                }
+                if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
+                    String myTabText = TbadkCoreApplication.getInst().getActivityPrizeData().getMyTabText();
+                    if (!StringUtils.isNull(myTabText)) {
+                        mn8 mn8Var2 = this.b;
+                        if (mn8Var2 != null) {
+                            mn8Var2.P(myTabText);
+                        }
+                    } else {
+                        mn8 mn8Var3 = this.b;
+                        if (mn8Var3 != null) {
+                            mn8Var3.P(null);
+                        }
+                    }
+                } else {
+                    mn8 mn8Var4 = this.b;
+                    if (mn8Var4 != null) {
+                        mn8Var4.P(null);
+                    }
+                }
             } else {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0165, viewGroup, false);
-                aVar = new a();
-                aVar.a = view2.findViewById(R.id.obfuscated_res_0x7f092159);
-                aVar.b = (BubbleItemView) view2.findViewById(R.id.obfuscated_res_0x7f090368);
-                aVar.c = (BubbleItemView) view2.findViewById(R.id.obfuscated_res_0x7f090369);
-                view2.setTag(aVar);
-            }
-            if (item != null) {
-                if (i == 0) {
-                    aVar.a.setVisibility(0);
-                } else {
-                    aVar.a.setVisibility(8);
-                }
-                aVar.b.d(item.get(0));
-                aVar.b.setController(this.c);
-                aVar.b.setFromBubbleGroup(false);
-                if (item.size() > 1) {
-                    aVar.c.d(item.get(1));
-                    aVar.c.setController(this.c);
-                    aVar.c.setFromBubbleGroup(false);
-                } else {
-                    aVar.c.e();
+                mn8 mn8Var5 = this.b;
+                if (mn8Var5 != null) {
+                    mn8Var5.P(null);
                 }
             }
-            this.b.getLayoutMode().j(view2);
-            return view2;
+            if (TbSingleton.getInstance().canShowPermDialog()) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921360, this.b));
+            }
+            co4.b().l("1", "");
+            zn8 zn8Var = this.c;
+            if (zn8Var == null || zn8Var.j() == null) {
+                return;
+            }
+            this.c.j().a();
         }
-        return (View) invokeILL.objValue;
     }
 }

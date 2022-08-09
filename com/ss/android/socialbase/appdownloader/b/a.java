@@ -4,7 +4,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static final String a;
 

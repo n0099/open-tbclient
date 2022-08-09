@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
-/* loaded from: classes3.dex */
+import com.repackage.qi;
+/* loaded from: classes4.dex */
 public class VideoLoadingProgressView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public class VideoLoadingProgressView extends View {
     public ValueAnimator.AnimatorUpdateListener s;
     public AnimatorListenerAdapter t;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +84,7 @@ public class VideoLoadingProgressView extends View {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,7 +122,7 @@ public class VideoLoadingProgressView extends View {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         void onAnimationEnd();
     }
@@ -191,7 +191,7 @@ public class VideoLoadingProgressView extends View {
             this.g = new RectF();
             this.h = new Paint(1);
             this.i = getContext().getResources().getColor(R.color.CAM_X0101);
-            this.j = pi.f(getContext(), R.dimen.obfuscated_res_0x7f0701d4);
+            this.j = qi.f(getContext(), R.dimen.obfuscated_res_0x7f0701d4);
             this.h.setColor(this.i);
             this.h.setStrokeWidth(this.j);
             this.h.setStyle(Paint.Style.STROKE);

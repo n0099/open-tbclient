@@ -1,453 +1,292 @@
 package com.repackage;
 
-import android.app.ActivityManager;
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.pm.Signature;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import android.net.Proxy;
 import android.os.Build;
-import android.os.PowerManager;
-import android.telephony.TelephonyManager;
+import android.os.Handler;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.account.contants.AccountConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Random;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
+import java.net.URL;
+import java.util.Locale;
+import java.util.Map;
+import javax.net.ssl.HttpsURLConnection;
+import org.apache.http.conn.ssl.SSLSocketFactory;
+@SuppressLint({"TrulyRandom"})
 /* loaded from: classes7.dex */
 public class tf1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    public static String b = null;
-    public static String c = null;
-    public static long d = 60000;
-    public static long e;
-    public static long f;
-    public static long g;
-    public static boolean h;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public byte[] b;
+    public HttpURLConnection c;
+    public String d;
+    public String e;
+    public int f;
+    public int g;
+    public boolean h;
+    public boolean i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755292782, "Lcom/repackage/tf1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755292782, "Lcom/repackage/tf1;");
+    public tf1(Context context, Handler handler) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, handler};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        long j = d * 60;
-        e = j;
-        f = j * 24;
+        this.b = new byte[1024];
+        this.f = 10000;
+        this.g = 10000;
+        this.h = false;
+        this.i = false;
+        this.a = context;
     }
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            try {
-                Calendar calendar = Calendar.getInstance();
-                int i = calendar.get(1);
-                int i2 = calendar.get(5);
-                return i + "" + (calendar.get(2) + 1) + "" + i2;
-            } catch (Throwable th) {
-                d(th);
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                if (!TextUtils.isEmpty(c)) {
-                    return c;
-                }
-                String p = he1.f(context).p();
-                c = p;
-                if (!TextUtils.isEmpty(p)) {
-                    return c;
-                }
-                String str = new String(f());
-                c = str;
-                if (TextUtils.isEmpty(str)) {
-                    return "";
-                }
-                he1.f(context).k(c);
-                return c;
-            } catch (Throwable th) {
-                d(th);
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static JSONObject c(Context context, JSONObject jSONObject, String str) {
+    public final InputStream a(byte[] bArr, Map<String, String> map, String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, jSONObject, str)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            try {
-                JSONArray jSONArray = new JSONArray();
-                jSONArray.put(jSONObject);
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("1", e(context));
-                jSONObject2.put("2", context.getPackageName());
-                jSONObject2.put("3", g(context));
-                jSONObject2.put("4", uf1.b(context));
-                jSONObject2.put("5", str);
-                jSONObject2.put("6", System.currentTimeMillis());
-                jSONObject2.put("7", "");
-                jSONObject2.put("8", ge1.b);
-                jSONObject2.put("9", AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO);
-                jSONObject2.put("10", "1.1.4");
-                jSONObject2.put("11", "");
-                jSONObject2.put("12", "");
-                jSONObject2.put("13", 1);
-                jSONObject2.put("14", i(context));
-                jSONObject2.put("26", "");
-                jSONObject2.put("24", ff1.a(context));
-                jSONObject2.put("module_section", jSONArray);
-                return jSONObject2;
-            } catch (Throwable th) {
-                d(th);
-                return null;
-            }
+        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(1048576, this, bArr, map, str)) != null) {
+            return (InputStream) invokeLLL.objValue;
         }
-        return (JSONObject) invokeLLL.objValue;
-    }
-
-    public static void d(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) {
-        }
-    }
-
-    public static String e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+        BufferedOutputStream bufferedOutputStream = null;
+        try {
             try {
-                return context.getApplicationInfo().loadLabel(context.getPackageManager()).toString();
-            } catch (Throwable th) {
-                d(th);
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static byte[] f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            char[] cArr = new char[16];
-            try {
-                char[] charArray = a.toCharArray();
-                for (int i = 0; i < 16; i++) {
-                    int nextInt = new Random().nextInt(62);
-                    if (nextInt >= 0 && nextInt < charArray.length) {
-                        cArr[i] = charArray[nextInt];
-                    }
+                if (kg1.j(this.a) == 0) {
+                    return null;
                 }
-            } catch (Throwable th) {
-                d(th);
-            }
-            return new String(cArr).getBytes();
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public static String g(Context context) {
-        InterceptResult invokeL;
-        Throwable th;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            try {
-                str = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-                try {
-                    if (TextUtils.isEmpty(str)) {
-                        return "";
+                HttpURLConnection c = c(map);
+                this.c = c;
+                if (c == null) {
+                    return null;
+                }
+                if (bArr == null) {
+                    if ("gzip".equalsIgnoreCase(c.getContentEncoding())) {
+                        this.h = true;
+                    } else {
+                        this.h = false;
                     }
+                    this.c.getResponseCode();
+                    return this.c.getInputStream();
+                }
+                BufferedOutputStream bufferedOutputStream2 = new BufferedOutputStream(this.c.getOutputStream());
+                try {
+                    bufferedOutputStream2.write(bArr);
+                    bufferedOutputStream2.flush();
+                    if ("gzip".equalsIgnoreCase(this.c.getContentEncoding())) {
+                        this.h = true;
+                    } else {
+                        this.h = false;
+                    }
+                    this.c.getResponseCode();
+                    InputStream inputStream = this.c.getInputStream();
+                    try {
+                        bufferedOutputStream2.close();
+                    } catch (Throwable th) {
+                        kg1.d(th);
+                    }
+                    return inputStream;
+                } catch (Exception e) {
+                    throw e;
                 } catch (Throwable th2) {
                     th = th2;
-                    d(th);
-                    return str;
-                }
-            } catch (Throwable th3) {
-                th = th3;
-                str = "";
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            String k = k(context);
-            if (TextUtils.isEmpty(k)) {
-                String b2 = b(context);
-                return TextUtils.isEmpty(b2) ? he1.f(context).J() : b2;
-            }
-            return k;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static int i(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            try {
-                NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-                if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
-                    return -1;
-                }
-                if (activeNetworkInfo.getType() == 1) {
-                    return 1;
-                }
-                return p(context);
-            } catch (Throwable th) {
-                d(th);
-                return -1;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public static int j(Context context) {
-        InterceptResult invokeL;
-        NetworkInfo networkInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            context.deleteDatabase("");
-            try {
-                networkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            } catch (Throwable th) {
-                d(th);
-                networkInfo = null;
-            }
-            if (networkInfo == null) {
-                return 0;
-            }
-            if (1 == networkInfo.getType()) {
-                return 2;
-            }
-            networkInfo.getType();
-            return 1;
-        }
-        return invokeL.intValue;
-    }
-
-    public static String k(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            try {
-                if (!TextUtils.isEmpty(b)) {
-                    return b;
-                }
-                String m0 = he1.f(context).m0();
-                b = m0;
-                if (!TextUtils.isEmpty(m0)) {
-                    return b;
-                }
-                Signature signature = context.getPackageManager().getPackageInfo(context.getPackageName(), 64).signatures[0];
-                if (signature != null) {
-                    String d2 = xf1.d(signature.toByteArray());
-                    b = d2;
-                    if (TextUtils.isEmpty(d2)) {
-                        return "";
-                    }
-                    he1.f(context).V(b);
-                    return b;
-                }
-                return "";
-            } catch (Throwable th) {
-                d(th);
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void l(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, context) == null) {
-            try {
-                o(context);
-                hf1.c(context).j();
-                hf1.c(context).e();
-                long currentTimeMillis = System.currentTimeMillis();
-                long T = he1.f(context).T();
-                long x = he1.f(context).x();
-                long j = currentTimeMillis - T;
-                if (j >= x) {
-                    he1.f(context).r(currentTimeMillis);
-                    sf1.a(context, x);
-                    return;
-                }
-                sf1.a(context, x - j);
-            } catch (Throwable th) {
-                d(th);
-            }
-        }
-    }
-
-    public static boolean m(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
-            try {
-                if (Build.VERSION.SDK_INT < 21) {
-                    return q(context);
-                }
-                if (context != null) {
-                    for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
-                        if (runningAppProcessInfo.importance == 100 && runningAppProcessInfo.importanceReasonCode == 0 && runningAppProcessInfo.pkgList != null && runningAppProcessInfo.pkgList.length != 0 && Arrays.asList(runningAppProcessInfo.pkgList).contains(context.getPackageName())) {
-                            return true;
+                    bufferedOutputStream = bufferedOutputStream2;
+                    if (bufferedOutputStream != null) {
+                        try {
+                            bufferedOutputStream.close();
+                        } catch (Throwable th3) {
+                            kg1.d(th3);
                         }
                     }
-                    return false;
+                    throw th;
                 }
-                return false;
-            } catch (Throwable th) {
-                d(th);
-                return false;
+            } catch (Throwable th4) {
+                th = th4;
             }
+        } catch (Exception e2) {
+            throw e2;
         }
-        return invokeL.booleanValue;
     }
 
-    public static boolean n(Context context) {
-        InterceptResult invokeL;
+    public String b(String str, byte[] bArr, Map<String, String> map) {
+        InterceptResult invokeLLL;
+        InputStream inputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - g < 1000) {
-                return h;
-            }
-            boolean z = r(context) && m(context);
-            h = z;
-            g = currentTimeMillis;
-            return z;
+        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr, map)) != null) {
+            return (String) invokeLLL.objValue;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static void o(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65551, null, context) == null) {
-            try {
-                String X = he1.f(context).X();
-                String a2 = a();
-                if (TextUtils.isEmpty(a2) || !TextUtils.equals(X, a2)) {
-                    JSONArray jSONArray = new JSONArray();
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("0", context.getPackageName());
-                    jSONObject.put("1", g(context));
-                    jSONObject.put("2", "1.1.4");
-                    jSONObject.put("3", AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO);
-                    jSONObject.put("4", System.currentTimeMillis());
-                    jSONArray.put(jSONObject);
-                    hf1.c(context).f(jSONArray.toString(), "1077103", 2);
-                    he1.f(context).A(a2);
+        d("POST", str);
+        try {
+            inputStream = a(bArr, map, str);
+            if (inputStream == null) {
+                if (inputStream != null) {
+                    inputStream.close();
                 }
-            } catch (Throwable th) {
-                d(th);
-            }
-        }
-    }
-
-    public static int p(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) {
-            try {
-                switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
-                    case 1:
-                    case 2:
-                    case 4:
-                    case 7:
-                    case 11:
-                        return 2;
-                    case 3:
-                    case 5:
-                    case 6:
-                    case 8:
-                    case 9:
-                    case 10:
-                    case 12:
-                    case 14:
-                    case 15:
-                        return 3;
-                    case 13:
-                        return 4;
-                    default:
-                        return 5;
+                HttpURLConnection httpURLConnection = this.c;
+                if (httpURLConnection != null) {
+                    httpURLConnection.disconnect();
+                    this.c = null;
                 }
-            } catch (Throwable th) {
-                d(th);
-                return -1;
+                return null;
             }
+            try {
+                String f = f(inputStream);
+                if (inputStream != null) {
+                    inputStream.close();
+                }
+                HttpURLConnection httpURLConnection2 = this.c;
+                if (httpURLConnection2 != null) {
+                    httpURLConnection2.disconnect();
+                    this.c = null;
+                }
+                return f;
+            } catch (Throwable th) {
+                th = th;
+                if (inputStream != null) {
+                    inputStream.close();
+                }
+                HttpURLConnection httpURLConnection3 = this.c;
+                if (httpURLConnection3 != null) {
+                    httpURLConnection3.disconnect();
+                    this.c = null;
+                }
+                throw th;
+            }
+        } catch (Throwable th2) {
+            th = th2;
+            inputStream = null;
         }
-        return invokeL.intValue;
     }
 
-    public static boolean q(Context context) {
+    public final HttpURLConnection c(Map<String, String> map) {
         InterceptResult invokeL;
-        ActivityManager.RunningTaskInfo runningTaskInfo;
+        HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) {
-            try {
-                if (yf1.a(context, com.kuaishou.weapon.p0.h.e)) {
-                    ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
-                    if (activityManager.getRunningTasks(1) == null || (runningTaskInfo = activityManager.getRunningTasks(1).get(0)) == null) {
-                        return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map)) == null) {
+            String str = null;
+            if (this.i || TextUtils.isEmpty(this.d) || TextUtils.isEmpty(this.e)) {
+                return null;
+            }
+            if (!this.d.equals("POST") && !this.d.equals("GET")) {
+                this.d = "POST";
+            }
+            URL url = new URL(this.e);
+            int i = 80;
+            if (2 != kg1.j(this.a)) {
+                if (Build.VERSION.SDK_INT >= 13) {
+                    str = System.getProperties().getProperty("http.proxyHost");
+                    String property = System.getProperties().getProperty("http.proxyPort");
+                    if (!TextUtils.isEmpty(property)) {
+                        try {
+                            i = Integer.parseInt(property);
+                        } catch (Throwable unused) {
+                            i = -1;
+                        }
                     }
-                    return context.getPackageName().equals(runningTaskInfo.topActivity.getPackageName());
+                    i = -1;
+                } else {
+                    str = Proxy.getHost(this.a);
+                    i = Proxy.getPort(this.a);
                 }
-                return true;
-            } catch (Throwable th) {
-                d(th);
-                return false;
             }
+            if (str != null && i > 0) {
+                httpURLConnection = (HttpURLConnection) url.openConnection(new java.net.Proxy(Proxy.Type.HTTP, InetSocketAddress.createUnresolved(str, i)));
+            } else {
+                httpURLConnection = (HttpURLConnection) url.openConnection();
+            }
+            if (this.e.startsWith("https")) {
+                ((HttpsURLConnection) httpURLConnection).setHostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
+            }
+            httpURLConnection.setRequestMethod(this.d);
+            httpURLConnection.setDoInput(true);
+            if ("POST".equals(this.d)) {
+                httpURLConnection.setDoOutput(true);
+            }
+            httpURLConnection.setInstanceFollowRedirects(true);
+            httpURLConnection.setConnectTimeout(this.f);
+            httpURLConnection.setReadTimeout(this.g);
+            httpURLConnection.setRequestProperty("x-device-id", og1.b(lg1.a(this.a)));
+            httpURLConnection.setRequestProperty("Pragma", "no-cache");
+            String str2 = xe1.b;
+            String g = kg1.g(this.a);
+            httpURLConnection.setRequestProperty("User-Agent", "sso/" + str2 + "/" + g + "/1.1.4");
+            httpURLConnection.setRequestProperty("Accept", "*/*");
+            httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            httpURLConnection.setRequestProperty("Accept-Language", Locale.getDefault().getLanguage());
+            StringBuilder sb = new StringBuilder();
+            sb.append("sso/");
+            sb.append("1.1.4");
+            httpURLConnection.setRequestProperty("x-sdk-ver", sb.toString());
+            httpURLConnection.setRequestProperty("x-plu-ver", "sso/1.1.4");
+            httpURLConnection.setRequestProperty("x-app-ver", this.a.getPackageName() + "/" + kg1.g(this.a));
+            if (map != null) {
+                for (String str3 : map.keySet()) {
+                    httpURLConnection.setRequestProperty(str3, map.get(str3));
+                }
+            }
+            return httpURLConnection;
         }
-        return invokeL.booleanValue;
+        return (HttpURLConnection) invokeL.objValue;
     }
 
-    public static boolean r(Context context) {
+    public final void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            this.d = str;
+            this.e = str2;
+        }
+    }
+
+    public final byte[] e(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, context)) == null) {
-            try {
-                return ((PowerManager) context.getSystemService("power")).isScreenOn();
-            } catch (Throwable th) {
-                d(th);
-                return false;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, inputStream)) != null) {
+            return (byte[]) invokeL.objValue;
+        }
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        while (true) {
+            int read = inputStream.read(this.b);
+            if (read != -1) {
+                byteArrayOutputStream.write(this.b, 0, read);
+            } else {
+                byte[] byteArray = byteArrayOutputStream.toByteArray();
+                byteArrayOutputStream.close();
+                return byteArray;
             }
         }
-        return invokeL.booleanValue;
+    }
+
+    public final String f(InputStream inputStream) {
+        InterceptResult invokeL;
+        byte[] e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, inputStream)) == null) {
+            if (inputStream == null || (e = e(inputStream)) == null) {
+                return null;
+            }
+            if (this.h) {
+                e = ng1.d(e);
+            }
+            return e == null ? "" : new String(e);
+        }
+        return (String) invokeL.objValue;
     }
 }

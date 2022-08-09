@@ -20,26 +20,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q10;
-import com.repackage.u10;
-import com.repackage.y30;
+import com.repackage.a40;
+import com.repackage.s10;
+import com.repackage.w10;
 /* loaded from: classes2.dex */
-public class g extends q10 implements IBinder.DeathRecipient {
+public class g extends s10 implements IBinder.DeathRecipient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ContentProviderClient c;
     public e d;
-    public u10 e;
+    public w10 e;
     public String f;
 
     /* loaded from: classes2.dex */
     public class a extends f.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q10.c d;
+        public final /* synthetic */ s10.c d;
         public final /* synthetic */ g e;
 
-        public a(g gVar, q10.c cVar) {
+        public a(g gVar, s10.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,12 +75,12 @@ public class g extends q10 implements IBinder.DeathRecipient {
         }
     }
 
-    public g(u10 u10Var, String str) {
+    public g(w10 w10Var, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {u10Var, str};
+            Object[] objArr = {w10Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -90,11 +90,11 @@ public class g extends q10 implements IBinder.DeathRecipient {
                 return;
             }
         }
-        this.e = u10Var;
+        this.e = w10Var;
         this.f = str;
     }
 
-    public static Bundle k(q10.d dVar) {
+    public static Bundle k(s10.d dVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, dVar)) == null) {
@@ -106,10 +106,10 @@ public class g extends q10 implements IBinder.DeathRecipient {
         return (Bundle) invokeL.objValue;
     }
 
-    public static q10.d l(Bundle bundle) {
+    public static s10.d l(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bundle)) == null) ? new q10.d(bundle.getInt("errcode"), bundle.getString("id"), null) : (q10.d) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bundle)) == null) ? new s10.d(bundle.getInt("errcode"), bundle.getString("id"), null) : (s10.d) invokeL.objValue;
     }
 
     public static void n(Bundle bundle, IBinder iBinder) {
@@ -141,8 +141,8 @@ public class g extends q10 implements IBinder.DeathRecipient {
         return (IBinder) invokeL.objValue;
     }
 
-    @Override // com.repackage.q10
-    public void a(String str, Bundle bundle, q10.c<String> cVar) {
+    @Override // com.repackage.s10
+    public void a(String str, Bundle bundle, s10.c<String> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, bundle, cVar) == null) {
             try {
@@ -161,7 +161,7 @@ public class g extends q10 implements IBinder.DeathRecipient {
         }
     }
 
-    @Override // com.repackage.q10
+    @Override // com.repackage.s10
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -174,7 +174,7 @@ public class g extends q10 implements IBinder.DeathRecipient {
         }
     }
 
-    @Override // com.repackage.q10
+    @Override // com.repackage.s10
     public boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -188,16 +188,16 @@ public class g extends q10 implements IBinder.DeathRecipient {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.q10
-    public void f(q10.b bVar) {
+    @Override // com.repackage.s10
+    public void f(s10.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
             this.d = m(this.a.c);
         }
     }
 
-    @Override // com.repackage.q10
-    public q10.d g(String str, Bundle bundle) {
+    @Override // com.repackage.s10
+    public s10.d g(String str, Bundle bundle) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, bundle)) == null) {
@@ -208,9 +208,9 @@ public class g extends q10 implements IBinder.DeathRecipient {
                 }
             } catch (RemoteException unused) {
             }
-            return q10.d.a(-1, null);
+            return s10.d.a(-1, null);
         }
-        return (q10.d) invokeLL.objValue;
+        return (s10.d) invokeLL.objValue;
     }
 
     public final Bundle h(ContentProviderClient contentProviderClient, Uri uri) {
@@ -225,15 +225,15 @@ public class g extends q10 implements IBinder.DeathRecipient {
             cursor = contentProviderClient.query(Uri.withAppendedPath(uri, "ipc/method/get_bridge"), null, null, null, null);
             try {
                 Bundle extras = cursor.getExtras();
-                y30.a(cursor);
+                a40.a(cursor);
                 return extras;
             } catch (Exception unused) {
-                y30.a(cursor);
+                a40.a(cursor);
                 return null;
             } catch (Throwable th) {
                 th = th;
                 cursor2 = cursor;
-                y30.a(cursor2);
+                a40.a(cursor2);
                 throw th;
             }
         } catch (Exception unused2) {

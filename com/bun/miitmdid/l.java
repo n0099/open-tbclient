@@ -2,6 +2,7 @@ package com.bun.miitmdid;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,7 +57,7 @@ public abstract class l extends n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                Thread.sleep(6000L);
+                Thread.sleep(LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION);
                 synchronized (l.class) {
                     if (this.i) {
                         e0.c("BaseProvider", "callback success");

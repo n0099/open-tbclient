@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.te;
+import com.repackage.ue;
 /* loaded from: classes3.dex */
 public abstract class TbSocketReponsedMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
@@ -31,11 +31,11 @@ public abstract class TbSocketReponsedMessage extends SocketResponsedMessage {
         }
     }
 
-    public static void saveProtocolBufferDataToCache(te<byte[]> teVar, String str, byte[] bArr) {
+    public static void saveProtocolBufferDataToCache(ue<byte[]> ueVar, String str, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65537, null, teVar, str, bArr) == null) || str == null || teVar == null || bArr == null || bArr.length <= 0) {
+        if (!(interceptable == null || interceptable.invokeLLL(65537, null, ueVar, str, bArr) == null) || str == null || ueVar == null || bArr == null || bArr.length <= 0) {
             return;
         }
-        teVar.g(str, bArr);
+        ueVar.g(str, bArr);
     }
 }

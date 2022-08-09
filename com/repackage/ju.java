@@ -1,7 +1,8 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.bdtask.ctrl.model.TaskStatus;
+import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,30 +10,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBCManager;
-import java.util.HashMap;
-import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class ju implements hu {
+public final class ju {
     public static /* synthetic */ Interceptable $ic;
+    public static final ju a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final UBCManager a;
-    public final ku b;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964036070, "Lcom/repackage/ju;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964036070, "Lcom/repackage/ju;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964036070, "Lcom/repackage/ju;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1964036070, "Lcom/repackage/ju;");
-        }
+        a = new ju();
     }
 
     public ju() {
@@ -45,46 +43,41 @@ public final class ju implements hu {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-        this.b = (ku) ServiceManager.getService(ku.a.a());
-    }
-
-    @Override // com.repackage.hu
-    public void a(String str, String str2, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("type", str2);
-            hashMap.put("page", str);
-            if (jSONObject != null) {
-                String jSONObject2 = jSONObject.toString();
-                Intrinsics.checkExpressionValueIsNotNull(jSONObject2, "it.toString()");
-                hashMap.put("ext", jSONObject2);
-            }
-            UBCManager uBCManager = this.a;
-            if (uBCManager != null) {
-                uBCManager.onEvent("3676", hashMap);
             }
         }
     }
 
-    @Override // com.repackage.hu
-    public void b(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
-            String extra = jSONObject.toString();
-            HashMap hashMap = new HashMap();
-            hashMap.put("value", str);
-            hashMap.put("type", "abnormal");
-            Intrinsics.checkExpressionValueIsNotNull(extra, "extra");
-            hashMap.put("ext", extra);
-            ku kuVar = this.b;
-            if (kuVar != null) {
-                kuVar.a("3677", str, extra);
-            }
+    public static /* synthetic */ JSONObject b(ju juVar, String str, String str2, String str3, int i, Object obj) {
+        if ((i & 4) != 0) {
+            str3 = null;
         }
+        return juVar.a(str, str2, str3);
+    }
+
+    public final JSONObject a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("taskId", str);
+            jSONObject.put(TaskInfo.keyActTaskId, str2);
+            if (str3 != null) {
+                jSONObject.put("phase", str3);
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeLLL.objValue;
+    }
+
+    public final String c(TaskStatus taskStatus) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskStatus)) == null) ? taskStatus.isFinished() ? "finish" : taskStatus.isRegistered() ? "guide" : "doing" : (String) invokeL.objValue;
+    }
+
+    public final String d(TaskStatus taskStatus) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taskStatus)) == null) ? taskStatus.isUnRegistered() ? "y_task_unregister" : taskStatus.isFinished() ? "y_task_done" : taskStatus.isRegistered() ? "y_task_active" : (taskStatus.isRunning() && taskStatus.isLocalCompleted()) ? "y_task_local_done" : "y_task_start" : (String) invokeL.objValue;
     }
 }

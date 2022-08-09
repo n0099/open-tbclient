@@ -24,44 +24,6 @@ public class ThirdLabelInfo implements Parcelable {
     public String startColor;
     public String text;
 
-    /* loaded from: classes2.dex */
-    public static class a implements Parcelable.Creator<ThirdLabelInfo> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: a */
-        public ThirdLabelInfo createFromParcel(Parcel parcel) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parcel)) == null) ? new ThirdLabelInfo(parcel) : (ThirdLabelInfo) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.Parcelable.Creator
-        /* renamed from: b */
-        public ThirdLabelInfo[] newArray(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new ThirdLabelInfo[i] : (ThirdLabelInfo[]) invokeI.objValue;
-        }
-    }
-
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -75,7 +37,42 @@ public class ThirdLabelInfo implements Parcelable {
                 return;
             }
         }
-        CREATOR = new a();
+        CREATOR = new Parcelable.Creator<ThirdLabelInfo>() { // from class: com.baidu.live.business.model.data.ThirdLabelInfo.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // android.os.Parcelable.Creator
+            public ThirdLabelInfo createFromParcel(Parcel parcel) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new ThirdLabelInfo(parcel) : (ThirdLabelInfo) invokeL.objValue;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // android.os.Parcelable.Creator
+            public ThirdLabelInfo[] newArray(int i) {
+                InterceptResult invokeI;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new ThirdLabelInfo[i] : (ThirdLabelInfo[]) invokeI.objValue;
+            }
+        };
     }
 
     public ThirdLabelInfo() {

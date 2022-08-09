@@ -12,6 +12,7 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tieba.R;
@@ -122,7 +123,7 @@ public class FocusCircleView extends View {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
                 if (this.a.d == null) {
                     FocusCircleView focusCircleView = this.a;
-                    focusCircleView.d = ObjectAnimator.ofFloat(focusCircleView, "alpha", 1.0f, 0.0f);
+                    focusCircleView.d = ObjectAnimator.ofFloat(focusCircleView, Key.ALPHA, 1.0f, 0.0f);
                     this.a.d.setDuration(960L);
                     this.a.d.addListener(new C0259a(this));
                 }
@@ -173,8 +174,8 @@ public class FocusCircleView extends View {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             AnimatorSet animatorSet = this.c;
             if (animatorSet == null) {
-                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, "scaleX", 3.0f, 2.0f, 1.0f);
-                ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this, "scaleY", 3.0f, 2.0f, 1.0f);
+                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, Key.SCALE_X, 3.0f, 2.0f, 1.0f);
+                ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this, Key.SCALE_Y, 3.0f, 2.0f, 1.0f);
                 AnimatorSet animatorSet2 = new AnimatorSet();
                 this.c = animatorSet2;
                 animatorSet2.play(ofFloat).with(ofFloat2);
@@ -204,7 +205,7 @@ public class FocusCircleView extends View {
             this.a.setColor(Color.parseColor("#ffffffff"));
             this.a.setStrokeWidth(this.b);
             setAlpha(0.0f);
-            this.f = BitmapHelper.resizeBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080429), 180);
+            this.f = BitmapHelper.resizeBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f08042b), 180);
         }
     }
 

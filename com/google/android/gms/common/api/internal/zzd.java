@@ -15,14 +15,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yj9;
+import com.repackage.tm9;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.Collections;
 import java.util.Map;
 import java.util.WeakHashMap;
-/* loaded from: classes4.dex */
-public final class zzd extends Fragment implements yj9 {
+/* loaded from: classes5.dex */
+public final class zzd extends Fragment implements tm9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, LifecycleCallback> a;
@@ -72,9 +72,9 @@ public final class zzd extends Fragment implements yj9 {
         }
     }
 
-    @Override // com.repackage.yj9
+    @Override // com.repackage.tm9
     @Nullable
-    public final /* synthetic */ Activity h0() {
+    public final /* synthetic */ Activity g0() {
         return getActivity();
     }
 

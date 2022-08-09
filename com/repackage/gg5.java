@@ -1,145 +1,92 @@
 package com.repackage;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.util.SparseArray;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public class gg5 extends BdAsyncTask<Void, Void, String> {
+public class gg5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public NetWork c;
-    public a d;
+    public SparseArray<WeakReference<View>> a;
+    public View b;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(boolean z, String str);
-    }
-
-    public gg5(String str, String str2, a aVar) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public gg5(View view2) {
+        this(view2, -1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, aVar};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((View) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.d = aVar;
     }
 
-    public static boolean b(String str) {
+    public View a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (View) invokeV.objValue;
+    }
+
+    public <T extends View> T b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            WeakReference<View> weakReference = this.a.get(i);
+            if (weakReference == null) {
+                T t = (T) this.b.findViewById(i);
+                if (t != null) {
+                    this.a.put(i, new WeakReference<>(t));
+                    return t;
+                }
+                return t;
+            }
+            return (T) weakReference.get();
+        }
+        return (T) invokeI.objValue;
+    }
+
+    public gg5 c(View.OnClickListener onClickListener) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            File file = new File(str);
-            if (file.exists()) {
-                return true;
-            }
-            try {
-                return file.mkdirs();
-            } catch (Exception e) {
-                TiebaStatic.file(e, oi.join("FileHelper", ".", "CheckTempDir", " ", str));
-                return false;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener)) == null) {
+            this.b.setOnClickListener(onClickListener);
+            return this;
         }
-        return invokeL.booleanValue;
+        return (gg5) invokeL.objValue;
     }
 
-    public final void c(String str) {
+    public gg5(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || oi.isEmpty(str)) {
-            return;
-        }
-        FileHelper.deleteFileOrDir(new File(str));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public String doInBackground(Void... voidArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-            if (oi.isEmpty(this.a) || oi.isEmpty(this.b) || !b(this.a)) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            String c = vi.c(this.b);
-            String str = this.a + c + "/";
-            if (e(str)) {
-                return c;
-            }
-            NetWork netWork = new NetWork();
-            this.c = netWork;
-            netWork.setUrl(this.b);
-            String str2 = this.a + c + ".zip";
-            if (this.c.downloadFile(str2, null, 0, 3, 0, true) && f(str2, str)) {
-                c(str2);
-                return c;
-            }
-            c(str2);
-            return null;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public final boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (oi.isEmpty(str)) {
-                return false;
-            }
-            File file = new File(str);
-            if (!file.exists() || !file.isDirectory() || file.list() == null || file.list().length <= 0) {
-                file.delete();
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean f(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            if (oi.isEmpty(str) || oi.isEmpty(str2)) {
-                return false;
-            }
-            return gt4.b(str, str2);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.d == null) {
-            return;
-        }
-        if (!oi.isEmpty(str)) {
-            this.d.a(true, str);
-        } else {
-            this.d.a(false, null);
-        }
+        this.b = view2;
+        this.a = new SparseArray<>();
     }
 }

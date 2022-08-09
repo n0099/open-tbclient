@@ -1,47 +1,141 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.ala.AlaSharedPrefConfig;
-import com.baidu.ala.AlaSharedPrefHelper;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.R;
-import com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.AlaLiveTabMyConcernResponse;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes5.dex */
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
 public class cq5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static long f = 604800000;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public List<nn> b;
-    public List<nn> c;
-    public List<nn> d;
-    public List<nn> e;
+    public JSONObject a;
+    public HttpMessageListener b;
+    public BdUniqueId c;
+    public BdUniqueId d;
+    public CustomMessageListener e;
+    public CustomMessageListener f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755788534, "Lcom/repackage/cq5;")) == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cq5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(cq5 cq5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cq5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cq5Var;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003390 && httpResponsedMessage.getError() == 0) {
+                this.a.a = null;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755788534, "Lcom/repackage/cq5;");
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cq5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(cq5 cq5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cq5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cq5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && oi.A() && this.a.a != null) {
+                cq5 cq5Var = this.a;
+                cq5Var.h(cq5Var.a, this.a.d);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cq5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(cq5 cq5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cq5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cq5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject)) {
+                this.a.f((JSONObject) customResponsedMessage.getData());
+            }
         }
     }
 
@@ -51,247 +145,72 @@ public class cq5 {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = new ArrayList();
-        this.c = new ArrayList();
-        this.d = new ArrayList();
-        this.e = new ArrayList();
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            List<nn> list = this.c;
-            if (list != null) {
-                list.clear();
-            }
-            List<nn> list2 = this.d;
-            if (list2 != null) {
-                list2.clear();
-            }
-            List<nn> list3 = this.e;
-            if (list3 != null) {
-                list3.clear();
-            }
-            List<nn> list4 = this.b;
-            if (list4 != null) {
-                list4.clear();
-            }
+        this.c = BdUniqueId.gen();
+        this.d = BdUniqueId.gen();
+        this.e = new b(this, 2000994);
+        this.f = new c(this, 2921324);
+        if (this.b == null) {
+            this.b = new a(this, CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK);
         }
+        MessageManager.getInstance().registerListener(this.b);
+        MessageManager.getInstance().registerListener(this.e);
+        this.f.setTag(tbPageContext.getUniqueId());
+        this.f.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.f);
     }
 
-    public final List<nn> b(AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse) {
-        InterceptResult invokeL;
+    public final void f(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, alaLiveTabMyConcernResponse)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (alaLiveTabMyConcernResponse != null && alaLiveTabMyConcernResponse.followStatus != 1) {
-                if (!ListUtils.isEmpty(this.d) && k(alaLiveTabMyConcernResponse)) {
-                    arrayList.add(new yp5());
-                }
-                if (!ListUtils.isEmpty(this.d)) {
-                    or5 or5Var = new or5();
-                    or5Var.b = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09f8, Integer.valueOf(alaLiveTabMyConcernResponse.followCloseNum));
-                    arrayList.add(or5Var);
-                }
-                if (!ListUtils.isEmpty(this.d)) {
-                    for (nn nnVar : this.d) {
-                        arrayList.add(nnVar);
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public final List<nn> c(AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, alaLiveTabMyConcernResponse, z)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (alaLiveTabMyConcernResponse == null) {
-                return arrayList;
-            }
-            if (alaLiveTabMyConcernResponse.followStatus != 1) {
-                or5 or5Var = new or5();
-                or5Var.b = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09f9, Integer.valueOf(alaLiveTabMyConcernResponse.totalFollowCount));
-                arrayList.add(or5Var);
-            }
-            if (!ListUtils.isEmpty(this.c)) {
-                arrayList.addAll(f());
-            } else if (z) {
-                mr5 mr5Var = new mr5();
-                mr5Var.a = alaLiveTabMyConcernResponse.followStatus;
-                arrayList.add(mr5Var);
-            }
-            return arrayList;
-        }
-        return (List) invokeLZ.objValue;
-    }
-
-    public final List<nn> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (!ListUtils.isEmpty(this.e)) {
-                or5 or5Var = new or5();
-                or5Var.b = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09fd);
-                arrayList.add(or5Var);
-                arrayList.addAll(g(this.e));
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void e(AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, alaLiveTabMyConcernResponse, z) == null) || alaLiveTabMyConcernResponse == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        if (z) {
-            this.b.clear();
+        if (oi.A()) {
+            h(jSONObject, this.c);
+        } else {
+            this.a = jSONObject;
         }
-        if (!ListUtils.isEmpty(alaLiveTabMyConcernResponse.followList)) {
-            this.c.addAll(alaLiveTabMyConcernResponse.followList);
-        }
-        if (!ListUtils.isEmpty(alaLiveTabMyConcernResponse.followCloseList)) {
-            this.d.addAll(alaLiveTabMyConcernResponse.followCloseList);
-        }
-        if (!ListUtils.isEmpty(alaLiveTabMyConcernResponse.recommendList)) {
-            this.e.addAll(alaLiveTabMyConcernResponse.recommendList);
-        }
-        this.b = i(alaLiveTabMyConcernResponse, z);
     }
 
-    public final List<nn> f() {
-        InterceptResult invokeV;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (!ListUtils.isEmpty(this.c)) {
-                int size = this.c.size();
-                for (int i = 0; i < size; i += 2) {
-                    qp5 qp5Var = new qp5();
-                    qo5 qo5Var = new qo5();
-                    qo5Var.d = (ThreadData) this.c.get(i);
-                    qo5Var.f = true;
-                    qp5Var.a = qo5Var;
-                    int i2 = i + 1;
-                    if (i2 < size) {
-                        qo5 qo5Var2 = new qo5();
-                        qo5Var2.d = (ThreadData) this.c.get(i2);
-                        qp5Var.b = qo5Var2;
-                        qo5Var2.g = true;
-                    } else {
-                        qo5Var.f = false;
-                        qo5Var.h = true;
-                    }
-                    int i3 = size % 2;
-                    if ((i3 == 0 && i == size - 2) || (i3 != 0 && i == size - 1)) {
-                        qp5Var.c = true;
-                    }
-                    arrayList.add(qp5Var);
-                }
-            }
-            return arrayList;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.b);
+            MessageManager.getInstance().unRegisterListener(this.e);
+            MessageManager.getInstance().unRegisterListener(this.f);
+            this.a = null;
         }
-        return (List) invokeV.objValue;
     }
 
-    public final List<nn> g(List<nn> list) {
-        InterceptResult invokeL;
+    public final void h(JSONObject jSONObject, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (!ListUtils.isEmpty(list)) {
-                int size = list.size();
-                for (int i = 0; i < size; i += 3) {
-                    aq5 aq5Var = new aq5();
-                    qo5 qo5Var = new qo5();
-                    qo5Var.d = (ThreadData) list.get(i);
-                    aq5Var.a = qo5Var;
-                    int i2 = i + 1;
-                    if (i2 < size) {
-                        qo5 qo5Var2 = new qo5();
-                        qo5Var2.d = (ThreadData) list.get(i2);
-                        aq5Var.b = qo5Var2;
-                    }
-                    int i3 = i + 2;
-                    if (i3 < size) {
-                        qo5 qo5Var3 = new qo5();
-                        qo5Var3.d = (ThreadData) list.get(i3);
-                        aq5Var.c = qo5Var3;
-                    }
-                    arrayList.add(aq5Var);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public List<nn> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : (List) invokeV.objValue;
-    }
-
-    public final List<nn> i(AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, alaLiveTabMyConcernResponse, z)) == null) {
-            ArrayList arrayList = new ArrayList();
-            List<nn> c = c(alaLiveTabMyConcernResponse, z);
-            if (!ListUtils.isEmpty(c)) {
-                arrayList.addAll(c);
-            }
-            List<nn> b = b(alaLiveTabMyConcernResponse);
-            if (!ListUtils.isEmpty(b)) {
-                arrayList.addAll(b);
-            }
-            List<nn> d = d();
-            if (!ListUtils.isEmpty(d)) {
-                arrayList.addAll(d);
-            }
-            return arrayList;
-        }
-        return (List) invokeLZ.objValue;
-    }
-
-    public void j(Class<? extends BaseCardInfo> cls) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, cls) == null) || ListUtils.isEmpty(this.b)) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, bdUniqueId) == null) || jSONObject == null) {
             return;
         }
-        for (int size = this.b.size() - 1; size >= 0; size--) {
-            nn nnVar = (nn) ListUtils.getItem(this.b, size);
-            if (nnVar != null && nnVar.getClass().equals(cls)) {
-                this.b.remove(size);
-            }
+        String optString = jSONObject.optString("tid");
+        String optString2 = jSONObject.optString("fid");
+        String optString3 = jSONObject.optString("dislike_ids");
+        String optString4 = jSONObject.optString("type");
+        int i = 1;
+        if ("ala_frs_stage_live_feed_back_type".equals(optString4)) {
+            i = 2;
+        } else {
+            "ala_frs_demo_hell_live_feed_back_type".equals(optString4);
         }
-    }
-
-    public final boolean k(AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, alaLiveTabMyConcernResponse)) == null) {
-            if (alaLiveTabMyConcernResponse == null) {
-                return false;
-            }
-            return (alaLiveTabMyConcernResponse.followStatus == 1 || bq5.a(this.a) || !(((System.currentTimeMillis() - AlaSharedPrefHelper.getInstance().getLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, 0L)) > f ? 1 : ((System.currentTimeMillis() - AlaSharedPrefHelper.getInstance().getLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, 0L)) == f ? 0 : -1)) > 0)) ? false : true;
-        }
-        return invokeL.booleanValue;
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK);
+        httpMessage.addParam("thread_id", optString);
+        httpMessage.addParam("forum_id", optString2);
+        httpMessage.addParam("dislike_reason_id", optString3);
+        httpMessage.addParam("reason_type", i);
+        httpMessage.setTag(bdUniqueId);
+        MessageManager.getInstance().sendMessage(httpMessage);
     }
 }

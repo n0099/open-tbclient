@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class CircleStrokeHeadImageView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -47,7 +47,7 @@ public class CircleStrokeHeadImageView extends FrameLayout {
                 return;
             }
         }
-        g = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+        g = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds6);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -111,7 +111,7 @@ public class CircleStrokeHeadImageView extends FrameLayout {
             this.a.setConrers(15);
             this.a.setRadiusById(R.string.J_X07);
             this.a.setDrawBorder(true);
-            this.a.setBorderWidth(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            this.a.setBorderWidth(qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds1));
             this.a.setBorderSurroundContent(true);
             this.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
             this.a.setPlaceHolder(1);

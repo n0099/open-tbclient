@@ -46,9 +46,9 @@ public class TextFormView extends FrameLayout {
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04d2, (ViewGroup) this, true);
-            this.mTextView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091be9);
-            this.mBottomLine = inflate.findViewById(R.id.obfuscated_res_0x7f091be4);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04db, (ViewGroup) this, true);
+            this.mTextView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091cd1);
+            this.mBottomLine = inflate.findViewById(R.id.obfuscated_res_0x7f091ccc);
             this.mTextView.setText(this.mTextStr);
             this.mBottomLine.setVisibility(this.mIsShowBottomLine ? 0 : 4);
         }
@@ -57,8 +57,8 @@ public class TextFormView extends FrameLayout {
     public void setDarkMode() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.mTextView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060929));
-            this.mBottomLine.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060923));
+            this.mTextView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060944));
+            this.mBottomLine.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06093e));
         }
     }
 
@@ -81,7 +81,7 @@ public class TextFormView extends FrameLayout {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040014, R.attr.obfuscated_res_0x7f040032}, i, 0);
+        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040017, R.attr.obfuscated_res_0x7f040035}, i, 0);
         this.mTextStr = obtainStyledAttributes.getString(0);
         this.mIsShowBottomLine = obtainStyledAttributes.getBoolean(1, true);
         obtainStyledAttributes.recycle();

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ud5;
+import com.repackage.te5;
 import tbclient.GetForumDetail.DataReq;
 import tbclient.GetForumDetail.GetForumDetailReqIdl;
 /* loaded from: classes3.dex */
@@ -45,7 +45,7 @@ public class ForumDetailRequestMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                ud5.a(builder, true);
+                te5.a(builder, true);
             }
             GetForumDetailReqIdl.Builder builder2 = new GetForumDetailReqIdl.Builder();
             builder.forum_id = Long.valueOf(this.forumId);

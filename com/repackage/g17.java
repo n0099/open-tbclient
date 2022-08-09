@@ -1,142 +1,94 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tieba.homepage.personalize.view.HomePageAlaRecommendLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.NewHottopic.DataRes;
-import tbclient.NewHottopic.RelateThread;
-import tbclient.NewHottopic.SpecialTopic;
-import tbclient.NewHottopic.TopicDetail;
-import tbclient.NewHottopic.TopicThread;
-import tbclient.ThreadInfo;
 /* loaded from: classes6.dex */
-public class g17 {
+public class g17 extends rw<fo4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public String d;
-    public h17 e;
-    public List<nn> f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
+    public HomePageAlaRecommendLayout f;
+    public int g;
 
-    public g17() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g17(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = false;
+        this.g = 3;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().b instanceof HomePageAlaRecommendLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().b.getParent() == null) {
+            this.f = (HomePageAlaRecommendLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().b;
+        } else {
+            this.f = new HomePageAlaRecommendLayout(tbPageContext.getPageActivity());
+        }
     }
 
-    public boolean a() {
+    @Override // com.repackage.rw
+    public View h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
     }
 
-    public void b(DataRes dataRes) {
+    @Override // com.repackage.ix
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) || dataRes == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.g != i) {
+                this.f.c(i);
+                n(this.f, 3);
+            }
+            this.g = i;
         }
-        this.h = false;
-        TopicDetail topicDetail = dataRes.topic_info;
-        if (topicDetail != null) {
-            this.a = topicDetail.topic_id.longValue();
-            TopicDetail topicDetail2 = dataRes.topic_info;
-            this.b = topicDetail2.topic_name;
-            this.c = topicDetail2.share_title;
-            this.d = topicDetail2.share_pic;
-            h17 h17Var = new h17();
-            this.e = h17Var;
-            h17Var.a(dataRes.topic_info);
-            if (!StringUtils.isNull(dataRes.topic_info.topic_image)) {
-                this.h = true;
+    }
+
+    public t06 p(fo4 fo4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fo4Var)) == null) {
+            if (fo4Var instanceof l07) {
+                l07 l07Var = (l07) fo4Var;
+                return new t06(l07Var.getType(), l07Var.c(), "recommend");
+            } else if (fo4Var instanceof tv6) {
+                tv6 tv6Var = (tv6) fo4Var;
+                return new t06(tv6Var.getType(), tv6Var.c(), ImageViewerConfig.FROM_CONCERN);
+            } else {
+                return new t06();
             }
         }
-        if (dataRes.pk_module != null) {
-            this.i = true;
-            this.h = true;
-            if (this.e == null) {
-                this.e = new h17();
-            }
-            this.e.b(dataRes.pk_module);
-        } else {
-            this.i = false;
-        }
-        if (dataRes.time_line != null) {
-            this.h = true;
-            if (this.e == null) {
-                this.e = new h17();
-            }
-            this.e.c(dataRes.time_line);
-        }
-        this.f = new ArrayList();
-        if (!ListUtils.isEmpty(dataRes.special_topic)) {
-            this.h = true;
-            int i = 1;
-            for (SpecialTopic specialTopic : dataRes.special_topic) {
-                if (specialTopic != null && !ListUtils.isEmpty(specialTopic.thread_list)) {
-                    boolean z = false;
-                    for (ThreadInfo threadInfo : specialTopic.thread_list) {
-                        if (threadInfo != null) {
-                            j17 j17Var = new j17();
-                            if (!z) {
-                                j17Var.a = true;
-                                j17Var.d = specialTopic.title;
-                                z = true;
-                            }
-                            j17Var.b = i;
-                            j17Var.c = this.a;
-                            j17Var.c(threadInfo);
-                            this.f.add(j17Var);
-                            i++;
-                        }
-                    }
-                }
-            }
-        }
-        if (this.h) {
-            x17 x17Var = new x17();
-            x17Var.a = R.dimen.tbds78;
-            x17Var.b = R.color.CAM_X0201;
-            this.f.add(x17Var);
-        }
-        RelateThread relateThread = dataRes.relate_thread;
-        if (relateThread == null || ListUtils.isEmpty(relateThread.thread_list)) {
-            return;
-        }
-        x17 x17Var2 = new x17();
-        x17Var2.a = R.dimen.tbds16;
-        this.f.add(x17Var2);
-        this.g = dataRes.relate_thread.has_more.intValue() == 1;
-        for (TopicThread topicThread : dataRes.relate_thread.thread_list) {
-            if (topicThread != null) {
-                i17 i17Var = new i17();
-                i17Var.c(topicThread);
-                i17Var.c = this.a;
-                i17Var.f = this.i;
-                this.f.add(i17Var);
-            }
+        return (t06) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.hx
+    /* renamed from: q */
+    public void a(fo4 fo4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, fo4Var) == null) {
+            this.f.setData(p(fo4Var));
         }
     }
 }

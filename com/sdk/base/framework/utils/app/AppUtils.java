@@ -29,7 +29,7 @@ import java.security.MessageDigest;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.Stack;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AppUtils extends a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "com.sdk.base.framework.utils.app.AppUtils";

@@ -1,649 +1,182 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import androidx.annotation.FloatRange;
+import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.coreExtra.data.TiebaPlusConfigData;
-import com.baidu.tieba.R;
-import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
-import com.baidu.tieba.model.SetPrivacyModel;
-import com.baidu.tieba.tbadkCore.model.ForumManageModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dr4;
-import com.repackage.or4;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes7.dex */
-public class zx5 {
+import com.repackage.wx5;
+/* loaded from: classes8.dex */
+public final class zx5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public Context b;
-    public mr4 c;
-    public or4 d;
-    public dr4 e;
-    public j f;
-    public CardPersonDynamicThreadData g;
-    public List<kr4> h;
-    public kr4 i;
-    public kr4 j;
-    public kr4 k;
-    public kr4 l;
-    public SetPrivacyModel m;
-    public ForumManageModel n;
-    public boolean o;
-    public hx5 p;
-    public or4.d q;
-    public SetPrivacyModel.a r;
-    public or4.d s;
-    public or4.d t;
-    public or4.d u;
-    public c9 v;
+    public double a;
+    public double b;
+    public boolean c;
+    public double d;
+    public double e;
+    public double f;
+    public double g;
+    public double h;
+    public double i;
+    public final wx5.i j;
 
-    /* loaded from: classes7.dex */
-    public class a implements or4.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zx5 a;
-
-        public a(zx5 zx5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zx5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zx5Var;
-        }
-
-        @Override // com.repackage.or4.c
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.q();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements or4.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zx5 a;
-
-        public b(zx5 zx5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zx5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zx5Var;
-        }
-
-        @Override // com.repackage.or4.d
-        public void onClick() {
-            int i;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.g == null) {
-                return;
-            }
-            this.a.q();
-            int i2 = 2;
-            if (this.a.g.q == 1) {
-                i = 2;
-            } else {
-                int i3 = this.a.g.q;
-                i = 1;
-            }
-            if (this.a.g == null || !this.a.g.o) {
-                if (this.a.g.getThreadData() != null) {
-                    this.a.p.f(this.a.g.getThreadData().getTid());
-                }
-                i2 = (TbSingleton.getInstance().mCallFansTid == null || this.a.g.getThreadData() == null || !TbSingleton.getInstance().mCallFansTid.equals(this.a.g.getThreadData().getTid())) ? 1 : 1;
-                this.a.p.b();
-                if (this.a.g.getThreadData() != null) {
-                    this.a.p.d(i, i2, this.a.g.getThreadData().getTid());
-                    return;
-                }
-                return;
-            }
-            this.a.a.showToast(R.string.obfuscated_res_0x7f0f0edd);
-            if (this.a.g.getThreadData() != null) {
-                this.a.p.d(i, 3, this.a.g.getThreadData().getTid());
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements dr4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zx5 a;
-
-        public c(zx5 zx5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zx5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zx5Var;
-        }
-
-        @Override // com.repackage.dr4.e
-        public void onClick(dr4 dr4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
-                if (!ni.A()) {
-                    pi.N(this.a.b, R.string.obfuscated_res_0x7f0f0c17);
-                    return;
-                }
-                if (this.a.g.q != 1) {
-                    if (this.a.g.q == 3) {
-                        TiebaStatic.log(new StatisticItem("c12600").param("obj_type", 1));
-                    }
-                } else {
-                    TiebaStatic.log(new StatisticItem("c12599").param("obj_type", 3));
-                }
-                if (this.a.o) {
-                    this.a.n.U(this.a.g.p);
-                }
-                this.a.n.W(this.a.g.a, this.a.g.h, this.a.g.b, this.a.g.e, 0, 0, true, this.a.g.p.getBaijiahaoData(), false);
-                dr4Var.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class d implements dr4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d(zx5 zx5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zx5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.dr4.e
-        public void onClick(dr4 dr4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
-                dr4Var.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class e implements SetPrivacyModel.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zx5 a;
-
-        public e(zx5 zx5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zx5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zx5Var;
-        }
-
-        @Override // com.baidu.tieba.model.SetPrivacyModel.a
-        public void onError(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                pi.O(this.a.b, str);
-            }
-        }
-
-        @Override // com.baidu.tieba.model.SetPrivacyModel.a
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (this.a.g.o) {
-                    this.a.g.o = false;
-                    pi.N(this.a.b, R.string.obfuscated_res_0x7f0f138d);
-                    if (this.a.i != null) {
-                        this.a.i.n(this.a.b.getString(R.string.obfuscated_res_0x7f0f10e0));
-                    }
-                    if (this.a.f != null) {
-                        this.a.f.a(false);
-                        return;
-                    }
-                    return;
-                }
-                this.a.g.o = true;
-                if (this.a.i != null) {
-                    this.a.i.n(this.a.b.getString(R.string.obfuscated_res_0x7f0f10e1));
-                }
-                if (this.a.f != null) {
-                    this.a.f.a(true);
-                }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016558, this.a.g.b));
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class f implements or4.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zx5 a;
-
-        public f(zx5 zx5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zx5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zx5Var;
-        }
-
-        @Override // com.repackage.or4.d
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!ni.A()) {
-                    pi.N(this.a.b, R.string.obfuscated_res_0x7f0f0c17);
-                    return;
-                }
-                if (this.a.g.o) {
-                    if (this.a.g.q == 1) {
-                        TiebaStatic.log(new StatisticItem("c12599").param("obj_type", 2));
-                    }
-                } else if (this.a.g.q != 1) {
-                    if (this.a.g.q == 3) {
-                        TiebaStatic.log(new StatisticItem("c12600").param("obj_type", 2));
-                    }
-                } else {
-                    TiebaStatic.log(new StatisticItem("c12599").param("obj_type", 1));
-                }
-                if (this.a.m == null) {
-                    this.a.m = new SetPrivacyModel(this.a.a, this.a.g);
-                }
-                if (!this.a.m.G()) {
-                    this.a.m.H(this.a.r);
-                    this.a.m.loadData();
-                }
-                this.a.q();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class g implements or4.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zx5 a;
-
-        public g(zx5 zx5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zx5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zx5Var;
-        }
-
-        @Override // com.repackage.or4.d
-        public void onClick() {
-            String jumpUrlWithTid;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!ni.A()) {
-                    pi.N(this.a.b, R.string.obfuscated_res_0x7f0f0c17);
-                    return;
-                }
-                TiebaPlusConfigData tiebaPlusConfigData = TbSingleton.getInstance().getTiebaPlusConfigData();
-                ThreadData threadData = this.a.g.getThreadData();
-                if (tiebaPlusConfigData == null || threadData == null || (jumpUrlWithTid = tiebaPlusConfigData.getJumpUrlWithTid(threadData.getTid())) == null) {
-                    return;
-                }
-                UrlManager.getInstance().dealOneLink(this.a.a, new String[]{jumpUrlWithTid});
-                TiebaPlusConfigData.addClickStatsForFireLink(5);
-                this.a.q();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class h implements or4.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zx5 a;
-
-        public h(zx5 zx5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zx5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zx5Var;
-        }
-
-        @Override // com.repackage.or4.d
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!ni.A()) {
-                    pi.N(this.a.b, R.string.obfuscated_res_0x7f0f0c17);
-                    return;
-                }
-                if (this.a.g != null && this.a.n != null) {
-                    this.a.p();
-                    this.a.e.show();
-                }
-                this.a.q();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class i extends c9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zx5 a;
-
-        public i(zx5 zx5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zx5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zx5Var;
-        }
-
-        @Override // com.repackage.c9
-        public void c(Object obj) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (obj instanceof ForumManageModel.b)) {
-                ForumManageModel.b bVar = (ForumManageModel.b) obj;
-                if (bVar.c == 0) {
-                    pi.N(this.a.b, R.string.obfuscated_res_0x7f0f04ac);
-                    if (this.a.g != null) {
-                        if (oi.isEmpty(this.a.g.G)) {
-                            if (oi.isEmpty(this.a.g.b)) {
-                                return;
-                            }
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016557, this.a.g.b));
-                            return;
-                        }
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921436, this.a.g.G));
-                    }
-                } else if (!oi.isEmpty(bVar.b)) {
-                    pi.O(this.a.b, bVar.b);
-                } else {
-                    pi.N(this.a.b, R.string.obfuscated_res_0x7f0f04a3);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface j {
-        void a(boolean z);
-    }
-
-    public zx5(TbPageContext tbPageContext) {
+    public zx5(float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {Float.valueOf(f)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.o = false;
-        this.q = new b(this);
-        this.r = new e(this);
-        this.s = new f(this);
-        this.t = new g(this);
-        this.u = new h(this);
-        this.v = new i(this);
-        if (tbPageContext == null) {
+        this.a = Math.sqrt(1500.0d);
+        this.b = 0.5d;
+        this.c = false;
+        this.i = Double.MAX_VALUE;
+        this.j = new wx5.i();
+        this.i = f;
+    }
+
+    public float a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (float) this.i : invokeV.floatValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.c) {
             return;
         }
-        this.a = tbPageContext;
-        this.b = tbPageContext.getPageActivity();
-        this.h = new ArrayList();
-        this.d = new or4(this.b);
-        ForumManageModel forumManageModel = new ForumManageModel(this.a);
-        this.n = forumManageModel;
-        forumManageModel.setLoadDataCallBack(this.v);
-        this.p = new hx5(tbPageContext);
-    }
-
-    public void n(CardPersonDynamicThreadData cardPersonDynamicThreadData, boolean z) {
-        kr4 kr4Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048576, this, cardPersonDynamicThreadData, z) == null) {
-            this.g = cardPersonDynamicThreadData;
-            if (cardPersonDynamicThreadData == null || (kr4Var = this.i) == null) {
-                return;
+        if (this.i != Double.MAX_VALUE) {
+            double d = this.b;
+            if (d > 1.0d) {
+                double d2 = this.a;
+                this.f = ((-d) * d2) + (d2 * Math.sqrt((d * d) - 1.0d));
+                double d3 = this.b;
+                double d4 = this.a;
+                this.g = ((-d3) * d4) - (d4 * Math.sqrt((d3 * d3) - 1.0d));
+            } else if (d >= 0.0d && d < 1.0d) {
+                this.h = this.a * Math.sqrt(1.0d - (d * d));
             }
-            if (cardPersonDynamicThreadData.o) {
-                kr4Var.n(this.b.getString(R.string.obfuscated_res_0x7f0f10e1));
-            } else {
-                ThreadData threadData = cardPersonDynamicThreadData.p;
-                if (threadData != null && threadData.notShowHideThreadBtn()) {
-                    if (this.h.contains(this.i)) {
-                        this.h.remove(this.i);
-                        this.d.j(this.h);
-                    }
-                } else {
-                    this.i.n(this.b.getString(R.string.obfuscated_res_0x7f0f10e0));
-                }
-            }
-            this.i.r(z);
-            if (this.j != null) {
-                if (TbSingleton.getInstance().mCanCallFans) {
-                    this.j.n(this.b.getString(R.string.obfuscated_res_0x7f0f035d));
-                } else {
-                    if (TbSingleton.getInstance().mCallFansTid != null && this.g.getThreadData() != null && TbSingleton.getInstance().mCallFansTid.equals(this.g.getThreadData().getTid())) {
-                        this.j.n(this.b.getString(R.string.obfuscated_res_0x7f0f0824));
-                    } else {
-                        this.j.n(this.b.getString(R.string.obfuscated_res_0x7f0f035d));
-                    }
-                    this.j.q(R.color.cp_cont_b_alpha33);
-                }
-                this.j.r(z);
-            }
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.c == null) {
-            if (TbSingleton.getInstance().getTiebaPlusConfigData() != null && TbSingleton.getInstance().getTiebaPlusConfigData().isSwitchOpen()) {
-                kr4 kr4Var = new kr4(this.b.getString(R.string.obfuscated_res_0x7f0f082e), this.d);
-                this.l = kr4Var;
-                kr4Var.m(this.t);
-                this.h.add(this.l);
-            }
-            kr4 kr4Var2 = new kr4(this.d);
-            this.i = kr4Var2;
-            kr4Var2.m(this.s);
-            if (!this.o) {
-                this.h.add(this.i);
-            }
-            if (TbSingleton.getInstance().mShowCallFans && !this.o) {
-                kr4 kr4Var3 = new kr4(this.b.getString(R.string.obfuscated_res_0x7f0f035d), this.d);
-                this.j = kr4Var3;
-                kr4Var3.m(this.q);
-                this.h.add(this.j);
-            }
-            kr4 kr4Var4 = new kr4(this.b.getString(R.string.obfuscated_res_0x7f0f049e), this.d);
-            this.k = kr4Var4;
-            kr4Var4.m(this.u);
-            this.h.add(this.k);
-            this.d.m(new a(this));
-            this.d.j(this.h);
-            this.c = new mr4(this.a, this.d);
-        }
-    }
-
-    public final void p() {
-        ThreadData threadData;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.e == null) {
-            dr4 dr4Var = new dr4(this.a.getPageActivity());
-            this.e = dr4Var;
-            if (this.o) {
-                dr4Var.setMessageId(R.string.obfuscated_res_0x7f0f0495);
-            } else {
-                CardPersonDynamicThreadData cardPersonDynamicThreadData = this.g;
-                if (cardPersonDynamicThreadData != null && (threadData = cardPersonDynamicThreadData.p) != null && threadData.isDisplayHighQualityPrefix()) {
-                    this.e.setMessageId(R.string.obfuscated_res_0x7f0f049d);
-                } else {
-                    this.e.setMessageId(R.string.obfuscated_res_0x7f0f049c);
-                }
-            }
-            this.e.setPositiveButton(R.string.obfuscated_res_0x7f0f04e1, new c(this));
-            this.e.setNegativeButton(R.string.obfuscated_res_0x7f0f04dc, new d(this));
-            this.e.setCancelable(true);
-            this.e.create(this.a);
-        }
-    }
-
-    public void q() {
-        mr4 mr4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (mr4Var = this.c) != null && mr4Var.isShowing()) {
-            this.c.dismiss();
-        }
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            or4 or4Var = this.d;
-            if (or4Var != null) {
-                or4Var.i();
-            }
-            dr4 dr4Var = this.e;
-            if (dr4Var != null) {
-                ha5.a(this.a, dr4Var.getRealView());
-            }
-        }
-    }
-
-    public void s(j jVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jVar) == null) {
-            this.f = jVar;
-        }
-    }
-
-    public void t(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.o = z;
-        }
-    }
-
-    public void u() {
-        mr4 mr4Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (mr4Var = this.c) == null) {
+            this.c = true;
             return;
         }
-        mr4Var.m();
+        throw new IllegalStateException("Error: Final position of the spring must be set before the animation starts");
+    }
+
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public boolean c(float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? ((double) Math.abs(f2)) < this.e && ((double) Math.abs(f - a())) < this.d : invokeCommon.booleanValue;
+    }
+
+    public zx5 d(@FloatRange(from = 0.0d) float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f)) == null) {
+            if (f >= 0.0f) {
+                this.b = f;
+                this.c = false;
+                return this;
+            }
+            throw new IllegalArgumentException("Damping ratio must be non-negative");
+        }
+        return (zx5) invokeF.objValue;
+    }
+
+    public zx5 e(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) {
+            this.i = f;
+            return this;
+        }
+        return (zx5) invokeF.objValue;
+    }
+
+    public zx5 f(@FloatRange(from = 0.0d, fromInclusive = false) float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
+            if (f > 0.0f) {
+                this.a = Math.sqrt(f);
+                this.c = false;
+                return this;
+            }
+            throw new IllegalArgumentException("Spring stiffness constant must be positive.");
+        }
+        return (zx5) invokeF.objValue;
+    }
+
+    public void g(double d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Double.valueOf(d)}) == null) {
+            double abs = Math.abs(d);
+            this.d = abs;
+            this.e = abs * 62.5d;
+        }
+    }
+
+    public wx5.i h(double d, double d2, long j) {
+        InterceptResult invokeCommon;
+        double cos;
+        double d3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Double.valueOf(d), Double.valueOf(d2), Long.valueOf(j)})) == null) {
+            b();
+            double d4 = j / 1000.0d;
+            double d5 = d - this.i;
+            double d6 = this.b;
+            if (d6 > 1.0d) {
+                double d7 = this.g;
+                double d8 = this.f;
+                double d9 = d5 - (((d7 * d5) - d2) / (d7 - d8));
+                double d10 = ((d5 * d7) - d2) / (d7 - d8);
+                d3 = (Math.pow(2.718281828459045d, d7 * d4) * d9) + (Math.pow(2.718281828459045d, this.f * d4) * d10);
+                double d11 = this.g;
+                double pow = d9 * d11 * Math.pow(2.718281828459045d, d11 * d4);
+                double d12 = this.f;
+                cos = pow + (d10 * d12 * Math.pow(2.718281828459045d, d12 * d4));
+            } else if (d6 == 1.0d) {
+                double d13 = this.a;
+                double d14 = d2 + (d13 * d5);
+                double d15 = d5 + (d14 * d4);
+                d3 = Math.pow(2.718281828459045d, (-d13) * d4) * d15;
+                double pow2 = d15 * Math.pow(2.718281828459045d, (-this.a) * d4);
+                double d16 = this.a;
+                cos = (d14 * Math.pow(2.718281828459045d, (-d16) * d4)) + (pow2 * (-d16));
+            } else {
+                double d17 = 1.0d / this.h;
+                double d18 = this.a;
+                double d19 = d17 * ((d6 * d18 * d5) + d2);
+                double pow3 = Math.pow(2.718281828459045d, (-d6) * d18 * d4) * ((Math.cos(this.h * d4) * d5) + (Math.sin(this.h * d4) * d19));
+                double d20 = this.a;
+                double d21 = this.b;
+                double d22 = (-d20) * pow3 * d21;
+                double pow4 = Math.pow(2.718281828459045d, (-d21) * d20 * d4);
+                double d23 = this.h;
+                double sin = (-d23) * d5 * Math.sin(d23 * d4);
+                double d24 = this.h;
+                cos = d22 + (pow4 * (sin + (d19 * d24 * Math.cos(d24 * d4))));
+                d3 = pow3;
+            }
+            wx5.i iVar = this.j;
+            iVar.a = (float) (d3 + this.i);
+            iVar.b = (float) cos;
+            return iVar;
+        }
+        return (wx5.i) invokeCommon.objValue;
     }
 }

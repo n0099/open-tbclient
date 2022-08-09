@@ -1,55 +1,17 @@
 package com.repackage;
 
-import android.view.View;
-import androidx.annotation.RequiresApi;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 /* loaded from: classes6.dex */
 public class ff4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int[] a;
+    public static final Object[] b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Set<String> a;
-    public gf4<List<ef4>> b;
-
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ff4 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-387628225, "Lcom/repackage/ff4$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-387628225, "Lcom/repackage/ff4$b;");
-                    return;
-                }
-            }
-            a = new ff4(null);
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -64,73 +26,56 @@ public class ff4 {
                 return;
             }
         }
-        String str = ProcessUtils.getCurProcessName() + ".trace";
-        AppRuntime.getAppContext().getExternalFilesDir(null);
+        a = new int[0];
+        b = new Object[0];
     }
 
-    public /* synthetic */ ff4(a aVar) {
-        this();
-    }
-
-    public static ff4 b() {
-        InterceptResult invokeV;
+    public static int a(int[] iArr, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (ff4) invokeV.objValue;
-    }
-
-    public void a(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-        }
-    }
-
-    public gf4<List<ef4>> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (gf4) invokeV.objValue;
-    }
-
-    public Set<String> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Set<String> set = this.a;
-            if (set != null) {
-                return set;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, iArr, i, i2)) == null) {
+            int i3 = i - 1;
+            int i4 = 0;
+            while (i4 <= i3) {
+                int i5 = (i4 + i3) >>> 1;
+                int i6 = iArr[i5];
+                if (i6 < i2) {
+                    i4 = i5 + 1;
+                } else if (i6 <= i2) {
+                    return i5;
+                } else {
+                    i3 = i5 - 1;
+                }
             }
-            HashSet hashSet = new HashSet();
-            this.a = hashSet;
-            hashSet.add("V8JavaScriptContext");
-            this.a.add("main");
-            return this.a;
+            return ~i4;
         }
-        return (Set) invokeV.objValue;
+        return invokeLII.intValue;
     }
 
-    @RequiresApi(api = 21)
-    public void e() {
+    public static boolean b(Object obj, Object obj2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, obj2)) == null) ? obj == obj2 || (obj != null && obj.equals(obj2)) : invokeLL.booleanValue;
     }
 
-    public void f() {
+    public static int c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    public ff4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            for (int i2 = 4; i2 < 32; i2++) {
+                int i3 = (1 << i2) - 12;
+                if (i <= i3) {
+                    return i3;
+                }
             }
+            return i;
         }
+        return invokeI.intValue;
+    }
+
+    public static int d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? c(i * 4) / 4 : invokeI.intValue;
     }
 }

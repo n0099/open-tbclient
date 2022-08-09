@@ -1,7 +1,16 @@
 package com.repackage;
 
+import android.app.AppOpsManager;
+import android.app.usage.UsageStats;
+import android.app.usage.UsageStatsManager;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.os.Process;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,13 +18,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Calendar;
+import java.util.List;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class nt3 {
+public class nt3 extends et3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public pu3 a;
 
     static {
         InterceptResult invokeClinit;
@@ -30,10 +41,12 @@ public final class nt3 {
                 return;
             }
         }
-        b = sg1.a;
+        c = jh1.a;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public nt3() {
+        super("GetAppUseDuration");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,62 +54,78 @@ public final class nt3 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    public static nt3 d(ps1 ps1Var) {
-        InterceptResult invokeL;
+    @Override // com.repackage.et3
+    public zs1 a(@NonNull JSONObject jSONObject, @NonNull de2 de2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ps1Var)) == null) {
-            if (ps1Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, de2Var)) == null) {
+            if (jSONObject == null) {
+                de2Var.onFail(202, "params may be error");
                 return null;
             }
-            nt3 nt3Var = new nt3();
-            nt3Var.a = pu3.e(ps1Var);
-            return nt3Var;
+            if (c) {
+                Log.e("GetAppUseDuration", "params is " + jSONObject.toString());
+            }
+            String optString = jSONObject.optString("packageName");
+            if (TextUtils.isEmpty(optString)) {
+                de2Var.onFail(202, "params may be error");
+            } else {
+                b(optString, de2Var);
+            }
+            return null;
         }
-        return (nt3) invokeL.objValue;
+        return (zs1) invokeLL.objValue;
     }
 
-    public final JSONObject a(String str) {
-        InterceptResult invokeL;
+    public final void b(String str, @NonNull de2 de2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, de2Var) == null) {
             try {
-                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, com.baidu.pass.biometrics.face.liveness.b.a.g0);
-                jSONObject.put("errDes", up3.a(str));
-            } catch (Exception e) {
-                if (b) {
-                    e.printStackTrace();
+                if (c()) {
+                    PackageInfo packageInfo = AppRuntime.getAppContext().getPackageManager().getPackageInfo(str, 0);
+                    if (packageInfo != null) {
+                        List<UsageStats> queryUsageStats = ((UsageStatsManager) AppRuntime.getAppContext().getSystemService("usagestats")).queryUsageStats(3, packageInfo.firstInstallTime, Calendar.getInstance().getTimeInMillis());
+                        if (queryUsageStats.size() == 0) {
+                            de2Var.onFail(101, "noPermission");
+                            return;
+                        }
+                        for (UsageStats usageStats : queryUsageStats) {
+                            if (TextUtils.equals(usageStats.getPackageName(), str)) {
+                                JSONObject jSONObject = new JSONObject();
+                                JSONObject jSONObject2 = new JSONObject();
+                                jSONObject2.put("appUseDuration", usageStats.getTotalTimeInForeground());
+                                jSONObject.put("data", jSONObject2);
+                                de2Var.a(jSONObject);
+                                return;
+                            }
+                        }
+                        de2Var.onFail(31016, "no package info");
+                        return;
+                    }
+                    de2Var.onFail(31016, "no package info");
+                    return;
                 }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            JSONObject a = a(str);
-            pu3 pu3Var = this.a;
-            if (pu3Var != null) {
-                pu3Var.b(a);
+                de2Var.onFail(101, "noPermission");
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                de2Var.onFail(31011, "app is not installed");
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
         }
     }
 
-    public void c() {
-        pu3 pu3Var;
+    public final boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (pu3Var = this.a) == null) {
-            return;
-        }
-        pu3Var.c();
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((AppOpsManager) AppRuntime.getAppContext().getSystemService("appops")).checkOpNoThrow("android:get_usage_stats", Process.myUid(), AppRuntime.getAppContext().getPackageName()) == 0 : invokeV.booleanValue;
     }
 }

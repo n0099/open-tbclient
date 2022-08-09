@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sg1;
-/* loaded from: classes2.dex */
+import com.repackage.jh1;
+/* loaded from: classes3.dex */
 public class SwanAppWebPopPullLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean f;
@@ -33,18 +33,18 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
     public b d;
     public View e;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         boolean a(MotionEvent motionEvent);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void a();
 
@@ -55,7 +55,7 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
         void d(float f);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d extends ViewDragHelper.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -154,7 +154,7 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
                 return;
             }
         }
-        f = sg1.a;
+        f = jh1.a;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

@@ -1,7 +1,6 @@
 package com.baidu.live.business.adapter;
 
 import android.content.Context;
-import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
@@ -10,13 +9,18 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.live.business.Live16Ratio9ItemView;
+import com.baidu.live.business.Live16Ratio9TopicView;
+import com.baidu.live.business.Live4Ratio5BannerItemView;
 import com.baidu.live.business.Live4Ratio5ItemView;
+import com.baidu.live.business.Live4Ratio5TopicView;
 import com.baidu.live.business.LiveLoadMoreView;
+import com.baidu.live.business.LiveReserveHeaderView;
 import com.baidu.live.business.base.LiveBaseItemView;
 import com.baidu.live.business.base.LiveFeedBaseHolder;
+import com.baidu.live.business.model.data.LiveBannerEntity;
+import com.baidu.live.business.model.data.LiveFeedConfig;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.searchbox.download.center.clearcache.UserSettingForceListListener;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -25,54 +29,150 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a90;
-import com.repackage.e80;
-import com.repackage.j90;
-import com.repackage.u80;
-import com.repackage.z80;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
+import com.repackage.ab0;
+import com.repackage.la0;
+import com.repackage.n80;
 import java.util.ArrayList;
 import java.util.List;
 import kotlin.Metadata;
-import kotlin.Unit;
+import kotlin.TypeCastException;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
-import org.json.JSONObject;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\\\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0010\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u000e\u0018\u0000 D2\u00020\u0001:\u0002DEB/\u0012\u0006\u0010\u0016\u001a\u00020\u0015\u0012\u0006\u0010)\u001a\u00020\u0012\u0012\u0006\u0010;\u001a\u000208\u0012\u0006\u00109\u001a\u000208\u0012\u0006\u0010>\u001a\u000208¢\u0006\u0004\bB\u0010CJ\u001d\u0010\u0006\u001a\u00020\u00052\u000e\u0010\u0004\u001a\n\u0012\u0004\u0012\u00020\u0003\u0018\u00010\u0002¢\u0006\u0004\b\u0006\u0010\u0007J\u000f\u0010\t\u001a\u00020\bH\u0016¢\u0006\u0004\b\t\u0010\nJ\u0017\u0010\f\u001a\u00020\b2\u0006\u0010\u000b\u001a\u00020\bH\u0016¢\u0006\u0004\b\f\u0010\rJ\u0017\u0010\u0010\u001a\u00020\u00052\u0006\u0010\u000f\u001a\u00020\u000eH\u0002¢\u0006\u0004\b\u0010\u0010\u0011J/\u0010\u0017\u001a\u00020\u00052\u0006\u0010\u0013\u001a\u00020\u00122\u0006\u0010\u0014\u001a\u00020\u00032\u0006\u0010\u0016\u001a\u00020\u00152\u0006\u0010\u000b\u001a\u00020\bH\u0002¢\u0006\u0004\b\u0017\u0010\u0018J\u001f\u0010\u0019\u001a\u00020\u00052\u0006\u0010\u000f\u001a\u00020\u000e2\u0006\u0010\u000b\u001a\u00020\bH\u0016¢\u0006\u0004\b\u0019\u0010\u001aJ\u001f\u0010\u001e\u001a\u00020\u000e2\u0006\u0010\u001c\u001a\u00020\u001b2\u0006\u0010\u001d\u001a\u00020\bH\u0016¢\u0006\u0004\b\u001e\u0010\u001fJ\u0017\u0010 \u001a\u00020\u00052\u0006\u0010\u000f\u001a\u00020\u000eH\u0016¢\u0006\u0004\b \u0010\u0011J\u0017\u0010!\u001a\u00020\u00052\u0006\u0010\u000f\u001a\u00020\u000eH\u0016¢\u0006\u0004\b!\u0010\u0011J\u0017\u0010\"\u001a\u00020\u00052\u0006\u0010\u000f\u001a\u00020\u000eH\u0016¢\u0006\u0004\b\"\u0010\u0011J\u0015\u0010$\u001a\u00020\u00052\u0006\u0010#\u001a\u00020\u0012¢\u0006\u0004\b$\u0010%R\u0019\u0010\u0016\u001a\u00020\u00158\u0006@\u0006¢\u0006\f\n\u0004\b\u0016\u0010&\u001a\u0004\b'\u0010(R\u0019\u0010)\u001a\u00020\u00128\u0006@\u0006¢\u0006\f\n\u0004\b)\u0010*\u001a\u0004\b)\u0010+R$\u0010-\u001a\u0004\u0018\u00010,8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b-\u0010.\u001a\u0004\b/\u00100\"\u0004\b1\u00102R\u0016\u00103\u001a\u00020\u00128\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b3\u0010*R&\u00106\u001a\u0012\u0012\u0004\u0012\u00020\u000304j\b\u0012\u0004\u0012\u00020\u0003`58\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b6\u00107R\u0016\u00109\u001a\u0002088\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b9\u0010:R\u0019\u0010;\u001a\u0002088\u0006@\u0006¢\u0006\f\n\u0004\b;\u0010:\u001a\u0004\b<\u0010=R\"\u0010>\u001a\u0002088\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b>\u0010:\u001a\u0004\b?\u0010=\"\u0004\b@\u0010A¨\u0006F"}, d2 = {"Lcom/baidu/live/business/adapter/LiveSubTabAdapter;", "androidx/recyclerview/widget/RecyclerView$Adapter", "", "Lcom/baidu/live/business/model/data/LiveRoomEntity;", "list", "", "addNew", "(Ljava/util/List;)V", "", "getItemCount", "()I", CriusAttrConstants.POSITION, "getItemViewType", "(I)I", "Lcom/baidu/live/business/base/LiveFeedBaseHolder;", "holder", "handleHasMore", "(Lcom/baidu/live/business/base/LiveFeedBaseHolder;)V", "", UserSettingForceListListener.FORCE_LIST_ITEM_SHOW_KEY, "liveRoomEntity", "Landroid/content/Context;", "context", "liveUbcLog", "(ZLcom/baidu/live/business/model/data/LiveRoomEntity;Landroid/content/Context;I)V", "onBindViewHolder", "(Lcom/baidu/live/business/base/LiveFeedBaseHolder;I)V", "Landroid/view/ViewGroup;", "parent", "viewType", "onCreateViewHolder", "(Landroid/view/ViewGroup;I)Lcom/baidu/live/business/base/LiveFeedBaseHolder;", "onViewAttachedToWindow", "onViewDetachedFromWindow", "onViewRecycled", "hasMore", "setHasMore", "(Z)V", "Landroid/content/Context;", "getContext", "()Landroid/content/Context;", "isImmer", "Z", "()Z", "Lcom/baidu/live/business/adapter/LiveSubTabAdapter$ItemViewListener;", "itemViewListener", "Lcom/baidu/live/business/adapter/LiveSubTabAdapter$ItemViewListener;", "getItemViewListener", "()Lcom/baidu/live/business/adapter/LiveSubTabAdapter$ItemViewListener;", "setItemViewListener", "(Lcom/baidu/live/business/adapter/LiveSubTabAdapter$ItemViewListener;)V", "mHasMore", "Ljava/util/ArrayList;", "Lkotlin/collections/ArrayList;", "mList", "Ljava/util/ArrayList;", "", "secondLevelTab", "Ljava/lang/String;", "source", "getSource", "()Ljava/lang/String;", "thirdLevelTab", "getThirdLevelTab", "setThirdLevelTab", "(Ljava/lang/String;)V", "<init>", "(Landroid/content/Context;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "Companion", "ItemViewListener", "lib-live-feed-page_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000q\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u000f*\u0001-\u0018\u0000 O2\u00020\u0001:\u0002OPB'\u0012\u0006\u00101\u001a\u000200\u0012\u0006\u0010E\u001a\u00020\u0005\u0012\u0006\u0010H\u001a\u00020\u0005\u0012\u0006\u0010I\u001a\u00020\u0005¢\u0006\u0004\bM\u0010NJ)\u0010\b\u001a\u00020\u00072\u000e\u0010\u0004\u001a\n\u0012\u0004\u0012\u00020\u0003\u0018\u00010\u00022\n\b\u0002\u0010\u0006\u001a\u0004\u0018\u00010\u0005¢\u0006\u0004\b\b\u0010\tJ\u000f\u0010\u000b\u001a\u00020\nH\u0016¢\u0006\u0004\b\u000b\u0010\fJ\u0017\u0010\u000e\u001a\u00020\n2\u0006\u0010\r\u001a\u00020\nH\u0016¢\u0006\u0004\b\u000e\u0010\u000fJ\u0017\u0010\u0011\u001a\u00020\n2\u0006\u0010\u0010\u001a\u00020\u0003H\u0002¢\u0006\u0004\b\u0011\u0010\u0012J\u0017\u0010\u0015\u001a\u00020\u00072\u0006\u0010\u0014\u001a\u00020\u0013H\u0002¢\u0006\u0004\b\u0015\u0010\u0016J\u001f\u0010\u0018\u001a\u00020\u00072\u0006\u0010\u0014\u001a\u00020\u00172\u0006\u0010\r\u001a\u00020\nH\u0016¢\u0006\u0004\b\u0018\u0010\u0019J\u001f\u0010\u001d\u001a\u00020\u00132\u0006\u0010\u001b\u001a\u00020\u001a2\u0006\u0010\u001c\u001a\u00020\nH\u0016¢\u0006\u0004\b\u001d\u0010\u001eJ\u0017\u0010\u001f\u001a\u00020\u00072\u0006\u0010\u0014\u001a\u00020\u0017H\u0016¢\u0006\u0004\b\u001f\u0010 J\u0017\u0010!\u001a\u00020\u00072\u0006\u0010\u0014\u001a\u00020\u0017H\u0016¢\u0006\u0004\b!\u0010 J\u0017\u0010\"\u001a\u00020\u00072\u0006\u0010\u0014\u001a\u00020\u0017H\u0016¢\u0006\u0004\b\"\u0010 J\u0017\u0010%\u001a\u00020\u00072\b\u0010$\u001a\u0004\u0018\u00010#¢\u0006\u0004\b%\u0010&J\u0015\u0010)\u001a\u00020\u00072\u0006\u0010(\u001a\u00020'¢\u0006\u0004\b)\u0010*J\u001d\u0010+\u001a\u00020\u00072\u000e\u0010\u0004\u001a\n\u0012\u0004\u0012\u00020\u0003\u0018\u00010\u0002¢\u0006\u0004\b+\u0010,R\u0016\u0010.\u001a\u00020-8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b.\u0010/R\u0019\u00101\u001a\u0002008\u0006@\u0006¢\u0006\f\n\u0004\b1\u00102\u001a\u0004\b3\u00104R\u0018\u0010\u0006\u001a\u0004\u0018\u00010\u00058\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0006\u00105R$\u00107\u001a\u0004\u0018\u0001068\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b7\u00108\u001a\u0004\b9\u0010:\"\u0004\b;\u0010<R\u0018\u0010=\u001a\u0004\u0018\u00010#8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b=\u0010>R\u0016\u0010?\u001a\u00020'8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b?\u0010@R&\u0010C\u001a\u0012\u0012\u0004\u0012\u00020\u00030Aj\b\u0012\u0004\u0012\u00020\u0003`B8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bC\u0010DR\u0019\u0010E\u001a\u00020\u00058\u0006@\u0006¢\u0006\f\n\u0004\bE\u00105\u001a\u0004\bF\u0010GR\u0016\u0010H\u001a\u00020\u00058\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bH\u00105R\"\u0010I\u001a\u00020\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bI\u00105\u001a\u0004\bJ\u0010G\"\u0004\bK\u0010L¨\u0006Q"}, d2 = {"Lcom/baidu/live/business/adapter/LiveSubTabAdapter;", "androidx/recyclerview/widget/RecyclerView$Adapter", "", "Lcom/baidu/live/business/model/data/LiveRoomEntity;", "list", "", "curRoomId", "", "addNew", "(Ljava/util/List;Ljava/lang/String;)V", "", "getItemCount", "()I", CriusAttrConstants.POSITION, "getItemViewType", "(I)I", "roomEntity", "getTopicRoomType", "(Lcom/baidu/live/business/model/data/LiveRoomEntity;)I", "Lcom/baidu/live/business/base/LiveFeedBaseHolder;", "holder", "handleHasMore", "(Lcom/baidu/live/business/base/LiveFeedBaseHolder;)V", "Landroidx/recyclerview/widget/RecyclerView$ViewHolder;", "onBindViewHolder", "(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V", "Landroid/view/ViewGroup;", "parent", "viewType", "onCreateViewHolder", "(Landroid/view/ViewGroup;I)Lcom/baidu/live/business/base/LiveFeedBaseHolder;", "onViewAttachedToWindow", "(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V", "onViewDetachedFromWindow", "onViewRecycled", "Lcom/baidu/live/business/model/data/LiveFeedConfig;", "feedConfig", "setFeedConfig", "(Lcom/baidu/live/business/model/data/LiveFeedConfig;)V", "", "hasMore", "setHasMore", "(Z)V", "updateData", "(Ljava/util/List;)V", "com/baidu/live/business/adapter/LiveSubTabAdapter$bannerListener$1", "bannerListener", "Lcom/baidu/live/business/adapter/LiveSubTabAdapter$bannerListener$1;", "Landroid/content/Context;", "context", "Landroid/content/Context;", "getContext", "()Landroid/content/Context;", "Ljava/lang/String;", "Lcom/baidu/live/business/adapter/LiveSubTabAdapter$ItemViewListener;", "itemViewListener", "Lcom/baidu/live/business/adapter/LiveSubTabAdapter$ItemViewListener;", "getItemViewListener", "()Lcom/baidu/live/business/adapter/LiveSubTabAdapter$ItemViewListener;", "setItemViewListener", "(Lcom/baidu/live/business/adapter/LiveSubTabAdapter$ItemViewListener;)V", "mFeedConfig", "Lcom/baidu/live/business/model/data/LiveFeedConfig;", "mHasMore", "Z", "Ljava/util/ArrayList;", "Lkotlin/collections/ArrayList;", "mList", "Ljava/util/ArrayList;", "scene", "getScene", "()Ljava/lang/String;", "secondLevelTab", "thirdLevelTab", "getThirdLevelTab", "setThirdLevelTab", "(Ljava/lang/String;)V", "<init>", "(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "Companion", "ItemViewListener", "lib-live-feed-page_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class LiveSubTabAdapter extends RecyclerView.Adapter<LiveFeedBaseHolder> {
+public final class LiveSubTabAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<LiveRoomEntity> a;
     public boolean b;
-    public a c;
-    public final Context d;
-    public final boolean e;
-    public final String f;
-    public final String g;
-    public String h;
+    public LiveFeedConfig c;
+    public String d;
+    public a e;
+    public b f;
+    public final Context g;
+    public final String h;
+    public final String i;
+    public String j;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void a(int i);
+        void onBannerItemClick(LiveBannerEntity liveBannerEntity);
+
+        void onBannerItemShow(LiveBannerEntity liveBannerEntity);
+
+        void onHeaderReserveClick(String str);
+
+        void onItemLabelClickListener(String str, int i, LiveRoomEntity liveRoomEntity);
+
+        void onItemViewClick(LiveRoomEntity liveRoomEntity, int i);
+
+        void onItemViewRecycled(int i);
+
+        void onItemViewShow(LiveRoomEntity liveRoomEntity, int i);
     }
 
     /* loaded from: classes2.dex */
-    public static final class b implements View.OnClickListener {
+    public static final class b implements Live4Ratio5BannerItemView.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ LiveSubTabAdapter a;
+
+        /* JADX DEBUG: Incorrect args count in method signature: ()V */
+        public b(LiveSubTabAdapter liveSubTabAdapter) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {liveSubTabAdapter};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = liveSubTabAdapter;
+        }
+
+        @Override // com.baidu.live.business.Live4Ratio5BannerItemView.c
+        public void a(LiveBannerEntity liveBannerEntity) {
+            a g;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, liveBannerEntity) == null) || (g = this.a.g()) == null) {
+                return;
+            }
+            g.onBannerItemShow(liveBannerEntity);
+        }
+
+        @Override // com.baidu.live.business.Live4Ratio5BannerItemView.c
+        public void b(LiveBannerEntity liveBannerEntity) {
+            a g;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, liveBannerEntity) == null) || (g = this.a.g()) == null) {
+                return;
+            }
+            g.onBannerItemClick(liveBannerEntity);
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public static final class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ LiveSubTabAdapter a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ RecyclerView.ViewHolder c;
+
+        public c(LiveSubTabAdapter liveSubTabAdapter, int i, RecyclerView.ViewHolder viewHolder) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {liveSubTabAdapter, Integer.valueOf(i), viewHolder};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = liveSubTabAdapter;
+            this.b = i;
+            this.c = viewHolder;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public final void onClick(View view2) {
+            a g;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || ((LiveRoomEntity) this.a.a.get(this.b)).reserveHeaderInfo == null || (g = this.a.g()) == null) {
+                return;
+            }
+            LiveBaseItemView liveBaseItemView = ((LiveFeedBaseHolder) this.c).a;
+            if (liveBaseItemView == null) {
+                throw new TypeCastException("null cannot be cast to non-null type com.baidu.live.business.LiveReserveHeaderView");
+            }
+            g.onHeaderReserveClick(((LiveReserveHeaderView) liveBaseItemView).getTip());
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public static final class d implements LiveBaseItemView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LiveSubTabAdapter a;
         public final /* synthetic */ LiveRoomEntity b;
         public final /* synthetic */ int c;
-        public final /* synthetic */ LiveFeedBaseHolder d;
 
-        public b(LiveSubTabAdapter liveSubTabAdapter, LiveRoomEntity liveRoomEntity, int i, LiveFeedBaseHolder liveFeedBaseHolder) {
+        public d(LiveSubTabAdapter liveSubTabAdapter, LiveRoomEntity liveRoomEntity, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {liveSubTabAdapter, liveRoomEntity, Integer.valueOf(i), liveFeedBaseHolder};
+                Object[] objArr = {liveSubTabAdapter, liveRoomEntity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -85,89 +185,107 @@ public final class LiveSubTabAdapter extends RecyclerView.Adapter<LiveFeedBaseHo
             this.a = liveSubTabAdapter;
             this.b = liveRoomEntity;
             this.c = i;
-            this.d = liveFeedBaseHolder;
+        }
+
+        @Override // com.baidu.live.business.base.LiveBaseItemView.b
+        public void a(int i) {
+            LiveRoomEntity liveRoomEntity;
+            a g;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (liveRoomEntity = (LiveRoomEntity) la0.b(this.b.topicRoomList, i)) == null || (g = this.a.g()) == null) {
+                return;
+            }
+            g.onItemViewClick(liveRoomEntity, this.c);
+        }
+
+        @Override // com.baidu.live.business.base.LiveBaseItemView.b
+        public void b(int i) {
+            LiveRoomEntity liveRoomEntity;
+            a g;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (liveRoomEntity = (LiveRoomEntity) la0.b(this.b.topicRoomList, i)) == null || (g = this.a.g()) == null) {
+                return;
+            }
+            g.onItemViewShow(liveRoomEntity, this.c);
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public static final class e implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ LiveSubTabAdapter a;
+        public final /* synthetic */ LiveRoomEntity b;
+        public final /* synthetic */ int c;
+
+        public e(LiveSubTabAdapter liveSubTabAdapter, LiveRoomEntity liveRoomEntity, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {liveSubTabAdapter, liveRoomEntity, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = liveSubTabAdapter;
+            this.b = liveRoomEntity;
+            this.c = i;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
-            int i;
+            a g;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                LiveRoomEntity liveRoomEntity = this.b;
-                String str = "";
-                String str2 = (liveRoomEntity == null || (str2 = liveRoomEntity.cmd) == null) ? "" : "";
-                LiveRoomEntity liveRoomEntity2 = this.b;
-                if (!TextUtils.isEmpty(liveRoomEntity2 != null ? liveRoomEntity2.beginTime : null)) {
-                    String b = new z80(str2).b("params");
-                    boolean z = true;
-                    if (!(b == null || b.length() == 0)) {
-                        try {
-                            JSONObject jSONObject = new JSONObject(URLDecoder.decode(b, "UTF-8"));
-                            JSONObject optJSONObject = jSONObject.optJSONObject("extLog");
-                            if (optJSONObject == null) {
-                                optJSONObject = new JSONObject();
-                            }
-                            LiveRoomEntity liveRoomEntity3 = this.b;
-                            optJSONObject.put("live_union_id", liveRoomEntity3 != null ? liveRoomEntity3.beginTime : null);
-                            optJSONObject.put("auto_play", "1");
-                            jSONObject.put("extLog", optJSONObject);
-                            String removedUrl = a90.a(str2, "params");
-                            Intrinsics.checkNotNullExpressionValue(removedUrl, "removedUrl");
-                            int indexOf$default = StringsKt__StringsKt.indexOf$default((CharSequence) removedUrl, "?", 0, false, 6, (Object) null);
-                            if (removedUrl != null) {
-                                String substring = removedUrl.substring(0, indexOf$default);
-                                Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
-                                if (StringsKt__StringsKt.indexOf$default((CharSequence) removedUrl, "?", 0, false, 6, (Object) null) + 1 < removedUrl.length()) {
-                                    str = removedUrl.substring(StringsKt__StringsKt.indexOf$default((CharSequence) removedUrl, "?", 0, false, 6, (Object) null) + 1, removedUrl.length());
-                                    Intrinsics.checkNotNullExpressionValue(str, "(this as java.lang.Strin…ing(startIndex, endIndex)");
-                                }
-                                String encode = URLEncoder.encode(jSONObject.toString());
-                                StringBuilder sb = new StringBuilder();
-                                sb.append(substring);
-                                sb.append("?params=" + encode);
-                                if (str.length() <= 0) {
-                                    z = false;
-                                }
-                                if (z) {
-                                    sb.append(str);
-                                }
-                                String sb2 = sb.toString();
-                                Intrinsics.checkNotNullExpressionValue(sb2, "newScheme.toString()");
-                                str2 = sb2;
-                            } else {
-                                throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
-                            }
-                        } catch (Throwable th) {
-                            th.printStackTrace();
-                        }
-                    }
-                }
-                LiveFeedPageSdk.m("FeedItemClick: position: " + this.c + "  scheme: " + str2);
-                LiveFeedPageSdk f = LiveFeedPageSdk.f();
-                Intrinsics.checkNotNullExpressionValue(f, "LiveFeedPageSdk.getInstance()");
-                if (f.g() == null || (i = this.c) < 0 || i >= this.a.a.size()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (g = this.a.g()) == null) {
+                return;
+            }
+            g.onItemViewClick(this.b, this.c);
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public static final class f implements LiveBaseItemView.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ LiveSubTabAdapter a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ LiveRoomEntity c;
+
+        public f(LiveSubTabAdapter liveSubTabAdapter, int i, LiveRoomEntity liveRoomEntity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {liveSubTabAdapter, Integer.valueOf(i), liveRoomEntity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                View view3 = this.d.itemView;
-                Intrinsics.checkNotNullExpressionValue(view3, "holder.itemView");
-                if (view3.getContext() != null) {
-                    LiveFeedPageSdk f2 = LiveFeedPageSdk.f();
-                    Intrinsics.checkNotNullExpressionValue(f2, "LiveFeedPageSdk.getInstance()");
-                    j90 g = f2.g();
-                    if (g != null) {
-                        View view4 = this.d.itemView;
-                        Intrinsics.checkNotNullExpressionValue(view4, "holder.itemView");
-                        g.invokeScheme(view4.getContext(), str2);
-                    }
-                    LiveSubTabAdapter liveSubTabAdapter = this.a;
-                    LiveRoomEntity liveRoomEntity4 = this.b;
-                    View view5 = this.d.itemView;
-                    Intrinsics.checkNotNullExpressionValue(view5, "holder.itemView");
-                    Context context = view5.getContext();
-                    Intrinsics.checkNotNullExpressionValue(context, "holder.itemView.context");
-                    liveSubTabAdapter.h(false, liveRoomEntity4, context, this.c);
-                }
             }
+            this.a = liveSubTabAdapter;
+            this.b = i;
+            this.c = liveRoomEntity;
+        }
+
+        @Override // com.baidu.live.business.base.LiveBaseItemView.a
+        public final void a(String it) {
+            a g;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, it) == null) || n80.a() || (g = this.a.g()) == null) {
+                return;
+            }
+            Intrinsics.checkExpressionValueIsNotNull(it, "it");
+            g.onItemLabelClickListener(it, this.b, this.c);
         }
     }
 
@@ -186,12 +304,12 @@ public final class LiveSubTabAdapter extends RecyclerView.Adapter<LiveFeedBaseHo
         }
     }
 
-    public LiveSubTabAdapter(Context context, boolean z, String source, String secondLevelTab, String thirdLevelTab) {
+    public LiveSubTabAdapter(Context context, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z), source, secondLevelTab, thirdLevelTab};
+            Object[] objArr = {context, str, str2, str3};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -201,77 +319,42 @@ public final class LiveSubTabAdapter extends RecyclerView.Adapter<LiveFeedBaseHo
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        Intrinsics.checkNotNullParameter(source, "source");
-        Intrinsics.checkNotNullParameter(secondLevelTab, "secondLevelTab");
-        Intrinsics.checkNotNullParameter(thirdLevelTab, "thirdLevelTab");
-        this.d = context;
-        this.e = z;
-        this.f = source;
-        this.g = secondLevelTab;
-        this.h = thirdLevelTab;
+        this.g = context;
+        this.h = str;
+        this.i = str2;
+        this.j = str3;
         this.a = new ArrayList<>();
+        this.f = new b(this);
     }
 
-    public final void f(List<? extends LiveRoomEntity> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || list == null) {
-            return;
+    public static /* synthetic */ void f(LiveSubTabAdapter liveSubTabAdapter, List list, String str, int i, Object obj) {
+        if ((i & 2) != 0) {
+            str = null;
         }
-        this.a.clear();
-        this.a.addAll(list);
-        notifyDataSetChanged();
+        liveSubTabAdapter.e(list, str);
     }
 
-    public final void g(LiveFeedBaseHolder liveFeedBaseHolder) {
-        LiveBaseItemView liveBaseItemView;
+    public final void e(List<? extends LiveRoomEntity> list, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, liveFeedBaseHolder) == null) && (liveBaseItemView = liveFeedBaseHolder.a) != null && (liveBaseItemView instanceof LiveLoadMoreView)) {
-            if (liveBaseItemView != null) {
-                ((LiveLoadMoreView) liveBaseItemView).e(this.e);
-                if (this.b) {
-                    LiveBaseItemView liveBaseItemView2 = liveFeedBaseHolder.a;
-                    if (liveBaseItemView2 != null) {
-                        ((LiveLoadMoreView) liveBaseItemView2).setLoadMoreLabel(R.string.obfuscated_res_0x7f0f09e6);
-                        LiveBaseItemView liveBaseItemView3 = liveFeedBaseHolder.a;
-                        if (liveBaseItemView3 == null) {
-                            throw new NullPointerException("null cannot be cast to non-null type com.baidu.live.business.LiveLoadMoreView");
-                        }
-                        ((LiveLoadMoreView) liveBaseItemView3).setAnimViewVisibility(0);
-                        return;
-                    }
-                    throw new NullPointerException("null cannot be cast to non-null type com.baidu.live.business.LiveLoadMoreView");
-                }
-                LiveFeedPageSdk f = LiveFeedPageSdk.f();
-                Intrinsics.checkNotNullExpressionValue(f, "LiveFeedPageSdk.getInstance()");
-                if (Intrinsics.areEqual("quanmin", f.e())) {
-                    LiveBaseItemView liveBaseItemView4 = liveFeedBaseHolder.a;
-                    if (liveBaseItemView4 == null) {
-                        throw new NullPointerException("null cannot be cast to non-null type com.baidu.live.business.LiveLoadMoreView");
-                    }
-                    ((LiveLoadMoreView) liveBaseItemView4).setLoadMoreLabel(R.string.obfuscated_res_0x7f0f09e8);
-                } else {
-                    LiveBaseItemView liveBaseItemView5 = liveFeedBaseHolder.a;
-                    if (liveBaseItemView5 == null) {
-                        throw new NullPointerException("null cannot be cast to non-null type com.baidu.live.business.LiveLoadMoreView");
-                    }
-                    ((LiveLoadMoreView) liveBaseItemView5).setLoadMoreLabel(R.string.obfuscated_res_0x7f0f09e7);
-                }
-                LiveBaseItemView liveBaseItemView6 = liveFeedBaseHolder.a;
-                if (liveBaseItemView6 == null) {
-                    throw new NullPointerException("null cannot be cast to non-null type com.baidu.live.business.LiveLoadMoreView");
-                }
-                ((LiveLoadMoreView) liveBaseItemView6).setAnimViewVisibility(8);
-                return;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, list, str) == null) {
+            updateData(list);
+            if (!Intrinsics.areEqual(this.d, str)) {
+                this.d = str;
             }
-            throw new NullPointerException("null cannot be cast to non-null type com.baidu.live.business.LiveLoadMoreView");
+            notifyDataSetChanged();
         }
+    }
+
+    public final a g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (a) invokeV.objValue;
     }
 
     public final Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : (Context) invokeV.objValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -294,153 +377,280 @@ public final class LiveSubTabAdapter extends RecyclerView.Adapter<LiveFeedBaseHo
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
             if (i + 1 < getItemCount()) {
-                return this.a.get(i).showTpl;
+                LiveRoomEntity liveRoomEntity = this.a.get(i);
+                Intrinsics.checkExpressionValueIsNotNull(liveRoomEntity, "mList[position]");
+                LiveRoomEntity liveRoomEntity2 = liveRoomEntity;
+                if (this.a.get(i).reserveHeaderInfo != null) {
+                    return -2;
+                }
+                if (liveRoomEntity2.isTopicRoom()) {
+                    return h(liveRoomEntity2);
+                }
+                return liveRoomEntity2.showTpl;
             }
             return -1;
         }
         return invokeI.intValue;
     }
 
-    public final void h(boolean z, LiveRoomEntity liveRoomEntity, Context context, int i) {
+    public final int h(LiveRoomEntity liveRoomEntity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), liveRoomEntity, context, Integer.valueOf(i)}) == null) {
-            if (liveRoomEntity.needLogShow || !z) {
-                u80.c(liveRoomEntity.nid, z, !z);
-                String str = this.e ? "chenjinshi" : "zhibopindao";
-                if (z) {
-                    e80.v(context, this.f, str, i + 1, this.g, this.h, liveRoomEntity);
-                } else {
-                    e80.p(context, this.f, str, i + 1, this.g, this.h, liveRoomEntity);
-                }
-                liveRoomEntity.needLogShow = false;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, liveRoomEntity)) == null) {
+            int topicItemShowTpl = liveRoomEntity.getTopicItemShowTpl();
+            return (topicItemShowTpl == 2 || topicItemShowTpl == 1) ? 5 : 6;
         }
+        return invokeL.intValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: i */
-    public void onBindViewHolder(LiveFeedBaseHolder holder, int i) {
+    public final void i(LiveFeedBaseHolder liveFeedBaseHolder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, holder, i) == null) {
-            Intrinsics.checkNotNullParameter(holder, "holder");
-            int i2 = i + 1;
-            if (i2 < getItemCount()) {
-                LiveRoomEntity liveRoomEntity = this.a.get(i);
-                Intrinsics.checkNotNullExpressionValue(liveRoomEntity, "mList[position]");
-                LiveRoomEntity liveRoomEntity2 = liveRoomEntity;
-                holder.a.setData(liveRoomEntity2, i);
-                holder.itemView.setOnClickListener(new b(this, liveRoomEntity2, i, holder));
-                View view2 = holder.itemView;
-                Intrinsics.checkNotNullExpressionValue(view2, "holder.itemView");
-                Context context = view2.getContext();
-                Intrinsics.checkNotNullExpressionValue(context, "holder.itemView.context");
-                h(true, liveRoomEntity2, context, i);
-            } else if (i2 == getItemCount()) {
-                g(holder);
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, liveFeedBaseHolder) == null) || liveFeedBaseHolder.a == null) {
+            return;
+        }
+        if (Intrinsics.areEqual(this.h, LiveFeedPageSdk.VIDEO_BAR)) {
+            LiveBaseItemView liveBaseItemView = liveFeedBaseHolder.a;
+            if (liveBaseItemView != null) {
+                ((LiveLoadMoreView) liveBaseItemView).setVisibility(8);
+                LiveBaseItemView liveBaseItemView2 = liveFeedBaseHolder.a;
+                if (liveBaseItemView2 == null) {
+                    throw new TypeCastException("null cannot be cast to non-null type com.baidu.live.business.LiveLoadMoreView");
+                }
+                ((LiveLoadMoreView) liveBaseItemView2).d();
+                return;
             }
+            throw new TypeCastException("null cannot be cast to non-null type com.baidu.live.business.LiveLoadMoreView");
+        }
+        LiveBaseItemView liveBaseItemView3 = liveFeedBaseHolder.a;
+        if (liveBaseItemView3 instanceof LiveLoadMoreView) {
+            if (liveBaseItemView3 != null) {
+                ((LiveLoadMoreView) liveBaseItemView3).f(this.h);
+                if (this.b) {
+                    LiveBaseItemView liveBaseItemView4 = liveFeedBaseHolder.a;
+                    if (liveBaseItemView4 != null) {
+                        ((LiveLoadMoreView) liveBaseItemView4).setLoadMoreLabel(R.string.obfuscated_res_0x7f0f09fe);
+                        LiveBaseItemView liveBaseItemView5 = liveFeedBaseHolder.a;
+                        if (liveBaseItemView5 == null) {
+                            throw new TypeCastException("null cannot be cast to non-null type com.baidu.live.business.LiveLoadMoreView");
+                        }
+                        ((LiveLoadMoreView) liveBaseItemView5).setAnimViewVisibility(0);
+                        return;
+                    }
+                    throw new TypeCastException("null cannot be cast to non-null type com.baidu.live.business.LiveLoadMoreView");
+                }
+                LiveFeedPageSdk liveFeedPageSdk = LiveFeedPageSdk.getInstance();
+                Intrinsics.checkExpressionValueIsNotNull(liveFeedPageSdk, "LiveFeedPageSdk.getInstance()");
+                if (Intrinsics.areEqual(LiveFeedPageSdk.HOST_QUANMIN, liveFeedPageSdk.getHost())) {
+                    LiveBaseItemView liveBaseItemView6 = liveFeedBaseHolder.a;
+                    if (liveBaseItemView6 == null) {
+                        throw new TypeCastException("null cannot be cast to non-null type com.baidu.live.business.LiveLoadMoreView");
+                    }
+                    ((LiveLoadMoreView) liveBaseItemView6).setLoadMoreLabel(R.string.obfuscated_res_0x7f0f0a00);
+                } else {
+                    LiveBaseItemView liveBaseItemView7 = liveFeedBaseHolder.a;
+                    if (liveBaseItemView7 == null) {
+                        throw new TypeCastException("null cannot be cast to non-null type com.baidu.live.business.LiveLoadMoreView");
+                    }
+                    ((LiveLoadMoreView) liveBaseItemView7).setLoadMoreLabel(R.string.obfuscated_res_0x7f0f09ff);
+                }
+                LiveBaseItemView liveBaseItemView8 = liveFeedBaseHolder.a;
+                if (liveBaseItemView8 == null) {
+                    throw new TypeCastException("null cannot be cast to non-null type com.baidu.live.business.LiveLoadMoreView");
+                }
+                ((LiveLoadMoreView) liveBaseItemView8).setAnimViewVisibility(8);
+                return;
+            }
+            throw new TypeCastException("null cannot be cast to non-null type com.baidu.live.business.LiveLoadMoreView");
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: j */
-    public LiveFeedBaseHolder onCreateViewHolder(ViewGroup parent, int i) {
+    public LiveFeedBaseHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, parent, i)) == null) {
-            Intrinsics.checkNotNullParameter(parent, "parent");
-            if (i == -1) {
-                LiveLoadMoreView liveLoadMoreView = new LiveLoadMoreView(this.d);
-                liveLoadMoreView.e(this.e);
-                Unit unit = Unit.INSTANCE;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, viewGroup, i)) == null) {
+            if (i == -2) {
+                LiveReserveHeaderView liveReserveHeaderView = new LiveReserveHeaderView(this.g);
+                liveReserveHeaderView.setScene(this.h);
+                ab0 f2 = ab0.f();
+                Intrinsics.checkExpressionValueIsNotNull(f2, "UIModeUtils.getInstance()");
+                liveReserveHeaderView.f(f2.q());
+                return new LiveFeedBaseHolder(liveReserveHeaderView);
+            } else if (i == -1) {
+                LiveLoadMoreView liveLoadMoreView = new LiveLoadMoreView(this.g);
+                liveLoadMoreView.f(this.h);
                 return new LiveFeedBaseHolder(liveLoadMoreView);
             } else if (i == 1) {
-                Live4Ratio5ItemView live4Ratio5ItemView = new Live4Ratio5ItemView(this.d);
-                live4Ratio5ItemView.setIsImmersion(this.e);
-                Unit unit2 = Unit.INSTANCE;
+                Live4Ratio5ItemView live4Ratio5ItemView = new Live4Ratio5ItemView(this.g);
+                live4Ratio5ItemView.setScene(this.h);
+                live4Ratio5ItemView.setFeedConfig(this.c);
                 return new LiveFeedBaseHolder(live4Ratio5ItemView);
-            } else if (i != 2) {
-                Live16Ratio9ItemView live16Ratio9ItemView = new Live16Ratio9ItemView(this.d);
-                live16Ratio9ItemView.setIsImmersion(this.e);
-                Unit unit3 = Unit.INSTANCE;
+            } else if (i == 2) {
+                Live4Ratio5ItemView live4Ratio5ItemView2 = new Live4Ratio5ItemView(this.g);
+                live4Ratio5ItemView2.setScene(this.h);
+                live4Ratio5ItemView2.setFeedConfig(this.c);
+                return new LiveFeedBaseHolder(live4Ratio5ItemView2);
+            } else if (i == 4) {
+                Live4Ratio5BannerItemView live4Ratio5BannerItemView = new Live4Ratio5BannerItemView(this.g);
+                live4Ratio5BannerItemView.setScene(this.h);
+                live4Ratio5BannerItemView.setBannerClickListener(this.f);
+                return new LiveFeedBaseHolder(live4Ratio5BannerItemView);
+            } else if (i == 5) {
+                Live4Ratio5TopicView live4Ratio5TopicView = new Live4Ratio5TopicView(this.g);
+                live4Ratio5TopicView.setScene(this.h);
+                live4Ratio5TopicView.setFeedConfig(this.c);
+                return new LiveFeedBaseHolder(live4Ratio5TopicView);
+            } else if (i != 6) {
+                Live16Ratio9ItemView live16Ratio9ItemView = new Live16Ratio9ItemView(this.g);
+                live16Ratio9ItemView.setScene(this.h);
+                live16Ratio9ItemView.setFeedConfig(this.c);
                 return new LiveFeedBaseHolder(live16Ratio9ItemView);
             } else {
-                Live4Ratio5ItemView live4Ratio5ItemView2 = new Live4Ratio5ItemView(this.d);
-                live4Ratio5ItemView2.setIsImmersion(this.e);
-                Unit unit4 = Unit.INSTANCE;
-                return new LiveFeedBaseHolder(live4Ratio5ItemView2);
+                Live16Ratio9TopicView live16Ratio9TopicView = new Live16Ratio9TopicView(this.g);
+                live16Ratio9TopicView.setScene(this.h);
+                live16Ratio9TopicView.setFeedConfig(this.c);
+                return new LiveFeedBaseHolder(live16Ratio9TopicView);
             }
         }
         return (LiveFeedBaseHolder) invokeLI.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: k */
-    public void onViewAttachedToWindow(LiveFeedBaseHolder holder) {
+    public final void k(LiveFeedConfig liveFeedConfig) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, holder) == null) {
-            Intrinsics.checkNotNullParameter(holder, "holder");
-            super.onViewAttachedToWindow(holder);
-            View view2 = holder.itemView;
-            Intrinsics.checkNotNullExpressionValue(view2, "holder.itemView");
-            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-            Intrinsics.checkNotNullExpressionValue(layoutParams, "holder.itemView.layoutParams");
-            if (layoutParams != null && (layoutParams instanceof StaggeredGridLayoutManager.LayoutParams) && getItemViewType(holder.getLayoutPosition()) == -1) {
-                ((StaggeredGridLayoutManager.LayoutParams) layoutParams).setFullSpan(true);
-            }
-            holder.a();
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, liveFeedConfig) == null) {
+            this.c = liveFeedConfig;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: l */
-    public void onViewDetachedFromWindow(LiveFeedBaseHolder holder) {
+    public final void l(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, holder) == null) {
-            Intrinsics.checkNotNullParameter(holder, "holder");
-            super.onViewDetachedFromWindow(holder);
-            holder.b();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: m */
-    public void onViewRecycled(LiveFeedBaseHolder holder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, holder) == null) {
-            Intrinsics.checkNotNullParameter(holder, "holder");
-            super.onViewRecycled(holder);
-            holder.c();
-            a aVar = this.c;
-            if (aVar != null) {
-                aVar.a(holder.getAdapterPosition());
-            }
-        }
-    }
-
-    public final void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             this.b = z;
         }
     }
 
-    public final void o(a aVar) {
+    public final void m(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
-            this.c = aVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
+            this.e = aVar;
         }
     }
 
-    public final void p(String str) {
+    public final void n(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.h = str;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.j = str;
         }
+    }
+
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048588, this, viewHolder, i) == null) {
+            LiveFeedBaseHolder liveFeedBaseHolder = (LiveFeedBaseHolder) viewHolder;
+            if (liveFeedBaseHolder.getItemViewType() == -2) {
+                LiveBaseItemView liveBaseItemView = liveFeedBaseHolder.a;
+                if (liveBaseItemView instanceof LiveReserveHeaderView) {
+                    if (liveBaseItemView != null) {
+                        ((LiveReserveHeaderView) liveBaseItemView).setData(this.a.get(i).reserveHeaderInfo);
+                        LiveBaseItemView liveBaseItemView2 = liveFeedBaseHolder.a;
+                        if (liveBaseItemView2 != null) {
+                            ab0 f2 = ab0.f();
+                            Intrinsics.checkExpressionValueIsNotNull(f2, "UIModeUtils.getInstance()");
+                            ((LiveReserveHeaderView) liveBaseItemView2).f(f2.q());
+                            LiveBaseItemView liveBaseItemView3 = liveFeedBaseHolder.a;
+                            if (liveBaseItemView3 == null) {
+                                throw new TypeCastException("null cannot be cast to non-null type com.baidu.live.business.LiveReserveHeaderView");
+                            }
+                            ((LiveReserveHeaderView) liveBaseItemView3).setOnClickListener(new c(this, i, viewHolder));
+                            return;
+                        }
+                        throw new TypeCastException("null cannot be cast to non-null type com.baidu.live.business.LiveReserveHeaderView");
+                    }
+                    throw new TypeCastException("null cannot be cast to non-null type com.baidu.live.business.LiveReserveHeaderView");
+                }
+                return;
+            }
+            int i2 = i + 1;
+            if (i2 < getItemCount()) {
+                LiveRoomEntity liveRoomEntity = this.a.get(i);
+                LiveRoomEntity liveRoomEntity2 = liveRoomEntity;
+                liveRoomEntity2.belongSubTab = this.i;
+                liveRoomEntity2.belongThirdTab = this.j;
+                Intrinsics.checkExpressionValueIsNotNull(liveRoomEntity, "mList[position].apply {\n…irdLevelTab\n            }");
+                liveFeedBaseHolder.a.setData(liveRoomEntity2, i);
+                liveFeedBaseHolder.a.setIsCurViewing(Intrinsics.areEqual(this.d, liveRoomEntity2.roomId));
+                if (liveFeedBaseHolder.getItemViewType() != 5 && liveFeedBaseHolder.getItemViewType() != 6) {
+                    viewHolder.itemView.setOnClickListener(new e(this, liveRoomEntity2, i));
+                    a aVar = this.e;
+                    if (aVar != null) {
+                        aVar.onItemViewShow(liveRoomEntity2, i);
+                    }
+                } else {
+                    liveFeedBaseHolder.a.setOnTopicItemClickListener(new d(this, liveRoomEntity2, i));
+                }
+                liveFeedBaseHolder.a.setOnLabelClickListener(new f(this, i, liveRoomEntity2));
+            } else if (i2 == getItemCount()) {
+                i(liveFeedBaseHolder);
+            }
+        }
+    }
+
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    public void onViewAttachedToWindow(RecyclerView.ViewHolder viewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, viewHolder) == null) {
+            super.onViewAttachedToWindow(viewHolder);
+            View view2 = viewHolder.itemView;
+            Intrinsics.checkExpressionValueIsNotNull(view2, "holder.itemView");
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            Intrinsics.checkExpressionValueIsNotNull(layoutParams, "holder.itemView.layoutParams");
+            if (layoutParams != null && (layoutParams instanceof StaggeredGridLayoutManager.LayoutParams)) {
+                int layoutPosition = viewHolder.getLayoutPosition();
+                if (getItemViewType(layoutPosition) == -2 || getItemViewType(layoutPosition) == -1) {
+                    ((StaggeredGridLayoutManager.LayoutParams) layoutParams).setFullSpan(true);
+                }
+            }
+            if (viewHolder instanceof LiveFeedBaseHolder) {
+                ((LiveFeedBaseHolder) viewHolder).a();
+            }
+        }
+    }
+
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    public void onViewDetachedFromWindow(RecyclerView.ViewHolder viewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, viewHolder) == null) {
+            super.onViewDetachedFromWindow(viewHolder);
+            if (viewHolder instanceof LiveFeedBaseHolder) {
+                ((LiveFeedBaseHolder) viewHolder).b();
+            }
+        }
+    }
+
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    public void onViewRecycled(RecyclerView.ViewHolder viewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, viewHolder) == null) {
+            super.onViewRecycled(viewHolder);
+            if (viewHolder instanceof LiveFeedBaseHolder) {
+                ((LiveFeedBaseHolder) viewHolder).c();
+            }
+            a aVar = this.e;
+            if (aVar != null) {
+                aVar.onItemViewRecycled(viewHolder.getAdapterPosition());
+            }
+        }
+    }
+
+    public final void updateData(List<? extends LiveRoomEntity> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, list) == null) || list == null) {
+            return;
+        }
+        this.a.clear();
+        this.a.addAll(list);
     }
 }

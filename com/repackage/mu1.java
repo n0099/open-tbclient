@@ -8,10 +8,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class mu1 extends ot1 {
+public class mu1 extends fu1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
     public mu1() {
         Interceptable interceptable = $ic;
@@ -27,29 +26,18 @@ public class mu1 extends ot1 {
         }
     }
 
-    @Override // com.repackage.ot1
-    public void a(pt1 pt1Var, Canvas canvas) {
-        int i;
+    @Override // com.repackage.fu1
+    public void a(gu1 gu1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, pt1Var, canvas) == null) || (i = this.a) <= 0) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, gu1Var, canvas) == null) {
+            gu1Var.f.close();
         }
-        pt1Var.e.setTextSize(i);
     }
 
-    @Override // com.repackage.ot1
+    @Override // com.repackage.fu1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() > 0) {
-                    this.a = zd3.g((float) jSONArray.optDouble(0));
-                }
-            } catch (Exception e) {
-                if (sg1.a) {
-                    e.printStackTrace();
-                }
-            }
         }
     }
 }

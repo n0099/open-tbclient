@@ -1,12 +1,15 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.FrameHelper;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.InvalidParameterException;
 /* loaded from: classes7.dex */
-public abstract class sa extends va<byte[]> {
+public abstract class sa extends ua<HttpMessage, HttpMessageTask> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,9 +31,8 @@ public abstract class sa extends va<byte[]> {
                 return;
             }
         }
+        if (i != 0 && FrameHelper.e(i) != FrameHelper.TYPE.HTTP) {
+            throw new InvalidParameterException("cmd invalid");
+        }
     }
-
-    public abstract void a(int i, BdUniqueId bdUniqueId);
-
-    public abstract void b(BdUniqueId bdUniqueId);
 }

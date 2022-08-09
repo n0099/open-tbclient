@@ -38,13 +38,13 @@ public class h {
         public static final a a;
 
         /* renamed from: a  reason: collision with other field name */
-        public static final /* synthetic */ a[] f450a;
+        public static final /* synthetic */ a[] f451a;
         public static final a b;
         public static final a c;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with other field name */
-        public final int f451a;
+        public final int f452a;
 
         static {
             InterceptResult invokeClinit;
@@ -63,7 +63,7 @@ public class h {
             b = new a("ALLOWED", 1, 1);
             a aVar = new a("NOT_ALLOWED", 2, 2);
             c = aVar;
-            f450a = new a[]{a, b, aVar};
+            f451a = new a[]{a, b, aVar};
         }
 
         public a(String str, int i, int i2) {
@@ -84,7 +84,7 @@ public class h {
                     return;
                 }
             }
-            this.f451a = i2;
+            this.f452a = i2;
         }
 
         public static a valueOf(String str) {
@@ -96,13 +96,13 @@ public class h {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f450a.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f451a.clone() : (a[]) invokeV.objValue;
         }
 
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f451a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f452a : invokeV.intValue;
         }
     }
 

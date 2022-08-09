@@ -1,76 +1,28 @@
 package com.repackage;
 
+import androidx.core.app.NotificationManagerCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.aggregation.VideoAggregationModel;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class kg6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fg6 a;
-    public String b;
-    public VideoAggregationModel c;
-    public boolean d;
-    public VideoAggregationModel.c e;
+    public i05 a;
+    public FrsActivity b;
 
-    /* loaded from: classes6.dex */
-    public class a implements VideoAggregationModel.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kg6 a;
-
-        public a(kg6 kg6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kg6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = kg6Var;
-        }
-
-        @Override // com.baidu.tieba.frs.aggregation.VideoAggregationModel.c
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.a.a == null) {
-                return;
-            }
-            this.a.a.m();
-            this.a.a.k(str);
-            this.a.a.onLoadFail();
-        }
-
-        @Override // com.baidu.tieba.frs.aggregation.VideoAggregationModel.c
-        public void b(List<ig6> list, boolean z, boolean z2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{list, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.a.a == null) {
-                return;
-            }
-            this.a.a.m();
-            this.a.d = z2;
-            this.a.a.O0(list, z, z2);
-        }
-    }
-
-    public kg6(TbPageContext tbPageContext, fg6 fg6Var) {
+    public kg6(FrsActivity frsActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, fg6Var};
+            Object[] objArr = {frsActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -80,73 +32,44 @@ public class kg6 {
                 return;
             }
         }
-        a aVar = new a(this);
-        this.e = aVar;
-        this.a = fg6Var;
-        this.c = new VideoAggregationModel(tbPageContext, aVar);
+        this.b = frsActivity;
     }
 
-    public void c() {
-        VideoAggregationModel videoAggregationModel;
+    public void a() {
+        i05 i05Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (videoAggregationModel = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (i05Var = this.a) == null) {
             return;
         }
-        videoAggregationModel.cancelLoadData();
+        i05Var.q();
     }
 
-    public void d() {
-        VideoAggregationModel videoAggregationModel;
+    public void b() {
+        FrsActivity frsActivity;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (videoAggregationModel = this.c) != null && this.d) {
-            videoAggregationModel.loadData();
-        }
-    }
-
-    public void e() {
-        VideoAggregationModel videoAggregationModel;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (videoAggregationModel = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (frsActivity = this.b) == null || frsActivity.getPageContext() == null) {
             return;
         }
-        videoAggregationModel.E();
-    }
-
-    public void f(String str) {
-        VideoAggregationModel videoAggregationModel;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (videoAggregationModel = this.c) == null) {
-            return;
-        }
-        videoAggregationModel.setFrom(str);
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.b = str;
-            VideoAggregationModel videoAggregationModel = this.c;
-            if (videoAggregationModel != null) {
-                videoAggregationModel.F(str);
+        boolean z = false;
+        if (UbsABTestHelper.isPushOpenNewStyle()) {
+            if (NotificationManagerCompat.from(TbadkCoreApplication.getInst()).areNotificationsEnabled() || !j05.g(TbadkCoreApplication.getInst(), 0)) {
+                return;
             }
+            FrsActivity frsActivity2 = this.b;
+            if (frsActivity2 != null && frsActivity2.K0() != null) {
+                z = this.b.K0().F;
+            }
+            HashMap hashMap = new HashMap();
+            if (z) {
+                hashMap.put("view_params_key_style", "short");
+            }
+            i05 i05Var = this.a;
+            if (i05Var != null) {
+                i05Var.q();
+            }
+            this.a = j05.j(this.b.getPageContext(), "forum_follow", 2000L, hashMap);
+        } else if (g05.g(this.b, 0)) {
+            g05.i(this.b.getPageContext(), 4, 2000L);
         }
-    }
-
-    public void h(String str) {
-        VideoAggregationModel videoAggregationModel;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (videoAggregationModel = this.c) == null) {
-            return;
-        }
-        videoAggregationModel.G(str);
-    }
-
-    public void i(String str) {
-        VideoAggregationModel videoAggregationModel;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (videoAggregationModel = this.c) == null) {
-            return;
-        }
-        videoAggregationModel.H(str);
     }
 }

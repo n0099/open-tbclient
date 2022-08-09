@@ -1,106 +1,74 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.http.callback.StringResponseCallback;
-import com.baidu.searchbox.http.request.PostFormRequest;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import android.content.Context;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.TreeMap;
 /* loaded from: classes7.dex */
 public class s34 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a extends StringResponseCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            }
-        }
-    }
-
-    public static Map<String, String> a(@NonNull i03 i03Var, int i, String str) {
-        InterceptResult invokeLIL;
+    public static boolean a(View view2, fr2 fr2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, i03Var, i, str)) == null) {
-            TreeMap treeMap = new TreeMap();
-            treeMap.put(GameGuideConfigInfo.KEY_APP_KEY, i03Var.O());
-            treeMap.put("to_app_key", str);
-            treeMap.put("source", String.valueOf(i));
-            treeMap.put("timestamp", c());
-            StringBuilder sb = new StringBuilder();
-            for (String str2 : treeMap.keySet()) {
-                sb.append(str2);
-                sb.append("=");
-                sb.append((String) treeMap.get(str2));
-                sb.append("&");
-            }
-            sb.append("dsb9Ao44");
-            treeMap.put("sign", mg4.d(sb.toString().getBytes(), false));
-            return treeMap;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, fr2Var)) == null) {
+            qi1 X = mm2.U().X();
+            return X != null && X.c(view2, fr2Var);
         }
-        return (Map) invokeLIL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public static void b(int i, @NonNull ResponseCallback responseCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65537, null, i, responseCallback) == null) {
-            i03 M = i03.M();
-            if (M == null) {
-                responseCallback.onFail(new Exception("framework error: swan app is null."));
-                return;
-            }
-            M.i0().getRequest().cookieManager(pj2.q().a()).url(yw3.b().p()).addUrlParam(GameGuideConfigInfo.KEY_APP_KEY, M.O()).addUrlParam(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(5)).addUrlParam("source", String.valueOf(i)).requestFrom(16).requestFrom(1607).build().executeAsync(responseCallback);
-        }
-    }
-
-    public static String c() {
+    public static Context b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? String.valueOf(System.currentTimeMillis() / 1000) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            qi1 X = mm2.U().X();
+            if (X != null) {
+                return X.getContext();
+            }
+            return null;
+        }
+        return (Context) invokeV.objValue;
     }
 
-    public static void d(int i, String str) {
-        i03 M;
+    public static void c(yf3 yf3Var) {
+        qi1 X;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(65539, null, i, str) == null) || (M = i03.M()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65538, null, yf3Var) == null) || (X = mm2.U().X()) == null) {
             return;
         }
-        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) M.i0().postFormRequest().cookieManager(pj2.q().a())).url(yw3.b().g())).addParams(a(M, i, str)).requestFrom(16)).requestFrom(1607)).build().executeAsync(new a());
+        X.e(yf3Var);
+    }
+
+    public static boolean d(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
+            qi1 X = mm2.U().X();
+            return X != null && X.removeView(view2);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void e(yf3 yf3Var) {
+        qi1 X;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, yf3Var) == null) || (X = mm2.U().X()) == null) {
+            return;
+        }
+        X.f(yf3Var);
+    }
+
+    public static boolean f(View view2, fr2 fr2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, view2, fr2Var)) == null) {
+            qi1 X = mm2.U().X();
+            return X != null && X.a(view2, fr2Var);
+        }
+        return invokeLL.booleanValue;
     }
 }

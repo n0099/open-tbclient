@@ -98,10 +98,10 @@ public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09225f);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092265);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e54);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922a9);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092369);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092370);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ea0);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b9);
         }
     }
 
@@ -179,7 +179,7 @@ public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
     public c onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) ? new c(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0669, viewGroup, false)) : (c) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) ? new c(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d068c, viewGroup, false)) : (c) invokeLI.objValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter

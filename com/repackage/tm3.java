@@ -1,83 +1,128 @@
 package com.repackage;
 
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.imagepipeline.listener.RequestListener;
+import com.facebook.imagepipeline.request.ImageRequest;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class tm3 {
+public final class tm3 implements RequestListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
+    public m52 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755285993, "Lcom/repackage/tm3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755285993, "Lcom/repackage/tm3;");
+    public tm3(m52 m52Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {m52Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        this.a = m52Var;
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    @Override // com.facebook.imagepipeline.producers.ProducerListener
+    public void onProducerEvent(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            Signature b = b(str);
-            if (b == null) {
-                return null;
-            }
-            try {
-                return c(MessageDigest.getInstance("MD5").digest(b.toByteArray()));
-            } catch (NoSuchAlgorithmException e) {
-                e.printStackTrace();
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
         }
-        return (String) invokeL.objValue;
     }
 
-    public static Signature b(String str) {
-        InterceptResult invokeL;
+    @Override // com.facebook.imagepipeline.producers.ProducerListener
+    public void onProducerFinishWithCancellation(String str, String str2, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            try {
-                return AppRuntime.getAppContext().getPackageManager().getPackageInfo(str, 64).signatures[0];
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, map) == null) {
         }
-        return (Signature) invokeL.objValue;
     }
 
-    public static String c(byte[] bArr) {
+    @Override // com.facebook.imagepipeline.producers.ProducerListener
+    public void onProducerFinishWithFailure(String str, String str2, Throwable th, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, th, map) == null) {
+        }
+    }
+
+    @Override // com.facebook.imagepipeline.producers.ProducerListener
+    public void onProducerFinishWithSuccess(String str, String str2, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, map) == null) {
+        }
+    }
+
+    @Override // com.facebook.imagepipeline.producers.ProducerListener
+    public void onProducerStart(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+        }
+    }
+
+    @Override // com.facebook.imagepipeline.listener.RequestListener
+    public void onRequestCancellation(String str) {
+        m52 m52Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (m52Var = this.a) == null) {
+            return;
+        }
+        m52Var.onCancel(str);
+    }
+
+    @Override // com.facebook.imagepipeline.listener.RequestListener
+    public void onRequestFailure(ImageRequest imageRequest, String str, Throwable th, boolean z) {
+        m52 m52Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{imageRequest, str, th, Boolean.valueOf(z)}) == null) || (m52Var = this.a) == null) {
+            return;
+        }
+        m52Var.c(imageRequest, th);
+    }
+
+    @Override // com.facebook.imagepipeline.listener.RequestListener
+    public void onRequestStart(ImageRequest imageRequest, Object obj, String str, boolean z) {
+        m52 m52Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{imageRequest, obj, str, Boolean.valueOf(z)}) == null) || (m52Var = this.a) == null) {
+            return;
+        }
+        m52Var.a(imageRequest);
+    }
+
+    @Override // com.facebook.imagepipeline.listener.RequestListener
+    public void onRequestSuccess(ImageRequest imageRequest, String str, boolean z) {
+        m52 m52Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, imageRequest, str, z) == null) || (m52Var = this.a) == null) {
+            return;
+        }
+        m52Var.b(imageRequest);
+    }
+
+    @Override // com.facebook.imagepipeline.producers.ProducerListener
+    public void onUltimateProducerReached(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048585, this, str, str2, z) == null) {
+        }
+    }
+
+    @Override // com.facebook.imagepipeline.producers.ProducerListener
+    public boolean requiresExtraMap(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            char[] cArr = new char[bArr.length * 2];
-            for (int i = 0; i < bArr.length; i++) {
-                byte b = bArr[i];
-                int i2 = i * 2;
-                char[] cArr2 = a;
-                cArr[i2] = cArr2[(b >>> 4) & 15];
-                cArr[i2 + 1] = cArr2[b & 15];
-            }
-            return new String(cArr);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            return false;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

@@ -21,22 +21,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.bk0;
 import com.repackage.d21;
-import com.repackage.ek0;
-import com.repackage.h21;
-import com.repackage.ik0;
-import com.repackage.t21;
-import com.repackage.v21;
+import com.repackage.f21;
+import com.repackage.fk0;
+import com.repackage.g31;
+import com.repackage.s21;
+import com.repackage.w21;
 /* loaded from: classes2.dex */
-public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callback, ActivityCompat.OnRequestPermissionsResultCallback {
+public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callback, ActivityCompat.OnRequestPermissionsResultCallback, f21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d21 a;
+    public s21 a;
     public boolean b;
     public final Object c;
 
     /* loaded from: classes2.dex */
-    public class a extends ik0<v21> {
+    public class a extends fk0<d21> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsContainer b;
@@ -63,13 +64,13 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ik0
-        public void onEvent(@NonNull v21 v21Var) {
+        @Override // com.repackage.fk0
+        public void onEvent(@NonNull d21 d21Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v21Var) == null) || TextUtils.isEmpty(v21Var.a)) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d21Var) == null) || TextUtils.isEmpty(d21Var.a)) {
                 return;
             }
-            this.b.l(v21Var.a);
+            this.b.n(d21Var.a);
         }
     }
 
@@ -77,12 +78,12 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
     public interface b {
     }
 
-    public AbsContainer(@NonNull d21 d21Var) {
+    public AbsContainer(@NonNull s21 s21Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d21Var};
+            Object[] objArr = {s21Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -94,109 +95,103 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
         }
         this.b = true;
         this.c = new Object();
-        this.a = d21Var;
+        this.a = s21Var;
     }
 
-    public abstract boolean a(MotionEvent motionEvent);
+    public abstract void A();
 
-    public abstract boolean b();
+    @Override // com.repackage.f21
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            A();
+        }
+    }
 
-    public void c() {
+    @Override // com.repackage.f21
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.d();
+            e();
         }
     }
 
-    public void d(b bVar) {
+    public abstract boolean c(MotionEvent motionEvent);
+
+    public abstract boolean d();
+
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a.f();
         }
     }
 
-    public abstract t21 e();
-
-    @NonNull
-    public final Context f() {
-        InterceptResult invokeV;
+    public void f(b bVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? h21.c() : (Context) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
+        }
     }
 
-    public abstract View g();
+    public abstract g31 g();
 
     @NonNull
     public final Activity getActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a.getActivity() : (Activity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a.getActivity() : (Activity) invokeV.objValue;
     }
 
     @NonNull
     public final Resources getResources() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? getActivity().getResources() : (Resources) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? getActivity().getResources() : (Resources) invokeV.objValue;
     }
 
     @NonNull
-    public final Intent h() {
+    public final Context h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a.getIntent() : (Intent) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? w21.b() : (Context) invokeV.objValue;
     }
 
-    public abstract int i();
+    public abstract View i();
 
     @NonNull
-    public final Window j() {
+    public final Intent j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? getActivity().getWindow() : (Window) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.a.getIntent() : (Intent) invokeV.objValue;
     }
 
-    public abstract boolean k();
+    public abstract int k();
 
-    public abstract void l(String str);
-
-    public void m() {
+    @NonNull
+    public final Window l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            t();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? getActivity().getWindow() : (Window) invokeV.objValue;
     }
 
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            ek0.a().unregister(this.c);
-        }
-    }
+    public abstract boolean m();
 
-    public void o() {
+    public abstract void n(String str);
+
+    public void o(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048593, this, i, i2, intent) == null) {
         }
     }
 
     @Override // android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, configuration) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, configuration) == null) {
         }
     }
 
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048594, this, i, keyEvent)) == null) {
-            return false;
-        }
-        return invokeIL.booleanValue;
-    }
-
-    @Override // android.view.KeyEvent.Callback
-    public boolean onKeyLongPress(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048595, this, i, keyEvent)) == null) {
@@ -206,10 +201,20 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
     }
 
     @Override // android.view.KeyEvent.Callback
+    public boolean onKeyLongPress(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048596, this, i, keyEvent)) == null) {
+            return false;
+        }
+        return invokeIL.booleanValue;
+    }
+
+    @Override // android.view.KeyEvent.Callback
     public boolean onKeyMultiple(int i, int i2, KeyEvent keyEvent) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048596, this, i, i2, keyEvent)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048597, this, i, i2, keyEvent)) == null) {
             return false;
         }
         return invokeIIL.booleanValue;
@@ -219,7 +224,7 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
     public boolean onKeyUp(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048597, this, i, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048598, this, i, keyEvent)) == null) {
             return false;
         }
         return invokeIL.booleanValue;
@@ -228,65 +233,83 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
     @Override // android.content.ComponentCallbacks
     public void onLowMemory() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
         }
     }
 
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048599, this, i, strArr, iArr) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048600, this, i, strArr, iArr) == null) {
         }
     }
 
-    public void p(Bundle bundle) {
+    public void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            w();
         }
     }
 
     public void q() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+            bk0.a().unregister(this.c);
         }
     }
 
     public void r() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-        }
-    }
-
-    public void s() {
-        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
         }
     }
 
-    public final void t() {
+    public void s(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            ek0.a().c(this.c, 1, new a(this, v21.class));
+        if (interceptable == null || interceptable.invokeL(1048604, this, bundle) == null) {
         }
     }
 
-    public void u(View view2) {
+    public void t() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, view2) == null) {
-            d21 d21Var = this.a;
-            if (d21Var == null || !d21Var.j()) {
+        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+        }
+    }
+
+    public void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
+        }
+    }
+
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
+        }
+    }
+
+    public final void w() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
+            bk0.a().c(this.c, 1, new a(this, d21.class));
+        }
+    }
+
+    public void x(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048609, this, view2) == null) {
+            s21 s21Var = this.a;
+            if (s21Var == null || !s21Var.q()) {
                 getActivity().setContentView(view2);
             }
         }
     }
 
-    public abstract void v(String str);
+    public abstract void y(String str);
 
-    public void w(boolean z) {
+    public void z(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048611, this, z) == null) {
             this.b = z;
         }
     }
-
-    public abstract void x();
 }

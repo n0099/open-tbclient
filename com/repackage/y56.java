@@ -1,62 +1,110 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.util.SparseArray;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.SocketMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.enterForum.recforum.holder.RecommendThreadHolder;
-import com.baidu.tieba.enterForum.recforum.view.RecommendThreadView;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.Gson;
+import java.util.ArrayList;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class y56 extends an<c66, RecommendThreadHolder> {
+public class y56 extends za {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public r56 a;
+    public SparseArray<String> b;
+    public HashMap<String, String> c;
+    public Gson d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y56(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public y56(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.d = new Gson();
+        a();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: Z */
-    public RecommendThreadHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void a() {
+        int e;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new RecommendThreadHolder(new RecommendThreadView(viewGroup.getContext())) : (RecommendThreadHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, c66 c66Var, RecommendThreadHolder recommendThreadHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, c66Var, recommendThreadHolder})) == null) {
-            recommendThreadHolder.b(c66Var);
-            return recommendThreadHolder.a();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = new SparseArray<>();
+            ArrayList<HttpMessageTask> findHttpTasks = MessageManager.getInstance().findHttpTasks();
+            if (ListUtils.isEmpty(findHttpTasks)) {
+                return;
+            }
+            for (int i = 0; i < findHttpTasks.size(); i++) {
+                String url = findHttpTasks.get(i).getUrl();
+                if (!pi.isEmpty(url) && url.contains("?")) {
+                    String[] split = url.split("[?]");
+                    String str = split[1];
+                    String str2 = split[0];
+                    if (!pi.isEmpty(str) && str.contains("=") && (e = og.e(str.split("[=]")[1], 0)) != 0) {
+                        this.b.put(e, str2.replace(TbConfig.SERVER_ADDRESS, ""));
+                    }
+                }
+            }
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public void b(r56 r56Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r56Var) == null) {
+            this.a = r56Var;
+        }
+    }
+
+    public void c(HashMap<String, String> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
+            this.c = hashMap;
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
+    @Override // com.repackage.ua
+    public /* bridge */ /* synthetic */ SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
+        SocketMessage socketMessage2 = socketMessage;
+        process2(socketMessage2, socketMessageTask);
+        return socketMessage2;
+    }
+
+    /* renamed from: process  reason: avoid collision after fix types in other method */
+    public SocketMessage process2(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
+        InterceptResult invokeLL;
+        HashMap<String, String> hashMap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, socketMessage, socketMessageTask)) == null) {
+            String str = this.b.get(socketMessage.getCmd());
+            if (str != null && (hashMap = this.c) != null && hashMap.get(str) != null && this.a != null) {
+                this.a.a(str, this.d.toJson(this.c.get(str)), this.d.toJson(this.d.toJson(socketMessage.getData())));
+            }
+            return socketMessage;
+        }
+        return (SocketMessage) invokeLL.objValue;
     }
 }

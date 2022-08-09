@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class WXMediaMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_WXAPPMESSAGE = "com.tencent.mm.sdk.openapi.Intent.ACTION_WXAPPMESSAGE";
@@ -34,7 +34,7 @@ public final class WXMediaMessage {
     public byte[] thumbData;
     public String title;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_IDENTIFIER = "_wxobject_identifier_";
@@ -66,7 +66,7 @@ public final class WXMediaMessage {
                 wXMediaMessage.mediaTagName = bundle.getString("_wxobject_mediatagname");
                 wXMediaMessage.messageAction = bundle.getString("_wxobject_message_action");
                 wXMediaMessage.messageExt = bundle.getString("_wxobject_message_ext");
-                String pathOldToNew = pathOldToNew(bundle.getString("_wxobject_identifier_"));
+                String pathOldToNew = pathOldToNew(bundle.getString(KEY_IDENTIFIER));
                 if (pathOldToNew != null && pathOldToNew.length() > 0) {
                     try {
                         IMediaObject iMediaObject = (IMediaObject) Class.forName(pathOldToNew).newInstance();
@@ -74,7 +74,7 @@ public final class WXMediaMessage {
                         iMediaObject.unserialize(bundle);
                         return wXMediaMessage;
                     } catch (Exception e) {
-                        Log.e("MicroMsg.SDK.WXMediaMessage", "get media object from bundle failed: unknown ident " + pathOldToNew + ", ex = " + e.getMessage());
+                        Log.e(WXMediaMessage.TAG, "get media object from bundle failed: unknown ident " + pathOldToNew + ", ex = " + e.getMessage());
                     }
                 }
                 return wXMediaMessage;
@@ -87,7 +87,7 @@ public final class WXMediaMessage {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
                 if (str == null || str.length() == 0) {
-                    Log.e("MicroMsg.SDK.WXMediaMessage", "pathNewToOld fail, newPath is null");
+                    Log.e(WXMediaMessage.TAG, "pathNewToOld fail, newPath is null");
                     return str;
                 }
                 return str.replace("com.tencent.mm.opensdk.modelmsg", "com.tencent.mm.sdk.openapi");
@@ -99,17 +99,17 @@ public final class WXMediaMessage {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-                Log.i("MicroMsg.SDK.WXMediaMessage", "pathOldToNew, oldPath = " + str);
+                Log.i(WXMediaMessage.TAG, "pathOldToNew, oldPath = ".concat(String.valueOf(str)));
                 if (str == null || str.length() == 0) {
-                    Log.e("MicroMsg.SDK.WXMediaMessage", "pathOldToNew fail, oldPath is null");
+                    Log.e(WXMediaMessage.TAG, "pathOldToNew fail, oldPath is null");
                     return str;
                 }
                 int lastIndexOf = str.lastIndexOf(46);
-                if (lastIndexOf != -1) {
-                    return "com.tencent.mm.opensdk.modelmsg" + str.substring(lastIndexOf);
+                if (lastIndexOf == -1) {
+                    Log.e(WXMediaMessage.TAG, "pathOldToNew fail, invalid pos, oldPath = ".concat(String.valueOf(str)));
+                    return str;
                 }
-                Log.e("MicroMsg.SDK.WXMediaMessage", "pathOldToNew fail, invalid pos, oldPath = " + str);
-                return str;
+                return "com.tencent.mm.opensdk.modelmsg" + str.substring(lastIndexOf);
             }
             return (String) invokeL.objValue;
         }
@@ -125,7 +125,7 @@ public final class WXMediaMessage {
                 bundle.putByteArray("_wxobject_thumbdata", wXMediaMessage.thumbData);
                 IMediaObject iMediaObject = wXMediaMessage.mediaObject;
                 if (iMediaObject != null) {
-                    bundle.putString("_wxobject_identifier_", pathNewToOld(iMediaObject.getClass().getName()));
+                    bundle.putString(KEY_IDENTIFIER, pathNewToOld(iMediaObject.getClass().getName()));
                     wXMediaMessage.mediaObject.serialize(bundle);
                 }
                 bundle.putString("_wxobject_mediatagname", wXMediaMessage.mediaTagName);
@@ -137,7 +137,7 @@ public final class WXMediaMessage {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface IMediaObject {
         public static final int TYPE_APPBRAND = 33;
         public static final int TYPE_APPDATA = 7;
@@ -260,7 +260,7 @@ public final class WXMediaMessage {
             } else {
                 str = "checkArgs fail, thumbData is invalid";
             }
-            Log.e("MicroMsg.SDK.WXMediaMessage", str);
+            Log.e(TAG, str);
             return false;
         }
         return invokeV.booleanValue;
@@ -288,7 +288,7 @@ public final class WXMediaMessage {
                 this.thumbData = byteArrayOutputStream.toByteArray();
                 byteArrayOutputStream.close();
             } catch (Exception e) {
-                Log.e("MicroMsg.SDK.WXMediaMessage", "setThumbImage exception:" + e.getMessage());
+                Log.e(TAG, "setThumbImage exception:" + e.getMessage());
             }
         }
     }

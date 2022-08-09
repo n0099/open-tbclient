@@ -18,7 +18,7 @@ public class ce extends cj.b<Long> {
     public long a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f161a;
+    public String f162a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ce(String str, List<String> list, String str2, String[] strArr, String str3, String str4, String str5, int i, String str6) {
@@ -40,7 +40,7 @@ public class ce extends cj.b<Long> {
             }
         }
         this.a = 0L;
-        this.f161a = str6;
+        this.f162a = str6;
     }
 
     public static ce a(String str) {

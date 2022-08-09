@@ -37,7 +37,7 @@ public class fm {
                 byte[] a2 = fp.a.a(bArr);
                 if (a) {
                     com.xiaomi.channel.commonutils.logger.b.m90a("BCompressed", "decompress " + bArr.length + " to " + a2.length + " for " + flVar);
-                    if (flVar.f370a == 1) {
+                    if (flVar.f371a == 1) {
                         com.xiaomi.channel.commonutils.logger.b.m90a("BCompressed", "decompress not support upStream");
                     }
                 }

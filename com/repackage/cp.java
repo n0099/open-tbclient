@@ -1,4 +1,7 @@
 package com.repackage;
-/* loaded from: classes5.dex */
-public interface cp extends dp {
+
+import com.baidu.bdtask.TaskState;
+/* loaded from: classes6.dex */
+public interface cp {
+    void a(TaskState taskState);
 }

@@ -1,8 +1,7 @@
 package com.repackage;
 
-import java.io.IOException;
-import java.io.InputStream;
+import android.content.Context;
 /* loaded from: classes6.dex */
 public interface nk1 {
-    InputStream a(InputStream inputStream) throws IOException;
+    String a(Context context);
 }

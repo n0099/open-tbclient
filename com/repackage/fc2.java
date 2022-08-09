@@ -1,16 +1,19 @@
 package com.repackage;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class fc2 {
-    public static /* synthetic */ Interceptable $ic = null;
-    @V8JavascriptField
-    public static final String USER_DATA_PATH = "bdfile://usr";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public long b;
+    public String c;
+    @Nullable
+    public String d;
 
     public fc2() {
         Interceptable interceptable = $ic;

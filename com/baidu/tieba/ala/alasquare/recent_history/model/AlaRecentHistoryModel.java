@@ -9,7 +9,6 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.AlaConfig;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -21,15 +20,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ar5;
-import com.repackage.zq5;
+import com.repackage.rs5;
+import com.repackage.ss5;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AlaRecentHistoryModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ar5> a;
+    public List<ss5> a;
     public b b;
     public int c;
     public int d;
@@ -76,19 +75,19 @@ public class AlaRecentHistoryModel extends BdBaseModel {
                         this.a.b.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.f);
                     }
                 } else {
-                    zq5 recentHistoryData = alaRecentHistoryResponseMessage.getRecentHistoryData();
+                    rs5 recentHistoryData = alaRecentHistoryResponseMessage.getRecentHistoryData();
                     if (recentHistoryData == null) {
                         return;
                     }
                     this.a.e = recentHistoryData.a;
-                    List<ar5> list = recentHistoryData.b;
+                    List<ss5> list = recentHistoryData.b;
                     if (!this.a.f) {
                         this.a.a.clear();
                         if (!ListUtils.isEmpty(list)) {
                             this.a.a.addAll(list);
                         }
                     } else if (!ListUtils.isEmpty(list)) {
-                        AlaRecentHistoryModel.F(this.a);
+                        AlaRecentHistoryModel.E(this.a);
                         this.a.a.addAll(list);
                     }
                     if (this.a.b != null) {
@@ -102,7 +101,7 @@ public class AlaRecentHistoryModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(boolean z, List<ar5> list);
+        void a(boolean z, List<ss5> list);
 
         void b(int i, String str, boolean z);
     }
@@ -130,7 +129,7 @@ public class AlaRecentHistoryModel extends BdBaseModel {
         registerTask();
     }
 
-    public static /* synthetic */ int F(AlaRecentHistoryModel alaRecentHistoryModel) {
+    public static /* synthetic */ int E(AlaRecentHistoryModel alaRecentHistoryModel) {
         int i = alaRecentHistoryModel.d;
         alaRecentHistoryModel.d = i + 1;
         return i;
@@ -143,7 +142,7 @@ public class AlaRecentHistoryModel extends BdBaseModel {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_RECENT_HISTORY_LIST);
             httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccountId());
             httpMessage.addParam("type", this.c);
-            httpMessage.addParam(Config.PACKAGE_NAME, this.d + 1);
+            httpMessage.addParam("pn", this.d + 1);
             httpMessage.setTag(this.g);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
@@ -159,7 +158,7 @@ public class AlaRecentHistoryModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public List<ar5> getData() {
+    public List<ss5> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (List) invokeV.objValue;
@@ -191,7 +190,7 @@ public class AlaRecentHistoryModel extends BdBaseModel {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_RECENT_HISTORY_LIST);
             httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccountId());
             httpMessage.addParam("type", this.c);
-            httpMessage.addParam(Config.PACKAGE_NAME, this.d);
+            httpMessage.addParam("pn", this.d);
             httpMessage.setTag(this.g);
             MessageManager.getInstance().sendMessage(httpMessage);
         }

@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.constraintlayout.motion.widget.Key;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
@@ -129,10 +130,10 @@ public class StickyAppBarLayout extends AppBarLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d038d, (ViewGroup) this, true);
-            this.c = (NestedScrollHeader) findViewById(R.id.obfuscated_res_0x7f090d32);
-            this.d = (HomeTabBarView) findViewById(R.id.obfuscated_res_0x7f090d3c);
-            this.e = findViewById(R.id.obfuscated_res_0x7f0907c8);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d038f, (ViewGroup) this, true);
+            this.c = (NestedScrollHeader) findViewById(R.id.obfuscated_res_0x7f090d78);
+            this.d = (HomeTabBarView) findViewById(R.id.obfuscated_res_0x7f090d85);
+            this.e = findViewById(R.id.obfuscated_res_0x7f0907f6);
             CoordinatorLayout.LayoutParams layoutParams = new CoordinatorLayout.LayoutParams(-1, -2);
             layoutParams.setBehavior(new StickyAppBarLayoutBehavior());
             setOrientation(1);
@@ -140,7 +141,7 @@ public class StickyAppBarLayout extends AppBarLayout {
             try {
                 ViewCompat.setElevation(this, 0.0f);
                 StateListAnimator stateListAnimator = new StateListAnimator();
-                stateListAnimator.addState(new int[0], ObjectAnimator.ofFloat(this, "elevation", 0.0f));
+                stateListAnimator.addState(new int[0], ObjectAnimator.ofFloat(this, Key.ELEVATION, 0.0f));
                 setStateListAnimator(stateListAnimator);
             } catch (Exception unused) {
             }

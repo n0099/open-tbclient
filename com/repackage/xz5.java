@@ -1,254 +1,165 @@
 package com.repackage;
 
-import android.location.Location;
-import androidx.core.view.InputDeviceCompat;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.data.TransmitForumData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.layout.FrsBaseVideoView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sz5;
-import java.util.ArrayList;
-import java.util.Iterator;
 /* loaded from: classes7.dex */
-public class xz5 implements sz5.a {
+public class xz5 extends bz5<ThreadData> implements ol5 {
     public static /* synthetic */ Interceptable $ic;
-    public static xz5 j;
     public transient /* synthetic */ FieldHolder $fh;
-    public sz5 a;
-    public sz5 b;
-    public ArrayList<TransmitForumData> c;
-    public ArrayList<TransmitForumData> d;
-    public boolean e;
-    public ArrayList<TransmitForumData> f;
-    public boolean g;
-    public int h;
-    public boolean i;
+    public final View i;
+    public TbPageContext<?> j;
+    public HeadImageView k;
+    public TextView l;
+    public TextView m;
+    public TextView n;
+    public ThreadData o;
+    public vz5 p;
+    public FrsBaseVideoView q;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755154274, "Lcom/repackage/xz5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755154274, "Lcom/repackage/xz5;");
-        }
-    }
-
-    public xz5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xz5(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
+        super(tbPageContext, viewGroup);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, viewGroup};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new ArrayList<>();
-        this.e = false;
-        this.g = false;
-        this.i = false;
-        e();
+        View h = h();
+        h.setOnClickListener(this);
+        this.j = tbPageContext;
+        HeadImageView headImageView = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f092277);
+        this.k = headImageView;
+        headImageView.setIsRound(true);
+        this.k.setDefaultResource(R.drawable.obfuscated_res_0x7f080f23);
+        this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090582);
+        this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090571);
+        this.m = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09056c);
+        this.i = h.findViewById(R.id.obfuscated_res_0x7f0904f1);
+        FrsBaseVideoView frsBaseVideoView = (FrsBaseVideoView) h.findViewById(R.id.obfuscated_res_0x7f090345);
+        this.q = frsBaseVideoView;
+        frsBaseVideoView.setClickListener(this);
     }
 
-    public static Location b() {
+    @Override // com.repackage.ol5
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+        }
+    }
+
+    @Override // com.repackage.bz5
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return null;
-        }
-        return (Location) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d0321 : invokeV.intValue;
     }
 
-    public static xz5 c() {
-        InterceptResult invokeV;
+    @Override // com.repackage.bz5
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (j == null) {
-                synchronized (xz5.class) {
-                    if (j == null) {
-                        j = new xz5();
-                    }
-                }
-            }
-            return j;
-        }
-        return (xz5) invokeV.objValue;
-    }
-
-    @Override // com.repackage.sz5.a
-    public void a(ArrayList<TransmitForumData> arrayList, boolean z, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{arrayList, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
-            if (i == 1) {
-                if (z) {
-                    this.f = arrayList;
-                }
-                this.g = true;
-            } else if (i == 2) {
-                if (z) {
-                    this.d = arrayList;
-                    this.h = i2;
-                }
-                this.e = true;
-            }
-            j();
-        }
-    }
-
-    public final Location d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() : (Location) invokeV.objValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            g();
-            f();
-            this.i = false;
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2016562), sz5.class);
-            if (runTask != null) {
-                this.b = (sz5) runTask.getData();
-            }
-            sz5 sz5Var = this.b;
-            if (sz5Var != null) {
-                sz5Var.a(this);
+        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
+            this.k.invalidate();
+            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0105);
+            SkinManager.setBackgroundResource(h(), R.drawable.addresslist_item_bg);
+            SkinManager.setBackgroundColor(this.i, R.color.CAM_X0204);
+            FrsBaseVideoView frsBaseVideoView = this.q;
+            if (frsBaseVideoView != null) {
+                frsBaseVideoView.h(i);
             }
         }
     }
 
-    public final void g() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001449), sz5.class);
-            if (runTask != null) {
-                this.a = (sz5) runTask.getData();
-            }
-            sz5 sz5Var = this.a;
-            if (sz5Var != null) {
-                sz5Var.a(this);
-            }
-        }
-    }
-
-    public final boolean h(long j2) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
-            ArrayList<TransmitForumData> arrayList = this.c;
-            if (arrayList == null) {
-                return false;
-            }
-            Iterator<TransmitForumData> it = arrayList.iterator();
-            while (it.hasNext()) {
-                TransmitForumData next = it.next();
-                if (next != null && next.forumId == j2) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.i = true;
-            sz5 sz5Var = this.a;
-            if (sz5Var != null) {
-                sz5Var.b();
-            }
-            sz5 sz5Var2 = this.b;
-            if (sz5Var2 != null) {
-                sz5Var2.b();
-            }
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.a == null || this.e) {
-                if (this.b == null || this.g) {
-                    this.e = false;
-                    this.g = false;
-                    this.i = false;
-                    this.c.clear();
-                    if (!ListUtils.isEmpty(this.d)) {
-                        Iterator<TransmitForumData> it = this.d.iterator();
-                        while (it.hasNext()) {
-                            TransmitForumData next = it.next();
-                            if (!h(next.forumId)) {
-                                this.c.add(next);
-                            }
-                        }
-                    }
-                    if (!ListUtils.isEmpty(this.f)) {
-                        Iterator<TransmitForumData> it2 = this.f.iterator();
-                        while (it2.hasNext()) {
-                            TransmitForumData next2 = it2.next();
-                            if (!h(next2.forumId)) {
-                                this.c.add(next2);
-                            }
-                        }
-                    }
-                    this.d = null;
-                    this.f = null;
-                    k();
-                }
-            }
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016563, this.c));
-        }
-    }
-
-    public void l(ShareDialogConfig shareDialogConfig) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, shareDialogConfig) == null) || shareDialogConfig == null || shareDialogConfig.shareItem == null || hd5.a()) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, view2) == null) || this.o == null) {
             return;
         }
-        if (shareDialogConfig.showLocation) {
-            shareDialogConfig.shareItem.E = d();
+        if (e() != null) {
+            e().b(view2, this.o, this.p);
         }
-        if (pi.D() && TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive && !this.i && !shareDialogConfig.shareItem.f()) {
-            i();
+        mz5.a(this.o.getTid());
+        mz5.l(this.n, this.o.getTid(), R.color.CAM_X0105, R.color.CAM_X0109);
+        r();
+    }
+
+    public final void r() {
+        ThreadData threadData;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (threadData = this.o) == null || threadData.getAuthor() == null || this.o.getAuthor().getName_show() == null) {
+            return;
         }
-        shareDialogConfig.setIsShowTransmitShare(true);
-        shareDialogConfig.setTransmitForumList(this.c);
-        shareDialogConfig.setPrivateThread(this.h);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
+        String name_show = this.o.getAuthor().getName_show();
+        HotTopicActivityConfig hotTopicActivityConfig = new HotTopicActivityConfig(getContext());
+        HotTopicActivityConfig createNormalConfig = hotTopicActivityConfig.createNormalConfig("", name_show + "", "3");
+        createNormalConfig.setExtra(this.o.getFid(), this.o.getFirstClassName(), this.o.getSecondClassName(), og.g(this.o.getTid(), 0L));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bz5
+    /* renamed from: s */
+    public void i(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, threadData) == null) {
+            if (threadData == null) {
+                if (h() != null) {
+                    h().setVisibility(8);
+                    return;
+                }
+                return;
+            }
+            this.o = threadData;
+            if (h() != null) {
+                h().setVisibility(0);
+                h().setOnClickListener(this);
+            }
+            FrsBaseVideoView frsBaseVideoView = this.q;
+            if (frsBaseVideoView != null) {
+                frsBaseVideoView.g(this.o, threadData.getHotTopicInfo());
+            }
+            if (threadData.getAuthor() != null) {
+                this.l.setText(threadData.getAuthor().getName_show());
+            }
+            this.m.setText(StringHelper.getFormatTime(threadData.getLast_time_int() * 1000));
+            String str = threadData.getTopicUserName() + "：";
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
+            spannableStringBuilder.append((CharSequence) threadData.parseTitleOrAbstractForFrsNew(false, true));
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), 0, str.length(), 33);
+            this.n.setText(spannableStringBuilder);
+            mz5.l(this.n, this.o.getTid(), R.color.CAM_X0105, R.color.CAM_X0109);
+            j(this.j, TbadkCoreApplication.getInst().getSkinType());
+        }
     }
 }

@@ -1,21 +1,18 @@
 package com.repackage;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class x14 {
+public class x14 extends z14 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public int progress;
-    @V8JavascriptField
-    public long totalBytesExpectedToWrite;
-    @V8JavascriptField
-    public long totalBytesWritten;
+    public String b;
 
     public x14() {
         Interceptable interceptable = $ic;
@@ -31,12 +28,19 @@ public class x14 {
         }
     }
 
-    public String toString() {
+    @Override // com.repackage.z14
+    public JSONObject a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SubPackageProgressData{progress=" + this.progress + ", totalBytesWritten=" + this.totalBytesWritten + ", totalBytesExpectedToWrite=" + this.totalBytesExpectedToWrite + '}';
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("key", this.b);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, this.a);
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
         }
-        return (String) invokeV.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

@@ -23,12 +23,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MaterialToolbar extends Toolbar {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100391 = 2131755921;
+    public static final int obfuscated_res_0x7f100395 = 2131755925;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -102,7 +102,7 @@ public class MaterialToolbar extends Toolbar {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MaterialToolbar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f04069d);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040727);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,7 +123,7 @@ public class MaterialToolbar extends Toolbar {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MaterialToolbar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100391), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100395), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

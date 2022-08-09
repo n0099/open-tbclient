@@ -278,7 +278,7 @@ public class SVGImageView extends ImageView {
         if (!(interceptable == null || interceptable.invokeLI(1048576, this, attributeSet, i) == null) || isInEditMode()) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405e6}, i, 0);
+        TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04066c}, i, 0);
         try {
             int resourceId = obtainStyledAttributes.getResourceId(0, -1);
             if (resourceId != -1) {

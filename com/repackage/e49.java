@@ -1,91 +1,218 @@
 package com.repackage;
 
-import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.HttpManager;
+import com.baidu.searchbox.http.request.PostBodyRequest;
+import com.baidu.searchbox.http.request.PostByteRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.Stack;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Map;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import okio.BufferedSink;
+import okio.Okio;
+import okio.Source;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public final class e49 {
+public class e49 extends x39 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Stack<WeakReference<Activity>> a;
 
     /* loaded from: classes6.dex */
-    public static class a {
+    public class a extends b59 {
         public static /* synthetic */ Interceptable $ic;
-        public static final e49 a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Response a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-462284502, "Lcom/repackage/e49$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-462284502, "Lcom/repackage/e49$a;");
+        public a(e49 e49Var, Response response) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {e49Var, response};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new e49((byte) 0);
+            this.a = response;
+        }
+
+        @Override // com.repackage.b59
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.body().close();
+            }
+        }
+
+        @Override // com.repackage.b59
+        public String b() throws IOException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.body().string() : (String) invokeV.objValue;
+        }
+
+        @Override // com.repackage.b59
+        public int c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.code() : invokeV.intValue;
+        }
+
+        @Override // com.repackage.b59
+        public String d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.message() : (String) invokeV.objValue;
+        }
+
+        @Override // com.repackage.b59
+        public boolean e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.isSuccessful() : invokeV.booleanValue;
         }
     }
 
-    public /* synthetic */ e49(byte b) {
-        this();
-    }
+    /* loaded from: classes6.dex */
+    public class b extends RequestBody {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Map a;
+        public final /* synthetic */ InputStream b;
 
-    public final Stack<WeakReference<Activity>> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (Stack) invokeV.objValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < this.a.size(); i++) {
-                Activity activity = this.a.get(i).get();
-                if (activity != null) {
-                    sb.append(activity.getClass().getSimpleName());
-                    sb.append("->");
+        public b(e49 e49Var, Map map, InputStream inputStream) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {e49Var, map, inputStream};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return sb.length() > 0 ? sb.substring(0, sb.length() - 2) : "没有路径了";
+            this.a = map;
+            this.b = inputStream;
         }
-        return (String) invokeV.objValue;
-    }
 
-    public final void c(WeakReference<Activity> weakReference) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, weakReference) == null) {
-            this.a.add(weakReference);
+        @Override // okhttp3.RequestBody
+        public long contentLength() throws IOException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.a.containsKey("Content-Length")) {
+                    try {
+                        return Long.valueOf((String) this.a.get("Content-Length")).longValue();
+                    } catch (Exception unused) {
+                    }
+                }
+                return super.contentLength();
+            }
+            return invokeV.longValue;
         }
-    }
 
-    public final void d(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            if (this.a != null) {
-                for (int i = 0; i < this.a.size(); i++) {
-                    if (this.a.get(i).get() == activity) {
-                        Stack<WeakReference<Activity>> stack = this.a;
-                        stack.remove(stack.get(i));
+        @Override // okhttp3.RequestBody
+        public MediaType contentType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? MediaType.parse("application/octet-stream") : (MediaType) invokeV.objValue;
+        }
+
+        @Override // okhttp3.RequestBody
+        public void writeTo(BufferedSink bufferedSink) throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
+                Source source = null;
+                try {
+                    source = Okio.source(this.b);
+                    bufferedSink.writeAll(source);
+                } finally {
+                    if (source != null) {
+                        source.close();
                     }
                 }
             }
-            b();
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c extends b59 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Response a;
+
+        public c(e49 e49Var, Response response) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {e49Var, response};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = response;
+        }
+
+        @Override // com.repackage.b59
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.body().close();
+            }
+        }
+
+        @Override // com.repackage.b59
+        public String b() throws IOException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.body().string() : (String) invokeV.objValue;
+        }
+
+        @Override // com.repackage.b59
+        public int c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.code() : invokeV.intValue;
+        }
+
+        @Override // com.repackage.b59
+        public String d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.message() : (String) invokeV.objValue;
+        }
+
+        @Override // com.repackage.b59
+        public boolean e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.isSuccessful() : invokeV.booleanValue;
         }
     }
 
@@ -99,9 +226,42 @@ public final class e49 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new Stack<>();
+    }
+
+    @Override // com.repackage.x39
+    public b59 j(String str, InputStream inputStream, Map<String, String> map) throws IOException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, inputStream, map)) == null) {
+            PostBodyRequest.PostBodyRequestBuilder postRequest = HttpManager.getDefault(AppRuntime.getAppContext()).postRequest();
+            postRequest.requestFrom(3);
+            postRequest.url(str);
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                postRequest.addHeader(entry.getKey(), entry.getValue());
+            }
+            postRequest.cookieManager(HttpManager.getDefault(AppRuntime.getAppContext()).getCookieManager(true, true));
+            postRequest.requestBody(new b(this, map, inputStream));
+            return new c(this, postRequest.build().executeSync());
+        }
+        return (b59) invokeLLL.objValue;
+    }
+
+    @Override // com.repackage.x39
+    public b59 k(String str, byte[] bArr, Map<String, String> map) throws IOException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr, map)) == null) {
+            PostByteRequest.PostByteRequestBuilder postByteRequest = HttpManager.getDefault(AppRuntime.getAppContext()).postByteRequest();
+            postByteRequest.requestFrom(3);
+            postByteRequest.url(str);
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                postByteRequest.addHeader(entry.getKey(), entry.getValue());
+            }
+            postByteRequest.cookieManager(HttpManager.getDefault(AppRuntime.getAppContext()).getCookieManager(true, true));
+            return new a(this, postByteRequest.content(bArr).build().executeSync());
+        }
+        return (b59) invokeLLL.objValue;
     }
 }

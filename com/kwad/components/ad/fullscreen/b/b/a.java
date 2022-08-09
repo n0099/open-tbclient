@@ -155,7 +155,7 @@ public final class a extends com.kwad.components.ad.reward.presenter.c.a impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onCreate();
-            this.fl = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09106d);
+            this.fl = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0910c3);
         }
     }
 

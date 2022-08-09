@@ -1,76 +1,34 @@
 package com.repackage;
 
-import android.os.Debug;
-import android.os.SystemClock;
-import android.util.Printer;
+import android.animation.Animator;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.repackage.hj9;
 /* loaded from: classes6.dex */
-public class gj9 implements Printer {
+public class gj9 implements Animator.AnimatorListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public b d;
-    public final boolean e;
+    public final /* synthetic */ hj9.a a;
+    public final /* synthetic */ View b;
+    public final /* synthetic */ ViewGroup c;
+    public final /* synthetic */ float d;
+    public final /* synthetic */ float e;
+    public final /* synthetic */ int[] f;
+    public final /* synthetic */ ViewGroup g;
+    public final /* synthetic */ hj9 h;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ long c;
-        public final /* synthetic */ long d;
-        public final /* synthetic */ gj9 e;
-
-        public a(gj9 gj9Var, long j, long j2, long j3, long j4) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gj9Var, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = gj9Var;
-            this.a = j;
-            this.b = j2;
-            this.c = j3;
-            this.d = j4;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.e.d.a(this.a, this.b, this.c, this.d);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(long j, long j2, long j3, long j4);
-    }
-
-    public gj9(b bVar, long j, boolean z) {
+    public gj9(hj9 hj9Var, hj9.a aVar, View view2, ViewGroup viewGroup, float f, float f2, int[] iArr, ViewGroup viewGroup2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar, Long.valueOf(j), Boolean.valueOf(z)};
+            Object[] objArr = {hj9Var, aVar, view2, viewGroup, Float.valueOf(f), Float.valueOf(f2), iArr, viewGroup2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -80,74 +38,44 @@ public class gj9 implements Printer {
                 return;
             }
         }
-        this.a = 3000L;
-        this.b = 0L;
-        this.c = 0L;
-        this.d = null;
-        if (bVar != null) {
-            this.d = bVar;
-            this.a = j;
-            this.e = z;
-            return;
-        }
-        throw new IllegalArgumentException("blockListener should not be null.");
+        this.h = hj9Var;
+        this.a = aVar;
+        this.b = view2;
+        this.c = viewGroup;
+        this.d = f;
+        this.e = f2;
+        this.f = iArr;
+        this.g = viewGroup2;
     }
 
-    public final boolean b(long j) {
-        InterceptResult invokeJ;
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationCancel(Animator animator) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? j - this.b > this.a : invokeJ.booleanValue;
-    }
-
-    public final void c(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            ej9.b().post(new a(this, this.b, j, this.c, SystemClock.currentThreadTimeMillis()));
+        if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
         }
     }
 
-    public final void d() {
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationEnd(Animator animator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (cj9.e().b != null) {
-                cj9.e().b.c();
-            }
-            if (cj9.e().c != null) {
-                cj9.e().c.c();
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+            this.h.a(this.b, this.c, this.d, this.e, this.f, this.g, this.a);
         }
     }
 
-    public final void e() {
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationRepeat(Animator animator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (cj9.e().b != null) {
-                cj9.e().b.d();
-            }
-            if (cj9.e().c != null) {
-                cj9.e().c.d();
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
         }
     }
 
-    @Override // android.util.Printer
-    public void println(String str) {
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationStart(Animator animator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (this.e && Debug.isDebuggerConnected()) {
-                return;
-            }
-            if (str.charAt(0) == '>') {
-                this.b = System.currentTimeMillis();
-                this.c = SystemClock.currentThreadTimeMillis();
-                d();
-                return;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            if (b(currentTimeMillis)) {
-                c(currentTimeMillis);
-            }
-            e();
+        if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
+            LogPrinter.d("zoomOut onAnimationStart", new Object[0]);
+            this.h.getClass();
         }
     }
 }

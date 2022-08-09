@@ -1,263 +1,159 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.graphics.Bitmap;
-import android.graphics.Rect;
+import android.app.Activity;
 import android.net.Uri;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.media.chooser.model.MediaModel;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.davemorrissey.labs.subscaleview.ImageSource;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.common.ResizeOptions;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.io.File;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public final class lo2 {
+public class lo2 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean i;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Uri a;
-    public final Bitmap b;
-    public final Integer c;
-    public boolean d;
-    public int e;
-    public int f;
-    public Rect g;
-    public boolean h;
+    public Activity a;
+    public String b;
+    public ArrayList<zo2> c;
+    public int d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755522430, "Lcom/repackage/lo2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public SimpleDraweeView a;
+        public TextView b;
+        public TextView c;
+
+        public a(lo2 lo2Var, View view2) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lo2Var, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755522430, "Lcom/repackage/lo2;");
-                return;
-            }
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090246);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090249);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090248);
         }
-        i = sg1.a;
     }
 
-    public lo2(Bitmap bitmap, boolean z) {
+    public lo2(Activity activity, String str, ArrayList<zo2> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bitmap, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {activity, str, arrayList};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = bitmap;
-        this.a = null;
-        this.c = null;
-        this.d = false;
-        this.e = bitmap.getWidth();
-        this.f = bitmap.getHeight();
-        this.h = z;
+        this.a = activity;
+        this.b = str;
+        this.c = arrayList;
+        this.d = (int) (qe3.f(activity, 50.0f) / 2.0f);
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public static lo2 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str == null) {
-                if (!i) {
-                    ix1.k("ImageSource", "asset name is null");
-                    return null;
-                }
-                throw new NullPointerException("Asset name must not be null");
-            }
-            return o("file:///android_asset/" + str);
-        }
-        return (lo2) invokeL.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static lo2 b(Bitmap bitmap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bitmap)) == null) {
-            if (bitmap == null) {
-                if (!i) {
-                    ix1.k("ImageSource", "bitmap is null");
-                    return null;
-                }
-                throw new NullPointerException("Bitmap must not be null");
-            }
-            return new lo2(bitmap, true);
-        }
-        return (lo2) invokeL.objValue;
-    }
-
-    public static lo2 k(int i2) {
+    public final String a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) ? new lo2(i2) : (lo2) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? TextUtils.equals(this.b, "Image") ? this.a.getString(R.string.obfuscated_res_0x7f0f12be, new Object[]{Integer.valueOf(i)}) : this.a.getString(R.string.obfuscated_res_0x7f0f128d, new Object[]{Integer.valueOf(i)}) : (String) invokeI.objValue;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public static lo2 o(String str) {
-        InterceptResult invokeL;
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (str == null) {
-                if (!i) {
-                    ix1.k("ImageSource", "uri is null");
-                    return null;
-                }
-                throw new NullPointerException("Uri must not be null");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList<zo2> arrayList = this.c;
+            if (arrayList == null) {
+                return 0;
             }
-            if (!str.contains("://")) {
-                if (str.startsWith("/")) {
-                    str = str.substring(1);
-                }
-                str = ImageSource.FILE_SCHEME + str;
+            return arrayList.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (i < 0 || i > this.c.size()) {
+                return null;
             }
-            return new lo2(Uri.parse(str));
+            return this.c.get(i);
         }
-        return (lo2) invokeL.objValue;
+        return invokeI.objValue;
     }
 
-    public final Bitmap c() {
-        InterceptResult invokeV;
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Bitmap) invokeV.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
     }
 
-    public final Integer d() {
-        InterceptResult invokeV;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (Integer) invokeV.objValue;
-    }
-
-    public final int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : invokeV.intValue;
-    }
-
-    public final Rect f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g : (Rect) invokeV.objValue;
-    }
-
-    public final int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : invokeV.intValue;
-    }
-
-    public final boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public final Uri i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : (Uri) invokeV.objValue;
-    }
-
-    public final boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.h : invokeV.booleanValue;
-    }
-
-    public lo2 l(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-            this.d = z;
-            return this;
-        }
-        return (lo2) invokeZ.objValue;
-    }
-
-    public lo2 m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            l(false);
-            return this;
-        }
-        return (lo2) invokeV.objValue;
-    }
-
-    public lo2 n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            l(true);
-            return this;
-        }
-        return (lo2) invokeV.objValue;
-    }
-
-    public lo2(Uri uri) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {uri};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0809, (ViewGroup) null);
+                aVar = new a(this, view2);
+                view2.setTag(aVar);
+            } else {
+                aVar = (a) view2.getTag();
             }
-        }
-        String uri2 = uri.toString();
-        if (uri2.startsWith(ImageSource.FILE_SCHEME) && !new File(uri2.substring(7)).exists()) {
-            try {
-                uri = Uri.parse(URLDecoder.decode(uri2, "UTF-8"));
-            } catch (UnsupportedEncodingException unused) {
+            view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081154));
+            zo2 zo2Var = this.c.get(i);
+            if (zo2Var == null) {
+                return view2;
             }
-        }
-        this.b = null;
-        this.a = uri;
-        this.c = null;
-        this.d = true;
-    }
-
-    public lo2(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            aVar.b.setText(zo2Var.c());
+            ArrayList<MediaModel> arrayList = zo2Var.d;
+            if (arrayList == null) {
+                return view2;
             }
+            aVar.c.setText(a(arrayList.size()));
+            if (zo2Var.d.get(0) != null && !TextUtils.isEmpty(zo2Var.d.get(0).getPath())) {
+                ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(Uri.fromFile(new File(zo2Var.d.get(0).getPath())));
+                int i2 = this.d;
+                newBuilderWithSource.setResizeOptions(new ResizeOptions(i2, i2));
+                newBuilderWithSource.setLocalThumbnailPreviewsEnabled(true);
+                aVar.a.setController(Fresco.newDraweeControllerBuilder().setAutoPlayAnimations(false).setImageRequest(newBuilderWithSource.build()).setOldController(aVar.a.getController()).build());
+            }
+            return view2;
         }
-        this.b = null;
-        this.a = null;
-        this.c = Integer.valueOf(i2);
-        this.d = true;
+        return (View) invokeILL.objValue;
     }
 }

@@ -6,27 +6,26 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsLiveNormalCardView;
+import com.baidu.tieba.ala.alasquare.special_forum.subtab.view.ConcernTabRecommendTitleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class xs5 extends an<at5, AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder> {
+public class xs5 extends bn<gt5, ConcernTabRecommendTitleView.ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
-    public mo5 j;
+    public TbPageContext a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xs5(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public xs5(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), gt5.c);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,36 +37,30 @@ public class xs5 extends an<at5, AlaGameFrsLiveNormalCardView.AlaGameFrsNormalVi
                 return;
             }
         }
-        this.i = tbPageContext;
+        this.a = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: Z */
-    public AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder M(ViewGroup viewGroup) {
+    @Override // com.repackage.bn
+    /* renamed from: s */
+    public ConcernTabRecommendTitleView.ViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder(new AlaGameFrsLiveNormalCardView(this.i)) : (AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new ConcernTabRecommendTitleView.ViewHolder(new ConcernTabRecommendTitleView(this.a, viewGroup).h()) : (ConcernTabRecommendTitleView.ViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, at5 at5Var, AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder alaGameFrsNormalViewHolder) {
+    @Override // com.repackage.bn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, gt5 gt5Var, ConcernTabRecommendTitleView.ViewHolder viewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, at5Var, alaGameFrsNormalViewHolder})) == null) {
-            alaGameFrsNormalViewHolder.a.i(at5Var);
-            alaGameFrsNormalViewHolder.a.t(this.j);
-            return alaGameFrsNormalViewHolder.a();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, gt5Var, viewHolder})) == null) {
+            if (viewHolder == null || gt5Var == null) {
+                return null;
+            }
+            return viewHolder.getView();
         }
         return (View) invokeCommon.objValue;
-    }
-
-    public void b0(mo5 mo5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, mo5Var) == null) {
-            this.j = mo5Var;
-        }
     }
 }

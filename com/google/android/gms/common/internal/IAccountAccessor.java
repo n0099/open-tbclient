@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.internal.common.zzb;
-import com.repackage.ul9;
-/* loaded from: classes4.dex */
+import com.repackage.po9;
+/* loaded from: classes5.dex */
 public interface IAccountAccessor extends IInterface {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static abstract class Stub extends zzb implements IAccountAccessor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public interface IAccountAccessor extends IInterface {
                 if (i == 2) {
                     Account zzb = zzb();
                     parcel2.writeNoException();
-                    ul9.d(parcel2, zzb);
+                    po9.d(parcel2, zzb);
                     return true;
                 }
                 return false;

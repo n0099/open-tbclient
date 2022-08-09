@@ -49,13 +49,13 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CORNER_ANIMATION_DURATION = 500;
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100329 = 2131755817;
+    public static final int obfuscated_res_0x7f100331 = 2131755825;
     public static final float HIDE_FRICTION = 0.1f;
     public static final float HIDE_THRESHOLD = 0.5f;
     public static final int PEEK_HEIGHT_AUTO = -1;
@@ -124,7 +124,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     @Nullable
     public WeakReference<V> viewRef;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static abstract class BottomSheetCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -150,11 +150,11 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public @interface SaveFlags {
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class SavedState extends AbsSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
@@ -334,7 +334,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class SettleRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -343,7 +343,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         public final /* synthetic */ BottomSheetBehavior this$0;
 
         /* renamed from: view  reason: collision with root package name */
-        public final View f1067view;
+        public final View f1070view;
 
         public SettleRunnable(BottomSheetBehavior bottomSheetBehavior, View view2, int i) {
             Interceptable interceptable = $ic;
@@ -361,7 +361,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
                 }
             }
             this.this$0 = bottomSheetBehavior;
-            this.f1067view = view2;
+            this.f1070view = view2;
             this.targetState = i;
         }
 
@@ -371,7 +371,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 ViewDragHelper viewDragHelper = this.this$0.viewDragHelper;
                 if (viewDragHelper != null && viewDragHelper.continueSettling(true)) {
-                    ViewCompat.postOnAnimation(this.f1067view, this);
+                    ViewCompat.postOnAnimation(this.f1070view, this);
                 } else {
                     this.this$0.setStateInternal(this.targetState);
                 }
@@ -382,7 +382,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public @interface State {
     }
 
@@ -1696,7 +1696,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     private void createMaterialShapeDrawable(@NonNull Context context, AttributeSet attributeSet, boolean z, @Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{context, attributeSet, Boolean.valueOf(z), colorStateList}) == null) && this.shapeThemingEnabled) {
-            this.shapeAppearanceModelDefault = ShapeAppearanceModel.builder(context, attributeSet, (int) R.attr.obfuscated_res_0x7f0400ec, obfuscated_res_0x7f100329).build();
+            this.shapeAppearanceModelDefault = ShapeAppearanceModel.builder(context, attributeSet, (int) R.attr.obfuscated_res_0x7f0400f6, obfuscated_res_0x7f100331).build();
             MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(this.shapeAppearanceModelDefault);
             this.materialShapeDrawable = materialShapeDrawable;
             materialShapeDrawable.initializeElevationOverlay(context);
@@ -1949,8 +1949,8 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
                 return invokeLI.booleanValue;
             }
         };
-        this.peekHeightGestureInsetBuffer = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704b7);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843840, R.attr.backgroundTint, R.attr.obfuscated_res_0x7f0400ca, R.attr.obfuscated_res_0x7f0400cb, R.attr.obfuscated_res_0x7f0400cc, R.attr.obfuscated_res_0x7f0400cd, R.attr.obfuscated_res_0x7f0400ce, R.attr.obfuscated_res_0x7f0400d0, R.attr.obfuscated_res_0x7f0400d1, R.attr.obfuscated_res_0x7f0400d2, R.attr.obfuscated_res_0x7f0402a7, R.attr.obfuscated_res_0x7f040592, R.attr.obfuscated_res_0x7f040595});
+        this.peekHeightGestureInsetBuffer = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704b9);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843840, R.attr.obfuscated_res_0x7f0400b9, R.attr.obfuscated_res_0x7f0400d4, R.attr.obfuscated_res_0x7f0400d5, R.attr.obfuscated_res_0x7f0400d6, R.attr.obfuscated_res_0x7f0400d7, R.attr.obfuscated_res_0x7f0400d8, R.attr.obfuscated_res_0x7f0400da, R.attr.obfuscated_res_0x7f0400db, R.attr.obfuscated_res_0x7f0400dc, R.attr.obfuscated_res_0x7f0402e8, R.attr.obfuscated_res_0x7f040614, R.attr.obfuscated_res_0x7f040617});
         this.shapeThemingEnabled = obtainStyledAttributes.hasValue(11);
         boolean hasValue = obtainStyledAttributes.hasValue(1);
         if (hasValue) {

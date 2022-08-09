@@ -1,28 +1,91 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.ala.AlaCmdConfigHttp;
+import com.baidu.ala.AlaConfig;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.R;
-import com.baidu.tieba.ala.gamefrslivetab.video.AlaGameFrsLiveTabVideoFragment;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.ala.alasquare.special_forum.data.SpecialLiveResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jt5 extends q55 {
+public class jt5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaGameFrsLiveTabVideoFragment c;
+    public b a;
+    public BdUniqueId b;
+    public boolean c;
+    public HttpMessageListener d;
 
-    public jt5() {
+    /* loaded from: classes6.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jt5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(jt5 jt5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jt5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jt5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                this.a.c = false;
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021093 && (httpResponsedMessage instanceof SpecialLiveResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.a.b) {
+                    SpecialLiveResponseMessage specialLiveResponseMessage = (SpecialLiveResponseMessage) httpResponsedMessage;
+                    if (!specialLiveResponseMessage.isSuccess() || specialLiveResponseMessage.getData() == null) {
+                        if (this.a.a != null) {
+                            this.a.a.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                        }
+                    } else if (this.a.a != null) {
+                        this.a.a.b(specialLiveResponseMessage.getData());
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(int i, String str);
+
+        void b(ht5 ht5Var);
+    }
+
+    public jt5(TbPageContext tbPageContext, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,71 +95,51 @@ public class jt5 extends q55 {
                 return;
             }
         }
-        this.c = new AlaGameFrsLiveTabVideoFragment();
-        b().a = this.c;
+        this.d = new a(this, AlaCmdConfigHttp.CMD_ALA_SPECIAL_LIVE_DATA);
+        this.a = bVar;
+        this.b = BdUniqueId.gen();
+        h();
+        g();
     }
 
-    @Override // com.repackage.q55
-    public r55 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            r55 r55Var = new r55();
-            r55Var.e = 3;
-            r55Var.b = R.string.obfuscated_res_0x7f0f0221;
-            r55Var.i = r55.k;
-            return r55Var;
-        }
-        return (r55) invokeV.objValue;
-    }
-
-    @Override // com.repackage.q55
-    public TbFragmentTabIndicator c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02e6, (ViewGroup) null);
-            this.b = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.b;
-        }
-        return (TbFragmentTabIndicator) invokeL.objValue;
-    }
-
-    @Override // com.repackage.q55
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.booleanValue;
     }
 
-    public void g(String str) {
-        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (alaGameFrsLiveTabVideoFragment = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.c) {
             return;
         }
-        alaGameFrsLiveTabVideoFragment.v1(str);
+        this.c = true;
+        HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_SPECIAL_LIVE_DATA);
+        httpMessage.setTag(this.b);
+        MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void h(String str) {
-        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment;
+    public void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (alaGameFrsLiveTabVideoFragment = this.c) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().unRegisterTask(AlaCmdConfigHttp.CMD_ALA_SPECIAL_LIVE_DATA);
+            MessageManager.getInstance().unRegisterListener(this.d);
         }
-        alaGameFrsLiveTabVideoFragment.w1(str);
     }
 
-    public void i(boolean z) {
-        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment;
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (alaGameFrsLiveTabVideoFragment = this.c) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().registerListener(this.d);
         }
-        alaGameFrsLiveTabVideoFragment.x1(z);
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_SPECIAL_LIVE_DATA, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_SPECIAL_LIVE_DATA);
+            tbHttpMessageTask.setResponsedClass(SpecialLiveResponseMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
     }
 }

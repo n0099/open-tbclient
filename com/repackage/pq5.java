@@ -1,110 +1,219 @@
 package com.repackage;
 
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class pq5 extends jx5<lp5> {
+/* loaded from: classes7.dex */
+public class pq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cp5 i;
-    public cp5 j;
-    public ViewGroup k;
+    public TbPageContext<?> a;
+    public qq5 b;
+    public boolean c;
+    public nq5 d;
+    public CustomMessageListener e;
+    public Runnable f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pq5(TbPageContext<?> tbPageContext, ViewGroup viewGroup, int i, boolean z) {
-        super(tbPageContext, viewGroup);
+    /* loaded from: classes7.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pq5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(pq5 pq5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pq5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pq5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                this.a.b();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pq5 a;
+
+        public b(pq5 pq5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pq5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pq5Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.i();
+            }
+        }
+    }
+
+    public pq5(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup, Integer.valueOf(i), Boolean.valueOf(z)};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (z) {
-            this.i = new rq5(tbPageContext, i);
-            this.j = new rq5(tbPageContext, i);
-            s();
-            return;
-        }
-        this.i = new qq5(tbPageContext, i);
-        this.j = new qq5(tbPageContext, i);
-        r();
+        this.a = null;
+        this.c = false;
+        this.e = new a(this, 2000994);
+        this.f = new b(this);
+        this.a = tbPageContext;
+        this.b = new qq5(tbPageContext);
+        MessageManager.getInstance().registerListener(this.e);
     }
 
-    @Override // com.repackage.jx5
-    public int d() {
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c) {
+            return;
+        }
+        if (of5.a(1)) {
+            rg.a().removeCallbacks(this.f);
+            rg.a().postDelayed(this.f, 1000L);
+            return;
+        }
+        qq5 qq5Var = this.b;
+        if (qq5Var != null) {
+            qq5Var.r();
+        }
+    }
+
+    public nq5 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0805 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (nq5) invokeV.objValue;
     }
 
-    @Override // com.repackage.jx5
-    public void j(TbPageContext<?> tbPageContext, int i) {
+    public View d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.i.onChangeSkinType(tbPageContext, i);
-            this.j.onChangeSkinType(tbPageContext, i);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b.j() : (View) invokeV.objValue;
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.c = z;
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public void f(nq5 nq5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.k = (ViewGroup) h();
-            View view2 = new View(getContext());
-            this.k.setPadding(g().getResources().getDimensionPixelSize(R.dimen.tbds44), g().getResources().getDimensionPixelSize(R.dimen.tbds12), g().getResources().getDimensionPixelSize(R.dimen.tbds44), 0);
-            this.k.addView(this.i.getView());
-            this.k.addView(view2, new LinearLayout.LayoutParams(g().getResources().getDimensionPixelSize(R.dimen.tbds12), -1));
-            this.k.addView(this.j.getView());
-        }
-    }
-
-    public final void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.k = (ViewGroup) h();
-            View view2 = new View(getContext());
-            this.k.setPadding(g().getResources().getDimensionPixelSize(R.dimen.tbds34), g().getResources().getDimensionPixelSize(R.dimen.tbds21), g().getResources().getDimensionPixelSize(R.dimen.tbds34), 0);
-            this.k.addView(this.i.getView());
-            this.k.addView(view2, new LinearLayout.LayoutParams(g().getResources().getDimensionPixelSize(R.dimen.tbds20), -1));
-            this.k.addView(this.j.getView());
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.jx5
-    /* renamed from: t */
-    public void i(lp5 lp5Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, lp5Var) == null) || lp5Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, nq5Var) == null) || nq5Var == null || nq5Var.a == null) {
             return;
         }
-        this.i.a(lp5Var.a);
-        this.j.a(lp5Var.b);
+        this.d = nq5Var;
+        qq5 qq5Var = this.b;
+        if (qq5Var != null) {
+            qq5Var.n(nq5Var);
+            StatisticItem statisticItem = new StatisticItem("c12644");
+            int i = nq5Var.b;
+            if (i == 0) {
+                statisticItem.param("obj_type", 1);
+            } else if (i == 1) {
+                statisticItem.param("obj_type", 2);
+            }
+            statisticItem.param("tid", nq5Var.a.getTid());
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b.o();
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.e);
+            rg.a().removeCallbacks(this.f);
+            qq5 qq5Var = this.b;
+            if (qq5Var != null) {
+                qq5Var.p();
+            }
+        }
+    }
+
+    public final void i() {
+        nq5 nq5Var;
+        ThreadData threadData;
+        qq5 qq5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (nq5Var = this.d) == null || (threadData = nq5Var.a) == null || threadData.getThreadAlaInfo() == null || (qq5Var = this.b) == null) {
+            return;
+        }
+        qq5Var.x(this.d.a.getThreadAlaInfo().hls_url);
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            qq5 qq5Var = this.b;
+            if (qq5Var != null) {
+                qq5Var.r();
+            }
+            rg.a().removeCallbacks(this.f);
+        }
     }
 }

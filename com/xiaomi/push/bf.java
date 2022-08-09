@@ -26,7 +26,7 @@ public class bf implements au {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f137a;
+    public Context f138a;
 
     static {
         InterceptResult invokeClinit;
@@ -63,7 +63,7 @@ public class bf implements au {
                 return;
             }
         }
-        this.f137a = context;
+        this.f138a = context;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:14:0x002e, code lost:
@@ -91,7 +91,7 @@ public class bf implements au {
         }
         String str2 = null;
         try {
-            cursor = this.f137a.getContentResolver().query(Uri.parse(str), null, null, null, null);
+            cursor = this.f138a.getContentResolver().query(Uri.parse(str), null, null, null, null);
             if (cursor != null) {
                 try {
                     if (cursor.moveToNext()) {

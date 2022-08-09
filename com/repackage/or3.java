@@ -1,71 +1,51 @@
 package com.repackage;
 
-import android.content.Intent;
-import android.widget.Toast;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class or3 extends ns3 {
+/* loaded from: classes7.dex */
+public class or3 implements rr3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public lr3 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public or3() {
-        super("openSpaceCleanActivity");
+    public or3(lr3 lr3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {lr3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = lr3Var;
     }
 
-    @Override // com.repackage.ns3
-    public is1 a(@NonNull JSONObject jSONObject, @NonNull md2 md2Var) {
-        InterceptResult invokeLL;
-        boolean b;
+    private void setResult(sr3 sr3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, md2Var)) == null) {
-            if (rd3.m()) {
-                b = b("com.huawei.systemmanager", "com.huawei.systemmanager.appfeature.spacecleaner.SpaceCleanActivity");
-            } else if (rd3.n()) {
-                b = b("com.miui.cleanmaster", "com.miui.optimizecenter.MainActivity");
-            } else if (rd3.o()) {
-                b = b("com.coloros.phonemanager", "com.coloros.phonemanager.clear.ClearActivity");
-            } else {
-                b = rd3.r() ? b("com.iqoo.secure", "com.iqoo.secure.clean.PhoneCleanActivity2") : false;
+        if (interceptable == null || interceptable.invokeL(65537, this, sr3Var) == null) {
+            this.a.d.clear();
+            if (sr3Var != null) {
+                this.a.d.putString("functionType", sr3Var.a());
+                this.a.d.putString("resultData", sr3Var.b());
+                this.a.d.putInt("resultStatus", sr3Var.c());
             }
-            if (!b) {
-                Toast.makeText(pj2.c(), (int) R.string.obfuscated_res_0x7f0f018b, 0).show();
-            }
-            md2Var.a(null);
-            return null;
+            this.a.c();
         }
-        return (is1) invokeLL.objValue;
     }
 
-    public final boolean b(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.rr3
+    public void a(sr3 sr3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            Intent intent = new Intent();
-            intent.setClassName(str, str2);
-            return rc3.i(pj2.c(), intent, true, false);
+        if (interceptable == null || interceptable.invokeL(1048576, this, sr3Var) == null) {
+            setResult(sr3Var);
         }
-        return invokeLL.booleanValue;
     }
 }

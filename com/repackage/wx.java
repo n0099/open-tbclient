@@ -2,33 +2,32 @@ package com.repackage;
 
 import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.view.RecommendForumLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.abtest.helper.HomeGroupUbsUIHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.widget.TbLabelWidget;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class wx extends xw {
+public class wx extends rw<vq4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbLabelWidget h;
+    public RecommendForumLayout f;
+    public int g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wx(Context context) {
-        super(context);
+    public wx(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,69 +38,80 @@ public class wx extends xw {
                 return;
             }
         }
-        int f = pi.f(context, R.dimen.M_H_X003);
-        int f2 = pi.f(context, HomeGroupUbsUIHelper.handleDimen(R.dimen.tbds21, R.dimen.tbds0));
-        s(f);
-        r(f2);
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().s instanceof TbLabelWidget) && TbadkCoreApplication.getInst().getPersonalizeViewData().s.getParent() == null) {
-            this.h = (TbLabelWidget) TbadkCoreApplication.getInst().getPersonalizeViewData().s;
-        } else {
-            this.h = new TbLabelWidget(context);
-        }
+        this.g = 3;
+        RecommendForumLayout recommendForumLayout = new RecommendForumLayout(tbPageContext);
+        this.f = recommendForumLayout;
+        recommendForumLayout.setPageUniqueId(bdUniqueId);
+        this.f.setShowMore(true);
     }
 
-    @Override // com.repackage.qw
+    @Override // com.repackage.rw
     public View h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.hx
+    @Override // com.repackage.ix
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.h.f();
-        }
-    }
-
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (UbsABTestHelper.showNewUI()) {
-                int f = pi.f(this.b, R.dimen.M_H_X003);
-                int f2 = pi.f(this.b, HomeGroupUbsUIHelper.handleDimen(R.dimen.tbds21, R.dimen.tbds0));
-                s(f);
-                r(f2);
-                return;
+            if (this.g != i) {
+                this.f.onChangeSkinType(tbPageContext, i);
             }
-            int f3 = pi.f(this.b, R.dimen.tbds10);
-            s(f3);
-            r(0);
-            v(this.h, f3, 0);
+            this.g = i;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.gx
-    /* renamed from: u */
-    public void a(on4 on4Var) {
+    @Override // com.repackage.hx
+    /* renamed from: p */
+    public void a(vq4 vq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, on4Var) == null) {
-            this.h.setData(on4Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, vq4Var) == null) {
+            this.f.setData(vq4Var);
         }
     }
 
-    public void v(View view2, int i, int i2) {
+    public void q(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048581, this, view2, i, i2) == null) && view2 != null && (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
-            if (marginLayoutParams.topMargin == i && marginLayoutParams.bottomMargin == i2) {
-                return;
-            }
-            marginLayoutParams.topMargin = i;
-            marginLayoutParams.bottomMargin = i2;
-            view2.setLayoutParams(marginLayoutParams);
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.f.setEnableShowInto(z);
+        }
+    }
+
+    public void r(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
+            this.f.setOnClickRightArrowListener(onClickListener);
+        }
+    }
+
+    public void s(bn4<uq4> bn4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bn4Var) == null) {
+            this.f.setOnItemCoverListener(bn4Var);
+        }
+    }
+
+    public void t(PullLeftRefreshLayout.f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, fVar) == null) {
+            this.f.setOnRullOkCallbackr(fVar);
+        }
+    }
+
+    public void u(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.f.setShowMore(z);
+        }
+    }
+
+    public void v(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.f.setShowSquareEntrance(z);
         }
     }
 }

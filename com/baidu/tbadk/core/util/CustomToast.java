@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class CustomToast {
     public static /* synthetic */ Interceptable $ic = null;
@@ -160,7 +160,7 @@ public class CustomToast {
     public void showToast(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, str, i) == null) {
-            showToast(str, i, pi.d(BdBaseApplication.getInst().getApp(), 100.0f));
+            showToast(str, i, qi.d(BdBaseApplication.getInst().getApp(), 100.0f));
         }
     }
 

@@ -1,16 +1,12 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public interface wk0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "exp_config");
-    public static final wk0 b = new a();
+    public static final wk0 a = new a();
 
     /* loaded from: classes7.dex */
     public static class a implements wk0 {
@@ -32,14 +28,12 @@ public interface wk0 {
         }
 
         @Override // com.repackage.wk0
-        @NonNull
-        public String[] a() {
-            InterceptResult invokeV;
+        public void a(boolean z) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            }
         }
     }
 
-    @NonNull
-    String[] a();
+    void a(boolean z);
 }

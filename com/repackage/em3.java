@@ -1,36 +1,27 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+@Autowired
 /* loaded from: classes6.dex */
-public class em3 implements ml1 {
+public final class em3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public em3() {
+    @Inject(force = false)
+    public static co3 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new bo3() : (co3) invokeV.objValue;
     }
 
-    @Override // com.repackage.ml1
-    public void a(String str, jq2 jq2Var, Context context) {
+    @Inject(force = false)
+    public static ym3 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, jq2Var, context) == null) {
-            rs2.e().a(str, jq2Var, context);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new wm3() : (ym3) invokeV.objValue;
     }
 }

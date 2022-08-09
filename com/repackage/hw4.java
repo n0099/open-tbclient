@@ -1,70 +1,77 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.util.FileHelper;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.text.style.ReplacementSpan;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class hw4 {
+public class hw4 extends ReplacementSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public final Paint b;
 
-    public static synchronized void a() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public hw4(int i) {
+        this(i, 0);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            synchronized (hw4.class) {
-                File file = new File(FileHelper.getCacheDir() + "voice");
-                if (file.exists() && file.isDirectory()) {
-                    File[] listFiles = file.listFiles();
-                    if (listFiles == null) {
-                        return;
-                    }
-                    for (File file2 : listFiles) {
-                        file2.delete();
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static boolean b(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // android.text.style.ReplacementSpan
+    public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) ? FileHelper.renameTo(str, FileHelper.getFilePath(str2, 1, true)) : invokeLL.booleanValue;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+            canvas.drawRect(f, i3, f + this.a, i5, this.b);
+        }
     }
 
-    public static gw4 c(String str) {
-        InterceptResult invokeL;
+    @Override // android.text.style.ReplacementSpan
+    public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            gw4 gw4Var = new gw4();
-            if (str == null) {
-                gw4Var.c = 6;
-                gw4Var.d = gw4.a(6);
-                return gw4Var;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) ? this.a : invokeCommon.intValue;
+    }
+
+    public hw4(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (!FileHelper.CheckTempDir(FileHelper.getCacheDir() + "voice")) {
-                gw4Var.c = 7;
-                gw4Var.d = gw4.a(7);
-                return gw4Var;
-            }
-            String b = vi.b(FileHelper.GetStreamFromTmpFile(str));
-            if (b == null) {
-                gw4Var.c = 5;
-                gw4Var.d = gw4.a(5);
-            } else {
-                String filePath = FileHelper.getFilePath(b, 1, true);
-                if (FileHelper.renameTo(str, filePath)) {
-                    gw4Var.b = filePath;
-                    gw4Var.a = b;
-                } else {
-                    gw4Var.c = 1;
-                    gw4Var.d = gw4.a(1);
-                }
-            }
-            return gw4Var;
         }
-        return (gw4) invokeL.objValue;
+        Paint paint = new Paint();
+        this.b = paint;
+        this.a = i;
+        paint.setColor(i2);
     }
 }

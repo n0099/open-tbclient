@@ -1,74 +1,40 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.holder.CardViewHolder;
-import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.BookInfo;
 /* loaded from: classes7.dex */
-public class u28 extends an<f48, CardViewHolder<j58>> {
+public class u28 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> i;
-    public LikeModel j;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u28(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), f48.l);
+    public u28() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.i = tbPageContext;
-        this.j = new LikeModel(tbPageContext);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: Z */
-    public CardViewHolder<j58> M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void a(BookInfo bookInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            j58 j58Var = new j58(this.i);
-            j58Var.x(this.j);
-            return new CardViewHolder<>(j58Var);
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, bookInfo) == null) || bookInfo == null) {
+            return;
         }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, f48 f48Var, CardViewHolder<j58> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, f48Var, cardViewHolder})) == null) {
-            cardViewHolder.b().i(f48Var);
-            cardViewHolder.b().j(this.i, TbadkCoreApplication.getInst().getSkinType());
-            return cardViewHolder.a();
-        }
-        return (View) invokeCommon.objValue;
+        String str = bookInfo.book_id;
+        String str2 = bookInfo.title;
+        String str3 = bookInfo.cover;
+        bookInfo.update_time.intValue();
+        bookInfo.book_type.intValue();
+        bookInfo.forum_id.longValue();
+        bookInfo.total_chapter.intValue();
     }
 }

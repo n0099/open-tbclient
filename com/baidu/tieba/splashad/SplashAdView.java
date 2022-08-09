@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pe8;
+import com.repackage.ch8;
 /* loaded from: classes4.dex */
 public class SplashAdView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pe8 a;
+    public ch8 a;
     public BaseFragmentActivity b;
     public int c;
 
@@ -45,21 +45,21 @@ public class SplashAdView extends FrameLayout {
     }
 
     public void a() {
-        pe8 pe8Var;
+        ch8 ch8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (pe8Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (ch8Var = this.a) == null) {
             return;
         }
-        pe8Var.e();
+        ch8Var.e();
     }
 
     public void b() {
-        pe8 pe8Var;
+        ch8 ch8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (pe8Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (ch8Var = this.a) == null) {
             return;
         }
-        pe8Var.f();
+        ch8Var.f();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -67,20 +67,20 @@ public class SplashAdView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onAttachedToWindow();
-            pe8 pe8Var = new pe8();
-            this.a = pe8Var;
-            pe8Var.a(this.b, this, this.c);
+            ch8 ch8Var = new ch8();
+            this.a = ch8Var;
+            ch8Var.a(this.b, this, this.c);
         }
     }
 
     @Override // android.view.View
     public void onConfigurationChanged(@NonNull Configuration configuration) {
-        pe8 pe8Var;
+        ch8 ch8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, configuration) == null) || (pe8Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, configuration) == null) || (ch8Var = this.a) == null) {
             return;
         }
-        pe8Var.d(configuration);
+        ch8Var.d(configuration);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -88,9 +88,9 @@ public class SplashAdView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDetachedFromWindow();
-            pe8 pe8Var = this.a;
-            if (pe8Var != null) {
-                pe8Var.g();
+            ch8 ch8Var = this.a;
+            if (ch8Var != null) {
+                ch8Var.g();
             }
             this.a = null;
         }

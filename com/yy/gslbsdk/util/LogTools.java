@@ -31,7 +31,7 @@ public class LogTools {
                 return;
             }
         }
-        TAG = GlobalTools.LOG_TAG + "-2.2.18-lianyun";
+        TAG = GlobalTools.LOG_TAG + "-2.2.28-live";
     }
 
     public LogTools() {

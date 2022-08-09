@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q11;
+import com.repackage.w11;
 /* loaded from: classes2.dex */
 public class BdTextProgressView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -45,9 +45,9 @@ public class BdTextProgressView extends View {
                 return;
             }
         }
-        h = q11.a(120.0f);
-        i = q11.a(15.0f);
-        q11.a(2.0f);
+        h = w11.a(120.0f);
+        i = w11.a(15.0f);
+        w11.a(2.0f);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -256,7 +256,7 @@ public class BdTextProgressView extends View {
         this.c = BdPlayerProgressView.DEFAULT_PROGRESS_TIME_TEXT;
         TypedArray typedArray = null;
         try {
-            typedArray = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04048b, R.attr.obfuscated_res_0x7f04048c, R.attr.obfuscated_res_0x7f04048d, R.attr.obfuscated_res_0x7f04048e});
+            typedArray = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0404f4, R.attr.obfuscated_res_0x7f0404f5, R.attr.obfuscated_res_0x7f0404f6, R.attr.obfuscated_res_0x7f0404f7});
             this.a = typedArray.getDimension(3, 15.0f);
             this.b = typedArray.getColor(1, -1);
             this.f = typedArray.getInt(0, 1);

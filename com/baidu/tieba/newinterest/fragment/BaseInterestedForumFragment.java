@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ep7;
-import com.repackage.xo7;
+import com.repackage.sq7;
+import com.repackage.zq7;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class BaseInterestedForumFragment extends BaseFragment {
@@ -18,7 +18,7 @@ public class BaseInterestedForumFragment extends BaseFragment {
     public int a;
     public boolean b;
     public String[] c;
-    public List<xo7> d;
+    public List<sq7> d;
     public View e;
 
     public BaseInterestedForumFragment() {
@@ -41,25 +41,25 @@ public class BaseInterestedForumFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.onResume();
             if (getFragmentManager().getFragments().size() == 2) {
-                ep7.c(2, this.a);
+                zq7.c(2, this.a);
             }
         }
     }
 
-    public int s1() {
+    public int r1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public void t1() {
+    public void s1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             hideLoadingView(this.e);
         }
     }
 
-    public void u1(String str) {
+    public void t1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             hideLoadingView(this.e);
@@ -67,7 +67,7 @@ public class BaseInterestedForumFragment extends BaseFragment {
         }
     }
 
-    public void v1(List<xo7> list) {
+    public void u1(List<sq7> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             this.d = list;

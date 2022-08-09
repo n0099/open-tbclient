@@ -8,6 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
 import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
 import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.gift.myGiftList.MyGiftListActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -48,22 +49,19 @@ public class GiftStatic {
             int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
-                if (strArr != null && strArr.length != 0 && strArr[0] != null && tbPageContext != null) {
-                    String str2 = strArr[0];
-                    if ((str2.startsWith("https://tieba.baidu.com/user/gift") || str2.startsWith("https://tieba.baidu.com/user/gift")) && ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity())) {
-                        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                        String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
-                        if (currentAccount != null && currentAccount.length() > 0) {
-                            if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
-                                str = TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow();
-                                i = TbadkCoreApplication.getCurrentAccountInfo().getSex();
-                            } else {
-                                str = currentAccountName;
-                                i = 0;
-                            }
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(tbPageContext.getPageActivity(), currentAccount, currentAccountName, str, i)));
-                            return 0;
+                if (strArr != null && strArr.length != 0 && strArr[0] != null && tbPageContext != null && strArr[0].contains(UrlSchemaHelper.HTTP_JUMP_TO_USER_GIFT) && ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity())) {
+                    String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                    String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
+                    if (currentAccount != null && currentAccount.length() > 0) {
+                        if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
+                            str = TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow();
+                            i = TbadkCoreApplication.getCurrentAccountInfo().getSex();
+                        } else {
+                            str = currentAccountName;
+                            i = 0;
                         }
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(tbPageContext.getPageActivity(), currentAccount, currentAccountName, str, i)));
+                        return 0;
                     }
                 }
                 return 3;

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AdScrollView extends ScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public class AdScrollView extends ScrollView {
             if (2 == getContext().getResources().getConfiguration().orientation) {
                 i = getContext().getResources().getDisplayMetrics().widthPixels;
             }
-            return ((i - (getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070650) * 2)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070652)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07064e);
+            return ((i - (getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070651) * 2)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070653)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07064f);
         }
         return invokeV.intValue;
     }

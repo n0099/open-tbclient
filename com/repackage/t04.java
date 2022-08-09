@@ -1,51 +1,46 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import android.util.Log;
+import android.webkit.JavascriptInterface;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.JSRuntime;
 import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.games.screenrecord.GameRecorderController;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.connect.share.QzonePublish;
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.HttpUrl;
-import okhttp3.Request;
-import okhttp3.Response;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class t04 {
+public class t04 extends y04 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ps1 a;
+    public int e;
+    public String f;
+    public boolean g;
+    public ArrayList<b14> h;
+    public List<String> i;
+    public List<String> j;
 
     /* loaded from: classes7.dex */
-    public class a implements ug1 {
+    public class a implements c14 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v04 a;
+        public final /* synthetic */ gt1 a;
         public final /* synthetic */ t04 b;
 
-        public a(t04 t04Var, v04 v04Var) {
+        public a(t04 t04Var, gt1 gt1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t04Var, v04Var};
+                Object[] objArr = {t04Var, gt1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -56,318 +51,276 @@ public class t04 {
                 }
             }
             this.b = t04Var;
-            this.a = v04Var;
+            this.a = gt1Var;
         }
 
-        @Override // com.repackage.ug1
-        public void onResult(int i) {
+        @Override // com.repackage.c14
+        public void a(d14 d14Var, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i != 0) {
-                    if (t04.b) {
-                        Log.d("ShareVideoApi", "login fail");
-                    }
-                    this.b.j("shareVideo: fail, no login in");
-                    return;
-                }
-                if (t04.b) {
-                    Log.d("ShareVideoApi", "login success");
-                }
-                this.b.h(this.a);
+            if (interceptable == null || interceptable.invokeLL(1048576, this, d14Var, str) == null) {
+                this.b.B(this.a, str);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements u04 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t04 a;
-
-        public b(t04 t04Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t04Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = t04Var;
-        }
-
-        @Override // com.repackage.u04
-        public void a(v04 v04Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, v04Var, str) == null) {
-                if (t04.b) {
-                    Log.d("ShareVideoApi", String.format("onFail params = %s;errMsg = %s", v04Var, str));
-                }
-                this.a.j(str);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c implements Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // okhttp3.Callback
-        public void onFailure(Call call, IOException iOException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                if (t04.b) {
-                    iOException.printStackTrace();
-                }
-                t04.g();
-            }
-        }
-
-        @Override // okhttp3.Callback
-        public void onResponse(Call call, Response response) throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                try {
-                    JSONObject jSONObject = (JSONObject) new JSONObject(response.body().string()).opt("data");
-                    if (jSONObject != null) {
-                        String unused = t04.c = jSONObject.optString("community_id");
-                        t04.f(jSONObject.optString("url"));
-                        return;
-                    }
-                    t04.g();
-                } catch (JSONException e) {
-                    if (t04.b) {
-                        e.printStackTrace();
-                    }
-                    t04.g();
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755344583, "Lcom/repackage/t04;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755344583, "Lcom/repackage/t04;");
-                return;
-            }
-        }
-        b = sg1.a;
-        String str = cx1.c() + "/webpage";
-        c = "";
-    }
-
-    public t04(JsObject jsObject) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t04(j82 j82Var) {
+        super(j82Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jsObject};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {j82Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((JSRuntime) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = ps1.F(jsObject);
+        this.g = false;
+        this.h = new ArrayList<>();
+        this.i = new ArrayList(3);
+        this.j = new ArrayList(3);
     }
 
-    public static /* synthetic */ String f(String str) {
-        return str;
-    }
-
-    public static void g() {
+    public final void B(gt1 gt1Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            c = "";
+        if (interceptable == null || interceptable.invokeLL(1048576, this, gt1Var, str) == null) {
+            if (y04.d) {
+                Log.d("GameRecorderApi", "callFailureCallback: errMsg=" + str);
+            }
+            k34.call(gt1Var, false, new u04(str));
         }
     }
 
-    public static void l() {
+    @NonNull
+    public final String C(String str, @NonNull List<String> list, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
-            oy3 oy3Var = (oy3) i03.M().i0();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("app_type", 0);
-                jSONObject.put(GameGuideConfigInfo.KEY_APP_KEY, i03.g0());
-            } catch (JSONException e) {
-                if (b) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, list, i)) == null) {
+            if (list.size() >= i) {
+                String remove = list.remove(0);
+                bh4.k(jd2.N(remove));
+                if (y04.d) {
+                    Log.d("GameRecorderApi", "deleteFile: " + remove);
                 }
             }
-            HttpUrl.Builder newBuilder = HttpUrl.parse("https://gamecenter.baidu.com/api/ugc/query_community_by_app").newBuilder();
-            newBuilder.addQueryParameter("data", jSONObject.toString());
-            oy3Var.call(new Request.Builder().url(newBuilder.build()).build(), new c());
+            String format = String.format(Locale.CHINA, str, Long.valueOf(System.currentTimeMillis()));
+            list.add(format);
+            return format;
+        }
+        return (String) invokeLLI.objValue;
+    }
+
+    public final void D() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (y04.d) {
+                Log.d("GameRecorderApi", "doStartRecorder:" + this.e + "," + this.f);
+            }
+            this.h.clear();
+            this.g = false;
+            z04.a().b().t(this.e, this.f);
         }
     }
 
-    public final void h(v04 v04Var) {
+    public final boolean E(double[] dArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, v04Var) == null) {
-            yw3.i().a(v04Var, new b(this));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, dArr)) == null) {
+            if (dArr == null || dArr.length < 2) {
+                return false;
+            }
+            long j = (long) (dArr[0] * 1000.0d);
+            long j2 = (long) (dArr[1] * 1000.0d);
+            return j >= 0 && j2 >= 0 && j + j2 > 0;
         }
+        return invokeL.booleanValue;
     }
 
-    public final void i() {
+    public final boolean F(GameRecorderController.RecorderState... recorderStateArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            k73 k73Var = new k73();
-            k73Var.b = "shareVideo";
-            k73Var.e = com.baidu.pass.biometrics.face.liveness.b.a.g0;
-            b73.h(k73Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, recorderStateArr)) == null) {
+            GameRecorderController.RecorderState l = z04.a().b().l();
+            if (y04.d) {
+                Log.d("GameRecorderApi", "RecorderState:" + l);
+            }
+            if (recorderStateArr == null) {
+                return true;
+            }
+            for (GameRecorderController.RecorderState recorderState : recorderStateArr) {
+                if (l == recorderState) {
+                    return false;
+                }
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public final void j(String str) {
+    @NonNull
+    public final gt1 G(JsObject jsObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.a == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jsObject)) == null) {
+            gt1 F = gt1.F(jsObject);
+            return F == null ? new gt1() : F;
+        }
+        return (gt1) invokeL.objValue;
+    }
+
+    public final void H(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, jsObject) == null) || jsObject == null) {
             return;
         }
-        qu3 qu3Var = new qu3();
-        qu3Var.errMsg = String.format(Locale.CHINA, "shareVideo: fail, %s", str);
-        t24.call(this.a, false, qu3Var);
-        i();
+        jsObject.release();
     }
 
-    public final v04 k() {
-        InterceptResult invokeV;
+    @JavascriptInterface
+    public void clipVideo(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.a == null) {
-                i();
-                return null;
-            } else if (i03.M() == null) {
-                j("shareVideo: fail, swanApp is null");
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048583, this, jsObject) == null) {
+            gt1 G = G(jsObject);
+            String B = G.B("path");
+            if (y04.d) {
+                Log.d("GameRecorderApi", "clipPath:" + B + "，hasExecutedClip：" + this.g);
+            }
+            if (this.g) {
+                return;
+            }
+            if (F(GameRecorderController.RecorderState.STOP)) {
+                B(G, "clipVideo can only called after onStop");
+            } else if (this.h.isEmpty()) {
+                B(G, "range is illegal");
             } else {
-                String B = this.a.B(QzonePublish.PUBLISH_TO_QZONE_VIDEO_PATH);
-                if (TextUtils.isEmpty(B)) {
-                    j("shareVideo: videoPath is invalid");
-                    return null;
-                }
-                String B2 = sc2.B(B);
-                if (TextUtils.isEmpty(B2)) {
-                    j("shareVideo: videoPath is invalid");
-                    return null;
-                }
-                v04 v04Var = new v04();
-                v04Var.a = B2;
-                v04Var.c = this.a.B("title");
-                v04Var.b = this.a.B("query");
-                w04 w04Var = new w04();
-                w04Var.a = this.a.y("clipMaxDuration", 30L);
-                w04Var.b = this.a.y("clipMinDuration", 3L);
-                w04Var.c = this.a.B("topicSource");
-                w04Var.d = this.a.C("publishTitle", pj2.c().getResources().getString(R.string.obfuscated_res_0x7f0f12f8));
-                w04Var.e = this.a.C("publishURL", "/searchbox?action=ugc&cmd=177");
-                w04Var.i = this.a.r("sourceType", 1);
-                w04Var.j = this.a.C("sourceFrom", "tiny");
-                w04Var.g = this.a.C("atURL", "baiduboxapp://v1/easybrowse/open?newbrowser=1&style=%7B%22menumode%22%3A%222%22%2C%22showtoolbar%22%3A%221%22%7D&url=https%3A%2F%2Fmbd.baidu.com%2Fwebpage%3Ftype%3Dtopic%26action%3Dat&newbrowser=1");
-                w04Var.f = this.a.C("musicURL", "https://sv.baidu.com/feedvideoui/view/videomusic");
-                w04Var.h = this.a.C("topicURL", "baiduboxapp://v1/easybrowse/open?newbrowser=1&style=%7B%22menumode%22%3A%222%22%2C%22showtoolbar%22%3A%221%22%7D&url=https%3A%2F%2Fsv.baidu.com%2Ffeedvideoui%2Fview%2Ftopiclist");
-                w04Var.k = this.a.C("publishType", "9");
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put(GameGuideConfigInfo.KEY_APP_KEY, i03.g0());
-                    jSONObject.put("frame_type", h03.K().k());
-                    jSONObject.put("query", v04Var.b);
-                    if (i03.M() != null && i03.M().Y() != null) {
-                        jSONObject.put("title", i03.M().Y().K());
-                    }
-                } catch (JSONException e) {
-                    if (b) {
-                        Log.d("ShareVideoApi", e.toString());
-                    }
-                }
-                jSONObject.toString();
-                if (!TextUtils.isEmpty(c)) {
-                    JSONObject jSONObject2 = new JSONObject();
-                    try {
-                        jSONObject2.put("id", c);
-                        if (i03.M() != null && i03.M().Y() != null) {
-                            jSONObject2.put("name", i03.M().Y().K());
-                        }
-                        jSONObject2.put("type", "interest");
-                        jSONObject2.put("post_id", "");
-                    } catch (JSONException e2) {
-                        if (b) {
-                            Log.d("ShareVideoApi", e2.toString());
-                        }
-                    }
-                    JSONArray jSONArray = new JSONArray();
-                    jSONArray.put(jSONObject2);
-                    JSONObject jSONObject3 = new JSONObject();
-                    try {
-                        jSONObject3.put("tag", jSONArray);
-                    } catch (JSONException e3) {
-                        if (b) {
-                            Log.d("ShareVideoApi", e3.toString());
-                        }
-                    }
-                    w04Var.l = jSONObject3.toString();
-                    w04Var.m = -1;
-                } else {
-                    w04Var.m = 0;
-                }
-                v04Var.e = w04Var;
-                return v04Var;
+                new e14(this.h, jd2.B(B), jd2.N(C("bdfile://tmp/SwanVideoRecorder/videoClip_%d.mp4", this.j, 3))).c(new a(this, G));
+                this.h.clear();
+                this.g = true;
+                b83 b83Var = new b83();
+                b83Var.b = "clipVideo";
+                s73.h(b83Var);
             }
         }
-        return (v04) invokeV.objValue;
     }
 
-    public void m() {
+    @JavascriptInterface
+    public void pause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            k73 k73Var = new k73();
-            k73Var.b = "shareVideo";
-            b73.h(k73Var);
-            v04 k = k();
-            if (k == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (y04.d) {
+                Log.d("GameRecorderApi", "pause");
+            }
+            if (F(GameRecorderController.RecorderState.RECORDING)) {
                 return;
             }
-            vg1 N = i03.M().N();
-            if (N.e(pj2.c())) {
-                h(k);
+            z04.a().b().o();
+        }
+    }
+
+    @JavascriptInterface
+    public void recordClip(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, jsObject) == null) {
+            gt1 G = G(jsObject);
+            if (F(GameRecorderController.RecorderState.RECORDING, GameRecorderController.RecorderState.PAUSE)) {
                 return;
             }
-            SwanAppActivity activity = vl2.U().getActivity();
-            if (activity == null) {
-                j("shareVideo: swanAppActivity is null");
-            } else {
-                N.f(activity, null, new a(this, k));
+            double[] o = G.o("timeRange");
+            H(jsObject);
+            if (!E(o)) {
+                o = new double[]{3.0d, 3.0d};
             }
+            b14 b = b14.b(z04.a().b().k(), o[0], o[1]);
+            if (y04.d) {
+                Log.d("GameRecorderApi", "recordClip:" + b.toString());
+            }
+            this.h.add(b);
+            b83 b83Var = new b83();
+            b83Var.b = "recordClip";
+            s73.h(b83Var);
+        }
+    }
+
+    @JavascriptInterface
+    public void resume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            if (y04.d) {
+                Log.d("GameRecorderApi", "resume");
+            }
+            if (F(GameRecorderController.RecorderState.PAUSE) || z04.a().c()) {
+                return;
+            }
+            z04.a().b().q();
+        }
+    }
+
+    @JavascriptInterface
+    public void start() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            start(null);
+        }
+    }
+
+    @JavascriptInterface
+    public void stop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            if (y04.d) {
+                Log.d("GameRecorderApi", IntentConfig.STOP);
+            }
+            if (F(GameRecorderController.RecorderState.RECORDING, GameRecorderController.RecorderState.PAUSE)) {
+                return;
+            }
+            z04.a().b().u();
+        }
+    }
+
+    @JavascriptInterface
+    public void start(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, jsObject) == null) {
+            if (y04.d) {
+                Log.d("GameRecorderApi", "start");
+            }
+            if (F(GameRecorderController.RecorderState.IDLE, GameRecorderController.RecorderState.STOP) || z04.a().c()) {
+                return;
+            }
+            gt1 G = G(jsObject);
+            int r = G.r("duration", 10);
+            this.e = r;
+            if (r <= 0) {
+                this.e = 10;
+            }
+            if (this.e > 120) {
+                this.e = 120;
+            }
+            if (this.i.size() == 0) {
+                bh4.k(jd2.N("bdfile://tmp/SwanVideoRecorder/"));
+            }
+            String C = C("bdfile://tmp/SwanVideoRecorder/video_%d.mp4", this.i, 3);
+            z(C);
+            String N = jd2.N(C);
+            this.f = N;
+            if (N == null) {
+                if (y04.d) {
+                    Log.e("GameRecorderApi", "recordPath == null.");
+                    return;
+                }
+                return;
+            }
+            if (G.m("microphoneEnabled", false)) {
+                y(2);
+            }
+            D();
+            k14.l();
         }
     }
 }

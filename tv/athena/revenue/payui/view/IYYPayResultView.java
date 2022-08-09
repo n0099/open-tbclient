@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qz9;
+import com.repackage.v2a;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
 /* loaded from: classes9.dex */
-public interface IYYPayResultView extends qz9 {
+public interface IYYPayResultView extends v2a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
@@ -131,6 +131,7 @@ public interface IYYPayResultView extends qz9 {
         public transient /* synthetic */ FieldHolder $fh;
         public b a;
         public AbsViewEventHandler b;
+        public WindowParams c;
 
         public c() {
             Interceptable interceptable = $ic;

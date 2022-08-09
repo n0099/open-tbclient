@@ -1,83 +1,196 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Collections;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class en2 implements hq2 {
+public final class en2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<bn2> a;
-    public int b;
-    public float c;
-    public boolean d;
+    public final gn2 a;
+    public final List<fn2> b;
+    public Boolean c;
+    public fn2 d;
 
-    public en2() {
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public gn2 a;
+        public List<fn2> b;
+        public RuntimeException c;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @SuppressLint({"BDThrowableCheck"})
+        public a a(@NonNull List<fn2> list) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+                if (list.contains(null)) {
+                    this.c = new IllegalArgumentException("branches contains null value");
+                    if (!en2.e) {
+                        this.b = null;
+                        return this;
+                    }
+                    throw this.c;
+                }
+                for (fn2 fn2Var : list) {
+                    if (fn2Var.c() + 0 > 100) {
+                        this.c = new IllegalArgumentException("The sum of all flow in the branch must be in [0,100]");
+                        if (!en2.e) {
+                            this.b = null;
+                            return this;
+                        }
+                        throw this.c;
+                    }
+                }
+                this.b = Collections.unmodifiableList(list);
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        @Nullable
+        @SuppressLint({"BDThrowableCheck"})
+        public en2 b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.c != null) {
+                    if (en2.e) {
+                        throw this.c;
+                    }
+                    return null;
+                } else if (this.a == null) {
+                    this.c = new IllegalStateException("testSwitch == null");
+                    if (en2.e) {
+                        throw this.c;
+                    }
+                    return null;
+                } else {
+                    List<fn2> list = this.b;
+                    if (list == null) {
+                        this.c = new IllegalStateException("branches == null");
+                        if (en2.e) {
+                            throw this.c;
+                        }
+                        return null;
+                    }
+                    for (fn2 fn2Var : list) {
+                        if (!gn2.c(this.a.f(), fn2Var.e)) {
+                            this.c = new IllegalStateException("branch valueType error");
+                            if (en2.e) {
+                                throw this.c;
+                            }
+                            return null;
+                        }
+                    }
+                    return new en2(this);
+                }
+            }
+            return (en2) invokeV.objValue;
+        }
+
+        public a c(@NonNull gn2 gn2Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gn2Var)) == null) {
+                this.a = gn2Var;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755731928, "Lcom/repackage/en2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755731928, "Lcom/repackage/en2;");
+                return;
+            }
+        }
+        e = jh1.a;
+    }
+
+    public en2(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = 0;
-        this.c = 0.0f;
-        this.d = false;
+        this.c = Boolean.FALSE;
+        this.a = aVar.a;
+        this.b = aVar.b;
     }
 
-    @Override // com.repackage.hq2
-    public void a(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("points")) {
-            JSONArray optJSONArray = jSONObject.optJSONArray("points");
-            int length = optJSONArray == null ? 0 : optJSONArray.length();
-            if (length > 0) {
-                this.a = new ArrayList<>(length);
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        bn2 bn2Var = new bn2();
-                        bn2Var.a(optJSONObject);
-                        if (bn2Var.isValid()) {
-                            this.a.add(bn2Var);
-                        }
-                    }
-                }
-            }
-            ArrayList<bn2> arrayList = this.a;
-            if (arrayList == null || arrayList.size() <= 0) {
-                return;
-            }
-            this.b = vm2.a(jSONObject.optString("color"), 0);
-            this.c = Math.abs(vm2.b(jSONObject.optDouble("width", 0.0d)));
-            this.d = jSONObject.optBoolean("dottedLine", false);
-            jSONObject.optBoolean("arrowLine", false);
-            jSONObject.optString("arrowIconPath");
-            vm2.a(jSONObject.optString("borderColor"), 0);
-            Math.abs(vm2.b(jSONObject.optDouble("borderWidth", 0.0d)));
-        }
-    }
-
-    @Override // com.repackage.hq2
-    public boolean isValid() {
+    @Nullable
+    public synchronized fn2 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<bn2> arrayList = this.a;
-            return arrayList != null && arrayList.size() > 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.c.booleanValue()) {
+                    return this.d;
+                }
+                int currentTimeMillis = (int) (System.currentTimeMillis() % 100);
+                this.c = Boolean.TRUE;
+                for (int i = 0; i < this.b.size(); i++) {
+                    fn2 fn2Var = this.b.get(i);
+                    currentTimeMillis -= fn2Var.c();
+                    if (currentTimeMillis < 0) {
+                        this.d = fn2Var;
+                        return fn2Var;
+                    }
+                }
+                return null;
+            }
         }
-        return invokeV.booleanValue;
+        return (fn2) invokeV.objValue;
+    }
+
+    @NonNull
+    public gn2 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (gn2) invokeV.objValue;
     }
 }

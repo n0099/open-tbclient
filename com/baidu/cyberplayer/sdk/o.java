@@ -52,7 +52,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class o {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = ".video_cache";

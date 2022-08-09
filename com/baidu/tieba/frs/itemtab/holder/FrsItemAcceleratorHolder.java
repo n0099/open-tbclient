@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ev4;
-import com.repackage.ff6;
-import com.repackage.rl6;
+import com.repackage.kn6;
+import com.repackage.xg6;
+import com.repackage.yv4;
 /* loaded from: classes3.dex */
 public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -47,14 +47,26 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
         this.b = bdUniqueId;
     }
 
-    public void b(rl6 rl6Var) {
+    public void a(kn6 kn6Var) {
         FrsItemAcceleratorView frsItemAcceleratorView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, rl6Var) == null) || (frsItemAcceleratorView = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, kn6Var) == null) || (frsItemAcceleratorView = this.a) == null) {
             return;
         }
-        frsItemAcceleratorView.setBtnColor(rl6Var.b());
-        this.a.setBtnImgClickListener(new View.OnClickListener() { // from class: com.repackage.bm6
+        frsItemAcceleratorView.setBtnColor(kn6Var.b());
+        this.a.setBtnImgClickListener(new View.OnClickListener() { // from class: com.repackage.un6
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // android.view.View.OnClickListener
+            public final void onClick(View view2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                    FrsItemAcceleratorHolder.this.e(view2);
+                }
+            }
+        });
+        this.a.setBtnDescClickListener(new View.OnClickListener() { // from class: com.repackage.tn6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -66,21 +78,9 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
                 }
             }
         });
-        this.a.setBtnDescClickListener(new View.OnClickListener() { // from class: com.repackage.am6
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // android.view.View.OnClickListener
-            public final void onClick(View view2) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                    FrsItemAcceleratorHolder.this.g(view2);
-                }
-            }
-        });
     }
 
-    public void c() {
+    public void b() {
         FrsItemAcceleratorView frsItemAcceleratorView;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (frsItemAcceleratorView = this.a) == null) {
@@ -89,7 +89,7 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
         frsItemAcceleratorView.a();
     }
 
-    public void d() {
+    public void c() {
         FrsItemAcceleratorView frsItemAcceleratorView;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (frsItemAcceleratorView = this.a) == null) {
@@ -98,7 +98,7 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
         frsItemAcceleratorView.b();
     }
 
-    public void e() {
+    public void d() {
         FrsItemAcceleratorView frsItemAcceleratorView;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (frsItemAcceleratorView = this.a) == null) {
@@ -107,20 +107,20 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
         frsItemAcceleratorView.c();
     }
 
+    public /* synthetic */ void e(View view2) {
+        g(2);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new yv4(19)));
+    }
+
     public /* synthetic */ void f(View view2) {
-        h(2);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new ev4(19)));
+        g(1);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new yv4(18)));
     }
 
-    public /* synthetic */ void g(View view2) {
-        h(1);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new ev4(18)));
-    }
-
-    public final void h(int i) {
+    public final void g(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new ff6(i));
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new xg6(i));
             CustomMessage customMessage = new CustomMessage(2921662);
             customMessage.setTag(this.b);
             customResponsedMessage.setOrginalMessage(customMessage);

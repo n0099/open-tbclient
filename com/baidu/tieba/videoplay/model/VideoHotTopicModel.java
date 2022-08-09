@@ -14,9 +14,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c65;
 import com.repackage.d9;
-import com.repackage.pp4;
+import com.repackage.gq4;
+import com.repackage.y65;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -29,14 +29,14 @@ public class VideoHotTopicModel extends BdBaseModel {
     @Nullable
     public b b;
     @NonNull
-    public c65 c;
+    public y65 c;
     @NonNull
     public List<Map<String, Object>> d;
     public int e;
     public boolean f;
 
     /* loaded from: classes4.dex */
-    public class a implements c65.a {
+    public class a implements y65.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoHotTopicParams a;
@@ -61,7 +61,7 @@ public class VideoHotTopicModel extends BdBaseModel {
             this.a = videoHotTopicParams;
         }
 
-        @Override // com.repackage.c65.a
+        @Override // com.repackage.y65.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -69,7 +69,7 @@ public class VideoHotTopicModel extends BdBaseModel {
             }
         }
 
-        @Override // com.repackage.c65.a
+        @Override // com.repackage.y65.a
         public void b(@NonNull List<ThreadData> list, @Nullable Map<String, Object> map) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, map) == null) || this.b.b == null || list.isEmpty()) {
@@ -112,7 +112,7 @@ public class VideoHotTopicModel extends BdBaseModel {
                 return;
             }
         }
-        this.c = (c65) ServiceManager.getService(c65.a);
+        this.c = (y65) ServiceManager.getService(y65.a);
         this.d = new ArrayList();
         this.f = false;
         this.a = videoHotTopicParams;
@@ -121,25 +121,25 @@ public class VideoHotTopicModel extends BdBaseModel {
     }
 
     @NonNull
-    public List<Map<String, Object>> E() {
+    public List<Map<String, Object>> D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (List) invokeV.objValue;
     }
 
-    public void F(@NonNull Long l) {
+    public void E(@NonNull Long l) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l) == null) || this.f) {
             return;
         }
         this.f = true;
         this.e = this.a.getCurrentPn() + 1;
-        pp4 pp4Var = new pp4();
-        pp4Var.k(this.e);
-        this.c.b(this.a.getSortType(), pp4Var, l.longValue());
+        gq4 gq4Var = new gq4();
+        gq4Var.k(this.e);
+        this.c.b(this.a.getSortType(), gq4Var, l.longValue());
     }
 
-    public void G(@Nullable b bVar) {
+    public void F(@Nullable b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             this.b = bVar;

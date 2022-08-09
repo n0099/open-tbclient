@@ -1,250 +1,124 @@
 package com.repackage;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.database.ContentObserver;
-import android.os.Handler;
-import android.os.Looper;
-import android.provider.MediaStore;
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.SurfaceTexture;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-/* loaded from: classes7.dex */
-public class zw8 {
+import com.repackage.ra9;
+/* loaded from: classes8.dex */
+public abstract class zw8 implements ra9.b {
     public static /* synthetic */ Interceptable $ic;
-    public static zw8 g;
+    public static boolean o;
+    public static boolean p;
+    public static String q;
     public transient /* synthetic */ FieldHolder $fh;
-    public Handler a;
-    public BroadcastReceiver b;
-    public ContentObserver c;
-    public ArrayList<d> d;
-    public Handler e;
-    public Runnable f;
+    public TbPageContext a;
+    public boolean b;
+    public boolean c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
+    public int k;
+    public SurfaceTexture l;
+    public volatile boolean m;
+    public volatile boolean n;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zw8 a;
-
-        public a(zw8 zw8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zw8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zw8Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755097482, "Lcom/repackage/zw8;")) == null) {
+            return;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.h(false);
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zw8 this$0;
-
-        public b(zw8 zw8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zw8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = zw8Var;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755097482, "Lcom/repackage/zw8;");
         }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                this.this$0.i(intent);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c extends ContentObserver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zw8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(zw8 zw8Var, Handler handler) {
-            super(handler);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zw8Var, handler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Handler) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zw8Var;
-        }
-
-        @Override // android.database.ContentObserver
-        public void onChange(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.a.e.removeCallbacks(this.a.f);
-                this.a.e.postDelayed(this.a.f, 2000L);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface d {
-        void v(boolean z);
     }
 
     public zw8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new Handler(Looper.getMainLooper());
-        this.d = new ArrayList<>();
-        this.e = new Handler();
-        this.f = new a(this);
+        this.j = -1;
+        this.m = false;
+        this.n = false;
     }
 
-    public static zw8 f() {
+    @Override // com.repackage.ra9.b
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (g == null) {
-                synchronized (zw8.class) {
-                    if (g == null) {
-                        zw8 zw8Var = new zw8();
-                        g = zw8Var;
-                        zw8Var.g(TbadkCoreApplication.getInst());
-                    }
-                }
-            }
-            return g;
-        }
-        return (zw8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.m : invokeV.booleanValue;
     }
 
-    public void d(d dVar) {
+    @Override // com.repackage.ra9.b
+    public void j(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) || dVar == null || this.d.contains(dVar)) {
-            return;
-        }
-        this.d.add(dVar);
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            j();
-            TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-            inst.unregisterReceiver(this.b);
-            inst.getContentResolver().unregisterContentObserver(this.c);
-            this.e.removeCallbacks(this.f);
-            g = null;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.n = z;
         }
     }
 
-    public final void g(Context context) {
+    @Override // com.repackage.ra9.b
+    public void m(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.b = new b(this);
-            this.c = new c(this, this.a);
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
-            intentFilter.addAction("android.intent.action.MEDIA_UNMOUNTED");
-            intentFilter.addAction("android.intent.action.MEDIA_SCANNER_STARTED");
-            intentFilter.addAction("android.intent.action.MEDIA_SCANNER_FINISHED");
-            intentFilter.addAction("android.intent.action.MEDIA_EJECT");
-            intentFilter.addDataScheme("file");
-            context.registerReceiver(this.b, intentFilter);
-            context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.c);
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.m = z;
         }
     }
 
-    public void h(boolean z) {
+    @Override // com.repackage.ra9.b
+    public boolean p() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            Iterator<d> it = this.d.iterator();
-            while (it.hasNext()) {
-                it.next().v(z);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.n : invokeV.booleanValue;
     }
 
-    public final void i(Intent intent) {
+    @Override // com.repackage.ra9.b
+    public int r() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, intent) == null) {
-            if (intent.getAction().equals("android.intent.action.MEDIA_UNMOUNTED")) {
-                h(true);
-                return;
-            }
-            this.e.removeCallbacks(this.f);
-            this.e.postDelayed(this.f, 2000L);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i : invokeV.intValue;
     }
 
-    public void j() {
+    @Override // com.repackage.ra9.b
+    public int v() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.d.clear();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.h : invokeV.intValue;
     }
 
-    public void k(d dVar) {
+    public boolean w() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) && this.d.contains(dVar)) {
-            this.d.remove(dVar);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? p : invokeV.booleanValue;
+    }
+
+    public boolean x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? o : invokeV.booleanValue;
     }
 }

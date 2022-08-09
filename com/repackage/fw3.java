@@ -1,138 +1,119 @@
 package com.repackage;
 
-import android.content.Intent;
 import android.text.TextUtils;
-import android.view.View;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.v8engine.V8ExceptionInfo;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.swan.games.glsurface.DuMixGameSurfaceView;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xw3;
-import java.io.File;
-@Singleton
-@Service
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class fw3 implements sh1 {
+public class fw3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static long b;
+    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public fw3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755693457, "Lcom/repackage/fw3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755693457, "Lcom/repackage/fw3;");
+                return;
+            }
+        }
+        a = jh1.a;
+        b = 86400000L;
+        c = "duration_permission_list";
+    }
+
+    public static void a(JsObject jsObject) {
+        gw3 gw3Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, jsObject) == null) {
+            z03 M = z03.M();
+            gt1 gt1Var = null;
+            if (jsObject == null || M == null || !b(M)) {
+                gw3Var = null;
+            } else {
+                if (a) {
+                    Log.e("SwanGameDurationApi", "params is " + jsObject.toString());
+                }
+                gt1 F = gt1.F(jsObject);
+                String B = F.B("swanGameId");
+                if (TextUtils.isEmpty(B)) {
+                    gw3Var = null;
+                } else {
+                    h93 a2 = n93.a();
+                    if (!c(Long.valueOf(a2.getLong(B + "_LastPause", 0L)), Long.valueOf(System.currentTimeMillis()))) {
+                        a2.putLong(B + "_Duration", 0L);
+                    }
+                    gw3Var = new gw3();
+                    gw3Var.duration = a2.getLong(B + "_Duration", 0L);
+                }
+                gt1Var = F;
+            }
+            k34.call(gt1Var, true, gw3Var);
         }
     }
 
-    @Override // com.repackage.sh1
-    public SwanCoreVersion m() {
-        InterceptResult invokeV;
+    public static boolean b(z03 z03Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? hw3.m().s() : (SwanCoreVersion) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, z03Var)) == null) {
+            String string = n93.a().getString(c, "");
+            if (!TextUtils.isEmpty(string)) {
+                try {
+                    JSONArray jSONArray = new JSONArray(string);
+                    for (int i = 0; i < jSONArray.length(); i++) {
+                        if (z03.g0().contains(jSONArray.optString(i))) {
+                            return true;
+                        }
+                    }
+                } catch (Exception e) {
+                    if (a) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.sh1
-    public hd2 n(SwanAppActivity swanAppActivity, String str) {
+    public static boolean c(Long l, Long l2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanAppActivity, str)) == null) ? new iw3(swanAppActivity, str) : (hd2) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, l, l2)) == null) ? l.longValue() / 86400000 == l2.longValue() / 86400000 : invokeLL.booleanValue;
     }
 
-    @Override // com.repackage.sh1
-    public q32 o(bf3<Exception> bf3Var) {
-        InterceptResult invokeL;
+    public static void d(long j, long j2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bf3Var)) == null) ? new nw3(bf3Var) : (q32) invokeL.objValue;
-    }
-
-    @Override // com.repackage.sh1
-    public void p(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
-            hw3.m().z(intent);
-        }
-    }
-
-    @Override // com.repackage.sh1
-    public View q(oz1 oz1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, oz1Var)) == null) {
-            if (oz1Var instanceof ew3) {
-                return ((ew3) oz1Var).v3();
-            }
-            return null;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    @Override // com.repackage.sh1
-    public void r(V8ExceptionInfo v8ExceptionInfo) {
-        DuMixGameSurfaceView r;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, v8ExceptionInfo) == null) || (r = hw3.m().r()) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || j2 <= j || z03.M() == null || TextUtils.isEmpty(z03.g0())) {
             return;
         }
-        r.q(v8ExceptionInfo);
-    }
-
-    @Override // com.repackage.sh1
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            hw3.C();
-        }
-    }
-
-    @Override // com.repackage.sh1
-    public ExtensionCore s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? hw3.m().k() : (ExtensionCore) invokeV.objValue;
-    }
-
-    @Override // com.repackage.sh1
-    public ua2 t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? uv3.i() : (ua2) invokeV.objValue;
-    }
-
-    @Override // com.repackage.sh1
-    public int u(String str, long j) {
-        InterceptResult invokeLJ;
-        b04 a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048585, this, str, j)) == null) {
-            if (TextUtils.isEmpty(str) || (a = b04.a(kg4.E(new File(xw3.d.h(str, String.valueOf(j)), "game.json")))) == null) {
-                return 0;
+        String g0 = z03.g0();
+        h93 a2 = n93.a();
+        long j3 = a2.getLong(g0 + "_LastPause", 0L);
+        long j4 = a2.getLong(g0 + "_Duration", 0L);
+        if (c(Long.valueOf(j), Long.valueOf(j2))) {
+            if (c(Long.valueOf(j3), Long.valueOf(j))) {
+                a2.putLong(g0 + "_Duration", (j4 + j2) - j);
+            } else {
+                a2.putLong(g0 + "_Duration", j2 - j);
             }
-            return a.b;
+        } else {
+            a2.putLong(g0 + "_Duration", j2 % b);
         }
-        return invokeLJ.intValue;
-    }
-
-    @Override // com.repackage.sh1
-    public void v(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048586, this, str, z) == null) {
-            n24.a().d(str, z);
-        }
+        a2.putLong(g0 + "_LastPause", System.currentTimeMillis());
     }
 }

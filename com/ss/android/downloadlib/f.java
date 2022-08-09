@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class f {
     public static volatile f a;
     public long f;

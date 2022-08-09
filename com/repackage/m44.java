@@ -1,41 +1,42 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.res.Resources;
+import android.util.Pair;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.location.BDAbstractLocationListener;
-import com.baidu.location.BDLocation;
-import com.baidu.location.LocationClient;
-import com.baidu.location.LocationClientOption;
-import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.games.view.recommend.listmode.ListRecommendAdapter;
+import com.baidu.swan.games.view.recommend.listmode.ListRecommendDivider;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ik2;
-import java.util.concurrent.TimeUnit;
-@Singleton
-@Service
+import com.repackage.d03;
 /* loaded from: classes6.dex */
-public class m44 implements ik2 {
+public class m44 extends f44 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static final long d;
-    public static final c e;
     public transient /* synthetic */ FieldHolder $fh;
-    public LocationClient a;
-    public LocationClientOption b;
+    public d03 j;
+    public View k;
+    public View l;
+    public ImageView m;
+    public View n;
+    public RecyclerView o;
+    public ListRecommendAdapter p;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ m44 a;
@@ -58,19 +59,23 @@ public class m44 implements ik2 {
             this.a = m44Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a.requestLocation();
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.c != null) {
+                    this.a.c.b();
+                }
+                this.a.B();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements ik2.a {
+    public class b implements ListRecommendAdapter.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ m44 a;
 
         public b(m44 m44Var) {
             Interceptable interceptable = $ic;
@@ -84,42 +89,36 @@ public class m44 implements ik2 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = m44Var;
         }
 
-        @Override // com.repackage.ik2.a
-        public void a(h33 h33Var) {
+        @Override // com.baidu.swan.games.view.recommend.listmode.ListRecommendAdapter.a
+        public void a(int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, h33Var) == null) && m44.c) {
-                Log.i("SwanAppLocationImpl", "onWarmUpSuccess::= result=" + h33Var);
-            }
-        }
-
-        @Override // com.repackage.ik2.a
-        public void onFailed(int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && m44.c) {
-                Log.i("SwanAppLocationImpl", "onWarmUpFailed:: errCode=" + i);
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (this.a.c != null) {
+                    this.a.c.u(i);
+                }
+                this.a.y();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class d extends BDAbstractLocationListener {
+    public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public LocationClient a;
-        public ik2.a b;
-        public String c;
-        public boolean d;
+        public final /* synthetic */ m44 a;
 
-        public d(LocationClient locationClient, ik2.a aVar, String str, boolean z) {
+        public c(m44 m44Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {locationClient, aVar, str, Boolean.valueOf(z)};
+                Object[] objArr = {m44Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -129,239 +128,33 @@ public class m44 implements ik2 {
                     return;
                 }
             }
-            this.a = locationClient;
-            this.b = aVar;
-            this.c = str;
-            this.d = z;
+            this.a = m44Var;
         }
 
-        @Override // com.baidu.location.BDAbstractLocationListener
-        public void onReceiveLocation(BDLocation bDLocation) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) {
-                this.a.unRegisterLocationListener(this);
-                int locType = bDLocation.getLocType();
-                if (m44.q(locType)) {
-                    m44.e.update(bDLocation);
-                    if (this.d) {
-                        return;
-                    }
-                    this.b.a(m44.o(bDLocation, this.c));
-                } else if (this.d) {
-                } else {
-                    this.b.onFailed(locType);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.b != null && this.a.c != null) {
+                    this.a.c.o();
                 }
+                this.a.y();
             }
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755549276, "Lcom/repackage/m44;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755549276, "Lcom/repackage/m44;");
-                return;
-            }
-        }
-        c = sg1.a;
-        d = TimeUnit.MINUTES.toMillis(3L);
-        e = new c(null);
-    }
-
-    public m44() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static BDLocation m(double d2, double d3, String str) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Double.valueOf(d2), Double.valueOf(d3), str})) == null) {
-            BDLocation bDLocation = new BDLocation();
-            bDLocation.setLongitude(d3);
-            bDLocation.setLatitude(d2);
-            if (TextUtils.equals(str, "gcj02")) {
-                return bDLocation;
-            }
-            if (TextUtils.equals(str, BDLocation.BDLOCATION_GCJ02_TO_BD09)) {
-                return LocationClient.getBDLocationInCoorType(bDLocation, BDLocation.BDLOCATION_GCJ02_TO_BD09);
-            }
-            if (TextUtils.equals(str, "bd09ll")) {
-                return LocationClient.getBDLocationInCoorType(bDLocation, "bd09ll");
-            }
-            return TextUtils.equals(str, CoordinateType.WGS84) ? LocationClient.getBDLocationInCoorType(bDLocation, "gcj2wgs") : bDLocation;
-        }
-        return (BDLocation) invokeCommon.objValue;
-    }
-
-    public static h33 o(BDLocation bDLocation, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, bDLocation, str)) == null) {
-            double longitude = bDLocation.getLongitude();
-            double latitude = bDLocation.getLatitude();
-            if (!TextUtils.equals(str, bDLocation.getCoorType())) {
-                BDLocation m = m(latitude, longitude, str);
-                longitude = m.getLongitude();
-                latitude = m.getLatitude();
-            }
-            return new h33(str, longitude, latitude, bDLocation.getSpeed(), bDLocation.getRadius(), bDLocation.getAltitude(), bDLocation.getCountry(), bDLocation.getCountryCode(), bDLocation.getCity(), bDLocation.getCityCode(), bDLocation.getProvince(), bDLocation.getDistrict(), bDLocation.getStreet(), bDLocation.getStreetNumber());
-        }
-        return (h33) invokeLL.objValue;
-    }
-
-    public static boolean q(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) ? i == 65 || i == 61 || i == 161 || i == 66 || i == 68 : invokeI.booleanValue;
-    }
-
-    @Override // com.repackage.ik2
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.ik2
-    public void b(String str, boolean z, boolean z2, ik2.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), aVar}) == null) {
-            BDLocation c2 = e.c(p());
-            boolean z3 = c2 != null;
-            if (z3) {
-                aVar.a(o(c2, str));
-            }
-            if (this.a == null) {
-                this.a = new LocationClient(AppRuntime.getAppContext());
-                LocationClientOption locationClientOption = new LocationClientOption();
-                locationClientOption.setCoorType("gcj02");
-                locationClientOption.setScanSpan(0);
-                locationClientOption.setIgnoreKillProcess(true);
-                locationClientOption.setIsNeedAddress(true);
-                this.a.setLocOption(locationClientOption);
-                this.b = locationClientOption;
-                this.a.start();
-            }
-            this.a.registerLocationListener(new d(this.a, aVar, str, z3));
-            this.b.setIsNeedAltitude(z2);
-            this.a.setLocOption(this.b);
-            ce3.a0(new a(this));
-        }
-    }
-
-    @Override // com.repackage.ik2
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.ik2
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            long p = p();
-            if (e.b == null || (p > 0 && !e.d(p))) {
-                if (c) {
-                    Log.i("SwanAppLocationImpl", "onWarmUp");
-                }
-                b("gcj02", false, true, new b(this));
-            }
-        }
-    }
-
-    @Override // com.repackage.ik2
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.ik2
-    public void f(ik2.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-        }
-    }
-
-    @Override // com.repackage.ik2
-    public double[] g(@NonNull h33 h33Var, @NonNull String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, h33Var, str)) == null) ? n(h33Var.b, h33Var.c, h33Var.a, str) : (double[]) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.ik2
-    public h33 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            BDLocation bDLocation = e.b;
-            if (bDLocation == null) {
-                return null;
-            }
-            return o(bDLocation, bDLocation.getCoorType());
-        }
-        return (h33) invokeV.objValue;
-    }
-
-    public final double[] n(double d2, double d3, String str, String str2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3), str, str2})) == null) {
-            double[] dArr = new double[2];
-            if (TextUtils.equals(str2, "gcj02")) {
-                return dArr;
-            }
-            BDLocation bDLocation = new BDLocation();
-            bDLocation.setLongitude(d2);
-            bDLocation.setLatitude(d3);
-            if (TextUtils.equals(str2, BDLocation.BDLOCATION_GCJ02_TO_BD09)) {
-                bDLocation = LocationClient.getBDLocationInCoorType(bDLocation, BDLocation.BDLOCATION_GCJ02_TO_BD09);
-            } else if (TextUtils.equals(str2, "bd09ll")) {
-                bDLocation = LocationClient.getBDLocationInCoorType(bDLocation, "bd09ll");
-            } else if (TextUtils.equals(str2, CoordinateType.WGS84)) {
-                bDLocation = LocationClient.getBDLocationInCoorType(bDLocation, "gcj2wgs");
-            }
-            dArr[0] = bDLocation.getLongitude();
-            dArr[1] = bDLocation.getLatitude();
-            return dArr;
-        }
-        return (double[]) invokeCommon.objValue;
-    }
-
-    public final long p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? d : invokeV.longValue;
     }
 
     /* loaded from: classes6.dex */
-    public static class c {
+    public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public BDLocation b;
+        public final /* synthetic */ m44 a;
 
-        public c() {
+        public d(m44 m44Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m44Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -371,54 +164,186 @@ public class m44 implements ik2 {
                     return;
                 }
             }
-            this.a = 0L;
+            this.a = m44Var;
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
-        public synchronized void update(BDLocation bDLocation) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, bDLocation) == null) {
-                synchronized (this) {
-                    this.b = bDLocation;
-                    this.a = System.currentTimeMillis();
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.y();
             }
         }
+    }
 
-        public synchronized BDLocation c(long j) {
-            InterceptResult invokeJ;
-            BDLocation bDLocation;
+    /* loaded from: classes6.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ m44 a;
+
+        public e(m44 m44Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-                synchronized (this) {
-                    bDLocation = d(j) ? this.b : null;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m44Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return bDLocation;
             }
-            return (BDLocation) invokeJ.objValue;
+            this.a = m44Var;
         }
 
-        public synchronized boolean d(long j) {
-            InterceptResult invokeJ;
-            boolean z;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-                synchronized (this) {
-                    long currentTimeMillis = System.currentTimeMillis() - this.a;
-                    boolean z2 = this.b != null;
-                    boolean z3 = currentTimeMillis < j;
-                    z = z2 && z3;
-                    if (m44.c) {
-                        Log.i("SwanAppLocationImpl", String.format("hitCache[%b] hasInfo[%b] isAgeOk[%b] cacheAge[%d] timeout[%d]", Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Long.valueOf(currentTimeMillis), Long.valueOf(j)));
-                    }
-                }
-                return z;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.a.n.getLayoutParams();
+                layoutParams.width = this.a.l.getWidth();
+                int height = this.a.l.getHeight();
+                layoutParams.height = height;
+                layoutParams.topMargin = -height;
+                this.a.n.setVisibility(0);
             }
-            return invokeJ.booleanValue;
         }
+    }
 
-        public /* synthetic */ c(a aVar) {
-            this();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m44(@NonNull Context context, @NonNull i44 i44Var) {
+        super(context, i44Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, i44Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (i44) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public final void A(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            view2.setOnClickListener(new a(this));
+            this.p.f(new b(this));
+            this.k.findViewById(R.id.obfuscated_res_0x7f091fa0).setOnClickListener(new c(this));
+            this.m.setOnClickListener(new d(this));
+        }
+    }
+
+    public final void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            C();
+            d03 d03Var = this.j;
+            if (d03Var != null) {
+                d03Var.show();
+            }
+        }
+    }
+
+    public final void C() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            boolean a2 = gk2.M().a();
+            this.n.setVisibility(8);
+            this.m.setImageResource(a2 ? R.drawable.obfuscated_res_0x7f0811c3 : R.drawable.obfuscated_res_0x7f0811c2);
+            if (a2) {
+                this.l.post(new e(this));
+            }
+        }
+    }
+
+    public final void D() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            SwanAppActivity activity = mm2.U().getActivity();
+            float min = Math.min(activity != null && activity.i0() ? 2.5f : 5.0f, this.o.getAdapter().getItemCount());
+            Resources resources = this.a.getResources();
+            float dimension = resources.getDimension(R.dimen.obfuscated_res_0x7f070722);
+            float dimension2 = resources.getDimension(R.dimen.obfuscated_res_0x7f070721);
+            float dimension3 = resources.getDimension(R.dimen.obfuscated_res_0x7f07072d);
+            Pair<Integer, Integer> x = mm2.U().x();
+            this.o.getLayoutParams().width = (int) Math.min(dimension3, ((Integer) x.first).intValue());
+            this.o.getLayoutParams().height = (int) Math.min((int) ((min * (resources.getDimension(R.dimen.obfuscated_res_0x7f070729) + dimension)) + dimension2), ((Integer) x.second).intValue() * 0.67f);
+            this.o.requestLayout();
+        }
+    }
+
+    @Override // com.repackage.f44, com.repackage.g44
+    public void e(n44 n44Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, n44Var) == null) {
+            super.e(n44Var);
+            this.p.g(n44Var);
+            D();
+        }
+    }
+
+    @Override // com.repackage.f44
+    @SuppressLint({"InflateParams"})
+    public View i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            View i = super.i();
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0823, (ViewGroup) null);
+            this.k = inflate;
+            this.l = inflate.findViewById(R.id.obfuscated_res_0x7f091f9f);
+            this.n = this.k.findViewById(R.id.obfuscated_res_0x7f091fa2);
+            this.m = (ImageView) this.k.findViewById(R.id.obfuscated_res_0x7f091f9e);
+            z();
+            RecyclerView recyclerView = (RecyclerView) this.k.findViewById(R.id.obfuscated_res_0x7f091fa1);
+            this.o = recyclerView;
+            recyclerView.setItemAnimator(null);
+            this.o.setLayoutManager(new LinearLayoutManager(this.a));
+            this.o.addItemDecoration(new ListRecommendDivider(this.a));
+            ListRecommendAdapter listRecommendAdapter = new ListRecommendAdapter(this.a);
+            this.p = listRecommendAdapter;
+            this.o.setAdapter(listRecommendAdapter);
+            A(i);
+            return i;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public final void y() {
+        d03 d03Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (d03Var = this.j) == null) {
+            return;
+        }
+        d03Var.dismiss();
+    }
+
+    public final void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            d03.a aVar = new d03.a(this.a);
+            aVar.m(true);
+            aVar.f(true);
+            aVar.k(false);
+            aVar.j();
+            aVar.b();
+            aVar.p(17170445);
+            aVar.W(this.k);
+            aVar.t(false);
+            this.j = aVar.c();
+            id3.b(mm2.U().getActivity(), this.j);
         }
     }
 }

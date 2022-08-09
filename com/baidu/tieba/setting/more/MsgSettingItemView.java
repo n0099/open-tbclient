@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 /* loaded from: classes4.dex */
 public class MsgSettingItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -53,12 +53,12 @@ public class MsgSettingItemView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0571, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091d2e);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091d2f);
-            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f091d2d);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d058d, (ViewGroup) this, true);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091e1b);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091e1c);
+            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f091e1a);
             this.c = bdSwitchView;
-            pi.b(context, bdSwitchView, 10, 10, 10, 10);
+            qi.b(context, bdSwitchView, 10, 10, 10, 10);
         }
     }
 

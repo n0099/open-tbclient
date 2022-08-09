@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gi;
-import com.repackage.pi;
+import com.repackage.hi;
+import com.repackage.qi;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TiebaIMConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GET_DOUBLE_FOLLOW_LIST = "c/u/user/get_double_follows";
@@ -76,7 +76,7 @@ public class TiebaIMConfig {
     public static int getMaxChatImageWidthInPx(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? pi.d(context, 300.0f) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? qi.d(context, 300.0f) : invokeL.intValue;
     }
 
     public static BdAsyncTaskParallel getParallel() {
@@ -88,6 +88,6 @@ public class TiebaIMConfig {
     public static byte[] getRSAPublicKey() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? gi.d(PUBLIC_KEY_BASE64) : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? hi.d(PUBLIC_KEY_BASE64) : (byte[]) invokeV.objValue;
     }
 }

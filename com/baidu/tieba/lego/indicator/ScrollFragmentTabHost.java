@@ -20,11 +20,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.be7;
-import com.repackage.dc7;
-import com.repackage.ec7;
 import com.repackage.h9;
-import com.repackage.wd7;
+import com.repackage.rf7;
+import com.repackage.tf7;
+import com.repackage.uf7;
+import com.repackage.wf7;
 import com.repackage.yd7;
 import com.repackage.zd7;
 import java.util.ArrayList;
@@ -36,15 +36,15 @@ public class ScrollFragmentTabHost extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public CustomViewPager b;
-    public zd7 c;
+    public uf7 c;
     public NoNetworkView d;
     public ScrollFragmentAdapter e;
-    public List<yd7> f;
+    public List<tf7> f;
     public FrameLayout g;
-    public be7 h;
+    public wf7 h;
     public BdUniqueId i;
     public View.OnClickListener j;
-    public be7.c k;
+    public wf7.c k;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -84,7 +84,7 @@ public class ScrollFragmentTabHost extends LinearLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements be7.c {
+    public class b implements wf7.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ScrollFragmentTabHost a;
@@ -107,7 +107,7 @@ public class ScrollFragmentTabHost extends LinearLayout {
             this.a = scrollFragmentTabHost;
         }
 
-        @Override // com.repackage.be7.c
+        @Override // com.repackage.wf7.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -145,35 +145,35 @@ public class ScrollFragmentTabHost extends LinearLayout {
         g(context);
     }
 
-    public void d(List<yd7> list, int i) {
+    public void d(List<tf7> list, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(1048576, this, list, i) == null) || list == null || list.size() <= 0) {
             return;
         }
         ArrayList arrayList = new ArrayList();
-        for (yd7 yd7Var : list) {
-            if (yd7Var != null) {
-                arrayList.add(new wd7(yd7Var));
+        for (tf7 tf7Var : list) {
+            if (tf7Var != null) {
+                arrayList.add(new rf7(tf7Var));
             }
         }
         this.f = list;
         ScrollFragmentAdapter scrollFragmentAdapter = this.e;
         if (scrollFragmentAdapter != null) {
             scrollFragmentAdapter.l(arrayList);
-            zd7 zd7Var = this.c;
-            if (zd7Var != null) {
-                zd7Var.i(this.b, i);
+            uf7 uf7Var = this.c;
+            if (uf7Var != null) {
+                uf7Var.i(this.b, i);
             }
         }
     }
 
     public void e() {
-        be7 be7Var;
+        wf7 wf7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (be7Var = this.h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (wf7Var = this.h) == null) {
             return;
         }
-        be7Var.f(this.a);
+        wf7Var.f(this.a);
     }
 
     public boolean f() {
@@ -190,20 +190,20 @@ public class ScrollFragmentTabHost extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04ff, (ViewGroup) this, true);
-            this.d = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f09243b);
-            zd7 zd7Var = new zd7(context, findViewById(R.id.obfuscated_res_0x7f091ec1));
-            this.c = zd7Var;
-            zd7Var.h(this.j);
-            this.g = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091ed9);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0508, (ViewGroup) this, true);
+            this.d = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f09255d);
+            uf7 uf7Var = new uf7(context, findViewById(R.id.obfuscated_res_0x7f091fb8));
+            this.c = uf7Var;
+            uf7Var.h(this.j);
+            this.g = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091fd0);
         }
     }
 
-    public void h(ec7 ec7Var, dc7 dc7Var) {
+    public void h(zd7 zd7Var, yd7 yd7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, ec7Var, dc7Var) == null) {
-            this.b = (CustomViewPager) findViewById(R.id.obfuscated_res_0x7f091edd);
-            ScrollFragmentAdapter scrollFragmentAdapter = new ScrollFragmentAdapter(this.a, ec7Var, dc7Var, this.i);
+        if (interceptable == null || interceptable.invokeLL(1048580, this, zd7Var, yd7Var) == null) {
+            this.b = (CustomViewPager) findViewById(R.id.obfuscated_res_0x7f091fd4);
+            ScrollFragmentAdapter scrollFragmentAdapter = new ScrollFragmentAdapter(this.a, zd7Var, yd7Var, this.i);
             this.e = scrollFragmentAdapter;
             this.b.setAdapter(scrollFragmentAdapter);
         }
@@ -213,8 +213,8 @@ public class ScrollFragmentTabHost extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            be7 be7Var = this.h;
-            return be7Var != null && be7Var.j();
+            wf7 wf7Var = this.h;
+            return wf7Var != null && wf7Var.j();
         }
         return invokeV.booleanValue;
     }
@@ -228,9 +228,9 @@ public class ScrollFragmentTabHost extends LinearLayout {
     public void k(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            zd7 zd7Var = this.c;
-            if (zd7Var != null) {
-                zd7Var.g(i);
+            uf7 uf7Var = this.c;
+            if (uf7Var != null) {
+                uf7Var.g(i);
             }
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201, i);
             ScrollFragmentAdapter scrollFragmentAdapter = this.e;
@@ -240,9 +240,9 @@ public class ScrollFragmentTabHost extends LinearLayout {
             if (this.d != null) {
                 this.d.d(h9.a(getContext()), i);
             }
-            be7 be7Var = this.h;
-            if (be7Var != null) {
-                be7Var.k(i);
+            wf7 wf7Var = this.h;
+            if (wf7Var != null) {
+                wf7Var.k(i);
             }
         }
     }
@@ -251,17 +251,17 @@ public class ScrollFragmentTabHost extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             if (this.h == null) {
-                be7 be7Var = new be7(this.g);
-                this.h = be7Var;
-                be7Var.l(this.k);
+                wf7 wf7Var = new wf7(this.g);
+                this.h = wf7Var;
+                wf7Var.l(this.k);
             }
             if (this.h.j()) {
                 return;
             }
             this.h.m(this.a, this.f, this.b.getCurrentItem());
-            zd7 zd7Var = this.c;
-            if (zd7Var != null) {
-                zd7Var.j();
+            uf7 uf7Var = this.c;
+            if (uf7Var != null) {
+                uf7Var.j();
             }
         }
     }

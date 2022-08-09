@@ -1,16 +1,14 @@
 package com.repackage;
 
-import android.app.Activity;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.BrowserProxyService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class fi7 implements ThirdPartAliRechargeService {
+public class fi7 extends uc1<BrowserProxyService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,18 +26,12 @@ public class fi7 implements ThirdPartAliRechargeService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService
-    public String aliRecharge(Activity activity, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.uc1
+    /* renamed from: a */
+    public BrowserProxyService createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, activity, str, z)) == null) {
-            tk4 tk4Var = new tk4();
-            tk4Var.a = activity;
-            tk4Var.b = str;
-            tk4Var.c = z;
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921539, String.class, tk4Var);
-            return runTask == null ? "" : (String) runTask.getData();
-        }
-        return (String) invokeLLZ.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new gi7() : (BrowserProxyService) invokeV.objValue;
     }
 }

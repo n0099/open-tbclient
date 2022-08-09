@@ -1,44 +1,60 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class vy9 {
+public abstract class vy9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
 
-    public vy9(String str, String str2, String str3) {
+    public vy9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @Deprecated
+    public void a(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "TopUiParams{title='" + this.a + "', rightTitle='" + this.b + "', rightUrl='" + oz9.a(this.c) + "'}";
+        if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
         }
-        return (String) invokeV.objValue;
+    }
+
+    public final String b(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            try {
+                return c(obj);
+            } catch (InterruptedException unused) {
+                Thread.currentThread().interrupt();
+                return obj.getClass().getName() + ".errorRendering";
+            } catch (Throwable th) {
+                bv9.e(th);
+                return obj.getClass().getName() + ".errorRendering";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String c(Object obj) throws InterruptedException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
     }
 }

@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a97;
+import com.repackage.ua7;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -42,21 +42,34 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
         }
     }
 
+    public void A1(UserData userData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, userData) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.im.chat.TalkableActivity
+    public String[] O0(int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) ? super.O0(i, true) : (String[]) invokeCommon.objValue;
+    }
+
     /* JADX WARN: Code restructure failed: missing block: B:18:0x002b, code lost:
         r0 = r0.getContent();
      */
-    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.repackage.hf
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.repackage.Cif
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void h(View view2, int i, int i2, long j) {
+    public void o(View view2, int i, int i2, long j) {
         MsglistModel msglistModel;
         ChatMessage msg;
         String content;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            super.h(view2, i, i2, j);
-            if (i == 7 && F0() && (msglistModel = this.c) != null && (msg = msglistModel.getMsg(i2)) != null && a97.u(msg) && content != null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+            super.o(view2, i, i2, j);
+            if (i == 7 && V0() && (msglistModel = this.c) != null && (msg = msglistModel.getMsg(i2)) != null && ua7.w(msg) && content != null) {
                 JSONObject jSONObject = null;
                 try {
                     try {
@@ -77,11 +90,28 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
         }
     }
 
-    public boolean j1() {
+    @Override // com.baidu.tieba.im.chat.MsglistActivity, androidx.activity.ComponentActivity, android.app.Activity
+    public void onBackPressed() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onBackPressed();
+        }
+    }
+
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    public void onSaveInstanceState(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+            super.onSaveInstanceState(bundle);
+            bundle.putSerializable("user", OrmObject.jsonStrWithObject(((CommonPersonalMsglistModel) this.c).getUser()));
+        }
+    }
+
+    public boolean u1() {
         InterceptResult invokeV;
         UserData user;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             MsglistModel msglistModel = this.c;
             if ((msglistModel instanceof CommonPersonalMsglistModel) && (user = ((CommonPersonalMsglistModel) msglistModel).getUser()) != null) {
                 return user.getUserIdLong() != 0 || getIntent().getBooleanExtra(PersonalChatActivityConfig.KEY_FROM_REPORT_SELECT, false);
@@ -91,9 +121,9 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
         return invokeV.booleanValue;
     }
 
-    public void k1() {
+    public void v1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             Intent intent = getIntent();
             boolean booleanExtra = intent.getBooleanExtra(IntentConfig.IS_ACCEPT_NOTIFY, true);
             MsglistModel msglistModel = this.c;
@@ -101,64 +131,34 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
                 return;
             }
             msglistModel.setIsAcceptNotify(booleanExtra);
-            m1(intent);
+            x1(intent);
         }
     }
 
-    public void l1(Bundle bundle) throws Exception {
+    public void w1(Bundle bundle) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             this.c.setIsAcceptNotify(bundle.getBoolean(IntentConfig.IS_ACCEPT_NOTIFY, true));
-            n1(bundle);
+            z1(bundle);
         }
     }
 
-    public void m1(Intent intent) {
+    public void x1(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent) == null) {
             UserData userData = (UserData) intent.getSerializableExtra("user");
-            o1(userData);
+            A1(userData);
             ((CommonPersonalMsglistModel) this.c).setUser(userData);
         }
     }
 
-    public void n1(Bundle bundle) {
+    public void z1(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) || bundle == null || bundle.getString("user") == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) || bundle == null || bundle.getString("user") == null) {
             return;
         }
         UserData userData = (UserData) OrmObject.objectWithJsonStr(bundle.getString("user"), UserData.class);
-        o1(userData);
+        A1(userData);
         ((CommonPersonalMsglistModel) this.c).setUser(userData);
-    }
-
-    public void o1(UserData userData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, userData) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.im.chat.MsglistActivity, androidx.activity.ComponentActivity, android.app.Activity
-    public void onBackPressed() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.onBackPressed();
-        }
-    }
-
-    @Override // com.baidu.tieba.im.chat.TalkableActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onSaveInstanceState(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
-            super.onSaveInstanceState(bundle);
-            bundle.putSerializable("user", OrmObject.jsonStrWithObject(((CommonPersonalMsglistModel) this.c).getUser()));
-        }
-    }
-
-    @Override // com.baidu.tieba.im.chat.TalkableActivity
-    public String[] z0(int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) ? super.z0(i, true) : (String[]) invokeCommon.objValue;
     }
 }

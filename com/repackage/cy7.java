@@ -1,34 +1,40 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.PreLoadImageInfo;
-import com.baidu.tbadk.core.util.PreLoadImageProvider;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.pb.pb.main.PbFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import tbclient.ExcPbPage.ExcContent;
-/* loaded from: classes5.dex */
-public class cy7 implements by7, PreLoadImageProvider {
+import tbclient.SmartApp;
+/* loaded from: classes6.dex */
+public class cy7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public ArrayList<PreLoadImageInfo> d;
-    public String e;
+    public PbFragment a;
+    public View.OnClickListener b;
+    public RelativeLayout c;
+    public HeadImageView d;
+    public TextView e;
+    public TextView f;
+    public ImageView g;
 
-    public cy7(ExcContent excContent) {
-        Long l;
+    public cy7(PbFragment pbFragment, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {excContent};
+            Object[] objArr = {pbFragment, onClickListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,73 +44,101 @@ public class cy7 implements by7, PreLoadImageProvider {
                 return;
             }
         }
-        if (excContent == null || (l = excContent.type) == null || !l.equals(3L)) {
+        this.b = null;
+        this.a = pbFragment;
+        this.b = onClickListener;
+        b();
+    }
+
+    public void a(BdTypeListView bdTypeListView, int i) {
+        RelativeLayout relativeLayout;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, bdTypeListView, i) == null) || bdTypeListView == null || (relativeLayout = this.c) == null) {
             return;
         }
-        this.d = new ArrayList<>(1);
-        this.a = excContent.src;
-        String str = excContent.bsize;
-        this.e = str;
-        if (str != null) {
-            try {
-                String[] split = str.split(",");
-                this.b = ng.e(split[0], 0);
-                this.c = ng.e(split[1], 0);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        bdTypeListView.x(relativeLayout, i);
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.c == null) {
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d06d4, (ViewGroup) null);
+            this.c = relativeLayout;
+            HeadImageView headImageView = (HeadImageView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f091001);
+            this.d = headImageView;
+            headImageView.setIsRound(true);
+            this.d.setPlaceHolder(1);
+            this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09237c);
+            this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09237b);
+            this.g = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091000);
+            this.c.setOnClickListener(this.b);
+        }
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            RelativeLayout relativeLayout = this.c;
+            if (relativeLayout != null) {
+                SkinManager.setBackgroundColor(relativeLayout, R.color.CAM_X0204);
+            }
+            HeadImageView headImageView = this.d;
+            if (headImageView != null) {
+                headImageView.setSkinType(i);
+            }
+            TextView textView = this.e;
+            if (textView != null) {
+                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
+            }
+            TextView textView2 = this.f;
+            if (textView2 != null) {
+                SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0107);
+            }
+            ImageView imageView = this.g;
+            if (imageView != null) {
+                SkinManager.setBackgroundResource(imageView, R.drawable.icon_common_arrow16_right_n);
             }
         }
-        if (this.b <= 0) {
-            this.b = 1;
-        }
-        if (this.c <= 0) {
-            this.c = 1;
-        }
-        String str2 = excContent.cdn_src;
-        PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
-        preLoadImageInfo.procType = 17;
-        preLoadImageInfo.height = this.c;
-        preLoadImageInfo.width = this.b;
-        if (StringUtils.isNull(str2)) {
-            preLoadImageInfo.imgUrl = this.a;
-        } else {
-            preLoadImageInfo.imgUrl = str2;
-        }
-        this.d.add(preLoadImageInfo);
     }
 
-    public int c(int i) {
-        InterceptResult invokeI;
+    public void d(BdTypeListView bdTypeListView) {
+        RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i <= 0) {
-                return 0;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, bdTypeListView) == null) || bdTypeListView == null || (relativeLayout = this.c) == null) {
+            return;
+        }
+        bdTypeListView.removeHeaderView(relativeLayout);
+    }
+
+    public void e(ft7 ft7Var, BdTypeListView bdTypeListView) {
+        String charSequence;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, ft7Var, bdTypeListView) == null) || ft7Var == null || bdTypeListView == null) {
+            return;
+        }
+        if (ft7Var.O().isVideoThreadType() && ft7Var.O().getSmartApp() != null) {
+            SmartApp smartApp = ft7Var.O().getSmartApp();
+            this.c.setVisibility(0);
+            d(bdTypeListView);
+            a(bdTypeListView, 1);
+            if (!pi.isEmpty(smartApp.avatar)) {
+                this.d.L(smartApp.avatar, 10, false, false);
             }
-            return (i * this.c) / this.b;
+            if (!pi.isEmpty(smartApp.name)) {
+                charSequence = smartApp.name + " " + ((Object) this.a.getText(R.string.obfuscated_res_0x7f0f11a7));
+            } else {
+                charSequence = this.a.getText(R.string.obfuscated_res_0x7f0f0907).toString();
+            }
+            this.e.setText(charSequence);
+            if (!pi.isEmpty(smartApp._abstract)) {
+                this.f.setText(smartApp._abstract);
+            } else {
+                this.f.setText(this.a.getText(R.string.obfuscated_res_0x7f0f11a6));
+            }
+            this.c.setTag(smartApp);
+            return;
         }
-        return invokeI.intValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
-    public ArrayList<PreLoadImageInfo> getImages() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (ArrayList) invokeV.objValue;
-    }
-
-    @Override // com.repackage.by7
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 3;
-        }
-        return invokeV.intValue;
+        this.c.setVisibility(8);
+        d(bdTypeListView);
     }
 }

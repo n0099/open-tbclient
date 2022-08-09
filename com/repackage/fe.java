@@ -1,181 +1,81 @@
 package com.repackage;
 
 import android.os.Bundle;
-import android.os.IBinder;
-import android.os.Parcelable;
 import android.util.SparseArray;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.squareup.wire.Message;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class fe {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:103:0x0150 */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v12, resolved type: java.io.ObjectOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.io.ObjectOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v9, resolved type: java.io.ObjectOutputStream */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:144:0x0175 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static final ld a(Object obj) {
+    public static final mc a(Object obj) {
         InterceptResult invokeL;
-        ObjectOutputStream objectOutputStream;
-        Exception e;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65536, null, obj)) != null) {
-            return (ld) invokeL.objValue;
-        }
-        ObjectOutputStream objectOutputStream2 = 0;
-        if (obj == null) {
-            return null;
-        }
-        if (obj instanceof Boolean) {
-            return new fd(((Boolean) obj).booleanValue());
-        }
-        if (obj instanceof Bundle) {
-            return new gd((Bundle) obj);
-        }
-        if (obj instanceof Byte) {
-            return new hd(((Byte) obj).byteValue());
-        }
-        if (obj instanceof Character) {
-            return new id(((Character) obj).charValue());
-        }
-        if (obj instanceof Double) {
-            return new jd(((Double) obj).doubleValue());
-        }
-        if (obj instanceof Float) {
-            return new kd(((Float) obj).floatValue());
-        }
-        if (obj instanceof Integer) {
-            return new md(((Integer) obj).intValue());
-        }
-        if (obj instanceof JSONArray) {
-            return new nd((JSONArray) obj);
-        }
-        if (obj instanceof JSONObject) {
-            return new od((JSONObject) obj);
-        }
-        if (obj instanceof Long) {
-            return new qd(((Long) obj).longValue());
-        }
-        if (obj instanceof Short) {
-            return new wd(((Short) obj).shortValue());
-        }
-        if (obj instanceof String) {
-            return new yd((String) obj);
-        }
-        if (obj instanceof SparseArray) {
-            return new xd((SparseArray) obj);
-        }
-        if (obj instanceof List) {
-            return new pd((List) obj);
-        }
-        if (obj instanceof Queue) {
-            return new ud((Queue) obj);
-        }
-        if (obj instanceof Set) {
-            return new vd((Set) obj);
-        }
-        if (obj instanceof Map) {
-            return new rd((Map) obj);
-        }
-        if (obj instanceof Message) {
-            return new td((Message) obj);
-        }
-        if (obj.getClass().isArray()) {
-            return new ed(obj);
-        }
-        if (obj instanceof CharSequence) {
-            return new yd(((CharSequence) obj).toString());
-        }
-        if (obj instanceof Serializable) {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            try {
-                try {
-                    objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
-                    try {
-                        objectOutputStream.writeObject(obj);
-                        objectOutputStream.flush();
-                        ed edVar = new ed(byteArrayOutputStream.toByteArray());
-                        try {
-                            objectOutputStream.close();
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
-                        }
-                        try {
-                            byteArrayOutputStream.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
-                        }
-                        return edVar;
-                    } catch (Exception e4) {
-                        e = e4;
-                        e.printStackTrace();
-                        sd sdVar = new sd(obj);
-                        if (objectOutputStream != null) {
-                            try {
-                                objectOutputStream.close();
-                            } catch (IOException e5) {
-                                e5.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, obj)) == null) {
+            if (obj == null) {
+                return null;
+            }
+            Class<?> cls = obj.getClass();
+            if (cls != Boolean.TYPE && cls != Boolean.class) {
+                if (cls == Bundle.class) {
+                    return new hc((Bundle) obj);
+                }
+                if (cls != Byte.TYPE && cls != Byte.class) {
+                    if (cls != Character.TYPE && cls != Character.class) {
+                        if (cls != Double.TYPE && cls != Double.class) {
+                            if (cls != Float.TYPE && cls != Float.class) {
+                                if (cls != Integer.TYPE && cls != Integer.class) {
+                                    if (cls != Long.TYPE && cls != Long.class) {
+                                        if (cls != Short.TYPE && cls != Short.class) {
+                                            if (cls == String.class) {
+                                                return new wc((String) obj);
+                                            }
+                                            if (cls.isArray()) {
+                                                return new fc(obj);
+                                            }
+                                            if (cls == SparseArray.class) {
+                                                return new vc((SparseArray) obj);
+                                            }
+                                            if (obj instanceof List) {
+                                                return new oc((List) obj);
+                                            }
+                                            if (obj instanceof Queue) {
+                                                return new sc((Queue) obj);
+                                            }
+                                            if (obj instanceof Map) {
+                                                return new qc((Map) obj);
+                                            }
+                                            if (obj instanceof Set) {
+                                                return new tc((Set) obj);
+                                            }
+                                            if (cc.e(cls, OrmObject.class)) {
+                                                return new rc((OrmObject) obj);
+                                            }
+                                            return null;
+                                        }
+                                        return new uc(((Short) obj).shortValue());
+                                    }
+                                    return new pc(((Long) obj).longValue());
+                                }
+                                return new nc(((Integer) obj).intValue());
                             }
+                            return new lc(((Float) obj).floatValue());
                         }
-                        try {
-                            byteArrayOutputStream.close();
-                        } catch (IOException e6) {
-                            e6.printStackTrace();
-                        }
-                        return sdVar;
+                        return new kc(((Double) obj).doubleValue());
                     }
-                } catch (Throwable th) {
-                    th = th;
-                    objectOutputStream2 = interceptable;
-                    if (objectOutputStream2 != 0) {
-                        try {
-                            objectOutputStream2.close();
-                        } catch (IOException e7) {
-                            e7.printStackTrace();
-                        }
-                    }
-                    try {
-                        byteArrayOutputStream.close();
-                    } catch (IOException e8) {
-                        e8.printStackTrace();
-                    }
-                    throw th;
+                    return new jc(((Character) obj).charValue());
                 }
-            } catch (Exception e9) {
-                objectOutputStream = null;
-                e = e9;
-            } catch (Throwable th2) {
-                th = th2;
-                if (objectOutputStream2 != 0) {
-                }
-                byteArrayOutputStream.close();
-                throw th;
+                return new ic(((Byte) obj).byteValue());
             }
-        } else if (obj instanceof IBinder) {
-            return new sd(obj);
-        } else {
-            if (obj instanceof Parcelable) {
-                return new sd(obj);
-            }
-            return new sd(obj);
+            return new gc(((Boolean) obj).booleanValue());
         }
+        return (mc) invokeL.objValue;
     }
 }

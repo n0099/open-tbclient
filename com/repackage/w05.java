@@ -1,50 +1,573 @@
 package com.repackage;
 
-import com.baidu.tbadk.widget.tiejia.TiePlusStat;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdhttpdns.BDHttpDns;
+import com.baidu.bdhttpdns.BDHttpDnsResult;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.switchs.UseHttpdnsSdkSwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.q05;
+import com.repackage.t05;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes7.dex */
 public class w05 {
     public static /* synthetic */ Interceptable $ic;
+    public static w05 l;
     public transient /* synthetic */ FieldHolder $fh;
-    public TiePlusStat.StatType a;
-    public TiePlusStat.RichTextType b;
-    public String c;
-    public String d;
-    public boolean e;
-    public String f;
+    public int a;
+    public int b;
+    public boolean c;
+    public boolean d;
+    public List<String> e;
+    public boolean f;
+    public final Object g;
+    public List<String> h;
+    public boolean i;
+    public BDHttpDnsResult j;
+    public final oj k;
 
-    public w05(TiePlusStat.StatType statType, TiePlusStat.RichTextType richTextType, String str, String str2, String str3) {
+    /* loaded from: classes7.dex */
+    public class a implements oj {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ w05 a;
+
+        public a(w05 w05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w05Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = w05Var;
+        }
+
+        @Override // com.repackage.oj
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            }
+        }
+
+        @Override // com.repackage.oj
+        public void b(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                if ((i == 2 || i == 9) && oi.z()) {
+                    w05.d(this.a);
+                    if (UseHttpdnsSdkSwitch.isOn()) {
+                        if (this.a.h == null || this.a.h.isEmpty()) {
+                            this.a.w();
+                        } else {
+                            this.a.a();
+                        }
+                        StringBuffer stringBuffer = new StringBuffer();
+                        stringBuffer.append("retryiplist_");
+                        stringBuffer.append(ea.d());
+                        if (this.a.j != null) {
+                            stringBuffer.append("-dnsResolveIp_");
+                            stringBuffer.append(this.a.j.a());
+                            stringBuffer.append("-dnsResolveType_");
+                            stringBuffer.append(this.a.j.d());
+                            stringBuffer.append("-dnsResolveStatus_");
+                            stringBuffer.append(this.a.j.c());
+                        }
+                        fa.a("RetryIpListManager", 0, 0, "retry_iplist", 0, stringBuffer.toString());
+                        if (this.a.a >= 5) {
+                            BdSocketLinkService.setAvailable(false);
+                            this.a.B();
+                        }
+                    } else if (this.a.a >= 5) {
+                        fa.a("RetryIpListManager", 0, 0, "retry_iplist", 0, "retryiplist_" + ea.d());
+                        this.a.C();
+                    }
+                }
+            }
+        }
+
+        @Override // com.repackage.oj
+        public void c(kj kjVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kjVar) == null) {
+            }
+        }
+
+        @Override // com.repackage.oj
+        public void d(byte[] bArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
+            }
+        }
+
+        @Override // com.repackage.oj
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            }
+        }
+
+        @Override // com.repackage.oj
+        public void f(sj sjVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, sjVar) == null) {
+            }
+        }
+
+        @Override // com.repackage.oj
+        public void g(int i, kj kjVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048582, this, i, kjVar) == null) {
+            }
+        }
+
+        @Override // com.repackage.oj
+        public void h(kj kjVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, kjVar) == null) {
+            }
+        }
+
+        @Override // com.repackage.oj
+        public void i(kj kjVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, kjVar) == null) {
+            }
+        }
+
+        @Override // com.repackage.oj
+        public void onOpen(Map<String, String> map) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048585, this, map) == null) {
+                if (UseHttpdnsSdkSwitch.isOn()) {
+                    if (this.a.a > 0) {
+                        this.a.i = false;
+                        StringBuffer stringBuffer = new StringBuffer();
+                        stringBuffer.append("URL_");
+                        stringBuffer.append(ea.d());
+                        if (this.a.j != null) {
+                            stringBuffer.append("-dnsResolveIp_");
+                            stringBuffer.append(this.a.j.a());
+                            stringBuffer.append("-dnsResolveType_");
+                            stringBuffer.append(this.a.j.d());
+                            stringBuffer.append("-dnsResolveStatus_");
+                            stringBuffer.append(this.a.j.c());
+                        }
+                        fa.a("RetryIpListManager", 0, 0, "retry_iplist_succ", 0, stringBuffer.toString());
+                    }
+                } else if (this.a.a >= 5) {
+                    fa.a("RetryIpListManager", 0, 0, "retry_iplist_succ", 0, "URL-" + ea.d());
+                    q05.f().l(ea.d());
+                    q05.f().k();
+                }
+                this.a.a = 0;
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements BDHttpDns.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ w05 a;
+
+        public b(w05 w05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w05Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = w05Var;
+        }
+
+        @Override // com.baidu.bdhttpdns.BDHttpDns.e
+        public void a(BDHttpDnsResult bDHttpDnsResult) {
+            ArrayList<String> a;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bDHttpDnsResult) == null) {
+                this.a.i = false;
+                this.a.j = bDHttpDnsResult;
+                if (bDHttpDnsResult == null || (a = bDHttpDnsResult.a()) == null || a.isEmpty()) {
+                    return;
+                }
+                synchronized (this.a.g) {
+                    this.a.h = a;
+                }
+                this.a.a();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements q05.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ w05 b;
+
+        public c(w05 w05Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w05Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = w05Var;
+            this.a = str;
+        }
+
+        @Override // com.repackage.q05.b
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.b = 0;
+                this.b.e = q05.f().g();
+                if (this.b.e != null) {
+                    this.b.A(this.a);
+                } else {
+                    this.b.f = false;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements t05.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ w05 a;
+
+        /* loaded from: classes7.dex */
+        public class a implements q05.b {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ d a;
+
+            public a(d dVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = dVar;
+            }
+
+            @Override // com.repackage.q05.b
+            public void a() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.a.b = 0;
+                    this.a.a.e = q05.f().g();
+                    if (this.a.a.e != null) {
+                        this.a.a.A("change ip to reconnect with DNS' failed.");
+                    } else {
+                        this.a.a.f = false;
+                    }
+                }
+            }
+        }
+
+        public d(w05 w05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w05Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = w05Var;
+        }
+
+        @Override // com.repackage.t05.c
+        public void a(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                r05.e().a(z ? 2 : 1);
+                if (z) {
+                    this.a.e = q05.f().g();
+                    if (this.a.e != null) {
+                        this.a.A("change ip to reconnect with DNS' failed.");
+                        return;
+                    } else {
+                        q05.f().m(new a(this));
+                        return;
+                    }
+                }
+                this.a.f = false;
+                this.a.D();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755255179, "Lcom/repackage/w05;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755255179, "Lcom/repackage/w05;");
+        }
+    }
+
+    public w05() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {statType, richTextType, str, str2, str3};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = statType;
-        this.b = richTextType;
-        this.c = str;
-        this.d = str2;
-        this.f = str3;
+        this.b = 0;
+        this.c = false;
+        this.d = false;
+        this.e = null;
+        this.f = false;
+        this.g = new Object();
+        this.h = new ArrayList();
+        this.i = false;
+        this.j = null;
+        this.k = new a(this);
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static /* synthetic */ int d(w05 w05Var) {
+        int i = w05Var.a;
+        w05Var.a = i + 1;
+        return i;
+    }
+
+    public static String u(String str) {
+        InterceptResult invokeL;
+        int lastIndexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "TiePlusStaticData{statType=" + this.a + ", richTextType=" + this.b + ", tid='" + this.c + "', orderId='" + this.d + "', hasDownload=" + this.e + ", packageName='" + this.f + "'}";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, str)) == null) {
+            if (str != null && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
+                try {
+                    return str.substring(5, lastIndexOf);
+                } catch (Exception unused) {
+                    return null;
+                }
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String v(String str) {
+        InterceptResult invokeL;
+        int lastIndexOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, str)) == null) {
+            if (str != null && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
+                try {
+                    return str.substring(lastIndexOf + 1);
+                } catch (Exception unused) {
+                    return null;
+                }
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static synchronized w05 y() {
+        InterceptResult invokeV;
+        w05 w05Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
+            synchronized (w05.class) {
+                if (l == null) {
+                    synchronized (w05.class) {
+                        if (l == null) {
+                            l = new w05();
+                        }
+                    }
+                }
+                w05Var = l;
+            }
+            return w05Var;
+        }
+        return (w05) invokeV.objValue;
+    }
+
+    public final void A(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            String x = x();
+            if (x == null) {
+                if (!q05.f().i()) {
+                    q05.f().m(new c(this, str));
+                }
+                ea.h(TiebaIMConfig.url);
+                BdSocketLinkService.setAvailable(false);
+                D();
+            } else if (u(x) == null) {
+                D();
+            } else {
+                this.f = false;
+                BdSocketLinkService.stopReConnStrategy("change ip and stop to restart to reconnet.");
+                ea.h(x);
+                BdSocketLinkService.init();
+                BdSocketLinkService.startService(true, str);
+                this.c = true;
+                this.b++;
+            }
+        }
+    }
+
+    public final void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            NoNetworkView.f();
+            this.b = 0;
+            this.i = false;
+        }
+    }
+
+    public final void C() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f) {
+            return;
+        }
+        this.f = true;
+        if (this.c) {
+            this.c = false;
+            r05.e().d(TiebaIMConfig.url);
+        }
+        r05.e().b();
+        if (!this.d) {
+            new t05("www.baidu.com", new d(this));
+            this.d = true;
+            return;
+        }
+        A("change ip to reconnect with DNS' failed.");
+    }
+
+    public final void D() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            NoNetworkView.f();
+            this.d = false;
+            this.b = 0;
+            this.f = false;
+            this.c = false;
+        }
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this.g) {
+                if (this.h != null && !this.h.isEmpty()) {
+                    String remove = this.h.remove(0);
+                    if (!TextUtils.isEmpty(remove)) {
+                        ea.h("ws://" + remove + ":" + v(TiebaIMConfig.url));
+                        BdSocketLinkService.init();
+                    }
+                }
+            }
+        }
+    }
+
+    public final void w() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.i) {
+            return;
+        }
+        try {
+            String u = u(TiebaIMConfig.url);
+            if (pi.isEmpty(u)) {
+                B();
+                return;
+            }
+            this.i = true;
+            BDHttpDns.h(BdBaseApplication.getInst().getApplicationContext()).b(u, new b(this));
+        } catch (Exception e) {
+            BdLog.e(e);
+        }
+    }
+
+    public final String x() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            List<String> list = this.e;
+            if (list == null || (i = this.b) <= -1 || i >= list.size()) {
+                return null;
+            }
+            return q05.f().g().get(this.b);
         }
         return (String) invokeV.objValue;
+    }
+
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            pj.j().c(this.k);
+        }
     }
 }

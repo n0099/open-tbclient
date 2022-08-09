@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hl5;
-import com.repackage.yt4;
+import com.repackage.ru4;
+import com.repackage.zm5;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetAddressList.GetAddressListResIdl;
@@ -18,7 +18,7 @@ import tbclient.GetAddressList.GetAddressListResIdl;
 public class ResponseGetAddressListMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hl5 mAddressListData;
+    public zm5 mAddressListData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseGetAddressListMessage() {
@@ -47,10 +47,10 @@ public class ResponseGetAddressListMessage extends SocketResponsedMessage {
             GetAddressListResIdl getAddressListResIdl = (GetAddressListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetAddressListResIdl.class);
             if (getAddressListResIdl != null) {
                 if (getAddressListResIdl.data != null) {
-                    hl5 hl5Var = new hl5();
-                    this.mAddressListData = hl5Var;
-                    if (hl5Var.c(getAddressListResIdl.data)) {
-                        yt4 k = yt4.k();
+                    zm5 zm5Var = new zm5();
+                    this.mAddressListData = zm5Var;
+                    if (zm5Var.c(getAddressListResIdl.data)) {
+                        ru4 k = ru4.k();
                         k.u("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
                     }
                 }
@@ -65,16 +65,16 @@ public class ResponseGetAddressListMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public hl5 getAddressListData() {
+    public zm5 getAddressListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAddressListData : (hl5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mAddressListData : (zm5) invokeV.objValue;
     }
 
-    public void setAddressListData(hl5 hl5Var) {
+    public void setAddressListData(zm5 zm5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hl5Var) == null) {
-            this.mAddressListData = hl5Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zm5Var) == null) {
+            this.mAddressListData = zm5Var;
         }
     }
 }

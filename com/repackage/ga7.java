@@ -1,225 +1,86 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.imMessageCenter.mention.MsgReminderHttpRespMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.im.message.LoadHistoryResponsedMessage;
+import com.baidu.tieba.im.message.OfficialFeedHeadResponsedMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ga7 {
+public class ga7 implements CustomMessageTask.CustomRunnable<OfficialFeedHeadResponsedMessage.a> {
     public static /* synthetic */ Interceptable $ic;
-    public static ga7 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HttpMessageListener a;
-    public long b;
-    public final Handler c;
-
-    /* loaded from: classes6.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ga7 ga7Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ga7Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            fa7 msgData;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002500 && (httpResponsedMessage instanceof MsgReminderHttpRespMessage) && (msgData = ((MsgReminderHttpRespMessage) httpResponsedMessage).getMsgData()) != null) {
-                if (msgData.b() >= 0) {
-                    oy4.f0().Y(msgData.b());
-                }
-                if (msgData.e() >= 0) {
-                    oy4.f0().d0(msgData.e());
-                }
-                if (msgData.d() >= 0) {
-                    oy4.f0().b0(msgData.d());
-                }
-                if (msgData.a() >= 0) {
-                    oy4.f0().X(msgData.a());
-                }
-                if (msgData.c() >= 0) {
-                    oy4.f0().Z(msgData.c());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ga7 a;
-
-        public b(ga7 ga7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ga7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ga7Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
-                int i = message.arg1;
-                this.a.b = System.currentTimeMillis();
-                boolean z = !MessageManager.getInstance().getSocketClient().u();
-                if (i == 2 || (z && ni.z())) {
-                    this.a.h();
-                }
-                this.a.g(1, 600000L);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755684684, "Lcom/repackage/ga7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755684684, "Lcom/repackage/ga7;");
-                return;
-            }
-        }
-        MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MSG_REMINDER_CMD, TbConfig.SERVER_ADDRESS + "c/s/msg");
-        tbHttpMessageTask.setResponsedClass(MsgReminderHttpRespMessage.class);
-        messageManager.registerTask(tbHttpMessageTask);
-    }
+    public int a;
+    public x77 b;
 
     public ga7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new a(this, CmdConfigHttp.MSG_REMINDER_CMD);
-        this.b = 0L;
-        this.c = new b(this);
-        MessageManager.getInstance().registerListener(this.a);
+        this.a = 2001154;
+        this.b = x77.w();
     }
 
-    public static synchronized ga7 e() {
-        InterceptResult invokeV;
-        ga7 ga7Var;
+    public final LoadHistoryResponsedMessage a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            synchronized (ga7.class) {
-                if (d == null) {
-                    d = new ga7();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
+            loadHistoryResponsedMessage.setError(-18);
+            return loadHistoryResponsedMessage;
+        }
+        return (LoadHistoryResponsedMessage) invokeI.objValue;
+    }
+
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<OfficialFeedHeadResponsedMessage.a> customMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage)) == null) {
+            if (this.b == null) {
+                return a(this.a);
+            }
+            List<c87> x = x77.x();
+            if (x != null && x.size() > 0) {
+                HashMap hashMap = new HashMap(x.size());
+                for (c87 c87Var : x) {
+                    hashMap.put(c87Var.b(), c87Var);
                 }
-                ga7Var = d;
+                LinkedList<ChatMessage> l = this.b.l(hashMap, 80);
+                if (l == null) {
+                    return a(this.a);
+                }
+                OfficialFeedHeadResponsedMessage.a aVar = new OfficialFeedHeadResponsedMessage.a();
+                OfficialFeedHeadResponsedMessage officialFeedHeadResponsedMessage = new OfficialFeedHeadResponsedMessage(this.a);
+                aVar.b = l;
+                aVar.a = x;
+                try {
+                    officialFeedHeadResponsedMessage.decodeInBackGround(2001105, aVar);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return officialFeedHeadResponsedMessage;
             }
-            return ga7Var;
+            return a(this.a);
         }
-        return (ga7) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c.removeMessages(1);
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = 0L;
-            d();
-            i();
-        }
-    }
-
-    public final void g(int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            Message obtainMessage = this.c.obtainMessage(1);
-            obtainMessage.arg1 = i;
-            this.c.sendMessageDelayed(obtainMessage, j);
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.MSG_REMINDER_CMD));
-        }
-    }
-
-    public void i() {
-        long j;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - this.b;
-            if (currentTimeMillis <= 0) {
-                currentTimeMillis = 0;
-            }
-            if (currentTimeMillis >= 600000) {
-                i = 2;
-                j = 10000;
-            } else {
-                j = 600000 - currentTimeMillis;
-                i = 1;
-            }
-            g(i, j);
-            this.b = System.currentTimeMillis();
-        }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

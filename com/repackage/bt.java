@@ -1,74 +1,52 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import androidx.core.view.InputDeviceCompat;
+import android.util.DisplayMetrics;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class bt {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile Handler a;
+    public static final DisplayMetrics a;
+    public static final float b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public bt() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964043789, "Lcom/repackage/bt;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964043789, "Lcom/repackage/bt;");
+                return;
             }
         }
+        DisplayMetrics displayMetrics = br.c.h().getAppContext().getResources().getDisplayMetrics();
+        a = displayMetrics;
+        b = displayMetrics.density;
     }
 
-    public static Handler a() {
+    public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (bt.class) {
-                    if (a == null) {
-                        a = new Handler(Looper.getMainLooper());
-                    }
+            int identifier = br.c.h().getAppContext().getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
+            int i = 0;
+            if (identifier > 0) {
+                try {
+                    i = br.c.h().getAppContext().getResources().getDimensionPixelSize(identifier);
+                } catch (Exception unused) {
                 }
             }
-            return a;
+            return i == 0 ? (int) (b * 25.0f) : i;
         }
-        return (Handler) invokeV.objValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Looper.getMainLooper().getThread() == Thread.currentThread() : invokeV.booleanValue;
-    }
-
-    public static void c(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
-            if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
-                a().post(runnable);
-            } else {
-                runnable.run();
-            }
-        }
-    }
-
-    public static void d(Runnable runnable, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable, j) == null) {
-            if (j > 0) {
-                a().postDelayed(runnable, j);
-            } else {
-                c(runnable);
-            }
-        }
+        return invokeV.intValue;
     }
 }

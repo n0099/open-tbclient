@@ -6,18 +6,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Array;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class fc implements lc {
+public class fc implements mc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public Object a;
 
-    public fc(boolean z) {
+    public fc(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
+            Object[] objArr = {obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,48 +30,131 @@ public class fc implements lc {
                 return;
             }
         }
-        this.a = z;
+        if (obj == null || !obj.getClass().isArray()) {
+            return;
+        }
+        this.a = obj;
     }
 
-    @Override // com.repackage.lc
-    public Object a(be beVar) {
+    @Override // com.repackage.mc
+    public Object a(ce ceVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, beVar)) == null) ? Boolean.valueOf(this.a) : invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ceVar)) == null) {
+            Object f = f(ceVar);
+            if (f != null) {
+                if (f instanceof JSONObject) {
+                    return f.toString();
+                }
+                return f instanceof JSONArray ? f.toString() : f;
+            }
+            return null;
+        }
+        return invokeL.objValue;
     }
 
-    @Override // com.repackage.lc
-    public Object b(be beVar) {
+    @Override // com.repackage.mc
+    public Object b(ce ceVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, beVar)) == null) ? Boolean.valueOf(this.a) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ceVar)) == null) ? this.a : invokeL.objValue;
     }
 
-    @Override // com.repackage.lc
-    public Object c(be beVar) {
+    @Override // com.repackage.mc
+    public Object c(ce ceVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, beVar)) == null) ? Boolean.valueOf(this.a) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ceVar)) == null) ? this.a : invokeL.objValue;
     }
 
-    @Override // com.repackage.lc
-    public Object d(be beVar) {
+    @Override // com.repackage.mc
+    public Object d(ce ceVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, beVar)) == null) ? Boolean.valueOf(this.a) : invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, ceVar)) == null) {
+            Object obj = this.a;
+            if (obj != null) {
+                Class<?> componentType = obj.getClass().getComponentType();
+                if (componentType == Boolean.TYPE) {
+                    return this.a;
+                }
+                if (componentType == Byte.TYPE) {
+                    return this.a;
+                }
+                if (componentType == Character.TYPE) {
+                    return this.a;
+                }
+                if (componentType == Double.TYPE) {
+                    return this.a;
+                }
+                if (componentType == Float.TYPE) {
+                    return this.a;
+                }
+                if (componentType == Integer.TYPE) {
+                    return this.a;
+                }
+                if (componentType == Long.TYPE) {
+                    return this.a;
+                }
+                if (componentType == Short.TYPE) {
+                    return this.a;
+                }
+                if (componentType == String.class) {
+                    return this.a;
+                }
+                int length = Array.getLength(this.a);
+                JSONArray jSONArray = new JSONArray();
+                for (int i = 0; i < length; i++) {
+                    Object f = fe.a(Array.get(this.a, i)).f(new ce(componentType));
+                    if (f != null) {
+                        jSONArray.put(f);
+                    }
+                }
+                return jSONArray.toString();
+            }
+            return null;
+        }
+        return invokeL.objValue;
     }
 
-    @Override // com.repackage.lc
-    public Object e(be beVar) {
+    @Override // com.repackage.mc
+    public Object e(ce ceVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, beVar)) == null) ? d(beVar) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, ceVar)) == null) ? d(ceVar) : invokeL.objValue;
     }
 
-    @Override // com.repackage.lc
-    public Object f(be beVar) {
+    @Override // com.repackage.mc
+    public Object f(ce ceVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, beVar)) == null) ? Boolean.valueOf(this.a) : invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, ceVar)) == null) {
+            Object obj = this.a;
+            if (obj != null) {
+                Class<?> componentType = obj.getClass().getComponentType();
+                if (componentType == Character.TYPE) {
+                    return String.valueOf((char[]) this.a);
+                }
+                if (componentType == Byte.TYPE) {
+                    try {
+                        hi.k((byte[]) this.a, 0);
+                    } catch (Exception unused) {
+                        return null;
+                    }
+                } else {
+                    int length = Array.getLength(this.a);
+                    JSONArray jSONArray = new JSONArray();
+                    for (int i = 0; i < length; i++) {
+                        Object f = fe.a(Array.get(this.a, i)).f(new ce(componentType));
+                        if (f != null) {
+                            jSONArray.put(f);
+                        }
+                    }
+                    return jSONArray;
+                }
+            }
+            return null;
+        }
+        return invokeL.objValue;
     }
 }

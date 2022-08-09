@@ -27,10 +27,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jg5;
-import com.repackage.kg5;
-import com.repackage.lg5;
-import com.repackage.mg5;
+import com.repackage.ai5;
+import com.repackage.xh5;
+import com.repackage.yh5;
+import com.repackage.zh5;
 /* loaded from: classes3.dex */
 public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -658,7 +658,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                     this.i.setHeaderScroll(round);
                 }
                 if (this.f && this.b != this.h) {
-                    mg5.a(this.i, this);
+                    ai5.a(this.i, this);
                     return;
                 }
                 g gVar = this.e;
@@ -922,10 +922,10 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.r.getContentSize() : invokeV.intValue;
     }
 
-    public final jg5 getLoadingLayoutProxy() {
+    public final xh5 getLoadingLayoutProxy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? j(true, true) : (jg5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? j(true, true) : (xh5) invokeV.objValue;
     }
 
     public final Mode getMode() {
@@ -978,28 +978,28 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.g : (State) invokeV.objValue;
     }
 
-    public kg5 h(boolean z, boolean z2) {
+    public yh5 h(boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            kg5 kg5Var = new kg5();
+            yh5 yh5Var = new yh5();
             if (z && this.h.showHeaderLoadingLayout()) {
-                kg5Var.a(this.r);
+                yh5Var.a(this.r);
             }
             if (z2 && this.h.showFooterLoadingLayout()) {
-                kg5Var.a(this.s);
+                yh5Var.a(this.s);
             }
-            return kg5Var;
+            return yh5Var;
         }
-        return (kg5) invokeCommon.objValue;
+        return (yh5) invokeCommon.objValue;
     }
 
     public abstract T i(Context context, AttributeSet attributeSet);
 
-    public final jg5 j(boolean z, boolean z2) {
+    public final xh5 j(boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? h(z, z2) : (jg5) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? h(z, z2) : (xh5) invokeCommon.objValue;
     }
 
     public void k(TypedArray typedArray) {
@@ -1018,7 +1018,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
             }
             setGravity(17);
             this.a = ViewConfiguration.get(context).getScaledTouchSlop();
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040628, R.attr.obfuscated_res_0x7f040629, R.attr.obfuscated_res_0x7f04062a, R.attr.obfuscated_res_0x7f04062b, R.attr.obfuscated_res_0x7f04062c, R.attr.obfuscated_res_0x7f04062d, R.attr.obfuscated_res_0x7f04062e, R.attr.obfuscated_res_0x7f04062f, R.attr.obfuscated_res_0x7f040630, R.attr.obfuscated_res_0x7f040631, R.attr.obfuscated_res_0x7f040632, R.attr.obfuscated_res_0x7f040633, R.attr.obfuscated_res_0x7f040634, R.attr.obfuscated_res_0x7f040635, R.attr.obfuscated_res_0x7f040636, R.attr.obfuscated_res_0x7f040637, R.attr.obfuscated_res_0x7f040638, R.attr.obfuscated_res_0x7f040639, R.attr.obfuscated_res_0x7f04063a});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0406af, R.attr.obfuscated_res_0x7f0406b0, R.attr.obfuscated_res_0x7f0406b1, R.attr.obfuscated_res_0x7f0406b2, R.attr.obfuscated_res_0x7f0406b3, R.attr.obfuscated_res_0x7f0406b4, R.attr.obfuscated_res_0x7f0406b5, R.attr.obfuscated_res_0x7f0406b6, R.attr.obfuscated_res_0x7f0406b7, R.attr.obfuscated_res_0x7f0406b8, R.attr.obfuscated_res_0x7f0406b9, R.attr.obfuscated_res_0x7f0406ba, R.attr.obfuscated_res_0x7f0406bb, R.attr.obfuscated_res_0x7f0406bc, R.attr.obfuscated_res_0x7f0406bd, R.attr.obfuscated_res_0x7f0406be, R.attr.obfuscated_res_0x7f0406bf, R.attr.obfuscated_res_0x7f0406c0, R.attr.obfuscated_res_0x7f0406c1});
             if (obtainStyledAttributes.hasValue(12)) {
                 this.h = Mode.mapIntToValue(obtainStyledAttributes.getInteger(12, 0));
             }
@@ -1036,7 +1036,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                     this.j.setBackgroundDrawable(drawable);
                 }
             } else if (obtainStyledAttributes.hasValue(0)) {
-                lg5.a("ptrAdapterViewBackground", "ptrRefreshableViewBackground");
+                zh5.a("ptrAdapterViewBackground", "ptrRefreshableViewBackground");
                 Drawable drawable2 = obtainStyledAttributes.getDrawable(0);
                 if (drawable2 != null) {
                     this.j.setBackgroundDrawable(drawable2);

@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.kuaishou.weapon.p0.jni.A;
 import com.kuaishou.weapon.p0.jni.Engine;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.UVEventType;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -123,7 +123,7 @@ public class m2 {
                 jSONObject.put("11", d0Var.b(this.a));
                 f0 f0Var = new f0();
                 jSONObject.put("26", f0Var.a("cpuinfo") ? 1 : 0);
-                jSONObject.put("27", f0Var.a("meminfo") ? 1 : 0);
+                jSONObject.put(PayUVEventType.PAY_WAY_FAQ_ENTRANCE_CLICK, f0Var.a("meminfo") ? 1 : 0);
                 jSONObject.put(com.tencent.connect.common.Constants.VIA_ACT_TYPE_TWENTY_EIGHT, f0Var.b(k1.a) ? 1 : 0);
                 jSONObject.put("29", f0Var.b(HardwareInfoUtils.MEM_INFO_FILE) ? 1 : 0);
                 jSONObject.put("96", f0Var.a());
@@ -161,7 +161,7 @@ public class m2 {
                         jSONObject.put("17", p0Var.a(this.a, 17, hashSet));
                         jSONObject.put("18", p0Var.a(this.a, 18, hashSet));
                         jSONObject.put("19", p0Var.a(this.a, 19, hashSet));
-                        jSONObject.put(UVEventType.PAY_WALLET_BANNER_SHOW, p0Var.a(this.a, 20, hashSet));
+                        jSONObject.put(PayUVEventType.PAY_WALLET_BANNER_SHOW, p0Var.a(this.a, 20, hashSet));
                         jSONObject.put("21", p0Var.a(this.a, 21, hashSet));
                         jSONObject.put("130", p0Var.a(hashSet));
                     }

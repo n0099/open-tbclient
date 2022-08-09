@@ -392,7 +392,7 @@ public final class e {
             bVar.abE = 69;
             bVar.abP = i;
             bVar.abQ = i2;
-            com.kwad.sdk.core.report.a.b(kVar.mAdTemplate, Cea708Decoder.COMMAND_DLY, bVar, kVar.mReportExtData);
+            com.kwad.sdk.core.report.a.b(kVar.mAdTemplate, 141, bVar, kVar.mReportExtData);
         }
     }
 

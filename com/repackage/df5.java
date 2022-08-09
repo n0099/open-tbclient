@@ -1,25 +1,22 @@
 package com.repackage;
 
-import android.graphics.Canvas;
-import android.view.MotionEvent;
-import android.widget.ListAdapter;
-/* loaded from: classes5.dex */
-public interface df5 {
-    void a();
+import android.app.Activity;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes6.dex */
+public class df5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(Canvas canvas);
+    public static void a(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, activity) == null) {
+        }
+    }
 
-    void onDraw(Canvas canvas);
-
-    boolean onInterceptTouchEvent(MotionEvent motionEvent);
-
-    void onMeasure(int i, int i2);
-
-    void onSizeChanged(int i, int i2, int i3, int i4);
-
-    boolean onTouchEvent(MotionEvent motionEvent);
-
-    void requestLayout();
-
-    void setAdapter(ListAdapter listAdapter);
+    public static void b(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, activity) == null) {
+        }
+    }
 }

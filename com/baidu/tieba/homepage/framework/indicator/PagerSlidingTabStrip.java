@@ -45,11 +45,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
-import com.repackage.qu6;
-import com.repackage.sx4;
-import com.repackage.vr4;
-import com.repackage.yt4;
+import com.repackage.jw6;
+import com.repackage.ms4;
+import com.repackage.my4;
+import com.repackage.qi;
+import com.repackage.ru4;
 import java.util.Locale;
 /* loaded from: classes3.dex */
 public class PagerSlidingTabStrip extends HorizontalScrollView {
@@ -166,7 +166,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             CREATOR = new a();
         }
 
-        public /* synthetic */ SavedState(Parcel parcel, qu6 qu6Var) {
+        public /* synthetic */ SavedState(Parcel parcel, jw6 jw6Var) {
             this(parcel);
         }
 
@@ -307,7 +307,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                     TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RECOMMEND_TIP_ITEM_CLICK).param("obj_locate", this.a + 1).param("obj_type", "1"));
                     this.b.P = true;
                     if (this.b.f.getAdapter() instanceof NewScrollFragmentAdapter) {
-                        ((NewScrollFragmentAdapter) this.b.f.getAdapter()).I(this.a);
+                        ((NewScrollFragmentAdapter) this.b.f.getAdapter()).J(this.a);
                     }
                     try {
                         this.b.f.setCurrentItem(this.a);
@@ -431,7 +431,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             }
         }
 
-        public /* synthetic */ d(PagerSlidingTabStrip pagerSlidingTabStrip, qu6 qu6Var) {
+        public /* synthetic */ d(PagerSlidingTabStrip pagerSlidingTabStrip, jw6 jw6Var) {
             this(pagerSlidingTabStrip);
         }
     }
@@ -473,12 +473,12 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             this.D = (int) TypedValue.applyDimension(1, this.D, displayMetrics);
             this.E = i;
             this.F = i2;
-            int f = pi.f(getContext(), R.dimen.tbds46);
+            int f = qi.f(getContext(), R.dimen.tbds46);
             this.G = f;
             int i4 = this.E;
             this.H = (this.F * 1.0f) / i4;
             this.I = (f * 1.0f) / i4;
-            this.T = -pi.f(getContext(), R.dimen.tbds11);
+            this.T = -qi.f(getContext(), R.dimen.tbds11);
             this.y = i3;
             this.r = z;
             Paint paint = new Paint();
@@ -493,14 +493,14 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             this.m.setColor(SkinManager.getColor(R.color.CAM_X0301));
             setLayerType(1, null);
             this.n = new RectF();
-            this.J = pi.f(getContext(), R.dimen.tbds20);
-            this.K = (int) (pi.f(getContext(), R.dimen.tbds28) * 0.5d);
-            this.L = (int) (pi.f(getContext(), R.dimen.tbds22) * 0.4d);
+            this.J = qi.f(getContext(), R.dimen.tbds20);
+            this.K = (int) (qi.f(getContext(), R.dimen.tbds28) * 0.5d);
+            this.L = (int) (qi.f(getContext(), R.dimen.tbds22) * 0.4d);
             this.a = new LinearLayout.LayoutParams(-2, -1);
-            this.b = new LinearLayout.LayoutParams(pi.f(getContext(), R.dimen.tbds165), -1);
+            this.b = new LinearLayout.LayoutParams(qi.f(getContext(), R.dimen.tbds165), -1);
             this.A = this.M + Math.round(i * 0.5f);
-            this.z = pi.f(getContext(), R.dimen.tbds5);
-            this.B = pi.f(getContext(), R.dimen.tbds8);
+            this.z = qi.f(getContext(), R.dimen.tbds5);
+            this.B = qi.f(getContext(), R.dimen.tbds8);
             if (this.R == null) {
                 this.R = getResources().getConfiguration().locale;
             }
@@ -644,7 +644,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                             LinearLayout linearLayout = (LinearLayout) childAt;
                             textView = (TextView) linearLayout.getChildAt(0);
                             if (linearLayout.getChildCount() > 1 && (linearLayout.getChildAt(1) instanceof ImageView)) {
-                                ((ImageView) linearLayout.getChildAt(1)).setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080924, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
+                                ((ImageView) linearLayout.getChildAt(1)).setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080941, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
                             }
                         }
                         if (textView == null) {
@@ -664,14 +664,14 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                             }
                             if (i2 >= 0) {
                                 if (i == this.j) {
-                                    vr4.d(textView).A(R.string.F_X02);
+                                    ms4.d(textView).A(R.string.F_X02);
                                 } else {
-                                    vr4.d(textView).A(R.string.F_X01);
+                                    ms4.d(textView).A(R.string.F_X01);
                                 }
                             } else if (i == this.h) {
-                                vr4.d(textView).A(R.string.F_X02);
+                                ms4.d(textView).A(R.string.F_X02);
                             } else {
-                                vr4.d(textView).A(R.string.F_X01);
+                                ms4.d(textView).A(R.string.F_X01);
                             }
                         }
                     }
@@ -792,7 +792,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         String string;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048588, this, i, str) == null) {
-            sx4 a2 = sx4.a(str);
+            my4 a2 = my4.a(str);
             if (a2 != null && (!UbsABTestHelper.isHomeTabModifyABTestA() || !this.W)) {
                 int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds47);
                 FrsTabItemCustomeView frsTabItemCustomeView = new FrsTabItemCustomeView(getContext());
@@ -802,18 +802,18 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 frsTabItemCustomeView.setNeedNightShade(false);
                 frsTabItemCustomeView.e(a2.g);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
-                layoutParams.rightMargin = pi.f(getContext(), R.dimen.tbds5);
+                layoutParams.rightMargin = qi.f(getContext(), R.dimen.tbds5);
                 layoutParams.gravity = 16;
                 frsTabItemCustomeView.setLayoutParams(layoutParams);
                 q(i, frsTabItemCustomeView);
-            } else if (UbsABTestHelper.isConcernForumCardShow() && i == 0 && (getResources().getString(R.string.obfuscated_res_0x7f0f130c).equals(str) || getResources().getString(R.string.obfuscated_res_0x7f0f02b3).equals(str))) {
+            } else if (UbsABTestHelper.isConcernForumCardShow() && i == 0 && (getResources().getString(R.string.obfuscated_res_0x7f0f1348).equals(str) || getResources().getString(R.string.obfuscated_res_0x7f0f02b7).equals(str))) {
                 LinearLayout linearLayout = new LinearLayout(getContext());
                 linearLayout.setOrientation(0);
                 TextView textView = new TextView(getContext());
-                if (TbadkCoreApplication.isLogin() && yt4.k().l("key_home_concern_all_status", 0) == 1) {
-                    string = getResources().getString(R.string.obfuscated_res_0x7f0f02b3);
+                if (TbadkCoreApplication.isLogin() && ru4.k().l("key_home_concern_all_status", 0) == 1) {
+                    string = getResources().getString(R.string.obfuscated_res_0x7f0f02b7);
                 } else {
-                    string = getResources().getString(R.string.obfuscated_res_0x7f0f130c);
+                    string = getResources().getString(R.string.obfuscated_res_0x7f0f1348);
                 }
                 textView.setText(string);
                 textView.setGravity(17);
@@ -823,7 +823,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 textView.setPadding(i3, 0, i3, 0);
                 ImageView imageView = new ImageView(getContext());
                 imageView.setVisibility(4);
-                imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080924, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
+                imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080941, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
                 linearLayout.addView(textView);
                 linearLayout.addView(imageView);
                 ((LinearLayout.LayoutParams) imageView.getLayoutParams()).leftMargin = this.T;
@@ -835,16 +835,25 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                     str = a2.c();
                 }
                 if (i == 0 && !this.W) {
-                    if (UbsABTestHelper.isConcernForumCardShow() && TbadkCoreApplication.isLogin() && yt4.k().l("key_home_concern_all_status", 0) == 1) {
-                        str = getResources().getString(R.string.obfuscated_res_0x7f0f02b3);
+                    if (UbsABTestHelper.isConcernForumCardShow() && TbadkCoreApplication.isLogin() && ru4.k().l("key_home_concern_all_status", 0) == 1) {
+                        str = getResources().getString(R.string.obfuscated_res_0x7f0f02b7);
                     } else {
-                        str = getResources().getString(R.string.obfuscated_res_0x7f0f130c);
+                        str = getResources().getString(R.string.obfuscated_res_0x7f0f1348);
                     }
+                }
+                Resources resources = getResources();
+                int i4 = R.string.obfuscated_res_0x7f0f1351;
+                if (resources.getString(R.string.obfuscated_res_0x7f0f1351).equals(str) || getResources().getString(R.string.obfuscated_res_0x7f0f070f).equals(str)) {
+                    Resources resources2 = getResources();
+                    if (UbsABTestHelper.isNewHomeHotTopicTab()) {
+                        i4 = R.string.obfuscated_res_0x7f0f070f;
+                    }
+                    str = resources2.getString(i4);
                 }
                 eMTextView.setTextSize(0, this.E);
                 eMTextView.setSingleLine();
-                int i4 = this.M;
-                eMTextView.setPadding(i4, 0, i4, 0);
+                int i5 = this.M;
+                eMTextView.setPadding(i5, 0, i5, 0);
                 eMTextView.setGravity(17);
                 eMTextView.setText(str);
                 q(i, eMTextView);
@@ -1030,13 +1039,13 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     public final float v(float f, View view2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{Float.valueOf(f), view2})) == null) ? (f - ((((TextView) ((LinearLayout) view2).getChildAt(0)).getPaint().measureText(getResources().getString(R.string.obfuscated_res_0x7f0f130c)) + (this.M * 2)) / 2.0f)) + this.A : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{Float.valueOf(f), view2})) == null) ? (f - ((((TextView) ((LinearLayout) view2).getChildAt(0)).getPaint().measureText(getResources().getString(R.string.obfuscated_res_0x7f0f1348)) + (this.M * 2)) / 2.0f)) + this.A : invokeCommon.floatValue;
     }
 
     public final float w(float f, View view2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048606, this, new Object[]{Float.valueOf(f), view2})) == null) ? (f + ((((TextView) ((LinearLayout) view2).getChildAt(0)).getPaint().measureText(getResources().getString(R.string.obfuscated_res_0x7f0f130c)) + (this.M * 2)) / 2.0f)) - this.A : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048606, this, new Object[]{Float.valueOf(f), view2})) == null) ? (f + ((((TextView) ((LinearLayout) view2).getChildAt(0)).getPaint().measureText(getResources().getString(R.string.obfuscated_res_0x7f0f1348)) + (this.M * 2)) / 2.0f)) - this.A : invokeCommon.floatValue;
     }
 
     public final float x(float f, float f2, float f3) {

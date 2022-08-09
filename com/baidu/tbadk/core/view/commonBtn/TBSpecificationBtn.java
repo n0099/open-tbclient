@@ -22,8 +22,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
-import com.repackage.vu4;
+import com.repackage.pv4;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class TBSpecificationBtn extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -222,12 +222,12 @@ public class TBSpecificationBtn extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.l = TbadkCoreApplication.getInst().getSkinType();
-            vu4 vu4Var = new vu4();
-            this.b = vu4Var;
-            vu4Var.t = this.n;
+            pv4 pv4Var = new pv4();
+            this.b = pv4Var;
+            pv4Var.t = this.n;
             Paint paint = new Paint();
             this.d = paint;
-            paint.setTextSize(pi.f(getContext(), R.dimen.T_X08));
+            paint.setTextSize(qi.f(getContext(), R.dimen.T_X08));
             this.d.setAntiAlias(true);
         }
     }
@@ -399,7 +399,7 @@ public class TBSpecificationBtn extends View {
     public void setTextSize(@DimenRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.d.setTextSize(pi.f(getContext(), i));
+            this.d.setTextSize(qi.f(getContext(), i));
             Paint paint = this.d;
             String str = this.e;
             paint.getTextBounds(str, 0, str.length(), this.h);

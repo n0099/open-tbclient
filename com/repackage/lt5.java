@@ -1,146 +1,100 @@
 package com.repackage;
 
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.ala.data.AlaSquareTabInfo;
+import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class lt5 extends BaseAdapter {
+public class lt5 extends bz5<vt5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public ArrayList<AlaSquareTabInfo> b;
+    public kt5 i;
+    public kt5 j;
 
-    /* loaded from: classes6.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView a;
-        public TextView b;
-
-        public a(lt5 lt5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lt5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public lt5(TbPageContext tbPageContext) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lt5(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
+        super(tbPageContext, viewGroup);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.i = new kt5(g());
+        this.j = new kt5(g());
+        ViewGroup viewGroup2 = (ViewGroup) h();
+        View view2 = new View(getContext());
+        viewGroup2.addView(this.i.m());
+        viewGroup2.addView(view2, new LinearLayout.LayoutParams(g().getResources().getDimensionPixelSize(R.dimen.tbds6), -1));
+        viewGroup2.addView(this.j.m());
     }
 
-    public ArrayList<AlaSquareTabInfo> a() {
+    @Override // com.repackage.bz5
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0108 : invokeV.intValue;
     }
 
-    public void b(ArrayList<AlaSquareTabInfo> arrayList) {
+    @Override // com.repackage.bz5
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-            this.b = arrayList;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.i.p(tbPageContext, i);
+            this.j.p(tbPageContext, i);
         }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (ListUtils.isEmpty(this.b)) {
-                return 0;
-            }
-            return this.b.size();
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
         }
-        return invokeV.intValue;
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bz5
+    /* renamed from: r */
+    public void i(vt5 vt5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (ListUtils.isEmpty(this.b)) {
-                return null;
-            }
-            return this.b.get(i);
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, vt5Var) == null) || vt5Var == null) {
+            return;
         }
-        return invokeI.objValue;
+        this.i.n(vt5Var.a);
+        this.j.n(vt5Var.b);
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public void s(vt5 vt5Var, int i, long j, String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
+        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{vt5Var, Integer.valueOf(i), Long.valueOf(j), str}) == null) || vt5Var == null) {
+            return;
+        }
+        this.i.o(vt5Var.a, i, j, str);
+        this.j.o(vt5Var.b, i, j, str);
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        View view3;
-        a aVar;
+    public void t(du5 du5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                aVar = new a(this);
-                view3 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00e3, (ViewGroup) null);
-                TbImageView tbImageView = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f0906dd);
-                aVar.a = tbImageView;
-                tbImageView.setDrawerType(1);
-                aVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f0801cd);
-                aVar.a.setDefaultBgResource(R.color.transparent);
-                aVar.a.setRadius(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5));
-                TextView textView = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f0920be);
-                aVar.b = textView;
-                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0106);
-                view3.setTag(aVar);
-            } else {
-                view3 = view2;
-                aVar = (a) view2.getTag();
-            }
-            aVar.a.J(this.b.get(i).iconUrl, 10, false);
-            aVar.b.setText(this.b.get(i).name);
-            return view3;
+        if (interceptable == null || interceptable.invokeL(1048582, this, du5Var) == null) {
+            this.i.q(du5Var);
+            this.j.q(du5Var);
         }
-        return (View) invokeILL.objValue;
     }
 }

@@ -1,113 +1,89 @@
 package com.repackage;
 
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.hardware.Camera;
-import android.view.MotionEvent;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class bt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a implements Camera.AutoFocusCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-
-        @Override // android.hardware.Camera.AutoFocusCallback
-        public void onAutoFocus(boolean z, Camera camera) {
-            Camera.Parameters parameters;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZL(1048576, this, z, camera) == null) || camera == null || (parameters = camera.getParameters()) == null) {
-                return;
-            }
-            parameters.setFocusMode(this.a);
-            camera.setParameters(parameters);
-        }
-    }
-
-    public static Rect a(float f, float f2, float f3, int i, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            int i3 = (int) (((f / i) * 2000.0f) - 1000.0f);
-            int i4 = (int) (((f2 / i2) * 2000.0f) - 1000.0f);
-            int intValue = Float.valueOf(f3 * 300.0f).intValue() / 2;
-            RectF rectF = new RectF(b(i3 - intValue, -1000, 1000), b(i4 - intValue, -1000, 1000), b(i3 + intValue, -1000, 1000), b(i4 + intValue, -1000, 1000));
-            return new Rect(Math.round(rectF.left), Math.round(rectF.top), Math.round(rectF.right), Math.round(rectF.bottom));
-        }
-        return (Rect) invokeCommon.objValue;
-    }
-
-    public static int b(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) ? i > i3 ? i3 : i < i2 ? i2 : i : invokeIII.intValue;
-    }
-
-    public static String c(Camera.Parameters parameters) {
+    public static String a(String str) {
         InterceptResult invokeL;
-        List<String> supportedFocusModes;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, parameters)) == null) {
-            if (parameters != null && (supportedFocusModes = parameters.getSupportedFocusModes()) != null) {
-                if (supportedFocusModes.contains("macro")) {
-                    return "macro";
-                }
-                if (supportedFocusModes.contains("continuous-picture")) {
-                    return "continuous-picture";
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
             }
-            return "auto";
+            int indexOf = str.indexOf("_dev");
+            if (indexOf > 0) {
+                return str.substring(0, indexOf);
+            }
+            int indexOf2 = str.indexOf("_trial");
+            return indexOf2 > 0 ? str.substring(0, indexOf2) : str;
         }
         return (String) invokeL.objValue;
     }
 
-    public static void d(MotionEvent motionEvent, Camera camera, int i, int i2) {
+    public static int b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLII(65539, null, motionEvent, camera, i, i2) == null) || motionEvent == null || camera == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0;
+            }
+            if (str.contains("_dev")) {
+                return 1;
+            }
+            if (str.endsWith("_trial")) {
+                return 3;
+            }
+            return str.contains("_trial") ? 2 : 0;
         }
-        Rect a2 = a(motionEvent.getX(), motionEvent.getY(), 1.0f, i, i2);
-        camera.cancelAutoFocus();
-        Camera.Parameters parameters = camera.getParameters();
-        if (parameters == null) {
-            return;
+        return invokeL.intValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            int lastIndexOf = str.lastIndexOf("_dev");
+            if (lastIndexOf >= 0 && lastIndexOf < str.length()) {
+                return str.substring(lastIndexOf);
+            }
+            int lastIndexOf2 = str.lastIndexOf("_trial");
+            return (lastIndexOf2 < 0 || lastIndexOf2 >= str.length()) ? "" : str.substring(lastIndexOf2);
         }
-        if (parameters.getMaxNumFocusAreas() > 0) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new Camera.Area(a2, 800));
-            parameters.setFocusAreas(arrayList);
-        }
-        String focusMode = parameters.getFocusMode();
-        parameters.setFocusMode(c(parameters));
-        camera.setParameters(parameters);
-        camera.autoFocus(new a(focusMode));
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean d(wl2 wl2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, wl2Var)) == null) ? wl2Var != null && wl2Var.getType() == 1 : invokeL.booleanValue;
+    }
+
+    public static boolean e(wl2 wl2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, wl2Var)) == null) ? wl2Var != null && wl2Var.getType() == 0 : invokeL.booleanValue;
+    }
+
+    @Deprecated
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? (TextUtils.isEmpty(str) || str.contains("_")) ? false : true : invokeL.booleanValue;
+    }
+
+    public static boolean g(wl2 wl2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, wl2Var)) == null) ? wl2Var != null && wl2Var.getType() == 2 : invokeL.booleanValue;
     }
 }

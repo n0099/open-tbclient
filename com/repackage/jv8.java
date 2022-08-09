@@ -1,177 +1,98 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.coreExtra.data.TbMultiMediaData;
-import com.baidu.tbadk.coreExtra.data.VideoInfo;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.video.VideoItemData;
+import com.baidu.tieba.videoplay.VideoPlayView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaData;
-import com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes6.dex */
 public class jv8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public dv8 c;
+    public VideoPlayView.f d;
+    public int e;
+    public Set<String> f;
 
-    /* loaded from: classes6.dex */
-    public static class a implements lv8 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lv8 a;
-
-        public a(lv8 lv8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lv8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lv8Var;
-        }
-
-        @Override // com.repackage.lv8
-        public void a(int i, Bitmap bitmap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, bitmap) == null) {
-                lv8 lv8Var = this.a;
-                if (lv8Var != null) {
-                    lv8Var.a(i, bitmap);
-                }
-                w89.d("single-frameResult: " + i);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements lv8 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lv8 a;
-
-        public b(lv8 lv8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lv8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lv8Var;
-        }
-
-        @Override // com.repackage.lv8
-        public void a(int i, Bitmap bitmap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, bitmap) == null) {
-                lv8 lv8Var = this.a;
-                if (lv8Var != null) {
-                    lv8Var.a(i, bitmap);
-                }
-                w89.d("multi-frameResult: " + i);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755575099, "Lcom/repackage/jv8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public jv8() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755575099, "Lcom/repackage/jv8;");
+        this.a = 0;
+        this.b = 0;
+        this.f = new HashSet();
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e = Math.min(7, TbConfig.PREFETCH_NEXT_VIDEO_NUM);
+            this.b = this.a + 1;
+            b();
         }
     }
 
-    public static TbMultiMediaData a(VideoInfo videoInfo) {
-        InterceptResult invokeL;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, videoInfo)) == null) {
-            TbMultiMediaData tbMultiMediaData = new TbMultiMediaData();
-            tbMultiMediaData.path = videoInfo.getVideoPath();
-            tbMultiMediaData.coverPath = videoInfo.getThumbPath();
-            tbMultiMediaData.height = videoInfo.getVideoHeight();
-            tbMultiMediaData.width = videoInfo.getVideoWidth();
-            tbMultiMediaData.type = 1;
-            tbMultiMediaData.start = 0L;
-            tbMultiMediaData.end = videoInfo.getVideoDuration() * 1000;
-            tbMultiMediaData.originalDuration = videoInfo.getVideoDuration() * 1000;
-            tbMultiMediaData.scaleType = "center_inside";
-            tbMultiMediaData.videoInfoSource = videoInfo.getVideoSource();
-            return tbMultiMediaData;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.c == null || this.e <= 0) {
+            return;
         }
-        return (TbMultiMediaData) invokeL.objValue;
+        while (this.b < this.c.k()) {
+            VideoItemData s = this.c.s(this.b);
+            this.b++;
+            if (s != null && !TextUtils.isEmpty(s.video_url)) {
+                this.e--;
+                if (!this.f.contains(s.video_url)) {
+                    CyberPlayerManager.prefetch(s.video_url, null, null, TbConfig.PREFETCH_NEXT_VIDEO_SIZE, null);
+                    this.f.add(s.video_url);
+                }
+                if (this.e <= 0) {
+                    break;
+                }
+            }
+        }
+        if (this.e <= 0 || this.d == null || this.c.k() - this.a >= 10) {
+            return;
+        }
+        this.d.a();
     }
 
-    public static void b(VlogEditManager vlogEditManager, Context context, int i, int i2, int i3, lv8 lv8Var) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{vlogEditManager, context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), lv8Var}) == null) || vlogEditManager == null || context == null || i <= 0) {
-            return;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.a = i;
         }
-        uv8 uv8Var = new uv8();
-        uv8Var.a = vlogEditManager.getDuration();
-        uv8Var.b = i;
-        uv8Var.f = vlogEditManager.getInputMultiMediaData();
-        MediaTrack mediaTrack = (MediaTrack) b99.c(vlogEditManager.getUpdateMediaTracks(), 0);
-        if (mediaTrack == null) {
-            return;
-        }
-        uv8Var.e = mediaTrack.mediaSegments;
-        if (i2 == 0) {
-            i2 = UtilHelper.getDimenPixelSize(R.dimen.tbds24);
-        }
-        uv8Var.c = i2;
-        if (i3 == 0) {
-            i3 = UtilHelper.getDimenPixelSize(R.dimen.tbds32);
-        }
-        uv8Var.d = i3;
-        ov8.f().i(uv8Var, new b(lv8Var));
     }
 
-    public static void c(MultiMediaData multiMediaData, Context context, int i, int i2, int i3, lv8 lv8Var) {
+    public void d(dv8 dv8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{multiMediaData, context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), lv8Var}) == null) || multiMediaData == null || context == null || i <= 0) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048579, this, dv8Var) == null) {
+            this.c = dv8Var;
         }
-        vv8 vv8Var = new vv8();
-        vv8Var.b = i;
-        vv8Var.a = multiMediaData.originalDuration;
-        vv8Var.e = multiMediaData;
-        if (i2 == 0) {
-            i2 = UtilHelper.getDimenPixelSize(R.dimen.tbds24);
+    }
+
+    public void e(VideoPlayView.f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
+            this.d = fVar;
         }
-        vv8Var.c = i2;
-        if (i3 == 0) {
-            i3 = UtilHelper.getDimenPixelSize(R.dimen.tbds32);
-        }
-        vv8Var.d = i3;
-        ov8.f().j(vv8Var, new a(lv8Var));
     }
 }

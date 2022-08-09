@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GodReplyMoreViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,8 +36,8 @@ public class GodReplyMoreViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.c = 3;
-        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09137c);
-        this.b = view2.findViewById(R.id.obfuscated_res_0x7f0907cb);
+        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091420);
+        this.b = view2.findViewById(R.id.obfuscated_res_0x7f0907f9);
         SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0106);
         SkinManager.setBackgroundResource(this.a, R.drawable.more_all);
         SkinManager.setBackgroundResource(this.b, R.color.CAM_X0204);

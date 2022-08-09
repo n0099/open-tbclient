@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 @SuppressLint({"ClickableViewAccessibility", "BDThrowableCheck", "SyntheticAccessor"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PopupWindow {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] P;
@@ -74,7 +74,7 @@ public class PopupWindow {
     public int y;
     public int z;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements ViewTreeObserver.OnScrollChangedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,12 +114,12 @@ public class PopupWindow {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void onDismiss();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c extends FrameLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -344,14 +344,14 @@ public class PopupWindow {
         }
     }
 
-    public void I(b bVar) {
+    public void J(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
             this.I = bVar;
         }
     }
 
-    public void J(boolean z) {
+    public void K(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             this.k = z;
@@ -423,7 +423,7 @@ public class PopupWindow {
             int i = this.K;
             if (i == -1) {
                 if (this.d) {
-                    return this.G ? R.style.obfuscated_res_0x7f100164 : R.style.obfuscated_res_0x7f100163;
+                    return this.G ? R.style.obfuscated_res_0x7f100168 : R.style.obfuscated_res_0x7f100167;
                 }
                 return 0;
             }
@@ -820,7 +820,7 @@ public class PopupWindow {
         this.M = new a(this);
         this.a = context;
         this.b = (WindowManager) context.getSystemService("window");
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843126, 16843465, R.attr.overlapAnchor, R.attr.obfuscated_res_0x7f0404e2, R.attr.obfuscated_res_0x7f0404e3}, i, i2);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843126, 16843465, R.attr.obfuscated_res_0x7f040513, R.attr.obfuscated_res_0x7f04055c, R.attr.obfuscated_res_0x7f04055d}, i, i2);
         this.D = obtainStyledAttributes.getDrawable(4);
         int resourceId = obtainStyledAttributes.getResourceId(3, -1);
         this.K = resourceId != 16973824 ? resourceId : -1;

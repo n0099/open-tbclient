@@ -1,11 +1,16 @@
 package com.repackage;
 
-import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.widget.bubble.BubbleManager;
-import com.baidu.nadcore.widget.bubble.BubblePosition;
+import com.baidu.nadcore.player.ui.BdLayerSeekBar;
+import com.baidu.searchbox.player.event.ControlEvent;
+import com.baidu.searchbox.player.event.LayerEvent;
 import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,66 +18,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmField;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public abstract class uq0 extends wq0 {
+public class uq0 extends sq0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @JvmField
-    public ViewGroup b;
-    @JvmField
-    public h41 c;
-    @JvmField
-    public boolean d;
-
-    /* loaded from: classes7.dex */
-    public static final class a implements BubbleManager.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uq0 a;
-
-        /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        public a(uq0 uq0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uq0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = uq0Var;
-        }
-
-        @Override // com.baidu.nadcore.widget.bubble.BubbleManager.b
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.nadcore.widget.bubble.BubbleManager.b
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.b = null;
-            }
-        }
-
-        @Override // com.baidu.nadcore.widget.bubble.BubbleManager.b
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
-        }
-    }
+    public ImageView h;
+    public View i;
+    public FrameLayout.LayoutParams j;
 
     public uq0() {
         Interceptable interceptable = $ic;
@@ -84,95 +36,260 @@ public abstract class uq0 extends wq0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.j = null;
     }
 
-    @Override // com.repackage.qq0
-    public void k(vr0 event) {
+    @Override // com.repackage.sq0
+    public boolean A() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            if (Intrinsics.areEqual(event.c(), PlayerEvent.ACTION_ON_INFO)) {
-                int g = event.g(1);
-                if ((g == 904 || g == 956) && w() != null) {
-                    y();
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            lu0 a = ix0.a(q().v().getLayerList());
+            return q().Q() || (a != null ? a.M() : false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.sq0
+    public void B(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            super.B(z);
+            if (z) {
+                this.h.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080df1));
+                return;
+            }
+            J(false);
+            this.h.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dee));
+        }
+    }
+
+    public final void D(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            if (z) {
+                this.i.startAnimation(bx0.b());
+            } else {
+                this.i.clearAnimation();
+            }
+            this.i.setVisibility(4);
+        }
+    }
+
+    public final void E(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            if (z) {
+                this.i.startAnimation(bx0.a());
+            } else {
+                this.i.clearAnimation();
+            }
+            this.i.setVisibility(0);
+        }
+    }
+
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            J(false);
+        }
+    }
+
+    public final void G() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (q().V0() && q().f1() == 0 && this.i.getVisibility() != 4) {
+                D(true);
+            } else {
+                D(false);
             }
         }
     }
 
-    @Override // com.repackage.qq0
+    public final void H() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (q().V0() && q().f1() == 0) {
+                E(true);
+            } else {
+                E(false);
+            }
+        }
+    }
+
+    public final void J(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+        }
+    }
+
+    public void K(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.h.setVisibility(i);
+        }
+    }
+
+    public void L(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            if (q().n1().g() && z) {
+                this.h.setVisibility(0);
+            } else {
+                this.h.setVisibility(4);
+            }
+        }
+    }
+
+    @Override // com.repackage.pq0
+    @Nullable
+    public ViewGroup.LayoutParams f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.j : (ViewGroup.LayoutParams) invokeV.objValue;
+    }
+
+    @Override // com.repackage.pq0
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
+            this.j = layoutParams;
+            layoutParams.gravity = 80;
+            ViewGroup viewGroup = (ViewGroup) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0601, null);
+            this.e = viewGroup;
+            this.i = viewGroup.findViewById(R.id.obfuscated_res_0x7f090356);
+            BdLayerSeekBar bdLayerSeekBar = (BdLayerSeekBar) this.e.findViewById(R.id.obfuscated_res_0x7f091250);
+            this.f = bdLayerSeekBar;
+            bdLayerSeekBar.setSeekBarHolderListener(this);
+            ImageView imageView = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f09093b);
+            this.h = imageView;
+            imageView.setOnClickListener(this);
+            D(false);
+        }
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @Override // com.repackage.sq0, com.repackage.tq0, com.repackage.pq0
+    public void k(@NonNull ur0 ur0Var) {
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, ur0Var) == null) {
+            super.k(ur0Var);
+            String c2 = ur0Var.c();
+            switch (c2.hashCode()) {
+                case -1532215489:
+                    if (c2.equals(LayerEvent.ACTION_SET_BARRAGE_HOT_LIST)) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -849541738:
+                    if (c2.equals(LayerEvent.ACTION_BARRAGE_CLICK)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -552621273:
+                    if (c2.equals(LayerEvent.ACTION_SWITCH_FULL)) {
+                        c = 6;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -503058442:
+                    if (c2.equals(LayerEvent.ACTION_SET_BARRAGE_HINT)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 14382657:
+                    if (c2.equals(ControlEvent.ACTION_STATUS_SYNC)) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1610373035:
+                    if (c2.equals(LayerEvent.ACTION_WAKE_UP_END)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 2124623197:
+                    if (c2.equals(PlayerEvent.ACTION_UPDATE_DATA_SOURCE)) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            if (c == 3) {
+                L(true);
+            } else if (c != 4) {
+                if (c == 6 && q().r1()) {
+                    F();
+                }
+            } else {
+                B(q().V0());
+            }
+        }
+    }
+
+    @Override // com.repackage.tq0, com.repackage.pq0
     public void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.m();
-            this.b = null;
-            h41 h41Var = this.c;
-            if (h41Var != null) {
-                h41Var.k();
-            }
+            this.f.setSeekBarHolderListener(null);
         }
     }
 
-    public void v() {
-        h41 h41Var;
+    @Override // com.repackage.sq0, android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (h41Var = this.c) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048590, this, view2) == null) && view2.equals(this.h)) {
+            ((qu0) this.a).h0(!q().V0());
         }
-        h41Var.c();
     }
 
+    @Override // com.repackage.sq0, com.repackage.vq0
+    public void s(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            super.s(z, z2);
+            if (z) {
+                H();
+                return;
+            }
+            G();
+            v();
+        }
+    }
+
+    @Override // com.repackage.sq0, com.repackage.vq0
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            super.t();
+            L(true);
+        }
+    }
+
+    @Override // com.repackage.tq0
     public View w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public String x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Context context = getContext();
-            Intrinsics.checkNotNullExpressionValue(context, "context");
-            String string = context.getResources().getString(R.string.obfuscated_res_0x7f0f0b43);
-            Intrinsics.checkNotNullExpressionValue(string, "context.resources.getStr…eo_switch_fullscreen_tip)");
-            return string;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void y() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.d && this.b != null) {
-            if (!q().V0()) {
-                r().X(true, true);
-            }
-            Context context = getContext();
-            Intrinsics.checkNotNullExpressionValue(context, "context");
-            int color = context.getResources().getColor(R.color.obfuscated_res_0x7f06084a);
-            d41 d41Var = (d41) BubbleManager.t(d41.class);
-            d41Var.j(w(), this.b);
-            d41Var.q(x());
-            d41Var.r(-1, -1);
-            d41Var.l(color, color);
-            d41Var.m(1, 12.0f);
-            d41Var.p(-2.0f);
-            d41Var.n(BubblePosition.DOWN);
-            d41Var.k(5000);
-            d41Var.i(true);
-            d41Var.o(new a(this));
-            h41 h = d41Var.h();
-            this.c = h;
-            if (h != null) {
-                h.p();
-            }
-            this.d = false;
-            r().U(5000);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.e.findViewById(R.id.obfuscated_res_0x7f090271) : (View) invokeV.objValue;
     }
 }

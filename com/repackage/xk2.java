@@ -1,15 +1,18 @@
 package com.repackage;
 
 import androidx.annotation.NonNull;
-import org.json.JSONObject;
+import androidx.annotation.Nullable;
+import java.util.Map;
 /* loaded from: classes7.dex */
 public interface xk2 {
-    boolean a(String str, String str2);
+    void a(w13 w13Var);
 
-    String b();
+    @Nullable
+    Map<String, Object> b(@NonNull ap1 ap1Var);
 
-    @NonNull
-    JSONObject c(@NonNull String str, @NonNull JSONObject jSONObject);
+    @Nullable
+    Map<String, Object> c(@NonNull ap1 ap1Var);
 
-    boolean enable();
+    @Nullable
+    Map<Class, Object> d();
 }

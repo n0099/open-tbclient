@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ex0;
+import com.repackage.dx0;
 /* loaded from: classes2.dex */
 public class StretchTextureView extends TextureView {
     public static /* synthetic */ Interceptable $ic;
@@ -67,7 +67,7 @@ public class StretchTextureView extends TextureView {
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
             int defaultSize = TextureView.getDefaultSize(this.b, i);
             int defaultSize2 = TextureView.getDefaultSize(this.c, i2);
-            ex0.b(com.baidu.searchbox.player.kernel.StretchTextureView.TAG, "onMeasure ** mVideoWidth : " + this.b + ", mVideoHeight : " + this.c + ", TextureViewWidth : " + defaultSize + ", TextureViewHeight : " + defaultSize2);
+            dx0.b(com.baidu.searchbox.player.kernel.StretchTextureView.TAG, "onMeasure ** mVideoWidth : " + this.b + ", mVideoHeight : " + this.c + ", TextureViewWidth : " + defaultSize + ", TextureViewHeight : " + defaultSize2);
             int i5 = this.a;
             if (i5 == 0) {
                 int defaultSize3 = TextureView.getDefaultSize(this.b, i);
@@ -147,7 +147,7 @@ public class StretchTextureView extends TextureView {
                     defaultSize = a(defaultSize, defaultSize2, i3, i4);
                 }
             }
-            ex0.b(com.baidu.searchbox.player.kernel.StretchTextureView.TAG, "setMeasuredDimension **  TextureViewWidth : " + defaultSize + ", TextureViewHeight : " + defaultSize2);
+            dx0.b(com.baidu.searchbox.player.kernel.StretchTextureView.TAG, "setMeasuredDimension **  TextureViewWidth : " + defaultSize + ", TextureViewHeight : " + defaultSize2);
             setMeasuredDimension(defaultSize, defaultSize2);
         }
     }

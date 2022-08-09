@@ -1,84 +1,77 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.tieba.R;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetVipInfo.VipSpecialItem;
+import tbclient.GetVipInfo.VipSpecialList;
 /* loaded from: classes7.dex */
-public class yk7 {
+public class yk7 implements on {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
+    public ok7 a;
+    public List<zk7> b;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) ? c(d(str)) : (String) invokeL.objValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? c(str).trim() : (String) invokeL.objValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            Pattern compile = Pattern.compile(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1327));
-            boolean z = false;
-            int i = 0;
-            while (!z && i < 1000) {
-                Matcher matcher = compile.matcher(str);
-                if (matcher.find()) {
-                    str = matcher.replaceAll(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1328));
-                    i++;
-                } else {
-                    z = true;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755138836, "Lcom/repackage/yk7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? str.trim() : (String) invokeL.objValue;
-    }
-
-    public static boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            Matcher matcher = Pattern.compile(TbFaceManager.d).matcher(str);
-            while (matcher.find()) {
-                if (!TbFaceManager.i().p(matcher.group())) {
-                    return false;
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755138836, "Lcom/repackage/yk7;");
+                return;
             }
-            return true;
         }
-        return invokeL.booleanValue;
+        c = BdUniqueId.gen();
     }
 
-    public static String f(String str) {
-        InterceptResult invokeL;
+    public yk7(VipSpecialList vipSpecialList) {
+        List<VipSpecialItem> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            String c = c(str);
-            if (StringUtils.isNull(c)) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1322);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vipSpecialList};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return !e(c) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1323) : "";
         }
-        return (String) invokeL.objValue;
+        if (vipSpecialList == null || (list = vipSpecialList.item) == null || list.size() <= 0) {
+            return;
+        }
+        String str = vipSpecialList.card_id;
+        ok7 ok7Var = new ok7();
+        this.a = ok7Var;
+        ok7Var.e(1);
+        this.a.d(vipSpecialList.class_name);
+        this.a.f(vipSpecialList.class_url_name);
+        this.a.g(vipSpecialList.class_url);
+        this.b = new ArrayList();
+        for (VipSpecialItem vipSpecialItem : vipSpecialList.item) {
+            this.b.add(new zk7(vipSpecialItem));
+        }
+    }
+
+    @Override // com.repackage.on
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
     }
 }

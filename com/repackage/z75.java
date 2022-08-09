@@ -1,23 +1,17 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.mutiprocess.live.LiveRemindDataEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public abstract class z75 {
+public class z75 implements i75<LiveRemindDataEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<x75> eventDelegates;
-    public boolean isDispatchMvcEventing;
-    public BdUniqueId uniqueId;
 
     public z75() {
         Interceptable interceptable = $ic;
@@ -29,91 +23,24 @@ public abstract class z75 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.isDispatchMvcEventing = false;
-    }
-
-    public void addEventDelegate(x75 x75Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, x75Var) == null) {
-            if (this.eventDelegates == null) {
-                this.eventDelegates = new ArrayList();
-            }
-            if (this.eventDelegates.contains(x75Var)) {
-                return;
-            }
-            if (this.isDispatchMvcEventing && TbadkCoreApplication.getInst().isDebugMode()) {
-                throw new RuntimeException("can not add event delegate on dispatch mvcevent");
-            }
-            this.eventDelegates.add(x75Var);
         }
     }
 
-    public boolean dispatchMvcEvent(y75 y75Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.i75
+    /* renamed from: a */
+    public boolean onEvent(LiveRemindDataEvent liveRemindDataEvent) {
         InterceptResult invokeL;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y75Var)) == null) {
-            if (y75Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, liveRemindDataEvent)) == null) {
+            if (liveRemindDataEvent == null) {
                 return false;
             }
-            if (y75Var.e() == null) {
-                y75Var.i(this.uniqueId);
-            }
-            if (this.eventDelegates != null) {
-                try {
-                    this.isDispatchMvcEventing = true;
-                    onBeforeDispatchMvcEvent(y75Var);
-                    int size = this.eventDelegates.size();
-                    z = false;
-                    for (int i = 0; i < size; i++) {
-                        try {
-                            x75 x75Var = this.eventDelegates.get(i);
-                            if (x75Var != null && ((!x75Var.T0() || (x75Var.T0() && y75Var.e() == x75Var.getUniqueId())) && (z = x75Var.t0(y75Var)) && y75Var.f())) {
-                                return true;
-                            }
-                        } catch (Throwable th) {
-                            th = th;
-                            try {
-                                BdLog.e(th);
-                                if (TbadkCoreApplication.getInst().isDebugMode()) {
-                                    throw new RuntimeException(th);
-                                }
-                                this.isDispatchMvcEventing = false;
-                                return z;
-                            } finally {
-                                this.isDispatchMvcEventing = false;
-                            }
-                        }
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    z = false;
-                }
-                this.isDispatchMvcEventing = false;
-                return z;
-            }
-            return false;
+            eu4.a().d(liveRemindDataEvent.liveRemindData);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921733));
+            return true;
         }
         return invokeL.booleanValue;
-    }
-
-    public void onBeforeDispatchMvcEvent(y75 y75Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, y75Var) == null) {
-        }
-    }
-
-    public void removeEventDelegate(x75 x75Var) {
-        List<x75> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, x75Var) == null) && (list = this.eventDelegates) != null && list.contains(x75Var)) {
-            if (this.isDispatchMvcEventing && TbadkCoreApplication.getInst().isDebugMode()) {
-                throw new RuntimeException("can not add event delegate on dispatch mvcevent");
-            }
-            this.eventDelegates.remove(x75Var);
-        }
     }
 }

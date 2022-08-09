@@ -1,12 +1,27 @@
 package com.repackage;
 
-import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes5.dex */
-public interface cp5 {
-    void a(oo5 oo5Var);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes6.dex */
+public class cp5 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile bp5 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    View getView();
-
-    void onChangeSkinType(TbPageContext<?> tbPageContext, int i);
+    public static synchronized bp5 a() {
+        InterceptResult invokeV;
+        bp5 bp5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (cp5.class) {
+                if (a == null) {
+                    a = new bp5();
+                }
+                bp5Var = a;
+            }
+            return bp5Var;
+        }
+        return (bp5) invokeV.objValue;
+    }
 }

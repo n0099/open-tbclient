@@ -2,20 +2,69 @@ package com.repackage;
 
 import android.content.Context;
 import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.MutiImgSingleHorizontalLayout;
+import com.baidu.card.view.MultiImgLayout;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class ox extends qw<on4> {
+import com.repackage.oy;
+/* loaded from: classes7.dex */
+public class ox extends rw<fo4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MutiImgSingleHorizontalLayout f;
-    public int g;
+    public MultiImgLayout f;
+    public fo4 g;
+    public int h;
+    public String i;
+
+    /* loaded from: classes7.dex */
+    public class a implements oy.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ox a;
+
+        public a(ox oxVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oxVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = oxVar;
+        }
+
+        @Override // com.repackage.oy.b
+        public boolean a(oy.a aVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+                if (this.a.g != null && this.a.g.getThreadData() != null) {
+                    mz5.a(this.a.g.getThreadData().getId());
+                    mz5.l(this.a.f.a, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    mz5.l(this.a.f.b, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ox(Context context) {
@@ -35,60 +84,104 @@ public class ox extends qw<on4> {
                 return;
             }
         }
-        this.g = 3;
-        this.f = new MutiImgSingleHorizontalLayout(context);
+        this.h = 3;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f instanceof MultiImgLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f.getParent() == null) {
+            this.f = (MultiImgLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f;
+        } else {
+            this.f = new MultiImgLayout(context);
+        }
     }
 
-    @Override // com.repackage.qw
+    @Override // com.repackage.rw
     public View h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.qw
+    @Override // com.repackage.rw
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            j(1, new a(this));
         }
     }
 
-    @Override // com.repackage.qw
-    public void m(jy5<on4> jy5Var) {
+    @Override // com.repackage.rw
+    public void m(b06<fo4> b06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jy5Var) == null) {
-            this.f.setSubClickListener(jy5Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, b06Var) == null) {
+            this.f.setSubClickListener(b06Var);
         }
     }
 
-    @Override // com.repackage.hx
+    @Override // com.repackage.ix
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
-            this.g = i;
+            if (this.h != i) {
+                SkinManager.setBackgroundResource(h(), R.drawable.addresslist_item_bg);
+                this.f.d.b();
+            }
+            this.h = i;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.gx
-    /* renamed from: p */
-    public void a(on4 on4Var) {
+    @Override // com.repackage.hx
+    /* renamed from: r */
+    public void a(fo4 fo4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, on4Var) == null) {
-            this.f.a(on4Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, fo4Var) == null) {
+            this.g = fo4Var;
+            this.f.setFrom(this.i);
+            this.f.a(fo4Var);
         }
     }
 
-    public void q(String str) {
+    public void s(fg<TbImageView> fgVar) {
+        MultiImgLayout multiImgLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, fgVar) == null) || (multiImgLayout = this.f) == null) {
+            return;
+        }
+        multiImgLayout.setConstrainImagePool(fgVar);
+    }
+
+    public void t(fg<ConstrainImageLayout> fgVar) {
+        MultiImgLayout multiImgLayout;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, fgVar) == null) || (multiImgLayout = this.f) == null) {
+            return;
+        }
+        multiImgLayout.setConstrainLayoutPool(fgVar);
+    }
+
+    public void u(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.i = str;
         }
     }
 
-    public void r(boolean z) {
+    public void v(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             this.f.setFromCDN(z);
+        }
+    }
+
+    public void w(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.f.setNeedFrsTabName(z);
+        }
+    }
+
+    public void x(xm xmVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, xmVar) == null) {
+            this.f.setPreloadSizeReadyCallback(xmVar);
         }
     }
 }

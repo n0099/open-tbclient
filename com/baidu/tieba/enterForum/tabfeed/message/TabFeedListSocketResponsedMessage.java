@@ -8,18 +8,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nn;
-import com.repackage.o75;
-import com.repackage.x66;
+import com.repackage.m85;
+import com.repackage.on;
+import com.repackage.p86;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.Tabfeedlist.TabfeedlistResIdl;
 /* loaded from: classes3.dex */
-public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage implements o75 {
+public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage implements m85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public x66 enterForumTabFeedData;
+    public p86 enterForumTabFeedData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabFeedListSocketResponsedMessage() {
@@ -57,9 +57,9 @@ public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage i
                 setErrorString(tabfeedlistResIdl.error.usermsg);
             }
             if (getError() == 0 && tabfeedlistResIdl.data != null) {
-                x66 x66Var = new x66();
-                this.enterForumTabFeedData = x66Var;
-                x66Var.g(tabfeedlistResIdl.data);
+                p86 p86Var = new p86();
+                this.enterForumTabFeedData = p86Var;
+                p86Var.g(tabfeedlistResIdl.data);
                 return tabfeedlistResIdl;
             }
             return tabfeedlistResIdl;
@@ -73,7 +73,7 @@ public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage i
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.enterForumTabFeedData.c() : invokeV.objValue;
     }
 
-    public ArrayList<nn> getThreadList() {
+    public ArrayList<on> getThreadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.enterForumTabFeedData.e() : (ArrayList) invokeV.objValue;

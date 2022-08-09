@@ -1,13 +1,13 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.repackage.kf;
 /* loaded from: classes6.dex */
 public interface lf {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("tbadkcore", "IHttpsExperiment");
+    void a(boolean z);
 
-    boolean isIpv6();
+    void b(kf.d dVar);
 
-    boolean isSwitchOn();
+    void c();
+
+    void destroy();
 }

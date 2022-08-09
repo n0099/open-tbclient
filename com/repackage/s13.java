@@ -1,134 +1,159 @@
 package com.repackage;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.ResolveInfo;
-import android.text.TextUtils;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class s13 extends f23 {
+public final class s13 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s13(f13 f13Var) {
-        super(f13Var, "/swanAPI/openApp4Ad");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {f13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755373444, "Lcom/repackage/s13;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755373444, "Lcom/repackage/s13;");
                 return;
             }
         }
+        a = jh1.a;
     }
 
-    public static ResolveInfo j(Context context, String str) {
-        InterceptResult invokeLL;
+    public static w13 a(UnitedSchemeMainDispatcher unitedSchemeMainDispatcher) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            if (context == null || TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, unitedSchemeMainDispatcher)) == null) {
+            w13 w13Var = new w13();
+            unitedSchemeMainDispatcher.setDynamicDispatcher("swanAPI", w13Var);
+            gk2.s().a(w13Var);
+            w13Var.b(new m43(w13Var));
+            w13Var.b(new l43(w13Var));
+            w13Var.b(new s43(w13Var));
+            w13Var.b(new q43(w13Var));
+            w13Var.b(new p43(w13Var));
+            w13Var.b(new j43(w13Var));
+            w13Var.b(new c43(w13Var));
+            w13Var.b(new b43(w13Var));
+            w13Var.b(new a43(w13Var));
+            w13Var.b(new d43(w13Var));
+            w13Var.b(new h43(w13Var));
+            w13Var.b(new g43(w13Var));
+            w13Var.b(new u43(w13Var));
+            w13Var.b(new w43(w13Var));
+            w13Var.b(new v43(w13Var));
+            w13Var.b(new e23(w13Var));
+            w13Var.b(new x33(w13Var));
+            w13Var.b(new zt1(w13Var));
+            w13Var.b(new cu1(w13Var));
+            w13Var.b(new eu1(w13Var));
+            w13Var.b(new xt1(w13Var));
+            w13Var.b(new au1(w13Var));
+            w13Var.b(new du1(w13Var));
+            w13Var.b(new eo2(w13Var));
+            w13Var.b(new do2(w13Var));
+            w13Var.b(new aq2(w13Var));
+            w13Var.b(new tz1(w13Var));
+            w13Var.b(new ny1(w13Var));
+            w13Var.b(new u83(w13Var));
+            w13Var.b(new n83(w13Var));
+            w13Var.b(new o83(w13Var));
+            w13Var.b(new r83(w13Var));
+            w13Var.b(new hs2(w13Var));
+            w13Var.b(new oj2(w13Var));
+            w13Var.b(new lj2(w13Var));
+            w13Var.b(new pj2(w13Var));
+            w13Var.b(new dc3(w13Var));
+            w13Var.b(new ec3(w13Var));
+            w13Var.b(new fc3(w13Var));
+            w13Var.b(new gc3(w13Var));
+            w13Var.b(new hc3(w13Var));
+            w13Var.b(new ic3(w13Var));
+            w13Var.b(new jc3(w13Var));
+            w13Var.b(new kc3(w13Var));
+            w13Var.b(new hn2(w13Var));
+            w13Var.b(new kt1(w13Var));
+            w13Var.b(new pt1(w13Var));
+            w13Var.b(new lt1(w13Var));
+            w13Var.b(new ot1(w13Var));
+            w13Var.b(new mt1(w13Var));
+            w13Var.b(new nt1(w13Var));
+            w13Var.b(new bx1(w13Var));
+            w13Var.b(new cx1(w13Var));
+            w13Var.b(new sd2(w13Var));
+            w13Var.b(new rh1(w13Var));
+            w13Var.b(new oh1(w13Var));
+            w13Var.b(new mb3(w13Var));
+            w13Var.b(new nb3(w13Var));
+            w13Var.b(new wa3(w13Var));
+            w13Var.b(new kg3(w13Var));
+            w13Var.b(new dt1(w13Var));
+            w13Var.b(new io2(w13Var));
+            w13Var.b(new jo2(w13Var));
+            w13Var.b(new ho2(w13Var));
+            w13Var.b(new m83(w13Var));
+            w13Var.b(new iz1(w13Var));
+            w13Var.b(new qc3(w13Var));
+            w13Var.b(new pc3(w13Var));
+            w13Var.b(new rc3(w13Var));
+            w13Var.b(new gb3(w13Var));
+            w13Var.b(new v33(w13Var));
+            w13Var.b(new s33(w13Var));
+            w13Var.b(new o23(w13Var));
+            if (a) {
+                w13Var.b(new t43(w13Var));
+                w13Var.b(new xy1(w13Var));
             }
-            Intent intent = new Intent("android.intent.action.MAIN");
-            intent.addCategory("android.intent.category.LAUNCHER");
-            intent.setPackage(str);
-            List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
-            if (queryIntentActivities == null || queryIntentActivities.size() <= 0) {
-                return null;
-            }
-            return queryIntentActivities.iterator().next();
+            w13Var.b(new r23(w13Var));
+            w13Var.b(new i23(w13Var));
+            w13Var.b(new z13(w13Var));
+            w13Var.b(new k23(w13Var));
+            w13Var.b(new yt1(w13Var));
+            w13Var.b(new bu1(w13Var));
+            w13Var.b(new ww1(w13Var));
+            w13Var.b(new c33(w13Var));
+            w13Var.b(new f33(w13Var));
+            w13Var.b(new g33(w13Var));
+            w13Var.b(new e33(w13Var));
+            w13Var.b(new h33(w13Var));
+            w13Var.b(new n43(w13Var));
+            w13Var.b(new tn1(w13Var));
+            w13Var.b(new jb2(w13Var));
+            w13Var.b(new a33(w13Var));
+            w13Var.b(new b33(w13Var));
+            w13Var.b(new z33(w13Var));
+            w13Var.b(new i33(w13Var));
+            w13Var.b(new v23(w13Var));
+            w13Var.b(new b23(w13Var));
+            w13Var.b(new rq2(w13Var));
+            w13Var.b(new j23(w13Var));
+            w13Var.b(new ph2(w13Var));
+            w13Var.b(new rh2(w13Var));
+            w13Var.b(new n33(w13Var));
+            w13Var.b(new o33(w13Var));
+            w13Var.b(new lq2(w13Var));
+            w13Var.b(new wh1(w13Var));
+            w13Var.b(new jt2(w13Var));
+            w13Var.b(new ao1(w13Var));
+            w13Var.b(new eo1(w13Var));
+            w13Var.b(new co1(w13Var));
+            w13Var.b(new fo1(w13Var));
+            w13Var.b(new do1(w13Var));
+            w13Var.b(new o53(w13Var));
+            w13Var.b(new rn1(w13Var));
+            w13Var.b(new sn1(w13Var));
+            w13Var.b(new yn1(w13Var));
+            gk2.Y().a(w13Var);
+            return w13Var;
         }
-        return (ResolveInfo) invokeLL.objValue;
-    }
-
-    public static void k(Context context, ResolveInfo resolveInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, context, resolveInfo) == null) || context == null || resolveInfo == null) {
-            return;
-        }
-        Intent intent = new Intent("android.intent.action.MAIN");
-        intent.addCategory("android.intent.category.LAUNCHER");
-        ActivityInfo activityInfo = resolveInfo.activityInfo;
-        intent.setComponent(new ComponentName(activityInfo.packageName, activityInfo.name));
-        intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-        try {
-            pj2.a().b(context, intent, h03.K().q().O(), null, resolveInfo.activityInfo.packageName);
-        } catch (Exception e) {
-            if (f23.b) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    @Override // com.repackage.f23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
-            JSONObject a = f23.a(unitedSchemeEntity, "params");
-            if (a == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal parameter");
-                ix1.i("OpenAdAppAction", "params parse error");
-                return false;
-            } else if (!pj2.a().d()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1003, "Host denied");
-                ix1.i("OpenAdAppAction", "Host denied");
-                return false;
-            } else {
-                String optString = a.optString("name");
-                String optString2 = a.optString("url");
-                if (TextUtils.isEmpty(optString) && TextUtils.isEmpty(optString2)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty params: Must contain 'url' or 'name' parameter");
-                    ix1.i("OpenAdAppAction", "empty params: Must contain 'url' or 'name' parameter");
-                    return false;
-                }
-                if (!TextUtils.isEmpty(optString2)) {
-                    if (ce3.W(context, optString2)) {
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                        return true;
-                    }
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "deeplink launch failed");
-                    ix1.i("OpenAdAppAction", "deeplink launch failed");
-                }
-                if (!TextUtils.isEmpty(optString)) {
-                    ResolveInfo j = j(context, optString);
-                    if (j != null) {
-                        k(context, j);
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                        return true;
-                    }
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "app not installed");
-                    ix1.i("OpenAdAppAction", "app not installed");
-                }
-                if (!TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "launch failed");
-                    ix1.i("OpenAdAppAction", "launch failed");
-                }
-                return false;
-            }
-        }
-        return invokeLLLL.booleanValue;
+        return (w13) invokeL.objValue;
     }
 }

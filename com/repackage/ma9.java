@@ -1,37 +1,56 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ma9 {
+public abstract class ma9 implements la9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(File file, Object obj) {
-        InterceptResult invokeLL;
-        String b;
+    public ma9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, file, obj)) == null) {
-            synchronized (obj) {
-                b = na9.b(file);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return b;
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static boolean b(String str, File file, boolean z, Object obj) {
-        InterceptResult invokeCommon;
-        boolean e;
+    @Override // com.repackage.la9
+    public void onCancel() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, file, Boolean.valueOf(z), obj})) == null) {
-            synchronized (obj) {
-                e = na9.e(str, file, z);
-            }
-            return e;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
-        return invokeCommon.booleanValue;
+    }
+
+    @Override // com.repackage.la9
+    public void onExceptionThrown(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        }
+    }
+
+    public abstract void onFinishedWriting(boolean z);
+
+    @Override // com.repackage.la9
+    public void onProgressChanged(int i, double d, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Double.valueOf(d), Long.valueOf(j)}) == null) {
+        }
+    }
+
+    @Override // com.repackage.la9
+    public void onTrackEnd(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+        }
     }
 }

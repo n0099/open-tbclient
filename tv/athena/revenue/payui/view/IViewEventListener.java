@@ -13,5 +13,7 @@ public interface IViewEventListener {
 
     boolean onInterceptView(PayViewInfo payViewInfo);
 
+    void onPayInfo(int i, String str);
+
     void onViewStateChange(PayDialogType payDialogType);
 }

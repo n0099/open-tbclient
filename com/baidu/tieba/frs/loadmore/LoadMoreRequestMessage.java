@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ab8;
-import com.repackage.db8;
-import com.repackage.fr6;
-import com.repackage.ng;
-import com.repackage.pi;
+import com.repackage.id8;
+import com.repackage.ld8;
+import com.repackage.og;
+import com.repackage.qi;
+import com.repackage.te5;
 import com.repackage.ud5;
-import com.repackage.wc5;
-import com.repackage.zc5;
+import com.repackage.xd5;
+import com.repackage.ys6;
 import tbclient.ThreadList.AdParam;
 import tbclient.ThreadList.DataReq;
 import tbclient.ThreadList.ThreadListReqIdl;
@@ -38,6 +38,7 @@ public class LoadMoreRequestMessage extends NetMessage {
     public int need_abstract;
     public int pn;
     public int refreshCount;
+    public int requestTimes;
     public int st_type;
     public String thread_ids;
 
@@ -69,17 +70,17 @@ public class LoadMoreRequestMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.thread_ids = this.thread_ids;
             builder.forum_id = Long.valueOf(this.forum_id);
-            String d = fr6.e().d("frs_feed");
+            String d = ys6.e().d("frs_feed");
             builder.ad_bear_sid = d;
-            builder.ad_bear_context = wc5.g(d, wc5.f());
-            builder.ad_bear_sid_price = Double.valueOf(wc5.i());
-            builder.has_ad_bear = Integer.valueOf(wc5.n(builder.ad_bear_sid) ? 1 : 0);
+            builder.ad_bear_context = ud5.g(d, ud5.f());
+            builder.ad_bear_sid_price = Double.valueOf(ud5.i());
+            builder.has_ad_bear = Integer.valueOf(ud5.n(builder.ad_bear_sid) ? 1 : 0);
             builder.need_abstract = Integer.valueOf(this.need_abstract);
-            builder.user_id = Long.valueOf(ng.g(TbadkCoreApplication.getCurrentAccount(), 0L));
+            builder.user_id = Long.valueOf(og.g(TbadkCoreApplication.getCurrentAccount(), 0L));
             builder.forum_name = this.forumName;
             builder.scr_dip = Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
-            int k = pi.k(TbadkCoreApplication.getInst());
-            int i = pi.i(TbadkCoreApplication.getInst());
+            int k = qi.k(TbadkCoreApplication.getInst());
+            int i = qi.i(TbadkCoreApplication.getInst());
             builder.pn = Integer.valueOf(this.pn);
             builder.st_type = Integer.valueOf(this.st_type);
             builder.scr_h = Integer.valueOf(i);
@@ -87,17 +88,18 @@ public class LoadMoreRequestMessage extends NetMessage {
             builder.q_type = Integer.valueOf(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1);
             builder.last_click_tid = Long.valueOf(this.mLastClickTid);
             builder.sort_type = Integer.valueOf(this.mSortType);
-            builder.ad_context_list = db8.f().d("FRS");
+            builder.request_times = Integer.valueOf(this.requestTimes);
+            builder.ad_context_list = ld8.f().d("FRS");
             AdExtParam.a b = AdExtParam.a.b();
             b.e(this.adFloorInfo);
             builder.ad_ext_params = b.a();
-            ud5.c(builder, true, false, true);
-            builder.app_pos = ab8.e().a();
+            te5.c(builder, true, false, true);
+            builder.app_pos = id8.e().a();
             AdParam.Builder builder2 = new AdParam.Builder();
             builder2.load_count = Integer.valueOf(this.loadCount);
             builder2.refresh_count = Integer.valueOf(this.refreshCount);
             builder.ad_param = builder2.build(false);
-            builder.app_transmit_data = zc5.b();
+            builder.app_transmit_data = xd5.b();
             ThreadListReqIdl.Builder builder3 = new ThreadListReqIdl.Builder();
             builder3.data = builder.build(false);
             return builder3.build(false);
@@ -193,23 +195,30 @@ public class LoadMoreRequestMessage extends NetMessage {
         }
     }
 
-    public void setSortType(int i) {
+    public void setRequestTimes(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.requestTimes = i;
+        }
+    }
+
+    public void setSortType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             this.mSortType = i;
         }
     }
 
     public void setStType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
             this.st_type = i;
         }
     }
 
     public void setThreadIds(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
             this.thread_ids = str;
         }
     }

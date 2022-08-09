@@ -1,32 +1,76 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
-import com.baidu.tieba.newinterest.viewholder.InterestedForumStyleAMoreViewHolder;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.dy;
+import com.repackage.oy;
 /* loaded from: classes7.dex */
-public class ro7 extends an<ap7, InterestedForumStyleAMoreViewHolder> {
+public class ro7 extends oo7<ir4, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gp7 i;
-    public hp7 j;
+    public BdUniqueId c;
+    public TbPageContext<?> d;
+    public boolean e;
+    public un f;
+    public b06<ThreadData> g;
 
     /* loaded from: classes7.dex */
-    public class a implements xn {
+    public class a extends b06<ThreadData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ro7 b;
+
+        public a(ro7 ro7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ro7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ro7Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.b06
+        /* renamed from: d */
+        public void a(View view2, ThreadData threadData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
+                uz5.b().d(true);
+                this.b.z(view2, threadData);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements yn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ro7 a;
 
-        public a(ro7 ro7Var) {
+        public b(ro7 ro7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,105 +88,106 @@ public class ro7 extends an<ap7, InterestedForumStyleAMoreViewHolder> {
             this.a = ro7Var;
         }
 
-        @Override // com.repackage.xn
-        public void b(View view2, nn nnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // com.repackage.yn
+        public void b(View view2, on onVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, nnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (nnVar instanceof ap7)) {
-                ap7 ap7Var = (ap7) nnVar;
-                if (this.a.i != null) {
-                    this.a.i.d(ap7Var.a(), ap7Var.b(), i);
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, onVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (onVar instanceof ir4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
+                ThreadData threadData = ((ir4) onVar).t;
+                threadData.objType = 1;
+                if (this.a.g != null) {
+                    this.a.g.a(threadCardViewHolder.getView(), threadData);
                 }
-                if (this.a.j != null) {
-                    this.a.j.a();
-                }
+                ThreadCardUtils.jumpToPB(threadData, view2.getContext(), 17, false, this.a.b.getOrignalPage().B1(), this.a.s() ? "3" : "2");
+                threadCardViewHolder.a().o(new oy.a(1));
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ro7(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public ro7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        this.d = bdUniqueId;
-        V(new a(this));
+        this.e = true;
+        this.g = new a(this);
+        this.d = tbPageContext;
+        this.c = bdUniqueId2;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.repackage.an
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, ap7 ap7Var, InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder) {
-        c0(i, view2, viewGroup, ap7Var, interestedForumStyleAMoreViewHolder);
-        return view2;
+    public void A(un unVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, unVar) == null) {
+            this.f = unVar;
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: b0 */
-    public InterestedForumStyleAMoreViewHolder M(ViewGroup viewGroup) {
+    @Override // com.repackage.bn
+    /* renamed from: x */
+    public ThreadCardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new InterestedForumStyleAMoreViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03e8, viewGroup, false)) : (InterestedForumStyleAMoreViewHolder) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            dy.b bVar = new dy.b(this.d.getPageActivity(), false);
+            nx nxVar = new nx(this.d.getPageActivity());
+            nxVar.t("index");
+            nxVar.u(this.e);
+            bVar.n(nxVar);
+            dy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.f);
+            k.r(17);
+            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
+            threadCardViewHolder.i(this.c);
+            setOnAdapterItemClickListener(new b(this));
+            return threadCardViewHolder;
+        }
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    public View c0(int i, View view2, ViewGroup viewGroup, ap7 ap7Var, InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bn
+    /* renamed from: y */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ir4 ir4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
         InterceptResult invokeCommon;
+        ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ap7Var, interestedForumStyleAMoreViewHolder})) == null) {
-            g0(interestedForumStyleAMoreViewHolder);
-            d0(interestedForumStyleAMoreViewHolder, ap7Var);
-            return view2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ir4Var, threadCardViewHolder})) == null) {
+            if (ir4Var == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || (threadData = ir4Var.t) == null) {
+                return null;
+            }
+            threadData.statFloor = getPositionByType(i) + 1;
+            threadCardViewHolder.a().q(i);
+            threadCardViewHolder.e(ir4Var.t);
+            threadCardViewHolder.a().onChangeSkinType(this.d, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.a().p(this.g);
+            lo7.c(this, ir4Var);
+            return threadCardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
     }
 
-    public final void d0(InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder, ap7 ap7Var) {
+    public final void z(View view2, ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, interestedForumStyleAMoreViewHolder, ap7Var) == null) {
-            interestedForumStyleAMoreViewHolder.c.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0922));
-            if (ap7Var.c()) {
-                interestedForumStyleAMoreViewHolder.b.setVisibility(0);
-            } else {
-                interestedForumStyleAMoreViewHolder.b.setVisibility(8);
+        if (interceptable == null || interceptable.invokeLL(1048581, this, view2, threadData) == null) {
+            view2.getId();
+            lo7.b(this, threadData);
+            if (view2 instanceof TbImageView) {
+                lo7.e(threadData);
             }
-        }
-    }
-
-    public void e0(gp7 gp7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, gp7Var) == null) {
-            this.i = gp7Var;
-        }
-    }
-
-    public void f0(hp7 hp7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, hp7Var) == null) {
-            this.j = hp7Var;
-        }
-    }
-
-    public final void g0(InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, interestedForumStyleAMoreViewHolder) == null) {
-            vr4 d = vr4.d(interestedForumStyleAMoreViewHolder.c);
-            d.v(R.color.CAM_X0302);
-            d.z(R.dimen.T_X07);
-            vr4.d(interestedForumStyleAMoreViewHolder.d).f(R.color.CAM_X0206);
         }
     }
 }

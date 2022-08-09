@@ -21,12 +21,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.g11;
-import com.repackage.sl0;
-import com.repackage.tl0;
-import com.repackage.xj0;
-import com.repackage.zj0;
+import com.repackage.pl0;
+import com.repackage.ql0;
+import com.repackage.uj0;
+import com.repackage.wj0;
 /* loaded from: classes2.dex */
-public class AdInstallTipsView extends LinearLayout implements zj0, View.OnClickListener {
+public class AdInstallTipsView extends LinearLayout implements wj0, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
@@ -37,11 +37,11 @@ public class AdInstallTipsView extends LinearLayout implements zj0, View.OnClick
     public FrameLayout f;
     public TextView g;
     public CountDownTextView h;
-    public xj0<AdInstallTipsView> i;
+    public uj0<AdInstallTipsView> i;
     public b j;
 
     /* loaded from: classes2.dex */
-    public class a implements tl0 {
+    public class a implements ql0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdInstallTipsView a;
@@ -64,14 +64,14 @@ public class AdInstallTipsView extends LinearLayout implements zj0, View.OnClick
             this.a = adInstallTipsView;
         }
 
-        @Override // com.repackage.tl0
+        @Override // com.repackage.ql0
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // com.repackage.tl0
+        @Override // com.repackage.ql0
         public void b(Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
@@ -108,7 +108,7 @@ public class AdInstallTipsView extends LinearLayout implements zj0, View.OnClick
         }
     }
 
-    @Override // com.repackage.zj0
+    @Override // com.repackage.wj0
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
@@ -121,7 +121,7 @@ public class AdInstallTipsView extends LinearLayout implements zj0, View.OnClick
         }
     }
 
-    @Override // com.repackage.zj0
+    @Override // com.repackage.wj0
     public void b(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -129,7 +129,7 @@ public class AdInstallTipsView extends LinearLayout implements zj0, View.OnClick
         }
     }
 
-    @Override // com.repackage.zj0
+    @Override // com.repackage.wj0
     public void c(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -156,27 +156,27 @@ public class AdInstallTipsView extends LinearLayout implements zj0, View.OnClick
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            g(LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05bc, this));
-            setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d54));
+            g(LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05da, this));
+            setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080db1));
             setOrientation(0);
             setGravity(16);
-            this.i = new xj0<>(this);
+            this.i = new uj0<>(this);
         }
     }
 
     public final void g(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
-            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0900b0);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0900b1);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0900b5);
-            this.e = (CountDownTextView) view2.findViewById(R.id.obfuscated_res_0x7f0900b3);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0900b8);
-            this.h = (CountDownTextView) view2.findViewById(R.id.obfuscated_res_0x7f0900b6);
-            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900b4);
-            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900b7);
-            this.e.setLabelText(getResources().getString(R.string.obfuscated_res_0x7f0f0b3c));
-            this.h.setLabelText(getResources().getString(R.string.obfuscated_res_0x7f0f0b4c));
+            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0900b5);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0900b6);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0900ba);
+            this.e = (CountDownTextView) view2.findViewById(R.id.obfuscated_res_0x7f0900b8);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0900bd);
+            this.h = (CountDownTextView) view2.findViewById(R.id.obfuscated_res_0x7f0900bb);
+            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900b9);
+            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900bc);
+            this.e.setLabelText(getResources().getString(R.string.obfuscated_res_0x7f0f0b60));
+            this.h.setLabelText(getResources().getString(R.string.obfuscated_res_0x7f0f0b70));
             this.e.setTimerTextFormat(null, "s");
             this.h.setTimerTextFormat(null, "s");
             this.e.setTextColor(Color.parseColor("#FF4141"));
@@ -202,13 +202,13 @@ public class AdInstallTipsView extends LinearLayout implements zj0, View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f0900b0) {
+            if (id == R.id.obfuscated_res_0x7f0900b5) {
                 area = ClogBuilder.Area.ICON;
-            } else if (id == R.id.obfuscated_res_0x7f0900b1) {
+            } else if (id == R.id.obfuscated_res_0x7f0900b6) {
                 area = ClogBuilder.Area.NAME;
-            } else if (id == R.id.obfuscated_res_0x7f0900b5 || id == R.id.obfuscated_res_0x7f0900b3 || id == R.id.obfuscated_res_0x7f0900b4) {
+            } else if (id == R.id.obfuscated_res_0x7f0900ba || id == R.id.obfuscated_res_0x7f0900b8 || id == R.id.obfuscated_res_0x7f0900b9) {
                 area = ClogBuilder.Area.INSTALL_LATER_BUTTON;
-            } else if (id != R.id.obfuscated_res_0x7f0900b8 && id != R.id.obfuscated_res_0x7f0900b6 && id != R.id.obfuscated_res_0x7f0900b7) {
+            } else if (id != R.id.obfuscated_res_0x7f0900bd && id != R.id.obfuscated_res_0x7f0900bb && id != R.id.obfuscated_res_0x7f0900bc) {
                 area = ClogBuilder.Area.HOTAREA;
             } else {
                 area = ClogBuilder.Area.INSTALL_NOW_BUTTON;
@@ -221,7 +221,7 @@ public class AdInstallTipsView extends LinearLayout implements zj0, View.OnClick
         }
     }
 
-    @Override // com.repackage.zj0
+    @Override // com.repackage.wj0
     public void onProgress(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -239,7 +239,7 @@ public class AdInstallTipsView extends LinearLayout implements zj0, View.OnClick
     public void update(String str, String str2, long j, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            sl0.a().b(str, new a(this));
+            pl0.a().b(str, new a(this));
             this.b.setText(str2);
             if (z) {
                 this.d.setVisibility(8);

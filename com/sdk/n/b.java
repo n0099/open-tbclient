@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.f.b;
 import com.sdk.q.d;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static com.sdk.f.b a;
@@ -118,11 +118,11 @@ public class b {
         if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j) == null) {
             try {
                 a(str);
-                List<b.a.C0640a> list = a.b.a;
-                b.a.C0640a c0640a = new b.a.C0640a();
-                c0640a.a = str;
-                c0640a.b = j;
-                list.add(c0640a);
+                List<b.a.C0645a> list = a.b.a;
+                b.a.C0645a c0645a = new b.a.C0645a();
+                c0645a.a = str;
+                c0645a.b = j;
+                list.add(c0645a);
                 a.b.a = list;
             } catch (Throwable unused) {
             }

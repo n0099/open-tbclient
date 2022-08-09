@@ -1,171 +1,21 @@
 package com.repackage;
 
-import android.net.Uri;
-import android.text.TextUtils;
+import android.os.Build;
+import android.os.Process;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ab4;
-import com.repackage.hb4;
-import com.repackage.kb4;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 /* loaded from: classes7.dex */
-public final class yy1 implements ca2 {
+public class yy1 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static class a extends c32 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public final /* synthetic */ b b;
-        public final /* synthetic */ Map c;
-
-        public a(b bVar, Map map) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, map};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = bVar;
-            this.c = map;
-            this.a = false;
-        }
-
-        @Override // com.repackage.c32
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                super.a();
-                b bVar = this.b;
-                if (bVar != null) {
-                    bVar.a();
-                }
-            }
-        }
-
-        @Override // com.repackage.c32
-        public void b(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                super.b(i);
-                b bVar = this.b;
-                if (bVar != null) {
-                    if (i == 1010) {
-                        bVar.a();
-                    } else {
-                        bVar.b(3);
-                    }
-                }
-            }
-        }
-
-        @Override // com.repackage.c32
-        public void c(@NonNull ab4.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-                super.c(aVar);
-                j(aVar.b);
-                y32.c(aVar.b);
-            }
-        }
-
-        @Override // com.repackage.c32
-        public void d() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                i();
-                b bVar = this.b;
-                if (bVar == null || this.a) {
-                    return;
-                }
-                bVar.a();
-            }
-        }
-
-        @Override // com.repackage.c32
-        public void f(a94 a94Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, a94Var) == null) {
-                super.f(a94Var);
-                if (a94Var.a != 1010) {
-                    this.a = true;
-                    b bVar = this.b;
-                    if (bVar != null) {
-                        bVar.b(3);
-                    }
-                }
-            }
-        }
-
-        @Override // com.repackage.c32
-        public void g(@NonNull g94 g94Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, g94Var) == null) {
-                super.g(g94Var);
-                j(g94Var.o);
-            }
-        }
-
-        public final void i() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                for (String str : this.c.keySet()) {
-                    j(str);
-                }
-            }
-        }
-
-        public final void j(@NonNull String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && this.c.containsKey(str)) {
-                Set<String> set = (Set) this.c.get(str);
-                if (set != null && !set.isEmpty()) {
-                    for (String str2 : set) {
-                        y32.d(str, str2);
-                    }
-                    return;
-                }
-                y32.c(str);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a();
-
-        void b(int i);
-
-        void c();
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -180,202 +30,135 @@ public final class yy1 implements ca2 {
                 return;
             }
         }
-        a = sg1.a;
+        a = jh1.a;
     }
 
-    public static void a(@NonNull List<kb4.b> list, @Nullable String str, b bVar) {
-        String[] i;
+    public static synchronized String a() {
+        InterceptResult invokeV;
+        BufferedReader bufferedReader;
+        Throwable th;
+        IOException e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, list, str, bVar) == null) {
-            if (!c(w83.a().getString("predownload_network_switch", "1"))) {
-                if (a) {
-                    Log.e("SwanPreDownload", "pre download net invalid");
-                }
-                if (bVar != null) {
-                    bVar.b(6);
-                    return;
-                }
-                return;
+        if (interceptable != null && (invokeV = interceptable.invokeV(65537, null)) != null) {
+            return (String) invokeV.objValue;
+        }
+        synchronized (yy1.class) {
+            if (a) {
+                Log.d("SwanCpuProperty", "start cpu monitor thread");
             }
-            HashMap hashMap = new HashMap();
-            ArrayList arrayList = new ArrayList();
-            for (kb4.b bVar2 : list) {
-                if (bVar2 != null) {
-                    if (bVar2.i() != null && bVar2.i().length != 0) {
-                        Set set = (Set) hashMap.get(bVar2.b());
-                        if (set == null) {
-                            set = new HashSet();
+            try {
+                bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec(new String[]{"sh", "-c", "top -n 1 | grep " + Process.myPid()}).getInputStream()));
+                try {
+                    try {
+                        String c = c(bufferedReader);
+                        if (a) {
+                            Log.d("SwanCpuProperty", "stop cpu monitor thread , cpu rate is : " + c);
                         }
-                        boolean z = false;
-                        for (String str2 : bVar2.i()) {
-                            if (y32.f(bVar2.b(), str2) && !z) {
-                                arrayList.add(bVar2);
-                                z = true;
-                            }
-                            set.add(str2);
+                        bh4.d(bufferedReader);
+                        return c;
+                    } catch (IOException e2) {
+                        e = e2;
+                        if (a) {
+                            Log.e("SwanCpuProperty", "error in cpu monitor", e);
                         }
-                        hashMap.put(bVar2.b(), set);
-                    } else if (y32.e(bVar2.b())) {
-                        arrayList.add(bVar2);
-                        hashMap.put(bVar2.b(), null);
+                        bh4.d(bufferedReader);
+                        return "";
                     }
+                } catch (Throwable th2) {
+                    th = th2;
+                    bh4.d(bufferedReader);
+                    throw th;
                 }
+            } catch (IOException e3) {
+                bufferedReader = null;
+                e = e3;
+            } catch (Throwable th3) {
+                bufferedReader = null;
+                th = th3;
+                bh4.d(bufferedReader);
+                throw th;
             }
-            if (arrayList.isEmpty()) {
-                if (a) {
-                    Log.i("SwanPreDownload", "preDownload list empty");
-                }
-                if (bVar != null) {
-                    bVar.a();
-                    return;
-                }
-                return;
-            }
-            kb4 kb4Var = new kb4(arrayList, ge3.b());
-            kb4Var.e(str);
-            kb4Var.d("1");
-            f32 f32Var = new f32(new a(bVar, hashMap));
-            f32Var.L(o32.a(str));
-            q74.f(kb4Var, f32Var);
         }
     }
 
-    public static void b(@NonNull List<hb4.a> list, @NonNull String str, @NonNull c32 c32Var) {
+    public static float b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, list, str, c32Var) == null) {
-            if (!c(w83.a().getString("predownload_network_switch", "1"))) {
-                c32Var.b(6);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String a2 = a();
+            try {
+                if (a2.contains("%")) {
+                    return Float.parseFloat(a2.replace("%", "").trim());
+                }
+                return Float.parseFloat(a2);
+            } catch (Exception e) {
+                if (a) {
+                    Log.d("SwanCpuProperty", "解析cpu使用率错误", e);
+                    return 0.0f;
+                }
+                return 0.0f;
             }
-            List<hb4.a> i = y32.i(list);
-            if (i.isEmpty()) {
-                c32Var.d();
-                return;
-            }
-            hb4 hb4Var = new hb4((List<? extends hb4.a>) i, (jd4) ge3.b());
-            hb4Var.d("1");
-            hb4Var.e(str);
-            f32 f32Var = new f32(c32Var);
-            f32Var.L(o32.a(str));
-            q74.f(hb4Var, f32Var);
         }
+        return invokeV.floatValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:7:0x0016, code lost:
-        if (com.baidu.swan.apps.network.SwanAppNetworkUtils.j(com.baidu.searchbox.common.runtime.AppRuntime.getAppContext()) != false) goto L8;
+    /* JADX WARN: Can't wrap try/catch for region: R(10:6|(1:9)|10|(6:12|(1:15)|16|17|18|19)|(1:27)(1:32)|(1:31)|16|17|18|19) */
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x0053, code lost:
+        r11 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x0056, code lost:
+        if (com.repackage.yy1.a != false) goto L25;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x0058, code lost:
+        android.util.Log.e("SwanCpuProperty", "get CPU Fail : " + r11.getMessage());
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean c(String str) {
+    public static String c(BufferedReader bufferedReader) throws IOException {
         InterceptResult invokeL;
+        char read;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, str)) != null) {
-            return invokeL.booleanValue;
-        }
-        boolean z = true;
-        if (!TextUtils.equals(str, "0")) {
-            if (!TextUtils.equals(str, "1")) {
-                TextUtils.equals(str, "2");
-                z = false;
-            }
-            if (a) {
-                Log.d("SwanPreDownload", "SwanPredownload: current net suits for net config = " + z);
-            }
-            return z;
-        }
-    }
-
-    public static boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.equals(SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME, str)) {
-                pj2.g0().getSwitch("swan_game_feed_predownload", 0);
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void e(@NonNull String str, @Nullable String str2, @Nullable String str3, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65541, null, str, str2, str3, bVar) == null) {
-            kb4.b bVar2 = new kb4.b(str);
-            if (!TextUtils.isEmpty(str2)) {
-                bVar2.l(new String[]{str2});
-            }
-            a(Collections.singletonList(bVar2), str3, bVar);
-        }
-    }
-
-    public static void f(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65542, null, str, str2, str3) == null) {
-            if (TextUtils.isEmpty(str)) {
-                if (a) {
-                    Log.e("SwanPreDownload", "pre download swanAppId invalid");
-                }
-            } else if (!c(w83.a().getString("predownload_network_switch", "1"))) {
-                if (a) {
-                    Log.e("SwanPreDownload", "pre download net invalid");
-                }
-            } else {
-                ArrayList arrayList = new ArrayList();
-                arrayList.add(new hb4.a(str));
-                List<hb4.a> i = y32.i(arrayList);
-                if (i.isEmpty()) {
-                    if (a) {
-                        Log.e("SwanPreDownload", "pre download has record");
-                        return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bufferedReader)) == null) {
+            char[] cArr = new char[4];
+            int i = 0;
+            if (Build.VERSION.SDK_INT < 26) {
+                int i2 = 0;
+                do {
+                    read = (char) bufferedReader.read();
+                    if (read == ' ' || i2 == 4) {
+                        i2 = 0;
+                    } else {
+                        cArr[i2] = read;
+                        i2++;
                     }
-                    return;
-                }
-                hb4 hb4Var = new hb4((List<? extends hb4.a>) i, (jd4) ge3.b());
-                hb4Var.e(str2);
-                hb4Var.d("1");
-                f32 f32Var = new f32();
-                f32Var.L(o32.a(str2));
-                q74.f(hb4Var, f32Var);
-            }
-        }
-    }
-
-    public static void g(@Nullable String str, @Nullable String str2, @Nullable String str3, boolean z, @Nullable String str4, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, str2, str3, Boolean.valueOf(z), str4, bVar}) == null) {
-            if (a) {
-                Log.d("SwanPreDownload", "preDownloadSwanAppByFeed appId: " + str + " ,appType: " + str2 + " ,isClick: " + z + ", scheme=" + str4);
-            }
-            if (z) {
-                if (bVar != null) {
-                    bVar.a();
-                }
-            } else if (TextUtils.isEmpty(str)) {
-                if (bVar != null) {
-                    bVar.c();
-                }
-            } else if (!d(str2)) {
-                if (bVar != null) {
-                    bVar.b(6);
-                }
-            } else {
-                String str5 = null;
-                if (!TextUtils.isEmpty(str4)) {
-                    try {
-                        Uri parse = Uri.parse(str4);
-                        if (parse != null) {
-                            str5 = ae3.n(str, parse, false);
-                        }
-                    } catch (Exception e) {
-                        if (a) {
-                            e.printStackTrace();
-                        }
+                    if (read == '%') {
+                        break;
                     }
+                } while (read != 65535);
+                return String.valueOf(cArr, 0, i2);
+            }
+            int i3 = 0;
+            int i4 = 0;
+            while (true) {
+                char read2 = (char) bufferedReader.read();
+                if (z && read2 != ' ') {
+                    i3++;
                 }
-                e(str, str5, str3, bVar);
+                if (i3 == 9) {
+                    if (read2 != '.' && read2 != ' ') {
+                        cArr[i4] = read2;
+                        i4++;
+                    }
+                    i = Integer.parseInt(String.valueOf(cArr, 0, i4)) / Runtime.getRuntime().availableProcessors();
+                    return i + "%";
+                }
+                z = (i3 <= 9 && read2 != 65535 && i4 < 4) ? read2 == ' ' : true;
+                i = Integer.parseInt(String.valueOf(cArr, 0, i4)) / Runtime.getRuntime().availableProcessors();
+                return i + "%";
             }
         }
+        return (String) invokeL.objValue;
     }
 }

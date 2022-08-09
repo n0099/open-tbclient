@@ -1,46 +1,31 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.TbMd5;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 /* loaded from: classes7.dex */
 public class zr8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String f;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> a;
-    public List<DownloadData> b;
-    public b c;
-    public String d;
-    public f15 e;
 
     /* loaded from: classes7.dex */
-    public class a implements f15 {
+    public static class a implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zr8 a;
+        public final /* synthetic */ Animation.AnimationListener a;
+        public final /* synthetic */ View b;
 
-        public a(zr8 zr8Var) {
+        public a(Animation.AnimationListener animationListener, View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zr8Var};
+                Object[] objArr = {animationListener, view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -50,243 +35,149 @@ public class zr8 {
                     return;
                 }
             }
-            this.a = zr8Var;
+            this.a = animationListener;
+            this.b = view2;
         }
 
-        @Override // com.repackage.f15
-        public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
-                File file = new File(downloadData.getPath());
-                if (file.exists()) {
-                    file.delete();
+            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
+                Animation.AnimationListener animationListener = this.a;
+                if (animationListener != null) {
+                    animationListener.onAnimationEnd(animation);
                 }
-                this.a.i(downloadData);
-                if (this.a.c == null || !this.a.d.equals(downloadData.getUrl())) {
-                    return;
+                View view2 = this.b;
+                if (view2 != null) {
+                    view2.clearAnimation();
+                    this.b.setVisibility(0);
                 }
-                this.a.c.a(str);
             }
         }
 
-        @Override // com.repackage.f15
-        public void onFileDownloadSucceed(DownloadData downloadData) {
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationRepeat(Animation animation) {
+            Animation.AnimationListener animationListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) || downloadData == null || StringUtils.isNull(downloadData.getPath()) || StringUtils.isNull(zr8.f)) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) || (animationListener = this.a) == null) {
                 return;
             }
-            this.a.i(downloadData);
-            if (this.a.c == null || !this.a.d.equals(downloadData.getUrl())) {
+            animationListener.onAnimationRepeat(animation);
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationStart(Animation animation) {
+            Animation.AnimationListener animationListener;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) || (animationListener = this.a) == null) {
                 return;
             }
-            this.a.a.put(downloadData.getPath().substring(zr8.f.length() + 1, downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
-            this.a.c.c(this.a.d, downloadData.getPath());
-        }
-
-        @Override // com.repackage.f15
-        public boolean onFileDownloaded(DownloadData downloadData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // com.repackage.f15
-        public void onFileUpdateProgress(DownloadData downloadData) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) && downloadData.getStatus() == 4) {
-                File file = new File(downloadData.getPath());
-                if (file.exists()) {
-                    file.delete();
-                }
-                this.a.i(downloadData);
-                if (this.a.c == null || !this.a.d.equals(downloadData.getUrl())) {
-                    return;
-                }
-                this.a.c.b();
-            }
-        }
-
-        @Override // com.repackage.f15
-        public boolean onPreDownload(DownloadData downloadData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
+            animationListener.onAnimationStart(animation);
         }
     }
 
     /* loaded from: classes7.dex */
-    public interface b {
-        void a(String str);
+    public static class b implements Animation.AnimationListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Animation.AnimationListener a;
+        public final /* synthetic */ View b;
 
-        void b();
-
-        void c(String str, String str2);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755102287, "Lcom/repackage/zr8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public b(Animation.AnimationListener animationListener, View view2) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755102287, "Lcom/repackage/zr8;");
-                return;
-            }
-        }
-        f = TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers") != null ? TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers").getPath() : "";
-    }
-
-    public zr8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.e = new a(this);
-    }
-
-    public void e() {
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || StringUtils.isNull(f)) {
-            return;
-        }
-        HashMap<String, String> hashMap = this.a;
-        if (hashMap == null) {
-            this.a = new HashMap<>();
-        } else {
-            hashMap.clear();
-        }
-        File file = new File(f);
-        if (file.exists()) {
-            for (File file2 : file.listFiles()) {
-                if (file2.isFile()) {
-                    this.a.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
-                }
-            }
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (!TextUtils.isEmpty(str) && !StringUtils.isNull(f)) {
-                String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str);
-                if (nameMd5FromUrl == null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {animationListener, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                File file = new File(f);
-                if (!file.exists()) {
-                    file.mkdirs();
+            }
+            this.a = animationListener;
+            this.b = view2;
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationEnd(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
+                Animation.AnimationListener animationListener = this.a;
+                if (animationListener != null) {
+                    animationListener.onAnimationEnd(animation);
                 }
-                String str2 = "." + str.substring(str.lastIndexOf(".") + 1);
-                if (this.b == null) {
-                    this.b = new ArrayList();
+                View view2 = this.b;
+                if (view2 != null) {
+                    view2.clearAnimation();
+                    this.b.setVisibility(8);
                 }
-                if (h(str)) {
-                    return;
-                }
-                DownloadData downloadData = new DownloadData();
-                downloadData.setType(10);
-                downloadData.setUrl(str);
-                downloadData.setPath(f + "/" + nameMd5FromUrl + str2);
-                downloadData.setCallback(this.e);
-                this.b.add(downloadData);
-                g15.k().l(downloadData);
+            }
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationRepeat(Animation animation) {
+            Animation.AnimationListener animationListener;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) || (animationListener = this.a) == null) {
                 return;
             }
-            b bVar = this.c;
-            if (bVar != null) {
-                bVar.a("");
+            animationListener.onAnimationRepeat(animation);
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationStart(Animation animation) {
+            Animation.AnimationListener animationListener;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) || (animationListener = this.a) == null) {
+                return;
             }
+            animationListener.onAnimationStart(animation);
         }
     }
 
-    public String g(String str) {
-        InterceptResult invokeL;
+    public static void a(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str);
-            if (nameMd5FromUrl == null) {
-                return null;
-            }
-            if (this.a == null) {
-                this.a = new HashMap<>();
-                e();
-            }
-            return this.a.get(nameMd5FromUrl);
+        if (interceptable == null || interceptable.invokeLI(65536, null, view2, i) == null) {
+            b(view2, i, null);
         }
-        return (String) invokeL.objValue;
     }
 
-    public final boolean h(String str) {
-        InterceptResult invokeL;
+    public static void b(View view2, int i, Animation.AnimationListener animationListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (!ListUtils.isEmpty(this.b) && str != null) {
-                for (DownloadData downloadData : this.b) {
-                    if (downloadData != null && str.equals(downloadData.getUrl())) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void i(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, downloadData) == null) || ListUtils.isEmpty(this.b) || downloadData == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(65537, null, view2, i, animationListener) == null) || view2 == null || i < 0) {
             return;
         }
-        int i = -1;
-        int i2 = 0;
-        while (true) {
-            if (i2 < this.b.size()) {
-                if (this.b.get(i2) != null && this.b.get(i2).getUrl() != null && this.b.get(i2).getUrl().equals(downloadData.getUrl())) {
-                    i = i2;
-                    break;
-                }
-                i2++;
-            } else {
-                break;
-            }
-        }
-        this.b.remove(i);
+        view2.clearAnimation();
+        AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
+        alphaAnimation.setDuration(i);
+        alphaAnimation.setFillAfter(true);
+        alphaAnimation.setAnimationListener(new b(animationListener, view2));
+        view2.setVisibility(8);
+        view2.startAnimation(alphaAnimation);
     }
 
-    public void j(String str) {
+    public static void c(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            if (str == null) {
-                this.d = "";
-            } else {
-                this.d = str;
-            }
+        if (interceptable == null || interceptable.invokeLI(65538, null, view2, i) == null) {
+            d(view2, i, null);
         }
     }
 
-    public void k(b bVar) {
+    public static void d(View view2, int i, Animation.AnimationListener animationListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.c = bVar;
+        if (!(interceptable == null || interceptable.invokeLIL(65539, null, view2, i, animationListener) == null) || view2 == null || i < 0) {
+            return;
         }
+        view2.clearAnimation();
+        AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
+        alphaAnimation.setDuration(i);
+        alphaAnimation.setFillAfter(true);
+        alphaAnimation.setAnimationListener(new a(animationListener, view2));
+        view2.setVisibility(0);
+        view2.startAnimation(alphaAnimation);
     }
 }

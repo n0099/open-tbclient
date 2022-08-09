@@ -7,9 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.af;
+import com.repackage.bf;
 /* loaded from: classes3.dex */
-public abstract class BaseNormalSwitch extends af {
+public abstract class BaseNormalSwitch extends bf {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_OFF = 0;
     public static final int TYPE_ON = 1;
@@ -29,14 +29,14 @@ public abstract class BaseNormalSwitch extends af {
         }
     }
 
-    @Override // com.repackage.af
+    @Override // com.repackage.bf
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    @Override // com.repackage.af
+    @Override // com.repackage.bf
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public abstract class BaseNormalSwitch extends af {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.repackage.af
+    @Override // com.repackage.bf
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public abstract class BaseNormalSwitch extends af {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.af
+    @Override // com.repackage.bf
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -66,10 +66,10 @@ public abstract class BaseNormalSwitch extends af {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.af
+    @Override // com.repackage.bf
     public abstract String getName();
 
-    @Override // com.repackage.af
+    @Override // com.repackage.bf
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

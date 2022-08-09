@@ -1,56 +1,57 @@
 package com.repackage;
 
+import android.os.Build;
 import com.baidu.adp.gif.NSGif;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class pb implements mb {
+/* loaded from: classes7.dex */
+public class pb {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public pb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964030893, "Lcom/repackage/pb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964030893, "Lcom/repackage/pb;");
+                return;
             }
         }
+        a = new String[]{"ZTE-T U880", "U880"};
     }
 
-    @Override // com.repackage.mb
-    public ym a(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
-            NSGif f = NSGif.f(bArr, i, i2);
-            if (f == null) {
-                return null;
-            }
-            return new ym(f);
-        }
-        return (ym) invokeLII.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Build.VERSION.SDK_INT > 7 : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.mb
-    public ym get(String str) {
+    public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            NSGif e = NSGif.e(str);
-            if (e == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            for (String str2 : a) {
+                if (str2.equals(str)) {
+                    return false;
+                }
             }
-            return new ym(e);
+            return true;
         }
-        return (ym) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b(Build.MODEL) && a() && NSGif.f : invokeV.booleanValue;
     }
 }

@@ -1,268 +1,136 @@
 package com.repackage;
 
+import android.app.Dialog;
 import android.content.Context;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
-import android.media.AudioManager;
-import android.media.MediaPlayer;
-import android.media.SoundPool;
-import android.os.Build;
-import android.os.VibrationEffect;
-import android.os.Vibrator;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.view.Display;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
+import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gj4 implements SensorEventListener {
+public class gj4 extends Dialog implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public b b;
-    public SensorManager c;
-    public Sensor d;
-    public Vibrator e;
-    public SoundPool f;
-    public int g;
-    public int h;
-    public long i;
-    public boolean j;
-    public MediaPlayer k;
-    public double l;
-    public double m;
+    public d9 b;
+    public float c;
+    public ViewGroup d;
+    public RoundRelativeLayout e;
+    public View f;
+    public ImageView g;
+    public ImageView h;
+    public Drawable i;
 
-    /* loaded from: classes6.dex */
-    public class a implements MediaPlayer.OnPreparedListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gj4 a;
-
-        public a(gj4 gj4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gj4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gj4Var;
-        }
-
-        @Override // android.media.MediaPlayer.OnPreparedListener
-        public void onPrepared(MediaPlayer mediaPlayer) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                this.a.k.start();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a();
-    }
-
-    public gj4(@NonNull Context context, @Nullable b bVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gj4(d9 d9Var) {
+        super(d9Var.getPageActivity(), 16973835);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bVar};
+            Object[] objArr = {d9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = 2.5d;
-        this.m = 4.2d;
-        if (context == null) {
-            return;
+        this.c = 0.33f;
+        this.b = d9Var;
+        this.a = d9Var.getPageActivity();
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            tg.b(this, this.b);
         }
-        this.a = context;
-        this.b = bVar;
-        SensorManager sensorManager = (SensorManager) context.getSystemService("sensor");
-        this.c = sensorManager;
-        if (sensorManager != null) {
-            this.d = TbadkCoreApplication.getInst().getDefaultSensor(1);
+    }
+
+    public void b(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable) == null) {
+            this.i = drawable;
         }
-        this.e = (Vibrator) context.getSystemService("vibrator");
-        SoundPool soundPool = new SoundPool(1, 3, 0);
-        this.f = soundPool;
-        if (soundPool != null) {
-            try {
-                this.g = soundPool.load(context, R.raw.obfuscated_res_0x7f11006c, 1);
-            } catch (Exception e) {
-                BdLog.e(e);
+    }
+
+    public void c(ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) {
+            this.f = viewGroup;
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (isShowing()) {
+                tg.b(this, this.b);
             }
+            tg.j(this, this.b);
         }
     }
 
-    public final boolean b() {
-        InterceptResult invokeV;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.i > 2000) {
-                this.i = currentTimeMillis;
-                return true;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090eb4) {
+            a();
+        }
+    }
+
+    @Override // android.app.Dialog
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+            super.onCreate(bundle);
+            requestWindowFeature(1);
+            setContentView(R.layout.obfuscated_res_0x7f0d0222);
+            Display defaultDisplay = ((WindowManager) this.a.getSystemService("window")).getDefaultDisplay();
+            WindowManager.LayoutParams attributes = getWindow().getAttributes();
+            attributes.width = defaultDisplay.getWidth();
+            attributes.height = defaultDisplay.getHeight();
+            getWindow().setAttributes(attributes);
+            getWindow().setBackgroundDrawableResource(R.color.transparent);
+            getWindow().setDimAmount(this.c);
+            getWindow().setGravity(80);
+            getWindow().setWindowAnimations(0);
+            setCanceledOnTouchOutside(true);
+            setCancelable(true);
+            this.d = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09056d);
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c3b);
+            this.e = roundRelativeLayout;
+            roundRelativeLayout.setAllCornerRound(og.d(TbadkCoreApplication.getInst().getString(R.string.J_X06), 31.0f));
+            ViewGroup.LayoutParams layoutParams = this.f.getLayoutParams();
+            if (layoutParams != null) {
+                layoutParams.height = -1;
+                layoutParams.width = -1;
+            } else {
+                layoutParams = new RelativeLayout.LayoutParams(-1, -1);
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c() {
-        SensorManager sensorManager;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (sensorManager = this.c) == null) {
-            return;
-        }
-        sensorManager.unregisterListener(this);
-        this.j = false;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.j : invokeV.booleanValue;
-    }
-
-    public final boolean e(float[] fArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fArr)) == null) {
-            double sqrt = Math.sqrt(Math.pow(Math.abs(fArr[0]) / 9.8d, 2.0d) + Math.pow(Math.abs(fArr[1]) / 9.8d, 2.0d) + Math.pow(Math.abs(fArr[2]) / 9.8d, 2.0d));
-            if (Build.VERSION.SDK_INT <= 23) {
-                if (sqrt >= this.l && b()) {
-                    return true;
-                }
-            } else if (sqrt >= this.m && b()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void f() {
-        Sensor sensor;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (sensor = this.d) == null) {
-            return;
-        }
-        this.c.registerListener(this, sensor, 2);
-        this.j = true;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            Context context = this.a;
-            if (context == null) {
-                return false;
-            }
-            AudioManager audioManager = (AudioManager) context.getSystemService("audio");
-            int ringerMode = audioManager != null ? audioManager.getRingerMode() : -1;
-            Vibrator vibrator = this.e;
-            if (vibrator == null || !vibrator.hasVibrator() || ringerMode <= 0) {
-                return false;
-            }
-            if (Build.VERSION.SDK_INT >= 26) {
-                this.e.vibrate(VibrationEffect.createOneShot(400L, 255));
-                return true;
-            }
-            this.e.vibrate(400L);
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void h(boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            if (!z && (i = this.h) != 0) {
-                SoundPool soundPool = this.f;
-                if (soundPool != null) {
-                    soundPool.play(i, 1.0f, 1.0f, 0, 0, 1.0f);
-                    return;
-                }
-                return;
-            }
-            SoundPool soundPool2 = this.f;
-            if (soundPool2 != null) {
-                soundPool2.play(this.g, 1.0f, 1.0f, 0, 0, 1.0f);
-            }
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            if (this.k == null) {
-                this.k = new MediaPlayer();
-            }
-            try {
-                this.k.reset();
-                this.k.setLooping(false);
-                this.k.setDataSource(str);
-                this.k.prepareAsync();
-                this.k.setOnPreparedListener(new a(this));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void j(double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Double.valueOf(d)}) == null) {
-            this.m = d;
-        }
-    }
-
-    public void k(double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Double.valueOf(d)}) == null) {
-            this.l = d;
-        }
-    }
-
-    @Override // android.hardware.SensorEventListener
-    public void onAccuracyChanged(Sensor sensor, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048586, this, sensor, i) == null) {
-        }
-    }
-
-    @Override // android.hardware.SensorEventListener
-    public void onSensorChanged(SensorEvent sensorEvent) {
-        b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, sensorEvent) == null) && sensorEvent.sensor.getType() == 1 && e(sensorEvent.values) && (bVar = this.b) != null) {
-            bVar.a();
+            this.e.addView(this.f, layoutParams);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090eb1);
+            this.g = imageView;
+            imageView.setImageDrawable(this.i);
+            ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f090eb4);
+            this.h = imageView2;
+            imageView2.setOnClickListener(this);
         }
     }
 }

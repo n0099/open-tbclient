@@ -84,7 +84,7 @@ public class PBMediaView extends FrameLayout {
             int a = M.a(context, 15);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(a, a);
             layoutParams.gravity = 3;
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f0811fe);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f081266);
             addView(imageView, layoutParams);
         } catch (Exception unused) {
         }

@@ -10,9 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ni;
-import com.repackage.qf;
+import com.repackage.oi;
 import com.repackage.rf;
+import com.repackage.sf;
 /* loaded from: classes3.dex */
 public class TbHttpResponsedMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
@@ -83,19 +83,19 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage
-    public void logStatInBackground(int i, rf rfVar) {
+    public void logStatInBackground(int i, sf sfVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, rfVar) == null) || rfVar.d().size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, sfVar) == null) || sfVar.d().size() <= 0) {
             return;
         }
-        qf qfVar = rfVar.d().get(rfVar.d().size() - 1);
-        NetWorkState.mErrorNums.addAndGet(rfVar.d().size() - 1);
+        rf rfVar = sfVar.d().get(sfVar.d().size() - 1);
+        NetWorkState.mErrorNums.addAndGet(sfVar.d().size() - 1);
         NetWorkState.StatisticsData statisticsData = new NetWorkState.StatisticsData();
-        statisticsData.mMode = getMode(ni.I());
-        statisticsData.mSize = qfVar.b;
-        statisticsData.mTime = qfVar.f;
-        statisticsData.mTimesNum = qfVar.e;
-        statisticsData.mMethod = rfVar.b().h() != HttpMessageTask.HTTP_METHOD.POST ? 2 : 1;
+        statisticsData.mMode = getMode(oi.I());
+        statisticsData.mSize = rfVar.b;
+        statisticsData.mTime = rfVar.f;
+        statisticsData.mTimesNum = rfVar.e;
+        statisticsData.mMethod = sfVar.b().h() != HttpMessageTask.HTTP_METHOD.POST ? 2 : 1;
         NetWorkState.addStatisticsData(statisticsData);
     }
 

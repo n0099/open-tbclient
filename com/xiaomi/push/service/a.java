@@ -20,17 +20,17 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f873a;
+    public Context f874a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Object f874a;
+    public final Object f875a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final String f875a;
+    public final String f876a;
     public final Object b;
 
     /* renamed from: b  reason: collision with other field name */
-    public final String f876b;
+    public final String f877b;
     public final String c;
     public final String d;
     public volatile String e;
@@ -51,13 +51,13 @@ public class a {
                 return;
             }
         }
-        this.f874a = new Object();
+        this.f875a = new Object();
         this.b = new Object();
-        this.f875a = "mipush_region";
-        this.f876b = "mipush_country_code";
+        this.f876a = "mipush_region";
+        this.f877b = "mipush_country_code";
         this.c = "mipush_region.lock";
         this.d = "mipush_country_code.lock";
-        this.f873a = context;
+        this.f874a = context;
     }
 
     public static a a(Context context) {
@@ -257,7 +257,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (TextUtils.isEmpty(this.e)) {
-                this.e = a(this.f873a, "mipush_region", "mipush_region.lock", this.f874a);
+                this.e = a(this.f874a, "mipush_region", "mipush_region.lock", this.f875a);
             }
             return this.e;
         }
@@ -270,7 +270,7 @@ public class a {
             return;
         }
         this.e = str;
-        a(this.f873a, this.e, "mipush_region", "mipush_region.lock", this.f874a);
+        a(this.f874a, this.e, "mipush_region", "mipush_region.lock", this.f875a);
     }
 
     public String b() {
@@ -278,7 +278,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (TextUtils.isEmpty(this.f)) {
-                this.f = a(this.f873a, "mipush_country_code", "mipush_country_code.lock", this.b);
+                this.f = a(this.f874a, "mipush_country_code", "mipush_country_code.lock", this.b);
             }
             return this.f;
         }
@@ -291,6 +291,6 @@ public class a {
             return;
         }
         this.f = str;
-        a(this.f873a, this.f, "mipush_country_code", "mipush_country_code.lock", this.b);
+        a(this.f874a, this.f, "mipush_country_code", "mipush_country_code.lock", this.b);
     }
 }

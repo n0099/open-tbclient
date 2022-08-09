@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 /* loaded from: classes3.dex */
 public class SuspendIdleView extends SusPendedView {
     public static /* synthetic */ Interceptable $ic;
@@ -50,7 +50,7 @@ public class SuspendIdleView extends SusPendedView {
             setIsFinish(false);
             setRatio(0.0f);
             if (getTranAnim() != null) {
-                getTranAnim().setIntValues(pi.i(getContext()), 0);
+                getTranAnim().setIntValues(qi.i(getContext()), 0);
             }
             super.i();
         }

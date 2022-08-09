@@ -1,53 +1,58 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.b49;
-import java.util.Date;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.HashSet;
 /* loaded from: classes5.dex */
-public final class c49 {
+public class c49 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static b49.a b;
-    public static b49.a c;
     public transient /* synthetic */ FieldHolder $fh;
+    public j49 a;
+    public HashSet<String> b;
+    public HashSet<String> c;
+    public HashSet<String> d;
+    public HashSet<String> e;
+    public HashSet<String> f;
+    public HashSet<String> g;
+    public HashMap<String, Integer> h;
+    public HashMap<String, String> i;
+    public HashMap<String, i49> j;
+    public HashSet<String> k;
+    public HashSet<String> l;
+    public HashMap<String, Integer> m;
+    public HashMap<String, Integer> n;
+    public HashMap<String, Integer> o;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755847031, "Lcom/repackage/c49;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755847031, "Lcom/repackage/c49;");
-        }
-    }
-
-    public static synchronized void a(Context context) {
+    public c49() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            synchronized (c49.class) {
-                if (!a) {
-                    o49.b(" ActivityLifeTask   add  " + new Date().toLocaleString());
-                    b = new d49();
-                    c = new n49();
-                    b49.a().c();
-                    b49.a().d(c);
-                    b49.a().d(b);
-                    b49.a().e(context);
-                    a = true;
-                    return;
-                }
-                o49.b(" ActivityLifeTask  is added  " + new Date().toLocaleString());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new j49();
+        this.b = new HashSet<>();
+        this.c = new HashSet<>();
+        this.d = new HashSet<>();
+        this.e = new HashSet<>();
+        this.f = new HashSet<>();
+        this.g = new HashSet<>();
+        this.h = new HashMap<>();
+        this.i = new HashMap<>();
+        this.j = new HashMap<>();
+        this.k = new HashSet<>();
+        this.l = new HashSet<>();
+        this.m = new HashMap<>();
+        this.n = new HashMap<>();
+        this.o = new HashMap<>();
     }
 }

@@ -1,35 +1,26 @@
 package com.repackage;
 
-import android.os.Build;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.TimeUnit;
+import android.hardware.Camera;
+import com.faceunity.encoder.TextureMovieEncoder;
 /* loaded from: classes6.dex */
-public class lu8 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final long a;
-    public static final tp8 b;
-    public static boolean c;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface lu8 {
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755516478, "Lcom/repackage/lu8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755516478, "Lcom/repackage/lu8;");
-                return;
-            }
-        }
-        a = TimeUnit.DAYS.toMillis(5L);
-        b = new tp8("camera_last_api", 0, "camera_last_api_stamp");
-        c = "Lenovo K520".equals(Build.MODEL);
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(boolean z, String str);
     }
+
+    void a(Camera camera);
+
+    void b(Camera camera);
+
+    void c(a aVar);
+
+    void d(Camera camera);
+
+    void e(Camera camera);
+
+    void setOnEncoderStatusUpdateListener(TextureMovieEncoder.OnEncoderStatusUpdateListener onEncoderStatusUpdateListener);
+
+    void setPreviewSize(int i, int i2);
 }

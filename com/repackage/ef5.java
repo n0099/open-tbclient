@@ -1,85 +1,89 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.ListView;
+import android.app.Activity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.StatusbarColorUtils;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.af5;
 /* loaded from: classes6.dex */
-public class ef5 implements af5.j {
+public class ef5 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bitmap a;
-    public ImageView b;
-    public int c;
-    public ListView d;
+    @NonNull
+    public final Activity a;
+    @Nullable
+    public Boolean b;
 
-    public ef5(ListView listView) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755739523, "Lcom/repackage/ef5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755739523, "Lcom/repackage/ef5;");
+        }
+    }
+
+    public ef5(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {listView};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = -16777216;
-        this.d = listView;
+        this.a = activity;
     }
 
-    @Override // com.repackage.af5.j
-    public void a(View view2) {
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            ((ImageView) view2).setImageDrawable(null);
-            this.a.recycle();
-            this.a = null;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.b = Boolean.valueOf(z);
+            StatusbarColorUtils.setStatusBarDarkIcon(this.a, z);
         }
     }
 
-    @Override // com.repackage.af5.j
-    public View b(int i) {
-        InterceptResult invokeI;
+    public void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            ListView listView = this.d;
-            View childAt = listView.getChildAt((i + listView.getHeaderViewsCount()) - this.d.getFirstVisiblePosition());
-            if (childAt == null) {
-                return null;
-            }
-            childAt.setPressed(false);
-            childAt.setDrawingCacheEnabled(true);
-            this.a = Bitmap.createBitmap(childAt.getDrawingCache());
-            childAt.setDrawingCacheEnabled(false);
-            if (this.b == null) {
-                this.b = new ImageView(this.d.getContext());
-            }
-            this.b.setBackgroundColor(this.c);
-            this.b.setPadding(0, 0, 0, 0);
-            this.b.setImageBitmap(this.a);
-            this.b.setLayoutParams(new ViewGroup.LayoutParams(childAt.getWidth(), childAt.getHeight()));
-            return this.b;
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || c) {
+            return;
         }
-        return (View) invokeI.objValue;
+        if (z) {
+            Boolean bool = this.b;
+            if (bool != null) {
+                a(bool.booleanValue());
+                return;
+            }
+            return;
+        }
+        StatusbarColorUtils.setStatusBarDarkIcon(this.a, !UtilHelper.isNightOrDarkMode());
     }
 
-    public void d(int i) {
+    public void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.c = i;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            c = z;
         }
     }
 }

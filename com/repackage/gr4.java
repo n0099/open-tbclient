@@ -1,103 +1,180 @@
 package com.repackage;
 
-import android.app.AlertDialog;
-import android.content.Context;
-import android.view.View;
-import android.view.Window;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.dialog.CircleView1080;
-import com.baidu.tieba.R;
+import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+import tbclient.TaskInfo;
 /* loaded from: classes6.dex */
-public class gr4 extends AlertDialog {
+public class gr4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public TextView b;
-    public TextView c;
-    public CircleView1080 d;
-    public int e;
+    public long b;
+    public long c;
+    public long d;
+    public long e;
+    public long f;
+    public String g;
+    public int h;
+    public int i;
+    public String j;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gr4(Context context) {
-        super(context);
+    public gr4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public void a(String str) {
+    public long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.a = str;
-            TextView textView = this.c;
-            if (textView != null) {
-                textView.setText(str);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : invokeV.longValue;
     }
 
-    public void b(int i) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || i == this.e) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b + "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.j : (String) invokeV.objValue;
+    }
+
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : invokeV.longValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c + "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d + "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.i : invokeV.intValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.g : (String) invokeV.objValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.h : invokeV.intValue;
+    }
+
+    public void k(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.e = i;
-        TextView textView = this.b;
-        if (textView != null) {
-            textView.setText(i + "%");
-        }
-        CircleView1080 circleView1080 = this.d;
-        if (circleView1080 != null) {
-            circleView1080.setProgress(i);
+        try {
+            this.a = jSONObject.optString("forum_name");
+            this.b = jSONObject.optLong("forum_id");
+            this.c = jSONObject.optLong("task_id");
+            this.d = jSONObject.optLong("thread_id");
+            jSONObject.optString("bgimg");
+            this.e = jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY);
+            this.f = jSONObject.optLong("end_time");
+            this.g = jSONObject.optString("thread_img");
+            String optString = jSONObject.optString("thread_img_size");
+            if (optString != null && optString.length() > 0) {
+                String[] split = optString.split(",");
+                if (split.length > 1) {
+                    this.h = Integer.valueOf(split[0]).intValue();
+                    this.i = Integer.valueOf(split[1]).intValue();
+                }
+            }
+            if (this.h <= 0) {
+                this.h = 1;
+            }
+            if (this.i <= 0) {
+                this.i = 1;
+            }
+        } catch (Exception e) {
+            BdLog.e(e.toString());
         }
     }
 
-    @Override // android.app.Dialog
-    public void show() {
+    public void l(TaskInfo taskInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.show();
-            Window window = getWindow();
-            if (window != null) {
-                window.setContentView(R.layout.obfuscated_res_0x7f0d0714);
-                View findViewById = findViewById(R.id.obfuscated_res_0x7f090a7d);
-                if (findViewById.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) findViewById.getLayoutParams();
-                    layoutParams.topMargin = pi.f(getContext(), R.dimen.tbds50);
-                    findViewById.setLayoutParams(layoutParams);
-                }
-                TextView textView = (TextView) window.findViewById(R.id.obfuscated_res_0x7f091fdd);
-                this.c = textView;
-                if (textView.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                    RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
-                    layoutParams2.topMargin = pi.f(getContext(), R.dimen.tbds35);
-                    this.c.setLayoutParams(layoutParams2);
-                }
-                if (!StringUtils.isNull(this.a)) {
-                    this.c.setText(this.a);
-                }
-                this.b = (TextView) window.findViewById(R.id.obfuscated_res_0x7f091fde);
-                this.d = (CircleView1080) window.findViewById(R.id.obfuscated_res_0x7f090611);
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, taskInfo) == null) || taskInfo == null) {
+            return;
+        }
+        this.a = taskInfo.forum_name;
+        this.b = taskInfo.forum_id.longValue();
+        Long l = taskInfo.task_id;
+        this.c = l != null ? l.longValue() : -1L;
+        Long l2 = taskInfo.thread_id;
+        this.d = l2 != null ? l2.longValue() : -1L;
+        String str = taskInfo.bgimg;
+        this.g = taskInfo.thread_img;
+        Long l3 = taskInfo.start_time;
+        this.e = l3 != null ? l3.longValue() : -1L;
+        Long l4 = taskInfo.end_time;
+        this.f = l4 != null ? l4.longValue() : -1L;
+        String str2 = taskInfo.thread_img_size;
+        if (str2 != null) {
+            try {
+                String[] split = str2.split(",");
+                this.h = og.e(split[0], 1);
+                this.i = og.e(split[1], 1);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
+        if (this.h <= 0) {
+            this.h = 1;
+        }
+        if (this.i <= 0) {
+            this.i = 1;
+        }
+        this.j = taskInfo.obj_id;
     }
 }

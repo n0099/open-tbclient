@@ -8,7 +8,7 @@ import android.graphics.Path;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ClipImageView extends ImageView {
     public boolean a;
     public Path b;

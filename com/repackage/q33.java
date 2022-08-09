@@ -1,28 +1,30 @@
 package com.repackage;
 
 import android.content.Context;
+import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.res.ui.FloatButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class q33 extends f23 {
+public class q33 extends w23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q33(f13 f13Var) {
-        super(f13Var, "/swanAPI/stopPullDownRefresh");
+    public q33(w13 w13Var) {
+        super(w13Var, "/swanAPI/hideOpenAppGuide");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {f13Var};
+            Object[] objArr = {w13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,32 +38,24 @@ public class q33 extends f23 {
         }
     }
 
-    @Override // com.repackage.f23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
+    @Override // com.repackage.w23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, z03 z03Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
-            rz1 V = vl2.U().V();
-            if (V == null) {
-                ix1.c("stopPullDownRefresh", "manager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (!(V.m() instanceof qz1)) {
-                ix1.c("stopPullDownRefresh", "top fragment error");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else {
-                qz1 qz1Var = (qz1) V.m();
-                if (qz1Var.j0() == null) {
-                    ix1.c("stopPullDownRefresh", "view is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                }
-                qz1Var.j0().w(false);
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                ix1.i("stopPullDownRefresh", "refresh complete");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, z03Var)) == null) {
+            if (w23.b) {
+                Log.i("HideFloatButtonGuide", unitedSchemeEntity.toString());
+            }
+            p33 d = p33.d();
+            FloatButton c = d.c();
+            if (c == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
                 return true;
             }
+            c.setVisibility(8);
+            d.j(null);
+            unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
         }
         return invokeLLLL.booleanValue;
     }

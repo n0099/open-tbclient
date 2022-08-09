@@ -1,17 +1,19 @@
 package com.repackage;
 
-import android.content.ContentValues;
-import android.database.Cursor;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.File;
+import java.io.IOException;
+import java.nio.channels.ReadableByteChannel;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class l84 extends g84<g94> {
+public abstract class l84<T> implements o84<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,73 +31,73 @@ public class l84 extends g84<g94> {
         }
     }
 
-    @Override // com.repackage.g84
-    public List<g94> e(Cursor cursor) {
-        InterceptResult invokeL;
+    @Override // com.repackage.o84
+    public void a(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
-                return arrayList;
-            }
-            do {
-                arrayList.add(h(cursor));
-            } while (cursor.moveToNext());
-            return arrayList;
+        if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
         }
-        return (List) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.g84
-    /* renamed from: f */
-    public ContentValues c(g94 g94Var) {
-        InterceptResult invokeL;
+    @Override // com.repackage.o84
+    public void c(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, g94Var)) == null) {
-            ContentValues a = super.a(g94Var);
-            a.put("independent", Integer.valueOf(g94Var.r ? 1 : 0));
-            a.put("sub_pkg_name", g94Var.p);
-            a.put("app_id", g94Var.o);
-            return a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
         }
-        return (ContentValues) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.g84
-    /* renamed from: g */
-    public g94 d(Cursor cursor) {
-        InterceptResult invokeL;
+    @Override // com.repackage.o84
+    public void e(T t, r94 r94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
-            if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
-                return null;
-            }
-            return h(cursor);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t, r94Var) == null) {
         }
-        return (g94) invokeL.objValue;
     }
 
-    public final g94 h(Cursor cursor) {
-        InterceptResult invokeL;
+    @Override // com.repackage.o84
+    public void f(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cursor)) == null) {
-            if (cursor != null) {
-                int columnIndex = cursor.getColumnIndex("independent");
-                int columnIndex2 = cursor.getColumnIndex("sub_pkg_name");
-                int columnIndex3 = cursor.getColumnIndex("app_id");
-                g94 g94Var = new g94();
-                if (b(cursor, g94Var)) {
-                    g94Var.r = cursor.getInt(columnIndex) == 1;
-                    g94Var.p = cursor.getString(columnIndex2);
-                    g94Var.o = cursor.getString(columnIndex3);
-                    return g94Var;
-                }
-                return null;
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
         }
-        return (g94) invokeL.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return 100;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.repackage.o84
+    public r94 h(T t, File file, long j, ReadableByteChannel readableByteChannel) throws IOException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{t, file, Long.valueOf(j), readableByteChannel})) == null) ? new r94(2302, "业务层默认不处理下载流") : (r94) invokeCommon.objValue;
+    }
+
+    @Override // com.repackage.o84
+    public void i(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+        }
+    }
+
+    @Override // com.repackage.o84
+    public void j(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
+        }
+    }
+
+    @Override // com.repackage.o84
+    public Map<String, Object> k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("queue_priority", Integer.valueOf(g()));
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
     }
 }

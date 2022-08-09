@@ -5,6 +5,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.EngineName;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,7 +51,7 @@ public final class PoiFilter implements Parcelable {
                 }
             }
             PoiFilter.f.put(SortName.HotelSortName.DEFAULT, "default");
-            PoiFilter.f.put(SortName.HotelSortName.HOTEL_LEVEL, "level");
+            PoiFilter.f.put(SortName.HotelSortName.HOTEL_LEVEL, PollingModel.LEVEL);
             PoiFilter.f.put(SortName.HotelSortName.HOTEL_PRICE, "price");
             PoiFilter.f.put(SortName.HotelSortName.HOTEL_DISTANCE, "distance");
             PoiFilter.f.put(SortName.HotelSortName.HOTEL_HEALTH_SCORE, "health_score");

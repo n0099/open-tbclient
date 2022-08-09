@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -75,7 +76,7 @@ public class v1 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
                 Intent d = d(context);
-                int intExtra = d != null ? (int) ((d.getIntExtra("level", -1) / d.getIntExtra("scale", -1)) * 100.0f) : 0;
+                int intExtra = d != null ? (int) ((d.getIntExtra(PollingModel.LEVEL, -1) / d.getIntExtra("scale", -1)) * 100.0f) : 0;
                 return intExtra + "%";
             } catch (Throwable unused) {
                 return null;

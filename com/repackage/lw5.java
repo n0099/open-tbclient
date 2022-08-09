@@ -1,30 +1,35 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.barselect.data.CommitCardInfoHttpResMsg;
-import com.baidu.tieba.barselect.data.CommitCardInfoReqMsg;
-import com.baidu.tieba.barselect.data.CommitCardInfoSocketResMsg;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.ala.data.AlaLiveInfoData;
+import com.baidu.ala.data.AlaUserInfoData;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class lw5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public AlaUserInfoData a;
+    public rw5 b;
+    public zw5 c;
+    public List<AlaLiveInfoData> d;
+    public List<yw5> e;
+    public boolean f;
+    public final jw5 g;
+    public ax5 h;
 
-    public lw5(TbPageContext tbPageContext) {
+    public lw5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,24 +39,74 @@ public class lw5 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        SocketMessageTask socketMessageTask = new SocketMessageTask(309643);
-        socketMessageTask.setResponsedClass(CommitCardInfoSocketResMsg.class);
-        MessageManager.getInstance().registerTask(socketMessageTask);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMMIT_CARD_INFO, wh8.a(TbConfig.URL_COMMIT_CARD_INFO, 309643));
-        tbHttpMessageTask.setResponsedClass(CommitCardInfoHttpResMsg.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        this.f = false;
+        this.a = new AlaUserInfoData();
+        this.b = new rw5();
+        this.c = new zw5();
+        this.g = new jw5();
+        this.d = new ArrayList();
+        this.e = new ArrayList();
     }
 
-    public void a(String str, int i, String str2) {
+    public jw5 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
-            CommitCardInfoReqMsg commitCardInfoReqMsg = new CommitCardInfoReqMsg();
-            commitCardInfoReqMsg.resource_id = str;
-            commitCardInfoReqMsg.card_type = i;
-            commitCardInfoReqMsg.image_info = str2;
-            commitCardInfoReqMsg.setTag(this.a.getUniqueId());
-            MessageManager.getInstance().sendMessage(commitCardInfoReqMsg);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : (jw5) invokeV.objValue;
+    }
+
+    public AlaUserInfoData b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (AlaUserInfoData) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : invokeV.booleanValue;
+    }
+
+    public void d(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        try {
+            JSONObject jSONObject2 = jSONObject.getJSONObject("data");
+            JSONObject optJSONObject = jSONObject2.optJSONObject("user_info");
+            if (optJSONObject != null) {
+                this.a = (AlaUserInfoData) OrmObject.objectWithJson(optJSONObject, AlaUserInfoData.class);
+            }
+            JSONArray optJSONArray = jSONObject2.optJSONArray("watch_list");
+            for (int i = 0; optJSONArray != null && i < optJSONArray.length(); i++) {
+                yw5 yw5Var = new yw5();
+                yw5Var.a(optJSONArray.getJSONObject(i));
+                this.e.add(yw5Var);
+            }
+            JSONArray optJSONArray2 = jSONObject2.optJSONArray("live_list");
+            for (int i2 = 0; optJSONArray2 != null && optJSONArray2.length() < i2; i2++) {
+                AlaLiveInfoData alaLiveInfoData = new AlaLiveInfoData();
+                alaLiveInfoData.parserJson(optJSONArray2.getJSONObject(i2));
+                this.d.add(alaLiveInfoData);
+            }
+            this.b.a(jSONObject2.optJSONObject("media"));
+            this.c.parserJson(jSONObject2.optJSONObject("privacy_set"));
+            this.g.parserJson(jSONObject2.optJSONObject("authority_info"));
+            JSONObject optJSONObject2 = jSONObject2.optJSONObject("dating_room");
+            if (optJSONObject2 != null) {
+                ax5 ax5Var = new ax5();
+                this.h = ax5Var;
+                ax5Var.a(optJSONObject2);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.f = z;
         }
     }
 }

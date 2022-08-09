@@ -33,12 +33,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
-import com.repackage.qg;
-import com.repackage.qv4;
-import com.repackage.tw8;
-import com.repackage.ub;
-import com.repackage.vr4;
+import com.repackage.jz8;
+import com.repackage.kw4;
+import com.repackage.ms4;
+import com.repackage.qi;
+import com.repackage.rg;
+import com.repackage.vb;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -51,7 +51,7 @@ public class RichTextEditor extends LinearLayout {
     public int c;
     public WriteImagesInfo d;
     public View.OnClickListener e;
-    public qv4.a f;
+    public kw4.a f;
     public long g;
     public View.OnFocusChangeListener h;
     public TextWatcher i;
@@ -171,11 +171,11 @@ public class RichTextEditor extends LinearLayout {
                 this.a.n(view2);
                 this.a.d.getChosedFiles().remove(imageFileInfo);
                 if (imageFileInfo.isTempFile()) {
-                    ub.f().a(new DiskFileOperate(imageFileInfo.getFilePath(), null, DiskFileOperate.Action.DELETE));
+                    vb.f().a(new DiskFileOperate(imageFileInfo.getFilePath(), null, DiskFileOperate.Action.DELETE));
                 }
                 if (this.a.getContext() instanceof WriteActivity) {
                     if (ListUtils.isEmpty(this.a.d.getChosedFiles())) {
-                        ((WriteActivity) this.a.getContext()).D2();
+                        ((WriteActivity) this.a.getContext()).C2();
                     }
                     ((WriteActivity) this.a.getContext()).C6();
                     ((WriteActivity) this.a.getContext()).H6();
@@ -347,10 +347,10 @@ public class RichTextEditor extends LinearLayout {
             SpanGroupEditText spanGroupEditText = new SpanGroupEditText(getContext());
             spanGroupEditText.setBackgroundResource(0);
             spanGroupEditText.setPadding(0, 0, 0, 0);
-            spanGroupEditText.setLineSpacing(pi.f(getContext(), R.dimen.M_T_X002), 1.0f);
-            tw8.l(spanGroupEditText, R.drawable.obfuscated_res_0x7f0804ac);
+            spanGroupEditText.setLineSpacing(qi.f(getContext(), R.dimen.M_T_X002), 1.0f);
+            jz8.l(spanGroupEditText, R.drawable.obfuscated_res_0x7f0804ae);
             spanGroupEditText.setTextSize(0, getResources().getDimension(R.dimen.T_X06));
-            vr4.d(spanGroupEditText).v(R.color.CAM_X0105);
+            ms4.d(spanGroupEditText).v(R.color.CAM_X0105);
             spanGroupEditText.setDrawingCacheEnabled(false);
             spanGroupEditText.setGravity(51);
             spanGroupEditText.setHint(str);
@@ -360,7 +360,7 @@ public class RichTextEditor extends LinearLayout {
             spanGroupEditText.setForumId(this.g);
             spanGroupEditText.setOnClickListener(this.e);
             spanGroupEditText.addTextChangedListener(this.i);
-            spanGroupEditText.setTag(R.id.obfuscated_res_0x7f090fc7, Boolean.TRUE);
+            spanGroupEditText.setTag(R.id.obfuscated_res_0x7f09101d, Boolean.TRUE);
             return spanGroupEditText;
         }
         return (SpanGroupEditText) invokeL.objValue;
@@ -369,7 +369,7 @@ public class RichTextEditor extends LinearLayout {
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            SpanGroupEditText l = l(getContext().getString(R.string.obfuscated_res_0x7f0f0e49));
+            SpanGroupEditText l = l(getContext().getString(R.string.obfuscated_res_0x7f0f0e76));
             addView(l, new LinearLayout.LayoutParams(-1, -2));
             this.b = l;
         }
@@ -517,7 +517,7 @@ public class RichTextEditor extends LinearLayout {
         }
     }
 
-    public void setOnSpanGroupChangedListener(qv4.a aVar) {
+    public void setOnSpanGroupChangedListener(kw4.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, aVar) == null) {
             this.f = aVar;
@@ -581,7 +581,7 @@ public class RichTextEditor extends LinearLayout {
                 if (childAt instanceof RichImageItem) {
                     ((RichImageItem) childAt).f();
                 } else if (childAt instanceof SpanGroupEditText) {
-                    vr4.d(childAt).v(R.color.CAM_X0105);
+                    ms4.d(childAt).v(R.color.CAM_X0105);
                     ((SpanGroupEditText) childAt).setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
                 }
             }
@@ -592,7 +592,7 @@ public class RichTextEditor extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048602, this, spanGroupEditText, i) == null) {
             this.b = spanGroupEditText;
-            qg.a().postDelayed(new b(this, i), 300L);
+            rg.a().postDelayed(new b(this, i), 300L);
         }
     }
 
@@ -607,7 +607,7 @@ public class RichTextEditor extends LinearLayout {
             if (childCount > 1) {
                 ((SpanGroupEditText) childAt).setHint("");
             } else {
-                ((SpanGroupEditText) childAt).setHint(getContext().getString(R.string.obfuscated_res_0x7f0f0e49));
+                ((SpanGroupEditText) childAt).setHint(getContext().getString(R.string.obfuscated_res_0x7f0f0e76));
             }
         }
     }
@@ -667,7 +667,7 @@ public class RichTextEditor extends LinearLayout {
         this.k = new c(this);
         setOrientation(1);
         setLayoutTransition(null);
-        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f58));
+        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080fbd));
         setShowDividers(2);
         this.a = new a(this);
     }

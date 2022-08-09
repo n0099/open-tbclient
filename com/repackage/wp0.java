@@ -1,76 +1,66 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import kotlin.jvm.JvmName;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
+import org.json.JSONArray;
+import org.json.JSONObject;
+@JvmName(name = "AuthParser")
 /* loaded from: classes7.dex */
 public final class wp0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
-    public final int c;
-    public final int d;
 
-    public wp0(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
-        this.d = i4;
-    }
-
-    public final int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public boolean equals(Object obj) {
+    public static final up0 a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof wp0) {
-                    wp0 wp0Var = (wp0) obj;
-                    return this.a == wp0Var.a && this.b == wp0Var.b && this.c == wp0Var.c && this.d == wp0Var.d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str != null) {
+                try {
+                    JSONArray optJSONArray = new JSONObject(str).optJSONArray("hosts");
+                    if (optJSONArray != null) {
+                        ArrayList arrayList = new ArrayList();
+                        int length = optJSONArray.length();
+                        for (int i = 0; i < length; i++) {
+                            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                            if (optJSONObject != null) {
+                                String host = optJSONObject.optString("host");
+                                String optString = optJSONObject.optString("auth");
+                                Intrinsics.checkNotNullExpressionValue(host, "host");
+                                arrayList.add(new tp0(host, b(optString)));
+                            }
+                        }
+                        return new up0(arrayList);
+                    }
+                    return null;
+                } catch (Exception e) {
+                    yh0.a("AuthParser", e.getMessage());
                 }
-                return false;
             }
-            return true;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (up0) invokeL.objValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    public static final vp0 b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (((((this.a * 31) + this.b) * 31) + this.c) * 31) + this.d : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "AuthStrategyModel(uaCode=" + this.a + ", refererCode=" + this.b + ", tokenCode=" + this.c + ", modeCode=" + this.d + SmallTailInfo.EMOTION_SUFFIX;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str != null) {
+                List split$default = StringsKt__StringsKt.split$default((CharSequence) str, new String[]{"_"}, false, 0, 6, (Object) null);
+                if (split$default.size() < 4) {
+                    return null;
+                }
+                return new vp0(BdVideoSeries.parseIntSafe((String) split$default.get(0), 0), BdVideoSeries.parseIntSafe((String) split$default.get(1), 0), BdVideoSeries.parseIntSafe((String) split$default.get(2), 0), BdVideoSeries.parseIntSafe((String) split$default.get(3), 0));
+            }
+            return null;
         }
-        return (String) invokeV.objValue;
+        return (vp0) invokeL.objValue;
     }
 }

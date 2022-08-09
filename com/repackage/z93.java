@@ -1,37 +1,69 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes7.dex */
-public class z93 extends f23 {
+public final class z93 extends aa3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean g;
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ArrayList a;
+        public final /* synthetic */ z93 b;
+
+        public a(z93 z93Var, ArrayList arrayList) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z93Var, arrayList};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = z93Var;
+            this.a = arrayList;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.m(this.a);
+                this.b.j();
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z93(f13 f13Var) {
-        super(f13Var, "/swanAPI/stopMediaVolumeListen");
+    public z93(v93 v93Var) {
+        super(v93Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {f13Var};
+            Object[] objArr = {v93Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((v93) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -39,46 +71,89 @@ public class z93 extends f23 {
         }
     }
 
-    @Override // com.repackage.f23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.repackage.aa3
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
-            if (i03Var == null) {
-                ix1.c("stopMediaVolumeListen", "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal swanApp");
-                if (f23.b) {
-                    Log.d("SwanAppAction", "stopMediaVolumeListen --- illegal swanApp");
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a()) {
+            long currentTimeMillis = aa3.f ? System.currentTimeMillis() : 0L;
+            this.a.g(new a(this, this.b.n()));
+            if (aa3.f) {
+                Log.d("SwanCookieSyncPolicy", "saveCacheToDatabase costTime:" + (System.currentTimeMillis() - currentTimeMillis));
+            }
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.g) {
+            return;
+        }
+        long currentTimeMillis = aa3.f ? System.currentTimeMillis() : 0L;
+        this.a.b();
+        this.g = true;
+        if (aa3.f) {
+            Log.d("SwanCookieSyncPolicy", "clearExpiredCookies costTime:" + (System.currentTimeMillis() - currentTimeMillis));
+        }
+    }
+
+    public ArrayList<u93> k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            long currentTimeMillis = aa3.f ? System.currentTimeMillis() : 0L;
+            ArrayList<u93> arrayList = new ArrayList<>();
+            try {
+                arrayList = this.a.e(str);
+            } catch (Exception e) {
+                zx1.k("SwanCookieSyncPolicy", Log.getStackTraceString(e));
+            }
+            if (aa3.f) {
+                Log.d("SwanCookieSyncPolicy", "getCookiesForDomain costTime:" + (System.currentTimeMillis() - currentTimeMillis));
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            long currentTimeMillis = aa3.f ? System.currentTimeMillis() : 0L;
+            this.a.h();
+            if (aa3.f) {
+                Log.d("SwanCookieSyncPolicy", "preInitDatabase costTime:" + (System.currentTimeMillis() - currentTimeMillis));
+            }
+        }
+    }
+
+    public final void m(ArrayList<u93> arrayList) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) || arrayList == null || arrayList.isEmpty()) {
+            return;
+        }
+        if (aa3.f) {
+            Log.d("SwanCookieSyncPolicy", "syncFromRamToFlash start");
+        }
+        Iterator<u93> it = arrayList.iterator();
+        while (it.hasNext()) {
+            u93 next = it.next();
+            if (next != null) {
+                if (aa3.f) {
+                    Log.d("SwanCookieSyncPolicy", "syncFromRamToFlash result cookie:" + next.toString());
                 }
-                return false;
-            } else if (context == null) {
-                ix1.c("stopMediaVolumeListen", "none context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal context");
-                if (f23.b) {
-                    Log.d("SwanAppAction", "stopMediaVolumeListen --- illegal context");
-                }
-                return false;
-            } else {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    ix1.c("stopMediaVolumeListen", "none params");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
-                }
-                String optString = optParamsAsJo.optString("id");
-                if (TextUtils.isEmpty(optString)) {
-                    ix1.c("stopMediaVolumeListen", "id is empty");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                } else if (!aa3.e().i(optString)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                    return true;
+                int i = next.i;
+                if (i == 0) {
+                    this.a.a(next);
+                    this.b.y(next);
+                } else if (i == 2) {
+                    this.a.d(next.a, next.b, next.c);
+                    this.b.g(next);
+                } else if (i == 3) {
+                    this.a.d(next.a, next.b, next.c);
+                    this.a.a(next);
+                    this.b.y(next);
                 }
             }
         }
-        return invokeLLLL.booleanValue;
     }
 }

@@ -23,7 +23,7 @@ public final class gc {
     public static int a = 5000;
 
     /* renamed from: a  reason: collision with other field name */
-    public static Vector<String> f422a = null;
+    public static Vector<String> f423a = null;
     public static int b = 330000;
     public static int c = 600000;
     public static int d = 330000;
@@ -42,7 +42,7 @@ public final class gc {
                 return;
             }
         }
-        f422a = new Vector<>();
+        f423a = new Vector<>();
         try {
             for (ClassLoader classLoader : m365a()) {
                 Enumeration<URL> resources = classLoader.getResources("META-INF/smack-config.xml");
@@ -63,7 +63,7 @@ public final class gc {
                                 } else if (newPullParser.getName().equals("keepAliveInterval")) {
                                     b = a(newPullParser, b);
                                 } else if (newPullParser.getName().equals("mechName")) {
-                                    f422a.add(newPullParser.nextText());
+                                    f423a.add(newPullParser.nextText());
                                 }
                             }
                             eventType = newPullParser.next();

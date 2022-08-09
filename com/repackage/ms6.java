@@ -1,61 +1,99 @@
 package com.repackage;
 
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import tbclient.CommonReq;
+import tbclient.VoiceRoomListPage.DataReq;
+import tbclient.VoiceRoomListPage.VoiceRoomListPageReqIdl;
 /* loaded from: classes6.dex */
-public class ms6 extends rz6 {
+public class ms6 implements s85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ud7 c;
+    public final long a;
+    public final long b;
 
-    public ms6() {
+    public ms6(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = j;
+        this.b = j2;
     }
 
-    private void update() {
-        ud7 ud7Var;
+    public final double a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (ud7Var = this.c) != null && ud7Var.c()) {
-            List<ICardInfo> e = this.c.e();
-            ArrayList arrayList = new ArrayList();
-            this.a = arrayList;
-            arrayList.addAll(e);
-            this.c.a();
-            this.c.b();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density : invokeV.doubleValue;
     }
 
-    public final void a() {
-        List<Object> list;
+    @Override // com.repackage.u85
+    public Object g(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.a) == null) {
-            return;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+            try {
+                DataReq.Builder builder = new DataReq.Builder();
+                builder.call_from = Long.valueOf(this.a);
+                builder.fid = Long.valueOf(this.b);
+                CommonReq.Builder builder2 = new CommonReq.Builder();
+                builder2.q_type = Integer.valueOf(rn4.c().e());
+                builder2.scr_dip = Double.valueOf(a());
+                builder2.scr_h = Integer.valueOf(qi.i(TbadkCoreApplication.getInst().getApp()));
+                builder2.scr_w = Integer.valueOf(qi.k(TbadkCoreApplication.getInst().getApp()));
+                VoiceRoomListPageReqIdl.Builder builder3 = new VoiceRoomListPageReqIdl.Builder();
+                builder3.data = builder.build(false);
+                return builder3.build(false);
+            } catch (Exception unused) {
+                BdLog.d("data convert error");
+                return null;
+            }
         }
-        nh8.e(list, 2);
+        return invokeZ.objValue;
     }
 
-    public void b(ud7 ud7Var) {
+    @Override // com.repackage.r85
+    public HashMap<String, Object> v() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ud7Var) == null) {
-            this.c = ud7Var;
-            update();
-            a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            HashMap<String, Object> hashMap = new HashMap<>();
+            hashMap.put(IntentConfig.CALL_FROM, Long.valueOf(this.a));
+            hashMap.put("fid", Long.valueOf(this.b));
+            hashMap.put("q_type", Integer.valueOf(rn4.c().e()));
+            hashMap.put("scr_dip", Double.valueOf(a()));
+            hashMap.put("scr_h", Integer.valueOf(qi.i(TbadkCoreApplication.getInst().getApp())));
+            hashMap.put("scr_w", Integer.valueOf(qi.k(TbadkCoreApplication.getInst().getApp())));
+            return hashMap;
         }
+        return (HashMap) invokeV.objValue;
+    }
+
+    @Override // com.repackage.r85
+    public HashMap<String, String> x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (HashMap) invokeV.objValue;
     }
 }

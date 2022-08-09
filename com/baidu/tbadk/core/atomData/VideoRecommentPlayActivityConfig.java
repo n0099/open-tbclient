@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.module.hottopic.VideoHotTopicParams;
@@ -78,7 +77,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
         public static final String IDENTIFER_FROM_THREAD_TAB = "15";
         public static final String IDENTIFER_FROM_VIDEO_TAB = "14";
         public transient /* synthetic */ FieldHolder $fh;
-        @SerializedName(Config.PACKAGE_NAME)
+        @SerializedName("pn")
         public int currentPn;
         @SerializedName("data")
         public List<Map<String, Object>> dataList;

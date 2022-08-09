@@ -1,15 +1,8 @@
 package com.repackage;
 
-import android.app.ActivityManager;
-import android.os.Bundle;
-import android.os.Debug;
-import android.os.Process;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,70 +10,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.DecimalFormat;
-import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class iy1 {
+public abstract class iy1 {
     public static /* synthetic */ Interceptable $ic;
-    public static ActivityManager c;
-    public static float d;
-    public static int e;
-    public static int f;
+    public static final boolean a;
+    public static volatile iy1 b;
+    public static f73 c;
+    public static Timer d;
     public transient /* synthetic */ FieldHolder $fh;
-    public DecimalFormat a;
-    public volatile d b;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public class a extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ iy1 a;
 
-    /* loaded from: classes6.dex */
-    public static class b extends ProviderDelegation {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
+        public a(iy1 iy1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-        public Bundle execCall(Bundle bundle) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-                Bundle bundle2 = new Bundle();
-                bundle2.putLong("key_get_host_pss", Debug.getPss());
-                return bundle2;
-            }
-            return (Bundle) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public float a;
-        public float b;
-        public float c;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iy1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -90,77 +45,151 @@ public class iy1 {
                     return;
                 }
             }
-            this.a = 0.0f;
-            this.b = 0.0f;
-            this.c = 0.0f;
+            this.a = iy1Var;
+        }
+
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (iy1.a) {
+                    Log.d("LocalDebugStatistic", "timer: send local debug ubc flow");
+                }
+                this.a.c();
+                this.a.h();
+            }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static volatile String e = "0";
+    public static class b extends iy1 {
+        public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-284283184, "Lcom/repackage/iy1$d;")) == null) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b() {
+            super(null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.repackage.iy1
+        public void f(String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str)) {
                 return;
             }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+            if (iy1.a) {
+                Log.d("LocalDebugStatistic", "local-debug statistic event name is : " + str);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-284283184, "Lcom/repackage/iy1$d;");
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != 50335962) {
+                if (hashCode != 1109597094) {
+                    if (hashCode == 1158237819 && str.equals("downloadsuccess")) {
+                        c = 1;
+                    }
+                } else if (str.equals("downloadfail")) {
+                    c = 2;
+                }
+            } else if (str.equals("downloadstart")) {
+                c = 0;
+            }
+            if (c == 0) {
+                i();
+                g73.d(iy1.c, str, d());
+            } else if (c == 1) {
+                if (iy1.c != null) {
+                    g73.d(iy1.c, "downloadsuccess", d());
+                }
+                c();
+                h();
+            } else if (c != 2) {
+                if (iy1.c != null) {
+                    g73.d(iy1.c, str, d());
+                }
+            } else {
+                if (iy1.c != null) {
+                    g73.d(iy1.c, "downloadfail", d());
+                }
+                c();
+                h();
             }
         }
 
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = "0";
-            this.b = "0";
-            this.c = "0";
-            this.d = "0";
+        public /* synthetic */ b(a aVar) {
+            this();
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class e {
+    public static class c extends iy1 {
         public static /* synthetic */ Interceptable $ic;
-        public static final iy1 a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-284283153, "Lcom/repackage/iy1$e;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-284283153, "Lcom/repackage/iy1$e;");
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c() {
+            super(null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new iy1(null);
+        }
+
+        @Override // com.repackage.iy1
+        public void f(String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str) || ky1.k().m()) {
+                return;
+            }
+            if (iy1.a) {
+                Log.d("LocalDebugStatistic", "local-debug statistic event name is : " + str);
+            }
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != 900970612) {
+                if (hashCode == 1415552890 && str.equals("unzipstart")) {
+                    c = 0;
+                }
+            } else if (str.equals("pageready")) {
+                c = 1;
+            }
+            if (c == 0) {
+                i();
+                g73.d(iy1.c, str, d());
+            } else if (c != 1) {
+                if (iy1.c != null) {
+                    g73.d(iy1.c, str, d());
+                }
+            } else if (iy1.c != null) {
+                g73.d(iy1.c, str, d());
+                c();
+                h();
+            }
+        }
+
+        public /* synthetic */ c(a aVar) {
+            this();
         }
     }
 
@@ -177,218 +206,115 @@ public class iy1 {
                 return;
             }
         }
-        boolean z = sg1.a;
-        c = (ActivityManager) pj2.c().getSystemService("activity");
-        d = -1.0f;
-        pj2.g0().getSwitch("swan_memory_sample", 0);
-        e = 0;
-        f = new Random().nextInt(100);
+        a = jh1.a;
     }
 
     public /* synthetic */ iy1(a aVar) {
         this();
     }
 
-    public static iy1 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? e.a : (iy1) invokeV.objValue;
-    }
-
-    public static float d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (d < 0.0f) {
-                d = e().floatValue();
-            }
-            return d;
-        }
-        return invokeV.floatValue;
-    }
-
-    public static Float e() {
+    public static iy1 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            c.getMemoryInfo(memoryInfo);
-            return Float.valueOf(((float) memoryInfo.totalMem) / 1048576.0f);
-        }
-        return (Float) invokeV.objValue;
-    }
-
-    public static long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? vw2.c(b.class, null).a.getLong("key_get_host_pss") : invokeV.longValue;
-    }
-
-    @NonNull
-    public static c i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            c cVar = new c();
-            Debug.MemoryInfo[] processMemoryInfo = c.getProcessMemoryInfo(new int[]{Process.myPid(), h03.K().q().W().j("main_pid", -1)});
-            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            c.getMemoryInfo(memoryInfo);
-            cVar.c = ((float) (memoryInfo.totalMem - memoryInfo.availMem)) / 1048576.0f;
-            if (processMemoryInfo != null && processMemoryInfo.length == 2) {
-                Debug.MemoryInfo memoryInfo2 = processMemoryInfo[0];
-                Debug.MemoryInfo memoryInfo3 = processMemoryInfo[1];
-                if (memoryInfo2 != null) {
-                    cVar.b = ((float) Debug.getPss()) / 1024.0f;
-                }
-                if (memoryInfo3 != null) {
-                    cVar.a = ((float) f()) / 1024.0f;
+            if (b == null) {
+                synchronized (mm2.class) {
+                    if (b == null) {
+                        if (jc1.g()) {
+                            b = new b(null);
+                        } else {
+                            b = new c(null);
+                        }
+                    }
                 }
             }
-            return cVar;
+            return b;
         }
-        return (c) invokeV.objValue;
+        return (iy1) invokeV.objValue;
     }
 
-    public final void a(JSONObject jSONObject, ActivityManager.MemoryInfo memoryInfo) {
+    public static void g(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, memoryInfo) == null) || jSONObject == null || memoryInfo == null) {
+        if (!(interceptable == null || interceptable.invokeL(65542, null, jSONArray) == null) || jSONArray == null || jSONArray.length() <= 0) {
             return;
         }
-        this.b = new d();
-        this.b.b = jSONObject.optString("host_used_mem");
-        this.b.a = jSONObject.optString("smart_app_used_mem");
-        this.b.d = jSONObject.optString("sys_free_mem");
-        this.b.c = b(((float) memoryInfo.totalMem) / 1048576.0f);
-    }
-
-    public final String b(float f2) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) ? this.a.format(f2) : (String) invokeF.objValue;
-    }
-
-    @NonNull
-    public d g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b != null ? this.b : new d() : (d) invokeV.objValue;
-    }
-
-    public String h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (m()) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    ix1.k("SwanMemoryProperty", "getMemoryInfo mainPid: " + i);
-                    Debug.MemoryInfo[] processMemoryInfo = c.getProcessMemoryInfo(new int[]{Process.myPid(), i});
-                    if (processMemoryInfo != null && processMemoryInfo.length == 2) {
-                        Debug.MemoryInfo memoryInfo = processMemoryInfo[0];
-                        if (memoryInfo != null) {
-                            jSONObject.put("smart_app_used_mem", b(((float) Debug.getPss()) / 1024.0f));
-                            jSONObject.put("total_rss", b((((memoryInfo.getTotalPrivateClean() + memoryInfo.getTotalPrivateDirty()) + memoryInfo.getTotalSharedClean()) + memoryInfo.getTotalSharedDirty()) / 1024.0f));
-                            jSONObject.put("private_clean", b(memoryInfo.getTotalPrivateClean() / 1024.0f));
-                            jSONObject.put("private_dirty", b(memoryInfo.getTotalPrivateDirty() / 1024.0f));
-                            jSONObject.put("shared_clean", b(memoryInfo.getTotalSharedClean() / 1024.0f));
-                            jSONObject.put("shared_dirty", b(memoryInfo.getTotalSharedDirty() / 1024.0f));
-                        }
-                        Debug.MemoryInfo memoryInfo2 = processMemoryInfo[1];
-                        if (memoryInfo2 != null) {
-                            jSONObject.put("host_used_mem", b((((memoryInfo2.getTotalPrivateClean() + memoryInfo2.getTotalPrivateDirty()) + memoryInfo2.getTotalSharedClean()) + memoryInfo2.getTotalSharedDirty()) / 1024.0f));
-                        }
-                    }
-                    ActivityManager.MemoryInfo memoryInfo3 = new ActivityManager.MemoryInfo();
-                    c.getMemoryInfo(memoryInfo3);
-                    jSONObject.put("sys_free_mem", b(((float) memoryInfo3.availMem) / 1048576.0f));
-                    jSONObject.put("sys_low_mem", memoryInfo3.lowMemory ? "1" : "0");
-                    jSONObject.put("native_heap", b(((float) Debug.getNativeHeapSize()) / 1048576.0f));
-                    jSONObject.put("native_heap_alloc", b(((float) Debug.getNativeHeapAllocatedSize()) / 1048576.0f));
-                    jSONObject.put("vm_max_mem", b(((float) Runtime.getRuntime().maxMemory()) / 1048576.0f));
-                    jSONObject.put("vm_total_mem", b(((float) Runtime.getRuntime().totalMemory()) / 1048576.0f));
-                    jSONObject.put("vm_free_mem", b(((float) Runtime.getRuntime().freeMemory()) / 1048576.0f));
-                    jSONObject.put("thread_count", Thread.activeCount());
-                    a(jSONObject, memoryInfo3);
-                } catch (Exception e2) {
-                    ix1.k("SwanMemoryProperty", "getMemoryInfo: " + Log.getStackTraceString(e2));
-                }
-                ix1.k("SwanMemoryProperty", "getMemoryInfo result=" + jSONObject);
-                return jSONObject.toString();
-            }
-            return "";
+        JSONObject optJSONObject = jSONArray.optJSONObject(0);
+        String optString = optJSONObject != null ? optJSONObject.optString("actionId") : "";
+        if (TextUtils.isEmpty(optString) || b == null) {
+            return;
         }
-        return (String) invokeI.objValue;
+        b.f(optString);
     }
 
-    public d j() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            d dVar = new d();
-            Debug.MemoryInfo[] processMemoryInfo = c.getProcessMemoryInfo(new int[]{Process.myPid(), h03.K().q().W().j("main_pid", -1)});
-            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            c.getMemoryInfo(memoryInfo);
-            if (processMemoryInfo != null && processMemoryInfo.length == 2) {
-                Debug.MemoryInfo memoryInfo2 = processMemoryInfo[0];
-                Debug.MemoryInfo memoryInfo3 = processMemoryInfo[1];
-                if (memoryInfo2 != null) {
-                    if (TextUtils.equals("0", d.e)) {
-                        String unused = d.e = b(((float) memoryInfo.totalMem) / 1048576.0f);
-                    }
-                    dVar.c = d.e;
-                    dVar.d = b(((float) memoryInfo.availMem) / 1048576.0f);
-                    dVar.a = b(((float) Debug.getPss()) / 1024.0f);
-                }
-                if (memoryInfo3 != null) {
-                    dVar.b = b((((memoryInfo3.getTotalPrivateClean() + memoryInfo3.getTotalPrivateDirty()) + memoryInfo3.getTotalSharedClean()) + memoryInfo3.getTotalSharedDirty()) / 1024.0f);
-                }
-            }
-            return dVar;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || c == null) {
+            return;
         }
-        return (d) invokeV.objValue;
+        JSONObject jSONObject = new JSONObject();
+        JSONObject jSONObject2 = new JSONObject();
+        try {
+            z03 b0 = z03.b0();
+            jSONObject2.putOpt("appid", b0 == null ? "" : b0.getAppId());
+            jSONObject2.putOpt("from", "local-debug");
+            r73.a(jSONObject2);
+            jSONObject.putOpt("from", "swan");
+            jSONObject.putOpt("ext", jSONObject2);
+        } catch (JSONException unused) {
+            if (a) {
+                Log.d("LocalDebugStatistic", "page ready statistic value is invalid ");
+            }
+        }
+        g73.f(c, jSONObject.toString());
+        g73.c(c);
     }
 
-    public String k() {
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (m()) {
-                ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-                c.getMemoryInfo(memoryInfo);
-                String b2 = b(((float) memoryInfo.totalMem) / 1048576.0f);
-                ix1.k("SwanMemoryProperty", "getMemoryInfo sysTotalMemory=" + b2);
-                return b2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.putOpt("timestamp", Long.valueOf(System.currentTimeMillis()));
+            } catch (JSONException e) {
+                if (a) {
+                    Log.d("LocalDebugStatistic", "add event content fail", e);
+                }
             }
-            return "";
+            return jSONObject.toString();
         }
         return (String) invokeV.objValue;
     }
 
-    public void l() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.b == null) {
-            this.b = j();
-        }
-    }
+    public abstract void f(String str);
 
-    public final boolean m() {
-        InterceptResult invokeV;
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            ix1.k("SwanMemoryProperty", "getMemoryInfo mMemSample =" + e + "; mRandomNum =" + f);
-            int i = e;
-            if (i <= 0) {
-                return false;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Timer timer = d;
+            if (timer != null) {
+                timer.cancel();
+                d = null;
             }
-            return i >= 100 || f <= i;
+            b = null;
+            c = null;
         }
-        return invokeV.booleanValue;
     }
 
-    public void n() {
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.b = null;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && c == null) {
+            c = s73.c("1153");
+            a aVar = new a(this);
+            Timer timer = new Timer();
+            d = timer;
+            try {
+                timer.schedule(aVar, 40000L);
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
@@ -402,9 +328,7 @@ public class iy1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new DecimalFormat("#.###");
     }
 }

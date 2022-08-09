@@ -1,9 +1,9 @@
 package com.repackage;
 /* loaded from: classes5.dex */
 public interface b68 {
-    void a();
+    e88 c();
 
-    void b();
+    void e();
 
-    void c();
+    void f(String str);
 }

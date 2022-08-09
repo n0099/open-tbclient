@@ -1,120 +1,83 @@
 package com.repackage;
 
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.util.BdListViewHelper;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterActivity;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.searchbox.live.interfaces.player.BuildParams;
+import com.baidu.searchbox.live.interfaces.player.LivePlayer;
+import com.baidu.searchbox.live.interfaces.service.ILivePlayerService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class mj7 {
+public class mj7 implements ILivePlayerService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NoNetworkView a;
-    public NavigationBar b;
-    public BdListView c;
-    public View d;
-    public kj7 e;
-    public View f;
-    public TbImageView g;
-    public TextView h;
-    public MemberTaskCenterActivity i;
 
-    public mj7(MemberTaskCenterActivity memberTaskCenterActivity, View.OnClickListener onClickListener) {
+    public mj7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {memberTaskCenterActivity, onClickListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.i = memberTaskCenterActivity;
-        memberTaskCenterActivity.setContentView(R.layout.obfuscated_res_0x7f0d054e);
-        this.d = memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f091b4c);
-        this.a = (NoNetworkView) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f09243b);
-        NavigationBar navigationBar = (NavigationBar) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f092439);
-        this.b = navigationBar;
-        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.b.setTitleText(R.string.obfuscated_res_0x7f0f0a9e);
-        this.c = (BdListView) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f09142d);
-        this.f = LayoutInflater.from(memberTaskCenterActivity.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d054f, (ViewGroup) null);
-        BdListViewHelper.d(memberTaskCenterActivity.getActivity(), this.c, BdListViewHelper.HeadType.DEFAULT);
-        TbImageView tbImageView = (TbImageView) this.f.findViewById(R.id.obfuscated_res_0x7f090144);
-        this.g = tbImageView;
-        tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09070d);
-        this.g.setOnClickListener(onClickListener);
-        kj7 kj7Var = new kj7(memberTaskCenterActivity);
-        this.e = kj7Var;
-        kj7Var.d(onClickListener);
-        this.c.addHeaderView(this.f);
-        this.c.setAdapter((ListAdapter) this.e);
     }
 
-    public final SpannableString a(String str, String str2) {
-        InterceptResult invokeLL;
+    public final LivePlayer a(BuildParams buildParams) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            SpannableString spannableString = new SpannableString(str + str2);
-            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0109)), 0, str.length(), 33);
-            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301)), str.length(), spannableString.length(), 33);
-            return spannableString;
-        }
-        return (SpannableString) invokeLL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, buildParams)) == null) ? new oj7(buildParams) : (LivePlayer) invokeL.objValue;
     }
 
-    public BdListView b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
+    public LivePlayer createBackPlayer(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (BdListView) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? new ij7(str) : (LivePlayer) invokeL.objValue;
     }
 
-    public View c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
+    public LivePlayer createPlayer(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (View) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? new jj7(str) : (LivePlayer) invokeL.objValue;
     }
 
-    public void d(int i) {
+    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
+    public void initPlayerEvn(CyberPlayerManager.InstallListener installListener, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.b.onChangeSkinType(this.i.getPageContext(), i);
-            this.a.d(this.i.getPageContext(), i);
-            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0205);
+        if (interceptable == null || interceptable.invokeLI(1048580, this, installListener, i) == null) {
+            kj7.e().h(installListener, i);
         }
     }
 
-    public void e(String str, List<hj7> list, long j) {
+    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
+    public boolean isAuthError(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, list, Long.valueOf(j)}) == null) {
-            this.g.J(str, 10, false);
-            this.h.setText(a(this.i.getResources().getString(R.string.obfuscated_res_0x7f0f0471), String.valueOf(j)));
-            this.e.c(list);
-            this.e.notifyDataSetChanged();
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i == -2403 || i == -33403 : invokeI.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ILivePlayerService
+    public LivePlayer createPlayer(BuildParams buildParams) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, buildParams)) == null) {
+            int playerType = buildParams.getPlayerType();
+            if (playerType != 1) {
+                if (playerType != 2) {
+                    return createPlayer(buildParams.getRoomId());
+                }
+                return a(buildParams);
+            }
+            return createBackPlayer(buildParams.getRoomId());
         }
+        return (LivePlayer) invokeL.objValue;
     }
 }

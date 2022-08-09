@@ -1,81 +1,86 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
-import com.fun.ad.sdk.CustomInflater;
-import com.fun.ad.sdk.ExpressInflater;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
-import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes7.dex */
-public class ve9 extends FunNativeAd2Bridger<ue9, View> {
+public class ve9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean b;
-    public final /* synthetic */ qe9 c;
+    public int a;
+    public long b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ve9(qe9 qe9Var, ReporterPidLoader reporterPidLoader) {
-        super(reporterPidLoader);
+    public ve9(boolean z, long j, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {qe9Var, reporterPidLoader};
+            Object[] objArr = {Boolean.valueOf(z), Long.valueOf(j), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((ReporterPidLoader) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = qe9Var;
+        this.b = j;
+        this.a = i;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public View createExpressView(ue9 ue9Var) {
-        InterceptResult invokeL;
+    public static ve9 b(String str, int i, int i2) {
+        InterceptResult invokeLII;
+        long j;
+        int i3;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ue9Var)) == null) ? ((TTNativeExpressAd) ue9Var.a).getExpressAdView() : (View) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showCustom(Activity activity, CustomInflater customInflater, String str, ue9 ue9Var, BaseNativeAd2<ue9, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, ue9Var, baseNativeAd2, funAdInteractionListener}) == null) {
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, ue9 ue9Var, BaseNativeAd2<ue9, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, ue9Var, baseNativeAd2, funAdInteractionListener}) == null) {
-            ue9 ue9Var2 = ue9Var;
-            expressInflater.inflate();
-            ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener> expressAdListenerWrapper = this.c.f.get(ue9Var2);
-            if (expressAdListenerWrapper != null) {
-                expressAdListenerWrapper.funListener = funAdInteractionListener;
-            } else {
-                LogPrinter.e("Can not get correspond listener by csjDrawVideoAd.", new Object[0]);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, str, i, i2)) == null) {
+            if (i >= i2) {
+                return null;
             }
-            this.c.onShowStart(ue9Var2, this.b);
-            this.b = true;
+            long j2 = 0;
+            int i4 = i;
+            while (i4 < i2) {
+                char charAt = str.charAt(i4);
+                if (charAt < '0' || charAt > '9') {
+                    if (charAt >= 'A' && charAt <= 'F') {
+                        j = j2 * 16;
+                        i3 = charAt - 'A';
+                    } else if (charAt < 'a' || charAt > 'f') {
+                        break;
+                    } else {
+                        j = j2 * 16;
+                        i3 = charAt - 'a';
+                    }
+                    j2 = j + i3 + 10;
+                } else {
+                    j2 = (j2 * 16) + (charAt - '0');
+                }
+                if (j2 > 4294967295L) {
+                    return null;
+                }
+                i4++;
+            }
+            if (i4 == i) {
+                return null;
+            }
+            return new ve9(false, j2, i4);
         }
+        return (ve9) invokeLII.objValue;
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (int) this.b : invokeV.intValue;
     }
 }

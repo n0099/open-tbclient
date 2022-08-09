@@ -1,90 +1,146 @@
 package com.repackage;
 
-import android.os.Bundle;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class f42 {
+public class f42 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public g42 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755757875, "Lcom/repackage/f42;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755757875, "Lcom/repackage/f42;");
-                return;
-            }
-        }
-        b = sg1.a;
-    }
-
-    public f42() {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    /* JADX WARN: Code restructure failed: missing block: B:45:0x009e, code lost:
+        if (r10.equals("1") != false) goto L13;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static int a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            char c = 0;
+            if (TextUtils.isEmpty(str)) {
+                return 0;
+            }
+            int hashCode = str.hashCode();
+            switch (hashCode) {
+                case 49:
+                    break;
+                case 50:
+                    if (str.equals("2")) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 51:
+                    if (str.equals("3")) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 52:
+                    if (str.equals("4")) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 53:
+                    if (str.equals("5")) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 54:
+                    if (str.equals("6")) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 55:
+                    if (str.equals("7")) {
+                        c = 6;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 56:
+                    if (str.equals("8")) {
+                        c = 7;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 57:
+                    if (str.equals("9")) {
+                        c = '\b';
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    switch (hashCode) {
+                        case 1567:
+                            if (str.equals("10")) {
+                                c = '\t';
+                                break;
+                            }
+                            c = 65535;
+                            break;
+                        case 1568:
+                            if (str.equals("11")) {
+                                c = '\n';
+                                break;
+                            }
+                            c = 65535;
+                            break;
+                        case 1569:
+                            if (str.equals("12")) {
+                                c = 11;
+                                break;
+                            }
+                            c = 65535;
+                            break;
+                        default:
+                            c = 65535;
+                            break;
+                    }
+            }
+            switch (c) {
+                case 0:
+                    return 6;
+                case 1:
+                    return 5;
+                case 2:
+                    return 8;
+                case 3:
+                    return 9;
+                case 4:
+                    return 10;
+                case 5:
+                    return 11;
+                case 6:
+                    return 12;
+                case 7:
+                    return 13;
+                case '\b':
+                    return 14;
+                case '\t':
+                    return 15;
+                case '\n':
+                    return 11;
+                case 11:
+                    return 12;
+                default:
+                    return 7;
             }
         }
-        this.a = g42.a;
-    }
-
-    public final void a(@NonNull hx2 hx2Var, @NonNull PrefetchEvent prefetchEvent, @Nullable PMSAppInfo pMSAppInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, hx2Var, prefetchEvent, pMSAppInfo) == null) {
-            Bundle bundle = new Bundle();
-            bundle.setClassLoader(PrefetchEvent.class.getClassLoader());
-            bundle.putParcelable("swan_app_bundle_prefetch", prefetchEvent);
-            if (pMSAppInfo == null) {
-                pMSAppInfo = d84.i().u(prefetchEvent.appId);
-            }
-            if (pMSAppInfo == null) {
-                return;
-            }
-            bundle.putParcelable("swan_app_prefetch_pms_info", pMSAppInfo);
-            if (this.a.a(prefetchEvent, pMSAppInfo, bundle)) {
-                yw2 e = yw2.e();
-                ax2 ax2Var = new ax2(120, bundle);
-                ax2Var.b(hx2Var.b);
-                ax2Var.p(false);
-                e.h(ax2Var);
-            }
-        }
-    }
-
-    public void b(@NonNull PrefetchEvent prefetchEvent, @NonNull hx2 hx2Var, @Nullable PMSAppInfo pMSAppInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, prefetchEvent, hx2Var, pMSAppInfo) == null) {
-            a(hx2Var, prefetchEvent, pMSAppInfo);
-            hx2Var.j0(prefetchEvent);
-            if (b) {
-                Log.d("PrefetchMessenger", "onPrefetchReady event: " + prefetchEvent);
-                Log.d("PrefetchMessenger", "onPrefetchReady client id: " + hx2Var.b.index);
-            }
-        }
+        return invokeL.intValue;
     }
 }

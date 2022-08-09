@@ -1,7 +1,5 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Color;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,27 +7,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class cb0 extends ab0 {
+public class cb0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, String[]> b;
+    public static volatile int b;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755803104, "Lcom/repackage/cb0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755803104, "Lcom/repackage/cb0;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755803104, "Lcom/repackage/cb0;")) == null) {
+            return;
         }
-        b = new HashMap<>();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755803104, "Lcom/repackage/cb0;");
+        }
     }
 
     public cb0() {
@@ -45,48 +42,30 @@ public class cb0 extends ab0 {
                 return;
             }
         }
-        b.put("color_1F1F1F", new String[]{"#1F1F1F", "", "", ""});
-        b.put("color_white1", new String[]{"#FFFFFF", "", "", ""});
-        b.put("color_white2", new String[]{"#FFFFFF", "", "", ""});
-        b.put("color_white3", new String[]{"#FFFFFF", "", "", ""});
-        b.put("color_F5F5F51", new String[]{"#F5F5F5", "", "", ""});
-        b.put("color_F5F5F52", new String[]{"#F5F5F5", "", "", ""});
-        b.put("color_F5F5F53", new String[]{"#F5F5F5", "", "", ""});
-        b.put("color_FF33551", new String[]{"#FF3355", "", "", ""});
-        b.put("color_FF33552", new String[]{"#1AFF3355", "", "", ""});
-        b.put("color_858585", new String[]{"#858585", "", "", ""});
-        b.put("color_525252", new String[]{"#525252", "", "", ""});
-        b.put("color_FF3333", new String[]{"#FF3333", "", "", ""});
-        b.put("color_768CAE", new String[]{"#768CAE", "", "", ""});
-        b.put("color_4E6EF2", new String[]{"#4E6EF2", "", "", ""});
-        b.put("color_8585852", new String[]{"#858585", "", "", ""});
-        b.put("color_5252522", new String[]{"#525252", "", "", ""});
-        b.put("color_btn_stroke", new String[]{"#EEEEEE", "", "", ""});
-        b.put("color_btn_fill", new String[]{"#00000000", "", "", ""});
+        this.a = 0;
     }
 
-    @Override // com.repackage.ab0
-    public int a(Context context, boolean z, String str) {
-        InterceptResult invokeCommon;
+    public static synchronized cb0 a() {
+        InterceptResult invokeV;
+        cb0 cb0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, Boolean.valueOf(z), str})) == null) {
-            if (b.containsKey(str)) {
-                String str2 = b.get(str)[0];
-                if (z) {
-                    str2 = b.get(str)[3];
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (cb0.class) {
+                if (b < 1000000) {
+                    b = 1000000;
                 }
-                if (ta0.a(str2)) {
-                    return -16777216;
-                }
-                try {
-                    return Color.parseColor(str2);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return -16777216;
-                }
+                cb0Var = new cb0();
+                cb0Var.a = b;
+                b++;
             }
-            return -16777216;
+            return cb0Var;
         }
-        return invokeCommon.intValue;
+        return (cb0) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 }

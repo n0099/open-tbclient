@@ -7,37 +7,40 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
 public final class vp0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<up0> a;
+    public final int a;
+    public final int b;
+    public final int c;
+    public final int d;
 
-    public vp0(List<up0> hostItemList) {
+    public vp0(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hostItemList};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(hostItemList, "hostItemList");
-        this.a = hostItemList;
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
+        this.d = i4;
     }
 
-    public final List<up0> a() {
+    public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
     }
 
     public boolean equals(Object obj) {
@@ -45,7 +48,11 @@ public final class vp0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
             if (this != obj) {
-                return (obj instanceof vp0) && Intrinsics.areEqual(this.a, ((vp0) obj).a);
+                if (obj instanceof vp0) {
+                    vp0 vp0Var = (vp0) obj;
+                    return this.a == vp0Var.a && this.b == vp0Var.b && this.c == vp0Var.c && this.d == vp0Var.d;
+                }
+                return false;
             }
             return true;
         }
@@ -55,21 +62,14 @@ public final class vp0 {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<up0> list = this.a;
-            if (list != null) {
-                return list.hashCode();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (((((this.a * 31) + this.b) * 31) + this.c) * 31) + this.d : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "AuthHostModel(hostItemList=" + this.a + SmallTailInfo.EMOTION_SUFFIX;
+            return "AuthStrategyModel(uaCode=" + this.a + ", refererCode=" + this.b + ", tokenCode=" + this.c + ", modeCode=" + this.d + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

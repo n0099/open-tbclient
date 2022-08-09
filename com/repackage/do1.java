@@ -1,80 +1,79 @@
 package com.repackage;
 
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class do1 {
+/* loaded from: classes6.dex */
+public class do1 extends bo1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yg1 a;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final do1 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-436664242, "Lcom/repackage/do1$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-436664242, "Lcom/repackage/do1$a;");
-                    return;
-                }
-            }
-            a = new do1();
-        }
-    }
-
-    public do1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public do1(w13 w13Var) {
+        super(w13Var, "/swanAPI/cloudGetUrl");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {w13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((w13) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static do1 a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.bo1, com.repackage.w23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, z03 z03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (do1) invokeV.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, z03Var)) == null) ? super.d(context, unitedSchemeEntity, callbackHandler, z03Var) : invokeLLLL.booleanValue;
     }
 
-    public void b(int i) {
-        yg1 yg1Var;
+    @Override // com.repackage.bo1
+    public void j(Response response, CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (yg1Var = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, callbackHandler, str) == null) {
+            String header = response.header("Content-Type", "");
+            if (header != null && header.contains("application/json")) {
+                try {
+                    JSONObject m = zn1.m(response);
+                    if (m == null) {
+                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "response body is null").toString());
+                        return;
+                    } else if (!TextUtils.isEmpty(m.optString("DownloadUrl"))) {
+                        m(callbackHandler, str, m);
+                        return;
+                    } else {
+                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "downloadUrl is empty").toString());
+                        return;
+                    }
+                } catch (Exception e) {
+                    k(callbackHandler, str, 1001, e.getMessage());
+                    if (bo1.c) {
+                        e.printStackTrace();
+                        return;
+                    }
+                    return;
+                }
+            }
+            k(callbackHandler, str, 1001, "content type error.");
         }
-        yg1Var.a(i);
-        this.a = null;
-    }
-
-    public void c(JSONObject jSONObject) {
-        yg1 yg1Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || (yg1Var = this.a) == null) {
-            return;
-        }
-        yg1Var.b(jSONObject);
-        this.a = null;
     }
 }

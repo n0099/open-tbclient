@@ -7,21 +7,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class R$layout {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int notification_action = 2131559981;
-    public static final int notification_action_tombstone = 2131559982;
-    public static final int notification_media_action = 2131559983;
-    public static final int notification_media_cancel_action = 2131559984;
-    public static final int notification_template_big_media = 2131559985;
-    public static final int notification_template_big_media_custom = 2131559986;
-    public static final int notification_template_big_media_narrow = 2131559987;
-    public static final int notification_template_big_media_narrow_custom = 2131559988;
-    public static final int notification_template_custom_big = 2131559989;
-    public static final int notification_template_icon_group = 2131559990;
-    public static final int notification_template_lines_media = 2131559991;
-    public static final int notification_template_media = 2131559992;
-    public static final int notification_template_media_custom = 2131559993;
-    public static final int notification_template_part_chronometer = 2131559994;
-    public static final int notification_template_part_time = 2131559995;
+    public static final int notification_action = 2131560016;
+    public static final int notification_action_tombstone = 2131560017;
+    public static final int notification_media_action = 2131560018;
+    public static final int notification_media_cancel_action = 2131560019;
+    public static final int notification_template_big_media = 2131560020;
+    public static final int notification_template_big_media_custom = 2131560021;
+    public static final int notification_template_big_media_narrow = 2131560022;
+    public static final int notification_template_big_media_narrow_custom = 2131560023;
+    public static final int notification_template_custom_big = 2131560024;
+    public static final int notification_template_icon_group = 2131560025;
+    public static final int notification_template_lines_media = 2131560026;
+    public static final int notification_template_media = 2131560027;
+    public static final int notification_template_media_custom = 2131560028;
+    public static final int notification_template_part_chronometer = 2131560029;
+    public static final int notification_template_part_time = 2131560030;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$layout() {

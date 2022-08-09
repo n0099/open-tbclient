@@ -1,216 +1,97 @@
 package com.repackage;
 
-import android.util.Log;
+import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
 /* loaded from: classes7.dex */
-public class t09 extends InputStream {
+public class t09 extends s09 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String e;
+    public static int g;
     public transient /* synthetic */ FieldHolder $fh;
-    public InputStream a;
-    public u09 b;
-    public long c;
-    public boolean d;
+    public TextView c;
+    public TextView d;
+    public TextView e;
+    public TextView f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755344428, "Lcom/repackage/t09;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755344428, "Lcom/repackage/t09;");
-                return;
-            }
-        }
-        e = t09.class.getName();
-    }
-
-    public t09(InputStream inputStream, u09 u09Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t09(d9 d9Var) {
+        super(d9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, u09Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {d9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((d9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = 0L;
-        this.d = false;
-        this.a = inputStream;
-        this.b = u09Var;
+        g = d9Var.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070302);
     }
 
-    @Override // java.io.InputStream
-    public int available() throws IOException {
+    @Override // com.repackage.s09
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0718, (ViewGroup) null);
+            this.b = inflate;
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091c36);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c38);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c37);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c39);
+        }
+    }
+
+    public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                return this.a.available();
-            } catch (IOException e2) {
-                this.b.b(e2, this.c);
-                throw e2;
-            }
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (View) invokeV.objValue;
     }
 
-    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
+    public void l() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.d) {
-            return;
-        }
-        this.d = true;
-        try {
-            try {
-                if (this.a.read() == -1) {
-                    this.b.onComplete(this.c);
-                } else {
-                    this.b.a(this.c);
-                }
-                this.a.close();
-            } catch (Exception unused) {
-                this.a.close();
-            } catch (Throwable th) {
-                try {
-                    this.a.close();
-                } catch (Exception e2) {
-                    this.b.b(e2, this.c);
-                }
-                throw th;
-            }
-        } catch (Exception e3) {
-            this.b.b(e3, this.c);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0107);
+            this.c.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.filter_rotate_left), (Drawable) null, (Drawable) null);
+            this.d.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.filter_rotate_right), (Drawable) null, (Drawable) null);
+            this.f.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.filter_flip_up_down), (Drawable) null, (Drawable) null);
+            this.e.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, SkinManager.getDrawable(R.drawable.filter_flip_left_right), (Drawable) null, (Drawable) null);
+            this.c.setCompoundDrawablePadding(g);
+            this.d.setCompoundDrawablePadding(g);
+            this.f.setCompoundDrawablePadding(g);
+            this.e.setCompoundDrawablePadding(g);
         }
     }
 
-    @Override // java.io.InputStream
-    public int read(byte[] bArr) throws IOException {
-        InterceptResult invokeL;
+    public void m(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
-            if (this.d) {
-                return -1;
-            }
-            try {
-                int read = this.a.read(bArr, 0, bArr.length);
-                if (read >= 0) {
-                    this.c += read;
-                } else {
-                    this.d = true;
-                    this.b.onComplete(this.c);
-                }
-                return read;
-            } catch (IOException e2) {
-                this.b.b(e2, this.c);
-                throw e2;
-            } catch (IllegalStateException e3) {
-                Log.e(e, "Exception reading data from InputStream", e3);
-                return -1;
-            }
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            this.c.setTag(0);
+            this.d.setTag(1);
+            this.e.setTag(2);
+            this.f.setTag(3);
+            this.c.setOnClickListener(onClickListener);
+            this.d.setOnClickListener(onClickListener);
+            this.e.setOnClickListener(onClickListener);
+            this.f.setOnClickListener(onClickListener);
         }
-        return invokeL.intValue;
-    }
-
-    @Override // java.io.InputStream
-    public synchronized void reset() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (this) {
-                try {
-                    this.a.reset();
-                } catch (IOException e2) {
-                    this.b.b(e2, this.c);
-                    throw e2;
-                }
-            }
-        }
-    }
-
-    @Override // java.io.InputStream
-    public long skip(long j) throws IOException {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
-            long skip = this.a.skip(j);
-            this.c += skip;
-            return skip;
-        }
-        return invokeJ.longValue;
-    }
-
-    @Override // java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i, i2)) == null) {
-            if (this.d) {
-                return -1;
-            }
-            try {
-                int read = this.a.read(bArr, i, i2);
-                if (read >= 0) {
-                    this.c += read;
-                } else {
-                    this.d = true;
-                    this.b.onComplete(this.c);
-                }
-                return read;
-            } catch (IOException e2) {
-                this.b.b(e2, this.c);
-                throw e2;
-            } catch (IllegalStateException e3) {
-                Log.e(e, "Exception reading data from InputStream", e3);
-                return -1;
-            }
-        }
-        return invokeLII.intValue;
-    }
-
-    @Override // java.io.InputStream
-    public int read() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.d) {
-                return -1;
-            }
-            try {
-                int read = this.a.read();
-                if (read >= 0) {
-                    this.c += read;
-                } else {
-                    this.d = true;
-                    this.b.onComplete(this.c);
-                }
-                return read;
-            } catch (IOException e2) {
-                this.b.b(e2, this.c);
-                throw e2;
-            } catch (IllegalStateException e3) {
-                Log.e(e, "Exception reading data from InputStream", e3);
-                return -1;
-            }
-        }
-        return invokeV.intValue;
     }
 }

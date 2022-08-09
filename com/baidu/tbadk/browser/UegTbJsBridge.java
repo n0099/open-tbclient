@@ -14,19 +14,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cx4;
-import com.repackage.dj8;
-import com.repackage.ei;
-import com.repackage.hj8;
-import com.repackage.ho;
-import com.repackage.m85;
-import com.repackage.xo8;
+import com.repackage.fi;
+import com.repackage.io;
+import com.repackage.k95;
+import com.repackage.or8;
+import com.repackage.pl8;
+import com.repackage.tl8;
+import com.repackage.wx4;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.BlockPopInfo;
-@ho
-/* loaded from: classes2.dex */
-public class UegTbJsBridge implements dj8 {
+@io
+/* loaded from: classes3.dex */
+public class UegTbJsBridge implements pl8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERFACE_NAME = "CommonJSBridge";
     public static final String METHOD_BIND_MOBILE_NUMBER = "bindMobileNumber";
@@ -62,44 +62,44 @@ public class UegTbJsBridge implements dj8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, str) == null) {
             try {
-                ei.a(new JSONObject(str).optString("content"));
+                fi.a(new JSONObject(str).optString("content"));
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public hj8 bindingMobileNumber() {
+    public tl8 bindingMobileNumber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            hj8 hj8Var = new hj8();
+            tl8 tl8Var = new tl8();
             try {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, cx4.b()));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, wx4.b()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return hj8Var;
+            return tl8Var;
         }
-        return (hj8) invokeV.objValue;
+        return (tl8) invokeV.objValue;
     }
 
-    public hj8 callNativeSMS(String str, String str2) {
+    public tl8 callNativeSMS(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            hj8 hj8Var = new hj8();
+            tl8 tl8Var = new tl8();
             Context pageActivity = this.mTbPageContext.getPageActivity();
             if (pageActivity == null) {
                 pageActivity = this.mContext;
             }
             UtilHelper.smsTo(pageActivity, str, str2);
-            return hj8Var;
+            return tl8Var;
         }
-        return (hj8) invokeLL.objValue;
+        return (tl8) invokeLL.objValue;
     }
 
-    @Override // com.repackage.dj8
+    @Override // com.repackage.pl8
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -156,37 +156,37 @@ public class UegTbJsBridge implements dj8 {
         return invokeLLLL.booleanValue;
     }
 
-    public hj8 novelPayResultToClient(boolean z) {
+    public tl8 novelPayResultToClient(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            hj8 hj8Var = new hj8();
+            tl8 tl8Var = new tl8();
             if (z) {
-                m85.d();
+                k95.d();
             }
-            return hj8Var;
+            return tl8Var;
         }
-        return (hj8) invokeZ.objValue;
+        return (tl8) invokeZ.objValue;
     }
 
-    public hj8 recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
+    public tl8 recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, str, str2, str3, str4, str5)) == null) {
-            hj8 hj8Var = new hj8();
+            tl8 tl8Var = new tl8();
             ReadRecordsData readRecordsData = new ReadRecordsData(str, str2, str3, str4, str5);
-            readRecordsData.C(true);
-            m85.e(str2, readRecordsData);
-            return hj8Var;
+            readRecordsData.B(true);
+            k95.e(str2, readRecordsData);
+            return tl8Var;
         }
-        return (hj8) invokeLLLLL.objValue;
+        return (tl8) invokeLLLLL.objValue;
     }
 
-    public hj8 setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
+    public tl8 setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4, Integer.valueOf(i2)})) == null) {
-            hj8 hj8Var = new hj8();
+            tl8 tl8Var = new tl8();
             try {
                 BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
                 builder.can_post = Integer.valueOf(i);
@@ -196,14 +196,14 @@ public class UegTbJsBridge implements dj8 {
                 builder.ok_info = str4;
                 builder.ahead_type = Integer.valueOf(i2);
                 BlockPopInfo build = builder.build(false);
-                xo8.g(build);
-                xo8.f(build);
+                or8.g(build);
+                or8.f(build);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return hj8Var;
+            return tl8Var;
         }
-        return (hj8) invokeCommon.objValue;
+        return (tl8) invokeCommon.objValue;
     }
 
     public UegTbJsBridge(Context context) {

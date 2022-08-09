@@ -1,30 +1,23 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 /* loaded from: classes6.dex */
-public class ky0 {
+public class ky0 implements ny0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ClogBuilder.LogType a;
-    public String b;
-    public String c;
-    public boolean d;
+    public final StringBuilder a;
 
-    public ky0(ClogBuilder.LogType logType, String str, String str2, boolean z) {
+    public ky0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {logType, str, str2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,43 +27,57 @@ public class ky0 {
                 return;
             }
         }
-        this.c = "";
-        this.a = logType;
-        this.b = str;
-        this.c = str2;
-        this.d = z;
+        this.a = new StringBuilder();
     }
 
-    public py0 a(int i, String str) {
-        InterceptResult invokeIL;
+    @Override // com.repackage.ny0
+    public void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) ? b(i, str, "normal") : (py0) invokeIL.objValue;
-    }
-
-    public py0 b(int i, String str, String str2) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, str2)) == null) {
-            py0 py0Var = new py0();
-            try {
-                py0Var.g("1030").h(this.c).b("f1", this.a.type).b("f2", str2).b("f3", URLEncoder.encode(this.b, IMAudioTransRequest.CHARSET)).b("f4", String.valueOf(i)).b("f5", str);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
-            return py0Var;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
-        return (py0) invokeILL.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    @Override // com.repackage.ny0
+    public <T extends ny0> T b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : invokeV.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) ? (T) d(str, str2) : (T) invokeLL.objValue;
     }
 
-    public String d() {
+    public <T extends ny0> T c(String str, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, obj)) == null) ? (T) d(str, obj) : (T) invokeLL.objValue;
+    }
+
+    public <T extends ny0> T d(String str, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, obj)) == null) {
+            if (!TextUtils.isEmpty(str) && obj != null) {
+                try {
+                    if (!TextUtils.isEmpty(String.valueOf(obj))) {
+                        if (this.a.length() > 0) {
+                            this.a.append('&');
+                        }
+                        StringBuilder sb = this.a;
+                        sb.append(str);
+                        sb.append('=');
+                        sb.append(obj);
+                    }
+                } catch (Exception unused) {
+                }
+            }
+            return this;
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.ny0
+    @NonNull
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.toString() : (String) invokeV.objValue;
     }
 }

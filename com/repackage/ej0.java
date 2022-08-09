@@ -1,12 +1,10 @@
 package com.repackage;
 
-import android.content.res.Resources;
-import android.text.TextUtils;
+import android.net.Uri;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.consts.AdDownloadAction;
+import com.baidu.nadcore.download.consts.AdDownloadCode;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,12 +13,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-import java.text.DecimalFormat;
 /* loaded from: classes6.dex */
-public class ej0 extends bj0 {
+public class ej0 implements fj0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<kj0<?>> e;
+    public WeakReference<zi0> a;
 
     /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
@@ -48,11 +45,11 @@ public class ej0 extends bj0 {
             } catch (NoSuchFieldError unused) {
             }
             try {
-                a[AdDownloadStatus.DOWNLOADING.ordinal()] = 2;
+                a[AdDownloadStatus.PAUSE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                a[AdDownloadStatus.PAUSE.ordinal()] = 3;
+                a[AdDownloadStatus.DOWNLOADING.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
@@ -70,97 +67,69 @@ public class ej0 extends bj0 {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ej0(@NonNull si0 si0Var) {
-        super(si0Var);
+    public ej0(@NonNull zi0 zi0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {si0Var};
+            Object[] objArr = {zi0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((si0) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = null;
+        this.a = new WeakReference<>(zi0Var);
     }
 
-    @Override // com.repackage.bj0, com.repackage.jj0
-    public void a(@NonNull AdDownloadAction adDownloadAction, @NonNull si0 si0Var) {
+    @Override // com.repackage.fj0
+    public void a(AdDownloadStatus adDownloadStatus) {
+        zi0 zi0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, adDownloadAction, si0Var) == null) {
-            super.a(adDownloadAction, si0Var);
-            u();
-        }
-    }
-
-    public void t(kj0<?> kj0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kj0Var) == null) {
-            this.e = new WeakReference<>(kj0Var);
-            u();
-        }
-    }
-
-    public void u() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.e == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, adDownloadStatus) == null) || (zi0Var = this.a.get()) == null) {
             return;
         }
-        Resources resources = hh0.b().getResources();
-        String string = resources.getString(R.string.obfuscated_res_0x7f0f0b7e);
-        switch (a.a[this.a.c.ordinal()]) {
+        oi0 t = zi0Var.t();
+        switch (a.a[adDownloadStatus.ordinal()]) {
             case 1:
-                string = TextUtils.isEmpty(this.a.p.d) ? resources.getString(R.string.obfuscated_res_0x7f0f0b7e) : this.a.p.d;
-                break;
+                zi0Var.w("0", String.valueOf(t.i), "", t.e());
+                return;
             case 2:
-                string = new DecimalFormat("#.#%").format(this.a.i);
-                break;
+                String valueOf = String.valueOf(t.i);
+                Uri uri = t.k;
+                zi0Var.w("2", valueOf, uri != null ? uri.toString() : "", t.e());
+                return;
             case 3:
-                string = resources.getString(R.string.obfuscated_res_0x7f0f0b70);
-                break;
+                String valueOf2 = String.valueOf(t.i);
+                Uri uri2 = t.k;
+                zi0Var.w("1", valueOf2, uri2 != null ? uri2.toString() : "", t.e());
+                return;
             case 4:
-                string = resources.getString(R.string.obfuscated_res_0x7f0f0b73);
-                break;
+                Uri uri3 = t.k;
+                zi0Var.w("3", "1", uri3 != null ? uri3.toString() : "", t.e());
+                return;
             case 5:
-                string = resources.getString(R.string.obfuscated_res_0x7f0f0b77);
-                break;
+                Uri uri4 = t.k;
+                zi0Var.w("6", "1", uri4 != null ? uri4.toString() : "", t.e());
+                return;
             case 6:
-                string = resources.getString(R.string.obfuscated_res_0x7f0f0b72);
-                break;
+                zi0Var.w("4", "0", "", t.e());
+                return;
+            default:
+                return;
         }
-        kj0<?> kj0Var = this.e.get();
-        if (kj0Var == null) {
-            return;
-        }
-        kj0Var.update(string, this.a);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ej0(@NonNull si0 si0Var, @NonNull kj0<?> kj0Var) {
-        super(si0Var);
+    @Override // com.repackage.fj0
+    public void b(AdDownloadCode adDownloadCode) {
+        zi0 zi0Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {si0Var, kj0Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((si0) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adDownloadCode) == null) || (zi0Var = this.a.get()) == null || adDownloadCode == AdDownloadCode.ERROR_FAST_CLICK) {
+            return;
         }
-        this.e = null;
-        t(kj0Var);
+        zi0Var.w("4", "0", "", zi0Var.t().e());
     }
 }

@@ -1,9 +1,464 @@
 package com.repackage;
 
+import android.content.Context;
 import android.os.Bundle;
-/* loaded from: classes6.dex */
-public interface p10<T> {
-    void onError(int i, Throwable th, Bundle bundle);
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.util.Pair;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.s10;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class p10 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile p10 d;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public s10 b;
+    public t10 c;
 
-    void onResult(T t, Bundle bundle);
+    /* loaded from: classes7.dex */
+    public class a implements s10.c<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d a;
+        public final /* synthetic */ p10 b;
+
+        public a(p10 p10Var, d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p10Var, dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = p10Var;
+            this.a = dVar;
+        }
+
+        @Override // com.repackage.s10.c
+        public void a(int i, Exception exc, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, exc, bundle) == null) {
+                this.a.a(i, exc, bundle);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.s10.c
+        /* renamed from: b */
+        public void onResult(String str, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bundle) == null) {
+                ArrayList arrayList = new ArrayList();
+                try {
+                    JSONArray jSONArray = new JSONArray(str);
+                    int length = jSONArray.length();
+                    for (int i = 0; i < length; i++) {
+                        arrayList.add(new h40(this.b.a, jSONArray.getJSONObject(i).getString("pkg")));
+                    }
+                } catch (Exception unused) {
+                }
+                this.a.b(arrayList, bundle);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements s10.c<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d a;
+
+        public b(p10 p10Var, d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p10Var, dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dVar;
+        }
+
+        @Override // com.repackage.s10.c
+        public void a(int i, Exception exc, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, exc, bundle) == null) {
+                this.a.a(i, exc, bundle);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.s10.c
+        /* renamed from: b */
+        public void onResult(String str, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bundle) == null) {
+                this.a.b(e.a(str), bundle);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements s10.c<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d a;
+
+        public c(p10 p10Var, d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p10Var, dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dVar;
+        }
+
+        @Override // com.repackage.s10.c
+        public void a(int i, Exception exc, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, exc, bundle) == null) {
+                this.a.a(i, exc, bundle);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.s10.c
+        /* renamed from: b */
+        public void onResult(String str, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bundle) == null) {
+                this.a.b(str, bundle);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class d<T> extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public r10<T> a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(r10<T> r10Var, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r10Var, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = r10Var;
+        }
+
+        public void a(int i, Exception exc, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, exc, bundle) == null) {
+                obtainMessage(1, i, 0, Pair.create(exc, bundle)).sendToTarget();
+            }
+        }
+
+        public void b(T t, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t, bundle) == null) {
+                obtainMessage(0, Pair.create(t, bundle)).sendToTarget();
+            }
+        }
+
+        /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: com.repackage.r10<T> */
+        /* JADX WARN: Multi-variable type inference failed */
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
+                int i = message.what;
+                if (i == 0) {
+                    Pair pair = (Pair) message.obj;
+                    this.a.onResult(pair.first, (Bundle) pair.second);
+                } else if (i != 1) {
+                } else {
+                    Pair pair2 = (Pair) message.obj;
+                    this.a.onError(message.arg1, (Throwable) pair2.first, (Bundle) pair2.second);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public List<f> a;
+
+        public e(List<f> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {list};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            ArrayList arrayList = new ArrayList();
+            this.a = arrayList;
+            arrayList.addAll(list);
+        }
+
+        public static e a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                try {
+                    ArrayList arrayList = new ArrayList();
+                    JSONArray jSONArray = new JSONArray(str);
+                    int length = jSONArray.length();
+                    for (int i = 0; i < length; i++) {
+                        JSONObject jSONObject = jSONArray.getJSONObject(i);
+                        arrayList.add(new f(jSONObject.getString("pkg"), jSONObject.getString("aid"), jSONObject.getLong("priority")));
+                    }
+                    return new e(arrayList);
+                } catch (JSONException unused) {
+                    return null;
+                }
+            }
+            return (e) invokeL.objValue;
+        }
+
+        public List<f> b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return "sids {" + this.a + '}';
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final String b;
+        public final long c;
+
+        public f(String str, String str2, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = str2;
+            this.c = j;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return "aid {packageName='" + this.a + "', aid='" + this.b + "', priority=" + this.c + '}';
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    public p10(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r3;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = context.getApplicationContext();
+        t10 t10Var = new t10(new o40());
+        this.c = t10Var;
+        this.b = t10Var.a();
+        s10.a aVar = new s10.a();
+        aVar.a = new q40();
+        aVar.b = new p40();
+        aVar.c = this.a;
+        aVar.d = new ThreadPoolExecutor(0, 1, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        aVar.e = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 5L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        new ThreadPoolExecutor(0, 1, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        this.b.b(aVar);
+        this.b.c(new s10.b());
+    }
+
+    public static synchronized p10 e(Context context) {
+        InterceptResult invokeL;
+        p10 p10Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            synchronized (p10.class) {
+                if (d == null) {
+                    d = new p10(context.getApplicationContext());
+                }
+                p10Var = d;
+            }
+            return p10Var;
+        }
+        return (p10) invokeL.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b.g("aid", null).a : (String) invokeV.objValue;
+    }
+
+    public s10 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (s10) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b.g("iid", null).a : (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b.g("oid", null).a : (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b.g("ssaid", null).a : (String) invokeV.objValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b.e(this.a.getPackageName()) : invokeV.booleanValue;
+    }
+
+    public void i(r10<g40> r10Var, Looper looper) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, r10Var, looper) == null) {
+            new d(r10Var, looper).b(new g40(), new Bundle());
+        }
+    }
+
+    public void j(r10<String> r10Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, r10Var) == null) {
+            k("gaid", r10Var, Looper.getMainLooper());
+        }
+    }
+
+    public final void k(String str, r10<String> r10Var, Looper looper) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, r10Var, looper) == null) {
+            this.b.a(str, null, new c(this, new d(r10Var, looper)));
+        }
+    }
+
+    public void l(r10<String> r10Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, r10Var) == null) {
+            k("oid", r10Var, Looper.getMainLooper());
+        }
+    }
+
+    public void m(r10<List<h40>> r10Var, Looper looper) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, r10Var, looper) == null) {
+            this.b.a("sids", null, new a(this, new d(r10Var, looper)));
+        }
+    }
+
+    public void n(r10<e> r10Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, r10Var) == null) {
+            o(r10Var, Looper.getMainLooper());
+        }
+    }
+
+    public void o(r10<e> r10Var, Looper looper) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, r10Var, looper) == null) {
+            this.b.a("sids", null, new b(this, new d(r10Var, looper)));
+        }
+    }
 }

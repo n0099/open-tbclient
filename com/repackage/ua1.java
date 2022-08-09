@@ -1,53 +1,42 @@
 package com.repackage;
 
 import android.content.Context;
-import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.prologue.business.data.BaseVM;
-import com.baidu.sdk.container.interfaces.LoadState;
-import com.baidu.searchbox.config.QuickPersistConfigConst;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.poly.widget.PayChannelEntity;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.w8;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class ua1 implements jd1 {
+public class ua1 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hd1 a;
-    public String b;
-    public final Context c;
-    public final pa1 d;
-    public w8.b e;
-    public int f;
-    public int g;
-    public za1 h;
-    public int i;
-    public na1 j;
-    public final oa1 k;
+    public List<PayChannelEntity> a;
+    public Context b;
 
     /* loaded from: classes7.dex */
-    public class a implements oa1 {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ua1 a;
+        public ImageView a;
+        public TextView b;
+        public ImageView c;
 
-        public a(ua1 ua1Var) {
+        public a(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ua1Var};
+                Object[] objArr = {view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -57,71 +46,18 @@ public class ua1 implements jd1 {
                     return;
                 }
             }
-            this.a = ua1Var;
-        }
-
-        @Override // com.repackage.oa1
-        public void a(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                if (this.a.e != null) {
-                    this.a.e.onFailed();
-                } else if (this.a.d != null) {
-                    this.a.d.b(th == null ? "unKnow" : th.getMessage());
-                }
-            }
-        }
-
-        @Override // com.repackage.oa1
-        public void b(@NonNull za1 za1Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, za1Var) == null) || w8.f().i()) {
-                return;
-            }
-            int f = xa1.f(za1Var, this.a.i);
-            if (f == 0) {
-                this.a.h = za1Var;
-                hd1 a = new pc1().a(this.a.c, va1.a(za1Var));
-                if (a == null) {
-                    if (this.a.d != null) {
-                        this.a.d.b("创建 AdContainer 失败");
-                        return;
-                    }
-                    return;
-                }
-                this.a.a = a;
-                if (this.a.d != null) {
-                    qa1 qa1Var = new qa1(a, this.a.d.g(), za1Var);
-                    qa1Var.l(this.a.d);
-                    a.c(qa1Var);
-                    a.a(qa1Var);
-                    qa1Var.k(this.a);
-                    this.a.j(!za1Var.i());
-                    this.a.m(!za1Var.g());
-                    this.a.d.e(this.a);
-                }
-                if (this.a.e != null) {
-                    this.a.e.onSuccess();
-                    return;
-                }
-                return;
-            }
-            if (this.a.e != null) {
-                this.a.e.onFailed();
-            } else if (this.a.d != null) {
-                pa1 pa1Var = this.a.d;
-                pa1Var.b("query 后物料效验失败: " + f);
-            }
-            BaseVM.h(f);
+            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0919cb);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919cf);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0919d0);
         }
     }
 
-    public ua1(Context context, String str, rc1 rc1Var, pa1 pa1Var) {
+    public ua1(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, rc1Var, pa1Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -131,158 +67,81 @@ public class ua1 implements jd1 {
                 return;
             }
         }
-        LoadState loadState = LoadState.INIT;
-        this.i = 0;
-        this.k = new a(this);
-        this.c = context;
-        this.b = str;
-        this.d = pa1Var;
-        if (rc1Var == null || rc1Var.a() == null || !rc1Var.a().containsKey("launch_type")) {
-            return;
+        this.b = context;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public PayChannelEntity getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i < 0 || i >= this.a.size()) {
+                return null;
+            }
+            return this.a.get(i);
         }
-        try {
-            this.i = Integer.parseInt(rc1Var.a().get("launch_type"));
-        } catch (NumberFormatException unused) {
-            this.i = 0;
+        return (PayChannelEntity) invokeI.objValue;
+    }
+
+    public void b(List<PayChannelEntity> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a = list;
+            notifyDataSetChanged();
         }
     }
 
-    @Override // com.repackage.jd1
-    @Nullable
-    public za1 a() {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.h : (za1) invokeV.objValue;
-    }
-
-    @Override // com.repackage.jd1
-    public JSONObject b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (this.h != null) {
-                    jSONObject.put("source", this.h.E);
-                    jSONObject.put(QuickPersistConfigConst.KEY_SPLASH_SORT, this.h.F);
-                }
-                jSONObject.put(TiebaStatic.Params.AD_TYPE, this.f);
-                jSONObject.put("full_type", this.g);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            List<PayChannelEntity> list = this.a;
+            if (list == null) {
+                return 0;
             }
-            return jSONObject;
+            return list.size();
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public void h() {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a == null) {
-            return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return 0L;
         }
-        this.a = null;
+        return invokeI.longValue;
     }
 
-    public void i() {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (!w8.f().h()) {
-                l(xa1.p(this.i));
-                return;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            PayChannelEntity item = getItem(i);
+            if (item == null) {
+                return view2;
             }
-            na1 na1Var = new na1();
-            this.j = na1Var;
-            na1Var.j(this.b, this.k);
-        }
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void k(hd1 hd1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, hd1Var) == null) {
-            this.a = hd1Var;
-        }
-    }
-
-    public void l(za1 za1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, za1Var) == null) {
-            if (za1Var != null) {
-                this.h = za1Var;
-                qc1 a2 = va1.a(za1Var);
-                hd1 a3 = new pc1().a(this.c, a2);
-                if (a3 == null) {
-                    if (ia1.a.get().a()) {
-                        Log.e("PrologueAd", "创建 AdContainer 失败，params: " + a2.a());
-                    }
-                    pa1 pa1Var = this.d;
-                    if (pa1Var != null) {
-                        pa1Var.b("创建 AdContainer 失败");
-                        return;
-                    }
-                    return;
-                }
-                this.a = a3;
-                pa1 pa1Var2 = this.d;
-                if (pa1Var2 != null) {
-                    qa1 qa1Var = new qa1(a3, pa1Var2.g(), za1Var);
-                    qa1Var.l(this.d);
-                    a3.c(qa1Var);
-                    a3.a(qa1Var);
-                    qa1Var.k(this);
-                    j(!za1Var.i());
-                    m(!za1Var.g());
-                    this.d.e(this);
-                }
-                w8.b bVar = this.e;
-                if (bVar != null) {
-                    bVar.onSuccess();
-                    return;
-                }
-                return;
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0231, (ViewGroup) null, false);
+                view2.setTag(new a(view2));
             }
-            w8.b bVar2 = this.e;
-            if (bVar2 != null) {
-                bVar2.onFailed();
-                return;
-            }
-            pa1 pa1Var3 = this.d;
-            if (pa1Var3 != null) {
-                pa1Var3.b("本地物料null");
-            }
-        }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void n(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup) == null) {
-            hd1 hd1Var = this.a;
-            if (viewGroup != null && hd1Var != null) {
-                hd1Var.load();
-                View adView = hd1Var.getAdView();
-                if (adView != null && adView.getParent() == null) {
-                    viewGroup.addView(adView);
-                    return;
+            if (view2.getTag() != null && (view2.getTag() instanceof a)) {
+                a aVar = (a) view2.getTag();
+                u81.b().a(aVar.a, item.getIcon());
+                aVar.b.setText(item.getDisplayName());
+                if (item.getIsSelected() == 1) {
+                    aVar.c.setImageResource(R.drawable.obfuscated_res_0x7f080448);
                 } else {
-                    h();
-                    return;
+                    aVar.c.setImageResource(R.drawable.obfuscated_res_0x7f081227);
                 }
             }
-            h();
+            return view2;
         }
+        return (View) invokeILL.objValue;
     }
 }

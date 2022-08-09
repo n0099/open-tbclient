@@ -44,7 +44,7 @@ import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.internal.TextScale;
 import java.util.HashSet;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class BottomNavigationMenuView extends ViewGroup implements MenuView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long ACTIVE_ANIMATION_DURATION_MS = 115;
@@ -256,7 +256,7 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
             TypedValue typedValue = new TypedValue();
             if (getContext().getTheme().resolveAttribute(i, typedValue, true)) {
                 ColorStateList colorStateList = AppCompatResources.getColorStateList(getContext(), typedValue.resourceId);
-                if (getContext().getTheme().resolveAttribute(R$attr.obfuscated, typedValue, true)) {
+                if (getContext().getTheme().resolveAttribute(R$attr.colorPrimary, typedValue, true)) {
                     int i2 = typedValue.data;
                     int defaultColor = colorStateList.getDefaultColor();
                     return new ColorStateList(new int[][]{DISABLED_STATE_SET, CHECKED_STATE_SET, ViewGroup.EMPTY_STATE_SET}, new int[]{colorStateList.getColorForState(DISABLED_STATE_SET, defaultColor), i2, defaultColor});

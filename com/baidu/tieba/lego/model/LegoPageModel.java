@@ -16,22 +16,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.ab;
 import com.repackage.d9;
-import com.repackage.te;
-import com.repackage.wh8;
-import com.repackage.yd7;
-import com.repackage.za;
+import com.repackage.kk8;
+import com.repackage.tf7;
+import com.repackage.tr4;
+import com.repackage.ue;
 import tbclient.Lego.DataRes;
 /* loaded from: classes3.dex */
 public class LegoPageModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public za a;
+    public ab a;
     public b b;
 
     /* loaded from: classes3.dex */
-    public class a extends za {
+    public class a extends ab {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LegoPageModel a;
@@ -60,7 +60,7 @@ public class LegoPageModel extends BdBaseModel {
 
         /* JADX WARN: Removed duplicated region for block: B:25:0x0060  */
         /* JADX WARN: Removed duplicated region for block: B:26:0x0073  */
-        @Override // com.repackage.za
+        @Override // com.repackage.ab
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -101,8 +101,8 @@ public class LegoPageModel extends BdBaseModel {
                         this.a.b.a(j, str, dataRes, z);
                     } else {
                         if (z && dataRes != null) {
-                            cr4.f();
-                            te<byte[]> d = cr4.d("tb.lego_update");
+                            tr4.f();
+                            ue<byte[]> d = tr4.d("tb.lego_update");
                             StringBuilder sb = new StringBuilder();
                             sb.append(j);
                             sb.append("_");
@@ -159,7 +159,7 @@ public class LegoPageModel extends BdBaseModel {
         registerListener(this.a);
     }
 
-    public void B(int i, long j, String str, int i2, String str2) {
+    public void A(int i, long j, String str, int i2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, Integer.valueOf(i2), str2}) == null) {
             LegoPageRequest legoPageRequest = new LegoPageRequest();
@@ -170,7 +170,7 @@ public class LegoPageModel extends BdBaseModel {
             legoPageRequest.setLastRank(str2);
             legoPageRequest.setTagCode(j);
             legoPageRequest.setPageType(i);
-            yd7 a2 = yd7.a(j, str);
+            tf7 a2 = tf7.a(j, str);
             if (a2 != null) {
                 legoPageRequest.setRn(a2.d);
                 legoPageRequest.setParams(a2.e);
@@ -180,7 +180,7 @@ public class LegoPageModel extends BdBaseModel {
         }
     }
 
-    public void C(b bVar) {
+    public void B(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.b = bVar;
@@ -211,7 +211,7 @@ public class LegoPageModel extends BdBaseModel {
     public final void registerHttpTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ENTERTAINMENT, wh8.a(TbConfig.ENTERTAINMENT_ADDRESS, 309312));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ENTERTAINMENT, kk8.a(TbConfig.ENTERTAINMENT_ADDRESS, 309312));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(LegoHttpResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);

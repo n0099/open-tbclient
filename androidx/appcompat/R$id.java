@@ -7,200 +7,148 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class R$id {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int accessibility_action_clickable_span = 2131296299;
-    public static final int accessibility_custom_action_0 = 2131296300;
-    public static final int accessibility_custom_action_1 = 2131296301;
-    public static final int accessibility_custom_action_10 = 2131296302;
-    public static final int accessibility_custom_action_11 = 2131296303;
-    public static final int accessibility_custom_action_12 = 2131296304;
-    public static final int accessibility_custom_action_13 = 2131296305;
-    public static final int accessibility_custom_action_14 = 2131296306;
-    public static final int accessibility_custom_action_15 = 2131296307;
-    public static final int accessibility_custom_action_16 = 2131296308;
-    public static final int accessibility_custom_action_17 = 2131296309;
-    public static final int accessibility_custom_action_18 = 2131296310;
-    public static final int accessibility_custom_action_19 = 2131296311;
-    public static final int accessibility_custom_action_2 = 2131296312;
-    public static final int accessibility_custom_action_20 = 2131296313;
-    public static final int accessibility_custom_action_21 = 2131296314;
-    public static final int accessibility_custom_action_22 = 2131296315;
-    public static final int accessibility_custom_action_23 = 2131296316;
-    public static final int accessibility_custom_action_24 = 2131296317;
-    public static final int accessibility_custom_action_25 = 2131296318;
-    public static final int accessibility_custom_action_26 = 2131296319;
-    public static final int accessibility_custom_action_27 = 2131296320;
-    public static final int accessibility_custom_action_28 = 2131296321;
-    public static final int accessibility_custom_action_29 = 2131296322;
-    public static final int accessibility_custom_action_3 = 2131296323;
-    public static final int accessibility_custom_action_30 = 2131296324;
-    public static final int accessibility_custom_action_31 = 2131296325;
-    public static final int accessibility_custom_action_4 = 2131296326;
-    public static final int accessibility_custom_action_5 = 2131296327;
-    public static final int accessibility_custom_action_6 = 2131296328;
-    public static final int accessibility_custom_action_7 = 2131296329;
-    public static final int accessibility_custom_action_8 = 2131296330;
-    public static final int accessibility_custom_action_9 = 2131296331;
-    public static final int action_bar = 2131296342;
-    public static final int action_bar_activity_content = 2131296343;
-    public static final int action_bar_container = 2131296344;
-    public static final int action_bar_root = 2131296345;
-    public static final int action_bar_spinner = 2131296346;
-    public static final int action_bar_subtitle = 2131296347;
-    public static final int action_bar_title = 2131296348;
-    public static final int action_container = 2131296350;
-    public static final int action_context_bar = 2131296351;
-    public static final int action_divider = 2131296352;
-    public static final int action_image = 2131296354;
-    public static final int action_menu_divider = 2131296357;
-    public static final int action_menu_presenter = 2131296358;
-    public static final int action_mode_bar = 2131296359;
-    public static final int action_mode_bar_stub = 2131296360;
-    public static final int action_mode_close_button = 2131296361;
-    public static final int action_text = 2131296362;
-    public static final int actions = 2131296363;
-    public static final int activity_chooser_view_content = 2131296367;
-
-    /* renamed from: add */
-    public static final int obfuscated = 2131296512;
-
-    /* renamed from: alertTitle */
-    public static final int obfuscated = 2131296851;
-    public static final int async = 2131296943;
-    public static final int blocking = 2131297165;
-
-    /* renamed from: buttonPanel */
-    public static final int obfuscated = 2131297368;
-
-    /* renamed from: checkbox */
-    public static final int obfuscated = 2131297762;
-
-    /* renamed from: checked */
-    public static final int obfuscated = 2131297767;
-    public static final int chronometer = 2131297807;
-
-    /* renamed from: content */
-    public static final int obfuscated = 2131297965;
-
-    /* renamed from: contentPanel */
-    public static final int obfuscated = 2131297969;
-
-    /* renamed from: custom */
-    public static final int obfuscated = 2131298068;
-    public static final int customPanel = 2131298069;
-    public static final int decor_content_parent = 2131298110;
-    public static final int default_activity_button = 2131298113;
-    public static final int dialog_button = 2131298163;
-    public static final int edit_query = 2131298355;
-    public static final int expand_activities_button = 2131298562;
-    public static final int expanded_menu = 2131298574;
-    public static final int forever = 2131298796;
-    public static final int group_divider = 2131299484;
-
-    /* renamed from: home */
-    public static final int obfuscated = 2131299605;
-    public static final int icon = 2131299771;
-    public static final int icon_group = 2131299779;
-
-    /* renamed from: image */
-    public static final int obfuscated = 2131299884;
-    public static final int info = 2131300029;
-    public static final int italic = 2131300128;
-    public static final int line1 = 2131301006;
-    public static final int line3 = 2131301008;
-
-    /* renamed from: listMode */
-    public static final int obfuscated = 2131301039;
-    public static final int list_item = 2131301043;
-
-    /* renamed from: message */
-    public static final int obfuscated = 2131301444;
-
-    /* renamed from: multiply */
-    public static final int obfuscated = 2131301582;
-    public static final int none = 2131301872;
-    public static final int normal = 2131301878;
-    public static final int notification_background = 2131301895;
-    public static final int notification_main_column = 2131301897;
-    public static final int notification_main_column_container = 2131301898;
-
-    /* renamed from: off */
-    public static final int obfuscated = 2131301919;
-
-    /* renamed from: on */
-    public static final int obfuscated = 2131301941;
-
-    /* renamed from: parentPanel */
-    public static final int obfuscated = 2131302038;
-    public static final int progress_circular = 2131302822;
-    public static final int progress_horizontal = 2131302824;
-
-    /* renamed from: radio */
-    public static final int obfuscated = 2131302945;
-    public static final int right_icon = 2131303183;
-    public static final int right_side = 2131303189;
-
-    /* renamed from: screen */
-    public static final int obfuscated = 2131303557;
-    public static final int scrollIndicatorDown = 2131303567;
-    public static final int scrollIndicatorUp = 2131303568;
-
-    /* renamed from: scrollView */
-    public static final int obfuscated = 2131303569;
-    public static final int search_badge = 2131303586;
-    public static final int search_bar = 2131303587;
-    public static final int search_button = 2131303593;
-    public static final int search_close_btn = 2131303594;
-    public static final int search_edit_frame = 2131303597;
-    public static final int search_go_btn = 2131303608;
-    public static final int search_mag_icon = 2131303624;
-    public static final int search_plate = 2131303625;
-    public static final int search_src_text = 2131303633;
-    public static final int search_voice_btn = 2131303643;
-    public static final int select_dialog_listview = 2131303677;
-
-    /* renamed from: shortcut */
-    public static final int obfuscated = 2131303806;
-
-    /* renamed from: spacer */
-    public static final int obfuscated = 2131303902;
-    public static final int split_action_bar = 2131303924;
-    public static final int src_atop = 2131303962;
-    public static final int src_in = 2131303963;
-    public static final int src_over = 2131303964;
-    public static final int submenuarrow = 2131304027;
-    public static final int submit_area = 2131304028;
-
-    /* renamed from: tabMode */
-    public static final int obfuscated = 2131304128;
-    public static final int tag_accessibility_actions = 2131304169;
-    public static final int tag_accessibility_clickable_spans = 2131304170;
-    public static final int tag_accessibility_heading = 2131304171;
-    public static final int tag_accessibility_pane_title = 2131304172;
-    public static final int tag_screen_reader_focusable = 2131304239;
-    public static final int tag_transition_group = 2131304253;
-    public static final int tag_unhandled_key_event_manager = 2131304255;
-    public static final int tag_unhandled_key_listeners = 2131304256;
-    public static final int text = 2131304366;
-    public static final int text2 = 2131304367;
-    public static final int textSpacerNoButtons = 2131304371;
-    public static final int textSpacerNoTitle = 2131304372;
-    public static final int time = 2131304595;
-    public static final int title = 2131304638;
-    public static final int titleDividerNoCustom = 2131304640;
-    public static final int title_template = 2131304680;
-
-    /* renamed from: topPanel */
-    public static final int obfuscated = 2131304747;
-
-    /* renamed from: unchecked */
-    public static final int obfuscated = 2131305197;
-
-    /* renamed from: uniform */
-    public static final int obfuscated = 2131305202;
-
-    /* renamed from: up */
-    public static final int obfuscated = 2131305210;
-    public static final int wrap_content = 2131305754;
+    public static final int accessibility_action_clickable_span = 2131296304;
+    public static final int accessibility_custom_action_0 = 2131296305;
+    public static final int accessibility_custom_action_1 = 2131296306;
+    public static final int accessibility_custom_action_10 = 2131296307;
+    public static final int accessibility_custom_action_11 = 2131296308;
+    public static final int accessibility_custom_action_12 = 2131296309;
+    public static final int accessibility_custom_action_13 = 2131296310;
+    public static final int accessibility_custom_action_14 = 2131296311;
+    public static final int accessibility_custom_action_15 = 2131296312;
+    public static final int accessibility_custom_action_16 = 2131296313;
+    public static final int accessibility_custom_action_17 = 2131296314;
+    public static final int accessibility_custom_action_18 = 2131296315;
+    public static final int accessibility_custom_action_19 = 2131296316;
+    public static final int accessibility_custom_action_2 = 2131296317;
+    public static final int accessibility_custom_action_20 = 2131296318;
+    public static final int accessibility_custom_action_21 = 2131296319;
+    public static final int accessibility_custom_action_22 = 2131296320;
+    public static final int accessibility_custom_action_23 = 2131296321;
+    public static final int accessibility_custom_action_24 = 2131296322;
+    public static final int accessibility_custom_action_25 = 2131296323;
+    public static final int accessibility_custom_action_26 = 2131296324;
+    public static final int accessibility_custom_action_27 = 2131296325;
+    public static final int accessibility_custom_action_28 = 2131296326;
+    public static final int accessibility_custom_action_29 = 2131296327;
+    public static final int accessibility_custom_action_3 = 2131296328;
+    public static final int accessibility_custom_action_30 = 2131296329;
+    public static final int accessibility_custom_action_31 = 2131296330;
+    public static final int accessibility_custom_action_4 = 2131296331;
+    public static final int accessibility_custom_action_5 = 2131296332;
+    public static final int accessibility_custom_action_6 = 2131296333;
+    public static final int accessibility_custom_action_7 = 2131296334;
+    public static final int accessibility_custom_action_8 = 2131296335;
+    public static final int accessibility_custom_action_9 = 2131296336;
+    public static final int action_bar = 2131296347;
+    public static final int action_bar_activity_content = 2131296348;
+    public static final int action_bar_container = 2131296349;
+    public static final int action_bar_root = 2131296350;
+    public static final int action_bar_spinner = 2131296351;
+    public static final int action_bar_subtitle = 2131296352;
+    public static final int action_bar_title = 2131296353;
+    public static final int action_container = 2131296355;
+    public static final int action_context_bar = 2131296356;
+    public static final int action_divider = 2131296357;
+    public static final int action_image = 2131296359;
+    public static final int action_menu_divider = 2131296362;
+    public static final int action_menu_presenter = 2131296363;
+    public static final int action_mode_bar = 2131296364;
+    public static final int action_mode_bar_stub = 2131296365;
+    public static final int action_mode_close_button = 2131296366;
+    public static final int action_text = 2131296367;
+    public static final int actions = 2131296368;
+    public static final int activity_chooser_view_content = 2131296372;
+    public static final int add = 2131296517;
+    public static final int alertTitle = 2131296863;
+    public static final int async = 2131296962;
+    public static final int blocking = 2131297189;
+    public static final int buttonPanel = 2131297394;
+    public static final int checkbox = 2131297790;
+    public static final int checked = 2131297795;
+    public static final int chronometer = 2131297835;
+    public static final int content = 2131297997;
+    public static final int contentPanel = 2131298000;
+    public static final int custom = 2131298103;
+    public static final int customPanel = 2131298104;
+    public static final int decor_content_parent = 2131298147;
+    public static final int default_activity_button = 2131298150;
+    public static final int dialog_button = 2131298207;
+    public static final int edit_query = 2131298410;
+    public static final int expand_activities_button = 2131298618;
+    public static final int expanded_menu = 2131298632;
+    public static final int forever = 2131298855;
+    public static final int group_divider = 2131299551;
+    public static final int home = 2131299675;
+    public static final int icon = 2131299845;
+    public static final int icon_group = 2131299853;
+    public static final int image = 2131299960;
+    public static final int info = 2131300105;
+    public static final int italic = 2131300209;
+    public static final int line1 = 2131301096;
+    public static final int line3 = 2131301098;
+    public static final int listMode = 2131301129;
+    public static final int list_item = 2131301133;
+    public static final int message = 2131301614;
+    public static final int multiply = 2131301768;
+    public static final int none = 2131302067;
+    public static final int normal = 2131302073;
+    public static final int notification_background = 2131302093;
+    public static final int notification_main_column = 2131302095;
+    public static final int notification_main_column_container = 2131302096;
+    public static final int off = 2131302117;
+    public static final int on = 2131302139;
+    public static final int parentPanel = 2131302236;
+    public static final int progress_circular = 2131303036;
+    public static final int progress_horizontal = 2131303038;
+    public static final int radio = 2131303167;
+    public static final int right_icon = 2131303408;
+    public static final int right_side = 2131303414;
+    public static final int screen = 2131303790;
+    public static final int scrollIndicatorDown = 2131303800;
+    public static final int scrollIndicatorUp = 2131303801;
+    public static final int scrollView = 2131303802;
+    public static final int search_badge = 2131303820;
+    public static final int search_bar = 2131303821;
+    public static final int search_button = 2131303827;
+    public static final int search_close_btn = 2131303828;
+    public static final int search_edit_frame = 2131303831;
+    public static final int search_go_btn = 2131303842;
+    public static final int search_mag_icon = 2131303858;
+    public static final int search_plate = 2131303860;
+    public static final int search_src_text = 2131303869;
+    public static final int search_voice_btn = 2131303879;
+    public static final int select_dialog_listview = 2131303914;
+    public static final int shortcut = 2131304042;
+    public static final int spacer = 2131304142;
+    public static final int split_action_bar = 2131304165;
+    public static final int src_atop = 2131304203;
+    public static final int src_in = 2131304204;
+    public static final int src_over = 2131304205;
+    public static final int submenuarrow = 2131304273;
+    public static final int submit_area = 2131304274;
+    public static final int tabMode = 2131304375;
+    public static final int tag_accessibility_actions = 2131304416;
+    public static final int tag_accessibility_clickable_spans = 2131304417;
+    public static final int tag_accessibility_heading = 2131304418;
+    public static final int tag_accessibility_pane_title = 2131304419;
+    public static final int tag_screen_reader_focusable = 2131304491;
+    public static final int tag_transition_group = 2131304505;
+    public static final int tag_unhandled_key_event_manager = 2131304507;
+    public static final int tag_unhandled_key_listeners = 2131304508;
+    public static final int text = 2131304617;
+    public static final int text2 = 2131304618;
+    public static final int textSpacerNoButtons = 2131304622;
+    public static final int textSpacerNoTitle = 2131304623;
+    public static final int time = 2131304847;
+    public static final int title = 2131304890;
+    public static final int titleDividerNoCustom = 2131304892;
+    public static final int title_template = 2131304932;
+    public static final int topPanel = 2131305002;
+    public static final int unchecked = 2131305472;
+    public static final int uniform = 2131305477;
+    public static final int up = 2131305485;
+    public static final int wrap_content = 2131306047;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$id() {

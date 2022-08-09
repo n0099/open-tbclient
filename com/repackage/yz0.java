@@ -1,17 +1,20 @@
 package com.repackage;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.f01;
+import kotlin.jvm.JvmStatic;
+@Autowired
 /* loaded from: classes7.dex */
-public class yz0 {
+public final class yz0 {
     public static /* synthetic */ Interceptable $ic;
-    public static xz0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,36 +32,13 @@ public class yz0 {
         }
     }
 
-    public yz0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static xz0 a() {
+    @NonNull
+    @JvmStatic
+    @Singleton
+    @Inject(force = false)
+    public static final f01 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (yz0.class) {
-                    if (a == null) {
-                        a = (xz0) ServiceManager.getService(xz0.a);
-                    }
-                    if (a == null) {
-                        a = xz0.b;
-                    }
-                }
-            }
-            return a;
-        }
-        return (xz0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new f01.a() : (f01) invokeV.objValue;
     }
 }

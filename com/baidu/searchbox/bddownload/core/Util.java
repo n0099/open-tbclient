@@ -247,10 +247,37 @@ public class Util {
     }
 
     @NonNull
+    public static DownloadConnection.Factory createHttpManagerConnectionFactory() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            try {
+                return (DownloadConnection.Factory) Class.forName("com.baidu.searchbox.bddownload.core.connection.DownloadHttpManagerConnection$Factory").getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+                return new DownloadUrlConnection.Factory();
+            } catch (IllegalAccessException e2) {
+                e2.printStackTrace();
+                return new DownloadUrlConnection.Factory();
+            } catch (InstantiationException e3) {
+                e3.printStackTrace();
+                return new DownloadUrlConnection.Factory();
+            } catch (NoSuchMethodException e4) {
+                e4.printStackTrace();
+                return new DownloadUrlConnection.Factory();
+            } catch (InvocationTargetException e5) {
+                e5.printStackTrace();
+                return new DownloadUrlConnection.Factory();
+            }
+        }
+        return (DownloadConnection.Factory) invokeV.objValue;
+    }
+
+    @NonNull
     public static DownloadStore createRemitDatabase(@NonNull DownloadStore downloadStore) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, downloadStore)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, downloadStore)) == null) {
             try {
                 downloadStore = (DownloadStore) downloadStore.getClass().getMethod("createRemitSelf", new Class[0]).invoke(downloadStore, new Object[0]);
             } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException unused) {
@@ -263,7 +290,7 @@ public class Util {
 
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) {
             Logger logger2 = logger;
             if (logger2 != null) {
                 logger2.d(str, str2);
@@ -275,7 +302,7 @@ public class Util {
 
     public static void e(String str, String str2, Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65547, null, str, str2, exc) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65548, null, str, str2, exc) == null) {
             Logger logger2 = logger;
             if (logger2 != null) {
                 logger2.e(str, str2, exc);
@@ -287,7 +314,7 @@ public class Util {
 
     public static void enableConsoleLog() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65549, null) == null) {
             logger = null;
         }
     }
@@ -296,7 +323,7 @@ public class Util {
     public static String getFilenameFromContentUri(@NonNull Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, uri)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, uri)) == null) {
             Cursor query = BdDownload.with().context().getContentResolver().query(uri, null, null, null, null);
             if (query != null) {
                 try {
@@ -314,7 +341,7 @@ public class Util {
     public static long getFreeSpaceBytes(@NonNull StatFs statFs) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, statFs)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, statFs)) == null) {
             if (Build.VERSION.SDK_INT >= 18) {
                 return statFs.getAvailableBytes();
             }
@@ -326,14 +353,14 @@ public class Util {
     public static Logger getLogger() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? logger : (Logger) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? logger : (Logger) invokeV.objValue;
     }
 
     @NonNull
     public static File getParentFile(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, file)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, file)) == null) {
             File parentFile = file.getParentFile();
             return parentFile == null ? new File("/") : parentFile;
         }
@@ -343,7 +370,7 @@ public class Util {
     public static long getSizeFromContentUri(@NonNull Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, uri)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, uri)) == null) {
             Cursor query = BdDownload.with().context().getContentResolver().query(uri, null, null, null, null);
             if (query != null) {
                 try {
@@ -361,7 +388,7 @@ public class Util {
     public static String humanReadableBytes(long j, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{Long.valueOf(j), Boolean.valueOf(z)})) == null) {
             int i = z ? 1000 : 1024;
             if (j < i) {
                 return j + " B";
@@ -379,7 +406,7 @@ public class Util {
 
     public static void i(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65555, null, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65556, null, str, str2) == null) {
             Logger logger2 = logger;
             if (logger2 != null) {
                 logger2.i(str, str2);
@@ -391,7 +418,7 @@ public class Util {
 
     public static void inspectUserHeader(@NonNull Map<String, List<String>> map) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65556, null, map) == null) {
+        if (interceptable == null || interceptable.invokeL(65557, null, map) == null) {
             if (map.containsKey(IF_MATCH) || map.containsKey("Range")) {
                 throw new IOException("If-Match and Range only can be handle by internal!");
             }
@@ -401,25 +428,25 @@ public class Util {
     public static boolean isCorrectFull(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65557, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? j == j2 : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65558, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? j == j2 : invokeCommon.booleanValue;
     }
 
     public static boolean isEmpty(@Nullable CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65558, null, charSequence)) == null) ? charSequence == null || charSequence.length() == 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65559, null, charSequence)) == null) ? charSequence == null || charSequence.length() == 0 : invokeL.booleanValue;
     }
 
     public static boolean isInvalidUrl(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65559, null, str)) == null) ? TextUtils.isEmpty(str) || !str.toLowerCase().startsWith("http") : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65560, null, str)) == null) ? TextUtils.isEmpty(str) || !str.toLowerCase().startsWith("http") : invokeL.booleanValue;
     }
 
     public static boolean isNetworkAvailable(ConnectivityManager connectivityManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, connectivityManager)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, connectivityManager)) == null) {
             if (connectivityManager == null) {
                 w("Util", "failed to get connectivity manager!");
                 return true;
@@ -433,7 +460,7 @@ public class Util {
     public static boolean isNetworkNotOnWifiType(ConnectivityManager connectivityManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, connectivityManager)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, connectivityManager)) == null) {
             if (connectivityManager == null) {
                 w("Util", "failed to get connectivity manager!");
                 return true;
@@ -447,13 +474,13 @@ public class Util {
     public static boolean isUriContentScheme(@NonNull Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65562, null, uri)) == null) ? uri.getScheme().equals("content") : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65563, null, uri)) == null) ? uri.getScheme().equals("content") : invokeL.booleanValue;
     }
 
     public static boolean isUriFileScheme(@NonNull Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65563, null, uri)) == null) ? uri.getScheme().equals("file") : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65564, null, uri)) == null) ? uri.getScheme().equals("file") : invokeL.booleanValue;
     }
 
     @Nullable
@@ -461,7 +488,7 @@ public class Util {
         InterceptResult invokeL;
         byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, str)) == null) {
             try {
                 bArr = MessageDigest.getInstance("MD5").digest(str.getBytes("UTF-8"));
             } catch (UnsupportedEncodingException | NoSuchAlgorithmException unused) {
@@ -486,7 +513,7 @@ public class Util {
     public static long parseContentLength(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, str)) == null) {
             if (str == null) {
                 return -1L;
             }
@@ -503,7 +530,7 @@ public class Util {
     public static long parseContentLengthFromContentRange(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, str)) == null) {
             if (str != null && str.length() != 0) {
                 try {
                     Matcher matcher = Pattern.compile("bytes (\\d+)-(\\d+)/\\d+").matcher(str);
@@ -521,7 +548,7 @@ public class Util {
 
     public static void resetBlockIfDirty(BlockInfo blockInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65567, null, blockInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(65568, null, blockInfo) == null) {
             boolean z = true;
             if (blockInfo.getCurrentOffset() >= 0 && blockInfo.getCurrentOffset() <= blockInfo.getContentLength()) {
                 z = false;
@@ -535,7 +562,7 @@ public class Util {
 
     public static void setLogger(@Nullable Logger logger2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65568, null, logger2) == null) {
+        if (interceptable == null || interceptable.invokeL(65569, null, logger2) == null) {
             logger = logger2;
         }
     }
@@ -543,7 +570,7 @@ public class Util {
     public static ThreadFactory threadFactory(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65569, null, str, z)) == null) ? new ThreadFactory(str, z) { // from class: com.baidu.searchbox.bddownload.core.Util.1
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65570, null, str, z)) == null) ? new ThreadFactory(str, z) { // from class: com.baidu.searchbox.bddownload.core.Util.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ boolean val$daemon;
@@ -584,7 +611,7 @@ public class Util {
 
     public static void w(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65570, null, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65571, null, str, str2) == null) {
             Logger logger2 = logger;
             if (logger2 != null) {
                 logger2.w(str, str2);

@@ -1,106 +1,64 @@
 package com.repackage;
 
 import android.content.Context;
-import com.baidu.tbadk.BaseActivity;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.ThirdStatisticHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.YYLiveUtil;
+import com.baidu.tieba.frs.itemtab.card.CardItemRecommendLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jn6 {
+public class jn6 extends rw<fo4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public CardItemRecommendLayout f;
 
-    public static void a(StatisticItem statisticItem, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jn6(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, statisticItem, str) == null) && YYLiveUtil.isYYLiveLink(str)) {
-            YYLiveUtil.addYyExtData(statisticItem, str);
-        }
-    }
-
-    public static void b(Context context, uh8 uh8Var) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, uh8Var) == null) || uh8Var == null) {
-            return;
-        }
-        TbPageContext<BaseFragmentActivity> tbPageContext = null;
-        if (context instanceof BaseActivity) {
-            tbPageContext = ((BaseActivity) context).getPageContext();
-        } else if (context instanceof BaseFragmentActivity) {
-            tbPageContext = ((BaseFragmentActivity) context).getPageContext();
-        }
-        if (tbPageContext == null) {
-            return;
-        }
-        vh8 vh8Var = uh8Var.f;
-        if (vh8Var != null) {
-            pm5.b(vh8Var.b, vh8Var.c, "1191003700000000", vh8Var.d);
-        } else {
-            if (YYLiveUtil.isYYLiveLink(uh8Var.d)) {
-                str = uh8Var.d + "&source=" + YYLiveUtil.SOURCE_FRS_SERVICE_AREA;
-            } else {
-                str = uh8Var.d;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
         }
-        jp6.a(tbPageContext, uh8Var.e);
+        this.f = new CardItemRecommendLayout(context);
     }
 
-    public static void c(uh8 uh8Var) {
+    @Override // com.repackage.rw
+    public View h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, uh8Var) == null) || uh8Var == null) {
-            return;
-        }
-        StatisticItem statisticItem = new StatisticItem("c13626");
-        statisticItem.param("fid", uh8Var.g);
-        statisticItem.param("obj_type", uh8Var.f == null ? 1 : 2);
-        statisticItem.param("obj_locate", uh8Var.h);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        vh8 vh8Var = uh8Var.f;
-        String str = vh8Var != null ? vh8Var.c : uh8Var.d;
-        vh8 vh8Var2 = uh8Var.f;
-        if (vh8Var2 != null) {
-            String str2 = vh8Var2.a;
-        } else {
-            String str3 = uh8Var.c;
-        }
-        statisticItem.param("obj_name", uh8Var.c);
-        statisticItem.param("obj_param1", uh8Var.d);
-        a(statisticItem, str);
-        TiebaStatic.log(statisticItem);
-        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(uh8Var.i, 1));
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
     }
 
-    public static void d(uh8 uh8Var) {
+    @Override // com.repackage.ix
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, uh8Var) == null) || uh8Var == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.f.onChangeSkinType(tbPageContext, i);
         }
-        StatisticItem statisticItem = new StatisticItem("c13627");
-        statisticItem.param("fid", uh8Var.g);
-        statisticItem.param("obj_type", uh8Var.f == null ? 1 : 2);
-        statisticItem.param("obj_locate", uh8Var.h);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        vh8 vh8Var = uh8Var.f;
-        String str = vh8Var != null ? vh8Var.c : uh8Var.d;
-        vh8 vh8Var2 = uh8Var.f;
-        if (vh8Var2 != null) {
-            String str2 = vh8Var2.a;
-        } else {
-            String str3 = uh8Var.c;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.hx
+    /* renamed from: p */
+    public void a(fo4 fo4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, fo4Var) == null) {
+            this.f.setData(fo4Var);
         }
-        statisticItem.param("obj_name", uh8Var.c);
-        statisticItem.param("obj_param1", uh8Var.d);
-        a(statisticItem, str);
-        TiebaStatic.log(statisticItem);
-        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(uh8Var.i, 0));
     }
 }

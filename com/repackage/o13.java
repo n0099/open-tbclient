@@ -1,172 +1,319 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.BitmapFactory;
-import android.media.ExifInterface;
 import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.storage.PathType;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class o13 extends f23 {
+public class o13 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean t;
+    public static final n13<o13> u;
+    public static final m13<o13> v;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
+    public boolean f;
+    public String g;
+    public boolean h;
+    public boolean i;
+    public String j;
+    public boolean k;
+    public boolean l;
+    public boolean m;
+    public boolean n;
+    public boolean o;
+    public boolean p;
+    public String q;
+    public String r;
+    public String s;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o13(f13 f13Var) {
-        super(f13Var, "/swanAPI/getImageInfo");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {f13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static class a extends n13<o13> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.n13
+        /* renamed from: b */
+        public void a(@NonNull o13 o13Var, @NonNull fk2 fk2Var) throws Exception {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o13Var, fk2Var) == null) {
+                fk2Var.writeInt(o13Var.a);
+                fk2Var.f(o13Var.b);
+                fk2Var.f(o13Var.c);
+                fk2Var.f(o13Var.d);
+                fk2Var.writeInt(o13Var.e);
+                fk2Var.writeBoolean(o13Var.f);
+                fk2Var.f(o13Var.g);
+                fk2Var.writeBoolean(o13Var.h);
+                fk2Var.writeBoolean(o13Var.i);
+                fk2Var.f(o13Var.j);
+                fk2Var.writeBoolean(o13Var.k);
+                fk2Var.writeBoolean(o13Var.l);
+                fk2Var.writeBoolean(o13Var.m);
+                fk2Var.writeBoolean(o13Var.n);
+                fk2Var.writeBoolean(o13Var.o);
+                fk2Var.writeBoolean(o13Var.p);
+                fk2Var.f(o13Var.q);
+                fk2Var.f(o13Var.r);
+                fk2Var.f(o13Var.s);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b extends m13<o13> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.m13
+        /* renamed from: b */
+        public o13 a(@NonNull ek2 ek2Var) throws Exception {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ek2Var)) == null) {
+                o13 o13Var = new o13();
+                o13Var.a = ek2Var.readInt();
+                o13Var.b = ek2Var.g();
+                o13Var.c = ek2Var.g();
+                o13Var.d = ek2Var.g();
+                o13Var.e = ek2Var.readInt();
+                o13Var.f = ek2Var.readBoolean();
+                o13Var.g = ek2Var.g();
+                o13Var.h = ek2Var.readBoolean();
+                o13Var.i = ek2Var.readBoolean();
+                o13Var.j = ek2Var.g();
+                o13Var.k = ek2Var.readBoolean();
+                o13Var.l = ek2Var.readBoolean();
+                o13Var.m = ek2Var.readBoolean();
+                o13Var.n = ek2Var.readBoolean();
+                o13Var.o = ek2Var.readBoolean();
+                o13Var.p = ek2Var.readBoolean();
+                o13Var.q = ek2Var.g();
+                o13Var.r = ek2Var.g();
+                o13Var.s = ek2Var.g();
+                return o13Var;
+            }
+            return (o13) invokeL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755492608, "Lcom/repackage/o13;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755492608, "Lcom/repackage/o13;");
                 return;
             }
         }
+        t = jh1.a;
+        u = new a();
+        v = new b();
     }
 
-    @Override // com.repackage.f23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
-        InterceptResult invokeLLLL;
+    public o13() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
-            if (i03Var == null) {
-                ix1.c("getImageInfo", "illegal swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            String optString = id3.d(unitedSchemeEntity.getParam("params")).optString("src");
-            if (TextUtils.isEmpty(optString)) {
-                ix1.c("getImageInfo", "path null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            JSONObject jSONObject = null;
-            if (q73.s(optString) == PathType.BD_FILE) {
-                jSONObject = k(q73.M(optString, i03Var.b), optString);
-            } else if (q73.s(optString) == PathType.RELATIVE) {
-                jSONObject = k(q73.L(optString, i03Var, i03Var.k0()), optString);
-            }
-            if (jSONObject != null) {
-                ix1.i("getImageInfo", "getImgInfo success");
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                return true;
-            }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "image not found");
-            return false;
         }
-        return invokeLLLL.booleanValue;
+        this.l = false;
+        this.m = false;
+        this.n = true;
+        this.o = false;
+        this.p = false;
+        this.a = -16777216;
+        this.c = "#ffffff";
+        this.j = "default";
+        this.e = -1;
+        this.f = false;
     }
 
-    public final ExifInterface j(String str) {
+    public static o13 a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return d();
             }
-            try {
-                return new ExifInterface(str);
-            } catch (IOException unused) {
-                return null;
-            }
+            return c(jSONObject);
         }
-        return (ExifInterface) invokeL.objValue;
+        return (o13) invokeL.objValue;
     }
 
-    public final JSONObject k(String str, String str2) {
+    public static o13 b(String str, @NonNull o13 o13Var) {
         InterceptResult invokeLL;
-        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            ix1.i("getImageInfo", "getImgInfo start");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, o13Var)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return null;
+                return o13Var;
             }
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            int i = 1;
-            options.inJustDecodeBounds = true;
-            BitmapFactory.decodeFile(str, options);
-            int i2 = options.outWidth;
-            int i3 = options.outHeight;
-            String str4 = options.outMimeType;
-            if (TextUtils.isEmpty(str4)) {
-                str3 = "";
-            } else {
-                String[] split = str4.split("/");
-                str3 = split[split.length - 1];
-            }
-            if (!TextUtils.equals("png", str3)) {
-                ExifInterface j = j(str);
-                if (j == null) {
-                    return null;
-                }
-                i = j.getAttributeInt("Orientation", 1);
-            }
-            JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("width", i2);
-                jSONObject.put("height", i3);
-                jSONObject.put("path", str2);
-                jSONObject.put("orientation", l(i));
-                jSONObject.put("type", str3);
+                return e(new JSONObject(str), o13Var);
             } catch (JSONException e) {
-                ix1.c("getImageInfo", "getImgInfo failed by json exception");
-                if (f23.b) {
-                    e.printStackTrace();
+                if (t) {
+                    Log.d("WindowConfig", "buildPageWindowConfig jsonString failed: " + Log.getStackTraceString(e));
                 }
+                return o13Var;
             }
-            ix1.i("getImageInfo", "getImgInfo end");
-            return jSONObject;
         }
-        return (JSONObject) invokeLL.objValue;
+        return (o13) invokeLL.objValue;
     }
 
-    public final String l(int i) {
-        InterceptResult invokeI;
+    public static o13 c(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            switch (i) {
-                case 0:
-                case 1:
-                    return "up";
-                case 2:
-                    return "up-mirrored";
-                case 3:
-                    return "down";
-                case 4:
-                    return "down-mirrored";
-                case 5:
-                    return "left-mirrored";
-                case 6:
-                    return "left";
-                case 7:
-                    return "right-mirrored";
-                case 8:
-                    return "right";
-                default:
-                    return "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
+            JSONObject optJSONObject = jSONObject.optJSONObject("window");
+            if (optJSONObject == null) {
+                return d();
             }
+            o13 o13Var = new o13();
+            String optString = optJSONObject.optString("navigationBarBackgroundColor");
+            if (TextUtils.isEmpty(optString)) {
+                optString = "#000000";
+            }
+            o13Var.a = SwanAppConfigData.t(optString);
+            String optString2 = optJSONObject.optString("navigationBarTextStyle");
+            if (TextUtils.isEmpty(optString2)) {
+                optString2 = "white";
+            }
+            o13Var.c = optString2;
+            o13Var.b = optJSONObject.optString("navigationBarTitleText");
+            o13Var.d = optJSONObject.optString("backgroundTextStyle", "black");
+            o13Var.e = SwanAppConfigData.t(optJSONObject.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR));
+            o13Var.f = optJSONObject.optBoolean("enablePullDownRefresh");
+            o13Var.g = optJSONObject.optString("onReachBottomDistance");
+            o13Var.h = optJSONObject.optBoolean("enableOpacityNavigationBar");
+            o13Var.i = optJSONObject.optBoolean("enableOpacityNavigationBarText");
+            o13Var.j = optJSONObject.optString("navigationStyle", "default");
+            o13Var.k = optJSONObject.optBoolean("navigationHomeButtonHidden");
+            o13Var.q = optJSONObject.optString("textSizeAdjust");
+            o13Var.s = optJSONObject.optString("htmlFontSize");
+            optJSONObject.optJSONArray("fontFace");
+            return o13Var;
         }
-        return (String) invokeI.objValue;
+        return (o13) invokeL.objValue;
+    }
+
+    public static o13 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (t) {
+                Log.w("WindowConfig", "WindowConfig#createNullObject stack=" + Log.getStackTraceString(new Exception()));
+            }
+            return new o13();
+        }
+        return (o13) invokeV.objValue;
+    }
+
+    public static o13 e(JSONObject jSONObject, @NonNull o13 o13Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, jSONObject, o13Var)) == null) {
+            o13 o13Var2 = new o13();
+            String optString = jSONObject.optString("navigationBarBackgroundColor");
+            o13Var2.a = TextUtils.isEmpty(optString) ? o13Var.a : SwanAppConfigData.t(optString);
+            o13Var2.b = jSONObject.optString("navigationBarTitleText", o13Var.b);
+            String optString2 = jSONObject.optString("navigationBarTextStyle");
+            if (TextUtils.isEmpty(optString2)) {
+                optString2 = o13Var.c;
+            }
+            o13Var2.c = optString2;
+            o13Var2.d = jSONObject.optString("backgroundTextStyle", o13Var.d);
+            o13Var2.e = jSONObject.has(TtmlNode.ATTR_TTS_BACKGROUND_COLOR) ? SwanAppConfigData.t(jSONObject.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR)) : o13Var.e;
+            o13Var2.f = jSONObject.optBoolean("enablePullDownRefresh", o13Var.f);
+            o13Var2.g = jSONObject.optString("onReachBottomDistance", o13Var.g);
+            o13Var2.h = jSONObject.optBoolean("enableOpacityNavigationBar", o13Var.h);
+            o13Var2.i = jSONObject.optBoolean("enableOpacityNavigationBarText", o13Var.i);
+            o13Var2.j = jSONObject.optString("navigationStyle", o13Var.j);
+            o13Var2.k = jSONObject.optBoolean("navigationHomeButtonHidden", o13Var.k);
+            o13Var2.l = jSONObject.optBoolean("disableSwipeBack", false);
+            o13Var2.m = jSONObject.optBoolean("disableFullscreenSwipeBack", false);
+            o13Var2.n = jSONObject.optBoolean("pageFavoriteEnable", true);
+            o13Var2.o = jSONObject.optBoolean("_hasVideo", false);
+            o13Var2.r = jSONObject.optString("viewMode", o13Var.r);
+            o13Var2.s = jSONObject.optString("htmlFontSize", o13Var.s);
+            jSONObject.optJSONArray("fontFace");
+            return o13Var2;
+        }
+        return (o13) invokeLL.objValue;
+    }
+
+    public static boolean f(o13 o13Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, o13Var)) == null) {
+            if (o13Var == null) {
+                return false;
+            }
+            return o13Var.h || TextUtils.equals(o13Var.j, "custom");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z && !this.p) {
+            this.p = true;
+        }
     }
 }

@@ -1,47 +1,63 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.IRevenue;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.HiidoReport;
-import com.yy.mobile.framework.revenuesdk.payapi.reporter.IPayReporter;
-import tv.athena.revenue.RevenueManager;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.pu9;
 /* loaded from: classes7.dex */
-public class xy9 {
+public abstract class xy9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static IPayReporter a(int i, int i2) {
-        InterceptResult invokeII;
+    public xy9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i, i2)) == null) {
-            IRevenue revenue = RevenueManager.instance().getRevenue(i, i2);
-            if (revenue == null) {
-                RLog.error("MonitorReporter", "getMonitorReporter error revenue null", new Object[0]);
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return revenue.getPayReporter();
         }
-        return (IPayReporter) invokeII.objValue;
     }
 
-    public static void b(int i, int i2, int i3, String str) {
+    @Deprecated
+    public <T> pu9.a<T> a(pu9.a<T> aVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) {
-            IPayReporter a = a(i, i2);
-            if (a == null) {
-                RLog.error("MonitorReporter", "onShowPayFailResult error payReporter null", new Object[0]);
-                return;
-            }
-            HiidoReport.CReportResponse cReportResponse = new HiidoReport.CReportResponse();
-            cReportResponse.mEventId = "6";
-            cReportResponse.mEventaliae = EventAlias.PayEventAlias.SHOW_PAY_RESULT;
-            cReportResponse.mErrCode = i3 + "";
-            cReportResponse.mErrMsg = str;
-            a.onShowPayResult(cReportResponse);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? aVar : (pu9.a) invokeL.objValue;
+    }
+
+    @Deprecated
+    public <T, R> pu9.b<? extends R, ? super T> b(pu9.b<? extends R, ? super T> bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) ? bVar : (pu9.b) invokeL.objValue;
+    }
+
+    @Deprecated
+    public <T> Throwable c(Throwable th) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th)) == null) ? th : (Throwable) invokeL.objValue;
+    }
+
+    @Deprecated
+    public <T> wu9 d(wu9 wu9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, wu9Var)) == null) ? wu9Var : (wu9) invokeL.objValue;
+    }
+
+    @Deprecated
+    public <T> pu9.a<T> e(pu9<? extends T> pu9Var, pu9.a<T> aVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, pu9Var, aVar)) == null) ? aVar : (pu9.a) invokeLL.objValue;
     }
 }

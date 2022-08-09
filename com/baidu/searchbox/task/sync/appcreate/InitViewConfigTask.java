@@ -18,11 +18,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.an4;
-import com.repackage.dq8;
-import com.repackage.m45;
-import com.repackage.pi;
-import com.repackage.t95;
+import com.repackage.i55;
+import com.repackage.qi;
+import com.repackage.ra5;
+import com.repackage.rn4;
+import com.repackage.us8;
 /* loaded from: classes2.dex */
 public class InitViewConfigTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -46,8 +46,8 @@ public class InitViewConfigTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (TbadkCoreApplication.getInst().mToast == null && pi.v() == null) {
-                TbadkCoreApplication.getInst().mToast = new pi.c(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitViewConfigTask.1
+            if (TbadkCoreApplication.getInst().mToast == null && qi.v() == null) {
+                TbadkCoreApplication.getInst().mToast = new qi.c(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitViewConfigTask.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ InitViewConfigTask this$0;
@@ -70,22 +70,22 @@ public class InitViewConfigTask extends LaunchTask {
                         this.this$0 = this;
                     }
 
-                    @Override // com.repackage.pi.c
+                    @Override // com.repackage.qi.c
                     public void createToastView() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            TbadkCoreApplication.getInst().mCustomToastView = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0206, (ViewGroup) null);
+                            TbadkCoreApplication.getInst().mCustomToastView = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0207, (ViewGroup) null);
                         }
                     }
 
-                    @Override // com.repackage.pi.c
+                    @Override // com.repackage.qi.c
                     public View getToastContentView() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
                         return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TbadkCoreApplication.getInst().mCustomToastView : (View) invokeV.objValue;
                     }
 
-                    @Override // com.repackage.pi.c
+                    @Override // com.repackage.qi.c
                     public void setToastString(String str) {
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (getToastContentView() instanceof TextView)) {
@@ -93,8 +93,8 @@ public class InitViewConfigTask extends LaunchTask {
                         }
                     }
                 };
-                pi.I(TbadkCoreApplication.getInst().mToast);
-                t95.b().H(System.currentTimeMillis() - currentTimeMillis);
+                qi.I(TbadkCoreApplication.getInst().mToast);
+                ra5.b().H(System.currentTimeMillis() - currentTimeMillis);
             }
         }
     }
@@ -104,18 +104,18 @@ public class InitViewConfigTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ViewHelper.initSkinDataOnStartup(AppRuntime.getAppContext());
-            an4.c().f();
+            rn4.c().f();
             TbConfig.initBigImageWidth(TbadkCoreApplication.getInst());
             TbConfig.initBigImageMaxUsedMemory(TbadkCoreApplication.getInst().getContext());
             if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-                m45.k().q(TbConfig.getMaxPhotoMemoryCache(), TbConfig.getBigImageMaxUsedMemory());
+                i55.k().q(TbConfig.getMaxPhotoMemoryCache(), TbConfig.getBigImageMaxUsedMemory());
             } else {
-                m45.k().q(TbConfig.getMaxPhotoMemoryCacheForRemoteProcess(), TbConfig.getBigImageMaxUsedMemoryForRemoteProcess());
+                i55.k().q(TbConfig.getMaxPhotoMemoryCacheForRemoteProcess(), TbConfig.getBigImageMaxUsedMemoryForRemoteProcess());
             }
             TbConfig.initFriendPhotoConfig(TbadkCoreApplication.getInst());
             TbadkCoreApplication.getInst().setFontSize(TbadkSettings.getInst().loadInt("font_size", 2));
             TbDimenManager.getInstance().init(AppRuntime.getApplication());
-            dq8.c();
+            us8.c();
             initCustomToastView();
         }
     }

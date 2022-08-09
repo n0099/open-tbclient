@@ -209,6 +209,7 @@ public class CmdConfigHttp {
     public static final int CMD_HTTP_GET_HOTFORUM = 1001534;
     public static final int CMD_HTTP_GET_HOTTOPIC_SELECT = 1003186;
     public static final int CMD_HTTP_GET_MSG_REC_FORUM_LIST = 1003507;
+    public static final int CMD_HTTP_POLLING_INTERFACE = 1003540;
     public static final int CMD_HTTP_SMART_APP = 1003420;
     public static final int CMD_HTTP_TIEBA_UID_CHECK = 1003493;
     public static final int CMD_HTTP_VIDEO_ATTENTION_FEED = 1003501;
@@ -250,6 +251,8 @@ public class CmdConfigHttp {
     public static final int CMD_POST_SEARCH = 1003016;
     public static final int CMD_POST_VIDEO_MARK_RED_ICON = 1003500;
     public static final int CMD_PROFESSION_PERMISSION = 1003427;
+    public static final int CMD_QUESTION_THREAD_CREATE_TAG = 1003541;
+    public static final int CMD_QUESTION_THREAD_TAG_LIST = 1003538;
     public static final int CMD_RECOMMEND_PERSONALIZE = 1003070;
     public static final int CMD_RELATE_REC_THREAD = 1003490;
     public static final int CMD_RELEVANCE_ITEM_SEARCH = 1003482;
@@ -303,6 +306,7 @@ public class CmdConfigHttp {
     public static final int CMD_TRACK_CONFIG = 1003452;
     public static final int CMD_UEG_CANCEL = 1003414;
     public static final int CMD_UEG_REPORT = 1003402;
+    public static final int CMD_UPDATE_SIGN_DATA = 1003539;
     public static final int CMD_UPLOAD_COLLECT_EMOTION_INFO = 1003339;
     public static final int CMD_UPLOAD_DIY_EMOTION_INFO = 1003532;
     public static final int CMD_UPLOAD_DOWNLOAD_INFO = 1003513;
@@ -333,6 +337,7 @@ public class CmdConfigHttp {
     public static final int CMD_WORK_VIDEO_GUIDE_UPDATE = 1003510;
     public static final int CMD_WRITE_POST_ADD = 1003537;
     public static final int CMD_WRITE_THREAD_ADD = 1003536;
+    public static final int CMD_YINJI_TASK_SHARE_REPORT = 1003542;
     public static final int COMMON_PRAISE_Y_OR_N = 1001600;
     public static final int DISTRIBUTE_ACTRUAL_CMD = 1003000;
     public static final int FORUM_RECOMMEND_HTTP_CMD = 1002400;

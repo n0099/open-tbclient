@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wh8;
-import com.repackage.za;
+import com.repackage.ab;
+import com.repackage.kk8;
 /* loaded from: classes4.dex */
 public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> {
     public static /* synthetic */ Interceptable $ic;
@@ -21,10 +21,10 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
     public int b;
     public int c;
     public b d;
-    public za e;
+    public ab e;
 
     /* loaded from: classes4.dex */
-    public class a extends za {
+    public class a extends ab {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BackgroundPreviewModel a;
@@ -51,7 +51,7 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
             this.a = backgroundPreviewModel;
         }
 
-        @Override // com.repackage.za
+        @Override // com.repackage.ab
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
@@ -104,7 +104,7 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
         registerListener(this.e);
     }
 
-    public void F(b bVar) {
+    public void E(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             this.d = bVar;
@@ -144,8 +144,8 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            wh8.h(309023, BackgroundGetSocketResponseMessage.class, false, false);
-            wh8.c(309023, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, TbConfig.PERSONAL_BACKGROUND_GET, BackgroundGetHttpResponseMessage.class, false, false, false, false);
+            kk8.h(309023, BackgroundGetSocketResponseMessage.class, false, false);
+            kk8.c(309023, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, TbConfig.PERSONAL_BACKGROUND_GET, BackgroundGetHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

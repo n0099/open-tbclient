@@ -1,250 +1,131 @@
 package com.repackage;
 
-import android.media.AudioRecord;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
+import android.text.style.ReplacementSpan;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.RandomAccessFile;
 /* loaded from: classes6.dex */
-public class jw4 implements mw4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int l = 8000;
-    public static int m = 2;
-    public static int n = 2;
-    public static int o = 1;
+public class jw4 extends ReplacementSpan {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public boolean b;
-    public AudioRecord c;
-    public RandomAccessFile d;
-    public File e;
-    public int f;
+    public int b;
+    public int c;
+    public int d;
+    public Drawable e;
+    public Drawable f;
     public int g;
     public int h;
     public int i;
-    public short j;
-    public short k;
+    public int j;
+    public int k;
+    public int l;
+    public int m;
+    public int n;
+    public boolean o;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jw4 a;
-
-        public a(jw4 jw4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jw4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = jw4Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.h();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755574262, "Lcom/repackage/jw4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755574262, "Lcom/repackage/jw4;");
-        }
-    }
-
-    public jw4() {
+    public jw4(int i, int i2, int i3, int i4, int i5, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i6 = newInitContext.flag;
+            if ((i6 & 1) != 0) {
+                int i7 = i6 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.b = false;
-        this.c = null;
-        this.e = null;
+        this.a = R.drawable.icon_pure_evaluation_star24_n;
+        this.b = R.color.CAM_X0112;
+        this.c = R.drawable.icon_pure_evaluation_star24_n;
+        this.d = R.color.CAM_X0305;
+        this.m = 5;
+        this.n = i;
+        this.g = i2;
+        this.h = i3;
+        this.i = i4;
+        this.k = i5;
+        this.o = z;
     }
 
-    @Override // com.repackage.mw4
-    public void a() {
+    public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = false;
+            this.e = SvgManager.getInstance().getPureDrawable(this.a, this.b, null);
+            this.f = SvgManager.getInstance().getPureDrawable(this.c, this.d, null);
         }
     }
 
-    @Override // com.repackage.mw4
-    public boolean c() {
-        InterceptResult invokeV;
+    @Override // android.text.style.ReplacementSpan
+    public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
+        int dimenPixelSize;
+        int i6;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.mw4
-    public boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? g(o, l, m, n, str) : invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.mw4
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Thread thread = new Thread(new a(this));
-            thread.setPriority(10);
-            thread.setDaemon(true);
-            thread.start();
-            return true;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+            a();
+            this.j = (int) paint.getTextSize();
+            int i7 = ((int) f) + this.k;
+            Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
+            int i8 = 0;
+            if (os4.b(charSequence)) {
+                os4.a(fontMetricsInt, (int) paint.getTextSize());
+                dimenPixelSize = 0 - UtilHelper.getDimenPixelSize(R.dimen.tbds3);
+            } else {
+                dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds3) + 0;
+            }
+            int max = dimenPixelSize + fontMetricsInt.ascent + i4 + Math.max(0, ((this.j - this.h) / 2) + (this.o ? (i5 - i4) / 2 : 0));
+            while (true) {
+                i6 = this.n;
+                if (i8 >= i6) {
+                    break;
+                }
+                Drawable drawable = this.f;
+                if (drawable != null) {
+                    int i9 = this.h;
+                    drawable.setBounds(i7, max, i7 + i9, i9 + max);
+                    this.f.draw(canvas);
+                    i7 += this.g + this.h;
+                }
+                i8++;
+            }
+            while (i6 < this.m) {
+                Drawable drawable2 = this.e;
+                if (drawable2 != null) {
+                    int i10 = this.h;
+                    drawable2.setBounds(i7, max, i7 + i10, i10 + max);
+                    this.e.draw(canvas);
+                    i7 += this.g + this.h;
+                }
+                i6++;
+            }
         }
-        return invokeV.booleanValue;
     }
 
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-        }
-    }
-
-    public boolean g(int i, int i2, int i3, int i4, String str) {
+    @Override // android.text.style.ReplacementSpan
+    public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str})) == null) {
-            this.a = AudioRecord.getMinBufferSize(i2, i3, i4) + 2048;
-            this.g = i2;
-            this.h = i3;
-            this.i = i4;
-            AudioRecord audioRecord = this.c;
-            if (audioRecord != null) {
-                audioRecord.release();
-            }
-            this.c = new AudioRecord(i, this.g, this.h, this.i, this.a);
-            this.j = (short) (this.h == 12 ? 2 : 1);
-            this.k = (short) (this.i == 2 ? 16 : 8);
-            File file = new File(str);
-            this.e = file;
-            if (file.exists()) {
-                this.e.delete();
-            }
-            try {
-                this.e.createNewFile();
-                RandomAccessFile randomAccessFile = this.d;
-                if (randomAccessFile != null) {
-                    try {
-                        randomAccessFile.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        return false;
-                    }
-                }
-                try {
-                    this.d = new RandomAccessFile(this.e, "rw");
-                    i();
-                    f(this.e.getParent());
-                    return true;
-                } catch (FileNotFoundException e2) {
-                    e2.printStackTrace();
-                    return false;
-                }
-            } catch (IOException unused) {
-                this.e = null;
-                return false;
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+            int i3 = this.m;
+            int i4 = (this.h * i3) + (this.g * (i3 - 1)) + this.i + this.k;
+            this.l = i4;
+            return i4;
         }
-        return invokeCommon.booleanValue;
-    }
-
-    public final void h() {
-        AudioRecord audioRecord;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (audioRecord = this.c) == null || this.e == null) {
-            return;
-        }
-        try {
-            this.b = true;
-            int i = this.a;
-            byte[] bArr = new byte[i];
-            audioRecord.startRecording();
-            while (this.b) {
-                this.c.read(bArr, 0, i);
-                this.d.write(bArr);
-                this.f += i;
-            }
-            this.d.seek(4L);
-            this.d.writeInt(Integer.reverseBytes(this.f + 36));
-            this.d.seek(40L);
-            this.d.writeInt(Integer.reverseBytes(this.f));
-            this.d.close();
-            this.c.stop();
-            this.c.release();
-            this.b = false;
-        } catch (Throwable unused) {
-            if (this.e.exists()) {
-                this.e.delete();
-            }
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            try {
-                this.d.setLength(0L);
-                this.d.writeBytes("RIFF");
-                this.d.writeInt(0);
-                this.d.writeBytes("WAVE");
-                this.d.writeBytes("fmt ");
-                this.d.writeInt(Integer.reverseBytes(16));
-                this.d.writeShort(Short.reverseBytes((short) 1));
-                this.d.writeShort(Short.reverseBytes(this.j));
-                this.d.writeInt(Integer.reverseBytes(this.g));
-                this.d.writeInt(Integer.reverseBytes(((this.g * this.j) * this.k) / 8));
-                this.d.writeShort(Short.reverseBytes((short) ((this.j * this.k) / 8)));
-                this.d.writeShort(Short.reverseBytes(this.k));
-                this.d.writeBytes("data");
-                this.d.writeInt(0);
-            } catch (IOException e) {
-                if (this.e.exists()) {
-                    this.e.delete();
-                }
-                e.printStackTrace();
-            }
-        }
+        return invokeCommon.intValue;
     }
 }

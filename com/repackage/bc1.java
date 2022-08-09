@@ -1,138 +1,136 @@
 package com.repackage;
 
-import android.content.ContentValues;
-import android.content.UriMatcher;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.Bundle;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class bc1 extends ac1 {
+public class bc1 extends yb1 {
     public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, String> a;
+    public static HashMap<String, yb1> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bc1() {
-        super(0, 100);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final bc1 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-505004765, "Lcom/repackage/bc1$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-505004765, "Lcom/repackage/bc1$b;");
+                    return;
+                }
+            }
+            a = new bc1(null);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755831903, "Lcom/repackage/bc1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755831903, "Lcom/repackage/bc1;");
                 return;
             }
         }
+        a = new HashMap<>();
+        b = new HashMap<>();
     }
 
-    @Override // com.repackage.ac1
-    public Bundle call(String str, String str2, Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, bundle)) == null) {
-            if ("_get_service_handler".equals(str)) {
-                return tb1.a();
-            }
-            return null;
-        }
-        return (Bundle) invokeLLL.objValue;
+    public /* synthetic */ bc1(a aVar) {
+        this();
     }
 
-    @Override // com.repackage.ac1
-    public boolean d(String str, String str2, Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, bundle)) == null) ? "_get_service_handler".equals(str) : invokeLLL.booleanValue;
-    }
-
-    @Override // com.repackage.ac1
-    public int delete(int i, Uri uri, String str, String[] strArr) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), uri, str, strArr})) == null) {
-            return 0;
-        }
-        return invokeCommon.intValue;
-    }
-
-    @Override // com.repackage.ac1
-    public void e(Uri uri, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048579, this, uri, i) == null) || i == 3) {
-            return;
-        }
-        super.e(uri, i);
-    }
-
-    @Override // com.repackage.ac1
-    public void f(UriMatcher uriMatcher, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, uriMatcher, str) == null) {
-            uriMatcher.addURI(str, "ipc_manager/method/get_service_handler", 1);
-        }
-    }
-
-    @Override // com.repackage.ac1
-    public String getType(int i, Uri uri) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, uri)) == null) {
-            return null;
-        }
-        return (String) invokeIL.objValue;
-    }
-
-    @Override // com.repackage.ac1
-    public Uri insert(int i, Uri uri, ContentValues contentValues) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, uri, contentValues)) == null) {
-            return null;
-        }
-        return (Uri) invokeILL.objValue;
-    }
-
-    @Override // com.repackage.ac1
-    public boolean j() {
+    public static bc1 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (bc1) invokeV.objValue;
+    }
+
+    @Override // com.repackage.yb1
+    public boolean b(Context context, ac1 ac1Var, ub1 ub1Var) {
+        InterceptResult invokeLLL;
+        yb1 yb1Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, ac1Var, ub1Var)) == null) {
+            String b2 = ac1Var.b();
+            if (a.get(b2) != null) {
+                ac1Var.f(b2, a.get(b2));
+            }
+            String d = ac1Var.d(true);
+            if (TextUtils.isEmpty(d) || (yb1Var = b.get(d)) == null) {
+                return false;
+            }
+            return yb1Var.b(context, ac1Var, ub1Var);
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    @Override // com.repackage.yb1
+    public boolean c(Context context, ac1 ac1Var, ub1 ub1Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ac1Var, ub1Var)) == null) {
+            ac1Var.i = dc1.h(302);
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeLLL.booleanValue;
     }
 
-    @Override // com.repackage.ac1
-    public Cursor query(int i, Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
-        InterceptResult invokeCommon;
+    public void f(String str, yb1 yb1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), uri, strArr, str, strArr2, str2})) == null) {
-            if (i == 1) {
-                return new ub1(tb1.a());
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, yb1Var) == null) || TextUtils.isEmpty(str) || yb1Var == null) {
+            return;
+        }
+        b.put(str, yb1Var);
+    }
+
+    public void g(yb1 yb1Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, yb1Var) == null) || yb1Var == null) {
+            return;
+        }
+        yb1Var.a(a);
+    }
+
+    public bc1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return null;
         }
-        return (Cursor) invokeCommon.objValue;
-    }
-
-    @Override // com.repackage.ac1
-    public int update(int i, Uri uri, ContentValues contentValues, String str, String[] strArr) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), uri, contentValues, str, strArr})) == null) {
-            return 0;
-        }
-        return invokeCommon.intValue;
     }
 }

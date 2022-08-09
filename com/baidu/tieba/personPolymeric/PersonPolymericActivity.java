@@ -19,9 +19,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
+import com.repackage.pi;
 import com.repackage.z8;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PersonPolymericActivity extends BaseFragmentActivity implements VoiceManager.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,26 +44,26 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
         this.b = false;
     }
 
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.j
+    public VoiceManager.i e1(VoiceData.VoiceModel voiceModel) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voiceModel)) == null) {
+            return null;
+        }
+        return (VoiceManager.i) invokeL.objValue;
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void enterExitAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (this.b) {
                 ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
             } else {
                 super.enterExitAnimation();
             }
         }
-    }
-
-    @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager.i f1(VoiceData.VoiceModel voiceModel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voiceModel)) == null) {
-            return null;
-        }
-        return (VoiceManager.i) invokeL.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity
@@ -77,7 +77,7 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.w85
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.u95
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -111,9 +111,9 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d06db);
+            setContentView(R.layout.obfuscated_res_0x7f0d0702);
             this.a = new PersonPolymericFragment();
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090a76, this.a).commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090ab1, this.a).commit();
             if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !z8.g().i("MainTabActivity")) {
                 this.b = true;
             }
@@ -128,7 +128,7 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            if (oi.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
+            if (pi.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                 return;
             }
             TbadkCoreApplication.getInst().setTaskId("");
@@ -145,13 +145,13 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager u0() {
+    public VoiceManager t0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             PersonPolymericFragment personPolymericFragment = this.a;
             if (personPolymericFragment != null) {
-                return personPolymericFragment.u0();
+                return personPolymericFragment.t0();
             }
             return null;
         }

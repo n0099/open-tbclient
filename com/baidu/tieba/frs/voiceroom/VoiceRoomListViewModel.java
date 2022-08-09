@@ -11,9 +11,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.il4;
-import com.repackage.jl4;
-import com.repackage.vq6;
+import com.repackage.am4;
+import com.repackage.os6;
+import com.repackage.zl4;
 import java.util.List;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
@@ -22,11 +22,11 @@ import kotlin.jvm.internal.Intrinsics;
 public final class VoiceRoomListViewModel extends ViewModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final vq6 a;
-    public final MutableLiveData<jl4<List<VoiceRoomWrapper>>> b;
+    public final os6 a;
+    public final MutableLiveData<am4<List<VoiceRoomWrapper>>> b;
 
     /* loaded from: classes3.dex */
-    public static final class a implements il4<List<? extends VoiceRoomWrapper>> {
+    public static final class a implements zl4<List<? extends VoiceRoomWrapper>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VoiceRoomListViewModel a;
@@ -49,9 +49,9 @@ public final class VoiceRoomListViewModel extends ViewModel {
             this.a = voiceRoomListViewModel;
         }
 
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.repackage.jl4<? extends java.util.List<com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper>>] */
-        @Override // com.repackage.il4
-        public void a(jl4<? extends List<? extends VoiceRoomWrapper>> result) {
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.repackage.am4<? extends java.util.List<com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper>>] */
+        @Override // com.repackage.zl4
+        public void a(am4<? extends List<? extends VoiceRoomWrapper>> result) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, result) == null) {
                 Intrinsics.checkNotNullParameter(result, "result");
@@ -73,11 +73,11 @@ public final class VoiceRoomListViewModel extends ViewModel {
                 return;
             }
         }
-        this.a = new vq6();
+        this.a = new os6();
         this.b = new MutableLiveData<>();
     }
 
-    public final LiveData<jl4<List<VoiceRoomWrapper>>> b() {
+    public final LiveData<am4<List<VoiceRoomWrapper>>> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (LiveData) invokeV.objValue;

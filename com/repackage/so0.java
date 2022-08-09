@@ -1,362 +1,36 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.net.exception.RequestError;
 import com.baidu.nadcore.net.request.Headers;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wn0;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
+import java.net.MalformedURLException;
+import java.net.URL;
+import org.apache.http.client.methods.HttpDelete;
 /* loaded from: classes7.dex */
-public class so0 extends wn0 {
+public class so0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public OkHttpClient a;
-
-    /* loaded from: classes7.dex */
-    public class a implements Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wn0.a a;
-        public final /* synthetic */ boolean b;
-
-        /* renamed from: com.repackage.so0$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class RunnableC0574a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ IOException a;
-            public final /* synthetic */ a b;
-
-            public RunnableC0574a(a aVar, IOException iOException) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, iOException};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = iOException;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.b.a.a(this.a, 502);
-                }
-            }
-        }
-
-        /* loaded from: classes7.dex */
-        public class b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ int a;
-            public final /* synthetic */ a b;
-
-            public b(a aVar, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, Integer.valueOf(i)};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = i;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.b.a.a(new Exception("body is null!"), this.a);
-                }
-            }
-        }
-
-        public a(so0 so0Var, wn0.a aVar, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {so0Var, aVar, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aVar;
-            this.b = z;
-        }
-
-        @Override // okhttp3.Callback
-        public void onFailure(@NonNull Call call, @NonNull IOException iOException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                uh0.b(new RunnableC0574a(this, iOException));
-            }
-        }
-
-        @Override // okhttp3.Callback
-        public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                Headers.a aVar = new Headers.a();
-                int code = response.code();
-                ResponseBody body = response.body();
-                if (body != null) {
-                    for (Map.Entry<String, List<String>> entry : response.headers().toMultimap().entrySet()) {
-                        List<String> value = entry.getValue();
-                        if (value != null && value.size() > 0) {
-                            aVar.a(entry.getKey(), value.get(0));
-                        }
-                    }
-                    try {
-                        if (this.b) {
-                            this.a.c(aVar.c(), body.string(), code);
-                        } else {
-                            InputStream byteStream = body.byteStream();
-                            this.a.b(aVar.c(), byteStream, code);
-                            kh0.a(byteStream);
-                        }
-                        return;
-                    } catch (Throwable th) {
-                        throw new IOException(th);
-                    }
-                }
-                uh0.b(new b(this, code));
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements wn0.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mo0 a;
-        public final /* synthetic */ uo0 b;
-
-        /* loaded from: classes7.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Headers a;
-            public final /* synthetic */ Object b;
-            public final /* synthetic */ int c;
-            public final /* synthetic */ b d;
-
-            public a(b bVar, Headers headers, Object obj, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, headers, obj, Integer.valueOf(i)};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.d = bVar;
-                this.a = headers;
-                this.b = obj;
-                this.c = i;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.d.a.b(this.a, this.b, this.c);
-                }
-            }
-        }
-
-        /* renamed from: com.repackage.so0$b$b  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class RunnableC0575b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Exception a;
-            public final /* synthetic */ int b;
-            public final /* synthetic */ b c;
-
-            public RunnableC0575b(b bVar, Exception exc, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, exc, Integer.valueOf(i)};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = bVar;
-                this.a = exc;
-                this.b = i;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.c.a.a(this.a, this.b);
-                }
-            }
-        }
-
-        public b(so0 so0Var, mo0 mo0Var, uo0 uo0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {so0Var, mo0Var, uo0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mo0Var;
-            this.b = uo0Var;
-        }
-
-        @Override // com.repackage.wn0.a
-        public void a(Exception exc, int i) {
-            mo0 mo0Var;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) || (mo0Var = this.a) == null) {
-                return;
-            }
-            if (this.b.j) {
-                uh0.b(new RunnableC0575b(this, exc, i));
-            } else {
-                mo0Var.a(exc, i);
-            }
-        }
-
-        @Override // com.repackage.wn0.a
-        public void b(Headers headers, InputStream inputStream, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, headers, inputStream, i) == null) {
-                throw new IllegalStateException("走错路了");
-            }
-        }
-
-        @Override // com.repackage.wn0.a
-        public void c(Headers headers, String str, int i) throws Exception {
-            mo0 mo0Var;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, headers, str, i) == null) || (mo0Var = this.a) == null) {
-                return;
-            }
-            Object d = mo0Var.d(headers, str, i);
-            if (this.b.j) {
-                uh0.b(new a(this, headers, d, i));
-            } else {
-                this.a.b(headers, d, i);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements wn0.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lo0 a;
-
-        public c(so0 so0Var, lo0 lo0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {so0Var, lo0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lo0Var;
-        }
-
-        @Override // com.repackage.wn0.a
-        public void a(Exception exc, int i) {
-            lo0 lo0Var;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) || (lo0Var = this.a) == null) {
-                return;
-            }
-            lo0Var.a(exc, i);
-        }
-
-        @Override // com.repackage.wn0.a
-        public void b(Headers headers, InputStream inputStream, int i) throws Exception {
-            lo0 lo0Var;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, headers, inputStream, i) == null) || (lo0Var = this.a) == null) {
-                return;
-            }
-            lo0Var.c(headers, inputStream, i);
-        }
-
-        @Override // com.repackage.wn0.a
-        public void c(Headers headers, String str, int i) throws Exception {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, headers, str, i) == null) {
-                throw new IllegalStateException("走错路了");
-            }
-        }
-    }
+    public URL a;
+    public String b;
+    public Headers.a c;
+    @Nullable
+    public ro0 d;
+    public Object e;
+    public int f;
+    public int g;
+    public int h;
+    public no0 i;
+    public boolean j;
+    public boolean k;
 
     public so0() {
         Interceptable interceptable = $ic;
@@ -371,65 +45,171 @@ public class so0 extends wn0 {
                 return;
             }
         }
-        this.a = null;
+        this.j = true;
+        this.k = false;
+        this.b = "GET";
+        this.c = new Headers.a();
+        new Headers.a();
+        this.f = 30000;
+        this.g = 30000;
+        this.h = 30000;
+        this.i = ao0.a().a(true);
     }
 
-    @Override // com.repackage.go0
-    public <T> void a(@NonNull uo0 uo0Var, @Nullable mo0<T> mo0Var) {
+    public so0 a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, uo0Var, mo0Var) == null) {
-            c(uo0Var, true, new b(this, mo0Var, uo0Var));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            this.c.a(str, str2);
+            return this;
         }
+        return (so0) invokeLL.objValue;
     }
 
-    @Override // com.repackage.go0
-    public void b(@NonNull uo0 uo0Var, @Nullable lo0 lo0Var) {
+    public RequestError b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uo0Var, lo0Var) == null) {
-            c(uo0Var, false, new c(this, lo0Var));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            RequestError requestError = this.a == null ? new RequestError("url is null") : null;
+            if (this.d != null && !oo0.a(this.b)) {
+                requestError = new RequestError("method " + this.b + " must not have a request body.");
+            }
+            if (this.d == null && oo0.b(this.b)) {
+                return new RequestError("method " + this.b + " must have a request body.");
+            }
+            return requestError;
         }
+        return (RequestError) invokeV.objValue;
     }
 
-    public final void c(@NonNull uo0 uo0Var, boolean z, @NonNull wn0.a aVar) {
-        OkHttpClient.Builder builder;
+    public so0 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{uo0Var, Boolean.valueOf(z), aVar}) == null) {
-            RequestError b2 = uo0Var.b();
-            if (b2 != null) {
-                aVar.a(b2, 1001);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            e("GET", null);
+            return this;
+        }
+        return (so0) invokeV.objValue;
+    }
+
+    public so0 d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            this.c.e(str, str2);
+            return this;
+        }
+        return (so0) invokeLL.objValue;
+    }
+
+    public so0 delete(@Nullable ro0 ro0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, ro0Var)) == null) {
+            e(HttpDelete.METHOD_NAME, ro0Var);
+            return this;
+        }
+        return (so0) invokeL.objValue;
+    }
+
+    public so0 e(String str, @Nullable ro0 ro0Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, ro0Var)) == null) {
+            this.b = str;
+            this.d = ro0Var;
+            return this;
+        }
+        return (so0) invokeLL.objValue;
+    }
+
+    public so0 f(ro0 ro0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, ro0Var)) == null) {
+            e("POST", ro0Var);
+            return this;
+        }
+        return (so0) invokeL.objValue;
+    }
+
+    public so0 g(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            this.f = i;
+            return this;
+        }
+        return (so0) invokeI.objValue;
+    }
+
+    public so0 h(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
+            this.j = z;
+            return this;
+        }
+        return (so0) invokeZ.objValue;
+    }
+
+    public so0 i(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            this.g = i;
+            return this;
+        }
+        return (so0) invokeI.objValue;
+    }
+
+    public so0 j(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
+            this.h = i;
+            return this;
+        }
+        return (so0) invokeI.objValue;
+    }
+
+    public so0 k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                this.a = null;
+                return this;
+            }
+            if (str.regionMatches(true, 0, "ws:", 0, 3)) {
+                str = UrlSchemaHelper.SCHEMA_TYPE_HTTP + str.substring(3);
+            } else if (str.regionMatches(true, 0, "wss:", 0, 4)) {
+                str = UrlSchemaHelper.SCHEMA_TYPE_HTTPS + str.substring(4);
             }
             try {
-                Request.Builder a2 = vo0.a(uo0Var);
-                OkHttpClient okHttpClient = this.a;
-                if (okHttpClient != null) {
-                    builder = okHttpClient.newBuilder();
-                } else {
-                    builder = new OkHttpClient.Builder();
-                }
-                int i = uo0Var.g;
-                if (i > 0) {
-                    builder.readTimeout(i, TimeUnit.MILLISECONDS);
-                }
-                int i2 = uo0Var.h;
-                if (i2 > 0) {
-                    builder.writeTimeout(i2, TimeUnit.MILLISECONDS);
-                }
-                int i3 = uo0Var.f;
-                if (i3 > 0) {
-                    builder.connectTimeout(i3, TimeUnit.MILLISECONDS);
-                }
-                if (uo0Var.i != null) {
-                    builder.cookieJar(new oo0(uo0Var.i));
-                }
-                OkHttpClient build = builder.build();
-                if (this.a == null) {
-                    this.a = build;
-                }
-                build.newCall(a2.build()).enqueue(new a(this, aVar, z));
-            } catch (RequestError e) {
-                aVar.a(e, 1001);
+                l(new URL(str));
+                return this;
+            } catch (MalformedURLException | Exception unused) {
+                l(null);
+                return this;
             }
         }
+        return (so0) invokeL.objValue;
+    }
+
+    public so0 l(URL url) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, url)) == null) {
+            this.a = url;
+            return this;
+        }
+        return (so0) invokeL.objValue;
+    }
+
+    public so0 delete() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? delete(ro0.h) : (so0) invokeV.objValue;
     }
 }

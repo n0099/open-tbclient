@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 /* loaded from: classes4.dex */
 public class EmotionButton extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -100,7 +100,7 @@ public class EmotionButton extends View {
                 return;
             }
         }
-        p = pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds3);
+        p = qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds3);
         q = 1;
     }
 
@@ -261,9 +261,9 @@ public class EmotionButton extends View {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040211, R.attr.obfuscated_res_0x7f040641});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040269, R.attr.obfuscated_res_0x7f0406cb});
         this.n = obtainStyledAttributes.getString(1);
-        this.o = obtainStyledAttributes.getDimension(0, pi.f(context, R.dimen.tbds44));
+        this.o = obtainStyledAttributes.getDimension(0, qi.f(context, R.dimen.tbds44));
         obtainStyledAttributes.recycle();
         d(context);
     }
@@ -287,9 +287,9 @@ public class EmotionButton extends View {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040211, R.attr.obfuscated_res_0x7f040641});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040269, R.attr.obfuscated_res_0x7f0406cb});
         this.n = obtainStyledAttributes.getString(1);
-        this.o = obtainStyledAttributes.getDimension(0, pi.f(context, R.dimen.tbds44));
+        this.o = obtainStyledAttributes.getDimension(0, qi.f(context, R.dimen.tbds44));
         obtainStyledAttributes.recycle();
         d(context);
     }

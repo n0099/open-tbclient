@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
-import com.repackage.ud5;
+import com.repackage.te5;
 import java.util.Map;
 import tbclient.AddPost.AddPostReqIdl;
 import tbclient.AddPost.DataReq;
@@ -47,7 +47,7 @@ public class AddPostRequest extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            ud5.c(builder, true, true, true);
+            te5.c(builder, true, true, true);
             builder.authsid = this.requestData.get("authsid");
             builder.sig = this.requestData.get(FunAdSdk.PLATFORM_SIG);
             builder.tbs = this.requestData.get(HttpRequest.TBS);

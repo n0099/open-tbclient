@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.k28;
+import com.repackage.r48;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public k28 data;
+    public r48 data;
     public int errCode;
     public String resultString;
 
@@ -36,7 +36,7 @@ public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
             }
         }
         this.errCode = 0;
-        this.data = new k28();
+        this.data = new r48();
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -60,10 +60,10 @@ public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.errCode : invokeV.intValue;
     }
 
-    public k28 getPersonBarData() {
+    public r48 getPersonBarData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.data : (k28) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.data : (r48) invokeV.objValue;
     }
 
     public String getResultString() {
@@ -79,10 +79,10 @@ public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public void setPersonBarData(k28 k28Var) {
+    public void setPersonBarData(r48 r48Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, k28Var) == null) {
-            this.data = k28Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, r48Var) == null) {
+            this.data = r48Var;
         }
     }
 

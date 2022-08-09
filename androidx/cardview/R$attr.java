@@ -13,7 +13,7 @@ public final class R$attr {
     public static final int cardMaxElevation = 2130968867;
     public static final int cardPreventCornerOverlap = 2130968868;
     public static final int cardUseCompatPadding = 2130968869;
-    public static final int cardViewStyle = 2130968870;
+    public static final int cardViewStyle = 2130968881;
     public static final int contentPadding = 2130968963;
     public static final int contentPaddingBottom = 2130968964;
     public static final int contentPaddingLeft = 2130968965;

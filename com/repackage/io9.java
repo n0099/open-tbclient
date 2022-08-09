@@ -1,30 +1,79 @@
 package com.repackage;
 
-import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.open.deviceidentifiertest.VirtualDevice;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
 /* loaded from: classes6.dex */
-public final class io9 {
+public class io9<E> extends jo9<E> {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
+    public Object[] a;
+    public int b;
+    public boolean c;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
+    public io9(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            try {
-                if (a == null) {
-                    a = new VirtualDevice().getDeviceID(context);
-                }
-                return a;
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeL.objValue;
+        this.a = new Object[4];
+        this.b = 0;
+    }
+
+    public final io9<E> a(E e) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
+            if (e != null) {
+                b(this.b + 1);
+                Object[] objArr = this.a;
+                int i = this.b;
+                this.b = i + 1;
+                objArr[i] = e;
+                return this;
+            }
+            throw null;
+        }
+        return (io9) invokeL.objValue;
+    }
+
+    public final void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            Object[] objArr = this.a;
+            int length = objArr.length;
+            if (length >= i) {
+                if (this.c) {
+                    this.a = (Object[]) objArr.clone();
+                    this.c = false;
+                    return;
+                }
+                return;
+            }
+            int i2 = length + (length >> 1) + 1;
+            if (i2 < i) {
+                int highestOneBit = Integer.highestOneBit(i - 1);
+                i2 = highestOneBit + highestOneBit;
+            }
+            if (i2 < 0) {
+                i2 = Integer.MAX_VALUE;
+            }
+            this.a = Arrays.copyOf(objArr, i2);
+            this.c = false;
+        }
     }
 }

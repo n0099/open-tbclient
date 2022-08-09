@@ -14,7 +14,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class DpRTCSession {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

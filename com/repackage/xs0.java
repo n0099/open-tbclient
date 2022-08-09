@@ -1,9 +1,11 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import com.baidu.nadcore.video.videoplayer.ui.full.BdThumbSeekBar;
 /* loaded from: classes7.dex */
 public interface xs0 {
-    boolean e(@NonNull vr0 vr0Var);
+    void a(BdThumbSeekBar bdThumbSeekBar, int i, boolean z);
 
-    ws0 getInterceptorLayer();
+    void b(BdThumbSeekBar bdThumbSeekBar);
+
+    void c(BdThumbSeekBar bdThumbSeekBar);
 }

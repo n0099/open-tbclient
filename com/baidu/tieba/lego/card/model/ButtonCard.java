@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hd7;
+import com.repackage.cf7;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ButtonCard extends BaseCardInfo {
@@ -52,12 +52,12 @@ public class ButtonCard extends BaseCardInfo {
         this.defaultWidth = PassBiometricUtil.k;
         this.defaultHeight = 80;
         this.title = jSONObject.optString("title", "");
-        this.titleColor = hd7.b(jSONObject.optString("title_color"));
-        this.buttonColor = hd7.b(jSONObject.optString("btn_color"));
+        this.titleColor = cf7.b(jSONObject.optString("title_color"));
+        this.buttonColor = cf7.b(jSONObject.optString("btn_color"));
         this.btnScheme = jSONObject.optString("btn_scheme", "");
         this.cardWidth = jSONObject.optInt("width", this.defaultWidth);
         this.cardHeight = jSONObject.optInt("height", this.defaultHeight);
-        this.bgColor = hd7.b(jSONObject.optString("bg_color"));
+        this.bgColor = cf7.b(jSONObject.optString("bg_color"));
         this.bgPicUrl = jSONObject.optString("bg_pic_url", "");
         this.btnColorStyle = jSONObject.optInt("btn_color_style", -1);
         extractPhoneNumber(this.btnScheme);

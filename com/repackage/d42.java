@@ -1,62 +1,65 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.ej2;
-import java.io.File;
-/* loaded from: classes5.dex */
-public class d42 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public abstract class d42 extends s84 implements ta2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public int b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755817457, "Lcom/repackage/d42;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755817457, "Lcom/repackage/d42;");
+    public d42() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        boolean z = sg1.a;
+        int K = K();
+        this.a = K;
+        this.b = K;
     }
 
-    public static boolean a() {
+    public int J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? b(h03.K().q().W().e0()) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int i = this.b;
+            return i == 0 ? this.a : i;
+        }
+        return invokeV.intValue;
     }
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
+    public int K() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = vl2.U().g();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public d42 L(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            int i2 = this.b;
+            if ((i2 == 0 || this.a == i2) && i != 0 && i != this.b) {
+                this.b = i;
             }
-            String f = ae3.f(str);
-            boolean z = vl2.U().e(f, vl2.U().s(), ej2.e.i(h03.K().getAppId(), h03.K().q().W().v1()).getPath() + File.separator).o;
-            ix1.i("PreCreateVideoHelper", "hasVideoInPage path : " + f + " has video :" + z);
-            return z;
+            return this;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            pj2.g0().getSwitch("swan_app_precreate_video_switch_v2", false);
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (d42) invokeI.objValue;
     }
 }

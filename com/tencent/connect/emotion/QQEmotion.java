@@ -23,7 +23,7 @@ import com.tencent.open.utils.l;
 import com.tencent.tauth.IUiListener;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class QQEmotion extends BaseApi {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

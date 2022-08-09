@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q01;
+import com.repackage.p01;
 /* loaded from: classes2.dex */
 public class NadRoundProgressBar extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -245,12 +245,12 @@ public class NadRoundProgressBar extends View {
         }
         this.a = new Paint();
         this.l = new RectF();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04045f, R.attr.obfuscated_res_0x7f04048f, R.attr.obfuscated_res_0x7f04053c, R.attr.obfuscated_res_0x7f04054c, R.attr.obfuscated_res_0x7f04054d, R.attr.obfuscated_res_0x7f04054e, R.attr.obfuscated_res_0x7f04054f, R.attr.obfuscated_res_0x7f040550, R.attr.obfuscated_res_0x7f040552, R.attr.obfuscated_res_0x7f040554, R.attr.obfuscated_res_0x7f040555, R.attr.obfuscated_res_0x7f04065a, R.attr.obfuscated_res_0x7f040664, R.attr.obfuscated_res_0x7f040667});
-        this.b = obtainStyledAttributes.getColor(3, getResources().getColor(R.color.obfuscated_res_0x7f06082f));
-        this.c = obtainStyledAttributes.getColor(7, getResources().getColor(R.color.obfuscated_res_0x7f060830));
-        this.d = obtainStyledAttributes.getColor(8, getResources().getColor(R.color.obfuscated_res_0x7f060831));
-        this.e = obtainStyledAttributes.getDimension(9, q01.c.a(getContext(), 11.0f));
-        this.f = obtainStyledAttributes.getDimension(4, q01.c.a(getContext(), 8.0f));
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0404b8, R.attr.obfuscated_res_0x7f0404f8, R.attr.obfuscated_res_0x7f0405bb, R.attr.obfuscated_res_0x7f0405cc, R.attr.obfuscated_res_0x7f0405cd, R.attr.obfuscated_res_0x7f0405ce, R.attr.obfuscated_res_0x7f0405cf, R.attr.obfuscated_res_0x7f0405d1, R.attr.obfuscated_res_0x7f0405d3, R.attr.obfuscated_res_0x7f0405d5, R.attr.obfuscated_res_0x7f0405d6, R.attr.obfuscated_res_0x7f0406e4, R.attr.obfuscated_res_0x7f0406ee, R.attr.obfuscated_res_0x7f0406f1});
+        this.b = obtainStyledAttributes.getColor(3, getResources().getColor(R.color.obfuscated_res_0x7f060849));
+        this.c = obtainStyledAttributes.getColor(7, getResources().getColor(R.color.obfuscated_res_0x7f06084a));
+        this.d = obtainStyledAttributes.getColor(8, getResources().getColor(R.color.obfuscated_res_0x7f06084b));
+        this.e = obtainStyledAttributes.getDimension(9, p01.c.a(getContext(), 11.0f));
+        this.f = obtainStyledAttributes.getDimension(4, p01.c.a(getContext(), 8.0f));
         this.g = obtainStyledAttributes.getDimension(10, 5.0f);
         this.h = obtainStyledAttributes.getInteger(5, 100);
         this.j = obtainStyledAttributes.getBoolean(12, true);

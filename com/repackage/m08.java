@@ -1,78 +1,47 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.R;
-import com.baidu.tieba.person.holder.PersonInfoUserPicViewHolder;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class m08 extends an<y05, PersonInfoUserPicViewHolder> {
+public class m08 extends tw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
-    public View.OnClickListener j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m08(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public m08(TbPageContext tbPageContext, sw4 sw4Var) {
+        super(tbPageContext, sw4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext, sw4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((TbPageContext) objArr2[0], (sw4) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = tbPageContext;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: Z */
-    public PersonInfoUserPicViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.repackage.tw4, android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PersonInfoUserPicViewHolder(LayoutInflater.from(this.i.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0871, (ViewGroup) null)) : (PersonInfoUserPicViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, y05 y05Var, PersonInfoUserPicViewHolder personInfoUserPicViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, y05Var, personInfoUserPicViewHolder})) == null) {
-            if (personInfoUserPicViewHolder == null || y05Var == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            super.onClick(view2);
+            if (this.a != null) {
+                TiebaStatic.log(new StatisticItem("c11924").param("obj_id", this.a.getUserId()));
             }
-            personInfoUserPicViewHolder.e(this.j);
-            personInfoUserPicViewHolder.b(y05Var);
-            return personInfoUserPicViewHolder.a();
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public void b0(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.j = onClickListener;
         }
     }
 }

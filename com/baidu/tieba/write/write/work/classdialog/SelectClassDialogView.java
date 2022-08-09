@@ -16,16 +16,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ih5;
-import com.repackage.ja5;
-import com.repackage.qh5;
+import com.repackage.ej5;
+import com.repackage.hb5;
+import com.repackage.wi5;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class SelectClassDialogView extends ViewGroup implements ja5 {
+public class SelectClassDialogView extends ViewGroup implements hb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup a;
-    public qh5<String> b;
+    public ej5<String> b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SelectClassDialogView(ViewGroup viewGroup, Context context) {
@@ -49,8 +49,8 @@ public class SelectClassDialogView extends ViewGroup implements ja5 {
         a(context);
     }
 
-    @Override // com.repackage.ja5
-    public boolean J0() {
+    @Override // com.repackage.hb5
+    public boolean I0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -62,10 +62,10 @@ public class SelectClassDialogView extends ViewGroup implements ja5 {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01da, this.a, true);
-            qh5<String> qh5Var = new qh5<>(this.a, true);
-            this.b = qh5Var;
-            qh5Var.t(9);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01db, this.a, true);
+            ej5<String> ej5Var = new ej5<>(this.a, true);
+            this.b = ej5Var;
+            ej5Var.t(9);
             this.b.C(UtilHelper.getDimenPixelSize(R.dimen.T_X06) / 3);
             this.b.q(SkinManager.getColor(R.color.CAM_X0203));
             this.b.s(WheelView.DividerType.FILL);
@@ -78,7 +78,7 @@ public class SelectClassDialogView extends ViewGroup implements ja5 {
         }
     }
 
-    @Override // com.repackage.ja5
+    @Override // com.repackage.hb5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -88,7 +88,7 @@ public class SelectClassDialogView extends ViewGroup implements ja5 {
         return (Intent) invokeV.objValue;
     }
 
-    @Override // com.repackage.ja5
+    @Override // com.repackage.hb5
     public void n(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
@@ -106,7 +106,7 @@ public class SelectClassDialogView extends ViewGroup implements ja5 {
         }
     }
 
-    @Override // com.repackage.ja5
+    @Override // com.repackage.hb5
     public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -120,13 +120,13 @@ public class SelectClassDialogView extends ViewGroup implements ja5 {
         }
     }
 
-    public void setOnOptionsSelectChangeListener(ih5 ih5Var) {
-        qh5<String> qh5Var;
+    public void setOnOptionsSelectChangeListener(wi5 wi5Var) {
+        ej5<String> ej5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, ih5Var) == null) || (qh5Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, wi5Var) == null) || (ej5Var = this.b) == null) {
             return;
         }
-        qh5Var.w(ih5Var);
+        ej5Var.w(wi5Var);
     }
 
     public void setPicker(List<String> list, List<List<String>> list2) {

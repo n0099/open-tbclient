@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
+import com.repackage.qi;
 /* loaded from: classes4.dex */
 public class ShadowLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -65,8 +65,8 @@ public class ShadowLinearLayout extends LinearLayout {
             this.i.setAntiAlias(true);
             this.i.setStyle(Paint.Style.FILL);
             this.i.setDither(true);
-            this.g = pi.f(context, R.dimen.obfuscated_res_0x7f0701d5);
-            float f = pi.f(context, R.dimen.obfuscated_res_0x7f070287);
+            this.g = qi.f(context, R.dimen.obfuscated_res_0x7f0701d5);
+            float f = qi.f(context, R.dimen.obfuscated_res_0x7f070287);
             this.h = f;
             this.c = f;
             this.d = f;

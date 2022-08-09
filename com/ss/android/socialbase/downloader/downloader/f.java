@@ -20,7 +20,7 @@ import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServe
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class f {
     public static final String a = "f";
     public final boolean b;

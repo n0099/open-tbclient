@@ -13,19 +13,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
+import java.util.HashSet;
 /* loaded from: classes.dex */
 public class SolverVariable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean INTERNAL_DEBUG = false;
-    public static final int MAX_STRENGTH = 7;
-    public static final int STRENGTH_BARRIER = 7;
+    public static final int MAX_STRENGTH = 9;
+    public static final int STRENGTH_BARRIER = 6;
+    public static final int STRENGTH_CENTERING = 7;
     public static final int STRENGTH_EQUALITY = 5;
-    public static final int STRENGTH_FIXED = 6;
+    public static final int STRENGTH_FIXED = 8;
     public static final int STRENGTH_HIGH = 3;
     public static final int STRENGTH_HIGHEST = 4;
     public static final int STRENGTH_LOW = 1;
     public static final int STRENGTH_MEDIUM = 2;
     public static final int STRENGTH_NONE = 0;
+    public static final boolean VAR_USE_HASH = false;
     public static int uniqueConstantId = 1;
     public static int uniqueErrorId = 1;
     public static int uniqueId = 1;
@@ -34,13 +37,20 @@ public class SolverVariable {
     public transient /* synthetic */ FieldHolder $fh;
     public float computedValue;
     public int definitionId;
+    public float[] goalStrengthVector;
     public int id;
+    public boolean inGoal;
+    public HashSet<ArrayRow> inRows;
+    public boolean isFinalValue;
+    public boolean isSynonym;
     public ArrayRow[] mClientEquations;
     public int mClientEquationsCount;
     public String mName;
     public Type mType;
     public int strength;
     public float[] strengthVector;
+    public int synonym;
+    public float synonymDelta;
     public int usageInRowCount;
 
     /* renamed from: androidx.constraintlayout.solver.SolverVariable$1  reason: invalid class name */
@@ -187,10 +197,16 @@ public class SolverVariable {
         this.id = -1;
         this.definitionId = -1;
         this.strength = 0;
-        this.strengthVector = new float[7];
-        this.mClientEquations = new ArrayRow[8];
+        this.isFinalValue = false;
+        this.strengthVector = new float[9];
+        this.goalStrengthVector = new float[9];
+        this.mClientEquations = new ArrayRow[16];
         this.mClientEquationsCount = 0;
         this.usageInRowCount = 0;
+        this.isSynonym = false;
+        this.synonym = -1;
+        this.synonymDelta = 0.0f;
+        this.inRows = null;
         this.mName = str;
         this.mType = type;
     }
@@ -282,7 +298,7 @@ public class SolverVariable {
     public void clearStrengths() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (int i = 0; i < 7; i++) {
+            for (int i = 0; i < 9; i++) {
                 this.strengthVector[i] = 0.0f;
             }
         }
@@ -298,16 +314,19 @@ public class SolverVariable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, arrayRow) == null) {
             int i = this.mClientEquationsCount;
-            for (int i2 = 0; i2 < i; i2++) {
+            int i2 = 0;
+            while (i2 < i) {
                 if (this.mClientEquations[i2] == arrayRow) {
-                    for (int i3 = 0; i3 < (i - i2) - 1; i3++) {
+                    while (i2 < i - 1) {
                         ArrayRow[] arrayRowArr = this.mClientEquations;
-                        int i4 = i2 + i3;
-                        arrayRowArr[i4] = arrayRowArr[i4 + 1];
+                        int i3 = i2 + 1;
+                        arrayRowArr[i2] = arrayRowArr[i3];
+                        i2 = i3;
                     }
                     this.mClientEquationsCount--;
                     return;
                 }
+                i2++;
             }
         }
     }
@@ -321,21 +340,64 @@ public class SolverVariable {
             this.id = -1;
             this.definitionId = -1;
             this.computedValue = 0.0f;
+            this.isFinalValue = false;
+            this.isSynonym = false;
+            this.synonym = -1;
+            this.synonymDelta = 0.0f;
+            int i = this.mClientEquationsCount;
+            for (int i2 = 0; i2 < i; i2++) {
+                this.mClientEquations[i2] = null;
+            }
             this.mClientEquationsCount = 0;
             this.usageInRowCount = 0;
+            this.inGoal = false;
+            Arrays.fill(this.goalStrengthVector, 0.0f);
+        }
+    }
+
+    public void setFinalValue(LinearSystem linearSystem, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLF(1048581, this, linearSystem, f) == null) {
+            this.computedValue = f;
+            this.isFinalValue = true;
+            this.isSynonym = false;
+            this.synonym = -1;
+            this.synonymDelta = 0.0f;
+            int i = this.mClientEquationsCount;
+            this.definitionId = -1;
+            for (int i2 = 0; i2 < i; i2++) {
+                this.mClientEquations[i2].updateFromFinalVariable(linearSystem, this, false);
+            }
+            this.mClientEquationsCount = 0;
         }
     }
 
     public void setName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             this.mName = str;
+        }
+    }
+
+    public void setSynonym(LinearSystem linearSystem, SolverVariable solverVariable, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{linearSystem, solverVariable, Float.valueOf(f)}) == null) {
+            this.isSynonym = true;
+            this.synonym = solverVariable.id;
+            this.synonymDelta = f;
+            int i = this.mClientEquationsCount;
+            this.definitionId = -1;
+            for (int i2 = 0; i2 < i; i2++) {
+                this.mClientEquations[i2].updateFromSynonymVariable(linearSystem, this, false);
+            }
+            this.mClientEquationsCount = 0;
+            linearSystem.displayReadableRows();
         }
     }
 
     public void setType(Type type, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, type, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, type, str) == null) {
             this.mType = type;
         }
     }
@@ -343,7 +405,7 @@ public class SolverVariable {
     public String strengthsToString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             String str = this + PreferencesUtil.LEFT_MOUNT;
             boolean z = false;
             boolean z2 = true;
@@ -374,19 +436,21 @@ public class SolverVariable {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "" + this.mName;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (this.mName != null) {
+                return "" + this.mName;
+            }
+            return "" + this.id;
         }
         return (String) invokeV.objValue;
     }
 
-    public final void updateReferencesWithNewDefinition(ArrayRow arrayRow) {
+    public final void updateReferencesWithNewDefinition(LinearSystem linearSystem, ArrayRow arrayRow) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, arrayRow) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048587, this, linearSystem, arrayRow) == null) {
             int i = this.mClientEquationsCount;
             for (int i2 = 0; i2 < i; i2++) {
-                ArrayRow[] arrayRowArr = this.mClientEquations;
-                arrayRowArr[i2].variables.updateFromRow(arrayRowArr[i2], arrayRow, false);
+                this.mClientEquations[i2].updateFromRow(linearSystem, arrayRow, false);
             }
             this.mClientEquationsCount = 0;
         }
@@ -410,10 +474,16 @@ public class SolverVariable {
         this.id = -1;
         this.definitionId = -1;
         this.strength = 0;
-        this.strengthVector = new float[7];
-        this.mClientEquations = new ArrayRow[8];
+        this.isFinalValue = false;
+        this.strengthVector = new float[9];
+        this.goalStrengthVector = new float[9];
+        this.mClientEquations = new ArrayRow[16];
         this.mClientEquationsCount = 0;
         this.usageInRowCount = 0;
+        this.isSynonym = false;
+        this.synonym = -1;
+        this.synonymDelta = 0.0f;
+        this.inRows = null;
         this.mType = type;
     }
 }

@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
-import com.repackage.go;
-import com.repackage.nn;
+import com.repackage.ho;
+import com.repackage.on;
 /* loaded from: classes3.dex */
-public abstract class BaseCardInfo implements nn {
+public abstract class BaseCardInfo implements on {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean forceNoTest;
@@ -22,7 +22,7 @@ public abstract class BaseCardInfo implements nn {
     public SupportType mSupportType;
     public boolean needTopMargin;
     public int position;
-    public go trigger;
+    public ho trigger;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
@@ -110,13 +110,13 @@ public abstract class BaseCardInfo implements nn {
         this.mSupportType = SupportType.NONE;
     }
 
-    public go getTrigger() {
+    public ho getTrigger() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.trigger : (go) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.trigger : (ho) invokeV.objValue;
     }
 
-    @Override // com.repackage.nn
+    @Override // com.repackage.on
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -169,10 +169,10 @@ public abstract class BaseCardInfo implements nn {
         }
     }
 
-    public void setTrigger(go goVar) {
+    public void setTrigger(ho hoVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, goVar) == null) {
-            this.trigger = goVar;
+        if (interceptable == null || interceptable.invokeL(1048585, this, hoVar) == null) {
+            this.trigger = hoVar;
         }
     }
 }

@@ -1,84 +1,72 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.content.Intent;
+import android.text.TextUtils;
+import com.baidu.tieba.R;
+import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class kf8 extends tm4 {
+public class kf8 extends hf8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755560684, "Lcom/repackage/kf8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755560684, "Lcom/repackage/kf8;");
-                return;
-            }
-        }
-        c = TbConfig.SERVER_ADDRESS + TbConfig.FORUM_SQUARE;
-    }
-
-    public kf8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kf8(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public long g() {
-        InterceptResult invokeV;
+    @Override // com.repackage.nf8
+    public void a(ShareEntity shareEntity, of8 of8Var) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            NetWork netWork = this.a;
-            if (netWork != null) {
-                return netWork.getNetContext().getStat().stat.c;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, shareEntity, of8Var) == null) {
+            if (shareEntity != null && !TextUtils.isEmpty(shareEntity.getContent())) {
+                if (TextUtils.isEmpty(shareEntity.getContent())) {
+                    str = shareEntity.getTitle() + shareEntity.getLinkUrl();
+                } else {
+                    str = shareEntity.getContent() + shareEntity.getLinkUrl();
+                }
+                Intent intent = new Intent();
+                intent.setAction("android.intent.action.SEND");
+                intent.putExtra("android.intent.extra.TEXT", str);
+                intent.setType("text/plain");
+                Context context = this.b;
+                if (pf8.startActivity(context, Intent.createChooser(intent, context.getString(R.string.obfuscated_res_0x7f0f115d)))) {
+                    if (of8Var != null) {
+                        of8Var.d1(0, 1);
+                        return;
+                    }
+                    return;
+                } else if (of8Var != null) {
+                    of8Var.d1(0, 2);
+                    return;
+                } else {
+                    return;
+                }
             }
-            return 0L;
-        }
-        return invokeV.longValue;
-    }
-
-    public long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            NetWork netWork = this.a;
-            if (netWork != null) {
-                return netWork.getNetContext().getStat().stat.d;
+            qi.N(d(), R.string.obfuscated_res_0x7f0f1130);
+            if (of8Var != null) {
+                of8Var.d1(0, 2);
             }
-            return 0L;
         }
-        return invokeV.longValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            f(c);
-            return d();
-        }
-        return (String) invokeV.objValue;
     }
 }

@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.a.c;
 import com.baidu.mobstat.Config;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -134,7 +135,7 @@ public class a {
             if (optJSONObject3 == null || (optJSONObject = optJSONObject3.optJSONObject("algo")) == null || (optJSONObject2 = optJSONObject.optJSONObject("algo_face")) == null) {
                 return;
             }
-            String optString = optJSONObject2.optString("level");
+            String optString = optJSONObject2.optString(PollingModel.LEVEL);
             if (!TextUtils.isEmpty(optString)) {
                 if (optString.equals("high")) {
                     i = 2;

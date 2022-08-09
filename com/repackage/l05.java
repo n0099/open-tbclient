@@ -1,135 +1,181 @@
 package com.repackage;
 
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.SmartLaunchStats;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.data.IconStampData;
+import com.baidu.tieba.R;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.view.NewUserRewardDialogView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class l05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
 
-    public l05() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    /* loaded from: classes6.dex */
+    public static class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ NewUserRewardDialogView a;
+        public final /* synthetic */ ur4 b;
 
-    public static List<l05> j(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            try {
-                JSONObject jSONObject2 = jSONObject.getJSONObject("alaTabColor");
-                Iterator<String> keys = jSONObject2.keys();
-                ArrayList arrayList = new ArrayList();
-                while (keys.hasNext()) {
-                    JSONObject jSONObject3 = jSONObject2.getJSONObject(keys.next());
-                    l05 l05Var = new l05();
-                    l05Var.i(jSONObject3);
-                    arrayList.add(l05Var);
+        public a(NewUserRewardDialogView newUserRewardDialogView, ur4 ur4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {newUserRewardDialogView, ur4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return arrayList;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
+            }
+            this.a = newUserRewardDialogView;
+            this.b = ur4Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.d();
+                this.b.dismiss();
             }
         }
-        return (List) invokeL.objValue;
     }
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public static class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbPageContext a;
+        public final /* synthetic */ ur4 b;
+        public final /* synthetic */ int c;
 
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.h : (String) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public final void i(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        public b(TbPageContext tbPageContext, ur4 ur4Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tbPageContext, ur4Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tbPageContext;
+            this.b = ur4Var;
+            this.c = i;
         }
-        jSONObject.optInt("id");
-        this.a = jSONObject.optString("name");
-        this.e = jSONObject.optString("color");
-        this.f = jSONObject.optString("color_night");
-        this.g = jSONObject.optString("color_dark");
-        jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY);
-        jSONObject.optLong("end_time");
-        this.b = jSONObject.optString(BigdayActivityConfig.IMG_URL);
-        this.c = jSONObject.optString("img_url_night");
-        this.d = jSONObject.optString("img_url_dark");
-        this.h = jSONObject.optString(BigdayActivityConfig.JUMP_URL);
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                UrlManager.getInstance().dealOneLink(this.a, new String[]{"https://tieba.baidu.com/mo/q/icon/panelIcon?opacity=0&user_id=" + TbadkCoreApplication.getCurrentAccount()});
+                this.b.dismiss();
+                l05.d(this.c);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PostWriteCallBackData a;
+        public final /* synthetic */ TbPageContext b;
+
+        public c(PostWriteCallBackData postWriteCallBackData, TbPageContext tbPageContext) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {postWriteCallBackData, tbPageContext};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = postWriteCallBackData;
+            this.b = tbPageContext;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                ti8 ti8Var = new ti8();
+                PostWriteCallBackData postWriteCallBackData = this.a;
+                if (postWriteCallBackData != null) {
+                    IconStampData iconStampData = postWriteCallBackData.getIconStampData();
+                    ti8Var.f(iconStampData.stampType);
+                    ti8Var.h(iconStampData.stampTitle);
+                }
+                new si8(this.b.getPageActivity(), ti8Var).a();
+                l05.f();
+            }
+        }
+    }
+
+    public static void c(TbPageContext tbPageContext, PostWriteCallBackData postWriteCallBackData, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(65538, null, tbPageContext, postWriteCallBackData, i) == null) && postWriteCallBackData != null && k05.a(postWriteCallBackData.getIconStampData())) {
+            NewUserRewardDialogView newUserRewardDialogView = new NewUserRewardDialogView(tbPageContext.getPageActivity());
+            newUserRewardDialogView.setData(postWriteCallBackData.getIconStampData());
+            ur4 ur4Var = new ur4(tbPageContext.getPageActivity());
+            ur4Var.setContentViewSize(5);
+            ur4Var.setContentView(newUserRewardDialogView);
+            ur4Var.setCanceledOnTouchOutside(false);
+            ur4Var.setAnimRes(R.style.obfuscated_res_0x7f1003d1);
+            ur4Var.create(tbPageContext).show();
+            newUserRewardDialogView.setCloseListener(new a(newUserRewardDialogView, ur4Var));
+            newUserRewardDialogView.getNewsUserDialogLookView().setOnClickListener(new b(tbPageContext, ur4Var, i));
+            newUserRewardDialogView.getNewUserDialogShareView().setOnClickListener(new c(postWriteCallBackData, tbPageContext));
+            e(i);
+        }
+    }
+
+    public static void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_STAMP_SHARE_DIALOG).param("obj_type", 2).param("obj_source", 2).param("obj_locate", i));
+        }
+    }
+
+    public static void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_STAMP_SHARE_DIALOG).param("obj_type", 1).param("obj_source", 2).param("obj_locate", i));
+        }
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CLICK).param("obj_locate", 31));
+        }
     }
 }

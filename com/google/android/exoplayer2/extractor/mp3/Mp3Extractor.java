@@ -23,7 +23,6 @@ import com.google.android.exoplayer2.extractor.SeekMap;
 import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.metadata.Metadata;
 import com.google.android.exoplayer2.metadata.id3.Id3Decoder;
-import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.Util;
 import java.io.EOFException;
@@ -207,7 +206,7 @@ public final class Mp3Extractor implements Extractor {
             XingSeeker create2 = XingSeeker.create(this.synchronizedHeader, parsableByteArray, extractorInput.getPosition(), extractorInput.getLength());
             if (create2 != null && !this.gaplessInfoHolder.hasGaplessInfo()) {
                 extractorInput.resetPeekPosition();
-                extractorInput.advancePeekPosition(i + Cea708Decoder.COMMAND_DLY);
+                extractorInput.advancePeekPosition(i + 141);
                 extractorInput.peekFully(this.scratch.data, 0, 3);
                 this.scratch.setPosition(0);
                 this.gaplessInfoHolder.setFromXingHeaderValue(this.scratch.readUnsignedInt24());

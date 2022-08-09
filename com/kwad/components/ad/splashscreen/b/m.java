@@ -440,8 +440,8 @@ public final class m extends e implements com.kwad.components.ad.splashscreen.f 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.aq();
-            this.bF = (KsAdWebView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09118f);
-            this.zq = (ViewStub) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09117c);
+            this.bF = (KsAdWebView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0911e5);
+            this.zq = (ViewStub) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0911d2);
             this.mAdInfo = com.kwad.sdk.core.response.a.d.bQ(this.yF.mAdTemplate);
             com.kwad.components.ad.splashscreen.d.b bVar = new com.kwad.components.ad.splashscreen.d.b((ViewGroup) getRootView(), this.zq, this.bF, com.kwad.sdk.core.response.a.c.bF(this.yF.mAdTemplate), this.yF.mApkDownloadHelper);
             this.zp = bVar;

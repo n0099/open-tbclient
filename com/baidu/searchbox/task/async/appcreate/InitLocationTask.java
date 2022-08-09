@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jf;
+import com.repackage.kf;
 /* loaded from: classes2.dex */
 public class InitLocationTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -34,9 +34,9 @@ public class InitLocationTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                jf.n().q();
+                kf.n().q();
                 if (PermissionUtil.checkLocationForGoogle(TbadkCoreApplication.getInst())) {
-                    jf.n().j(false);
+                    kf.n().j(false);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();

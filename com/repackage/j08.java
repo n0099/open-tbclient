@@ -1,87 +1,91 @@
 package com.repackage;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
+import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tieba.pb.video.GodReplyMoreViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.UcCard;
-import tbclient.UcCardInfo;
 /* loaded from: classes6.dex */
-public class j08 {
+public class j08 extends bw7<k08, GodReplyMoreViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> a;
+    public View.OnClickListener g;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public long b;
-        public boolean c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public void a(UcCardInfo ucCardInfo) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, ucCardInfo) == null) || ucCardInfo == null) {
-                return;
-            }
-            this.a = ucCardInfo.title;
-            String str = ucCardInfo.pic;
-            String str2 = ucCardInfo.jmp;
-            String str3 = ucCardInfo.tip;
-            this.b = ucCardInfo.st.intValue();
-        }
-    }
-
-    public j08() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j08(PbFragment pbFragment, BdUniqueId bdUniqueId) {
+        super(pbFragment, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pbFragment, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((t08) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public void a(UcCard ucCard) {
+    @Override // com.repackage.bw7, com.repackage.bn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        v(i, view2, viewGroup, (k08) obj, (GodReplyMoreViewHolder) viewHolder);
+        return view2;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bn
+    /* renamed from: u */
+    public GodReplyMoreViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, ucCard) == null) || ucCard == null) {
-            return;
-        }
-        String str = ucCard.name;
-        String str2 = ucCard.icon;
-        String str3 = ucCard.doc;
-        String str4 = ucCard.jmp;
-        this.a = new ArrayList();
-        List<UcCardInfo> list = ucCard.uc_cards;
-        if (list != null) {
-            for (UcCardInfo ucCardInfo : list) {
-                if (ucCardInfo != null) {
-                    a aVar = new a();
-                    aVar.a(ucCardInfo);
-                    this.a.add(aVar);
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new GodReplyMoreViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06aa, viewGroup, false)) : (GodReplyMoreViewHolder) invokeL.objValue;
+    }
+
+    public View v(int i, View view2, ViewGroup viewGroup, k08 k08Var, GodReplyMoreViewHolder godReplyMoreViewHolder) {
+        InterceptResult invokeCommon;
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, k08Var, godReplyMoreViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, k08Var, godReplyMoreViewHolder);
+            if (godReplyMoreViewHolder != null && (textView = godReplyMoreViewHolder.a) != null) {
+                View.OnClickListener onClickListener = this.g;
+                if (onClickListener != null) {
+                    textView.setOnClickListener(onClickListener);
+                }
+                if (godReplyMoreViewHolder.c != TbadkCoreApplication.getInst().getSkinType()) {
+                    godReplyMoreViewHolder.c = TbadkCoreApplication.getInst().getSkinType();
+                    SkinManager.setViewTextColor(godReplyMoreViewHolder.a, (int) R.color.CAM_X0106);
+                    SkinManager.setBackgroundResource(godReplyMoreViewHolder.a, R.drawable.more_all);
+                    SkinManager.setBackgroundResource(godReplyMoreViewHolder.b, R.color.CAM_X0204);
                 }
             }
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public void w(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            this.g = onClickListener;
         }
     }
 }

@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g34;
-import com.repackage.i34;
+import com.repackage.x34;
+import com.repackage.z34;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class UserInfoButton extends ApiButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
-    public class a implements i34.b {
+    /* loaded from: classes3.dex */
+    public class a implements z34.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserInfoButton a;
@@ -41,7 +41,7 @@ public class UserInfoButton extends ApiButton {
             this.a = userInfoButton;
         }
 
-        @Override // com.repackage.i34.b
+        @Override // com.repackage.z34.b
         public void a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
@@ -74,16 +74,16 @@ public class UserInfoButton extends ApiButton {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            new i34().a(new a(this));
+            new z34().a(new a(this));
         }
     }
 
     public void u(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            g34 g34Var = new g34();
-            g34Var.data = jSONObject;
-            k(g34Var);
+            x34 x34Var = new x34();
+            x34Var.data = jSONObject;
+            k(x34Var);
         }
     }
 

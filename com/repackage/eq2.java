@@ -1,125 +1,75 @@
 package com.repackage;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.config.QuickPersistConfigConst;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.core.container.NgWebView;
-import com.baidu.swan.apps.core.slave.SwanWebModeWidget;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class eq2 {
+public class eq2 extends bq2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        return i != 3 ? 100 : 118;
-                    }
-                    return 112;
-                }
-                return 100;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755729045, "Lcom/repackage/eq2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return 82;
-        }
-        return invokeI.intValue;
-    }
-
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            Bundle b = vw2.b(fq2.class, null);
-            if (b == null) {
-                return 1;
-            }
-            return b.getInt("font_size_level", 1);
-        }
-        return invokeV.intValue;
-    }
-
-    public static NgWebView c(oz1 oz1Var) {
-        InterceptResult invokeL;
-        HashMap<String, qm1> V;
-        qm1 qm1Var;
-        pm1 t;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, oz1Var)) == null) {
-            if (oz1Var instanceof qz1) {
-                om1 o3 = ((qz1) oz1Var).o3();
-                if (o3 == null || o3.l() == null) {
-                    if (o3 != null) {
-                        return (NgWebView) o3.t();
-                    }
-                    return null;
-                }
-                return (NgWebView) o3.l().t();
-            } else if (!(oz1Var instanceof vz1) || (V = c72.U().V()) == null || V.size() <= 0 || (qm1Var = V.get(ag3.c().h())) == null || !(qm1Var instanceof SwanWebModeWidget) || (t = qm1Var.t()) == null || !(t instanceof NgWebView)) {
-                return null;
-            } else {
-                return (NgWebView) t;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755729045, "Lcom/repackage/eq2;");
+                return;
             }
         }
-        return (NgWebView) invokeL.objValue;
+        boolean z = jh1.a;
     }
 
-    public static int d() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public eq2(String str) {
+        super(str);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b() + 1 : invokeV.intValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? xd3.f("3.200.101") : invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            SwanAppConfigData s = vl2.U().s();
-            if (s == null) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return TextUtils.equals("none", s.e.q);
         }
-        return invokeV.booleanValue;
     }
 
-    public static void g(int i, int i2) {
-        SwanAppActivity w;
-        rz1 X;
-        oz1 m;
-        NgWebView c;
+    @Override // com.repackage.bq2
+    public boolean a(rp2 rp2Var, tp2 tp2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, z03 z03Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(65542, null, i, i2) == null) || (w = h03.K().w()) == null || (X = w.X()) == null || (m = X.m()) == null || (c = c(m)) == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{rp2Var, tp2Var, context, unitedSchemeEntity, callbackHandler, z03Var})) == null) {
+            zx1.i("video", "sendDanmu, video id:" + tp2Var.j + " slave id: " + tp2Var.c);
+            d(rp2Var, tp2Var.t, unitedSchemeEntity, callbackHandler);
+            return true;
         }
-        if (!f()) {
-            c.getSettings().setTextZoom(a(i));
-            dq2.a(Integer.valueOf(i + 1), String.valueOf(i2));
-        }
-        h(i);
+        return invokeCommon.booleanValue;
     }
 
-    public static void h(int i) {
+    public final void d(rp2 rp2Var, String str, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putInt(QuickPersistConfigConst.KEY_TEXT_SIZE, i);
-            yw2.e().h(new ax2(22, bundle));
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rp2Var, str, unitedSchemeEntity, callbackHandler) == null) {
+            rp2Var.r(str);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }
 }

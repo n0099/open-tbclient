@@ -12,10 +12,10 @@ public class ae {
     public static int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final String f92a;
+    public static final String f93a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final boolean f93a;
+    public static final boolean f94a;
     public static final boolean b;
     public static final boolean c;
     public static final boolean d;
@@ -38,25 +38,25 @@ public class ae {
                 return;
             }
         }
-        String str = ah.f94a ? "ONEBOX" : "@SHIP.TO.2A2FE0D7@";
-        f92a = str;
+        String str = ah.f95a ? "ONEBOX" : "@SHIP.TO.2A2FE0D7@";
+        f93a = str;
         boolean contains = str.contains("2A2FE0D7");
-        f93a = contains;
+        f94a = contains;
         boolean z = false;
-        b = contains || "DEBUG".equalsIgnoreCase(f92a);
-        c = "LOGABLE".equalsIgnoreCase(f92a);
-        d = f92a.contains("YY");
-        e = f92a.equalsIgnoreCase("TEST");
-        f = "BETA".equalsIgnoreCase(f92a);
-        String str2 = f92a;
+        b = contains || "DEBUG".equalsIgnoreCase(f93a);
+        c = "LOGABLE".equalsIgnoreCase(f93a);
+        d = f93a.contains("YY");
+        e = f93a.equalsIgnoreCase("TEST");
+        f = "BETA".equalsIgnoreCase(f93a);
+        String str2 = f93a;
         if (str2 != null && str2.startsWith("RC")) {
             z = true;
         }
         g = z;
         a = 1;
-        if (f92a.equalsIgnoreCase("SANDBOX")) {
+        if (f93a.equalsIgnoreCase("SANDBOX")) {
             i = 2;
-        } else if (!f92a.equalsIgnoreCase("ONEBOX")) {
+        } else if (!f93a.equalsIgnoreCase("ONEBOX")) {
             a = 1;
             return;
         } else {

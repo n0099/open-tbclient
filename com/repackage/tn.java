@@ -1,16 +1,9 @@
 package com.repackage;
 
-import android.view.ViewGroup;
-import java.util.List;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 /* loaded from: classes7.dex */
-public interface tn<V extends ViewGroup> {
-    void a(List<an> list);
+public interface tn<T> extends pn<T> {
+    int b(int i, int i2);
 
-    List<nn> getData();
-
-    on getListAdapter();
-
-    V getListView();
-
-    void setData(List<? extends nn> list);
+    bn<on, TypeAdapter.ViewHolder> c(on onVar);
 }

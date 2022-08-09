@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface LoaderErrorThrower {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class Dummy implements LoaderErrorThrower {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

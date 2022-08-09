@@ -2,8 +2,8 @@ package com.repackage;
 
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,52 +11,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.concurrent.Semaphore;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
-public class nc2 {
+public class nc2 extends mc2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static volatile nc2 d;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<mc2> a;
-    public lc2 b;
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Semaphore a;
-
-        public a(nc2 nc2Var, Semaphore semaphore) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nc2Var, semaphore};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = semaphore;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.release();
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -71,7 +30,7 @@ public class nc2 {
                 return;
             }
         }
-        c = sg1.a;
+        d = jh1.a;
     }
 
     public nc2() {
@@ -84,165 +43,89 @@ public class nc2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = new lc2();
     }
 
-    public static nc2 d() {
+    @Override // com.repackage.lc2
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.lc2
+    public <T extends fc2> Exception g(@NonNull T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
+            if (d) {
+                Log.d("SwanNoPresetExtensionCoreControl", "doUpdate: preset");
+                return null;
+            }
+            return null;
+        }
+        return (Exception) invokeL.objValue;
+    }
+
+    @Override // com.repackage.lc2
+    @NonNull
+    public ExtensionCore h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (nc2.class) {
-                    if (d == null) {
-                        d = new nc2();
-                    }
-                }
-            }
-            return d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ExtensionCore extensionCore = new ExtensionCore();
+            extensionCore.extensionCoreVersionCode = 0L;
+            extensionCore.extensionCoreVersionName = "0";
+            extensionCore.extensionCorePath = "";
+            extensionCore.extensionCoreType = 0;
+            return extensionCore;
         }
-        return (nc2) invokeV.objValue;
+        return (ExtensionCore) invokeV.objValue;
     }
 
-    public static synchronized void i() {
+    @Override // com.repackage.lc2
+    public long i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            synchronized (nc2.class) {
-                if (d != null) {
-                    d.f();
-                    d = null;
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 0L;
         }
+        return invokeV.longValue;
     }
 
-    public final void a(@NonNull mc2 mc2Var, @NonNull ArrayList<mc2> arrayList) {
+    @Override // com.repackage.lc2
+    public String j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, mc2Var, arrayList) == null) {
-            if (c) {
-                Log.i("FileSystemTaskManager", "addToWaitList: " + mc2Var + "," + arrayList.size() + "," + this.a.size());
-            }
-            Iterator<mc2> it = arrayList.iterator();
-            while (it.hasNext()) {
-                mc2 next = it.next();
-                next.i();
-                mc2Var.a(next);
-            }
-            this.a.add(mc2Var);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "0" : (String) invokeV.objValue;
     }
 
-    public final mc2 b(@NonNull Semaphore semaphore) {
-        InterceptResult invokeL;
+    @Override // com.repackage.mc2, com.repackage.lc2
+    public boolean k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, semaphore)) == null) ? new mc2(this, new a(this, semaphore), "JS_WAKE_UP_TASK", null) : (mc2) invokeL.objValue;
-    }
-
-    public final synchronized boolean c(Semaphore semaphore, String... strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, semaphore, strArr)) == null) {
-            synchronized (this) {
-                ArrayList<mc2> c2 = this.b.c(strArr);
-                if (c2 != null && c2.size() != 0) {
-                    a(b(semaphore), c2);
-                    return true;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (d) {
+                Log.d("SwanNoPresetExtensionCoreControl", "isNeedUpdate false");
                 return false;
             }
+            return false;
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public final boolean e(mc2 mc2Var) {
-        InterceptResult invokeL;
+    @Override // com.repackage.lc2
+    public void n(long j) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, mc2Var)) == null) ? mc2Var != null && "JS_WAKE_UP_TASK".equals(mc2Var.c()) : invokeL.booleanValue;
-    }
-
-    public final synchronized void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                this.b.b();
-                Iterator<mc2> it = this.a.iterator();
-                while (it.hasNext()) {
-                    mc2 next = it.next();
-                    if (e(next)) {
-                        next.h();
-                    }
-                }
-                this.a.clear();
-            }
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
         }
     }
 
-    public synchronized void g(mc2 mc2Var) {
+    @Override // com.repackage.lc2
+    public void o(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, mc2Var) == null) {
-            synchronized (this) {
-                if (mc2Var == null) {
-                    return;
-                }
-                this.b.d(mc2Var, mc2Var.b());
-                if (mc2Var.e()) {
-                    if (c) {
-                        Log.i("FileSystemTaskManager", "onTaskComplete: " + mc2Var + "," + this.a.size());
-                    }
-                    for (int size = this.a.size() - 1; size >= 0; size--) {
-                        mc2 mc2Var2 = this.a.get(size);
-                        mc2Var2.g(mc2Var);
-                        if (mc2Var2.d()) {
-                            this.a.remove(size);
-                            mc2Var2.f();
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public synchronized void h(@NonNull Runnable runnable, String str, String... strArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, runnable, str, strArr) == null) {
-            synchronized (this) {
-                mc2 mc2Var = new mc2(this, runnable, str, strArr);
-                ArrayList<mc2> c2 = this.b.c(strArr);
-                this.b.a(mc2Var, strArr);
-                if (c2 != null && c2.size() != 0) {
-                    a(mc2Var, c2);
-                }
-                mc2Var.f();
-            }
-        }
-    }
-
-    public final void j(Semaphore semaphore) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, semaphore) == null) {
-            try {
-                semaphore.tryAcquire(10L, TimeUnit.SECONDS);
-            } catch (Exception e) {
-                if (c) {
-                    Log.e("FileSystemTaskManager", "semaphore.acquire: " + e);
-                }
-            }
-        }
-    }
-
-    public void k(String... strArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, strArr) == null) {
-            Semaphore semaphore = new Semaphore(0);
-            if (c(semaphore, strArr)) {
-                if (c) {
-                    Log.i("FileSystemTaskManager", "waitIfHasPathDependence: " + Arrays.toString(strArr));
-                }
-                j(semaphore);
-            }
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
         }
     }
 }

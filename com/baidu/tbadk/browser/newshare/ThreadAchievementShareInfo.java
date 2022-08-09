@@ -19,7 +19,7 @@ public class ThreadAchievementShareInfo implements Serializable {
     public ParamBean params;
     public String title;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ContentBean implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

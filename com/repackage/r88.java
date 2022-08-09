@@ -1,135 +1,81 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.database.ContentObserver;
+import android.os.Handler;
+import android.provider.Settings;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
-public class r88 {
+public class r88 extends ContentObserver {
     public static /* synthetic */ Interceptable $ic;
-    public static r88 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<String, s88> a;
+    public Context a;
+    public a b;
 
-    public r88() {
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(boolean z);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r88(Context context, Handler handler) {
+        super(handler);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, handler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Handler) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ConcurrentHashMap<>();
+        this.a = context;
     }
 
-    public static r88 a() {
-        InterceptResult invokeV;
+    public final void a() {
+        Context context;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (r88.class) {
-                    if (b == null) {
-                        b = new r88();
-                    }
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (context = this.a) == null) {
+            return;
+        }
+        try {
+            int i = Settings.System.getInt(context.getContentResolver(), "accelerometer_rotation");
+            if (this.b != null) {
+                a aVar = this.b;
+                boolean z = true;
+                if (i != 1) {
+                    z = false;
                 }
+                aVar.a(z);
             }
-            return b;
-        }
-        return (r88) invokeV.objValue;
-    }
-
-    public ConcurrentHashMap<String, s88> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ConcurrentHashMap) invokeV.objValue;
-    }
-
-    public s88 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            ConcurrentHashMap<String, s88> concurrentHashMap = this.a;
-            if (concurrentHashMap == null) {
-                return null;
-            }
-            return concurrentHashMap.get(str);
-        }
-        return (s88) invokeL.objValue;
-    }
-
-    public void d(String str) {
-        ConcurrentHashMap<String, s88> concurrentHashMap;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str) || (concurrentHashMap = this.a) == null) {
-            return;
-        }
-        Iterator<String> it = concurrentHashMap.keySet().iterator();
-        while (it.hasNext()) {
-            s88 s88Var = this.a.get(it.next());
-            if (s88Var != null && str.equals(s88Var.b)) {
-                it.remove();
-            }
+        } catch (Settings.SettingNotFoundException e) {
+            e.printStackTrace();
         }
     }
 
-    public void e(boolean z) {
-        ConcurrentHashMap<String, s88> concurrentHashMap;
+    public void b(a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (concurrentHashMap = this.a) == null) {
-            return;
-        }
-        for (String str : concurrentHashMap.keySet()) {
-            s88 s88Var = this.a.get(str);
-            if (s88Var != null) {
-                s88Var.e = z;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.b = aVar;
+            a();
         }
     }
 
-    public void f(boolean z, String str) {
-        ConcurrentHashMap<String, s88> concurrentHashMap;
+    @Override // android.database.ContentObserver
+    public void onChange(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZL(1048580, this, z, str) == null) || TextUtils.isEmpty(str) || (concurrentHashMap = this.a) == null) {
-            return;
-        }
-        for (String str2 : concurrentHashMap.keySet()) {
-            s88 s88Var = this.a.get(str2);
-            if (s88Var != null && str.equals(s88Var.b)) {
-                s88Var.e = z;
-            }
-        }
-    }
-
-    public void g(HashMap<String, s88> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, hashMap) == null) {
-            this.a.clear();
-            if (hashMap == null) {
-                return;
-            }
-            this.a.putAll(hashMap);
-        }
-    }
-
-    public void h(String str, HashMap<String, s88> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, hashMap) == null) {
-            if (this.a == null) {
-                this.a = new ConcurrentHashMap<>();
-            }
-            d(str);
-            this.a.putAll(hashMap);
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            a();
         }
     }
 }

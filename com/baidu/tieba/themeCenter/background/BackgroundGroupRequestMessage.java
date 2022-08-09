@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ud5;
+import com.repackage.te5;
 import tbclient.GetBgByCategory.DataReq;
 import tbclient.GetBgByCategory.GetBgByCategoryReqIdl;
 /* loaded from: classes4.dex */
@@ -42,7 +42,7 @@ public class BackgroundGroupRequestMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                ud5.a(builder, true);
+                te5.a(builder, true);
             }
             GetBgByCategoryReqIdl.Builder builder2 = new GetBgByCategoryReqIdl.Builder();
             builder2.data = builder.build(false);

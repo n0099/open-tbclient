@@ -1,229 +1,56 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.Signature;
-import android.os.Bundle;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.hiidostatis.inner.BaseStatisContent;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.security.MessageDigest;
-import java.util.Locale;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
-public class ko9 {
+public final class ko9<E> extends io9<E> {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[][] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755552004, "Lcom/repackage/ko9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755552004, "Lcom/repackage/ko9;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ko9(int i) {
+        super(4);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new String[][]{new String[]{"com.duowan.mobile", "7.10.0"}};
     }
 
-    public static int a(Context context) {
-        InterceptResult invokeL;
-        String[][] strArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                boolean z = false;
-                for (String[] strArr2 : a) {
-                    if (strArr2.length > 1) {
-                        String str = strArr2[0];
-                        try {
-                            if (jo9.a(context.getPackageManager().getPackageInfo(str, 1).versionName, strArr2[1]) >= 0) {
-                                Intent intent = new Intent();
-                                intent.setClassName(str, "com.yy.udbauth.open.activity.AgentActivity");
-                                if (jo9.e(context, intent)) {
-                                    return 0;
-                                }
-                            }
-                            z = true;
-                        } catch (Exception unused) {
-                            z = false;
-                        }
-                    }
-                }
-                return z ? 2 : 1;
-            } catch (Exception unused2) {
-                return 1;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        Signature[] signatureArr;
-        ByteArrayOutputStream byteArrayOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            ByteArrayOutputStream byteArrayOutputStream2 = null;
-            try {
-                try {
-                    signatureArr = context.getPackageManager().getPackageInfo(context.getPackageName(), 64).signatures;
-                    byteArrayOutputStream = new ByteArrayOutputStream();
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (Exception e) {
-                e = e;
-            }
-            try {
-                for (Signature signature : signatureArr) {
-                    if (signature != null) {
-                        byteArrayOutputStream.write(signature.toByteArray());
-                    }
-                }
-                byteArrayOutputStream.flush();
-                String f = f(byteArrayOutputStream.toByteArray());
-                try {
-                    byteArrayOutputStream.close();
-                } catch (IOException unused) {
-                }
-                return f;
-            } catch (Exception e2) {
-                e = e2;
-                byteArrayOutputStream2 = byteArrayOutputStream;
-                e.printStackTrace();
-                if (byteArrayOutputStream2 != null) {
-                    try {
-                        byteArrayOutputStream2.close();
-                        return "";
-                    } catch (IOException unused2) {
-                        return "";
-                    }
-                }
-                return "";
-            } catch (Throwable th2) {
-                th = th2;
-                byteArrayOutputStream2 = byteArrayOutputStream;
-                if (byteArrayOutputStream2 != null) {
-                    try {
-                        byteArrayOutputStream2.close();
-                    } catch (IOException unused3) {
-                    }
-                }
-                throw th;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(Context context, String str, String str2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, str2, Boolean.valueOf(z)})) == null) ? String.format(Locale.getDefault(), "%s?appId=%s&appType=android&appSign=%s&appDeviceid=%s&grantType=code&callbackType=uri&redirectUri=%s&state=%s", "https://thirdlogin.yy.com/open/oauth/authorize.do", str, b(context), io9.a(context), g(z), str2) : (String) invokeCommon.objValue;
-    }
-
-    public static Bundle d(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("appid", str);
-            bundle.putString("appname", jo9.b(context, context.getPackageName()));
-            bundle.putString("appver", jo9.c(context));
-            bundle.putString("appdeviceid", io9.a(context));
-            bundle.putString(BaseStatisContent.SDKVER, "1.0.0");
-            return bundle;
-        }
-        return (Bundle) invokeLL.objValue;
-    }
-
-    public static Intent e(Context context) {
+    public final ko9<E> c(E e) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            for (String[] strArr : a) {
-                String str = strArr[0];
-                Intent intent = new Intent();
-                intent.setClassName(str, "com.yy.udbauth.open.activity.AgentActivity");
-                if (jo9.e(context, intent)) {
-                    return intent;
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
+            super.a(e);
+            return this;
         }
-        return (Intent) invokeL.objValue;
+        return (ko9) invokeL.objValue;
     }
 
-    public static String f(byte[] bArr) {
+    public final ko9<E> d(Iterator<? extends E> it) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
-            char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.update(bArr);
-                byte[] digest = messageDigest.digest();
-                char[] cArr2 = new char[digest.length * 2];
-                int i = 0;
-                for (byte b : digest) {
-                    int i2 = i + 1;
-                    cArr2[i] = cArr[(b >>> 4) & 15];
-                    i = i2 + 1;
-                    cArr2[i2] = cArr[b & 15];
-                }
-                return new String(cArr2);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, it)) == null) {
+            while (it.hasNext()) {
+                super.a(it.next());
             }
+            return this;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String g(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(65543, null, z)) == null) ? z ? "https://raqweb.yy.com/" : "https://raq.yy.com/" : (String) invokeZ.objValue;
-    }
-
-    public static String h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
-            if (i != 444111001) {
-                switch (i) {
-                    case 444222000:
-                        return "参数为空，请检查";
-                    case 444222001:
-                        return "请求操作类型错误";
-                    case 444222002:
-                        return "请求操作附带参数为空";
-                    case 444222003:
-                        return "请求操作附带参数错误";
-                    default:
-                        switch (i) {
-                            case 444222104:
-                                return "授权APP返回的请求码出错";
-                            case 444222105:
-                                return "Json格式错误";
-                            default:
-                                return "未知错误";
-                        }
-                }
-            }
-            return "成功";
-        }
-        return (String) invokeI.objValue;
+        return (ko9) invokeL.objValue;
     }
 }

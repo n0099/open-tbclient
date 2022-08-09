@@ -3,6 +3,7 @@ package com.kuaishou.weapon.p0;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.security.CacheDeviceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -100,7 +101,7 @@ public class w2 {
             try {
                 jSONObject.put("k", t1.a(context));
                 jSONObject.put("hp", context.getPackageName());
-                jSONObject.put("hv", h1.m(context));
+                jSONObject.put(CacheDeviceInfo.JSON_KEY_HARMONY_VERSION, h1.m(context));
                 jSONObject.put("dpver", i.a(context, "re_po_rt").a(f3.i, q1.e));
                 jSONObject.put(Constants.PARAM_PLATFORM, 1);
                 jSONObject.put(PushConstants.URI_PACKAGE_NAME, "p0");
@@ -149,7 +150,7 @@ public class w2 {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("k", t1.a(context));
                 jSONObject.put("hp", context.getPackageName());
-                jSONObject.put("hv", h1.m(context));
+                jSONObject.put(CacheDeviceInfo.JSON_KEY_HARMONY_VERSION, h1.m(context));
                 try {
                     String a2 = i.a(context, "re_po_rt").a(f3.k, q1.e);
                     if (TextUtils.isEmpty(a2)) {

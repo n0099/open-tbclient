@@ -1,170 +1,110 @@
 package com.repackage;
 
-import android.content.Context;
+import android.text.Layout;
+import android.text.Selection;
+import android.text.Spannable;
+import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.ScrollView;
-import com.baidu.android.imsdk.internal.Constants;
+import android.widget.TextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
 /* loaded from: classes7.dex */
-public class rw8 extends PopupWindow {
+public class rw8 implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public a b;
+    public final Spannable a;
+    public gi5 b;
     public int c;
-    public LinearLayout d;
-    public Context e;
-    public int f;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void U0(int i);
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public a b;
-
-        public b(int i, a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = aVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            a aVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (aVar = this.b) == null) {
-                return;
-            }
-            aVar.U0(this.a);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rw8(Context context) {
-        super(context);
+    public rw8(Spannable spannable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {spannable};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = -1;
-        this.e = context;
-        b(context);
+        this.b = null;
+        this.c = 0;
+        this.a = spannable;
     }
 
-    public void a(View view2) {
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
+        gi5 gi5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            view2.setOnClickListener(new b(this.c, this.b));
-            this.d.addView(view2);
-            this.c++;
-        }
-    }
-
-    public final void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            ScrollView scrollView = new ScrollView(context);
-            scrollView.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
-            LinearLayout linearLayout = new LinearLayout(context);
-            this.d = linearLayout;
-            linearLayout.setOrientation(1);
-            this.d.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            scrollView.addView(this.d);
-            scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            scrollView.setPadding(0, 0, pi.d(context, 1.0f), pi.d(context, 1.0f));
-            scrollView.setFadingEdgeLength(0);
-            scrollView.setScrollbarFadingEnabled(false);
-            try {
-                Method declaredMethod = scrollView.getClass().getDeclaredMethod("setOverScrollMode", Integer.TYPE);
-                declaredMethod.setAccessible(true);
-                declaredMethod.invoke(scrollView, 2);
-            } catch (Exception unused) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (view2 instanceof TextView) {
+                TextView textView = (TextView) view2;
+                if (action == 3 && (gi5Var = this.b) != null) {
+                    gi5Var.g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                    view2.invalidate();
+                    this.b = null;
+                    return false;
+                }
+                if (action == 1 || action == 0) {
+                    int x = (int) motionEvent.getX();
+                    int y = (int) motionEvent.getY();
+                    Layout layout = textView.getLayout();
+                    if (layout == null) {
+                        return false;
+                    }
+                    int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical((y - textView.getTotalPaddingTop()) + textView.getScrollY()), (x - textView.getTotalPaddingLeft()) + textView.getScrollX());
+                    Spannable spannable = this.a;
+                    if (spannable == null) {
+                        return false;
+                    }
+                    gi5[] gi5VarArr = (gi5[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, gi5.class);
+                    if (gi5VarArr != null && gi5VarArr.length != 0 && gi5VarArr[0] != null) {
+                        if (action == 1) {
+                            gi5VarArr[0].g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                            gi5VarArr[0].onClick(textView);
+                            view2.invalidate();
+                        } else {
+                            gi5 gi5Var2 = gi5VarArr[0];
+                            this.b = gi5Var2;
+                            if (gi5Var2.e()) {
+                                int i = this.c;
+                                if (i != 0) {
+                                    gi5VarArr[0].g(SkinManager.getColor(i));
+                                } else if (TbadkCoreApplication.getInst().getSkinType() == 1) {
+                                    gi5VarArr[0].g(SkinManager.getColor(R.color.CAM_X0204));
+                                } else {
+                                    gi5VarArr[0].g(SkinManager.getColor(R.color.cp_bg_line_z));
+                                }
+                            }
+                            Spannable spannable2 = this.a;
+                            Selection.setSelection(spannable2, spannable2.getSpanStart(gi5VarArr[0]), this.a.getSpanEnd(gi5VarArr[0]));
+                            view2.invalidate();
+                        }
+                        return true;
+                    }
+                    gi5 gi5Var3 = this.b;
+                    if (gi5Var3 != null) {
+                        gi5Var3.g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                        view2.invalidate();
+                    }
+                    Selection.removeSelection(this.a);
+                }
+                return false;
             }
-            setContentView(scrollView);
+            return false;
         }
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            int i2 = this.a;
-            if (i2 != -1) {
-                this.d.getChildAt(i2).setSelected(false);
-            }
-            this.a = i;
-            this.d.getChildAt(i).setSelected(true);
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void e(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.b = aVar;
-        }
-    }
-
-    @Override // android.widget.PopupWindow
-    public void showAsDropDown(View view2, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048581, this, view2, i, i2) == null) {
-            getContentView().measure(View.MeasureSpec.makeMeasureSpec(this.e.getResources().getDisplayMetrics().widthPixels, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(this.e.getResources().getDisplayMetrics().heightPixels, Integer.MIN_VALUE));
-            int measuredWidth = getContentView().getMeasuredWidth();
-            if (measuredWidth < view2.getWidth()) {
-                measuredWidth = view2.getWidth();
-            }
-            int measuredHeight = getContentView().getMeasuredHeight();
-            int i3 = this.f;
-            if (measuredHeight > i3) {
-                measuredHeight = i3;
-            }
-            setWidth(measuredWidth);
-            setHeight(measuredHeight);
-            super.showAsDropDown(view2, i, i2);
-        }
+        return invokeLL.booleanValue;
     }
 }

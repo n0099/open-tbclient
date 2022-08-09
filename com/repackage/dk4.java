@@ -1,53 +1,164 @@
 package com.repackage;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BdToken.activeConfig.ActiveConfigHTTPResMsg;
+import com.baidu.tbadk.BdToken.activeConfig.ActiveConfigReqMsg;
+import com.baidu.tbadk.BdToken.activeConfig.ActiveConfigSocketResMsg;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-/* loaded from: classes5.dex */
-public class dk4 extends zj4 {
+/* loaded from: classes6.dex */
+public class dk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public bk4<ck4> a;
+    public boolean b;
+    public BdUniqueId c;
+    public ab d;
 
-    public dk4() {
+    /* loaded from: classes6.dex */
+    public class a extends ab {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dk4 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(dk4 dk4Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dk4Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dk4Var;
+        }
+
+        @Override // com.repackage.ab
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                this.a.b = false;
+                if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || this.a.d() != responsedMessage.getOrginalMessage().getTag()) {
+                    return;
+                }
+                if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
+                    if (this.a.a != null) {
+                        this.a.a.onError(responsedMessage.getError(), responsedMessage.getErrorString());
+                        return;
+                    }
+                    return;
+                }
+                ck4 ck4Var = null;
+                if (responsedMessage instanceof ActiveConfigSocketResMsg) {
+                    ck4Var = ((ActiveConfigSocketResMsg) responsedMessage).getData();
+                } else if (responsedMessage instanceof ActiveConfigHTTPResMsg) {
+                    ck4Var = ((ActiveConfigHTTPResMsg) responsedMessage).getData();
+                }
+                if ((responsedMessage.getOrginalMessage().getExtra() instanceof ActiveConfigReqMsg) && ((ActiveConfigReqMsg) responsedMessage.getOrginalMessage().getExtra()).launtchType == 0) {
+                    ru4.k().x("pref_key_active_config_info", System.currentTimeMillis());
+                }
+                if (ck4Var != null && ck4Var.g != null && this.a.a != null) {
+                    this.a.a.a(ck4Var);
+                }
+                if (ck4Var != null && this.a.c()) {
+                    ru4.k().x("pref_key_last_register_mission", System.currentTimeMillis());
+                    oj4.b().i(ck4Var);
+                    if (this.a.a != null) {
+                        this.a.a.onSuccess(ck4Var);
+                    }
+                }
+                pu4.e().j(ck4Var);
+            }
+        }
+    }
+
+    public dk4(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = false;
+        this.d = new a(this, CmdConfigHttp.CMD_ACTIVE_CONFIG, 309637);
+        this.c = bdUniqueId;
+        e();
+        this.d.setTag(d());
+        MessageManager.getInstance().registerListener(this.d);
     }
 
-    @Override // com.repackage.yj4
-    public String a(String[] strArr, Map<String, String> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, strArr, map)) == null) {
-            if (strArr == null || strArr.length == 0) {
-                return null;
-            }
-            String substring = strArr[0].substring(1);
-            StringBuilder sb = new StringBuilder("com.baidu.tieba://unidispatch/item");
-            sb.append("?item_id=");
-            sb.append(substring);
-            c(strArr, sb, map, 1);
-            return sb.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.yj4
-    public String b() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "i" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !UtilHelper.isSameDay(ru4.k().m("pref_key_last_register_mission", 0L), System.currentTimeMillis()) : invokeV.booleanValue;
+    }
+
+    public BdUniqueId d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (BdUniqueId) invokeV.objValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            kk8.h(309637, ActiveConfigSocketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ACTIVE_CONFIG, kk8.a(TbConfig.URL_ACTIVE_CONFIG, 309637));
+            tbHttpMessageTask.setResponsedClass(ActiveConfigHTTPResMsg.class);
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public void f(boolean z, boolean z2, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) || this.b) {
+            return;
+        }
+        if (!z) {
+            this.b = true;
+        }
+        ru4.k().x("pref_key_last_active_config", System.currentTimeMillis());
+        ActiveConfigReqMsg activeConfigReqMsg = new ActiveConfigReqMsg();
+        activeConfigReqMsg.setFirstUp(z);
+        activeConfigReqMsg.setSchemaUp(z2);
+        activeConfigReqMsg.launtchType = i;
+        activeConfigReqMsg.setTag(d());
+        MessageManager.getInstance().sendMessage(activeConfigReqMsg);
+    }
+
+    public void g(bk4<ck4> bk4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bk4Var) == null) {
+            this.a = bk4Var;
+        }
     }
 }

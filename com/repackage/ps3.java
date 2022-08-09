@@ -1,74 +1,233 @@
 package com.repackage;
 
+import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.manage.Download;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class ps3 implements dm1 {
+/* loaded from: classes7.dex */
+public class ps3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ps3 c;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public ks3 a;
-    public os3 b;
+    public Download a;
+    public JSONObject b;
+    public d c;
+    public rs3 d;
 
-    public ps3() {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+
+        public /* synthetic */ b(String str, String str2, a aVar) {
+            this(str, str2);
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                xr3.n().t(this.b);
+                xr3.n().l(this.a);
+                xr3.n().k();
+            }
+        }
+
+        public b(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = str2;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Download a;
+        public JSONObject b;
+        public qs3 c;
+
+        public /* synthetic */ c(Download download, JSONObject jSONObject, qs3 qs3Var, a aVar) {
+            this(download, jSONObject, qs3Var);
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                xr3.n().G(this.b);
+                zs3.a(this.a.getKeyByUser(), "installApp", null, null, new xs3(this.b));
+                xr3.n().r(AppRuntime.getAppContext(), this.a.getUrl(), this.a.getKeyByUser(), this.c);
+            }
+        }
+
+        public c(@NonNull Download download, JSONObject jSONObject, @NonNull qs3 qs3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {download, jSONObject, qs3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = download;
+            this.b = jSONObject;
+            this.c = qs3Var;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements qs3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public final /* synthetic */ ps3 c;
+
+        public d(ps3 ps3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ps3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = ps3Var;
+        }
+
+        @Override // com.repackage.rs3
+        public void a(ts3 ts3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, ts3Var) == null) {
+                if (ps3.e) {
+                    Log.d("InstallAppLocal", "onResult mPackageName:" + this.a);
+                }
+                this.c.setResult(ts3Var);
+                as3.d.execute(new b(this.b, this.a, null));
+            }
+        }
+
+        @Override // com.repackage.qs3
+        public void setFilePath(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                this.b = str;
+            }
+        }
+
+        @Override // com.repackage.qs3
+        public void setPackageName(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                this.a = str;
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755399391, "Lcom/repackage/ps3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755399391, "Lcom/repackage/ps3;");
+                return;
+            }
+        }
+        e = jh1.a;
+    }
+
+    public ps3(Download download, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {download, jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        c();
+        this.a = download;
+        this.b = jSONObject;
+        this.c = new d(this);
     }
 
-    public static ps3 b() {
-        InterceptResult invokeV;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void setResult(ts3 ts3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (ps3.class) {
-                    if (c == null) {
-                        c = new ps3();
-                    }
-                }
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, ts3Var) == null) {
+            rs3 rs3Var = this.d;
+            if (rs3Var != null) {
+                rs3Var.a(ts3Var);
             }
-            return c;
+            if (ts3Var != null && !ts3Var.d()) {
+                zs3.a(this.a.getKeyByUser(), "installApp", com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(ts3Var.c()), new xs3(this.b));
+            }
+            if (this.c != null) {
+                xr3.n().B(this.a.getKeyByUser(), this.c);
+                this.c = null;
+            }
         }
-        return (ps3) invokeV.objValue;
     }
 
-    @Override // com.repackage.dm1
-    public is1 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull md2 md2Var) {
-        InterceptResult invokeLLL;
+    public void c(rs3 rs3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, md2Var)) == null) {
-            if (this.a.e(str)) {
-                return this.a.a(str, jSONObject, md2Var);
-            }
-            if (this.a.f()) {
-                return this.b.a(str, jSONObject, md2Var);
-            }
-            return new is1(10001, "authorize fail.");
-        }
-        return (is1) invokeLLL.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = new ks3();
-            this.b = new os3();
+        if (interceptable == null || interceptable.invokeL(1048576, this, rs3Var) == null) {
+            this.d = rs3Var;
+            as3.d.execute(new c(this.a, this.b, this.c, null));
         }
     }
 }

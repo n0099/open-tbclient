@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ap0;
+import com.repackage.zo0;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public class NetUtils {
@@ -120,7 +120,7 @@ public class NetUtils {
         ConnectivityManager connectivityManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Context b = ap0.b();
+            Context b = zo0.b();
             if (b == null || (connectivityManager = (ConnectivityManager) b.getSystemService("connectivity")) == null) {
                 return null;
             }

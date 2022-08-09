@@ -21,7 +21,7 @@ public class s {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Context f85a;
+    public final Context f86a;
 
     public s(Context context) {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class s {
                 return;
             }
         }
-        this.f85a = context.getApplicationContext();
+        this.f86a = context.getApplicationContext();
     }
 
     public static s a(Context context) {
@@ -73,16 +73,16 @@ public class s {
 
     private void a(Cif cif, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{cif, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && !com.xiaomi.push.m.m561a(this.f85a) && com.xiaomi.push.m.m560a() && cif != null && cif.f625a == hj.e && cif.m465a() != null && z) {
+        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{cif, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && !com.xiaomi.push.m.m561a(this.f86a) && com.xiaomi.push.m.m560a() && cif != null && cif.f626a == hj.e && cif.m465a() != null && z) {
             com.xiaomi.channel.commonutils.logger.b.m89a("click to start activity result:" + String.valueOf(i));
             ii iiVar = new ii(cif.m465a().m431a(), false);
-            iiVar.c(ht.ae.f505a);
+            iiVar.c(ht.ae.f506a);
             iiVar.b(cif.m466a());
-            iiVar.d(cif.f632b);
+            iiVar.d(cif.f633b);
             HashMap hashMap = new HashMap();
-            iiVar.f644a = hashMap;
+            iiVar.f645a = hashMap;
             hashMap.put(TiebaStatic.LogFields.RESULT, String.valueOf(i));
-            ao.a(this.f85a).a(iiVar, hj.i, false, false, null, true, cif.f632b, cif.f628a, true, false);
+            ao.a(this.f86a).a(iiVar, hj.i, false, false, null, true, cif.f633b, cif.f629a, true, false);
         }
     }
 

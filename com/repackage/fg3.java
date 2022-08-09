@@ -2,7 +2,8 @@ package com.repackage;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import android.view.MotionEvent;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,16 +12,115 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.URI;
-import java.net.URISyntaxException;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class fg3 extends cg3 {
+public class fg3 implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean i;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public boolean d;
+    public int[] e;
+    public c f;
+    public long g;
+    public b h;
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public MotionEvent a;
+        public fb2 b;
+        public final /* synthetic */ fg3 c;
+
+        public b(fg3 fg3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fg3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = fg3Var;
+        }
+
+        public final void b(MotionEvent motionEvent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) {
+                this.a = motionEvent;
+                this.b = this.c.d(motionEvent, "longtap");
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.c.g(this.b);
+            }
+        }
+
+        public /* synthetic */ b(fg3 fg3Var, a aVar) {
+            this(fg3Var);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public double a;
+        public double b;
+
+        public c(fg3 fg3Var, double d, double d2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fg3Var, Double.valueOf(d), Double.valueOf(d2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = d;
+            this.b = d2;
+        }
+
+        public double a(c cVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
+                if (cVar == null) {
+                    return Double.MAX_VALUE;
+                }
+                double pow = Math.pow(cVar.a - this.a, 2.0d) + Math.pow(cVar.b - this.b, 2.0d);
+                if (pow <= 0.0d) {
+                    return 0.0d;
+                }
+                return Math.sqrt(pow);
+            }
+            return invokeL.doubleValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -35,175 +135,135 @@ public class fg3 extends cg3 {
                 return;
             }
         }
-        b = sg1.a;
+        i = jh1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fg3(String str) {
-        super(str);
+    public fg3(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.d = false;
+        this.e = new int[2];
+        this.h = new b(this, null);
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
+        h();
+        i();
     }
 
-    public boolean b(String str) {
-        URI uri;
+    /* JADX WARN: Type inference failed for: r0v4, types: [org.json.JSONObject, T] */
+    public final fb2 c(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            try {
-                uri = new URI(str);
-            } catch (URISyntaxException e) {
-                if (b) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            eg3 eg3Var = new eg3(motionEvent);
+            eg3Var.i(this.e);
+            fb2 fb2Var = new fb2();
+            fb2Var.c = gg3.b(this.a, this.b, this.c, eg3Var.e(), eg3Var.c());
+            return fb2Var;
+        }
+        return (fb2) invokeL.objValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r6v2, types: [org.json.JSONObject, T] */
+    public final fb2 d(MotionEvent motionEvent, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent, str)) == null) {
+            eg3 eg3Var = new eg3(motionEvent, str);
+            eg3Var.i(this.e);
+            fb2 fb2Var = new fb2();
+            fb2Var.c = gg3.b(this.a, this.b, this.c, eg3Var.e(), eg3Var.c());
+            return fb2Var;
+        }
+        return (fb2) invokeLL.objValue;
+    }
+
+    public final void e(View view2, MotionEvent motionEvent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, motionEvent) == null) {
+            if (view2 != null && motionEvent != null && !TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b)) {
+                int actionMasked = motionEvent.getActionMasked();
+                if (actionMasked == 0 && motionEvent.getPointerCount() == 1) {
+                    this.f = new c(this, motionEvent.getX(), motionEvent.getY());
+                    this.g = motionEvent.getEventTime();
+                    this.h.b(motionEvent);
+                    view2.postDelayed(this.h, 350L);
+                    i();
+                } else if (actionMasked == 1 || actionMasked == 3 || !f(new c(this, motionEvent.getX(), motionEvent.getY()))) {
+                    view2.removeCallbacks(this.h);
                 }
-                uri = null;
+                g(c(motionEvent));
+                if (actionMasked == 1 && f(new c(this, motionEvent.getX(), motionEvent.getY())) && motionEvent.getEventTime() - this.g < 350) {
+                    g(d(motionEvent, "tap"));
+                    return;
+                }
+                return;
             }
-            return uri == null || TextUtils.isEmpty(uri.getPath()) || TextUtils.equals("/", uri.getPath());
+            zx1.c("SwanAppTouchListener", "params is null, slaveId = " + this.a + " ; viewId = " + this.b);
+        }
+    }
+
+    public final boolean f(c cVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cVar)) == null) {
+            c cVar2 = this.f;
+            return cVar2 != null && cVar2.a(cVar) <= ((double) qe3.g(10.0f));
         }
         return invokeL.booleanValue;
     }
 
-    public void c(String str) {
+    public final void g(fb2 fb2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (b) {
-                Log.i("WebStatsStrategy", "onFcpSubmit: " + str);
+        if (interceptable == null || interceptable.invokeL(1048580, this, fb2Var) == null) {
+            if (i) {
+                Log.d("SwanAppTouchListener", "sendEventToWebView = " + fb2Var.c);
             }
-            if (this.a.d("na_fcp")) {
-                return;
+            if (!this.d) {
+                mm2.U().m(this.a, fb2Var);
+            } else {
+                mm2.U().u(fb2Var);
             }
-            this.a.g("na_fcp");
         }
     }
 
-    public void d(String str) {
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || b(str) || this.a.d("na_first_image_paint")) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.d = oe3.f("1.12.0") && TextUtils.equals("canvas", this.c);
+        }
+    }
+
+    public final void i() {
+        View m;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (m = te3.m(this.a)) == null) {
             return;
         }
-        this.a.g("na_first_image_paint");
+        m.getLocationOnScreen(this.e);
     }
 
-    public void e(String str) {
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || b(str) || this.a.d("na_first_text_paint")) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, view2, motionEvent)) == null) {
+            e(view2, motionEvent);
+            return true;
         }
-        this.a.g("na_first_text_paint");
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (b) {
-                Log.i("WebStatsStrategy", "onFmpSubmit: " + str);
-            }
-            if (!this.a.d("na_up_screen")) {
-                this.a.g("na_up_screen");
-            }
-            if (this.a.d("fe_fmp")) {
-                a();
-                l();
-            }
-        }
-    }
-
-    public void g(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, jSONArray) == null) || jSONArray == null || jSONArray.length() <= 0) {
-            return;
-        }
-        for (int i = 0; i < jSONArray.length(); i++) {
-            try {
-                JSONObject jSONObject = jSONArray.getJSONObject(i);
-                this.a.h(jSONObject.optString("actionId"), jSONObject.optLong("timestamp"));
-            } catch (JSONException e) {
-                if (b) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        this.a.g("fe_fmp");
-        if (this.a.d("na_up_screen")) {
-            a();
-            l();
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || b(str) || this.a.d("na_load_url_end")) {
-            return;
-        }
-        this.a.g("na_load_url_end");
-        this.a.f("load_end_url", str);
-        this.a.f("fmpArrived", this.a.d("fe_fmp") ? "1" : "0");
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            if (b) {
-                Log.i("WebStatsStrategy", "onLoadUrlStart: " + str);
-            }
-            if (this.a.d("na_load_url")) {
-                return;
-            }
-            this.a.g("na_load_url");
-            this.a.f("load_url", str);
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (b) {
-                Log.i("WebStatsStrategy", "onUserCancel: report");
-            }
-            a();
-            l();
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.a.d("na_start")) {
-            return;
-        }
-        this.a.g("na_start");
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.a.e()) {
-            this.a.k();
-            ni2.e();
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.a.i();
-        }
-    }
-
-    public void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-        }
+        return invokeLL.booleanValue;
     }
 }

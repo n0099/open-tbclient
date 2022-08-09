@@ -1,31 +1,83 @@
 package com.repackage;
 
+import android.os.Bundle;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class zw2 extends q03 {
+public abstract class zw2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public Bundle a;
+    public int b;
+    public String c;
+    public Bundle d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zw2(l03 l03Var) {
-        super(l03Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755097668, "Lcom/repackage/zw2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755097668, "Lcom/repackage/zw2;");
+                return;
+            }
+        }
+        e = jh1.a;
+    }
+
+    public zw2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {l03Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l03) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
+        }
+        this.a = new Bundle();
+        this.c = "";
+        this.d = new Bundle();
+    }
+
+    public abstract void b(@NonNull Bundle bundle);
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            d(this.d);
+        }
+    }
+
+    public void d(@Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+            if (e) {
+                Log.d("MDelegate-Delegation", "messenger delegation finish");
+            }
+            if (hx2.a(this.c)) {
+                return;
+            }
+            if (e) {
+                Log.d("MDelegate-Delegation", "messenger delegation finish with send result to client: " + this.b + " observer: " + this.c);
+            }
+            ax2.c(this.b, this.c, bundle);
         }
     }
 }

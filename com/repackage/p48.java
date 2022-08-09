@@ -1,58 +1,31 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class p48 extends BaseCardInfo {
+/* loaded from: classes7.dex */
+public class p48 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755459779, "Lcom/repackage/p48;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755459779, "Lcom/repackage/p48;");
-                return;
-            }
-        }
-        e = BdUniqueId.gen();
-    }
-
-    public p48() {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14893");
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_locate", str);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.nn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public static void b() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? e : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14892");
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
+        }
     }
 }

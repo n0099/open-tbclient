@@ -24,13 +24,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sh5;
-import com.repackage.th5;
-import com.repackage.uh5;
-import com.repackage.vh5;
-import com.repackage.wh5;
-import com.repackage.xh5;
-import com.repackage.yh5;
+import com.repackage.gj5;
+import com.repackage.hj5;
+import com.repackage.ij5;
+import com.repackage.jj5;
+import com.repackage.kj5;
+import com.repackage.lj5;
+import com.repackage.mj5;
 import java.util.Locale;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -63,7 +63,7 @@ public class WheelView extends View {
     public Context b;
     public Handler c;
     public GestureDetector d;
-    public vh5 e;
+    public jj5 e;
     public boolean f;
     public boolean g;
     public ScheduledExecutorService h;
@@ -71,7 +71,7 @@ public class WheelView extends View {
     public Paint j;
     public Paint k;
     public Paint l;
-    public sh5 m;
+    public gj5 m;
     public String n;
     public int o;
     public int p;
@@ -279,8 +279,8 @@ public class WheelView extends View {
             if (obj == null) {
                 return "";
             }
-            if (obj instanceof th5) {
-                return ((th5) obj).a();
+            if (obj instanceof hj5) {
+                return ((hj5) obj).a();
             }
             return obj instanceof Integer ? String.format(Locale.getDefault(), "%02d", Integer.valueOf(((Integer) obj).intValue())) : obj.toString();
         }
@@ -322,8 +322,8 @@ public class WheelView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             this.b = context;
-            this.c = new xh5(this);
-            GestureDetector gestureDetector = new GestureDetector(context, new uh5(this));
+            this.c = new lj5(this);
+            GestureDetector gestureDetector = new GestureDetector(context, new ij5(this));
             this.d = gestureDetector;
             gestureDetector.setIsLongpressEnabled(false);
             this.y = true;
@@ -357,10 +357,10 @@ public class WheelView extends View {
         }
     }
 
-    public final sh5 getAdapter() {
+    public final gj5 getAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.m : (sh5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.m : (gj5) invokeV.objValue;
     }
 
     public final int getCurrentItem() {
@@ -368,11 +368,11 @@ public class WheelView extends View {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            sh5 sh5Var = this.m;
-            if (sh5Var == null) {
+            gj5 gj5Var = this.m;
+            if (gj5Var == null) {
                 return 0;
             }
-            if (this.y && ((i = this.E) < 0 || i >= sh5Var.a())) {
+            if (this.y && ((i = this.E) < 0 || i >= gj5Var.a())) {
                 return Math.max(0, Math.min(Math.abs(Math.abs(this.E) - this.m.a()), this.m.a() - 1));
             }
             return Math.max(0, Math.min(this.E, this.m.a() - 1));
@@ -403,9 +403,9 @@ public class WheelView extends View {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            sh5 sh5Var = this.m;
-            if (sh5Var != null) {
-                return sh5Var.a();
+            gj5 gj5Var = this.m;
+            if (gj5Var != null) {
+                return gj5Var.a();
             }
             return 0;
         }
@@ -752,7 +752,7 @@ public class WheelView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048601, this, f) == null) {
             b();
-            this.i = this.h.scheduleWithFixedDelay(new wh5(this, f), 0L, 5L, TimeUnit.MILLISECONDS);
+            this.i = this.h.scheduleWithFixedDelay(new kj5(this, f), 0L, 5L, TimeUnit.MILLISECONDS);
         }
     }
 
@@ -771,14 +771,14 @@ public class WheelView extends View {
                     this.L = -i;
                 }
             }
-            this.i = this.h.scheduleWithFixedDelay(new yh5(this, this.L), 0L, 10L, TimeUnit.MILLISECONDS);
+            this.i = this.h.scheduleWithFixedDelay(new mj5(this, this.L), 0L, 10L, TimeUnit.MILLISECONDS);
         }
     }
 
-    public final void setAdapter(sh5 sh5Var) {
+    public final void setAdapter(gj5 gj5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, sh5Var) == null) {
-            this.m = sh5Var;
+        if (interceptable == null || interceptable.invokeL(1048603, this, gj5Var) == null) {
+            this.m = gj5Var;
             p();
             invalidate();
         }
@@ -860,10 +860,10 @@ public class WheelView extends View {
         j();
     }
 
-    public final void setOnItemSelectedListener(vh5 vh5Var) {
+    public final void setOnItemSelectedListener(jj5 jj5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048614, this, vh5Var) == null) {
-            this.e = vh5Var;
+        if (interceptable == null || interceptable.invokeL(1048614, this, jj5Var) == null) {
+            this.e = jj5Var;
         }
     }
 
@@ -951,7 +951,7 @@ public class WheelView extends View {
         this.P = 17;
         this.Q = 0;
         this.R = 0;
-        this.o = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705ff);
+        this.o = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070600);
         float f = getResources().getDisplayMetrics().density;
         if (f < 1.0f) {
             this.S = 2.4f;
@@ -968,7 +968,7 @@ public class WheelView extends View {
             }
         }
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0406d3, R.attr.obfuscated_res_0x7f0406d4, R.attr.obfuscated_res_0x7f0406d5, R.attr.obfuscated_res_0x7f0406d6, R.attr.obfuscated_res_0x7f0406d7, R.attr.obfuscated_res_0x7f0406d8}, 0, 0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04076e, R.attr.obfuscated_res_0x7f04076f, R.attr.obfuscated_res_0x7f040770, R.attr.obfuscated_res_0x7f040771, R.attr.obfuscated_res_0x7f040772, R.attr.obfuscated_res_0x7f040773}, 0, 0);
             this.P = obtainStyledAttributes.getInt(1, 17);
             this.u = obtainStyledAttributes.getColor(4, -5723992);
             this.v = obtainStyledAttributes.getColor(3, -14013910);

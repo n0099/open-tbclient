@@ -1,255 +1,456 @@
 package com.repackage;
 
-import android.content.SharedPreferences;
+import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.compatible.EditorHelper;
-import com.baidu.tieba.funAd.strategy.FunAdHistoryData;
-import com.baidu.tieba.funAd.strategy.FunAdSidConfigData;
+import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tbadk.data.ShareFromFrsMsgData;
+import com.baidu.tieba.R;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.view.FrsLikeShareDialogView;
+import com.baidu.tieba.frs.view.FrsPrivateShareDialogView;
+import com.baidu.tieba.frs.view.FrsShareCardView;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.repackage.ur4;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 /* loaded from: classes6.dex */
 public class fr6 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile fr6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
 
-    public fr6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        ArrayList arrayList = new ArrayList();
-        this.a = arrayList;
-        arrayList.add("pb_banner");
-        this.a.add("frs_feed");
-    }
+    /* loaded from: classes6.dex */
+    public static class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ShareItem a;
+        public final /* synthetic */ TbPageContext b;
+        public final /* synthetic */ FrsViewData c;
+        public final /* synthetic */ ShareDialogConfig d;
 
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            SharedPreferences.Editor edit = g().edit();
-            edit.clear();
-            return edit.commit();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static fr6 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (er6.class) {
-                    if (b == null) {
-                        b = new fr6();
-                    }
+        public a(ShareItem shareItem, TbPageContext tbPageContext, FrsViewData frsViewData, ShareDialogConfig shareDialogConfig) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {shareItem, tbPageContext, frsViewData, shareDialogConfig};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return b;
+            this.a = shareItem;
+            this.b = tbPageContext;
+            this.c = frsViewData;
+            this.d = shareDialogConfig;
         }
-        return (fr6) invokeV.objValue;
-    }
 
-    public static SharedPreferences g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("fun_ad_sid_strategy_shaedpref_name", 0) : (SharedPreferences) invokeV.objValue;
-    }
-
-    public void a(String str) {
-        FunAdSidConfigData b2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            ArrayList<FunAdHistoryData> c = dr6.f().c(str);
-            if (ListUtils.isEmpty(c) || (b2 = er6.e().b(str)) == null) {
-                return;
-            }
-            List<FunAdHistoryData> h = h(c, b2.getRecordNum(), b2.getExpiryTime());
-            SharedPreferences g = g();
-            if (i(h, b2.getThreshold(), b2.getSpace(), g.getLong(str + "_fun_ad_last_change_sid_time", 0L))) {
-                j(str, b2);
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).param("fid", this.a.t).param("obj_type", 18).param("obj_source", 10));
+                FrsPrivateShareDialogView frsPrivateShareDialogView = new FrsPrivateShareDialogView(this.b.getPageActivity());
+                ur4 ur4Var = new ur4(this.b.getPageActivity());
+                if (frsPrivateShareDialogView.d(this.c, this.b, ur4Var)) {
+                    ur4Var.setContentViewSize(2);
+                    ur4Var.setContentView(frsPrivateShareDialogView);
+                    ur4Var.create(this.b).show();
+                }
+                StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.THREAD_ACHIEVEMENT_DETAIL_SHARE);
+                statisticItem.param("obj_param1", this.d.experimentId);
+                statisticItem.param("obj_type", 7);
+                statisticItem.param("obj_source", 6);
+                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                statisticItem.param("fid", this.a.t);
+                statisticItem.param("fname", this.a.s);
+                TiebaStatic.log(statisticItem);
             }
         }
     }
 
-    public List<String> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (List) invokeV.objValue;
+    /* loaded from: classes6.dex */
+    public static class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ TbPageContext b;
+
+        public b(String str, TbPageContext tbPageContext) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, tbPageContext};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = tbPageContext;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                fi.a(this.a);
+                qi.O(this.b.getPageActivity(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f0450));
+            }
+        }
     }
 
-    public String d(String str) {
+    /* loaded from: classes6.dex */
+    public static class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ForumData a;
+        public final /* synthetic */ ur4 b;
+
+        public c(ForumData forumData, ur4 ur4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {forumData, ur4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = forumData;
+            this.b = ur4Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                er6.a(this.a.getId());
+                this.b.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class d implements ur4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FrsFragment a;
+        public final /* synthetic */ FrsShareCardView b;
+        public final /* synthetic */ long c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ long e;
+        public final /* synthetic */ ShareFromFrsMsgData f;
+
+        public d(FrsFragment frsFragment, FrsShareCardView frsShareCardView, long j, String str, long j2, ShareFromFrsMsgData shareFromFrsMsgData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {frsFragment, frsShareCardView, Long.valueOf(j), str, Long.valueOf(j2), shareFromFrsMsgData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = frsFragment;
+            this.b = frsShareCardView;
+            this.c = j;
+            this.d = str;
+            this.e = j2;
+            this.f = shareFromFrsMsgData;
+        }
+
+        @Override // com.repackage.ur4.e
+        public void onClick(ur4 ur4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, ur4Var) == null) {
+                this.a.HidenSoftKeyPad((InputMethodManager) TbadkCoreApplication.getInst().getSystemService("input_method"), this.b.getChatMsgView());
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(this.a.o().getPageActivity(), this.c, this.d, this.e, "from_share", this.b.getLeaveMsg(), this.f.toChatMessageContent())));
+                ur4Var.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class e implements ur4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FrsFragment a;
+        public final /* synthetic */ FrsShareCardView b;
+
+        public e(FrsFragment frsFragment, FrsShareCardView frsShareCardView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {frsFragment, frsShareCardView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = frsFragment;
+            this.b = frsShareCardView;
+        }
+
+        @Override // com.repackage.ur4.e
+        public void onClick(ur4 ur4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, ur4Var) == null) {
+                this.a.HidenSoftKeyPad((InputMethodManager) TbadkCoreApplication.getInst().getSystemService("input_method"), this.b.getChatMsgView());
+                ur4Var.dismiss();
+            }
+        }
+    }
+
+    public static ShareItem a(TbPageContext tbPageContext, FrsViewData frsViewData, String str, String str2, Uri uri, String str3) {
+        InterceptResult invokeCommon;
+        String str4;
+        String str5;
+        Uri parse;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{tbPageContext, frsViewData, str, str2, uri, str3})) == null) {
+            if (frsViewData == null || frsViewData.getForum() == null) {
+                str4 = "";
+                str5 = null;
+            } else {
+                str4 = frsViewData.getForum().getName();
+                str5 = frsViewData.getForum().getfShareImage();
+            }
+            ShareItem shareItem = new ShareItem();
+            shareItem.u = str4 + tbPageContext.getString(R.string.obfuscated_res_0x7f0f065a);
+            shareItem.v = str3;
+            shareItem.w = str2;
+            shareItem.b = true;
+            shareItem.H = 10;
+            shareItem.t = str;
+            shareItem.s = str4;
+            if (StringUtils.isNull(str5)) {
+                shareItem.B = 4;
+                shareItem.M = frsViewData.getForum().getId();
+                parse = uri;
+            } else {
+                parse = Uri.parse(str5);
+                shareItem.B = 2;
+            }
+            if (parse != null) {
+                shareItem.y = parse;
+            }
+            b(shareItem, tbPageContext, frsViewData, uri);
+            return shareItem;
+        }
+        return (ShareItem) invokeCommon.objValue;
+    }
+
+    public static void b(ShareItem shareItem, TbPageContext tbPageContext, FrsViewData frsViewData, Uri uri) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLL(65537, null, shareItem, tbPageContext, frsViewData, uri) == null) || shareItem == null || tbPageContext == null || frsViewData == null) {
+            return;
+        }
+        StringBuilder sb = new StringBuilder();
+        String str2 = "";
+        if (frsViewData.getForum() != null) {
+            str2 = frsViewData.getForum().getName();
+            str = frsViewData.getForum().getSlogan();
+        } else {
+            str = "";
+        }
+        sb.append(tbPageContext.getString(R.string.obfuscated_res_0x7f0f076e));
+        sb.append(str2);
+        sb.append(tbPageContext.getString(R.string.obfuscated_res_0x7f0f065a));
+        shareItem.D0 = sb.toString();
+        StringBuilder sb2 = new StringBuilder();
+        sb2.append(str);
+        if (sb2.length() > 0) {
+            if (sb2.length() > 20) {
+                sb2.append(sb2.substring(0, 20));
+                sb2.append(StringHelper.STRING_MORE);
+            }
+            sb2.append(StringUtils.lineSeparator);
+        }
+        if (frsViewData.getForum() != null && frsViewData.getForum().getMember_num() > 0) {
+            sb2.append(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0679));
+            sb2.append(" ");
+            sb2.append(StringHelper.numFormatOver10000(frsViewData.getForum().getMember_num()));
+            sb2.append(" ");
+            sb2.append(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0edb));
+            sb2.append(" ");
+            sb2.append(StringHelper.numFormatOver10000(frsViewData.getForum().getPost_num()));
+        }
+        shareItem.E0 = sb2.toString();
+        if (uri == null) {
+            uri = Uri.parse("https://tb5.bdstatic.com/yunying/tieba_logo.jpg");
+        }
+        shareItem.F0 = uri;
+    }
+
+    public static String c(ForumData forumData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if ("frs_feed".equals(str) && UbsABTestHelper.isFrsFunAdSdkTest() && UbsABTestHelper.isGetFunAdPreLoadABTest()) {
-                return "6051002409-2123988582";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, forumData)) == null) {
+            String str = null;
+            if (forumData == null || TextUtils.isEmpty(forumData.getName())) {
+                return null;
             }
-            if (!UbsABTestHelper.isDuplicateRemovalFunAdABTest()) {
-                return f(str);
+            try {
+                str = URLEncoder.encode(forumData.getName(), "UTF-8");
+            } catch (UnsupportedEncodingException e2) {
+                e2.printStackTrace();
             }
-            FunAdSidConfigData b2 = er6.e().b(str);
-            if (b2 == null) {
-                return f(str);
+            if (!TextUtils.isEmpty(forumData.forum_share_link)) {
+                return forumData.forum_share_link + "?kw=" + str + "&fr=sharewise";
             }
-            if (ListUtils.isEmpty(b2.getBearSidList())) {
-                return f(str);
-            }
-            SharedPreferences g = g();
-            return g.getString(str + "_fun_ad_current_sid_suffix", f(str));
+            return TbConfig.HTTPS_FRS_PREFIX + str + "&fr=sharewise";
         }
         return (String) invokeL.objValue;
     }
 
-    public String f(String str) {
+    public static ShareFromFrsMsgData d(FrsViewData frsViewData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if ("pb_banner".equals(str)) {
-                return zq6.o();
-            }
-            if ("frs_feed".equals(str)) {
-                return zq6.e();
-            }
-            return "pic".equals(str) ? zq6.r() : "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, frsViewData)) == null) {
+            ShareFromFrsMsgData shareFromFrsMsgData = new ShareFromFrsMsgData();
+            shareFromFrsMsgData.setImageUrl(frsViewData.getForum().getImage_url());
+            shareFromFrsMsgData.setName(frsViewData.getForum().getName());
+            shareFromFrsMsgData.setMemberNum(frsViewData.getForum().getMember_num());
+            shareFromFrsMsgData.setPostNum(frsViewData.getForum().getPost_num());
+            shareFromFrsMsgData.setContent(frsViewData.getForum().getSlogan());
+            return shareFromFrsMsgData;
         }
-        return (String) invokeL.objValue;
+        return (ShareFromFrsMsgData) invokeL.objValue;
     }
 
-    public final List<FunAdHistoryData> h(List<FunAdHistoryData> list, int i, long j) {
-        InterceptResult invokeCommon;
+    public static void e(FrsFragment frsFragment, FrsViewData frsViewData, long j, String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{list, Integer.valueOf(i), Long.valueOf(j)})) == null) {
-            int size = list.size();
-            if (size > i) {
-                list = ListUtils.subList(list, size - i, size);
-            }
-            int size2 = list.size();
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            int i2 = 0;
-            Iterator<FunAdHistoryData> it = list.iterator();
-            while (it.hasNext() && currentTimeMillis - it.next().getShowTime() > j) {
-                i2++;
-            }
-            return ListUtils.subList(list, i2, size2);
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{frsFragment, frsViewData, Long.valueOf(j), str, Long.valueOf(j2)}) == null) || frsViewData == null || frsViewData.getForum() == null) {
+            return;
         }
-        return (List) invokeCommon.objValue;
+        ShareFromFrsMsgData d2 = d(frsViewData);
+        ur4 ur4Var = new ur4(frsFragment.getPageContext().getPageActivity());
+        FrsShareCardView frsShareCardView = new FrsShareCardView(frsFragment.getPageContext().getPageActivity());
+        frsShareCardView.setPageId(frsFragment.getUniqueId());
+        frsShareCardView.setData(d2);
+        ur4Var.setContentViewSize(1);
+        ur4Var.setContentView(frsShareCardView);
+        ur4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1125, new d(frsFragment, frsShareCardView, j, str, j2, d2));
+        ur4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0370, new e(frsFragment, frsShareCardView));
+        ur4Var.setCanceledOnTouchOutside(true);
+        ur4Var.create(frsFragment.getPageContext()).show();
+        if (pi.isEmpty(d2.getImageUrl())) {
+            return;
+        }
+        frsShareCardView.d(d2.getImageUrl(), false);
     }
 
-    public final boolean i(List<FunAdHistoryData> list, int i, long j, long j2) {
-        InterceptResult invokeCommon;
+    public static void f(TbPageContext tbPageContext, ck8 ck8Var, ForumData forumData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{list, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            if ((System.currentTimeMillis() / 1000) - j2 <= j) {
-                return false;
-            }
-            HashMap hashMap = new HashMap();
-            for (FunAdHistoryData funAdHistoryData : list) {
-                if (funAdHistoryData != null) {
-                    String funAdKey = funAdHistoryData.getFunAdKey();
-                    if (TextUtils.isEmpty(funAdKey)) {
-                        continue;
-                    } else {
-                        Integer num = (Integer) hashMap.get(funAdKey);
-                        if (num == null) {
-                            num = 0;
-                        }
-                        if (num.intValue() + 1 >= i) {
-                            return true;
-                        }
-                        hashMap.put(funAdKey, Integer.valueOf(num.intValue() + 1));
-                    }
-                }
-            }
-            return false;
+        if (!(interceptable == null || interceptable.invokeLLL(65541, null, tbPageContext, ck8Var, forumData) == null) || tbPageContext == null || forumData == null) {
+            return;
         }
-        return invokeCommon.booleanValue;
+        FrsLikeShareDialogView frsLikeShareDialogView = new FrsLikeShareDialogView(tbPageContext.getPageActivity());
+        ur4 ur4Var = new ur4(tbPageContext.getPageActivity());
+        ur4Var.setContentViewSize(9);
+        ur4Var.setContentView(frsLikeShareDialogView);
+        ur4Var.setCancelable(false);
+        ur4Var.setCanceledOnTouchOutside(false);
+        ur4Var.create(tbPageContext).show();
+        frsLikeShareDialogView.setCloseListener(new c(forumData, ur4Var));
+        frsLikeShareDialogView.b(tbPageContext, ck8Var, forumData);
+        er6.c(forumData.getId());
     }
 
-    public final void j(String str, FunAdSidConfigData funAdSidConfigData) {
+    public static void g(TbPageContext tbPageContext, FrsViewData frsViewData, String str, int i, boolean z, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, funAdSidConfigData) == null) {
-            SharedPreferences g = g();
-            int i = g.getInt(str + "_fun_ad_current_sid_index_suffix", -1);
-            List<String> bearSidList = funAdSidConfigData.getBearSidList();
-            if (ListUtils.isEmpty(bearSidList)) {
-                return;
-            }
-            int size = (i + 1) % bearSidList.size();
-            String str2 = (String) ListUtils.getItem(bearSidList, size);
-            SharedPreferences g2 = g();
-            EditorHelper.putInt(g2, str + "_fun_ad_current_sid_index_suffix", size);
-            if (TextUtils.isEmpty(str2)) {
-                return;
-            }
-            SharedPreferences g3 = g();
-            EditorHelper.putString(g3, str + "_fun_ad_current_sid_suffix", str2);
-            SharedPreferences g4 = g();
-            EditorHelper.putLong(g4, str + "_fun_ad_last_change_sid_time", System.currentTimeMillis() / 1000);
+        if (!(interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{tbPageContext, frsViewData, str, Integer.valueOf(i), Boolean.valueOf(z), onClickListener}) == null) || tbPageContext == null || frsViewData == null || frsViewData.getForum() == null) {
+            return;
         }
+        if (frsViewData.getForum().getName() != null && frsViewData.getForum().getId() != null) {
+            TiebaStatic.eventStat(tbPageContext.getPageActivity(), "frs_share", "frsclick", 1, new Object[0]);
+            String name = frsViewData.getForum().getName();
+            ForumData forum = frsViewData.getForum();
+            String c2 = c(forum);
+            Uri parse = frsViewData.getForum().getImage_url() == null ? null : Uri.parse(frsViewData.getForum().getImage_url());
+            String slogan = frsViewData.getForum().getSlogan();
+            ShareItem shareItem = new ShareItem();
+            shareItem.u = name + tbPageContext.getString(R.string.obfuscated_res_0x7f0f065a);
+            shareItem.v = slogan;
+            shareItem.w = c2;
+            shareItem.b = true;
+            shareItem.H = 10;
+            shareItem.t = str;
+            shareItem.s = name;
+            if (parse != null) {
+                shareItem.y = parse;
+            }
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(tbPageContext.getPageActivity(), shareItem, true);
+            shareDialogConfig.setHasSpecialItem(true);
+            shareDialogConfig.shareItem.f0 = forum;
+            shareDialogConfig.setSpecialShareItems(3, a(tbPageContext, frsViewData, str, c2, parse, slogan));
+            shareDialogConfig.setIsCopyLink(true);
+            shareDialogConfig.setCustomCopyTitle(R.string.obfuscated_res_0x7f0f044f);
+            shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f0ee5, R.drawable.obfuscated_res_0x7f0809cf, new a(shareItem, tbPageContext, frsViewData, shareDialogConfig));
+            shareDialogConfig.setCopyLinkListener(new b(c2, tbPageContext));
+            shareDialogConfig.experimentId = dp6.c();
+            tbPageContext.sendMessage(new CustomMessage(2001276, shareDialogConfig));
+            return;
+        }
+        tbPageContext.showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0c61));
     }
 
-    public void k(JSONObject jSONObject) {
+    public static void h(TbPageContext tbPageContext, FrsViewData frsViewData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) {
-            if (jSONObject != null && UbsABTestHelper.isDuplicateRemovalFunAdABTest()) {
-                for (String str : this.a) {
-                    if (!TextUtils.isEmpty(str)) {
-                        FunAdSidConfigData funAdSidConfigData = new FunAdSidConfigData();
-                        JSONObject jSONObject2 = null;
-                        if (jSONObject.has(str)) {
-                            try {
-                                jSONObject2 = jSONObject.getJSONObject(str);
-                            } catch (JSONException e) {
-                                BdLog.e(e.getMessage());
-                            }
-                        }
-                        if (jSONObject2 != null) {
-                            funAdSidConfigData.parserJson(jSONObject2);
-                            if (funAdSidConfigData.getForce() == 1) {
-                                er6.e().f(str, funAdSidConfigData);
-                                SharedPreferences g = g();
-                                EditorHelper.putInt(g, str + "_fun_ad_current_sid_index_suffix", -1);
-                                j(str, funAdSidConfigData);
-                            } else {
-                                SharedPreferences g2 = g();
-                                if ((System.currentTimeMillis() / 1000) - g2.getLong(str + "_fun_ad_last_change_sid_time", 0L) > funAdSidConfigData.getSpace()) {
-                                    er6.e().f(str, funAdSidConfigData);
-                                    SharedPreferences g3 = g();
-                                    EditorHelper.putInt(g3, str + "_fun_ad_current_sid_index_suffix", -1);
-                                    j(str, funAdSidConfigData);
-                                }
-                            }
-                        }
-                    }
-                }
-                return;
+        if (interceptable == null || interceptable.invokeLL(65543, null, tbPageContext, frsViewData) == null) {
+            FrsPrivateShareDialogView frsPrivateShareDialogView = new FrsPrivateShareDialogView(tbPageContext.getPageActivity());
+            ur4 ur4Var = new ur4(tbPageContext.getPageActivity());
+            if (frsPrivateShareDialogView.d(frsViewData, tbPageContext, ur4Var)) {
+                ur4Var.setContentViewSize(2);
+                ur4Var.setContentView(frsPrivateShareDialogView);
+                ur4Var.create(tbPageContext).show();
             }
-            b();
         }
     }
 }

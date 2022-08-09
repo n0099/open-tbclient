@@ -7,11 +7,11 @@ import com.ss.android.download.api.model.b;
 import com.ss.android.downloadlib.addownload.j;
 import com.ss.android.socialbase.appdownloader.c.k;
 import com.ss.android.socialbase.appdownloader.c.l;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class g extends com.ss.android.socialbase.appdownloader.c.a {
     public static String a = "g";
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a implements k {
         public Dialog a;
 
@@ -92,22 +92,22 @@ public class g extends com.ss.android.socialbase.appdownloader.c.a {
 
             @Override // com.ss.android.socialbase.appdownloader.c.l
             public k a() {
-                this.c.a(new b.InterfaceC0642b() { // from class: com.ss.android.downloadlib.c.g.1.1
-                    @Override // com.ss.android.download.api.model.b.InterfaceC0642b
+                this.c.a(new b.InterfaceC0647b() { // from class: com.ss.android.downloadlib.c.g.1.1
+                    @Override // com.ss.android.download.api.model.b.InterfaceC0647b
                     public void a(DialogInterface dialogInterface) {
                         if (AnonymousClass1.this.d != null) {
                             AnonymousClass1.this.d.onClick(dialogInterface, -1);
                         }
                     }
 
-                    @Override // com.ss.android.download.api.model.b.InterfaceC0642b
+                    @Override // com.ss.android.download.api.model.b.InterfaceC0647b
                     public void b(DialogInterface dialogInterface) {
                         if (AnonymousClass1.this.e != null) {
                             AnonymousClass1.this.e.onClick(dialogInterface, -2);
                         }
                     }
 
-                    @Override // com.ss.android.download.api.model.b.InterfaceC0642b
+                    @Override // com.ss.android.download.api.model.b.InterfaceC0647b
                     public void c(DialogInterface dialogInterface) {
                         if (AnonymousClass1.this.f == null || dialogInterface == null) {
                             return;

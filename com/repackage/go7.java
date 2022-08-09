@@ -1,9 +1,11 @@
 package com.repackage;
 /* loaded from: classes6.dex */
-public interface go7<E> {
-    void M0();
+public interface go7 {
+    void b();
 
-    void onFail();
+    boolean hasMore();
 
-    void onSuccess(E e);
+    void refresh();
+
+    void reload();
 }

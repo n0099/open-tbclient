@@ -1,75 +1,156 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.List;
+import tbclient.ThreadInfo;
 /* loaded from: classes5.dex */
-public class a17 implements nn {
+public class a17 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
+    public static long b;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
-    public String c;
-    public String d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755909558, "Lcom/repackage/a17;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public static class a extends cf5<Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ThreadInfo a;
+
+        public a(ThreadInfo threadInfo) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {threadInfo};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755909558, "Lcom/repackage/a17;");
-                return;
-            }
+            this.a = threadInfo;
         }
-        e = BdUniqueId.gen();
+
+        @Override // com.repackage.cf5
+        public Object doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                String[] split = ru4.k().q("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "").split(",");
+                if (split.length != 2) {
+                    return null;
+                }
+                String str = split[0];
+                long g = og.g(split[1], 0L);
+                if (g != 0 && !StringUtils.isNull(str)) {
+                    ru4.k().y("read_progress_" + TbadkCoreApplication.getCurrentAccount(), this.a.tid + "," + g);
+                }
+                return null;
+            }
+            return invokeV.objValue;
+        }
     }
 
     public a17() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static a17 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static void d(long j, int i, List<ThreadInfo> list, List<on> list2) {
+        ThreadInfo threadInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            a17 a17Var = new a17();
-            a17Var.a = jSONObject.optString("title");
-            a17Var.b = jSONObject.optString("desc");
-            a17Var.c = jSONObject.optString("tag");
-            a17Var.d = jSONObject.optString("img");
-            return a17Var;
+        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), list, list2}) == null) || j != b || ListUtils.isEmpty(list) || ListUtils.isEmpty(list2)) {
+            return;
         }
-        return (a17) invokeL.objValue;
+        if (i == 0) {
+            for (int i2 = 0; i2 < list2.size(); i2++) {
+                if (list2.get(i2) instanceof z07) {
+                    list2.remove(i2);
+                    return;
+                }
+            }
+            return;
+        }
+        int i3 = i + 1;
+        if (ListUtils.getCount(list) <= i3 || (threadInfo = list.get(i3)) == null || threadInfo.tid.longValue() == 0) {
+            return;
+        }
+        b = threadInfo.tid.longValue();
+        gf5.b(new a(threadInfo), null);
     }
 
-    @Override // com.repackage.nn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void a(List<on> list) {
+        f06 f06Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? e : (BdUniqueId) invokeV.objValue;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && TbadkCoreApplication.isLogin()) {
+            if (this.a == null) {
+                ru4 k = ru4.k();
+                this.a = k.q("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "");
+            }
+            if (StringUtils.isNull(this.a)) {
+                return;
+            }
+            String[] split = this.a.split(",");
+            if (split.length != 2) {
+                return;
+            }
+            String str = split[0];
+            long g = og.g(split[1], 0L);
+            if (g == 0 || StringUtils.isNull(str) || ListUtils.isEmpty(list)) {
+                return;
+            }
+            for (int i = 0; i < list.size(); i++) {
+                if ((list.get(i) instanceof f06) && (f06Var = (f06) list.get(i)) != null && !StringUtils.isNull(f06Var.g) && f06Var.g.equals(str)) {
+                    z07 z07Var = new z07();
+                    z07Var.a = g;
+                    z07Var.b = false;
+                    list.add(i, z07Var);
+                    return;
+                }
+            }
+        }
+    }
+
+    public void b(ThreadInfo threadInfo) {
+        Long l;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadInfo) == null) || !o07.a || threadInfo == null || threadInfo == null || (l = threadInfo.tid) == null || l.longValue() == 0) {
+            return;
+        }
+        this.a = null;
+        b = threadInfo.tid.longValue();
+        ru4.k().y("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + "," + System.currentTimeMillis());
+    }
+
+    public void c(boolean z, List<ThreadInfo> list) {
+        ThreadInfo threadInfo;
+        Long l;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, list) == null) || !TbadkCoreApplication.isLogin() || ListUtils.isEmpty(list) || !z || (threadInfo = (ThreadInfo) ListUtils.getItem(list, 0)) == null || (l = threadInfo.tid) == null || l.longValue() == 0) {
+            return;
+        }
+        this.a = null;
+        b = threadInfo.tid.longValue();
+        ru4.k().y("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + "," + System.currentTimeMillis());
     }
 }

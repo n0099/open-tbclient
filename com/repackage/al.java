@@ -1,18 +1,21 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Matrix;
+import android.graphics.Path;
 import android.graphics.Rect;
-import android.widget.ImageView;
+import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class al extends xk {
+public class al extends zk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Path v;
+    public boolean w;
     public Rect x;
 
     public al() {
@@ -25,36 +28,47 @@ public class al extends xk {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.x = new Rect();
     }
 
-    @Override // com.repackage.qk, com.repackage.ok
-    public void h(Canvas canvas, rk rkVar, ImageView imageView) {
+    @Override // com.repackage.pk
+    public void e(Canvas canvas, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, canvas, rkVar, imageView) == null) {
-            Matrix matrix = this.f;
-            if (matrix != null) {
-                canvas.concat(matrix);
-            }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, canvas, drawable) == null) {
             canvas.save();
-            if (this.w) {
-                try {
-                    canvas.clipPath(this.t);
-                } catch (Error unused) {
-                }
+            t(drawable.getBounds());
+            try {
+                canvas.clipPath(this.v);
+            } catch (Exception unused) {
             }
-            if (rkVar.e()) {
-                Bitmap bitmap = rkVar.a.getBitmap();
-                this.x.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-                canvas.drawBitmap(bitmap, this.x, this.g, this.c);
-            } else {
-                this.x.set(0, 0, rkVar.b(), rkVar.a());
-                rkVar.b.g(canvas, this.x, this.g, this.c);
-            }
+            drawable.draw(canvas);
             canvas.restore();
+        }
+    }
+
+    public final void t(Rect rect) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rect) == null) || rect == null) {
+            return;
+        }
+        boolean z = true;
+        boolean z2 = this.v == null || this.w != this.l.b;
+        Rect rect2 = this.x;
+        if (rect2 != null && rect2.contains(rect)) {
+            z = z2;
+        }
+        this.w = this.l.b;
+        if (z) {
+            this.x = rect;
+            Path path = new Path();
+            this.v = path;
+            if (this.w) {
+                this.v.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
+            } else {
+                path.addRoundRect(new RectF(rect), this.l.a, Path.Direction.CW);
+            }
+            this.v.close();
         }
     }
 }

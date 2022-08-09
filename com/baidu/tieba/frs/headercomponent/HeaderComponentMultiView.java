@@ -17,14 +17,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pi;
-import com.repackage.xk6;
-import com.repackage.yk6;
+import com.repackage.qi;
+import com.repackage.qm6;
+import com.repackage.rm6;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPage.LiveFuseForumData;
 /* loaded from: classes3.dex */
-public class HeaderComponentMultiView extends FrameLayout implements yk6 {
+public class HeaderComponentMultiView extends FrameLayout implements rm6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -54,7 +54,7 @@ public class HeaderComponentMultiView extends FrameLayout implements yk6 {
         c();
     }
 
-    @Override // com.repackage.yk6
+    @Override // com.repackage.rm6
     public void a() {
         HeaderComponentMultiAdapter headerComponentMultiAdapter;
         Interceptable interceptable = $ic;
@@ -64,13 +64,13 @@ public class HeaderComponentMultiView extends FrameLayout implements yk6 {
         headerComponentMultiAdapter.e();
     }
 
-    @Override // com.repackage.yk6
-    public void b(List<LiveFuseForumData> list, xk6 xk6Var) {
+    @Override // com.repackage.rm6
+    public void b(List<LiveFuseForumData> list, qm6 qm6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, xk6Var) == null) || ListUtils.isEmpty(list)) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, qm6Var) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.d.g(xk6Var);
+        this.d.g(qm6Var);
         this.c.clear();
         this.c.addAll(list);
         this.d.notifyDataSetChanged();
@@ -79,11 +79,11 @@ public class HeaderComponentMultiView extends FrameLayout implements yk6 {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int k = pi.k(getContext());
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0310, (ViewGroup) null);
+            int k = qi.k(getContext());
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0312, (ViewGroup) null);
             this.a = inflate;
             addView(inflate);
-            RecyclerView recyclerView = (RecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f09067a);
+            RecyclerView recyclerView = (RecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f090697);
             this.b = recyclerView;
             recyclerView.getLayoutParams().width = k;
             this.b.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));

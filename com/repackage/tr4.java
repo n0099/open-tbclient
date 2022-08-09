@@ -1,34 +1,57 @@
 package com.repackage;
 
-import android.app.Application;
-import android.content.res.ColorStateList;
-import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.graphics.drawable.StateListDrawable;
-import android.text.TextUtils;
-import android.util.SparseArray;
-import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.Direction;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.cache.BdCacheService;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
-public class tr4 {
+public class tr4 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, HashMap<String, Integer>> a;
-    public static final SparseArray<String> b;
+    public static tr4 a;
+    public static ConcurrentHashMap<String, Integer> b;
+    public static ArrayList<String> c;
+    public static ConcurrentHashMap<String, ue<byte[]>> d;
+    public static ConcurrentHashMap<String, ue<String>> e;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001012));
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -43,465 +66,292 @@ public class tr4 {
                 return;
             }
         }
-        a = new HashMap<>();
-        b = new SparseArray<>();
+        ConcurrentHashMap<String, Integer> concurrentHashMap = new ConcurrentHashMap<>();
+        b = concurrentHashMap;
+        concurrentHashMap.put("tb.pb_mark", 50);
+        b.put("tb.pb_history", 300);
+        b.put("tb.pb_normal", 1);
+        b.put("tb.pb_editor", 50);
+        b.put("tb.live_hotlist", 20);
+        b.put("tb.live_hotlist", 20);
+        b.put("tb.my_pages", 5);
+        b.put("tb.my_forums", 3);
+        b.put("tb.my_bookmarks", 3);
+        b.put("tb.my_posts", 3);
+        b.put("tb.eva_posts", 50);
+        b.put("tb.im_frsgroup", 50);
+        b.put("tb.im_hotgroup", 30);
+        b.put("tb.im_groupinfo", 50);
+        b.put("tb.im_groupactivity", 50);
+        b.put("tb.im_entergroup", 10);
+        b.put("tb.im_enterforum_groupinfo", 10);
+        b.put("tb.im_group_setting", 3);
+        b.put("tb.im_personal_chat_setting", 3);
+        b.put("tb.im_official_chat_setting", 3);
+        b.put("tb.im_group_search_history", 50);
+        b.put("tb.im_official_history", 50);
+        b.put("tb.im_recommend_detail", 10);
+        b.put("tb.square", 1);
+        b.put("tb.first_dir", 1);
+        b.put("tb.forum_rank", 20);
+        b.put("tb.pic_gif", 50);
+        b.put("tb.official_bar_menu", 1000);
+        b.put("tb.friend_feed", 20);
+        b.put("net_err_record", 30);
+        b.put("tb_face_package", 30);
+        b.put("tb.recommend_friend", 10);
+        b.put("tb.searchperson_history", 5);
+        b.put("tb.game_center_home", 20);
+        b.put("tb.game_center_list", 20);
+        b.put("tb.person_wallet_new", 10);
+        b.put("tb.frs_hottopic", 100);
+        ArrayList<String> arrayList = new ArrayList<>();
+        c = arrayList;
+        arrayList.add("tb.ala.gift_list");
+        c.add("tb.square");
+        c.add("tb.first_dir");
+        c.add("tb.forum_rank");
+        c.add("tb.im_group_setting");
+        c.add("tb.im_personal_chat_setting");
+        c.add("tb.im_official_chat_setting");
+        c.add("net_err_record");
+        c.add("tb_user_profile");
+        c.add("tb_forum_recommend");
+        c.add("tb.ad_killer_tags");
+        c.add("tb.manga.settings");
+        c.add("tb.share_add_experienced");
+        c.add("tb.write_privacy_state_space");
+        c.add("tb.concern_page_all");
+        e = new ConcurrentHashMap<>();
+        d = new ConcurrentHashMap<>();
+        rb.b().a("cmd2001012", new a());
     }
 
-    public static Drawable A(View view2, Drawable drawable, String[] strArr) {
-        InterceptResult invokeLLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tr4() {
+        super(2000998);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, view2, drawable, strArr)) == null) {
-            if (strArr != null && strArr.length == 3) {
-                String[] split = strArr[2].split(",");
-                if (split.length == 2) {
-                    ur4 ur4Var = (ur4) c(drawable).clone();
-                    ur4Var.L(j(strArr[0]));
-                    ur4Var.M(n(strArr[1]));
-                    ur4Var.I(n(split[0]));
-                    ur4Var.J(n(split[1]));
-                    return ur4Var.n(view2);
-                }
-                throw new IndexOutOfBoundsException("Please check the number of xy resource!");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            throw new IndexOutOfBoundsException("Please check the number of shadow resource!");
         }
-        return (Drawable) invokeLLL.objValue;
+        MessageManager.getInstance().registerListenerFromBackground(this);
     }
 
-    public static float[] B(int i) {
-        InterceptResult invokeI;
+    public static synchronized void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            String[] F = F(i);
-            float[] fArr = new float[4];
-            if (F != null && F.length == 3) {
-                String[] split = F[2].split(",");
-                if (split.length == 2) {
-                    fArr[0] = j(F[0]);
-                    fArr[1] = n(F[1]);
-                    fArr[2] = n(split[0]);
-                    fArr[3] = n(split[1]);
-                    if (fArr[1] == 0.0f) {
-                        fArr[1] = 0.01f;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            synchronized (tr4.class) {
+                if (str == null) {
+                    return;
+                }
+                if (str2 != null) {
+                    str = str + str2;
+                }
+                ue<byte[]> ueVar = d.get(str);
+                if (ueVar != null) {
+                    BdCacheService.k().j(ueVar);
+                    d.remove(str);
+                }
+            }
+        }
+    }
+
+    public static synchronized void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            synchronized (tr4.class) {
+                c(str, null);
+            }
+        }
+    }
+
+    public static synchronized void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
+            synchronized (tr4.class) {
+                if (str == null) {
+                    return;
+                }
+                if (str2 != null) {
+                    str = str + str2;
+                }
+                ue<String> ueVar = e.get(str);
+                if (ueVar != null) {
+                    try {
+                        BdCacheService.k().j(ueVar);
+                        e.remove(str);
+                    } catch (Exception e2) {
+                        BdLog.detailException(e2);
                     }
-                    return fArr;
                 }
-                throw new IndexOutOfBoundsException("Please check the number of xy resource!");
             }
-            throw new IndexOutOfBoundsException("Please check the number of shadow resource!");
         }
-        return (float[]) invokeI.objValue;
     }
 
-    public static Drawable C(Drawable drawable, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, drawable, i, i2)) == null) {
-            ur4 c = c(drawable);
-            c.z();
-            GradientDrawable l = c.l(i2);
-            l.setColor(h(i));
-            l.setStroke((int) c.t(), sg8.a(c.s(), c.r()));
-            GradientDrawable l2 = c.l(i2);
-            l2.setColor(sg8.a(h(i), SkinManager.RESOURCE_ALPHA_PRESS));
-            l2.setStroke((int) c.t(), sg8.a(c.s(), SkinManager.RESOURCE_ALPHA_PRESS * c.r()));
-            GradientDrawable l3 = c.l(i2);
-            l3.setColor(sg8.a(h(i), SkinManager.RESOURCE_ALPHA_DISABLE));
-            l3.setStroke((int) c.t(), sg8.a(c.s(), SkinManager.RESOURCE_ALPHA_DISABLE * c.r()));
-            StateListDrawable stateListDrawable = new StateListDrawable();
-            stateListDrawable.addState(new int[]{16842910, 16842919}, l2);
-            stateListDrawable.addState(new int[]{16842910, 16842908}, l2);
-            stateListDrawable.addState(new int[]{-16842910}, l3);
-            stateListDrawable.addState(new int[0], l);
-            return stateListDrawable;
-        }
-        return (Drawable) invokeLII.objValue;
-    }
-
-    public static Drawable D(Drawable drawable, int i, int i2, int i3) {
-        InterceptResult invokeLIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(InputDeviceCompat.SOURCE_TRACKBALL, null, drawable, i, i2, i3)) == null) {
-            ur4 c = c(drawable);
-            c.z();
-            GradientDrawable l = c.l(i3);
-            l.setColor(h(i));
-            l.setStroke((int) c.t(), sg8.a(c.s(), c.r()));
-            GradientDrawable l2 = c.l(i3);
-            l2.setColor(h(i2));
-            l2.setStroke((int) c.t(), sg8.a(c.s(), SkinManager.RESOURCE_ALPHA_PRESS * c.r()));
-            StateListDrawable stateListDrawable = new StateListDrawable();
-            stateListDrawable.addState(new int[]{16842910, 16842919}, l2);
-            stateListDrawable.addState(new int[]{16842910, 16842908}, l2);
-            stateListDrawable.addState(new int[0], l);
-            return stateListDrawable;
-        }
-        return (Drawable) invokeLIII.objValue;
-    }
-
-    public static String E(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
-            int idByABTest = EMABTest.getIdByABTest(i, EMABTest.TYPE_STRING);
-            return idByABTest == 0 ? "" : TbadkCoreApplication.getInst().getResources().getString(idByABTest);
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public static String[] F(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) ? TbadkCoreApplication.getInst().getResources().getStringArray(EMABTest.getIdByABTest(i, "array")) : (String[]) invokeI.objValue;
-    }
-
-    public static ColorStateList G(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) ? SkinManager.createColorStateList(i) : (ColorStateList) invokeI.objValue;
-    }
-
-    public static Typeface H(String str) {
+    public static synchronized ue<byte[]> d(String str) {
         InterceptResult invokeL;
+        ue<byte[]> e2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            synchronized (tr4.class) {
+                e2 = e(str, null);
+            }
+            return e2;
+        }
+        return (ue) invokeL.objValue;
+    }
+
+    public static synchronized ue<byte[]> e(String str, String str2) {
+        InterceptResult invokeLL;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
+            synchronized (tr4.class) {
+                if (str == null) {
+                    return null;
+                }
+                if (str2 != null) {
+                    str3 = str + str2;
+                } else {
+                    str3 = str;
+                }
+                ue<byte[]> ueVar = d.get(str3);
+                if (ueVar == null || !(ueVar instanceof ue)) {
+                    BdCacheService k = BdCacheService.k();
+                    Integer num = b.get(str);
+                    num = (num == null || num.intValue() == 0) ? 20 : 20;
+                    BdCacheService.CacheEvictPolicy cacheEvictPolicy = BdCacheService.CacheEvictPolicy.LRU_ON_INSERT;
+                    if (c.contains(str)) {
+                        cacheEvictPolicy = BdCacheService.CacheEvictPolicy.NO_EVICT;
+                    }
+                    try {
+                        ueVar = k.a(str3, BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, cacheEvictPolicy, num.intValue());
+                    } catch (Exception e2) {
+                        BdLog.detailException(e2);
+                    }
+                    d.put(str3, ueVar);
+                    return ueVar;
+                }
+                return ueVar;
+            }
+        }
+        return (ue) invokeLL.objValue;
+    }
+
+    @Deprecated
+    public static synchronized tr4 f() {
+        InterceptResult invokeV;
+        tr4 tr4Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            synchronized (tr4.class) {
+                if (a == null) {
+                    a = new tr4();
+                }
+                tr4Var = a;
+            }
+            return tr4Var;
+        }
+        return (tr4) invokeV.objValue;
+    }
+
+    public static synchronized ue<String> g(String str) {
+        InterceptResult invokeL;
+        ue<String> h;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            if ("bold".equals(str)) {
-                return Typeface.DEFAULT_BOLD;
+            synchronized (tr4.class) {
+                h = h(str, null);
             }
-            return Typeface.DEFAULT;
+            return h;
         }
-        return (Typeface) invokeL.objValue;
+        return (ue) invokeL.objValue;
     }
 
-    public static float[] I(float f) {
-        InterceptResult invokeF;
+    public static synchronized ue<String> h(String str, String str2) {
+        InterceptResult invokeLL;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65545, null, f)) == null) {
-            float[] fArr = new float[8];
-            Arrays.fill(fArr, f);
-            return fArr;
-        }
-        return (float[]) invokeF.objValue;
-    }
-
-    public static float a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) ? ng.d(E(i), 0.0f) : invokeI.floatValue;
-    }
-
-    public static Drawable b(Drawable drawable, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, drawable, i)) == null) {
-            ur4 ur4Var = (ur4) c(drawable).clone();
-            ur4Var.A(a(i));
-            return ur4Var;
-        }
-        return (Drawable) invokeLI.objValue;
-    }
-
-    public static ur4 c(Drawable drawable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, drawable)) == null) {
-            if (drawable instanceof ur4) {
-                return (ur4) drawable;
-            }
-            return ur4.y();
-        }
-        return (ur4) invokeL.objValue;
-    }
-
-    public static ur4 d(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, view2)) == null) {
-            Drawable background = view2.getBackground();
-            if (background instanceof ur4) {
-                return (ur4) background;
-            }
-            return ur4.y();
-        }
-        return (ur4) invokeL.objValue;
-    }
-
-    public static Drawable e(Drawable drawable, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, drawable, i)) == null) {
-            ur4 ur4Var = (ur4) c(drawable).clone();
-            ur4Var.D(a(i));
-            return ur4Var;
-        }
-        return (Drawable) invokeLI.objValue;
-    }
-
-    public static Drawable f(Drawable drawable, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65551, null, drawable, i)) == null) {
-            ur4 ur4Var = (ur4) c(drawable).clone();
-            ur4Var.E(h(i));
-            return ur4Var;
-        }
-        return (Drawable) invokeLI.objValue;
-    }
-
-    public static Drawable g(Drawable drawable, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65552, null, drawable, i)) == null) {
-            ur4 ur4Var = (ur4) c(drawable).clone();
-            ur4Var.F(m(i));
-            return ur4Var;
-        }
-        return (Drawable) invokeLI.objValue;
-    }
-
-    public static int h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65553, null, i)) == null) ? SkinManager.getColor(i) : invokeI.intValue;
-    }
-
-    public static Drawable i(Drawable drawable, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65554, null, drawable, i)) == null) {
-            ur4 ur4Var = (ur4) c(drawable).clone();
-            ur4Var.B(h(i));
-            return ur4Var;
-        }
-        return (Drawable) invokeLI.objValue;
-    }
-
-    public static int j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65555, null, str)) == null) ? h(s(str, "color")) : invokeL.intValue;
-    }
-
-    public static Drawable k(Drawable drawable, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65556, null, drawable, i)) == null) {
-            ur4 ur4Var = (ur4) c(drawable).clone();
-            ur4Var.P(z(E(i).split(",")));
-            return ur4Var;
-        }
-        return (Drawable) invokeLI.objValue;
-    }
-
-    public static Drawable l(Drawable drawable, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65557, null, drawable, i)) == null) {
-            ur4 ur4Var = (ur4) c(drawable).clone();
-            ur4Var.G(i);
-            return ur4Var;
-        }
-        return (Drawable) invokeLI.objValue;
-    }
-
-    public static int m(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65558, null, i)) == null) ? UtilHelper.getDimenPixelSize(i) : invokeI.intValue;
-    }
-
-    public static int n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, str)) == null) {
-            return m(s("tbds" + str, EMABTest.TYPE_DIMEN));
-        }
-        return invokeL.intValue;
-    }
-
-    public static String o(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65560, null, i)) == null) {
-            try {
-                String str = b.get(i);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, str2)) == null) {
+            synchronized (tr4.class) {
                 if (str == null) {
-                    str = i == 0 ? "" : TbadkCoreApplication.getInst().getResources().getResourceEntryName(i);
-                    b.put(i, str);
+                    return null;
                 }
-                return str;
-            } catch (ArrayIndexOutOfBoundsException e) {
-                w89.g(e);
-                return "";
+                if (str2 != null) {
+                    str3 = str + str2;
+                } else {
+                    str3 = str;
+                }
+                ue<String> ueVar = e.get(str3);
+                BdCacheService k = BdCacheService.k();
+                Integer num = b.get(str);
+                num = (num == null || num.intValue() == 0) ? 20 : 20;
+                BdCacheService.CacheEvictPolicy cacheEvictPolicy = BdCacheService.CacheEvictPolicy.LRU_ON_INSERT;
+                if (c.contains(str)) {
+                    cacheEvictPolicy = BdCacheService.CacheEvictPolicy.NO_EVICT;
+                }
+                try {
+                    ueVar = k.c(str3, BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, cacheEvictPolicy, num.intValue());
+                } catch (Exception e2) {
+                    BdLog.detailException(e2);
+                }
+                return ueVar;
             }
         }
-        return (String) invokeI.objValue;
+        return (ue) invokeLL.objValue;
     }
 
-    public static Drawable p(Drawable drawable, Direction direction, int[] iArr) {
+    public static synchronized ue<String> i(String str, String str2, String str3) {
         InterceptResult invokeLLL;
+        String str4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65561, null, drawable, direction, iArr)) == null) {
-            ur4 ur4Var = (ur4) c(drawable).clone();
-            q(iArr);
-            ur4Var.C(iArr);
-            ur4Var.H(direction);
-            return ur4Var;
-        }
-        return (Drawable) invokeLLL.objValue;
-    }
-
-    public static int[] q(int[] iArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, iArr)) == null) {
-            int length = iArr.length;
-            for (int i = 0; i < length; i++) {
-                iArr[i] = h(iArr[i]);
-            }
-            return iArr;
-        }
-        return (int[]) invokeL.objValue;
-    }
-
-    public static int[] r(String[] strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, strArr)) == null) {
-            int length = strArr.length;
-            int[] iArr = new int[length];
-            for (int i = 0; i < length; i++) {
-                iArr[i] = j(strArr[i]);
-            }
-            return iArr;
-        }
-        return (int[]) invokeL.objValue;
-    }
-
-    public static int s(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65564, null, str, str2)) == null) {
-            HashMap<String, Integer> hashMap = a.get(str2);
-            if (hashMap == null) {
-                hashMap = new HashMap<>();
-                a.put(str2, hashMap);
-            }
-            Integer num = hashMap.get(str);
-            if (num == null) {
-                num = Integer.valueOf(TbadkCoreApplication.getInst().getResources().getIdentifier(str, str2, TbadkCoreApplication.getInst().getPackageName()));
-                hashMap.put(str, num);
-            }
-            return num.intValue();
-        }
-        return invokeLL.intValue;
-    }
-
-    public static Drawable t(Drawable drawable, String[] strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65565, null, drawable, strArr)) == null) {
-            if (strArr != null && strArr.length == 3) {
-                String[] split = strArr[0].split(",");
-                String[] split2 = strArr[1].split(",");
-                String str = strArr[2];
-                ur4 ur4Var = (ur4) c(drawable).clone();
-                if (!TextUtils.isEmpty(str)) {
-                    ur4Var.H(Direction.valueOf(str.toUpperCase()));
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, str, str2, str3)) == null) {
+            synchronized (tr4.class) {
+                if (str == null || str3 == null) {
+                    return null;
                 }
-                ur4Var.C(r(split));
-                ur4Var.K(u(split2));
-                return ur4Var;
+                if (str2 != null) {
+                    str4 = str + str2;
+                } else {
+                    str4 = str;
+                }
+                ue<String> ueVar = e.get(str4);
+                BdCacheService i = BdCacheService.i(str3);
+                Integer num = b.get(str);
+                num = (num == null || num.intValue() == 0) ? 20 : 20;
+                BdCacheService.CacheEvictPolicy cacheEvictPolicy = BdCacheService.CacheEvictPolicy.LRU_ON_INSERT;
+                if (c.contains(str)) {
+                    cacheEvictPolicy = BdCacheService.CacheEvictPolicy.NO_EVICT;
+                }
+                try {
+                    ueVar = i.c(str4, BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, cacheEvictPolicy, num.intValue());
+                } catch (Exception e2) {
+                    BdLog.detailException(e2);
+                }
+                return ueVar;
             }
-            throw new IndexOutOfBoundsException("Please check the number of mask resource!");
         }
-        return (Drawable) invokeLL.objValue;
+        return (ue) invokeLLL.objValue;
     }
 
-    public static float[] u(String[] strArr) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, strArr)) == null) {
-            int min = Math.min(strArr.length, 4);
-            float[] fArr = new float[min];
-            for (int i = 0; i < min; i++) {
-                fArr[i] = ng.d(strArr[i], 0.0f);
+        if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+            synchronized (tr4.class) {
+                d.clear();
+                e.clear();
             }
-            return fArr;
         }
-        return (float[]) invokeL.objValue;
-    }
-
-    public static Drawable v(Drawable drawable, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65567, null, drawable, i)) == null) {
-            ur4 ur4Var = (ur4) c(drawable).clone();
-            ur4Var.E(i);
-            return ur4Var;
-        }
-        return (Drawable) invokeLI.objValue;
-    }
-
-    public static Drawable w(Drawable drawable, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65568, null, drawable, i)) == null) {
-            ur4 ur4Var = (ur4) c(drawable).clone();
-            ur4Var.B(i);
-            return ur4Var;
-        }
-        return (Drawable) invokeLI.objValue;
-    }
-
-    public static float x(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, str)) == null) {
-            if (str.endsWith("H")) {
-                return Float.parseFloat(str.substring(0, str.length() - 1));
-            }
-            return n(str);
-        }
-        return invokeL.floatValue;
-    }
-
-    public static float[] y(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65570, null, i)) == null) {
-            Application app = BdBaseApplication.getInst().getApp();
-            if (app == null) {
-                return I(0.0f);
-            }
-            String[] split = app.getString(i).split(",");
-            int min = Math.min(split.length, 4);
-            float[] fArr = new float[8];
-            for (int i2 = 0; i2 < min; i2++) {
-                float x = x(split[i2]);
-                int i3 = i2 * 2;
-                fArr[i3] = x;
-                fArr[i3 + 1] = x;
-            }
-            return fArr;
-        }
-        return (float[]) invokeI.objValue;
-    }
-
-    public static float[] z(String[] strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, strArr)) == null) {
-            int min = Math.min(strArr.length, 4);
-            float[] fArr = new float[8];
-            for (int i = 0; i < min; i++) {
-                float x = x(strArr[i]);
-                int i2 = i * 2;
-                fArr[i2] = x;
-                fArr[i2 + 1] = x;
-            }
-            return fArr;
-        }
-        return (float[]) invokeL.objValue;
     }
 }

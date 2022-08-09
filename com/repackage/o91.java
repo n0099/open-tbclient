@@ -1,20 +1,6 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.widget.ChannelListView;
-import com.baidu.poly.widget.PopupWindow;
-import com.baidu.poly.widget.toast.ToastLoadingView;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.R;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,238 +8,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+import java.io.DataOutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.Map;
+/* loaded from: classes7.dex */
 public class o91 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile o91 e;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "https://etrade.baidu.com/sgw/common/pingd/trace";
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public ToastLoadingView b;
-    public PopupWindow c;
-    public PopupWindow d;
-
-    /* loaded from: classes6.dex */
-    public class a extends q71<JSONObject> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ChannelListView a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ Context c;
-        public final /* synthetic */ Bundle d;
-        public final /* synthetic */ o91 e;
-
-        public a(o91 o91Var, ChannelListView channelListView, boolean z, Context context, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o91Var, channelListView, Boolean.valueOf(z), context, bundle};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = o91Var;
-            this.a = channelListView;
-            this.b = z;
-            this.c = context;
-            this.d = bundle;
-        }
-
-        @Override // com.repackage.q71
-        public void b(Throwable th, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, th, str) == null) {
-                this.e.f("2", str);
-                this.a.S(this.c.getString(R.string.obfuscated_res_0x7f0f15ae), null);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.q71
-        /* renamed from: d */
-        public void c(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-                int optInt = jSONObject.optInt("payStatus", 3);
-                this.e.f("1", String.valueOf(optInt));
-                if (optInt == 2) {
-                    this.a.b0(0, f91.a(0, jSONObject.optString("payOrderNo"), jSONObject.optString("msg")), "0");
-                } else if (this.b) {
-                    this.e.j(this.c, this.d, this.a);
-                } else {
-                    this.e.k(this.c, this.a);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ChannelListView a;
-        public final /* synthetic */ o91 b;
-
-        public b(o91 o91Var, ChannelListView channelListView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o91Var, channelListView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = o91Var;
-            this.a = channelListView;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b.c.n();
-                w81 w81Var = new w81(TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY);
-                w81Var.b("1");
-                z81.e(w81Var);
-                this.a.b0(3, "pay failed , click choose window", "0");
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ Bundle b;
-        public final /* synthetic */ ChannelListView c;
-        public final /* synthetic */ o91 d;
-
-        public c(o91 o91Var, Context context, Bundle bundle, ChannelListView channelListView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o91Var, context, bundle, channelListView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = o91Var;
-            this.a = context;
-            this.b = bundle;
-            this.c = channelListView;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.d.c.n();
-                w81 w81Var = new w81(TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY);
-                w81Var.b("2");
-                z81.e(w81Var);
-                this.d.i(this.a, this.b, this.c, false);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o91 a;
-
-        public d(o91 o91Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o91Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = o91Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.d != null && this.a.d.r()) {
-                this.a.d.n();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class e implements PopupWindow.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ChannelListView a;
-
-        public e(o91 o91Var, ChannelListView channelListView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o91Var, channelListView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = channelListView;
-        }
-
-        @Override // com.baidu.poly.widget.PopupWindow.b
-        public void onDismiss() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b0(3, "pay failed , click error window", "0");
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755484982, "Lcom/repackage/o91;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755484982, "Lcom/repackage/o91;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755484982, "Lcom/repackage/o91;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755484982, "Lcom/repackage/o91;");
+        if (o81.a() != 1) {
+            a = "http://sandbox.y.nuomi.com/c/uniongw/o/common/pingd/trace";
         }
     }
 
@@ -271,107 +51,60 @@ public class o91 {
         }
     }
 
-    public static o91 h() {
-        InterceptResult invokeV;
+    public void a(j81 j81Var, i81 i81Var, h81 h81Var) {
+        DataOutputStream dataOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (e == null) {
-                synchronized (o91.class) {
-                    if (e == null) {
-                        e = new o91();
-                    }
-                }
-            }
-            return e;
-        }
-        return (o91) invokeV.objValue;
-    }
-
-    public final void f(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            fa1.b(this.b);
-            try {
-                if (this.a == 0) {
-                    return;
-                }
-                JSONObject jSONObject = new JSONObject();
-                if (!TextUtils.isEmpty(str)) {
-                    jSONObject.put("rt", str);
-                }
-                if (!TextUtils.isEmpty(str2)) {
-                    jSONObject.put("msg", str2);
-                }
-                Long valueOf = Long.valueOf(System.currentTimeMillis() - this.a);
-                if (valueOf.longValue() >= 0) {
-                    jSONObject.put("du", String.valueOf(valueOf));
-                }
-                w81 w81Var = new w81(TbEnum.SystemMessage.EVENT_ID_GROUP_JOIN);
-                w81Var.c(jSONObject);
-                z81.e(w81Var);
-            } catch (JSONException e2) {
-                if (i91.d) {
-                    e2.printStackTrace();
-                }
-            } finally {
-                this.a = 0L;
-            }
-        }
-    }
-
-    public final View g(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
-            if (activity == null || activity.getWindow() == null) {
-                return null;
-            }
-            return activity.getWindow().getDecorView().findViewById(16908290);
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public void i(Context context, Bundle bundle, ChannelListView channelListView, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, bundle, channelListView, Boolean.valueOf(z)}) == null) || context == null || bundle == null || channelListView == null) {
+        if (interceptable != null && interceptable.invokeLLL(1048576, this, j81Var, i81Var, h81Var) != null) {
             return;
         }
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-        layoutParams.gravity = 17;
-        this.b = fa1.c((ViewGroup) g((Activity) context), layoutParams, null, -1L);
-        this.a = System.currentTimeMillis();
-        y71.j().m(bundle, new a(this, channelListView, z, context, bundle));
-    }
-
-    public final void j(Context context, Bundle bundle, ChannelListView channelListView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, context, bundle, channelListView) == null) {
-            View inflate = View.inflate(channelListView.getContext(), R.layout.obfuscated_res_0x7f0d0661, null);
-            PopupWindow popupWindow = new PopupWindow(inflate, -1, -1, true);
-            this.c = popupWindow;
-            popupWindow.w(false);
-            this.c.B(false);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0903ef)).setOnClickListener(new b(this, channelListView));
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0903ee)).setOnClickListener(new c(this, context, bundle, channelListView));
-            this.c.D(((Activity) context).getWindow().getDecorView(), 0, 0, 0);
-            z81.e(new w81("102"));
-        }
-    }
-
-    public final void k(Context context, ChannelListView channelListView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, context, channelListView) == null) {
-            View inflate = View.inflate(channelListView.getContext(), R.layout.obfuscated_res_0x7f0d0209, null);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09191d)).setText(R.string.obfuscated_res_0x7f0f0d45);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09191c)).setText(R.string.obfuscated_res_0x7f0f0d46);
-            PopupWindow popupWindow = new PopupWindow(inflate, -1, -1, true);
-            this.d = popupWindow;
-            popupWindow.w(false);
-            this.d.B(false);
-            this.d.v(new ColorDrawable(0));
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091917)).setOnClickListener(new d(this));
-            this.d.A(new e(this, channelListView));
-            this.d.D(((Activity) context).getWindow().getDecorView(), 0, 0, 0);
+        try {
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(a).openConnection();
+            for (Map.Entry<String, String> entry : j81Var.c().entrySet()) {
+                httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
+            }
+            httpURLConnection.setDoInput(true);
+            httpURLConnection.setDoOutput(true);
+            httpURLConnection.setRequestMethod("POST");
+            httpURLConnection.setUseCaches(false);
+            httpURLConnection.setConnectTimeout(5000);
+            httpURLConnection.setReadTimeout(5000);
+            StringBuilder sb = new StringBuilder();
+            for (Map.Entry<String, String> entry2 : i81Var.c().entrySet()) {
+                String encode = URLEncoder.encode(entry2.getValue(), IMAudioTransRequest.CHARSET);
+                sb.append(entry2.getKey());
+                sb.append("=");
+                sb.append(encode);
+                sb.append("&");
+            }
+            byte[] bytes = sb.toString().getBytes();
+            httpURLConnection.setRequestProperty("Content-Length", String.valueOf(bytes.length));
+            httpURLConnection.connect();
+            dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
+            try {
+                dataOutputStream.write(bytes);
+                dataOutputStream.flush();
+                int responseCode = httpURLConnection.getResponseCode();
+                if (h81Var != null) {
+                    if (responseCode >= 200 && responseCode <= 299) {
+                        h81Var.c(null);
+                    } else {
+                        h81Var.a(null, 119501, null);
+                    }
+                }
+                x91.a(dataOutputStream);
+            } catch (Throwable unused) {
+                if (h81Var != null) {
+                    try {
+                        h81Var.a(null, 119501, null);
+                    } catch (Throwable th) {
+                        x91.a(dataOutputStream);
+                        throw th;
+                    }
+                }
+                x91.a(dataOutputStream);
+            }
+        } catch (Throwable unused2) {
+            dataOutputStream = null;
         }
     }
 }

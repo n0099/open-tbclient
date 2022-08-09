@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.ss.android.downloadlib.addownload.j;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static boolean a(Uri uri) {
         if (uri == null) {

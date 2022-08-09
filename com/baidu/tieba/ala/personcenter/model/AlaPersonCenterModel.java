@@ -17,13 +17,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cx5;
 import com.repackage.d9;
-import com.repackage.kv5;
 /* loaded from: classes3.dex */
 public class AlaPersonCenterModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kv5 a;
+    public cx5 a;
     public String b;
     public final HttpMessageListener c;
 
@@ -102,10 +102,10 @@ public class AlaPersonCenterModel extends BdBaseModel {
         registerListener(this.c);
     }
 
-    public void B(kv5 kv5Var) {
+    public void A(cx5 cx5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, kv5Var) == null) {
-            this.a = kv5Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, cx5Var) == null) {
+            this.a = cx5Var;
         }
     }
 

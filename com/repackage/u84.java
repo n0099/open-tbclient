@@ -1,115 +1,103 @@
 package com.repackage;
 
-import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.db.PackageTable;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class u84 implements o84<h94> {
+public abstract class u84 {
     public static /* synthetic */ Interceptable $ic;
-    public static final id4 a;
+    public static volatile u84 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755307104, "Lcom/repackage/u84;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755307104, "Lcom/repackage/u84;");
-                return;
-            }
-        }
-        a = id4.c();
-    }
 
     public u84() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.repackage.o84
-    public void a(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            sQLiteDatabase.execSQL(b());
-        }
-    }
-
-    public final String b() {
+    public static u84 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "CREATE TABLE " + c() + "(_id INTEGER PRIMARY KEY AUTOINCREMENT,bundle_id TEXT NOT NULL,category INT NOT NULL,version_name TEXT NOT NULL,version_code INT DEFAULT 0,size LONG DEFAULT 0," + PackageTable.MD5 + " TEXT NOT NULL,sign TEXT NOT NULL," + TTDownloadField.TT_DOWNLOAD_URL + " TEXT NOT NULL," + PackageTable.FILE_PATH + " TEXT," + PackageTable.CURRENT_SIZE + " LONG DEFAULT 0,create_time LONG DEFAULT 0,update_time LONG DEFAULT 0,state INT DEFAULT 0,max_age LONG DEFAULT 0,token TEXT,domains TEXT," + GameGuideConfigInfo.KEY_APP_KEY + " TEXT,app_name TEXT, UNIQUE (bundle_id,version_name));";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "swan_plugin" : (String) invokeV.objValue;
-    }
-
-    public final void d(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + c() + " ADD COLUMN " + GameGuideConfigInfo.KEY_APP_KEY + " TEXT");
-                sQLiteDatabase.execSQL("ALTER TABLE " + c() + " ADD COLUMN app_name TEXT");
-            } catch (SQLException e) {
-                a.g("PMSDBHelperPlugin", "#inertAppKeyAndAppName error", e);
-            }
-        }
-    }
-
-    public final void e(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + c() + " ADD COLUMN token TEXT");
-                sQLiteDatabase.execSQL("ALTER TABLE " + c() + " ADD COLUMN domains TEXT");
-            } catch (SQLException e) {
-                a.g("PMSDBHelperPlugin", "#inertTokenAndDomains error", e);
-            }
-        }
-    }
-
-    @Override // com.repackage.o84
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048581, this, sQLiteDatabase, i, i2) == null) {
-            while (i < i2) {
-                if (i == 2) {
-                    sQLiteDatabase.execSQL(b());
-                } else if (i == 3) {
-                    e(sQLiteDatabase);
-                } else if (i == 5) {
-                    d(sQLiteDatabase);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (u84.class) {
+                    if (a == null) {
+                        a = new v84();
+                    }
                 }
-                i++;
             }
+            return a;
         }
+        return (u84) invokeV.objValue;
     }
+
+    public abstract boolean a(w94 w94Var, PMSAppInfo pMSAppInfo);
+
+    public abstract boolean b(w94 w94Var, List<x94> list, u94 u94Var, s94 s94Var, PMSAppInfo pMSAppInfo);
+
+    public abstract void c(String str);
+
+    public abstract void d(String str, String str2);
+
+    public abstract <T extends v94> boolean e(Class<T> cls, String str);
+
+    public abstract boolean f(y94 y94Var);
+
+    public abstract boolean g(List<y94> list);
+
+    public abstract boolean h(String str);
+
+    @WorkerThread
+    public abstract int j(@NonNull String str);
+
+    @NonNull
+    @WorkerThread
+    public abstract List<x94> k(@NonNull String str, int i);
+
+    public abstract boolean l(PMSAppInfo pMSAppInfo);
+
+    public abstract <T extends v94> boolean m(T t);
+
+    public abstract boolean n(String str, String str2, String str3);
+
+    public abstract <T extends v94> T o(Class<T> cls, String str);
+
+    public abstract Map<String, w94> p();
+
+    public abstract y94 q(String str, long j, long j2);
+
+    public abstract List<y94> r(String str, String[] strArr);
+
+    public abstract List<y94> s(String str, long j, long j2);
+
+    @Nullable
+    public abstract z94 t(String str);
+
+    public abstract PMSAppInfo u(String str);
+
+    public abstract Map<String, PMSAppInfo> v();
+
+    public abstract List<y94> w(String str);
+
+    public abstract boolean x(y94 y94Var);
+
+    public abstract boolean y(PMSAppInfo pMSAppInfo);
+
+    public abstract boolean z(String str, int i);
 }

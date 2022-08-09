@@ -23,10 +23,10 @@ public class s extends XMPushService.j {
     public final /* synthetic */ r a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f1002a;
+    public final /* synthetic */ String f1003a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ List f1003a;
+    public final /* synthetic */ List f1004a;
     public final /* synthetic */ String b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -48,8 +48,8 @@ public class s extends XMPushService.j {
             }
         }
         this.a = rVar;
-        this.f1002a = str;
-        this.f1003a = list;
+        this.f1003a = str;
+        this.f1004a = list;
         this.b = str2;
     }
 
@@ -66,8 +66,8 @@ public class s extends XMPushService.j {
         XMPushService xMPushService;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a = this.a.a(this.f1002a);
-            ArrayList<ii> a2 = bz.a(this.f1003a, this.f1002a, a, 32768);
+            a = this.a.a(this.f1003a);
+            ArrayList<ii> a2 = bz.a(this.f1004a, this.f1003a, a, 32768);
             if (a2 == null) {
                 com.xiaomi.channel.commonutils.logger.b.d("TinyData LongConnUploader.upload Get a null XmPushActionNotification list when TinyDataHelper.pack() in XMPushService.");
                 return;
@@ -76,8 +76,8 @@ public class s extends XMPushService.j {
             while (it.hasNext()) {
                 ii next = it.next();
                 next.a("uploadWay", "longXMPushService");
-                Cif a3 = ah.a(this.f1002a, a, next, hj.i);
-                if (!TextUtils.isEmpty(this.b) && !TextUtils.equals(this.f1002a, this.b)) {
+                Cif a3 = ah.a(this.f1003a, a, next, hj.i);
+                if (!TextUtils.isEmpty(this.b) && !TextUtils.equals(this.f1003a, this.b)) {
                     if (a3.m465a() == null) {
                         hw hwVar = new hw();
                         hwVar.a("-1");
@@ -87,7 +87,7 @@ public class s extends XMPushService.j {
                 }
                 byte[] a4 = it.a(a3);
                 xMPushService = this.a.a;
-                xMPushService.a(this.f1002a, a4, true);
+                xMPushService.a(this.f1003a, a4, true);
             }
         }
     }

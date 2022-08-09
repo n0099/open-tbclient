@@ -1,137 +1,80 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.lang.Comparable;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.properties.ReadWriteProperty;
+import kotlin.reflect.KProperty;
 /* loaded from: classes6.dex */
-public class j46 extends dc1<a65> {
+public final class j46<T extends Comparable<? super T>> implements ReadWriteProperty<Object, T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
-    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Function1<T, Unit> a;
+    public T b;
 
-    /* loaded from: classes6.dex */
-    public class a implements a65 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(j46 j46Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j46Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.a65
-        public boolean a(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? q46.k().m(str) : invokeL.booleanValue;
-        }
-
-        @Override // com.repackage.a65
-        @NonNull
-        public String b(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? q46.k().j(str) : (String) invokeL.objValue;
-        }
-
-        @Override // com.repackage.a65
-        @NonNull
-        public String c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? j46.c : (String) invokeV.objValue;
-        }
-
-        @Override // com.repackage.a65
-        @NonNull
-        public String d(@NonNull String str, boolean z) {
-            InterceptResult invokeLZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
-                q46 k = q46.k();
-                boolean q = k.q(str);
-                boolean r = k.r(str);
-                String g = k.g(str, z);
-                if (g == null) {
-                    g = "";
-                }
-                return (q || r) ? g : e(k.h(str), g);
-            }
-            return (String) invokeLZ.objValue;
-        }
-
-        @Override // com.repackage.a65
-        @NonNull
-        public String e(@NonNull String str, @NonNull String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-                return j46.b + File.separator + str + File.separator + str2;
-            }
-            return (String) invokeLL.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755638587, "Lcom/repackage/j46;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755638587, "Lcom/repackage/j46;");
-                return;
-            }
-        }
-        a = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
-        b = a + File.separator + ".emotions";
-        c = a + File.separator + ".collect";
-    }
-
-    public j46() {
+    public j46(T initial, Function1<? super T, Unit> onChange) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {initial, onChange};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(initial, "initial");
+        Intrinsics.checkNotNullParameter(onChange, "onChange");
+        this.a = onChange;
+        this.b = initial;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.dc1
-    /* renamed from: c */
-    public a65 createService() throws ServiceNotFoundException {
+    @Override // kotlin.properties.ReadWriteProperty, kotlin.properties.ReadOnlyProperty
+    /* renamed from: a */
+    public T getValue(Object thisRef, KProperty<?> property) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, thisRef, property)) == null) {
+            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
+            Intrinsics.checkNotNullParameter(property, "property");
+            return this.b;
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // kotlin.properties.ReadWriteProperty
+    /* renamed from: b */
+    public void setValue(Object thisRef, KProperty<?> property, T value) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thisRef, property, value) == null) {
+            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
+            Intrinsics.checkNotNullParameter(property, "property");
+            Intrinsics.checkNotNullParameter(value, "value");
+            T t = this.b;
+            this.b = value;
+            if (Intrinsics.areEqual(t, value)) {
+                return;
+            }
+            this.a.invoke(value);
+        }
+    }
+
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (a65) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b.toString() : (String) invokeV.objValue;
     }
 }

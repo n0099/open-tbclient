@@ -1,100 +1,117 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.wl2;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class xs3 extends ns3 {
+public class xs3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755161063, "Lcom/repackage/xs3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755161063, "Lcom/repackage/xs3;");
-                return;
-            }
-        }
-        c = sg1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public xs3() {
-        super("GetSwanGameDuration");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = "swan";
+        this.d = "";
+        this.e = "";
+        this.f = "";
+        this.g = "";
+        this.h = "";
+        if (z03.b0() == null) {
+            return;
+        }
+        wl2.a W = z03.b0().W();
+        this.a = s73.n(W.G());
+        this.c = W.H();
+        this.b = W.T();
+        this.f = W.s0().getString("aiapp_extra_need_download", "");
+        this.g = W.W();
+        this.h = W.e0();
+        this.i = W.V();
+        this.d = W.v1();
+        this.e = W.w1();
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("from", this.a);
+                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.c);
+                jSONObject.put("source", this.b);
+                jSONObject.put("needDown", this.f);
+                jSONObject.put("scheme", this.g);
+                jSONObject.put("extPage", this.h);
+                jSONObject.put("launchId", this.i);
+                jSONObject.put("appVersion", this.d);
+                jSONObject.put("thirdVersion", this.e);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public xs3(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-    }
-
-    public static boolean b(Long l, Long l2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, l, l2)) == null) ? l.longValue() / 86400000 == l2.longValue() / 86400000 : invokeLL.booleanValue;
-    }
-
-    @Override // com.repackage.ns3
-    public is1 a(@NonNull JSONObject jSONObject, @NonNull md2 md2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, md2Var)) == null) {
-            if (jSONObject == null) {
-                md2Var.onFail(202, "params may be error");
-                return null;
-            }
-            if (c) {
-                Log.e("GetSwanGameDuration", "params is " + jSONObject.toString());
-            }
-            String optString = jSONObject.optString("swanGameId");
-            if (TextUtils.isEmpty(optString)) {
-                md2Var.onFail(202, "params may be error");
-            } else {
-                q83 a = w83.a();
-                if (!b(Long.valueOf(a.getLong(optString + "_LastPause", 0L)), Long.valueOf(System.currentTimeMillis()))) {
-                    q83 a2 = w83.a();
-                    a2.putLong(optString + "_Duration", 0L);
-                }
-                q83 a3 = w83.a();
-                long j = a3.getLong(optString + "_Duration", 0L);
-                JSONObject jSONObject2 = new JSONObject();
-                JSONObject jSONObject3 = new JSONObject();
-                try {
-                    jSONObject3.put("swanGameDuration", j);
-                    jSONObject2.put("data", jSONObject3);
-                } catch (JSONException e) {
-                    if (c) {
-                        e.printStackTrace();
-                    }
-                }
-                md2Var.a(jSONObject2);
-            }
-            return null;
+        this.a = "swan";
+        this.d = "";
+        this.e = "";
+        this.f = "";
+        this.g = "";
+        this.h = "";
+        if (jSONObject == null || jSONObject.length() == 0) {
+            return;
         }
-        return (is1) invokeLL.objValue;
+        this.a = jSONObject.optString("from", "swan");
+        this.c = jSONObject.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+        this.b = jSONObject.optString("source");
+        this.f = jSONObject.optString("needDown");
+        this.g = jSONObject.optString("scheme");
+        this.h = jSONObject.optString("extPage");
+        this.i = jSONObject.optString("launchId", null);
+        this.d = jSONObject.optString("appVersion");
+        this.e = jSONObject.optString("thirdVersion");
     }
 }

@@ -2,7 +2,6 @@ package com.google.android.exoplayer2.extractor.mp4;
 
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -73,7 +72,7 @@ public final class MetadataUtil {
         SHORT_TYPE_NAME_1 = Util.getIntegerCodeForString("nam");
         SHORT_TYPE_NAME_2 = Util.getIntegerCodeForString("trk");
         SHORT_TYPE_COMMENT = Util.getIntegerCodeForString("cmt");
-        SHORT_TYPE_YEAR = Util.getIntegerCodeForString(Config.TRACE_VISIT_RECENT_DAY);
+        SHORT_TYPE_YEAR = Util.getIntegerCodeForString("day");
         SHORT_TYPE_ARTIST = Util.getIntegerCodeForString("ART");
         SHORT_TYPE_ENCODER = Util.getIntegerCodeForString("too");
         SHORT_TYPE_ALBUM = Util.getIntegerCodeForString("alb");

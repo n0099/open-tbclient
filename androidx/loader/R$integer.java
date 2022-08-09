@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class R$integer {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int status_bar_notification_info_maxnum = 2131361830;
+    public static final int status_bar_notification_info_maxnum = 2131361831;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$integer() {

@@ -1,157 +1,34 @@
 package com.repackage;
 
 import android.content.Context;
-import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.tieba.R;
+import com.baidu.swan.apps.view.SwanAppActionBar;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.n62;
-import com.repackage.x33;
-import java.util.UUID;
-@Deprecated
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class z33 extends f23 {
+public class z33 extends w23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public class a implements x33.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ vl2 b;
-        public final /* synthetic */ iq2 c;
-        public final /* synthetic */ UnitedSchemeEntity d;
-        public final /* synthetic */ CallbackHandler e;
-        public final /* synthetic */ i03 f;
-        public final /* synthetic */ String g;
-        public final /* synthetic */ rz1 h;
-        public final /* synthetic */ Context i;
-        public final /* synthetic */ z33 j;
-
-        public a(z33 z33Var, String str, vl2 vl2Var, iq2 iq2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var, String str2, rz1 rz1Var, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z33Var, str, vl2Var, iq2Var, unitedSchemeEntity, callbackHandler, i03Var, str2, rz1Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.j = z33Var;
-            this.a = str;
-            this.b = vl2Var;
-            this.c = iq2Var;
-            this.d = unitedSchemeEntity;
-            this.e = callbackHandler;
-            this.f = i03Var;
-            this.g = str2;
-            this.h = rz1Var;
-            this.i = context;
-        }
-
-        @Override // com.repackage.x33.e
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                ot2.d(this.a);
-                ix1.i("redirect", "check pages success");
-                this.b.o();
-                n62.e f = n62.f(this.b.getActivity(), s62.c(this.c.a));
-                r33.l(this.d, this.e, this.f, f.a.b(), this.c.a, null, this.g);
-                this.j.n(f, this.c, this.h, this.a);
-            }
-        }
-
-        @Override // com.repackage.x33.e
-        public void b(int i, bc3 bc3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bc3Var) == null) {
-                ix1.c("redirect", "check pages failed");
-                this.b.o();
-                if (f23.b) {
-                    Context context = this.i;
-                    a03.g(context, this.i.getString(R.string.obfuscated_res_0x7f0f01a3) + i).G();
-                }
-                r33.j(this.d, this.e, this.g);
-                w63.j(this.c, bc3Var);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements n62.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n62.e a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ iq2 c;
-        public final /* synthetic */ rz1 d;
-
-        public b(z33 z33Var, n62.e eVar, String str, iq2 iq2Var, rz1 rz1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z33Var, eVar, str, iq2Var, rz1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eVar;
-            this.b = str;
-            this.c = iq2Var;
-            this.d = rz1Var;
-        }
-
-        @Override // com.repackage.n62.f
-        public void onReady() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (f23.b) {
-                    Log.d("redirectTo", "tryToExecutePageRoute onReady start.");
-                }
-                ot2.e(this.a, this.b);
-                r33.e(this.a.a, this.c, this.b);
-                cq1.A(this.d, this.c, this.b, false);
-                if (f23.b) {
-                    Log.d("redirectTo", "tryToExecutePageRoute onReady end.");
-                }
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z33(f13 f13Var) {
-        super(f13Var, "/swanAPI/redirectTo");
+    public z33(w13 w13Var) {
+        super(w13Var, "/swanAPI/getMenuButtonBoundingClientRect");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {f13Var};
+            Object[] objArr = {w13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -165,88 +42,86 @@ public class z33 extends f23 {
         }
     }
 
-    @Override // com.repackage.f23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
+    @Override // com.repackage.w23
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, z03 z03Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
-            if (f23.b) {
-                Log.d("redirectTo", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            String uuid = UUID.randomUUID().toString();
-            ot2.b(uuid);
-            String o = r33.o(unitedSchemeEntity, "params");
-            if (TextUtils.isEmpty(o)) {
-                ix1.c("redirect", "url is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            vl2 U = vl2.U();
-            rz1 V = U.V();
-            if (V == null) {
-                ix1.c("redirect", "manager is null");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, z03Var)) == null) {
+            if (z03Var == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            iq2 d = iq2.d(o, U.z());
-            d.e = "2";
-            d.f = uuid;
-            w63.g(d);
-            if (!ce3.b(U.s(), d, false)) {
-                ix1.c("redirect", "page params error : path=" + d.a + " ; routePath=" + d.d);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                w63.i(d);
+            if (w23.b) {
+                Log.d("GetMenuButtonBounding", "handle entity: " + unitedSchemeEntity.toString());
+            }
+            i02 V = mm2.U().V();
+            if (V == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            String str = unitedSchemeEntity.getParams().get("initData");
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(d.d) && i03.M() != null) {
-                i03.M().L0(str, d.d);
-            }
-            String n = r33.n(unitedSchemeEntity, "params", FetchLog.START_TIME);
-            if (!TextUtils.isEmpty(n)) {
-                HybridUbcFlow q = nt2.q("route", uuid);
-                UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("fe_route_start");
-                ubcFlowEvent.h(Long.valueOf(n).longValue());
-                q.F(ubcFlowEvent);
-            }
-            if (f23.b) {
-                Log.d("redirectTo", "PreloadSlaveManager start.");
-            }
-            String optString = id3.d(unitedSchemeEntity.getParam("params")).optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                ix1.c("redirect", "cb is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                w63.i(d);
+            f02 m = V.m();
+            if (m == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            } else if (v23.b().a(d)) {
-                v23.b().i("redirectTo", d);
-                ix1.c("redirectTo", "access to this page is prohibited");
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1003, "access to this page is prohibited"));
-                return false;
+            } else if (z03Var.w0()) {
+                View q = hk2.i().q(m);
+                if (q == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
+                unitedSchemeEntity.result = j(q);
+                return true;
             } else {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                U.a();
-                x33.g(i03Var, d, "", new a(this, uuid, U, d, unitedSchemeEntity, callbackHandler, i03Var, optString, V, context), uuid);
+                SwanAppActionBar K1 = m.K1();
+                if (K1 == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
+                View rightMenu = K1.getRightMenu();
+                if (rightMenu == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
+                unitedSchemeEntity.result = j(rightMenu);
                 return true;
             }
         }
         return invokeLLLL.booleanValue;
     }
 
-    public final void n(n62.e eVar, iq2 iq2Var, rz1 rz1Var, String str) {
+    public final JSONObject j(View view2) {
+        InterceptResult invokeL;
+        JSONObject wrapCallbackParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, iq2Var, rz1Var, str) == null) {
-            boolean z = eVar != null && eVar.b;
-            HybridUbcFlow q = nt2.q("route", str);
-            q.F(new UbcFlowEvent("na_pre_load_slave_check"));
-            q.D("preload", z ? "1" : "0");
-            if (f23.b) {
-                Log.d("redirectTo", "tryToExecutePageRoute start. isReady : " + z);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+            z03 M = z03.M();
+            int P = M != null ? M.w0() : false ? 0 : (int) (qe3.P(qe3.t()) + 0.5f);
+            int P2 = (int) (qe3.P(view2.getLeft()) + 0.5f);
+            int P3 = (int) (qe3.P(view2.getRight()) + 0.5f);
+            int P4 = ((int) (qe3.P(view2.getTop()) + 0.5f)) + P;
+            int P5 = ((int) (qe3.P(view2.getBottom()) + 0.5f)) + P;
+            int i = P3 - P2;
+            int i2 = P5 - P4;
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("width", i);
+                jSONObject.put("height", i2);
+                jSONObject.put("left", P2);
+                jSONObject.put("right", P3);
+                jSONObject.put("top", P4);
+                jSONObject.put("bottom", P5);
+                wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
+            } catch (JSONException e) {
+                if (w23.b) {
+                    e.printStackTrace();
+                }
+                wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "result JSONException");
             }
-            n62.q(eVar, new b(this, eVar, str, iq2Var, rz1Var));
-            if (f23.b) {
-                Log.d("redirectTo", "tryToExecutePageRoute end.");
+            if (w23.b) {
+                Log.e("GetMenuButtonBounding", wrapCallbackParams.toString());
             }
+            return wrapCallbackParams;
         }
+        return (JSONObject) invokeL.objValue;
     }
 }

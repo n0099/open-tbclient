@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c66;
-import com.repackage.vr4;
+import com.repackage.ms4;
+import com.repackage.u76;
 /* loaded from: classes3.dex */
 public class RecommendThreadView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -59,22 +59,22 @@ public class RecommendThreadView extends LinearLayout {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             setOrientation(1);
             setLayoutParams(layoutParams);
-            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d072f, this);
+            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0756, this);
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091a7b);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091b5a);
             this.a = tbImageView;
             tbImageView.setConrers(15);
             this.a.setRadiusById(R.string.J_X05);
             this.a.setDrawCorner(true);
             this.a.setDrawBorder(true);
-            this.a.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070732));
+            this.a.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070733));
             this.a.setBorderSurroundContent(true);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091a7a);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091b59);
             d();
         }
     }
@@ -84,22 +84,22 @@ public class RecommendThreadView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.a.setPlaceHolder(2);
             this.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-            vr4 d = vr4.d(this.b);
+            ms4 d = ms4.d(this.b);
             d.z(R.dimen.T_X07);
             d.v(R.color.CAM_X0105);
         }
     }
 
-    public void setData(c66 c66Var) {
+    public void setData(u76 u76Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, c66Var) == null) || c66Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, u76Var) == null) || u76Var == null) {
             return;
         }
-        if (!TextUtils.isEmpty(c66Var.b())) {
-            this.a.J(c66Var.b(), 10, false);
+        if (!TextUtils.isEmpty(u76Var.b())) {
+            this.a.K(u76Var.b(), 10, false);
         }
-        if (!TextUtils.isEmpty(c66Var.d())) {
-            this.b.setText(c66Var.d());
+        if (!TextUtils.isEmpty(u76Var.f())) {
+            this.b.setText(u76Var.f());
         }
         d();
     }

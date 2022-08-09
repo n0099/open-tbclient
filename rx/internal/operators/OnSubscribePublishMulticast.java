@@ -9,22 +9,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.as9;
-import com.repackage.bs9;
-import com.repackage.dv9;
-import com.repackage.iu9;
-import com.repackage.ps9;
-import com.repackage.rv9;
-import com.repackage.ur9;
-import com.repackage.vr9;
-import com.repackage.wr9;
+import com.repackage.dx9;
+import com.repackage.kv9;
+import com.repackage.my9;
+import com.repackage.pu9;
+import com.repackage.qu9;
+import com.repackage.ru9;
+import com.repackage.vu9;
+import com.repackage.wu9;
+import com.repackage.yx9;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes8.dex */
-public final class OnSubscribePublishMulticast<T> extends AtomicInteger implements ur9.a<T>, vr9<T>, bs9 {
+public final class OnSubscribePublishMulticast<T> extends AtomicInteger implements pu9.a<T>, qu9<T>, wu9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final PublishProducer<?>[] EMPTY;
     public static final PublishProducer<?>[] TERMINATED;
@@ -35,25 +35,25 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
     public Throwable error;
     public final a<T> parent;
     public final int prefetch;
-    public volatile wr9 producer;
+    public volatile ru9 producer;
     public final Queue<T> queue;
     public volatile PublishProducer<T>[] subscribers;
 
     /* loaded from: classes8.dex */
-    public static final class PublishProducer<T> extends AtomicLong implements wr9, bs9 {
+    public static final class PublishProducer<T> extends AtomicLong implements ru9, wu9 {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 960704844171597367L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final as9<? super T> actual;
+        public final vu9<? super T> actual;
         public final AtomicBoolean once;
         public final OnSubscribePublishMulticast<T> parent;
 
-        public PublishProducer(as9<? super T> as9Var, OnSubscribePublishMulticast<T> onSubscribePublishMulticast) {
+        public PublishProducer(vu9<? super T> vu9Var, OnSubscribePublishMulticast<T> onSubscribePublishMulticast) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {as9Var, onSubscribePublishMulticast};
+                Object[] objArr = {vu9Var, onSubscribePublishMulticast};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -63,19 +63,19 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
                     return;
                 }
             }
-            this.actual = as9Var;
+            this.actual = vu9Var;
             this.parent = onSubscribePublishMulticast;
             this.once = new AtomicBoolean();
         }
 
-        @Override // com.repackage.bs9
+        @Override // com.repackage.wu9
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.once.get() : invokeV.booleanValue;
         }
 
-        @Override // com.repackage.wr9
+        @Override // com.repackage.ru9
         public void request(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
@@ -83,13 +83,13 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
                 if (i < 0) {
                     throw new IllegalArgumentException("n >= 0 required but it was " + j);
                 } else if (i != 0) {
-                    ps9.b(this, j);
+                    kv9.b(this, j);
                     this.parent.drain();
                 }
             }
         }
 
-        @Override // com.repackage.bs9
+        @Override // com.repackage.wu9
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.once.compareAndSet(false, true)) {
@@ -99,7 +99,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
     }
 
     /* loaded from: classes8.dex */
-    public static final class a<T> extends as9<T> {
+    public static final class a<T> extends vu9<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final OnSubscribePublishMulticast<T> e;
@@ -122,15 +122,15 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
             this.e = onSubscribePublishMulticast;
         }
 
-        @Override // com.repackage.as9
-        public void f(wr9 wr9Var) {
+        @Override // com.repackage.vu9
+        public void f(ru9 ru9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, wr9Var) == null) {
-                this.e.setProducer(wr9Var);
+            if (interceptable == null || interceptable.invokeL(1048576, this, ru9Var) == null) {
+                this.e.setProducer(ru9Var);
             }
         }
 
-        @Override // com.repackage.vr9
+        @Override // com.repackage.qu9
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -138,7 +138,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
             }
         }
 
-        @Override // com.repackage.vr9
+        @Override // com.repackage.qu9
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -146,7 +146,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
             }
         }
 
-        @Override // com.repackage.vr9
+        @Override // com.repackage.qu9
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
@@ -190,10 +190,10 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         if (i > 0) {
             this.prefetch = i;
             this.delayError = z;
-            if (rv9.b()) {
-                this.queue = new dv9(i);
+            if (my9.b()) {
+                this.queue = new yx9(i);
             } else {
-                this.queue = new iu9(i);
+                this.queue = new dx9(i);
             }
             this.subscribers = (PublishProducer<T>[]) EMPTY;
             this.parent = new a<>(this);
@@ -225,9 +225,9 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.ur9.a, com.repackage.is9
+    @Override // com.repackage.pu9.a, com.repackage.dv9
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((as9) ((as9) obj));
+        call((vu9) ((vu9) obj));
     }
 
     public boolean checkTerminated(boolean z, boolean z2) {
@@ -318,12 +318,12 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
                         return;
                     }
                     if (j2 != 0) {
-                        wr9 wr9Var = this.producer;
-                        if (wr9Var != null) {
-                            wr9Var.request(j2);
+                        ru9 ru9Var = this.producer;
+                        if (ru9Var != null) {
+                            ru9Var.request(j2);
                         }
                         for (PublishProducer<T> publishProducer3 : publishProducerArr) {
-                            ps9.g(publishProducer3, j2);
+                            kv9.g(publishProducer3, j2);
                         }
                     }
                 }
@@ -332,14 +332,14 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         }
     }
 
-    @Override // com.repackage.bs9
+    @Override // com.repackage.wu9
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.parent.isUnsubscribed() : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.vr9
+    @Override // com.repackage.qu9
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -348,7 +348,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         }
     }
 
-    @Override // com.repackage.vr9
+    @Override // com.repackage.qu9
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, th) == null) {
@@ -358,7 +358,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         }
     }
 
-    @Override // com.repackage.vr9
+    @Override // com.repackage.qu9
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) {
@@ -410,18 +410,18 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         }
     }
 
-    public void setProducer(wr9 wr9Var) {
+    public void setProducer(ru9 ru9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, wr9Var) == null) {
-            this.producer = wr9Var;
-            wr9Var.request(this.prefetch);
+        if (interceptable == null || interceptable.invokeL(1048586, this, ru9Var) == null) {
+            this.producer = ru9Var;
+            ru9Var.request(this.prefetch);
         }
     }
 
-    public as9<T> subscriber() {
+    public vu9<T> subscriber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.parent : (as9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.parent : (vu9) invokeV.objValue;
     }
 
     public PublishProducer<T>[] terminate() {
@@ -442,7 +442,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         return (PublishProducer[]) invokeV.objValue;
     }
 
-    @Override // com.repackage.bs9
+    @Override // com.repackage.wu9
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
@@ -450,12 +450,12 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         }
     }
 
-    public void call(as9<? super T> as9Var) {
+    public void call(vu9<? super T> vu9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, as9Var) == null) {
-            PublishProducer<T> publishProducer = new PublishProducer<>(as9Var, this);
-            as9Var.b(publishProducer);
-            as9Var.f(publishProducer);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vu9Var) == null) {
+            PublishProducer<T> publishProducer = new PublishProducer<>(vu9Var, this);
+            vu9Var.b(publishProducer);
+            vu9Var.f(publishProducer);
             if (add(publishProducer)) {
                 if (publishProducer.isUnsubscribed()) {
                     remove(publishProducer);
@@ -467,9 +467,9 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
             }
             Throwable th = this.error;
             if (th != null) {
-                as9Var.onError(th);
+                vu9Var.onError(th);
             } else {
-                as9Var.onCompleted();
+                vu9Var.onCompleted();
             }
         }
     }

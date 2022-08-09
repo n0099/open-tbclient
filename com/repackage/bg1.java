@@ -1,135 +1,308 @@
 package com.repackage;
 
+import android.content.ContentValues;
 import android.content.Context;
-import android.os.Build;
-import android.telephony.SubscriptionInfo;
-import android.telephony.SubscriptionManager;
-import android.text.TextUtils;
-import android.util.Pair;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.cmic.sso.sdk.auth.AuthnHelper;
-import java.util.List;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class bg1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile bg1 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
+    public Context b;
 
-    public static int a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            try {
-                if (he1.f(context).d()) {
-                    if (Build.VERSION.SDK_INT < 24) {
-                        return -1001;
-                    }
-                    if (tf1.n(context)) {
-                        return SubscriptionManager.getDefaultDataSubscriptionId();
-                    }
-                    return -1002;
-                }
-                return -1000;
-            } catch (Throwable th) {
-                tf1.d(th);
-                return -1001;
-            }
-        }
-        return invokeL.intValue;
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public static String b(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, str, z)) == null) ? z ? str : "" : (String) invokeLZ.objValue;
-    }
+    /* loaded from: classes5.dex */
+    public class b extends SQLiteOpenHelper {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static Pair<Integer, Integer> c(Context context) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            int i2 = -1;
-            Pair<Integer, Integer> pair = new Pair<>(-1, -1);
-            try {
-                JSONObject networkType = AuthnHelper.getInstance(context).getNetworkType(context);
-                if (networkType == null) {
-                    return pair;
+        public /* synthetic */ b(bg1 bg1Var, Context context, a aVar) {
+            this(bg1Var, context);
+        }
+
+        @Override // android.database.sqlite.SQLiteOpenHelper
+        public void onCreate(SQLiteDatabase sQLiteDatabase) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
+                try {
+                    sQLiteDatabase.execSQL("create table if not exists rp_tb(id integer primary key autoincrement, a text, c integer, d integer);");
+                } catch (Throwable th) {
+                    kg1.d(th);
                 }
-                if (networkType.has("networktype")) {
-                    i2 = Integer.parseInt(networkType.optString("networktype", "-1"));
-                    i = Integer.parseInt(networkType.optString("operatortype", "-1"));
-                } else if (networkType.has("networkType")) {
-                    i2 = Integer.parseInt(networkType.optString("networkType", "-1"));
-                    i = Integer.parseInt(networkType.optString("operatorType", "-1"));
-                } else {
-                    i = -1;
-                }
-                return Pair.create(Integer.valueOf(i2), Integer.valueOf(i));
-            } catch (Throwable th) {
-                tf1.d(th);
-                return pair;
             }
         }
-        return (Pair) invokeL.objValue;
-    }
 
-    public static Pair<Integer, String[]> d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            try {
-                if (!he1.f(context).d()) {
-                    return new Pair<>(-1, new String[]{String.valueOf(-1000), String.valueOf(-1000), String.valueOf(-1000), String.valueOf(-1000)});
-                }
-                if (Build.VERSION.SDK_INT < 22) {
-                    return new Pair<>(-2, new String[]{String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001)});
-                }
-                if (!yf1.a(context, com.kuaishou.weapon.p0.h.c)) {
-                    return new Pair<>(-1, new String[]{String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001)});
-                }
-                if (!tf1.n(context)) {
-                    return new Pair<>(-1, new String[]{String.valueOf(-1002), String.valueOf(-1002), String.valueOf(-1002), String.valueOf(-1002)});
-                }
-                List<SubscriptionInfo> activeSubscriptionInfoList = ((SubscriptionManager) context.getSystemService("telephony_subscription_service")).getActiveSubscriptionInfoList();
-                if (activeSubscriptionInfoList == null) {
-                    return new Pair<>(0, new String[]{String.valueOf(-1003), String.valueOf(-1003), String.valueOf(-1003), String.valueOf(-1003)});
-                }
-                String[] strArr = new String[4];
-                int i = 0;
-                for (SubscriptionInfo subscriptionInfo : activeSubscriptionInfoList) {
-                    int i2 = i * 2;
-                    int simSlotIndex = subscriptionInfo.getSimSlotIndex();
-                    int subscriptionId = subscriptionInfo.getSubscriptionId();
-                    String iccId = subscriptionInfo.getIccId();
-                    if (TextUtils.isEmpty(iccId)) {
-                        iccId = String.valueOf(-1003);
-                    }
-                    strArr[i2] = simSlotIndex + "_" + subscriptionId + "_" + iccId;
-                    CharSequence carrierName = subscriptionInfo.getCarrierName();
-                    if (carrierName != null) {
-                        strArr[i2 + 1] = carrierName.toString();
-                    } else {
-                        strArr[i2 + 1] = String.valueOf(-1003);
-                    }
-                    i++;
-                    if (i >= 2) {
-                        break;
-                    }
-                }
-                for (int i3 = 0; i3 < 4; i3++) {
-                    if (TextUtils.isEmpty(strArr[i3])) {
-                        strArr[i3] = String.valueOf(-1003);
-                    }
-                }
-                return new Pair<>(Integer.valueOf(i), strArr);
-            } catch (Throwable th) {
-                tf1.d(th);
-                return new Pair<>(-1, new String[]{String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001)});
+        @Override // android.database.sqlite.SQLiteOpenHelper
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
             }
         }
-        return (Pair) invokeL.objValue;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(bg1 bg1Var, Context context) {
+            super(context, "sso.db", (SQLiteDatabase.CursorFactory) null, 1);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bg1Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    public bg1(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = context;
+        this.a = new b(this, this.b, null);
+    }
+
+    public static bg1 a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (c == null) {
+                synchronized (bg1.class) {
+                    if (c == null) {
+                        c = new bg1(context);
+                    }
+                }
+            }
+            return c;
+        }
+        return (bg1) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, IF, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
+    public ArrayList<cg1> b(String str) {
+        InterceptResult invokeL;
+        Throwable th;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, str)) != null) {
+            return (ArrayList) invokeL.objValue;
+        }
+        try {
+            SQLiteDatabase writableDatabase = this.a.getWritableDatabase();
+            StringBuilder sb = new StringBuilder();
+            sb.append("SELECT * FROM rp_tb WHERE c IN (");
+            sb.append(str);
+            sb.append(") LIMIT 100");
+            cursor = writableDatabase.rawQuery(sb.toString(), null);
+            if (cursor != null) {
+                try {
+                    if (cursor.getCount() != 0) {
+                        ArrayList<cg1> arrayList = new ArrayList<>();
+                        while (cursor.moveToNext()) {
+                            cg1 cg1Var = new cg1();
+                            cg1Var.b(cursor.getInt(cursor.getColumnIndex("id")));
+                            cg1Var.c(mg1.a(this.b, cursor.getString(cursor.getColumnIndex("a"))));
+                            cg1Var.g(cursor.getInt(cursor.getColumnIndex("c")));
+                            cg1Var.e(cursor.getInt(cursor.getColumnIndex("d")));
+                            arrayList.add(cg1Var);
+                        }
+                        return arrayList;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    try {
+                        kg1.d(th);
+                        if (cursor != null) {
+                            try {
+                                if (!cursor.isClosed()) {
+                                    cursor.close();
+                                }
+                            } catch (Throwable th3) {
+                                kg1.d(th3);
+                            }
+                        }
+                        return null;
+                    } finally {
+                        if (cursor != null) {
+                            try {
+                                if (!cursor.isClosed()) {
+                                    cursor.close();
+                                }
+                            } catch (Throwable th4) {
+                                kg1.d(th4);
+                            }
+                        }
+                    }
+                }
+            }
+            if (cursor != null) {
+                try {
+                    if (!cursor.isClosed()) {
+                        cursor.close();
+                    }
+                } catch (Throwable th5) {
+                    kg1.d(th5);
+                }
+            }
+            return null;
+        } catch (Throwable th6) {
+            th = th6;
+            cursor = null;
+        }
+    }
+
+    public void c(cg1 cg1Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cg1Var) == null) || cg1Var == null) {
+            return;
+        }
+        try {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("a", mg1.b(this.b, cg1Var.d().getBytes()));
+            contentValues.put("c", Integer.valueOf(cg1Var.h()));
+            contentValues.put("d", Integer.valueOf(cg1Var.f()));
+            this.a.getWritableDatabase().insert("rp_tb", null, contentValues);
+        } catch (Throwable th) {
+            kg1.d(th);
+        }
+    }
+
+    public void d(ArrayList<cg1> arrayList) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) || arrayList == null) {
+            return;
+        }
+        try {
+            if (arrayList.size() == 0) {
+                return;
+            }
+            for (int i = 0; i < arrayList.size(); i++) {
+                f(arrayList.get(i));
+            }
+        } catch (Throwable th) {
+            kg1.d(th);
+        }
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, IF, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
+    public ArrayList<cg1> e(String str) {
+        InterceptResult invokeL;
+        Throwable th;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048579, this, str)) != null) {
+            return (ArrayList) invokeL.objValue;
+        }
+        try {
+            SQLiteDatabase writableDatabase = this.a.getWritableDatabase();
+            StringBuilder sb = new StringBuilder();
+            sb.append("SELECT * FROM rp_tb WHERE c IN (");
+            sb.append(str);
+            sb.append(") and ");
+            sb.append("d");
+            sb.append("=");
+            sb.append(2);
+            sb.append(" LIMIT 100");
+            cursor = writableDatabase.rawQuery(sb.toString(), null);
+            if (cursor != null) {
+                try {
+                    if (cursor.getCount() != 0) {
+                        ArrayList<cg1> arrayList = new ArrayList<>();
+                        while (cursor.moveToNext()) {
+                            cg1 cg1Var = new cg1();
+                            cg1Var.b(cursor.getInt(cursor.getColumnIndex("id")));
+                            cg1Var.c(mg1.a(this.b, cursor.getString(cursor.getColumnIndex("a"))));
+                            cg1Var.g(cursor.getInt(cursor.getColumnIndex("c")));
+                            cg1Var.e(cursor.getInt(cursor.getColumnIndex("d")));
+                            arrayList.add(cg1Var);
+                        }
+                        return arrayList;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    try {
+                        kg1.d(th);
+                        if (cursor != null) {
+                            try {
+                                if (!cursor.isClosed()) {
+                                    cursor.close();
+                                }
+                            } catch (Throwable th3) {
+                                kg1.d(th3);
+                            }
+                        }
+                        return null;
+                    } finally {
+                        if (cursor != null) {
+                            try {
+                                if (!cursor.isClosed()) {
+                                    cursor.close();
+                                }
+                            } catch (Throwable th4) {
+                                kg1.d(th4);
+                            }
+                        }
+                    }
+                }
+            }
+            if (cursor != null) {
+                try {
+                    if (!cursor.isClosed()) {
+                        cursor.close();
+                    }
+                } catch (Throwable th5) {
+                    kg1.d(th5);
+                }
+            }
+            return null;
+        } catch (Throwable th6) {
+            th = th6;
+            cursor = null;
+        }
+    }
+
+    public final void f(cg1 cg1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, cg1Var) == null) {
+            try {
+                this.a.getWritableDatabase().delete("rp_tb", "id=?", new String[]{String.valueOf(cg1Var.a())});
+            } catch (Throwable th) {
+                System.currentTimeMillis();
+                kg1.d(th);
+            }
+        }
     }
 }

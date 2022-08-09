@@ -1,5 +1,5 @@
 package com.ss.android.download.api.model;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public String a;
     public String b;
@@ -8,30 +8,30 @@ public class a {
     public String e;
 
     /* renamed from: com.ss.android.download.api.model.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0641a {
+    /* loaded from: classes8.dex */
+    public static class C0646a {
         public String a;
         public String b;
         public String c;
         public String d;
         public String e;
 
-        public C0641a a(String str) {
+        public C0646a a(String str) {
             this.a = str;
             return this;
         }
 
-        public C0641a b(String str) {
+        public C0646a b(String str) {
             this.b = str;
             return this;
         }
 
-        public C0641a c(String str) {
+        public C0646a c(String str) {
             this.d = str;
             return this;
         }
 
-        public C0641a d(String str) {
+        public C0646a d(String str) {
             this.e = str;
             return this;
         }
@@ -41,12 +41,12 @@ public class a {
         }
     }
 
-    public a(C0641a c0641a) {
+    public a(C0646a c0646a) {
         this.b = "";
-        this.a = c0641a.a;
-        this.b = c0641a.b;
-        this.c = c0641a.c;
-        this.d = c0641a.d;
-        this.e = c0641a.e;
+        this.a = c0646a.a;
+        this.b = c0646a.b;
+        this.c = c0646a.c;
+        this.d = c0646a.d;
+        this.e = c0646a.e;
     }
 }

@@ -19,11 +19,11 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.MessageLiteOrBuilder;
 import com.google.protobuf.Parser;
-import com.repackage.lj3;
+import com.repackage.ck3;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Bdtls$ApplicationData extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static Parser<Bdtls$ApplicationData> PARSER = null;
@@ -36,7 +36,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
     public int memoizedSerializedSize;
     public ByteString sKR_;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends AbstractParser<Bdtls$ApplicationData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class b extends GeneratedMessageLite.Builder<Bdtls$ApplicationData, b> implements Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -143,7 +143,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                Bdtls$ApplicationData bdtls$ApplicationData = new Bdtls$ApplicationData(this, (lj3) null);
+                Bdtls$ApplicationData bdtls$ApplicationData = new Bdtls$ApplicationData(this, (ck3) null);
                 int i = (this.a & 1) != 1 ? 0 : 1;
                 bdtls$ApplicationData.sKR_ = this.b;
                 bdtls$ApplicationData.bitField0_ = i;
@@ -298,7 +298,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         bdtls$ApplicationData.initFields();
     }
 
-    public /* synthetic */ Bdtls$ApplicationData(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, lj3 lj3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$ApplicationData(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, ck3 ck3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -405,7 +405,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         }
     }
 
-    public /* synthetic */ Bdtls$ApplicationData(GeneratedMessageLite.Builder builder, lj3 lj3Var) {
+    public /* synthetic */ Bdtls$ApplicationData(GeneratedMessageLite.Builder builder, ck3 ck3Var) {
         this(builder);
     }
 

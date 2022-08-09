@@ -96,14 +96,14 @@ public class FeedBackTopListView extends LinearLayout {
             if (threadData == null) {
                 return null;
             }
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0349, (ViewGroup) null);
-            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090bbd);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090bbf);
-            inflate.findViewById(R.id.obfuscated_res_0x7f090bba);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d034b, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090bf9);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090bfb);
+            inflate.findViewById(R.id.obfuscated_res_0x7f090bf6);
             String tid = threadData.getTid();
             textView.setText(threadData.getTitle());
-            this.c.getLayoutMode().k(this.d == 1);
-            this.c.getLayoutMode().j(inflate);
+            this.c.getLayoutMode().l(this.d == 1);
+            this.c.getLayoutMode().k(inflate);
             BitmapDrawable bitmapDrawable = (BitmapDrawable) SkinManager.getDrawable(R.drawable.icon_notice);
             SkinManager.setBackgroundResource(linearLayout, R.drawable.bg_frs_top_middle_selector);
             if (bitmapDrawable != null) {

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xm4;
+import com.repackage.on4;
 /* loaded from: classes2.dex */
 public class InitImgLoaderProcTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -31,7 +31,7 @@ public class InitImgLoaderProcTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            xm4.a();
+            on4.a();
         }
     }
 

@@ -23,7 +23,7 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.MessageLiteOrBuilder;
 import com.google.protobuf.Parser;
-import com.repackage.f70;
+import com.repackage.h70;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
@@ -243,7 +243,7 @@ public final class LcmPb$RpcData extends GeneratedMessageLite implements Message
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-                LcmPb$RpcData lcmPb$RpcData = new LcmPb$RpcData(this, (f70) null);
+                LcmPb$RpcData lcmPb$RpcData = new LcmPb$RpcData(this, (h70) null);
                 int i = this.a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 lcmPb$RpcData.lcmRequest_ = this.b;
@@ -436,7 +436,7 @@ public final class LcmPb$RpcData extends GeneratedMessageLite implements Message
         lcmPb$RpcData.initFields();
     }
 
-    public /* synthetic */ LcmPb$RpcData(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, f70 f70Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ LcmPb$RpcData(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, h70 h70Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -587,7 +587,7 @@ public final class LcmPb$RpcData extends GeneratedMessageLite implements Message
         }
     }
 
-    public /* synthetic */ LcmPb$RpcData(GeneratedMessageLite.Builder builder, f70 f70Var) {
+    public /* synthetic */ LcmPb$RpcData(GeneratedMessageLite.Builder builder, h70 h70Var) {
         this(builder);
     }
 

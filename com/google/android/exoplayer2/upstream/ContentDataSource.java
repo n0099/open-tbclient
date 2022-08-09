@@ -15,7 +15,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ContentDataSource implements DataSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public final class ContentDataSource implements DataSource {
     public final ContentResolver resolver;
     public Uri uri;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class ContentDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

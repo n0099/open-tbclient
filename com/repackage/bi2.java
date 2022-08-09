@@ -1,57 +1,25 @@
 package com.repackage;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import com.davemorrissey.labs.subscaleview.ImageSource;
 /* loaded from: classes5.dex */
-public class bi2 extends ce2<ti2> {
+public class bi2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public bi2() {
+    public static String a(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str.startsWith(ImageSource.FILE_SCHEME)) {
+                str = str.substring(8);
             }
+            z03 M = z03.M();
+            return (!h83.E(str) || M == null) ? str : h83.H(str, M);
         }
-    }
-
-    @Override // com.repackage.ce2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "prepareAsync" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ce2
-    public void c(@NonNull ZeusPlugin.Command command) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
-            command.ret = 1;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ce2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull ti2 ti2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, command, ti2Var) == null) {
-            command.ret = ti2Var.prepareAsync() ? 1 : 0;
-            String str = command.what;
-            d(ti2Var, str, "isSupport: " + command.ret, false);
-        }
+        return (String) invokeL.objValue;
     }
 }

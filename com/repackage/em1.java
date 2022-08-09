@@ -1,12 +1,7 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.Intent;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface em1 {
-    boolean b(Context context, Intent intent, String str, String str2, String str3);
-
-    boolean c();
-
-    boolean d();
+    void b(z03 z03Var, JSONObject jSONObject);
 }

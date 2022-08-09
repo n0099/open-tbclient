@@ -55,7 +55,7 @@ public class ImgOcrOptionDialog extends BaseDialogFragment implements View.OnCli
     public int getLayoutResId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d04dd : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d04e6 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -64,9 +64,9 @@ public class ImgOcrOptionDialog extends BaseDialogFragment implements View.OnCli
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             if (this.optionOnClickListener != null) {
                 int id = view2.getId();
-                if (id == R.id.obfuscated_res_0x7f091c4d) {
+                if (id == R.id.obfuscated_res_0x7f091d35) {
                     this.optionOnClickListener.onOptionClick(1001);
-                } else if (id == R.id.obfuscated_res_0x7f091bd9) {
+                } else if (id == R.id.obfuscated_res_0x7f091cc1) {
                     this.optionOnClickListener.onOptionClick(1002);
                 }
             }
@@ -79,18 +79,18 @@ public class ImgOcrOptionDialog extends BaseDialogFragment implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, bundle) == null) {
             super.onViewCreated(view2, bundle);
-            this.takePhotoTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c4d);
-            this.chooseImgTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091bd9);
-            this.cancelTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c37);
+            this.takePhotoTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d35);
+            this.chooseImgTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091cc1);
+            this.cancelTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d1f);
             if (this.isDarkMode) {
-                this.takePhotoTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081001);
-                this.takePhotoTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609a2));
-                view2.findViewById(R.id.obfuscated_res_0x7f091c4e).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060923));
-                this.chooseImgTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fff);
-                this.chooseImgTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609a2));
-                view2.findViewById(R.id.obfuscated_res_0x7f091bda).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06094d));
-                this.cancelTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fff);
-                this.cancelTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609a2));
+                this.takePhotoTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081067);
+                this.takePhotoTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609bd));
+                view2.findViewById(R.id.obfuscated_res_0x7f091d36).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06093e));
+                this.chooseImgTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081065);
+                this.chooseImgTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609bd));
+                view2.findViewById(R.id.obfuscated_res_0x7f091cc2).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060968));
+                this.cancelTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081065);
+                this.cancelTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609bd));
             }
             this.takePhotoTv.setOnClickListener(this);
             this.chooseImgTv.setOnClickListener(this);

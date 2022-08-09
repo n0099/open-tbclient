@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l77;
-import com.repackage.w9;
+import com.repackage.f97;
+import com.repackage.x9;
 import protobuf.CommitReceivedPmsg.CommitReceivedPmsgReqIdl;
 import protobuf.CommitReceivedPmsg.DataReq;
 /* loaded from: classes3.dex */
-public class RequestPersonalMsgReadMessage extends TbSocketMessage implements w9 {
+public class RequestPersonalMsgReadMessage extends TbSocketMessage implements x9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long hasSentMsgId;
@@ -48,7 +48,7 @@ public class RequestPersonalMsgReadMessage extends TbSocketMessage implements w9
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.groupId = l77.j;
+                builder.groupId = f97.j;
                 builder.msgType = 22;
                 builder.msgId = Long.valueOf(this.hasSentMsgId);
                 builder.toUid = Long.valueOf(this.toUid);
@@ -63,7 +63,7 @@ public class RequestPersonalMsgReadMessage extends TbSocketMessage implements w9
         return invokeV.objValue;
     }
 
-    @Override // com.repackage.w9
+    @Override // com.repackage.x9
     public boolean onFindMessage(SocketMessage socketMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

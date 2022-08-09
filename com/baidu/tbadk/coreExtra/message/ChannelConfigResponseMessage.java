@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fx4;
+import com.repackage.zx4;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ChannelConfigResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fx4 mData;
+    public zx4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ChannelConfigResponseMessage(int i) {
@@ -39,15 +39,15 @@ public class ChannelConfigResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) && jSONObject != null && isSuccess()) {
-            fx4 fx4Var = new fx4();
-            this.mData = fx4Var;
-            fx4Var.c(jSONObject);
+            zx4 zx4Var = new zx4();
+            this.mData = zx4Var;
+            zx4Var.c(jSONObject);
         }
     }
 
-    public fx4 getData() {
+    public zx4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (fx4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (zx4) invokeV.objValue;
     }
 }

@@ -1,35 +1,19 @@
 package com.repackage;
-
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public class xn2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static float b;
-    public static float c;
-    public static boolean d;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface xn2 {
+    String b();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755165899, "Lcom/repackage/xn2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755165899, "Lcom/repackage/xn2;");
-                return;
-            }
-        }
-        a = sg1.a;
-        b = 2.5f;
-        c = 100.0f;
-        d = true;
-    }
+    String c();
+
+    String f();
+
+    Object i();
+
+    void j(boolean z);
+
+    void k(boolean z);
+
+    boolean onBackPressed();
+
+    void onDestroy();
 }

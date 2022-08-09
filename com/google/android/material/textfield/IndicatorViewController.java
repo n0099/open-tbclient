@@ -33,7 +33,7 @@ import com.google.android.material.animation.AnimationUtils;
 import com.google.android.material.animation.AnimatorSetCompat;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class IndicatorViewController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CAPTION_OPACITY_FADE_ANIMATION_DURATION = 167;
@@ -517,7 +517,7 @@ public final class IndicatorViewController {
         if (z) {
             AppCompatTextView appCompatTextView = new AppCompatTextView(this.context);
             this.errorView = appCompatTextView;
-            appCompatTextView.setId(R.id.obfuscated_res_0x7f091ff6);
+            appCompatTextView.setId(R.id.obfuscated_res_0x7f0920f1);
             if (Build.VERSION.SDK_INT >= 17) {
                 this.errorView.setTextAlignment(5);
             }
@@ -584,7 +584,7 @@ public final class IndicatorViewController {
         if (z) {
             AppCompatTextView appCompatTextView = new AppCompatTextView(this.context);
             this.helperTextView = appCompatTextView;
-            appCompatTextView.setId(R.id.obfuscated_res_0x7f091ff7);
+            appCompatTextView.setId(R.id.obfuscated_res_0x7f0920f2);
             if (Build.VERSION.SDK_INT >= 17) {
                 this.helperTextView.setTextAlignment(5);
             }

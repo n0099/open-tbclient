@@ -1,16 +1,52 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.os.Build;
+import android.view.Window;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.protobuf.CodedInputStream;
 /* loaded from: classes6.dex */
-public class g21 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface g21 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "statusBarTool");
+    public static final g21 b = new a();
 
-    public static n21 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? n21.a : (n21) invokeV.objValue;
+    /* loaded from: classes6.dex */
+    public static class a implements g21 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.g21
+        public void a(@NonNull Activity activity) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, activity) == null) || Build.VERSION.SDK_INT < 21) {
+                return;
+            }
+            Window window = activity.getWindow();
+            window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+            window.addFlags(Integer.MIN_VALUE);
+            window.setStatusBarColor(activity.getResources().getColor(R.color.obfuscated_res_0x7f060883));
+        }
     }
+
+    void a(@NonNull Activity activity);
 }

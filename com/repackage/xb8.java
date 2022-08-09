@@ -1,58 +1,36 @@
 package com.repackage;
 
-import android.net.Uri;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class xb8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
+public interface xb8 {
+    bn<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId);
 
-    public xb8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        b();
-    }
+    sb8 b();
 
-    public boolean a(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
-            if (uri == null) {
-                return false;
-            }
-            return this.a.contains(uri.getQueryParameter("obj_source"));
-        }
-        return invokeL.booleanValue;
-    }
+    nb8 c();
 
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList();
-            }
-            this.a.clear();
-            this.a.add(BdUniDispatchSchemeController.PARAM_SHOUBAI);
-            this.a.add(BdUniDispatchSchemeController.PARAM_WISE);
-        }
-    }
+    bn<?, ?> d(wb8 wb8Var, BdUniqueId bdUniqueId);
+
+    void e();
+
+    List<AdvertAppInfo> f();
+
+    bn<?, ?> g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str);
+
+    IAdBaseAsyncController h(@NonNull IAdBaseAsyncController.Type type, @Nullable IAdBaseAsyncController.a aVar);
+
+    ub8 i();
+
+    void j(AdvertAppInfo advertAppInfo);
+
+    void k(HashMap<String, String> hashMap, Context context);
 }

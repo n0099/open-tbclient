@@ -14,8 +14,8 @@ import com.google.android.gms.common.zzq;
 import com.google.android.gms.common.zzs;
 import com.google.android.gms.dynamic.IObjectWrapper;
 import com.google.android.gms.internal.common.zza;
-import com.repackage.ul9;
-/* loaded from: classes4.dex */
+import com.repackage.po9;
+/* loaded from: classes5.dex */
 public final class zzad extends zza implements zzaf {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,9 +47,9 @@ public final class zzad extends zza implements zzaf {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, zznVar)) == null) {
             Parcel zza = zza();
-            ul9.c(zza, zznVar);
+            po9.c(zza, zznVar);
             Parcel zzB = zzB(6, zza);
-            zzq zzqVar = (zzq) ul9.a(zzB, zzq.CREATOR);
+            zzq zzqVar = (zzq) po9.a(zzB, zzq.CREATOR);
             zzB.recycle();
             return zzqVar;
         }
@@ -62,10 +62,10 @@ public final class zzad extends zza implements zzaf {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zzsVar, iObjectWrapper)) == null) {
             Parcel zza = zza();
-            ul9.c(zza, zzsVar);
-            ul9.e(zza, iObjectWrapper);
+            po9.c(zza, zzsVar);
+            po9.e(zza, iObjectWrapper);
             Parcel zzB = zzB(5, zza);
-            boolean f = ul9.f(zzB);
+            boolean f = po9.f(zzB);
             zzB.recycle();
             return f;
         }
@@ -78,7 +78,7 @@ public final class zzad extends zza implements zzaf {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             Parcel zzB = zzB(7, zza());
-            boolean f = ul9.f(zzB);
+            boolean f = po9.f(zzB);
             zzB.recycle();
             return f;
         }

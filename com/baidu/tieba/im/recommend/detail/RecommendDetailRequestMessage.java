@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ud5;
+import com.repackage.te5;
 import tbclient.Bigvip.BigvipReqIdl;
 import tbclient.Bigvip.DataReq;
 /* loaded from: classes3.dex */
@@ -44,7 +44,7 @@ public class RecommendDetailRequestMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                ud5.a(builder, true);
+                te5.a(builder, true);
             }
             builder.user_id = Long.valueOf(this.mUserId);
             BigvipReqIdl.Builder builder2 = new BigvipReqIdl.Builder();

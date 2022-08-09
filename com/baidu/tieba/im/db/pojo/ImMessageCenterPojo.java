@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a97;
-import com.repackage.dp4;
-import com.repackage.ng;
-import com.repackage.oi;
+import com.repackage.og;
+import com.repackage.pi;
+import com.repackage.ua7;
+import com.repackage.up4;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
 public class ImMessageCenterPojo implements Serializable {
@@ -34,7 +34,7 @@ public class ImMessageCenterPojo implements Serializable {
     public String group_head;
     public String group_name;
     public int group_type;
-    public dp4 imUserExtraData;
+    public up4 imUserExtraData;
     public int isFriend;
     public boolean isSelf;
     public int is_delete;
@@ -103,7 +103,7 @@ public class ImMessageCenterPojo implements Serializable {
             if (userData == null) {
                 return null;
             }
-            if (oi.isEmpty(userData.getUserId()) && (oldUserData2 = (OldUserData) OrmObject.objectWithJsonStr(commonMsgPojo.getUser_info(), OldUserData.class)) != null) {
+            if (pi.isEmpty(userData.getUserId()) && (oldUserData2 = (OldUserData) OrmObject.objectWithJsonStr(commonMsgPojo.getUser_info(), OldUserData.class)) != null) {
                 oldUserData2.setToUserData(userData);
             }
             String toUid = commonMsgPojo.getToUid();
@@ -116,7 +116,7 @@ public class ImMessageCenterPojo implements Serializable {
                 imMessageCenterPojo.setNameShow(userData.getName_show());
                 imMessageCenterPojo.setBjhAvatar(userData.getImBjhAvatar());
             } else if (userData2 != null) {
-                if (oi.isEmpty(userData2.getUserId()) && (oldUserData = (OldUserData) OrmObject.objectWithJsonStr(commonMsgPojo.getToUser_info(), OldUserData.class)) != null) {
+                if (pi.isEmpty(userData2.getUserId()) && (oldUserData = (OldUserData) OrmObject.objectWithJsonStr(commonMsgPojo.getToUser_info(), OldUserData.class)) != null) {
                     oldUserData.setToUserData(userData2);
                 }
                 imMessageCenterPojo.setGroup_name(userData2.getUserName());
@@ -125,7 +125,7 @@ public class ImMessageCenterPojo implements Serializable {
                 imMessageCenterPojo.setBjhAvatar(userData2.getImBjhAvatar());
             }
             boolean z = false;
-            if (ng.g(TbadkCoreApplication.getCurrentAccount(), 0L) != userData.getUserIdLong()) {
+            if (og.g(TbadkCoreApplication.getCurrentAccount(), 0L) != userData.getUserIdLong()) {
                 userType = userData.getUserType();
             } else {
                 userType = userData2 != null ? userData2.getUserType() : 0;
@@ -138,7 +138,7 @@ public class ImMessageCenterPojo implements Serializable {
             if (!z) {
                 imMessageCenterPojo.setCustomGroupType(2);
             }
-            imMessageCenterPojo.setLast_content(a97.y(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
+            imMessageCenterPojo.setLast_content(ua7.A(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
             imMessageCenterPojo.setLast_user_name(userData.getName_show());
             imMessageCenterPojo.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
             imMessageCenterPojo.setSelf(commonMsgPojo.isSelf);
@@ -202,10 +202,10 @@ public class ImMessageCenterPojo implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.group_type : invokeV.intValue;
     }
 
-    public dp4 getImUserExtraData() {
+    public up4 getImUserExtraData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.imUserExtraData : (dp4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.imUserExtraData : (up4) invokeV.objValue;
     }
 
     public int getIsFriend() {
@@ -416,10 +416,10 @@ public class ImMessageCenterPojo implements Serializable {
         }
     }
 
-    public void setImUserExtraData(dp4 dp4Var) {
+    public void setImUserExtraData(up4 up4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, dp4Var) == null) {
-            this.imUserExtraData = dp4Var;
+        if (interceptable == null || interceptable.invokeL(1048618, this, up4Var) == null) {
+            this.imUserExtraData = up4Var;
         }
     }
 

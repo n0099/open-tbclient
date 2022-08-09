@@ -1,173 +1,219 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.NetMessage;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.completeTask.CompleteTaskReqMsg;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import com.baidu.webkit.sdk.WebKitFactory;
+import com.repackage.wd4;
+import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes7.dex */
-public class zi4 {
+public final class zi4 implements wd4 {
     public static /* synthetic */ Interceptable $ic;
-    public static zi4 d;
+    public static boolean c;
+    public static final Set<wd4.a> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public li4 a;
-    public CustomMessageListener b;
-    public CustomMessageListener c;
+    public int a;
+    public String b;
 
     /* loaded from: classes7.dex */
-    public class a extends CustomMessageListener {
+    public class a implements WebKitFactory.WebkitInstallListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zi4 a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ File b;
+        public final /* synthetic */ zi4 c;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(zi4 zi4Var, int i) {
-            super(i);
+        /* renamed from: com.repackage.zi4$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class RunnableC0637a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public RunnableC0637a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    zi4 zi4Var = this.a.c;
+                    zi4Var.j(zi4Var.b);
+                }
+            }
+        }
+
+        public a(zi4 zi4Var, String str, File file) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zi4Var, Integer.valueOf(i)};
+                Object[] objArr = {zi4Var, str, file};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = zi4Var;
+            this.c = zi4Var;
+            this.a = str;
+            this.b = file;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
+        public void onInstallFinish(int i, String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.a.a == null || customResponsedMessage == null) {
-                return;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                boolean z = true;
+                if (bh4.B(this.a, str)) {
+                    synchronized (zi4.d) {
+                        this.c.i(true);
+                    }
+                    return;
+                }
+                if (zi4.e(this.c) <= 2) {
+                    if (8 == i) {
+                        this.c.b = this.a;
+                    } else {
+                        zi4 zi4Var = this.c;
+                        zi4Var.b = this.a + File.pathSeparator + this.c.a;
+                        if (bh4.f(this.b, new File(this.c.b)) != this.b.length()) {
+                            z = false;
+                        }
+                    }
+                    if (z && y03.M().postDelayed(new RunnableC0637a(this), 1000L)) {
+                        return;
+                    }
+                }
+                if (8 == i) {
+                    bh4.k(this.a);
+                }
+                synchronized (zi4.d) {
+                    this.c.i(false);
+                }
             }
-            Object data = customResponsedMessage.getData();
-            if ((data instanceof ok8) && ((ok8) data).b) {
-                this.a.e();
+        }
+
+        @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
+        public void onInstallStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(zi4 zi4Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755111060, "Lcom/repackage/zi4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zi4Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755111060, "Lcom/repackage/zi4;");
+                return;
             }
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
-            }
-        }
+        d = new HashSet();
     }
 
     public zi4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = new a(this, 2001437);
-        this.c = new b(this, 2005016);
+        this.a = 0;
     }
 
-    public static zi4 c() {
-        InterceptResult invokeV;
+    public static /* synthetic */ int e(zi4 zi4Var) {
+        int i = zi4Var.a + 1;
+        zi4Var.a = i;
+        return i;
+    }
+
+    @Override // com.repackage.wd4
+    public void a(String str, wd4.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (d == null) {
-                synchronized (zi4.class) {
-                    if (d == null) {
-                        d = new zi4();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) {
+            synchronized (d) {
+                d.add(aVar);
+                if (c) {
+                    return;
+                }
+                c = true;
+                j(str);
+            }
+        }
+    }
+
+    public final void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            synchronized (d) {
+                for (wd4.a aVar : d) {
+                    if (aVar != null) {
+                        aVar.a(z);
                     }
                 }
+                d.clear();
+                c = false;
+                this.a = 0;
             }
-            return d;
-        }
-        return (zi4) invokeV.objValue;
-    }
-
-    public void d(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bdUniqueId) == null) {
-            this.b.setTag(bdUniqueId);
-            this.c.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.b);
-            MessageManager.getInstance().registerListener(this.c);
         }
     }
 
-    public final void e() {
-        li4 li4Var;
+    public final void j(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (li4Var = this.a) == null || li4Var.d() == 0 || this.a.q() == 0 || this.a.x() != 9) {
-            return;
-        }
-        try {
-            String valueOf = String.valueOf(this.a.d());
-            String valueOf2 = String.valueOf(this.a.q());
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put(valueOf, valueOf2);
-            CompleteTaskReqMsg completeTaskReqMsg = new CompleteTaskReqMsg(0);
-            completeTaskReqMsg.completeId = jSONObject.toString();
-            JSONObject a2 = rj4.a(null, this.a.d(), this.a.q(), this.a.E());
-            if (a2 != null) {
-                completeTaskReqMsg.setToken(a2.toString());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                synchronized (d) {
+                    i(false);
+                }
+                return;
             }
-            completeTaskReqMsg.setNetType(NetMessage.NetType.HTTP);
-            MessageManager.getInstance().sendMessage(completeTaskReqMsg);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void f(li4 li4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, li4Var) == null) {
-            this.a = li4Var;
+            File file = new File(str);
+            if (!file.isFile()) {
+                synchronized (d) {
+                    i(false);
+                }
+                return;
+            }
+            WebKitFactory.installAsync("file://" + str, new a(this, str, file));
         }
     }
 }

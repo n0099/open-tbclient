@@ -22,12 +22,12 @@ import com.google.android.material.elevation.ElevationOverlayProvider;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.internal.ViewUtils;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SwitchMaterial extends SwitchCompat {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f10035f = 2131755871;
+    public static final int obfuscated_res_0x7f100363 = 2131755875;
     public static final int[][] ENABLED_CHECKED_STATES;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
@@ -80,9 +80,9 @@ public class SwitchMaterial extends SwitchCompat {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             if (this.materialThemeColorsThumbTintList == null) {
-                int color = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040171);
-                int color2 = MaterialColors.getColor(this, R.attr.colorControlActivated);
-                float dimension = getResources().getDimension(R.dimen.obfuscated_res_0x7f0704d2);
+                int color = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f04017e);
+                int color2 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f04016e);
+                float dimension = getResources().getDimension(R.dimen.obfuscated_res_0x7f0704d3);
                 if (this.elevationOverlayProvider.isThemeElevationOverlayEnabled()) {
                     dimension += ViewUtils.getParentAbsoluteElevation(this);
                 }
@@ -105,9 +105,9 @@ public class SwitchMaterial extends SwitchCompat {
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             if (this.materialThemeColorsTrackTintList == null) {
                 int[] iArr = new int[ENABLED_CHECKED_STATES.length];
-                int color = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040171);
-                int color2 = MaterialColors.getColor(this, R.attr.colorControlActivated);
-                int color3 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f04016a);
+                int color = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f04017e);
+                int color2 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f04016e);
+                int color3 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040177);
                 iArr[0] = MaterialColors.layer(color, color2, 0.54f);
                 iArr[1] = MaterialColors.layer(color, color3, 0.32f);
                 iArr[2] = MaterialColors.layer(color, color2, 0.12f);
@@ -155,7 +155,7 @@ public class SwitchMaterial extends SwitchCompat {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SwitchMaterial(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0405f2);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040678);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -176,7 +176,7 @@ public class SwitchMaterial extends SwitchCompat {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SwitchMaterial(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f10035f), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100363), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -195,7 +195,7 @@ public class SwitchMaterial extends SwitchCompat {
         }
         Context context2 = getContext();
         this.elevationOverlayProvider = new ElevationOverlayProvider(context2);
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f0406ba}, i, obfuscated_res_0x7f10035f, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{R.attr.obfuscated_res_0x7f04074e}, i, obfuscated_res_0x7f100363, new int[0]);
         this.useMaterialThemeColors = obtainStyledAttributes.getBoolean(0, false);
         obtainStyledAttributes.recycle();
     }

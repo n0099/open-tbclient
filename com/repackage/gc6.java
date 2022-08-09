@@ -1,25 +1,24 @@
 package com.repackage;
 
-import android.view.View;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import com.repackage.ue;
 /* loaded from: classes6.dex */
 public class gc6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ec6 a;
+    public ue<byte[]> a;
 
-    public gc6(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
+    public gc6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,23 +28,38 @@ public class gc6 {
                 return;
             }
         }
-        if (bdTypeListView == null) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(new cc6(tbPageContext, lc6.d, tbPageContext.getUniqueId()));
-        ec6 ec6Var = new ec6(tbPageContext, mc6.h, tbPageContext.getUniqueId());
-        this.a = ec6Var;
-        arrayList.add(ec6Var);
-        arrayList.add(new dc6(tbPageContext, lc6.c, tbPageContext.getUniqueId()));
-        arrayList.add(new fc6(tbPageContext, lc6.e, tbPageContext.getUniqueId()));
-        bdTypeListView.a(arrayList);
+        b();
     }
 
-    public void a(View.OnClickListener onClickListener) {
+    public byte[] a(String str) {
+        InterceptResult invokeL;
+        byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
-            this.a.b0(onClickListener);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            ue<byte[]> ueVar = this.a;
+            ue.b<byte[]> h = (ueVar == null || str == null) ? null : ueVar.h(str);
+            if (h == null || (bArr = h.b) == null) {
+                return null;
+            }
+            return bArr;
         }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
+            tr4.f();
+            this.a = tr4.d("tb.bawu_team_info");
+        }
+    }
+
+    public void c(String str, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) || StringUtils.isNull(str)) {
+            return;
+        }
+        b();
+        this.a.e(str, bArr, TbConfig.MILLS_7DAYS);
     }
 }

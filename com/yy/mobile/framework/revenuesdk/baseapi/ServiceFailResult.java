@@ -61,11 +61,11 @@ public final class ServiceFailResult {
             }
             INSTANCE = new Code();
             BIND_SUCCESS = 200200;
-            BIND_NOTREADY_TORETRY = 200300;
+            BIND_NOTREADY_TORETRY = BIND_NOTREADY_TORETRY;
             BIND_OTP_FAIL = 200403;
             BIND_OTP_TIMEOUT = 200408;
-            BIND_LOAD_FULL = 200406;
-            BIND_RESOURCE_CONFLICT = 200409;
+            BIND_LOAD_FULL = BIND_LOAD_FULL;
+            BIND_RESOURCE_CONFLICT = BIND_RESOURCE_CONFLICT;
             ARCH_PARSE_ERROR = ARCH_PARSE_ERROR;
         }
 

@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
 import com.baidubce.AbstractBceClient;
 import com.kwad.sdk.core.network.f;
 import com.kwad.sdk.core.network.o;
@@ -279,7 +280,7 @@ public final class b {
 
     public static OkHttpClient tG() {
         if (YZ == null) {
-            OkHttpClient.Builder connectionSpecs = new OkHttpClient.Builder().connectTimeout(3000L, TimeUnit.MILLISECONDS).readTimeout(6000L, TimeUnit.MILLISECONDS).connectionSpecs(Collections.singletonList(ConnectionSpec.MODERN_TLS));
+            OkHttpClient.Builder connectionSpecs = new OkHttpClient.Builder().connectTimeout(3000L, TimeUnit.MILLISECONDS).readTimeout(LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION, TimeUnit.MILLISECONDS).connectionSpecs(Collections.singletonList(ConnectionSpec.MODERN_TLS));
             try {
                 connectionSpecs.dns(new c());
             } catch (Throwable th) {

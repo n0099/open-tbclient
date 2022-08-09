@@ -1,94 +1,209 @@
 package com.repackage;
 
-import com.baidu.searchbox.pms.constants.PmsConstant;
-import com.baidu.searchbox.retrieve.log.bean.FetchLog;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.heytap.mcssdk.mode.CommandMessage;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class u49 {
+public class u49 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public static volatile u49 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public v49 a;
 
-    public static String a(com.baidu.ubs.analytics.b bVar) {
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public Map<String, JSONObject> b;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = 0;
+            this.b = new HashMap();
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755310793, "Lcom/repackage/u49;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755310793, "Lcom/repackage/u49;");
+                return;
+            }
+        }
+        b = y49.m();
+    }
+
+    public u49() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static u49 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (u49.class) {
+                    if (c == null) {
+                        c = new u49();
+                    }
+                }
+            }
+            return c;
+        }
+        return (u49) invokeV.objValue;
+    }
+
+    public void a(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) && !TextUtils.isEmpty(str) && TextUtils.isDigitsOnly(str) && b()) {
+            this.a.c(str, z);
+        }
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            d49 o = d49.o();
+            if (o == null || o.g("2980", 32)) {
+                return o == null || !o.d("2980");
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            d49 o = d49.o();
+            if (o == null || o.g("2980", 32)) {
+                return o == null || !o.d("2980");
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean d(i59 i59Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bVar)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            JSONArray jSONArray = new JSONArray();
-            JSONArray jSONArray2 = new JSONArray();
-            JSONArray jSONArray3 = new JSONArray();
-            JSONArray jSONArray4 = new JSONArray();
-            try {
-                jSONObject2.put("cuid", bVar.n().l());
-                jSONObject2.put("imei", bVar.n().getImei());
-                jSONObject2.put("osVersion", bVar.n().getOsVersion());
-                jSONObject2.put("brandName", bVar.n().r());
-                jSONObject2.put("deviceType", bVar.n().s());
-                jSONObject2.put("mac", bVar.n().t());
-                jSONObject2.put(CommandMessage.SDK_VERSION, bVar.n().u());
-                jSONObject2.put("testEnable", bVar.n().v());
-                jSONObject2.put("appVersion", bVar.n().w());
-                jSONObject2.put("appVersionName", bVar.n().w());
-                jSONObject2.put("screenWidth", bVar.n().y());
-                jSONObject2.put("screenHeight", bVar.n().z());
-                jSONObject2.put("screenDensity", bVar.n().A());
-                jSONObject2.put("netType", bVar.n().x());
-                jSONObject2.put("appName", bVar.n().C());
-                jSONObject2.put("expInfo", bVar.n().B());
-                jSONObject2.put("phone", bVar.n().getPhone());
-                for (com.baidu.ubs.analytics.a.n nVar : bVar.o()) {
-                    JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put(FetchLog.START_TIME, nVar.N());
-                    jSONObject3.put(FetchLog.END_TIME, nVar.O());
-                    jSONObject3.put("keepTime", nVar.P());
-                    jSONObject3.put("sessionId", nVar.I());
-                    jSONArray.put(jSONObject3);
-                }
-                for (com.baidu.ubs.analytics.a.l lVar : bVar.p()) {
-                    JSONObject jSONObject4 = new JSONObject();
-                    jSONObject4.put("pagerName", lVar.E());
-                    jSONObject4.put("sessionId", lVar.I());
-                    jSONObject4.put(FetchLog.END_TIME, lVar.O());
-                    jSONObject4.put(FetchLog.START_TIME, lVar.N());
-                    jSONObject4.put("path", lVar.getPath());
-                    jSONArray2.put(jSONObject4);
-                }
-                for (com.baidu.ubs.analytics.a.a aVar : bVar.getEvents()) {
-                    JSONObject jSONObject5 = new JSONObject();
-                    jSONObject5.put("type", aVar.G());
-                    jSONObject5.put("sessionId", aVar.I());
-                    jSONObject5.put("ext", aVar.H());
-                    jSONObject5.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, aVar.F());
-                    jSONObject5.put("page", aVar.E());
-                    jSONObject5.put("from", aVar.D());
-                    jSONArray3.put(jSONObject5);
-                }
-                for (com.baidu.ubs.analytics.a.i iVar : bVar.q()) {
-                    JSONObject jSONObject6 = new JSONObject();
-                    jSONObject6.put("url", iVar.getUrl());
-                    jSONObject6.put("sessionId", iVar.I());
-                    jSONObject6.put("method", iVar.getType());
-                    jSONObject6.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, iVar.F());
-                    jSONObject6.put(PushConstants.PARAMS, iVar.M());
-                    jSONArray4.put(jSONObject6);
-                }
-                jSONObject.put("deviceinfo", jSONObject2);
-                jSONObject.put("sessions", jSONArray);
-                jSONObject.put("events", jSONArray3);
-                jSONObject.put("pagers", jSONArray2);
-                jSONObject.put("nets", jSONArray4);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, i59Var)) == null) {
+            if (i59Var == null || i59Var.w() || !c()) {
+                return false;
             }
-            return jSONObject.toString();
+            this.a.f();
+            Map<String, a> v = this.a.v(7);
+            if (v != null && v.size() != 0) {
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    boolean z = false;
+                    for (String str : v.keySet()) {
+                        a aVar = v.get(str);
+                        if (aVar != null && !TextUtils.isEmpty(str)) {
+                            JSONObject jSONObject2 = new JSONObject();
+                            JSONArray jSONArray = new JSONArray();
+                            for (JSONObject jSONObject3 : aVar.b.values()) {
+                                jSONArray.put(jSONObject3);
+                            }
+                            jSONObject2.put("total", aVar.a);
+                            jSONObject2.put("data", jSONArray);
+                            jSONObject.put(str.replace("-", ""), jSONObject2);
+                            z = true;
+                        }
+                    }
+                    if (z) {
+                        k49 k49Var = new k49("2980");
+                        k49Var.y(jSONObject);
+                        k49Var.B(System.currentTimeMillis());
+                        i59Var.c(k49Var, k49Var.g());
+                        i59Var.a(v.keySet());
+                        return true;
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            return false;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public void e(Map<String, a> map, String str, String str2, int i, int i2) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{map, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) == null) || map == null) {
+            return;
+        }
+        if (map.containsKey(str)) {
+            aVar = map.get(str);
+        } else {
+            a aVar2 = new a();
+            map.put(str, aVar2);
+            aVar = aVar2;
+        }
+        Map<String, JSONObject> map2 = aVar.b;
+        if (map2.containsKey(str2) && b) {
+            Log.e("UBCArrivalStatics", "*******duplicate ubc id record: " + str2);
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("id", str2);
+            jSONObject.put("c", i);
+            jSONObject.put("cc", i2);
+            aVar.a += i;
+            map2.put(str2, jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void g(v49 v49Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, v49Var) == null) {
+            this.a = v49Var;
+        }
     }
 }

@@ -1,280 +1,246 @@
 package com.repackage;
 
-import android.view.LayoutInflater;
+import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.external.sticker.data.QmStickerItem;
-import com.baidu.tieba.view.widget.recordeffect.RecordEffectLayout;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import com.baidu.tieba.video.VideoItemData;
+import com.baidu.tieba.video.VideoItemModel;
+import com.baidu.tieba.videoplay.VideoPlayView;
+import com.baidu.tieba.videoplay.nad.AdVideoFlowFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.nc8;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Queue;
 /* loaded from: classes5.dex */
-public class bw8 extends BaseAdapter {
+public class bw8 implements IAdBaseAsyncController.a, lc8<VideoItemModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<QmStickerItem> a;
-    public RecordEffectLayout.i b;
+    public final TbPageContext<BaseFragmentActivity> a;
+    public final List<VideoItemModel> b;
+    public final nc8 c;
+    public final Queue<AdvertAppInfo> d;
+    public final Map<VideoItemModel, AdvertAppInfo> e;
+    public int f;
+    public boolean g;
+    public int h;
+    public VideoPlayView i;
+    public ic8 j;
+    public final boolean k;
+    public nc8.a l;
+    public int m;
+    public VideoItemModel n;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ bw8 b;
-
-        public a(bw8 bw8Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bw8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = bw8Var;
-            this.a = i;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || ((QmStickerItem) this.b.a.get(this.a * 2)).isSelect || this.b.b == null) {
-                return;
-            }
-            this.b.b.a((QmStickerItem) this.b.a.get(this.a * 2));
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ bw8 b;
-
-        public b(bw8 bw8Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bw8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = bw8Var;
-            this.a = i;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || ((QmStickerItem) this.b.a.get((this.a * 2) + 1)).isSelect || this.b.b == null) {
-                return;
-            }
-            this.b.b.a((QmStickerItem) this.b.a.get((this.a * 2) + 1));
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public RelativeLayout a;
-        public RelativeLayout b;
-        public TbImageView c;
-        public TbImageView d;
-        public TbImageView e;
-        public TbImageView f;
-        public ProgressBar g;
-        public ProgressBar h;
-        public ImageView i;
-
-        public c(bw8 bw8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bw8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public bw8() {
+    public bw8(@NonNull List list, TbPageContext<BaseFragmentActivity> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        boolean z = false;
+        this.f = 0;
+        this.g = true;
+        this.b = list;
+        this.a = tbPageContext;
+        nc8 nc8Var = (nc8) zb8.l().h(IAdBaseAsyncController.Type.VIDEO_FLOW, this);
+        this.c = nc8Var;
+        nc8Var.a(this.a);
+        this.d = new LinkedList();
+        this.e = new HashMap();
+        int d = rj5.a().d();
+        int e = rj5.a().e();
+        if (d > 0 && e > 0) {
+            z = true;
+        }
+        this.k = z;
+        if (z) {
+            ic8 ic8Var = new ic8();
+            this.j = ic8Var;
+            ic8Var.d(d - 1);
+            this.j.e(e);
+        }
+    }
+
+    @Override // com.repackage.lc8
+    public void a(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            if (i2 != 0) {
+                this.h = i2;
+            }
+            if (this.h - 2 <= i && this.d.isEmpty() && this.g) {
+                this.c.loadAd();
+                this.g = false;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.recapp.async.IAdBaseAsyncController.a
+    public void b(@Nullable List<AdvertAppInfo> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || bf7.e(list)) {
+            return;
+        }
+        this.g = true;
+        this.d.addAll(list);
+        VideoItemModel videoItemModel = new VideoItemModel(new VideoItemData(), 5);
+        this.n = videoItemModel;
+        jc8.b(this.b, this.m, this.j, this.f, videoItemModel, this.d.peek(), this);
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            VideoItemModel videoItemModel = this.b.get(i);
+            if (this.e.containsKey(videoItemModel)) {
+                this.c.m(this.e.get(videoItemModel));
+            }
+        }
+    }
+
+    public AdVideoFlowFragment g(int i) {
+        InterceptResult invokeI;
+        ob8 i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            AdvertAppInfo advertAppInfo = this.e.get(this.b.get(i));
+            if (advertAppInfo == null || (i2 = this.c.i(advertAppInfo)) == null) {
+                return null;
+            }
+            if ((i2 instanceof View) && (this.a.getPageActivity() instanceof hg0)) {
+                advertAppInfo.r = jg0.b(advertAppInfo.r, (hg0) this.a.getPageActivity(), (View) i2);
+            }
+            i2.setPageChangeHandler(this.l, i);
+            AdVideoFlowFragment adVideoFlowFragment = new AdVideoFlowFragment();
+            adVideoFlowFragment.t1(i2);
+            return adVideoFlowFragment;
+        }
+        return (AdVideoFlowFragment) invokeI.objValue;
+    }
+
+    public List<VideoItemModel> h(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (Map.Entry<VideoItemModel, AdvertAppInfo> entry : this.e.entrySet()) {
+                if (TextUtils.equals(entry.getValue().a, str)) {
+                    arrayList.add(entry.getKey());
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.k) {
+            this.f = 0;
+            this.h = rj5.a().d() - 1;
+            if (this.d.size() >= 1 || !this.g) {
+                return;
+            }
+            this.c.loadAd();
+            this.g = false;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.lc8
+    /* renamed from: j */
+    public void c(int i, int i2, kc8 kc8Var, VideoItemModel videoItemModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), kc8Var, videoItemModel}) == null) {
+            AdvertAppInfo advertAppInfo = (AdvertAppInfo) kc8Var;
+            this.d.remove(advertAppInfo);
+            this.f = i2;
+            this.e.put(videoItemModel, advertAppInfo);
+            VideoPlayView videoPlayView = this.i;
+            if (videoPlayView != null) {
+                videoPlayView.A();
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: c */
-    public QmStickerItem getItem(int i) {
-        InterceptResult invokeI;
+    @Override // com.repackage.lc8
+    /* renamed from: k */
+    public void e(int i, int i2, VideoItemModel videoItemModel, kc8 kc8Var, VideoItemModel videoItemModel2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? (QmStickerItem) ListUtils.getItem(this.a, i) : (QmStickerItem) invokeI.objValue;
-    }
-
-    public void d(List<QmStickerItem> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), videoItemModel, kc8Var, videoItemModel2}) == null) {
+            AdvertAppInfo advertAppInfo = (AdvertAppInfo) kc8Var;
+            this.d.remove(advertAppInfo);
+            this.f = i2;
+            this.e.put(videoItemModel, advertAppInfo);
         }
     }
 
-    public void e(RecordEffectLayout.i iVar) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.lc8
+    /* renamed from: l */
+    public void d(int i, int i2, int i3, kc8 kc8Var, VideoItemModel videoItemModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iVar) == null) {
-            this.b = iVar;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), kc8Var, videoItemModel}) == null) {
         }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
+    public void m(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (ListUtils.isEmpty(this.a)) {
-                return 0;
+        if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && this.k) {
+            this.m = i;
+            VideoItemModel videoItemModel = (VideoItemModel) bf7.d(this.b, i);
+            if (this.e.containsKey(videoItemModel)) {
+                AdvertAppInfo advertAppInfo = this.e.get(videoItemModel);
+                md8.o(advertAppInfo);
+                we7.b(we7.a(advertAppInfo));
+                this.c.c(advertAppInfo, true);
+                return;
             }
-            return (int) Math.ceil(this.a.size() / 2.0d);
+            this.c.c(null, false);
+            if (i <= this.f) {
+                return;
+            }
+            VideoItemModel videoItemModel2 = new VideoItemModel(new VideoItemData(), 5);
+            this.n = videoItemModel2;
+            jc8.b(this.b, i, this.j, this.f, videoItemModel2, this.d.peek(), this);
         }
-        return invokeV.intValue;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public void n(nc8.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return 0L;
+        if (interceptable == null || interceptable.invokeL(1048589, this, aVar) == null) {
+            this.l = aVar;
         }
-        return invokeI.longValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        c cVar;
+    public void o(VideoPlayView videoPlayView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0170, (ViewGroup) null);
-                cVar = new c(this);
-                cVar.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092152);
-                cVar.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0903d6);
-                cVar.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09213a);
-                cVar.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0915e9);
-                cVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0903bd);
-                cVar.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09214f);
-                cVar.f = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0903ce);
-                cVar.g = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f092151);
-                cVar.h = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0903d2);
-                view2.setTag(cVar);
-            } else {
-                cVar = (c) view2.getTag();
-            }
-            cVar.c.setAutoChangeStyle(false);
-            cVar.d.setAutoChangeStyle(false);
-            cVar.e.setAutoChangeStyle(false);
-            cVar.f.setAutoChangeStyle(false);
-            cVar.c.setGifIconSupport(false);
-            cVar.d.setGifIconSupport(false);
-            int i2 = i * 2;
-            if (ListUtils.getItem(this.a, i2) instanceof QmStickerItem) {
-                cVar.a.setVisibility(0);
-                if (this.a.get(i2).id == -1) {
-                    cVar.i.setVisibility(0);
-                    cVar.c.setVisibility(8);
-                    cVar.i.setImageResource(R.drawable.obfuscated_res_0x7f080ae6);
-                } else {
-                    cVar.i.setVisibility(8);
-                    cVar.c.setVisibility(0);
-                    cVar.c.J(this.a.get(i2).bgurl, 10, true);
-                }
-                cVar.a.setOnClickListener(new a(this, i));
-                if (this.a.get(i2).isDownLoading) {
-                    cVar.g.setVisibility(0);
-                    cVar.e.setVisibility(8);
-                } else {
-                    cVar.g.setVisibility(8);
-                    if (this.a.get(i2).isLocalSource) {
-                        cVar.e.setVisibility(8);
-                    } else {
-                        cVar.e.setVisibility(0);
-                    }
-                }
-                if (this.a.get(i2).isSelect) {
-                    cVar.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f081028);
-                } else {
-                    cVar.a.setBackgroundResource(R.color.transparent);
-                }
-            } else {
-                cVar.a.setVisibility(8);
-            }
-            int i3 = i2 + 1;
-            if (ListUtils.getItem(this.a, i3) instanceof QmStickerItem) {
-                cVar.b.setVisibility(0);
-                cVar.d.J(this.a.get(i3).bgurl, 10, true);
-                cVar.b.setOnClickListener(new b(this, i));
-                if (this.a.get(i3).isDownLoading) {
-                    cVar.h.setVisibility(0);
-                    cVar.f.setVisibility(8);
-                } else {
-                    cVar.h.setVisibility(8);
-                    if (this.a.get(i3).isLocalSource) {
-                        cVar.f.setVisibility(8);
-                    } else {
-                        cVar.f.setVisibility(0);
-                    }
-                }
-                if (this.a.get(i3).isSelect) {
-                    cVar.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f081028);
-                } else {
-                    cVar.b.setBackgroundResource(R.color.transparent);
-                }
-            } else {
-                cVar.b.setVisibility(8);
-            }
-            return view2;
+        if (interceptable == null || interceptable.invokeL(1048590, this, videoPlayView) == null) {
+            this.i = videoPlayView;
         }
-        return (View) invokeILL.objValue;
     }
 }

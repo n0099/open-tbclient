@@ -1,50 +1,35 @@
 package com.repackage;
 
+import android.app.Activity;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.relogin.ReloginManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class ea5 extends sa {
+public class ea5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdUniqueId a;
+    public int b;
+    public String c;
+    public Activity d;
+    public Map<String, String> e;
+    public Map<String, String> f;
+    public boolean g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ea5(int i) {
-        super(i);
+    public ea5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-    }
-
-    @Override // com.repackage.sa
-    public void a(int i, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, bdUniqueId) == null) {
-            ReloginManager.g().m(i, bdUniqueId);
-        }
-    }
-
-    @Override // com.repackage.sa
-    public void b(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdUniqueId) == null) {
-            ReloginManager.g().n(bdUniqueId);
         }
     }
 }

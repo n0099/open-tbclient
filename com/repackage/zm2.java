@@ -1,22 +1,15 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class zm2 implements hq2 {
+public class zm2 implements ec1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bn2 a;
-    public int b;
-    public int c;
-    public int d;
-    public float e;
 
     public zm2() {
         Interceptable interceptable = $ic;
@@ -28,48 +21,20 @@ public class zm2 implements hq2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = 0;
-        this.c = -16777216;
-        this.d = -1;
-        this.e = 0.0f;
-    }
-
-    @Override // com.repackage.hq2
-    public void a(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("radius")) {
-            bn2 bn2Var = new bn2();
-            this.a = bn2Var;
-            bn2Var.a(jSONObject);
-            if (this.a.isValid()) {
-                this.b = vm2.a(jSONObject.optString("color"), 0);
-                this.c = vm2.a(jSONObject.optString("fillColor"), -16777216);
-                this.d = jSONObject.optInt("radius", -1);
-                this.e = Math.abs(vm2.b(jSONObject.optDouble("strokeWidth", 0.0d)));
             }
         }
     }
 
-    @Override // com.repackage.hq2
-    public boolean isValid() {
+    @Override // com.repackage.ec1
+    public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            bn2 bn2Var = this.a;
-            return (bn2Var == null || !bn2Var.isValid() || this.d == -1) ? false : true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new q92());
+            arrayList.add(new s92());
+            return arrayList;
         }
-        return invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "coordinate ->" + this.a + "color ->" + this.b + "fillColor ->" + this.c + "radius ->" + this.d + "strokeWidth ->" + this.e;
-        }
-        return (String) invokeV.objValue;
+        return invokeV.objValue;
     }
 }

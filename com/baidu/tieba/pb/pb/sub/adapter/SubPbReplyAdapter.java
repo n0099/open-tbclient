@@ -15,16 +15,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sx7;
-import com.repackage.ws7;
-import com.repackage.wx7;
-/* loaded from: classes3.dex */
-public class SubPbReplyAdapter extends sx7<wx7, SubPbReplyViewHolder> {
+import com.repackage.su7;
+import com.repackage.vz7;
+import com.repackage.zz7;
+/* loaded from: classes4.dex */
+public class SubPbReplyAdapter extends vz7<zz7, SubPbReplyViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean k;
+    public boolean c;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SubPbReplyViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -51,11 +51,11 @@ public class SubPbReplyAdapter extends sx7<wx7, SubPbReplyViewHolder> {
                 }
             }
             this.c = 3;
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0909ba);
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0909bb);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0909f5);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0909f6);
         }
 
-        public void c() {
+        public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (this.c != TbadkApplication.getInst().getSkinType()) {
@@ -67,7 +67,7 @@ public class SubPbReplyAdapter extends sx7<wx7, SubPbReplyViewHolder> {
             }
         }
 
-        public void d(boolean z) {
+        public void c(boolean z) {
             View view2;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (view2 = this.b) == null) {
@@ -78,56 +78,56 @@ public class SubPbReplyAdapter extends sx7<wx7, SubPbReplyViewHolder> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SubPbReplyAdapter(ws7 ws7Var, BdUniqueId bdUniqueId) {
-        super(ws7Var, bdUniqueId);
+    public SubPbReplyAdapter(su7 su7Var, BdUniqueId bdUniqueId) {
+        super(su7Var, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ws7Var, bdUniqueId};
+            Object[] objArr = {su7Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((ws7) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((su7) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = true;
+        this.c = true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.an
-    /* renamed from: Z */
-    public SubPbReplyViewHolder M(ViewGroup viewGroup) {
+    @Override // com.repackage.bn
+    /* renamed from: s */
+    public SubPbReplyViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new SubPbReplyViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07c1, viewGroup, false)) : (SubPbReplyViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new SubPbReplyViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d07eb, viewGroup, false)) : (SubPbReplyViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.sx7, com.repackage.an
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, wx7 wx7Var, SubPbReplyViewHolder subPbReplyViewHolder) {
+    @Override // com.repackage.vz7, com.repackage.bn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, zz7 zz7Var, SubPbReplyViewHolder subPbReplyViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wx7Var, subPbReplyViewHolder})) == null) {
-            String format = String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11d8), String.valueOf(wx7Var == null ? 0 : wx7Var.a()));
-            subPbReplyViewHolder.d(this.k);
-            ((SubPbReplyViewHolder) this.g).a.setText(format);
-            ((SubPbReplyViewHolder) this.g).c();
-            return subPbReplyViewHolder.a();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, zz7Var, subPbReplyViewHolder})) == null) {
+            String format = String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1214), String.valueOf(zz7Var == null ? 0 : zz7Var.a()));
+            subPbReplyViewHolder.c(this.c);
+            ((SubPbReplyViewHolder) this.viewholder).a.setText(format);
+            ((SubPbReplyViewHolder) this.viewholder).b();
+            return subPbReplyViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
     }
 
-    public void b0(boolean z) {
+    public void u(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.k = z;
+            this.c = z;
         }
     }
 }

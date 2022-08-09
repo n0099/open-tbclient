@@ -1,11 +1,30 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
-import java.util.List;
+import android.content.Context;
+import android.graphics.Canvas;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 /* loaded from: classes5.dex */
 public interface bg5 {
-    int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2);
+    void a();
 
-    int b(int i);
+    void b(Canvas canvas);
+
+    void c(ListView listView, Context context, AttributeSet attributeSet);
+
+    void onDraw(Canvas canvas);
+
+    boolean onInterceptTouchEvent(MotionEvent motionEvent);
+
+    void onMeasure(int i, int i2);
+
+    void onSizeChanged(int i, int i2, int i3, int i4);
+
+    boolean onTouchEvent(MotionEvent motionEvent);
+
+    void requestLayout();
+
+    void setAdapter(ListAdapter listAdapter);
 }

@@ -48,7 +48,7 @@ public class SingleThreadEmotionHorizontalAdater extends BaseAdapter {
             this.a = (SingleThreadEmotionHorizontalView) view2;
         }
 
-        public void b(EmotionPackageData emotionPackageData) {
+        public void a(EmotionPackageData emotionPackageData) {
             SingleThreadEmotionHorizontalView singleThreadEmotionHorizontalView;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, emotionPackageData) == null) || (singleThreadEmotionHorizontalView = this.a) == null || emotionPackageData == null) {
@@ -115,7 +115,7 @@ public class SingleThreadEmotionHorizontalAdater extends BaseAdapter {
             if (emotionGridViewHolder == null) {
                 emotionGridViewHolder = (EmotionGridViewHolder) view2.getTag();
             }
-            emotionGridViewHolder.b(this.a.get(i));
+            emotionGridViewHolder.a(this.a.get(i));
             return view2;
         }
         return (View) invokeILL.objValue;

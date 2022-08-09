@@ -1,25 +1,9 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.android.util.devices.RomUtils;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class pa0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import com.baidu.searchbox.live.interfaces.net.NetResponse;
+/* loaded from: classes7.dex */
+public interface pa0<T> {
+    void onNetResponse(NetResponse netResponse, T t);
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String a = ia0.a();
-            if (TextUtils.isEmpty(a)) {
-                return false;
-            }
-            return a.equalsIgnoreCase(RomUtils.MANUFACTURER_XIAOMI);
-        }
-        return invokeV.booleanValue;
-    }
+    T onParseResponseInBackground(NetResponse netResponse);
 }

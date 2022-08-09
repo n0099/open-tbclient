@@ -49,13 +49,13 @@ public class BasicSeperateBaMemberItemView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03d8, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03db, this);
             this.b = inflate;
-            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f0913a6);
-            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091f7d);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0922ca);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0922c3);
-            this.g = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091986);
+            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f09144d);
+            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092079);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923db);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923d3);
+            this.g = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091a5c);
         }
     }
 

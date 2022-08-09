@@ -13,6 +13,7 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j60;
+import com.repackage.l60;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -357,7 +358,7 @@ public class BindStateManager {
                     creatMethodIntent.putExtra(Constants.EXTRA_PUSH_USER_ID, str2);
                     creatMethodIntent.putExtra(Constants.EXTRA_PUSH_APP_ID, str3);
                     try {
-                        j60.g(context).f(context, creatMethodIntent);
+                        l60.g(context).f(context, creatMethodIntent);
                     } catch (Exception e) {
                         ListenerManager.getInstance().removeListener(addListener);
                         onRegisterNotifyResult(context, addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, false);
@@ -485,7 +486,7 @@ public class BindStateManager {
                     MyTimeTask myTimeTask = new MyTimeTask();
                     task = myTimeTask;
                     myTimeTask.setContext(context);
-                    timer.schedule(task, 180000L);
+                    timer.schedule(task, LiveFeedPageSdk.REFRESH_TIME);
                 }
                 LogUtils.d(TAG, "bind > start binding!");
                 if (!TextUtils.isEmpty(str)) {
@@ -507,7 +508,7 @@ public class BindStateManager {
                     creatMethodIntent.putExtra(Constants.EXTRA_PUSH_USER_ID, str2);
                     creatMethodIntent.putExtra(Constants.EXTRA_PUSH_APP_ID, str3);
                     try {
-                        j60.g(context).f(context, creatMethodIntent);
+                        l60.g(context).f(context, creatMethodIntent);
                         return;
                     } catch (Exception e) {
                         LogUtils.e(TAG, "Exception ", e);

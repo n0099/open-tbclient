@@ -302,7 +302,7 @@ public class SoftInputUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, resources)) == null) {
             if (sMinPanelHeight == 0) {
-                sMinPanelHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07042b);
+                sMinPanelHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07042c);
             }
             return sMinPanelHeight;
         }
@@ -314,7 +314,7 @@ public class SoftInputUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             if (sMinSoftInputHeight == 0) {
-                sMinSoftInputHeight = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07042c);
+                sMinSoftInputHeight = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07042d);
             }
             return sMinSoftInputHeight;
         }

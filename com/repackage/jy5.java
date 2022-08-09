@@ -1,51 +1,104 @@
 package com.repackage;
 
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 /* loaded from: classes6.dex */
-public class jy5<T extends BaseCardInfo> {
+public class jy5 {
     public static /* synthetic */ Interceptable $ic;
+    public static Timer a;
+    public static int b;
+    public static ExecutorService c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Object a;
 
-    public jy5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static class a extends TimerTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Runnable a;
+
+        public a(Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {runnable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = runnable;
+        }
+
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.run();
             }
         }
     }
 
-    public void a(View view2, T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, t) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755572309, "Lcom/repackage/jy5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755572309, "Lcom/repackage/jy5;");
+                return;
+            }
         }
+        int availableProcessors = Runtime.getRuntime().availableProcessors();
+        b = availableProcessors;
+        c = Executors.newFixedThreadPool(availableProcessors);
     }
 
-    public void b(View view2, T t, Object obj) {
+    public static void a() {
+        Timer timer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, t, obj) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || (timer = a) == null) {
+            return;
         }
+        timer.cancel();
+        a = null;
     }
 
-    public boolean c(View view2, T t, String str) {
-        InterceptResult invokeLLL;
+    public static Timer b(Runnable runnable) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, view2, t, str)) == null) {
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, runnable)) == null) {
+            Timer timer = a;
+            if (timer != null) {
+                return timer;
+            }
+            a = new Timer();
+            a.scheduleAtFixedRate(new a(runnable), 0L, 2000L);
+            return a;
         }
-        return invokeLLL.booleanValue;
+        return (Timer) invokeL.objValue;
+    }
+
+    public static void c(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
+            c.execute(runnable);
+        }
     }
 }

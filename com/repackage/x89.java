@@ -1,226 +1,268 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
-import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ugc.utils.FileUtils;
-import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 /* loaded from: classes7.dex */
-public class x89 {
+public class x89 extends q89 implements la9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public y89 B;
+    public String C;
+    public Thread D;
+    public long E;
+    public long F;
 
-    public static Bitmap a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (q99.a(str)) {
-                return null;
-            }
-            byte[] decode = Base64.decode(str, 0);
-            return BitmapFactory.decodeByteArray(decode, 0, decode.length);
-        }
-        return (Bitmap) invokeL.objValue;
-    }
+    /* loaded from: classes7.dex */
+    public class a extends ma9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ x89 a;
 
-    public static int b(BitmapFactory.Options options, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, options, i, i2)) == null) {
-            int i3 = options.outHeight;
-            int i4 = options.outWidth;
-            int i5 = 1;
-            if (i3 > i2 || i4 > i) {
-                int i6 = i3 / 2;
-                int i7 = i4 / 2;
-                while (i6 / i5 > i2 && i7 / i5 > i) {
-                    i5 *= 2;
+        public a(x89 x89Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x89Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return i5;
+            this.a = x89Var;
         }
-        return invokeLII.intValue;
-    }
 
-    public static Bitmap c(Bitmap bitmap, Bitmap.CompressFormat compressFormat, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, bitmap, compressFormat, i)) == null) {
-            if (bitmap == null) {
-                return null;
+        @Override // com.repackage.ma9, com.repackage.la9
+        public void onExceptionThrown(String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.a.z == null || this.a.l) {
+                return;
             }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            bitmap.compress(compressFormat, i, byteArrayOutputStream);
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+            this.a.z.onExceptionThrown(str);
         }
-        return (Bitmap) invokeLLI.objValue;
-    }
 
-    public static Bitmap d(Bitmap bitmap, int i, int i2, int i3, int i4, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)})) == null) {
-            Bitmap createBitmap = Bitmap.createBitmap(bitmap, i, i2, i3, i4);
-            if (z && bitmap != null && !bitmap.equals(createBitmap) && !bitmap.isRecycled()) {
-                bitmap.recycle();
-            }
-            return createBitmap;
-        }
-        return (Bitmap) invokeCommon.objValue;
-    }
-
-    public static Bitmap e(String str, int i, int i2, float f) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)})) == null) {
-            if (FileUtils.isExists(str)) {
-                BitmapFactory.Options options = new BitmapFactory.Options();
-                options.inJustDecodeBounds = true;
-                BitmapFactory.decodeFile(str, options);
-                options.inSampleSize = b(options, i, i2);
-                options.inJustDecodeBounds = false;
-                Bitmap decodeFile = BitmapFactory.decodeFile(str, options);
-                if (f % 360.0f == 0.0f) {
-                    return decodeFile;
+        @Override // com.repackage.ma9
+        public void onFinishedWriting(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+                this.a.k = true;
+                if (this.a.z == null || this.a.l) {
+                    return;
                 }
-                if (decodeFile == null) {
-                    return null;
-                }
-                Matrix matrix = new Matrix();
-                matrix.postRotate(f);
-                Bitmap createBitmap = Bitmap.createBitmap(decodeFile, 0, 0, decodeFile.getWidth(), decodeFile.getHeight(), matrix, true);
-                decodeFile.recycle();
-                return createBitmap;
+                this.a.z.onFinishedWriting(z);
             }
-            return null;
         }
-        return (Bitmap) invokeCommon.objValue;
     }
 
-    public static Bitmap f(String str) {
-        FileInputStream fileInputStream;
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x89(String str, String str2, int[] iArr) throws Exception {
+        super(0, str, iArr);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, iArr};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (int[]) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.C = str2;
+        this.B.e(str2);
+        F(this);
+    }
+
+    @Override // com.repackage.q89
+    public void B(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            long j2 = j * 1000;
+            if (j2 < 0) {
+                j2 = 0;
+            }
+            this.E = j2;
+            if (this.e != null) {
+                if (j2 > this.e.getDuration()) {
+                    j2 = this.e.getDuration();
+                }
+                synchronized (this.c) {
+                    this.e.seek(j2);
+                }
+            }
+        }
+    }
+
+    @Override // com.repackage.q89
+    public void C() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.k) {
+            return;
+        }
+        long currentPosition = this.e.getCurrentPosition();
+        long j = this.E;
+        long j2 = currentPosition - j;
+        long j3 = this.F;
+        long duration = j3 > 0 ? j3 - j : this.e.getDuration();
+        double d = duration == 0 ? 0.0d : j2 / duration;
+        double d2 = d >= 0.0d ? d : 0.0d;
+        onProgressChanged(this.n, d2 > 1.0d ? 1.0d : d2, j2);
+    }
+
+    @Override // com.repackage.q89
+    public void I() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.I();
+            Thread thread = this.D;
+            if (thread == null || !thread.isAlive()) {
+                Thread thread2 = new Thread(this);
+                this.D = thread2;
+                thread2.start();
+            }
+            super.I();
+        }
+    }
+
+    public void R(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            long j2 = j * 1000;
+            this.F = j2;
+            if (this.e != null) {
+                if (j2 > this.e.getDuration()) {
+                    j2 = this.e.getDuration();
+                }
+                synchronized (this.c) {
+                    this.e.h(j2);
+                }
+            }
+        }
+    }
+
+    public void S(ma9 ma9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ma9Var) == null) {
+            this.z = ma9Var;
+            this.B.d(new a(this));
+        }
+    }
+
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.l = true;
+            this.k = true;
+            Thread thread = this.D;
+            if (thread != null) {
+                try {
+                    thread.interrupt();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                this.D = null;
+            }
             try {
-                fileInputStream = new FileInputStream(str);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-                fileInputStream = null;
+                this.B.g();
+            } catch (Exception e2) {
+                rb9.e("VideoMuxer", "cancel finishWriting error:" + e2.getMessage());
             }
-            return BitmapFactory.decodeStream(fileInputStream);
         }
-        return (Bitmap) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0057  */
-    /* JADX WARN: Removed duplicated region for block: B:26:0x005c  */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x005f  */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x0064  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static Bitmap g(Bitmap bitmap, int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
-        int i3;
-        int i4;
+    @Override // com.repackage.la9
+    public void onCancel() {
+        ma9 ma9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (bitmap == null || bitmap.isRecycled()) {
-                return null;
-            }
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            if (width == 0 || height == 0 || i == 0 || i2 == 0) {
-                return bitmap;
-            }
-            float f = width;
-            float f2 = height;
-            float f3 = (f * 1.0f) / f2;
-            float f4 = i * 1.0f;
-            float f5 = i2;
-            float f6 = f4 / f5;
-            if (Math.abs(f3 - f6) < 0.01d) {
-                i4 = width;
-            } else if (f3 > f6) {
-                i4 = (i * height) / i2;
-            } else {
-                i3 = (i2 * width) / i;
-                i4 = width;
-                int i5 = width <= i4 ? (width - i4) / 2 : 0;
-                int i6 = height <= i3 ? (height - i3) / 2 : 0;
-                Matrix matrix = new Matrix();
-                matrix.postScale(f4 / f, (f5 * 1.0f) / f2);
-                Bitmap createBitmap = Bitmap.createBitmap(bitmap, i5, i6, i4, i3, matrix, true);
-                if (z && bitmap != null && !bitmap.equals(createBitmap)) {
-                    bitmap.recycle();
-                }
-                return createBitmap;
-            }
-            i3 = height;
-            if (width <= i4) {
-            }
-            if (height <= i3) {
-            }
-            Matrix matrix2 = new Matrix();
-            matrix2.postScale(f4 / f, (f5 * 1.0f) / f2);
-            Bitmap createBitmap2 = Bitmap.createBitmap(bitmap, i5, i6, i4, i3, matrix2, true);
-            if (z) {
-                bitmap.recycle();
-            }
-            return createBitmap2;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (ma9Var = this.z) == null) {
+            return;
         }
-        return (Bitmap) invokeCommon.objValue;
+        ma9Var.onCancel();
     }
 
-    public static Context getContext() {
+    @Override // com.repackage.la9
+    public void onExceptionThrown(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || this.z == null || this.l) {
+            return;
+        }
+        this.z.onExceptionThrown(str);
+    }
+
+    @Override // com.repackage.la9
+    public void onProgressChanged(int i, double d, long j) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Double.valueOf(d), Long.valueOf(j)}) == null) || this.z == null || this.l) {
+            return;
+        }
+        this.z.onProgressChanged(i, d, j);
+    }
+
+    @Override // com.repackage.la9
+    public void onTrackEnd(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            try {
+                this.B.b();
+            } catch (Exception e) {
+                rb9.e("VideoMuxer", "onTrackEnd finishWriting error:" + e.getMessage());
+            }
+        }
+    }
+
+    @Override // com.repackage.q89
+    public u89 p() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? z49.c().getContext() : (Context) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            y89 y89Var = new y89(this.C, m(), i());
+            this.B = y89Var;
+            return y89Var;
+        }
+        return (u89) invokeV.objValue;
     }
 
-    public static Bitmap h(Bitmap bitmap, int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.q89
+    public void t() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (i <= 0 || i2 <= 0 || bitmap == null || bitmap.isRecycled()) {
-                return bitmap;
-            }
-            if ((bitmap.getWidth() > bitmap.getHeight()) != (i > i2)) {
-                i2 = i;
-                i = i2;
-            }
-            return (i == bitmap.getWidth() && i2 == bitmap.getHeight()) ? bitmap : i(bitmap, i, i2, z);
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
         }
-        return (Bitmap) invokeCommon.objValue;
     }
 
-    public static Bitmap i(Bitmap bitmap, int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.q89
+    public void u() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (bitmap == null || bitmap.isRecycled()) {
-                return null;
-            }
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            Matrix matrix = new Matrix();
-            matrix.postScale(i / width, i2 / height);
-            Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
-            if (z && bitmap != null && !bitmap.equals(createBitmap)) {
-                bitmap.recycle();
-            }
-            return createBitmap;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
         }
-        return (Bitmap) invokeCommon.objValue;
+    }
+
+    @Override // com.repackage.q89
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            if (this.D != null) {
+                this.D = null;
+            }
+            try {
+                this.B.b();
+            } catch (Exception e) {
+                rb9.e("VideoMuxer", "onStop finishWriting error:" + e.getMessage());
+            }
+        }
     }
 }

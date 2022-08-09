@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes5.dex */
-public class ai2 extends ce2<ti2> {
+public class ai2 extends te2<vh2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,33 +27,24 @@ public class ai2 extends ce2<ti2> {
         }
     }
 
-    @Override // com.repackage.ce2
+    @Override // com.repackage.te2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setRate" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "showConfirmBar" : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ce2
+    @Override // com.repackage.te2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull ti2 ti2Var) {
-        Object obj;
-        float floatValue;
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull vh2 vh2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ti2Var) == null) || (obj = command.obj) == null) {
-            return;
-        }
-        if (obj instanceof Float) {
-            floatValue = ((Float) obj).floatValue();
-        } else {
-            floatValue = obj instanceof Double ? ((Double) obj).floatValue() : Float.MIN_VALUE;
-        }
-        if (floatValue != Float.MIN_VALUE) {
-            ti2Var.setSpeed(floatValue);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, vh2Var) == null) {
+            int i = command.arg1;
             String str = command.what;
-            d(ti2Var, str, "playbackRate: " + command.obj, false);
+            d(vh2Var, str, "(keyboardHeight)" + i, false);
+            vh2Var.A0(i);
         }
     }
 }

@@ -1,127 +1,454 @@
 package com.repackage;
 
-import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.LiveFeedPageSdk;
+import com.baidu.live.business.model.data.LiveRoomEntity;
+import com.baidu.live.feed.search.model.data.LiveErrorInfo;
+import com.baidu.live.feed.search.model.data.LiveSearchHotRankData;
+import com.baidu.live.feed.search.model.data.LiveSearchHotWordListData;
+import com.baidu.live.feed.search.model.data.LiveSearchSuggestionsBean;
+import com.baidu.live.feed.search.model.data.RequestSearchData;
+import com.baidu.live.feed.search.model.data.SearchResultBean;
+import com.baidu.pass.biometrics.face.liveness.PassFaceRecogManager;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.live.interfaces.net.NetResponse;
+import com.baidu.searchbox.live.interfaces.service.AppInfoService;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
+import java.util.List;
 import java.util.Map;
+import kotlin.Pair;
+import kotlin.TuplesKt;
+import kotlin.collections.MapsKt__MapsKt;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.jvm.internal.TypeIntrinsics;
-import kotlin.text.Regex;
-import kotlin.text.StringsKt__StringsKt;
+import kotlin.text.StringsKt__StringsJVMKt;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public final class z80 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, String> a;
-    public final String b;
+    public boolean a;
+    public AppInfoService b;
 
-    public z80(String url) {
+    /* loaded from: classes7.dex */
+    public interface a<T> {
+        void onFail(int i, String str);
+
+        void onSuccess(T t);
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b implements ca0<List<? extends LiveRoomEntity>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a a;
+
+        public b(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ca0
+        /* renamed from: a */
+        public void onNetResponse(NetResponse netResponse, List<? extends LiveRoomEntity> list, Map<String, String> map, List<String> list2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(1048576, this, netResponse, list, map, list2) == null) {
+                if (netResponse != null && netResponse.isSuccessful() && list != null) {
+                    this.a.onSuccess(list);
+                } else if (netResponse == null) {
+                    this.a.onFail(-111, "网络不给力，请稍后重试");
+                } else {
+                    this.a.onFail(netResponse.responseCode, netResponse.exception);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ca0
+        /* renamed from: b */
+        public List<LiveRoomEntity> onParseResponseInBackground(NetResponse netResponse) {
+            InterceptResult invokeL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netResponse)) == null) {
+                if (netResponse == null || (str = netResponse.decodedResponseStr) == null) {
+                    return null;
+                }
+                if (!netResponse.isSuccessful()) {
+                    str = null;
+                }
+                if (str != null) {
+                    return LiveSearchHotRankData.parse(str);
+                }
+                return null;
+            }
+            return (List) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class c implements ca0<LiveSearchHotWordListData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z80 a;
+        public final /* synthetic */ a b;
+
+        public c(z80 z80Var, a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z80Var, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z80Var;
+            this.b = aVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ca0
+        /* renamed from: a */
+        public void onNetResponse(NetResponse netResponse, LiveSearchHotWordListData liveSearchHotWordListData, Map<String, String> map, List<String> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(1048576, this, netResponse, liveSearchHotWordListData, map, list) == null) {
+                this.a.a = false;
+                if (netResponse != null && netResponse.isSuccessful() && liveSearchHotWordListData != null) {
+                    this.b.onSuccess(liveSearchHotWordListData);
+                } else if (netResponse == null) {
+                    this.b.onFail(-111, "网络不给力，请稍后重试");
+                } else {
+                    this.b.onFail(netResponse.responseCode, netResponse.exception);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ca0
+        /* renamed from: b */
+        public LiveSearchHotWordListData onParseResponseInBackground(NetResponse netResponse) {
+            InterceptResult invokeL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netResponse)) == null) {
+                this.a.a = false;
+                if (netResponse == null || (str = netResponse.decodedResponseStr) == null) {
+                    return null;
+                }
+                if (!netResponse.isSuccessful()) {
+                    str = null;
+                }
+                if (str != null) {
+                    LiveSearchHotWordListData liveSearchHotWordListData = new LiveSearchHotWordListData(null, 1, null);
+                    liveSearchHotWordListData.parseJson(str);
+                    return liveSearchHotWordListData;
+                }
+                return null;
+            }
+            return (LiveSearchHotWordListData) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class d implements ca0<SearchResultBean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a a;
+
+        public d(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ca0
+        /* renamed from: a */
+        public void onNetResponse(NetResponse netResponse, SearchResultBean searchResultBean, Map<String, String> map, List<String> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(1048576, this, netResponse, searchResultBean, map, list) == null) {
+                if (netResponse != null && netResponse.isSuccessful() && searchResultBean != null) {
+                    this.a.onSuccess(searchResultBean);
+                } else if (netResponse == null) {
+                    this.a.onFail(-111, "网络不给力，请稍后重试");
+                } else {
+                    this.a.onFail(netResponse.responseCode, netResponse.exception);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ca0
+        /* renamed from: b */
+        public SearchResultBean onParseResponseInBackground(NetResponse netResponse) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netResponse)) == null) {
+                JSONObject jSONObject = null;
+                if (netResponse == null || !netResponse.isSuccessful()) {
+                    return null;
+                }
+                try {
+                    String str = netResponse.decodedResponseStr;
+                    if (str == null) {
+                        str = "";
+                    }
+                    jSONObject = new JSONObject(str);
+                } catch (JSONException unused) {
+                }
+                SearchResultBean searchResultBean = new SearchResultBean();
+                if (jSONObject != null) {
+                    searchResultBean.parse(jSONObject);
+                }
+                return searchResultBean;
+            }
+            return (SearchResultBean) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class e implements ca0<LiveSearchSuggestionsBean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a a;
+
+        public e(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ca0
+        /* renamed from: a */
+        public void onNetResponse(NetResponse netResponse, LiveSearchSuggestionsBean liveSearchSuggestionsBean, Map<String, String> map, List<String> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(1048576, this, netResponse, liveSearchSuggestionsBean, map, list) == null) {
+                if (liveSearchSuggestionsBean != null) {
+                    this.a.onSuccess(liveSearchSuggestionsBean);
+                } else if (netResponse == null) {
+                    this.a.onFail(-111, "网络不给力，请稍后重试");
+                } else {
+                    this.a.onFail(netResponse.responseCode, netResponse.exception);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ca0
+        /* renamed from: b */
+        public LiveSearchSuggestionsBean onParseResponseInBackground(NetResponse netResponse) {
+            InterceptResult invokeL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netResponse)) == null) {
+                if (netResponse != null && netResponse.isSuccessful() && netResponse.netErrorCode == 0 && (str = netResponse.decodedResponseStr) != null && !TextUtils.isEmpty(str)) {
+                    JSONObject jSONObject = new JSONObject(str);
+                    LiveSearchSuggestionsBean liveSearchSuggestionsBean = new LiveSearchSuggestionsBean();
+                    liveSearchSuggestionsBean.parse(jSONObject);
+                    LiveErrorInfo liveErrorInfo = liveSearchSuggestionsBean.liveErrorInfo;
+                    if (liveErrorInfo != null && liveErrorInfo.errno == 0) {
+                        return liveSearchSuggestionsBean;
+                    }
+                }
+                return null;
+            }
+            return (LiveSearchSuggestionsBean) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class f implements ca0<Integer> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a a;
+        public final /* synthetic */ boolean b;
+
+        public f(a aVar, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+            this.b = z;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ca0
+        /* renamed from: a */
+        public void onNetResponse(NetResponse netResponse, Integer num, Map<String, String> map, List<String> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(1048576, this, netResponse, num, map, list) == null) {
+                if (netResponse != null && !netResponse.isSuccessful()) {
+                    this.a.onFail(netResponse.responseCode, netResponse.exception);
+                } else if (num != null && num.intValue() == 0) {
+                    this.a.onSuccess(Boolean.valueOf(this.b));
+                } else if (netResponse == null) {
+                    this.a.onFail(-111, "网络不给力，请稍后重试");
+                } else {
+                    this.a.onFail(netResponse.responseCode, netResponse.exception);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ca0
+        /* renamed from: b */
+        public Integer onParseResponseInBackground(NetResponse netResponse) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netResponse)) == null) {
+                if (netResponse == null || !netResponse.isSuccessful()) {
+                    return null;
+                }
+                String str = netResponse.decodedResponseStr;
+                Intrinsics.checkExpressionValueIsNotNull(str, "res.decodedResponseStr");
+                if (!StringsKt__StringsJVMKt.isBlank(str)) {
+                    int optInt = new JSONObject(netResponse.decodedResponseStr).optInt("errno");
+                    int i = netResponse.netErrorCode;
+                    return Integer.valueOf(optInt);
+                }
+                return null;
+            }
+            return (Integer) invokeL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755158273, "Lcom/repackage/z80;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755158273, "Lcom/repackage/z80;");
+        }
+    }
+
+    public z80() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {url};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(url, "url");
-        this.b = url;
+        this.b = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
     }
 
-    public final Map<String, String> a() {
-        InterceptResult invokeV;
+    public final void b(a<List<LiveRoomEntity>> aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Map<String, String> map = this.a;
-            if (map != null) {
-                if (map != null) {
-                    return TypeIntrinsics.asMutableMap(map);
-                }
-                throw new NullPointerException("null cannot be cast to non-null type kotlin.collections.MutableMap<kotlin.String, kotlin.String>");
-            }
-            this.a = new HashMap();
-            if (StringsKt__StringsKt.indexOf$default((CharSequence) this.b, '?', 0, false, 6, (Object) null) < 0) {
-                Map<String, String> map2 = this.a;
-                if (map2 != null) {
-                    return (HashMap) map2;
-                }
-                throw new NullPointerException("null cannot be cast to non-null type java.util.HashMap<kotlin.String, kotlin.String>");
-            }
-            Object[] array = new Regex("\\?").split(this.b, 0).toArray(new String[0]);
-            if (array != null) {
-                String[] strArr = (String[]) array;
-                if (strArr.length < 2) {
-                    Map<String, String> map3 = this.a;
-                    if (map3 != null) {
-                        return (HashMap) map3;
-                    }
-                    throw new NullPointerException("null cannot be cast to non-null type java.util.HashMap<kotlin.String, kotlin.String>");
-                }
-                Object[] array2 = new Regex("&").split(strArr[1], 0).toArray(new String[0]);
-                if (array2 != null) {
-                    String[] strArr2 = (String[]) array2;
-                    if (strArr2.length == 0) {
-                        Map<String, String> map4 = this.a;
-                        if (map4 != null) {
-                            return (HashMap) map4;
-                        }
-                        throw new NullPointerException("null cannot be cast to non-null type java.util.HashMap<kotlin.String, kotlin.String>");
-                    }
-                    for (String str : strArr2) {
-                        Object[] array3 = new Regex("=").split(str, 0).toArray(new String[0]);
-                        if (array3 != null) {
-                            String[] strArr3 = (String[]) array3;
-                            if (strArr3.length >= 2) {
-                                Map<String, String> map5 = this.a;
-                                if (map5 == null) {
-                                    throw new NullPointerException("null cannot be cast to non-null type java.util.HashMap<kotlin.String, kotlin.String>");
-                                }
-                                ((HashMap) map5).put(strArr3[0], strArr3[1]);
-                            }
-                        } else {
-                            throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T>");
-                        }
-                    }
-                    Map<String, String> map6 = this.a;
-                    if (map6 != null) {
-                        return (HashMap) map6;
-                    }
-                    throw new NullPointerException("null cannot be cast to non-null type java.util.HashMap<kotlin.String, kotlin.String>");
-                }
-                throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T>");
-            }
-            throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T>");
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            Pair[] pairArr = new Pair[3];
+            pairArr[0] = TuplesKt.to("client_type", "2");
+            AppInfoService appInfoService = this.b;
+            pairArr[1] = TuplesKt.to("subapp_version", (appInfoService == null || (r1 = appInfoService.getVersionName()) == null) ? "" : "");
+            pairArr[2] = TuplesKt.to("sdk_version", LiveFeedPageSdk.LIVE_SDK_VERSION);
+            da0.h("https://tiebac.baidu.com/bdlive/room/hot_rank", MapsKt__MapsKt.mapOf(pairArr), new b(aVar), 17, 223, null);
         }
-        return (Map) invokeV.objValue;
     }
 
-    public final String b(String str) {
-        InterceptResult invokeL;
+    public final void c(a<LiveSearchHotWordListData> aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(this.b) || TextUtils.isEmpty(str)) {
-                return "";
-            }
-            String str2 = null;
-            try {
-                str2 = Uri.parse(this.b).getQueryParameter(str);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return !TextUtils.isEmpty(str2) ? str2 : a().get(str);
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || this.a) {
+            return;
         }
-        return (String) invokeL.objValue;
+        this.a = true;
+        da0.h("https://tiebac.baidu.com/bdlive/search/hotWord", MapsKt__MapsKt.mapOf(TuplesKt.to("scene", "tab"), TuplesKt.to("sdk_version", LiveFeedPageSdk.LIVE_SDK_VERSION)), new c(this, aVar), 17, 223, null);
+    }
+
+    public final void d(String str, String str2, a<SearchResultBean> aVar, RequestSearchData requestSearchData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, aVar, requestSearchData) == null) {
+            da0.f("https://tiebac.baidu.com/livefeed/search?", MapsKt__MapsKt.mapOf(TuplesKt.to("scene", "tab"), TuplesKt.to("tab", "rec"), TuplesKt.to("word", str), TuplesKt.to("pn", str2), TuplesKt.to("resource", requestSearchData.resource), TuplesKt.to("refresh_index", requestSearchData.refreshIndex), TuplesKt.to("refresh_type", requestSearchData.refreshType), TuplesKt.to("session_id", requestSearchData.sessionId), TuplesKt.to("upload_ids", requestSearchData.uploadIds), TuplesKt.to("channel_id", requestSearchData.channelId), TuplesKt.to("request_type", requestSearchData.requestType), TuplesKt.to("sdk_version", LiveFeedPageSdk.LIVE_SDK_VERSION)), new d(aVar), (r16 & 8) != 0 ? 0 : 17, (r16 & 16) != 0 ? 0 : PassFaceRecogManager.k, (r16 & 32) != 0 ? null : null, (r16 & 64) != 0 ? null : null);
+        }
+    }
+
+    public final void e(String str, a<LiveSearchSuggestionsBean> aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, aVar) == null) {
+            da0.f("https://tiebac.baidu.com/livefeed/search/querysug", MapsKt__MapsKt.mapOf(TuplesKt.to(ActVideoSetting.WIFI_DISPLAY, str), TuplesKt.to("scene", "tab"), TuplesKt.to("sdk_version", LiveFeedPageSdk.LIVE_SDK_VERSION)), new e(aVar), (r16 & 8) != 0 ? 0 : 17, (r16 & 16) != 0 ? 0 : 225, (r16 & 32) != 0 ? null : null, (r16 & 64) != 0 ? null : null);
+        }
+    }
+
+    public final void f(String str, String str2, String str3, String str4, boolean z, String str5, a<Boolean> aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, str3, str4, Boolean.valueOf(z), str5, aVar}) == null) {
+            if ((str5.length() > 0) && !StringsKt__StringsJVMKt.startsWith$default(str5, "sv_", false, 2, null)) {
+                str5 = "sv_" + str5;
+            }
+            da0.h(z ? "https://tiebac.baidu.com/bdlive/user/follow" : "https://tiebac.baidu.com/bdlive/user/unfollow", MapsKt__MapsKt.mapOf(TuplesKt.to("uk", str3), TuplesKt.to("third_id", str2), TuplesKt.to("source", "star_live_float_android"), TuplesKt.to("room_id", str), TuplesKt.to("type", str4), TuplesKt.to("nid", str5), TuplesKt.to("scene", "tab")), new f(aVar, z), 17, 112, null);
+        }
     }
 }

@@ -1,14 +1,9 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.graphics.Rect;
-import android.os.Looper;
-import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.launchtips.scene.SceneType;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.diskCache.ImagesInvalidService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,28 +11,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr2;
+import java.io.File;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.TreeMap;
 /* loaded from: classes7.dex */
-public final class w02 extends r02<v02> {
+public class w02 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final cr2 a;
-    public final dr2 b;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v02 a;
-        public final /* synthetic */ w02 b;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ File b;
 
-        public a(w02 w02Var, v02 v02Var) {
+        public a(String str, File file) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {w02Var, v02Var};
+                Object[] objArr = {str, file};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,18 +48,48 @@ public final class w02 extends r02<v02> {
                     return;
                 }
             }
-            this.b = w02Var;
-            this.a = v02Var;
+            this.a = str;
+            this.b = file;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Bitmap p;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (p = zd3.p()) == null) {
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (w02.class) {
+                    bh4.S(this.a, this.b, true);
+                }
+                w02.c();
             }
-            Message.obtain(this.b, 2, v02.a(this.a.b, p)).sendToTarget();
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b implements Comparator<Long> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(Long l, Long l2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, l, l2)) == null) ? l2.compareTo(l) : invokeLL.intValue;
         }
     }
 
@@ -75,118 +106,196 @@ public final class w02 extends r02<v02> {
                 return;
             }
         }
-        c = sg1.a;
+        a = jh1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w02(Looper looper) {
-        super(looper);
+    public w02() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {looper};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = cr2.a.a("simple_parser");
-        this.b = (dr2) cr2.a.a("hsv_parser");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.r02
-    /* renamed from: c */
-    public void a(v02 v02Var) {
+    public static File b(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, v02Var) == null) || v02Var == null) {
-            return;
-        }
-        if (!e(v02Var.b)) {
-            if (c) {
-                Log.d("WhitePageHandler", ">> stop to capture, page is not top, webViewId =" + v02Var.b);
-                return;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) {
+            String f = f();
+            if (f == null) {
+                return null;
             }
-            return;
+            File file = new File(f + File.separator + j);
+            if (file.exists()) {
+                bh4.L(file);
+            }
+            bh4.h(file);
+            return file;
         }
-        f(v02Var);
+        return (File) invokeJ.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.r02
-    /* renamed from: d */
-    public void b(v02 v02Var) {
+    public static void c() {
+        z03 b0;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, v02Var) == null) || v02Var == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || (b0 = z03.b0()) == null || TextUtils.isEmpty(b0.getAppId())) {
             return;
         }
-        if (!e(v02Var.b)) {
-            if (c) {
-                Log.d("WhitePageHandler", ">> stop to parse capture, page is not top, webViewId = " + v02Var.b);
-                return;
-            }
-            return;
+        File file = new File(vj2.g().getPath() + File.separator + "launch_tips");
+        if (file.exists() && file.isDirectory()) {
+            bh4.j(file);
         }
-        Bitmap bitmap = v02Var.d;
-        qz1 f = rq2.f();
-        View B = vl2.U().B(v02Var.b);
-        if (bitmap != null && f != null && B != null) {
-            if (c) {
-                Log.d("WhitePageHandler", ">> start parsing capture");
-            }
-            Rect b = rq2.b(bitmap, f, B);
-            this.a.c(rq2.d(f));
-            if (!rq2.h() && this.a.a(bitmap, b)) {
-                if (c) {
-                    Log.d("WhitePageHandler", ">> capture is full white screen.");
+    }
+
+    public static File d(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j)) == null) {
+            File[] g = g();
+            if (g != null && g.length != 0) {
+                File file = null;
+                for (File file2 : g) {
+                    try {
+                        long parseLong = Long.parseLong(file2.getName());
+                        if (parseLong == j) {
+                            file = file2;
+                        } else if (j - parseLong >= ImagesInvalidService.FILE_VALID_TIME) {
+                            bh4.j(file2);
+                        }
+                    } catch (NumberFormatException unused) {
+                        bh4.j(file2);
+                    }
                 }
-                i12 i12Var = new i12();
-                i12Var.e(SceneType.SCENE_WHITE_SCREEN_L1);
-                i12Var.d(v02Var.b);
+                return file == null ? b(j) : file;
+            }
+            return b(j);
+        }
+        return (File) invokeJ.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            File[] g = g();
+            if (g == null) {
+                return null;
+            }
+            TreeMap treeMap = new TreeMap(new b());
+            long i = i(System.currentTimeMillis());
+            for (File file : g) {
+                try {
+                    long parseLong = Long.parseLong(file.getName());
+                    if (i - parseLong >= ImagesInvalidService.FILE_VALID_TIME) {
+                        bh4.j(file);
+                    } else {
+                        List<String> F = bh4.F(file);
+                        if (F != null && F.size() > 0) {
+                            treeMap.put(Long.valueOf(parseLong), F);
+                        }
+                    }
+                } catch (NumberFormatException unused) {
+                    bh4.j(file);
+                }
+            }
+            if (treeMap.size() == 0) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder("\n（二）历史日志");
+            for (Map.Entry entry : treeMap.entrySet()) {
+                sb.append("\n----------【");
+                sb.append(new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date(((Long) entry.getKey()).longValue())));
+                sb.append("】----------");
+                for (String str : (List) entry.getValue()) {
+                    if (!TextUtils.isEmpty(str)) {
+                        sb.append("\n");
+                        sb.append(str);
+                    }
+                }
+            }
+            sb.append("\n");
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            z03 b0 = z03.b0();
+            if (b0 == null) {
+                return null;
+            }
+            String appId = b0.getAppId();
+            if (TextUtils.isEmpty(appId)) {
+                return null;
+            }
+            return vj2.g().getPath() + File.separator + "launch_tips_v2" + File.separator + appId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static File[] g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            String f = f();
+            if (f == null) {
+                return null;
+            }
+            File file = new File(f);
+            if (file.exists() && file.isDirectory()) {
+                return file.listFiles();
+            }
+            return null;
+        }
+        return (File[]) invokeV.objValue;
+    }
+
+    public static void h(long j, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(65545, null, j, str) == null) {
+            long i = i(j);
+            if (i == -1) {
+                if (a) {
+                    Log.e("LaunchTipsFileHelper", "get timestampByDay failed");
+                    return;
+                }
                 return;
             }
-            double d = this.b.d(bitmap, b);
-            i12 i12Var2 = new i12();
-            if (rq2.g() && d >= 0.5d) {
-                if (c) {
-                    Log.d("WhitePageHandler", ">> capture is part white screen ratio: " + d);
-                }
-                i12Var2.e(SceneType.SCENE_WHITE_SCREEN_L3);
-                i12Var2.d(v02Var.b);
-            } else if (d >= 0.7d) {
-                if (c) {
-                    Log.d("WhitePageHandler", ">> capture is part white screen ratio: " + d);
-                }
-                i12Var2.e(SceneType.SCENE_WHITE_SCREEN_L2);
-                i12Var2.d(v02Var.b);
-            } else {
-                x02.b().a();
+            File d = d(i);
+            if (d == null || !d.exists()) {
+                return;
             }
-        } else if (c) {
-            Log.d("WhitePageHandler", ">> stop to parse capture, capture or fragment or webView is null.");
+            td3.k(new a(str, d), "saveLaunchTipsLog");
         }
     }
 
-    public final boolean e(String str) {
-        InterceptResult invokeL;
+    public static long i(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? TextUtils.equals(ce3.B(), str) : invokeL.booleanValue;
-    }
-
-    public final void f(v02 v02Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, v02Var) == null) || v02Var == null) {
-            return;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65546, null, j)) == null) {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+            try {
+                Date parse = simpleDateFormat.parse(simpleDateFormat.format(new Date(j)));
+                if (parse == null) {
+                    return -1L;
+                }
+                return parse.getTime();
+            } catch (ParseException e) {
+                if (jh1.a) {
+                    e.printStackTrace();
+                }
+                return -1L;
+            }
         }
-        if (c) {
-            Log.d("WhitePageHandler", ">> start to get capture.");
-        }
-        ce3.e0(new a(this, v02Var));
+        return invokeJ.longValue;
     }
 }

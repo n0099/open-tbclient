@@ -85,7 +85,7 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
         this.a = new a(this, i, bVar);
     }
 
-    public static <T> void j(int i, @Nullable TbPageContext<?> tbPageContext, @Nullable T t) {
+    public static <T> void i(int i, @Nullable TbPageContext<?> tbPageContext, @Nullable T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(65537, null, i, tbPageContext, t) == null) {
             CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(i, t);
@@ -98,14 +98,14 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
         }
     }
 
-    public static <T> void k(int i, @Nullable T t) {
+    public static <T> void j(int i, @Nullable T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65538, null, i, t) == null) {
-            j(i, null, t);
+            i(i, null, t);
         }
     }
 
-    public void d(@NonNull TbPageContext<?> tbPageContext) {
+    public void f(@NonNull TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
             this.a.setSelfListener(true);

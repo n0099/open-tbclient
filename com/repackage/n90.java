@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class n90 {
     public static /* synthetic */ Interceptable $ic;
@@ -47,13 +46,12 @@ public final class n90 {
 
     @JvmStatic
     @JvmOverloads
-    public static final m90 b(String str, String pageId) {
+    public static final m90 b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, pageId)) == null) {
-            Intrinsics.checkNotNullParameter(pageId, "pageId");
-            LiveFeedPageSdk.n("LiveFeedPlayerPool", "getPlayer pageId= " + pageId + WebvttCueParser.CHAR_SPACE + a.size());
-            List<m90> list = a.get(pageId);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            LiveFeedPageSdk.liveLog("LiveFeedPlayerPool", "getPlayer pageId= " + str2 + WebvttCueParser.CHAR_SPACE + a.size());
+            List<m90> list = a.get(str2);
             if (list == null) {
                 list = new ArrayList<>();
             }
@@ -64,12 +62,12 @@ public final class n90 {
                     m90Var.detachFromContainer();
                     m90Var.stop();
                 }
-                LiveFeedPageSdk.n("LiveFeedPlayerPool", "getPlayer " + m90Var);
+                LiveFeedPageSdk.liveLog("LiveFeedPlayerPool", "getPlayer " + m90Var);
                 return m90Var;
             }
             m90 m90Var2 = new m90(new o90(str, 0, null, null, 14, null));
             list.add(m90Var2);
-            a.put(pageId, list);
+            a.put(str2, list);
             return m90Var2;
         }
         return (m90) invokeLL.objValue;
@@ -83,12 +81,11 @@ public final class n90 {
     }
 
     @JvmStatic
-    public static final void d(String pageId) {
+    public static final void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, pageId) == null) {
-            Intrinsics.checkNotNullParameter(pageId, "pageId");
-            LiveFeedPageSdk.n("LiveFeedPlayerPool", "release playerMap= " + a.size());
-            List<m90> list = a.get(pageId);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            LiveFeedPageSdk.liveLog("LiveFeedPlayerPool", "release playerMap= " + a.size());
+            List<m90> list = a.get(str);
             if (list == null || list.isEmpty()) {
                 return;
             }
@@ -97,7 +94,7 @@ public final class n90 {
                 m90Var.release();
             }
             list.clear();
-            a.remove(pageId);
+            a.remove(str);
         }
     }
 }

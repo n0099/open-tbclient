@@ -2,6 +2,7 @@ package com.baidu.tieba.frs;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.ForumTagInfo;
 import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.data.PostTopicData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,10 +18,12 @@ public class ForumWriteData implements Serializable {
     public String avatar;
     public int categoryId;
     public int defaultZone;
+    public String firstCategory;
     public String firstDir;
     public final String forumId;
     public int forumLevel;
     public final String forumName;
+    public ForumTagInfo forumTagInfo;
     public FrsTabInfoData frsTabInfo;
     public String mFrom;
     public int mem_type;

@@ -12,9 +12,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ni;
-import com.repackage.pi;
-import com.repackage.ud5;
+import com.repackage.oi;
+import com.repackage.qi;
+import com.repackage.te5;
 import tbclient.Personalized.DataReq;
 /* loaded from: classes3.dex */
 public class FeedRecRequest extends NetMessage {
@@ -56,7 +56,7 @@ public class FeedRecRequest extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            ud5.c(builder, true, false, true);
+            te5.c(builder, true, false, true);
             builder.need_tags = 0;
             builder.load_type = Integer.valueOf(this.loadType);
             builder.page_thread_count = Integer.valueOf(this.threadCount);
@@ -64,12 +64,12 @@ public class FeedRecRequest extends NetMessage {
             builder.pn = Integer.valueOf(this.pn);
             builder.sug_count = Integer.valueOf(this.suggestCount);
             builder.tag_code = 0;
-            builder.scr_w = Integer.valueOf(pi.k(TbadkCoreApplication.getInst()));
-            builder.scr_h = Integer.valueOf(pi.i(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Double.valueOf(pi.h(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(qi.k(TbadkCoreApplication.getInst()));
+            builder.scr_h = Integer.valueOf(qi.i(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Double.valueOf(qi.h(TbadkCoreApplication.getInst()));
             builder.q_type = Integer.valueOf(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1);
             builder.need_forumlist = Integer.valueOf(this.needForumlist);
-            builder.new_net_type = Integer.valueOf(ni.I());
+            builder.new_net_type = Integer.valueOf(oi.I());
             builder.new_install = Integer.valueOf(TbadkCoreApplication.getInst().checkNewUser() ? 1 : 0);
             builder.request_times = Integer.valueOf(this.requestTime);
             builder.invoke_source = this.sourceFrom;

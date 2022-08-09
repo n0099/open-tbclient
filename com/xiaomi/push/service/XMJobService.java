@@ -27,7 +27,7 @@ public class XMJobService extends Service {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public IBinder f838a;
+    public IBinder f839a;
 
     @TargetApi(21)
     /* loaded from: classes8.dex */
@@ -37,7 +37,7 @@ public class XMJobService extends Service {
         public Binder a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Handler f839a;
+        public Handler f840a;
 
         /* renamed from: com.xiaomi.push.service.XMJobService$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
@@ -111,10 +111,10 @@ public class XMJobService extends Service {
                 intent.setAction("com.xiaomi.push.timer");
                 intent.setPackage(getPackageName());
                 startService(intent);
-                if (this.f839a == null) {
-                    this.f839a = new HandlerC0704a(this);
+                if (this.f840a == null) {
+                    this.f840a = new HandlerC0704a(this);
                 }
-                Handler handler = this.f839a;
+                Handler handler = this.f840a;
                 handler.sendMessage(Message.obtain(handler, 1, jobParameters));
                 return true;
             }
@@ -161,7 +161,7 @@ public class XMJobService extends Service {
                 return;
             }
         }
-        this.f838a = null;
+        this.f839a = null;
     }
 
     @Override // android.app.Service
@@ -169,7 +169,7 @@ public class XMJobService extends Service {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-            IBinder iBinder = this.f838a;
+            IBinder iBinder = this.f839a;
             return iBinder != null ? iBinder : new Binder();
         }
         return (IBinder) invokeL.objValue;
@@ -181,7 +181,7 @@ public class XMJobService extends Service {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
             if (Build.VERSION.SDK_INT >= 21) {
-                this.f838a = new a(this).a;
+                this.f839a = new a(this).a;
             }
             a = this;
         }

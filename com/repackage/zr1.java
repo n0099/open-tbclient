@@ -1,61 +1,116 @@
 package com.repackage;
 
-import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.charset.StandardCharsets;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class zr1 {
+public class zr1 extends yr1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ zr1 c;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(195947643, "Lcom/repackage/zr1$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(195947643, "Lcom/repackage/zr1$a;");
+        public a(zr1 zr1Var, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zr1Var, str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[BasePendingOperation.OperationType.values().length];
-            a = iArr;
-            try {
-                iArr[BasePendingOperation.OperationType.OPERATION_TYPE_MAIN_THREAD.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[BasePendingOperation.OperationType.OPERATION_TYPE_REQUEST.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
+            this.c = zr1Var;
+            this.a = str;
+            this.b = str2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                byte[] bytes = this.a.getBytes(StandardCharsets.UTF_8);
+                if (bytes.length > 3145728) {
+                    this.c.d(this.b, new zs1(202, "Data Too Large."));
+                    return;
+                }
+                String d = dh4.d(bytes, false);
+                if (TextUtils.isEmpty(d)) {
+                    this.c.d(this.b, new zs1(1001, "Execute Fail."));
+                    return;
+                }
+                zs1 zs1Var = new zs1(0);
+                zs1Var.g(TiebaStatic.LogFields.RESULT, d);
+                this.c.d(this.b, zs1Var);
             }
         }
     }
 
-    public static vr1 a(BasePendingOperation.OperationType operationType) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zr1(@NonNull ap1 ap1Var) {
+        super(ap1Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ap1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((ap1) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.repackage.cp1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CalcMD5Api" : (String) invokeV.objValue;
+    }
+
+    public zs1 x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, operationType)) == null) {
-            int i = a.a[operationType.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    return new as1();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#calcMD5", false);
+            Pair<zs1, JSONObject> s = s(str);
+            zs1 zs1Var = (zs1) s.first;
+            if (zs1Var.isSuccess()) {
+                JSONObject jSONObject = (JSONObject) s.second;
+                String optString = jSONObject.optString("data");
+                if (TextUtils.isEmpty(optString)) {
+                    return new zs1(202, "Empty Data.");
                 }
-                return new yr1();
+                td3.k(new a(this, optString, jSONObject.optString("cb")), "CalcMD5Api");
+                return zs1.f();
             }
-            return new xr1();
+            return zs1Var;
         }
-        return (vr1) invokeL.objValue;
+        return (zs1) invokeL.objValue;
     }
 }

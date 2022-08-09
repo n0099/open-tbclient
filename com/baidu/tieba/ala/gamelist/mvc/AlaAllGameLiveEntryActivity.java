@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lt5;
+import com.repackage.dv5;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
@@ -45,7 +45,7 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
     public NoScrollGridView f;
     public View g;
     public LinearLayout h;
-    public lt5 i;
+    public dv5 i;
     public int j;
     public ArrayList<AlaSquareTabInfo> k;
     public IAlaSquareTabController l;
@@ -138,21 +138,31 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
         }
     }
 
+    public final void F0() {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (intent = getIntent()) == null) {
+            return;
+        }
+        this.j = intent.getIntExtra(AlaAllGameLiveEntryActivityConfig.ALA_ALL_GAME_ENTRY_HAS_SEARCH, 0);
+        this.k = intent.getParcelableArrayListExtra(AlaAllGameLiveEntryActivityConfig.ALA_ALL_GAME_ENTRY_DATA);
+    }
+
     public final void initView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LinearLayout linearLayout = (LinearLayout) View.inflate(getPageContext().getPageActivity(), R.layout.obfuscated_res_0x7f0d00e2, null);
             this.a = linearLayout;
-            NavigationBar navigationBar = (NavigationBar) linearLayout.findViewById(R.id.obfuscated_res_0x7f092439);
+            NavigationBar navigationBar = (NavigationBar) linearLayout.findViewById(R.id.obfuscated_res_0x7f09255b);
             this.b = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.b.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f01fb));
-            LinearLayout linearLayout2 = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091cab);
+            this.b.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f01fe));
+            LinearLayout linearLayout2 = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091d95);
             this.c = linearLayout2;
-            TextView textView = (TextView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f091cd5);
+            TextView textView = (TextView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f091dc1);
             this.d = textView;
             textView.setClickable(false);
-            this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091cbd);
+            this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091da7);
             this.c.setOnClickListener(new a(this));
             if (this.j == 1) {
                 this.c.setVisibility(0);
@@ -160,9 +170,9 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
                 this.c.setVisibility(8);
             }
             this.h = (LinearLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00e4, (ViewGroup) null);
-            this.g = this.a.findViewById(R.id.obfuscated_res_0x7f091c95);
-            this.i = new lt5(getPageContext());
-            NoScrollGridView noScrollGridView = (NoScrollGridView) this.a.findViewById(R.id.obfuscated_res_0x7f0901e2);
+            this.g = this.a.findViewById(R.id.obfuscated_res_0x7f091d7e);
+            this.i = new dv5(getPageContext());
+            NoScrollGridView noScrollGridView = (NoScrollGridView) this.a.findViewById(R.id.obfuscated_res_0x7f0901ea);
             this.f = noScrollGridView;
             noScrollGridView.setOnItemClickListener(new b(this));
             this.f.setAdapter((ListAdapter) this.i);
@@ -182,7 +192,7 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             this.b.onChangeSkinType(getPageContext(), i);
             SkinManager.setImageResource(this.e, R.drawable.icon_search);
             SkinManager.setViewTextColor(this.d, (int) R.color.enter_forum_search_text_color);
@@ -193,9 +203,9 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            p0();
+            F0();
             initView();
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(AlaCmdConfigCustom.CMD_ALA_SQUARE_TAB_CONTROLLER, IAlaSquareTabController.class);
             if (runTask == null || runTask.getData() == null) {
@@ -208,19 +218,9 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
             this.l = null;
         }
-    }
-
-    public final void p0() {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (intent = getIntent()) == null) {
-            return;
-        }
-        this.j = intent.getIntExtra(AlaAllGameLiveEntryActivityConfig.ALA_ALL_GAME_ENTRY_HAS_SEARCH, 0);
-        this.k = intent.getParcelableArrayListExtra(AlaAllGameLiveEntryActivityConfig.ALA_ALL_GAME_ENTRY_DATA);
     }
 }

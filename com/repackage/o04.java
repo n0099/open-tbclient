@@ -1,73 +1,165 @@
 package com.repackage;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+@Autowired
 /* loaded from: classes6.dex */
-public abstract class o04 extends f23 {
+public final class o04 {
     public static /* synthetic */ Interceptable $ic;
+    public static final o04 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o04(f13 f13Var, String str, String str2) {
-        super(f13Var, str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {f13Var, str, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static final class a implements n04 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.n04
+        public void a(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.repackage.n04
+        public void b(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.repackage.n04
+        public void c(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.repackage.n04
+        public void d(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.repackage.n04
+        public void e(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.repackage.n04
+        public void f() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            }
+        }
+
+        @Override // com.repackage.n04
+        public void g(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.repackage.n04
+        public void h(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.repackage.n04
+        public void i(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.repackage.n04
+        public void j() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            }
+        }
+
+        @Override // com.repackage.n04
+        public void k(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048586, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755493538, "Lcom/repackage/o04;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755493538, "Lcom/repackage/o04;");
                 return;
             }
         }
-        this.c = str2;
+        a = new o04();
     }
 
-    @Override // com.repackage.f23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, i03 i03Var) {
-        InterceptResult invokeLLLL;
+    public o04() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, i03Var)) == null) {
-            rz1 V = vl2.U().V();
-            if (V == null) {
-                ix1.c(this.c, "fragment manager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            s04 s04Var = (s04) V.n(ew3.class);
-            if (s04Var == null) {
-                ix1.c(this.c, "fragment is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            return k(s04Var.b(), unitedSchemeEntity, callbackHandler);
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public void j(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, callbackHandler) == null) {
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }
 
-    public abstract boolean k(@NonNull r04 r04Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler);
+    @Inject(force = false)
+    public final n04 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a() : (n04) invokeV.objValue;
+    }
 }

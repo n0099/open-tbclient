@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oi;
 import com.repackage.pi;
+import com.repackage.qi;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumViewHolder> {
@@ -174,21 +174,21 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
             this.g = recentlyVisitedForumListAdapter;
             view2.setOnClickListener(new a(this, recentlyVisitedForumListAdapter));
             view2.setOnLongClickListener(new b(this, recentlyVisitedForumListAdapter));
-            this.a = view2.findViewById(R.id.obfuscated_res_0x7f09213a);
-            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a24);
+            this.a = view2.findViewById(R.id.obfuscated_res_0x7f092239);
+            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a5f);
             this.d = barImageView;
             barImageView.setShowOval(true);
             this.d.setShowOuterBorder(false);
             this.d.setShowInnerBorder(true);
-            this.d.setStrokeWith(pi.f(TbadkCoreApplication.getInst(), R.dimen.tbds3));
+            this.d.setStrokeWith(qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds3));
             this.d.setStrokeColorResId(R.color.CAM_X0401);
             this.d.setPlaceHolderAutoChangeSkinType(1);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a38);
-            this.e = (MessageRedDotView) view2.findViewById(R.id.obfuscated_res_0x7f091a97);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a17);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a73);
+            this.e = (MessageRedDotView) view2.findViewById(R.id.obfuscated_res_0x7f091b77);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a52);
             this.e.setThreeDotMode(2);
             this.e.setEnterForumStyle(true);
-            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09074d);
+            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090777);
             this.f = imageView;
             imageView.setOnClickListener(new c(this, recentlyVisitedForumListAdapter));
         }
@@ -231,7 +231,7 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
         o(visitedForumData, forumViewHolder);
         n(visitedForumData, forumViewHolder);
         p(visitedForumData, forumViewHolder);
-        forumViewHolder.d.J(visitedForumData.getForumImageUrl(), 10, false);
+        forumViewHolder.d.K(visitedForumData.getForumImageUrl(), 10, false);
         forumViewHolder.d.setStrokeColorResId(R.color.CAM_X0201);
         forumViewHolder.d.setStrokeWith(3);
         forumViewHolder.d.setShowOval(true);
@@ -261,7 +261,7 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
     public ForumViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) ? new ForumViewHolder(this, this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0725, (ViewGroup) null)) : (ForumViewHolder) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) ? new ForumViewHolder(this, this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d074c, (ViewGroup) null)) : (ForumViewHolder) invokeLI.objValue;
     }
 
     public void i(LinkedList<VisitedForumData> linkedList) {
@@ -316,7 +316,7 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
             return;
         }
         String forumName = visitedForumData.getForumName();
-        if (oi.isEmpty(forumName)) {
+        if (pi.isEmpty(forumName)) {
             forumName = "";
         }
         forumViewHolder.b.setText(forumName);

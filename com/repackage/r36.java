@@ -1,95 +1,102 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import tbclient.ItemManage.DataReq;
-import tbclient.ItemManage.ItemManageReqIdl;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class r36 implements u75 {
+public final class r36 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final int b;
 
-    public r36(int i, int i2) {
+    public static final w26 a(o0 o0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, o0Var)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            return (w26) o0Var.d(w26.class);
+        }
+        return (w26) invokeL.objValue;
+    }
+
+    public static final t26 b(o0 o0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, o0Var)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            return (t26) o0Var.d(t26.class);
+        }
+        return (t26) invokeL.objValue;
+    }
+
+    public static final long c(o0 o0Var) {
+        InterceptResult invokeL;
+        h26 a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, o0Var)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            t26 b = b(o0Var);
+            if (b == null || (a = b.a()) == null) {
+                return 0L;
             }
+            return a.g();
         }
-        this.a = i;
-        this.b = i2;
+        return invokeL.longValue;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public static final s26 d(o0 o0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, o0Var)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            return (s26) o0Var.d(s26.class);
+        }
+        return (s26) invokeL.objValue;
     }
 
-    public void b() {
+    public static final u26 e(o0 o0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = 1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, o0Var)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            return (u26) o0Var.d(u26.class);
         }
+        return (u26) invokeL.objValue;
     }
 
-    public void c() {
+    public static final long f(o0 o0Var) {
+        InterceptResult invokeL;
+        h26 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a++;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, o0Var)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            t26 b = b(o0Var);
+            if (b == null || (a = b.a()) == null) {
+                return 0L;
+            }
+            return a.j();
         }
+        return invokeL.longValue;
     }
 
-    @Override // com.repackage.w75
-    public Object h(boolean z) {
-        InterceptResult invokeZ;
+    public static final boolean g(o0 o0Var, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            DataReq.Builder builder = new DataReq.Builder();
-            builder.pn = Integer.valueOf(this.a);
-            builder.rn = 15;
-            builder.tab_id = Integer.valueOf(this.b);
-            ItemManageReqIdl.Builder builder2 = new ItemManageReqIdl.Builder();
-            DataReq build = builder.build(false);
-            builder2.data = build;
-            ud5.a(build, false);
-            return builder2.build(false);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, o0Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            return j - f(o0Var) < 0;
         }
-        return invokeZ.objValue;
+        return invokeLJ.booleanValue;
     }
 
-    @Override // com.repackage.t75
-    public HashMap<String, Object> w() {
-        InterceptResult invokeV;
+    public static final boolean h(o0 o0Var, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, o0Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            return j - f(o0Var) > c(o0Var);
         }
-        return (HashMap) invokeV.objValue;
-    }
-
-    @Override // com.repackage.t75
-    public HashMap<String, String> y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return null;
-        }
-        return (HashMap) invokeV.objValue;
+        return invokeLJ.booleanValue;
     }
 }

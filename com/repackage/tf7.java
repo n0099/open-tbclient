@@ -1,7 +1,6 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,19 +8,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.Item;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class tf7 implements nn {
+public class tf7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId g;
+    public static final HashMap<String, tf7> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public Long a;
+    public long a;
     public String b;
     public String c;
-    public List<String> d;
-    public Double e;
-    public Integer f;
+    public int d;
+    public String e;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +33,7 @@ public class tf7 implements nn {
                 return;
             }
         }
-        g = BdUniqueId.gen();
+        f = new HashMap<>();
     }
 
     public tf7() {
@@ -49,63 +46,36 @@ public class tf7 implements nn {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = "";
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static tf7 a(long j, String str) {
+        InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65538, null, j, str)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(j);
+            sb.append("_");
+            if (TextUtils.isEmpty(str)) {
+                str = "";
+            }
+            sb.append(str);
+            return f.get(sb.toString());
+        }
+        return (tf7) invokeJL.objValue;
     }
 
-    public Long b() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (Long) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public Double d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (Double) invokeV.objValue;
-    }
-
-    public Integer g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : (Integer) invokeV.objValue;
-    }
-
-    @Override // com.repackage.nn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? g : (BdUniqueId) invokeV.objValue;
-    }
-
-    public List<String> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (List) invokeV.objValue;
-    }
-
-    public void i(Item item) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, item) == null) {
-            this.a = item.item_id;
-            this.b = item.item_name;
-            Double d = item.icon_size;
-            this.c = item.icon_url;
-            this.d = item.tags;
-            this.e = item.score;
-            this.f = item.star;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(this.a);
+            sb.append("_");
+            sb.append(TextUtils.isEmpty(this.b) ? "" : this.b);
+            f.put(sb.toString(), this);
         }
     }
 }

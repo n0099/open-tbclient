@@ -1,36 +1,33 @@
 package com.repackage;
 
-import android.app.Dialog;
 import android.content.Context;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.fs4;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class z86 extends Dialog {
+public class z86 extends ds4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public View b;
-    public SpannableString c;
-    public TextView d;
-    public TextView e;
-    public int f;
+    public TbPageContext k;
+    public Context l;
+    public ViewEventCenter m;
+    public final fs4 n;
+    public u66 o;
+    public final List<bs4> p;
+    public final fs4.e q;
 
     /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
+    public class a implements fs4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ z86 a;
@@ -53,76 +50,90 @@ public class z86 extends Dialog {
             this.a = z86Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.repackage.fs4.e
+        public void i0(fs4 fs4Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                z86 z86Var = this.a;
-                sg.b(z86Var, z86Var.a);
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, fs4Var, i, view2) == null) {
+                this.a.dismiss();
+                if (!oi.z()) {
+                    qi.N(this.a.l, R.string.obfuscated_res_0x7f0f0c3d);
+                } else if (i == 2) {
+                    this.a.m.dispatchMvcEvent(new w85(4, this.a.o, null, null));
+                } else if (i == 1) {
+                    this.a.m.dispatchMvcEvent(new w85(13, this.a.o, null, null));
+                }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z86(TbPageContext tbPageContext, int i) {
-        super(tbPageContext.getContext(), i);
+    public z86(TbPageContext tbPageContext, ViewEventCenter viewEventCenter) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Integer.valueOf(i)};
+            Object[] objArr = {tbPageContext, viewEventCenter};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((d9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.q = new a(this);
+        this.k = tbPageContext;
+        this.l = tbPageContext.getPageActivity();
+        this.m = viewEventCenter;
+        this.p = new ArrayList();
+        fs4 fs4Var = new fs4(this.l);
+        this.n = fs4Var;
+        fs4Var.n(this.q);
+        h(this.n);
     }
 
-    public final void b() {
-        TbPageContext tbPageContext;
+    public final void o() {
+        List<bs4> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (tbPageContext = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.o == null || (list = this.p) == null || this.n == null) {
             return;
         }
-        tbPageContext.getLayoutMode().k(this.f == 1);
-        this.a.getLayoutMode().j(this.b);
+        list.clear();
+        this.p.add(new bs4(1, p(this.o.l() == 1 ? R.string.obfuscated_res_0x7f0f037c : R.string.obfuscated_res_0x7f0f1432, new Object[0]), this.n));
+        this.p.add(new bs4(2, p(R.string.obfuscated_res_0x7f0f04ab, new Object[0]), this.n));
+        this.n.j(this.p);
     }
 
-    public void c() {
+    public final String p(int i, Object... objArr) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0277, (ViewGroup) null);
-            this.f = TbadkApplication.getInst().getSkinType();
-            String string = getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0f3c);
-            this.c = new SpannableString(string);
-            this.c.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.common_color_10159)), 5, string.length(), 33);
-            setContentView(this.b, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d9), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ab)));
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091f9e);
-            this.d = textView;
-            textView.setText(this.c);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f090691);
-            this.e = textView2;
-            textView2.setOnClickListener(new a(this));
-            setCancelable(true);
-            b();
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, objArr)) == null) {
+            Context context = this.l;
+            if (context == null) {
+                return null;
+            }
+            return context.getString(i, objArr);
         }
+        return (String) invokeIL.objValue;
     }
 
-    public void d() {
+    public void q() {
+        fs4 fs4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0278, (ViewGroup) null);
-            this.f = TbadkApplication.getInst().getSkinType();
-            setContentView(this.b, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d9), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070293)));
-            setCancelable(false);
-            b();
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (fs4Var = this.n) == null) {
+            return;
+        }
+        fs4Var.i();
+    }
+
+    public void r(u66 u66Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, u66Var) == null) {
+            this.o = u66Var;
+            o();
         }
     }
 }

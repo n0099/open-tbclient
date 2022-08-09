@@ -26,14 +26,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bb;
-import com.repackage.de5;
-import com.repackage.dl5;
-import com.repackage.f67;
-import com.repackage.he5;
-import com.repackage.kd5;
-import com.repackage.n57;
-import com.repackage.yt4;
+import com.repackage.cb;
+import com.repackage.cf5;
+import com.repackage.gf5;
+import com.repackage.h77;
+import com.repackage.je5;
+import com.repackage.ru4;
+import com.repackage.vm5;
+import com.repackage.z77;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class NewFriendDbManagerStatic {
@@ -42,17 +42,17 @@ public class NewFriendDbManagerStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public class a extends de5<Void> {
+    public class a extends cf5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n57 a;
+        public final /* synthetic */ h77 a;
 
-        public a(NewFriendDbManagerStatic newFriendDbManagerStatic, n57 n57Var) {
+        public a(NewFriendDbManagerStatic newFriendDbManagerStatic, h77 h77Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newFriendDbManagerStatic, n57Var};
+                Object[] objArr = {newFriendDbManagerStatic, h77Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -62,18 +62,18 @@ public class NewFriendDbManagerStatic {
                     return;
                 }
             }
-            this.a = n57Var;
+            this.a = h77Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.de5
+        @Override // com.repackage.cf5
         /* renamed from: a */
         public Void doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                dl5.f().l(this.a);
-                MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseUnreadPointNum(dl5.f().h(), true));
+                vm5.f().l(this.a);
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseUnreadPointNum(vm5.f().h(), true));
                 return null;
             }
             return (Void) invokeV.objValue;
@@ -81,7 +81,7 @@ public class NewFriendDbManagerStatic {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements kd5<Void> {
+    public class b implements je5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -102,7 +102,7 @@ public class NewFriendDbManagerStatic {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.kd5
+        @Override // com.repackage.je5
         /* renamed from: a */
         public void onReturnDataInUI(Void r9) {
             Interceptable interceptable = $ic;
@@ -113,17 +113,17 @@ public class NewFriendDbManagerStatic {
     }
 
     /* loaded from: classes3.dex */
-    public class c extends de5<Void> {
+    public class c extends cf5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n57 a;
+        public final /* synthetic */ h77 a;
 
-        public c(NewFriendDbManagerStatic newFriendDbManagerStatic, n57 n57Var) {
+        public c(NewFriendDbManagerStatic newFriendDbManagerStatic, h77 h77Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newFriendDbManagerStatic, n57Var};
+                Object[] objArr = {newFriendDbManagerStatic, h77Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -133,18 +133,18 @@ public class NewFriendDbManagerStatic {
                     return;
                 }
             }
-            this.a = n57Var;
+            this.a = h77Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.de5
+        @Override // com.repackage.cf5
         /* renamed from: a */
         public Void doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                dl5.f().l(this.a);
-                MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseUnreadPointNum(dl5.f().h(), true));
+                vm5.f().l(this.a);
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseUnreadPointNum(vm5.f().h(), true));
                 return null;
             }
             return (Void) invokeV.objValue;
@@ -152,19 +152,19 @@ public class NewFriendDbManagerStatic {
     }
 
     /* loaded from: classes3.dex */
-    public class d implements kd5<Void> {
+    public class d implements je5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n57 a;
+        public final /* synthetic */ h77 a;
         public final /* synthetic */ String b;
         public final /* synthetic */ String c;
 
-        public d(NewFriendDbManagerStatic newFriendDbManagerStatic, n57 n57Var, String str, String str2) {
+        public d(NewFriendDbManagerStatic newFriendDbManagerStatic, h77 h77Var, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newFriendDbManagerStatic, n57Var, str, str2};
+                Object[] objArr = {newFriendDbManagerStatic, h77Var, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -174,13 +174,13 @@ public class NewFriendDbManagerStatic {
                     return;
                 }
             }
-            this.a = n57Var;
+            this.a = h77Var;
             this.b = str;
             this.c = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.kd5
+        @Override // com.repackage.je5
         /* renamed from: a */
         public void onReturnDataInUI(Void r9) {
             Interceptable interceptable = $ic;
@@ -191,7 +191,7 @@ public class NewFriendDbManagerStatic {
     }
 
     /* loaded from: classes3.dex */
-    public class e extends de5<Void> {
+    public class e extends cf5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -215,13 +215,13 @@ public class NewFriendDbManagerStatic {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.de5
+        @Override // com.repackage.cf5
         /* renamed from: a */
         public Void doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                dl5.f().b(this.a);
+                vm5.f().b(this.a);
                 return null;
             }
             return (Void) invokeV.objValue;
@@ -229,7 +229,7 @@ public class NewFriendDbManagerStatic {
     }
 
     /* loaded from: classes3.dex */
-    public class f implements kd5<Void> {
+    public class f implements je5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -250,7 +250,7 @@ public class NewFriendDbManagerStatic {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.kd5
+        @Override // com.repackage.je5
         /* renamed from: a */
         public void onReturnDataInUI(Void r5) {
             Interceptable interceptable = $ic;
@@ -260,17 +260,17 @@ public class NewFriendDbManagerStatic {
     }
 
     /* loaded from: classes3.dex */
-    public class g extends de5<Void> {
+    public class g extends cf5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n57 a;
+        public final /* synthetic */ h77 a;
 
-        public g(NewFriendDbManagerStatic newFriendDbManagerStatic, n57 n57Var) {
+        public g(NewFriendDbManagerStatic newFriendDbManagerStatic, h77 h77Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newFriendDbManagerStatic, n57Var};
+                Object[] objArr = {newFriendDbManagerStatic, h77Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -280,17 +280,17 @@ public class NewFriendDbManagerStatic {
                     return;
                 }
             }
-            this.a = n57Var;
+            this.a = h77Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.de5
+        @Override // com.repackage.cf5
         /* renamed from: a */
         public Void doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                dl5.f().l(this.a);
+                vm5.f().l(this.a);
                 return null;
             }
             return (Void) invokeV.objValue;
@@ -298,7 +298,7 @@ public class NewFriendDbManagerStatic {
     }
 
     /* loaded from: classes3.dex */
-    public class h implements kd5<Void> {
+    public class h implements je5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -322,7 +322,7 @@ public class NewFriendDbManagerStatic {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.kd5
+        @Override // com.repackage.je5
         /* renamed from: a */
         public void onReturnDataInUI(Void r9) {
             Interceptable interceptable = $ic;
@@ -333,17 +333,17 @@ public class NewFriendDbManagerStatic {
     }
 
     /* loaded from: classes3.dex */
-    public class i extends de5<Void> {
+    public class i extends cf5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n57 a;
+        public final /* synthetic */ h77 a;
 
-        public i(NewFriendDbManagerStatic newFriendDbManagerStatic, n57 n57Var) {
+        public i(NewFriendDbManagerStatic newFriendDbManagerStatic, h77 h77Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newFriendDbManagerStatic, n57Var};
+                Object[] objArr = {newFriendDbManagerStatic, h77Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -353,17 +353,17 @@ public class NewFriendDbManagerStatic {
                     return;
                 }
             }
-            this.a = n57Var;
+            this.a = h77Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.de5
+        @Override // com.repackage.cf5
         /* renamed from: a */
         public Void doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                dl5.f().l(this.a);
+                vm5.f().l(this.a);
                 return null;
             }
             return (Void) invokeV.objValue;
@@ -371,7 +371,7 @@ public class NewFriendDbManagerStatic {
     }
 
     /* loaded from: classes3.dex */
-    public class j implements kd5<Void> {
+    public class j implements je5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -395,7 +395,7 @@ public class NewFriendDbManagerStatic {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.kd5
+        @Override // com.repackage.je5
         /* renamed from: a */
         public void onReturnDataInUI(Void r9) {
             Interceptable interceptable = $ic;
@@ -454,18 +454,18 @@ public class NewFriendDbManagerStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes3.dex */
-        public class a extends de5<Void> {
+        public class a extends cf5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
-            public final /* synthetic */ n57 b;
+            public final /* synthetic */ h77 b;
 
-            public a(l lVar, long j, n57 n57Var) {
+            public a(l lVar, long j, h77 h77Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {lVar, Long.valueOf(j), n57Var};
+                    Object[] objArr = {lVar, Long.valueOf(j), h77Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -476,20 +476,20 @@ public class NewFriendDbManagerStatic {
                     }
                 }
                 this.a = j;
-                this.b = n57Var;
+                this.b = h77Var;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.de5
+            @Override // com.repackage.cf5
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    if (dl5.f().n(this.a)) {
+                    if (vm5.f().n(this.a)) {
                         return null;
                     }
-                    dl5.f().l(this.b);
+                    vm5.f().l(this.b);
                     return null;
                 }
                 return (Void) invokeV.objValue;
@@ -532,30 +532,30 @@ public class NewFriendDbManagerStatic {
                 requestAddFriendMessage.setMessage(content);
                 requestAddFriendMessage.setSt_type(st_type);
                 MessageManager.getInstance().sendMessage(requestAddFriendMessage);
-                n57 n57Var = new n57();
-                n57Var.h(id);
-                n57Var.j(name);
-                n57Var.l(0);
-                n57Var.k(portrait);
-                n57Var.g(content);
-                n57Var.i(0);
-                he5.c(new a(this, id, n57Var), null);
+                h77 h77Var = new h77();
+                h77Var.h(id);
+                h77Var.j(name);
+                h77Var.l(0);
+                h77Var.k(portrait);
+                h77Var.g(content);
+                h77Var.i(0);
+                gf5.c(new a(this, id, h77Var), null);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class m extends de5<Void> {
+    public class m extends cf5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n57 a;
+        public final /* synthetic */ h77 a;
 
-        public m(NewFriendDbManagerStatic newFriendDbManagerStatic, n57 n57Var) {
+        public m(NewFriendDbManagerStatic newFriendDbManagerStatic, h77 h77Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newFriendDbManagerStatic, n57Var};
+                Object[] objArr = {newFriendDbManagerStatic, h77Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -565,17 +565,17 @@ public class NewFriendDbManagerStatic {
                     return;
                 }
             }
-            this.a = n57Var;
+            this.a = h77Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.de5
+        @Override // com.repackage.cf5
         /* renamed from: a */
         public Void doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                dl5.f().l(this.a);
+                vm5.f().l(this.a);
                 return null;
             }
             return (Void) invokeV.objValue;
@@ -583,7 +583,7 @@ public class NewFriendDbManagerStatic {
     }
 
     /* loaded from: classes3.dex */
-    public class n implements kd5<Void> {
+    public class n implements je5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -607,7 +607,7 @@ public class NewFriendDbManagerStatic {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.kd5
+        @Override // com.repackage.je5
         /* renamed from: a */
         public void onReturnDataInUI(Void r9) {
             Interceptable interceptable = $ic;
@@ -618,23 +618,23 @@ public class NewFriendDbManagerStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class o extends bb {
+    public static class o extends cb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes3.dex */
-        public class a extends de5<Void> {
+        public class a extends cf5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
-            public final /* synthetic */ n57 b;
+            public final /* synthetic */ h77 b;
 
-            public a(o oVar, long j, n57 n57Var) {
+            public a(o oVar, long j, h77 h77Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {oVar, Long.valueOf(j), n57Var};
+                    Object[] objArr = {oVar, Long.valueOf(j), h77Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -645,23 +645,23 @@ public class NewFriendDbManagerStatic {
                     }
                 }
                 this.a = j;
-                this.b = n57Var;
+                this.b = h77Var;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.de5
+            @Override // com.repackage.cf5
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    n57 e = dl5.f().e(this.a);
+                    h77 e = vm5.f().e(this.a);
                     if (e == null) {
                         return null;
                     }
                     this.b.j(e.d());
                     this.b.k(e.e());
-                    dl5.f().l(this.b);
+                    vm5.f().l(this.b);
                     return null;
                 }
                 return (Void) invokeV.objValue;
@@ -669,7 +669,7 @@ public class NewFriendDbManagerStatic {
         }
 
         /* loaded from: classes3.dex */
-        public class b implements kd5<Void> {
+        public class b implements je5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
@@ -695,7 +695,7 @@ public class NewFriendDbManagerStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.kd5
+            @Override // com.repackage.je5
             /* renamed from: a */
             public void onReturnDataInUI(Void r9) {
                 Interceptable interceptable = $ic;
@@ -708,7 +708,7 @@ public class NewFriendDbManagerStatic {
         }
 
         /* loaded from: classes3.dex */
-        public class c extends de5<Void> {
+        public class c extends cf5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
@@ -732,18 +732,18 @@ public class NewFriendDbManagerStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.de5
+            @Override // com.repackage.cf5
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    if (0 != this.a && dl5.f().n(this.a)) {
-                        n57 n57Var = new n57();
-                        n57Var.h(this.a);
-                        n57Var.l(3);
-                        n57Var.i(0);
-                        dl5.f().q(n57Var);
+                    if (0 != this.a && vm5.f().n(this.a)) {
+                        h77 h77Var = new h77();
+                        h77Var.h(this.a);
+                        h77Var.l(3);
+                        h77Var.i(0);
+                        vm5.f().q(h77Var);
                     }
                     return null;
                 }
@@ -752,7 +752,7 @@ public class NewFriendDbManagerStatic {
         }
 
         /* loaded from: classes3.dex */
-        public class d implements kd5<Void> {
+        public class d implements je5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
@@ -776,7 +776,7 @@ public class NewFriendDbManagerStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.kd5
+            @Override // com.repackage.je5
             /* renamed from: a */
             public void onReturnDataInUI(Void r9) {
                 Interceptable interceptable = $ic;
@@ -815,18 +815,18 @@ public class NewFriendDbManagerStatic {
                 RequestAddFriendMessage requestAddFriendMessage = (RequestAddFriendMessage) responseAddFriendMessage.getOrginalMessage();
                 int error = responseAddFriendMessage.getError();
                 long friendId = responseAddFriendMessage.getFriendId();
-                n57 n57Var = new n57();
-                n57Var.h(friendId);
-                n57Var.i(0);
-                n57Var.g(requestAddFriendMessage.getMessage());
+                h77 h77Var = new h77();
+                h77Var.h(friendId);
+                h77Var.i(0);
+                h77Var.g(requestAddFriendMessage.getMessage());
                 if (error == 0) {
-                    n57Var.l(3);
-                    he5.c(new a(this, friendId, n57Var), new b(this, friendId, requestAddFriendMessage));
+                    h77Var.l(3);
+                    gf5.c(new a(this, friendId, h77Var), new b(this, friendId, requestAddFriendMessage));
                 } else if (error == 3100097) {
                     Message<?> orginalMessage = responseAddFriendMessage.getOrginalMessage();
                     if (orginalMessage instanceof RequestAddFriendMessage) {
                         long friendId2 = ((RequestAddFriendMessage) orginalMessage).getFriendId();
-                        he5.c(new c(this, friendId2), new d(this, friendId2));
+                        gf5.c(new c(this, friendId2), new d(this, friendId2));
                     }
                 }
             }
@@ -834,12 +834,12 @@ public class NewFriendDbManagerStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class p extends bb {
+    public static class p extends cb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes3.dex */
-        public class a extends de5<Void> {
+        public class a extends cf5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
@@ -863,7 +863,7 @@ public class NewFriendDbManagerStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.de5
+            @Override // com.repackage.cf5
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
@@ -872,8 +872,8 @@ public class NewFriendDbManagerStatic {
                     if (0 == this.a) {
                         return null;
                     }
-                    dl5.f().b(this.a);
-                    f67.v().p(String.valueOf(this.a));
+                    vm5.f().b(this.a);
+                    z77.w().p(String.valueOf(this.a));
                     return null;
                 }
                 return (Void) invokeV.objValue;
@@ -881,7 +881,7 @@ public class NewFriendDbManagerStatic {
         }
 
         /* loaded from: classes3.dex */
-        public class b implements kd5<Void> {
+        public class b implements je5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
@@ -905,7 +905,7 @@ public class NewFriendDbManagerStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.kd5
+            @Override // com.repackage.je5
             /* renamed from: a */
             public void onReturnDataInUI(Void r9) {
                 Interceptable interceptable = $ic;
@@ -944,30 +944,30 @@ public class NewFriendDbManagerStatic {
                 int error = responseDeleteFriendMessage.getError();
                 long friendId = responseDeleteFriendMessage.getFriendId();
                 if (error == 0) {
-                    he5.c(new a(this, friendId), new b(this, friendId));
+                    gf5.c(new a(this, friendId), new b(this, friendId));
                 }
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class q extends bb {
+    public static class q extends cb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes3.dex */
-        public class a extends de5<Void> {
+        public class a extends cf5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
-            public final /* synthetic */ n57 b;
+            public final /* synthetic */ h77 b;
 
-            public a(q qVar, long j, n57 n57Var) {
+            public a(q qVar, long j, h77 h77Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {qVar, Long.valueOf(j), n57Var};
+                    Object[] objArr = {qVar, Long.valueOf(j), h77Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -978,24 +978,24 @@ public class NewFriendDbManagerStatic {
                     }
                 }
                 this.a = j;
-                this.b = n57Var;
+                this.b = h77Var;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.de5
+            @Override // com.repackage.cf5
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
-                n57 e;
+                h77 e;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    if (0 == this.a || (e = dl5.f().e(this.a)) == null) {
+                    if (0 == this.a || (e = vm5.f().e(this.a)) == null) {
                         return null;
                     }
                     this.b.g(e.a());
                     this.b.j(e.d());
                     this.b.k(e.e());
-                    dl5.f().l(this.b);
+                    vm5.f().l(this.b);
                     return null;
                 }
                 return (Void) invokeV.objValue;
@@ -1003,7 +1003,7 @@ public class NewFriendDbManagerStatic {
         }
 
         /* loaded from: classes3.dex */
-        public class b implements kd5<Void> {
+        public class b implements je5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
@@ -1035,7 +1035,7 @@ public class NewFriendDbManagerStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.kd5
+            @Override // com.repackage.je5
             /* renamed from: a */
             public void onReturnDataInUI(Void r9) {
                 Interceptable interceptable = $ic;
@@ -1046,7 +1046,7 @@ public class NewFriendDbManagerStatic {
         }
 
         /* loaded from: classes3.dex */
-        public class c extends de5<Void> {
+        public class c extends cf5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
@@ -1070,18 +1070,18 @@ public class NewFriendDbManagerStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.de5
+            @Override // com.repackage.cf5
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    if (0 != this.a && dl5.f().n(this.a)) {
-                        n57 n57Var = new n57();
-                        n57Var.h(this.a);
-                        n57Var.l(2);
-                        n57Var.i(0);
-                        dl5.f().q(n57Var);
+                    if (0 != this.a && vm5.f().n(this.a)) {
+                        h77 h77Var = new h77();
+                        h77Var.h(this.a);
+                        h77Var.l(2);
+                        h77Var.i(0);
+                        vm5.f().q(h77Var);
                     }
                     return null;
                 }
@@ -1090,7 +1090,7 @@ public class NewFriendDbManagerStatic {
         }
 
         /* loaded from: classes3.dex */
-        public class d implements kd5<Void> {
+        public class d implements je5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
@@ -1114,7 +1114,7 @@ public class NewFriendDbManagerStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.kd5
+            @Override // com.repackage.je5
             /* renamed from: a */
             public void onReturnDataInUI(Void r9) {
                 Interceptable interceptable = $ic;
@@ -1156,17 +1156,17 @@ public class NewFriendDbManagerStatic {
                 String portrait = responsePassFriendMessage.getPortrait();
                 String key = responsePassFriendMessage.getKey();
                 String quanpin = responsePassFriendMessage.getQuanpin();
-                n57 n57Var = new n57();
-                n57Var.h(friendId);
-                n57Var.l(2);
-                n57Var.i(0);
+                h77 h77Var = new h77();
+                h77Var.h(friendId);
+                h77Var.l(2);
+                h77Var.i(0);
                 if (error == 0) {
-                    he5.c(new a(this, friendId, n57Var), new b(this, friendId, portrait, name, key, quanpin));
+                    gf5.c(new a(this, friendId, h77Var), new b(this, friendId, portrait, name, key, quanpin));
                 } else if (error == 3100098) {
                     Message<?> orginalMessage = responsePassFriendMessage.getOrginalMessage();
                     if (orginalMessage instanceof RequestPassFriendMessage) {
                         long friendId2 = ((RequestPassFriendMessage) orginalMessage).getFriendId();
-                        he5.c(new c(this, friendId2), new d(this, friendId2));
+                        gf5.c(new c(this, friendId2), new d(this, friendId2));
                     }
                 }
             }
@@ -1180,7 +1180,7 @@ public class NewFriendDbManagerStatic {
         public int a;
 
         /* loaded from: classes3.dex */
-        public class a extends de5<Void> {
+        public class a extends cf5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ r a;
@@ -1204,13 +1204,13 @@ public class NewFriendDbManagerStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.de5
+            @Override // com.repackage.cf5
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    this.a.a = dl5.f().h();
+                    this.a.a = vm5.f().h();
                     return null;
                 }
                 return (Void) invokeV.objValue;
@@ -1218,7 +1218,7 @@ public class NewFriendDbManagerStatic {
         }
 
         /* loaded from: classes3.dex */
-        public class b implements kd5<Void> {
+        public class b implements je5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ r a;
@@ -1242,7 +1242,7 @@ public class NewFriendDbManagerStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.kd5
+            @Override // com.repackage.je5
             /* renamed from: a */
             public void onReturnDataInUI(Void r5) {
                 Interceptable interceptable = $ic;
@@ -1278,7 +1278,7 @@ public class NewFriendDbManagerStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001175) {
-                he5.c(new a(this), new b(this));
+                gf5.c(new a(this), new b(this));
             }
         }
     }
@@ -1315,7 +1315,7 @@ public class NewFriendDbManagerStatic {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            yt4 k = yt4.k();
+            ru4 k = ru4.k();
             k.D("get_addresslist_switch" + ((String) customResponsedMessage.getData()));
         }
     }
@@ -1397,14 +1397,14 @@ public class NewFriendDbManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<n57> run(CustomMessage<Long> customMessage) {
+        public CustomResponsedMessage<h77> run(CustomMessage<Long> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage == null) {
                     return null;
                 }
-                return new ResponseNewFriendDataMessage(dl5.f().e(customMessage.getData().longValue()));
+                return new ResponseNewFriendDataMessage(vm5.f().e(customMessage.getData().longValue()));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -1471,18 +1471,18 @@ public class NewFriendDbManagerStatic {
                 if (optJSONObject == null) {
                     return;
                 }
-                n57 n57Var = new n57();
+                h77 h77Var = new h77();
                 long optLong = optJSONObject.optLong("user_id");
                 String optString = optJSONObject.optString("user_name");
                 String optString2 = optJSONObject.optString("portrait");
                 String optString3 = optJSONObject.optString("message");
-                n57Var.l(3);
-                n57Var.g(optString3);
-                n57Var.h(optLong);
-                n57Var.i(1);
-                n57Var.j(optString);
-                n57Var.k(optString2);
-                he5.c(new i(this, n57Var), new j(this, optLong));
+                h77Var.l(3);
+                h77Var.g(optString3);
+                h77Var.h(optLong);
+                h77Var.i(1);
+                h77Var.j(optString);
+                h77Var.k(optString2);
+                gf5.c(new i(this, h77Var), new j(this, optLong));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -1497,14 +1497,14 @@ public class NewFriendDbManagerStatic {
                 if (optJSONObject == null) {
                     return;
                 }
-                n57 n57Var = new n57();
-                n57Var.h(optJSONObject.optLong("user_id"));
-                n57Var.j(optJSONObject.optString("user_name"));
-                n57Var.k(optJSONObject.optString("portrait"));
-                n57Var.g(optJSONObject.optString("message"));
-                n57Var.i(0);
-                n57Var.l(1);
-                he5.c(new a(this, n57Var), new b(this));
+                h77 h77Var = new h77();
+                h77Var.h(optJSONObject.optLong("user_id"));
+                h77Var.j(optJSONObject.optString("user_name"));
+                h77Var.k(optJSONObject.optString("portrait"));
+                h77Var.g(optJSONObject.optString("message"));
+                h77Var.i(0);
+                h77Var.l(1);
+                gf5.c(new a(this, h77Var), new b(this));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -1519,7 +1519,7 @@ public class NewFriendDbManagerStatic {
                 if (optJSONObject == null) {
                     return;
                 }
-                he5.c(new e(this, optJSONObject.optLong("user_id")), new f(this));
+                gf5.c(new e(this, optJSONObject.optLong("user_id")), new f(this));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -1534,18 +1534,18 @@ public class NewFriendDbManagerStatic {
                 if (optJSONObject == null) {
                     return;
                 }
-                n57 n57Var = new n57();
+                h77 h77Var = new h77();
                 long optLong = optJSONObject.optLong("user_id");
                 String optString = optJSONObject.optString("user_name");
                 String optString2 = optJSONObject.optString("portrait");
                 String optString3 = optJSONObject.optString("message");
-                n57Var.l(2);
-                n57Var.g(optString3);
-                n57Var.h(optLong);
-                n57Var.i(1);
-                n57Var.j(optString);
-                n57Var.k(optString2);
-                he5.c(new m(this, n57Var), new n(this, optLong));
+                h77Var.l(2);
+                h77Var.g(optString3);
+                h77Var.h(optLong);
+                h77Var.i(1);
+                h77Var.j(optString);
+                h77Var.k(optString2);
+                gf5.c(new m(this, h77Var), new n(this, optLong));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -1560,16 +1560,16 @@ public class NewFriendDbManagerStatic {
                 if (optJSONObject == null) {
                     return;
                 }
-                n57 n57Var = new n57();
-                n57Var.h(optJSONObject.optLong("user_id"));
-                n57Var.j(optJSONObject.optString("user_name"));
-                n57Var.k(optJSONObject.optString("portrait"));
-                n57Var.g(optJSONObject.optString("message"));
+                h77 h77Var = new h77();
+                h77Var.h(optJSONObject.optLong("user_id"));
+                h77Var.j(optJSONObject.optString("user_name"));
+                h77Var.k(optJSONObject.optString("portrait"));
+                h77Var.g(optJSONObject.optString("message"));
                 String optString = optJSONObject.optString("key");
                 String optString2 = optJSONObject.optString("pinyin");
-                n57Var.i(0);
-                n57Var.l(4);
-                he5.c(new c(this, n57Var), new d(this, n57Var, optString, optString2));
+                h77Var.i(0);
+                h77Var.l(4);
+                gf5.c(new c(this, h77Var), new d(this, h77Var, optString, optString2));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -1584,23 +1584,23 @@ public class NewFriendDbManagerStatic {
                 if (optJSONObject == null) {
                     return;
                 }
-                n57 n57Var = new n57();
+                h77 h77Var = new h77();
                 long optLong = optJSONObject.optLong("user_id");
                 String optString = optJSONObject.optString("user_name");
                 String optString2 = optJSONObject.optString("portrait");
                 String optString3 = optJSONObject.optString("message");
                 int optInt = optJSONObject.optInt("type");
                 if (optInt == 1) {
-                    n57Var.l(3);
+                    h77Var.l(3);
                 } else if (optInt == 2) {
-                    n57Var.l(1);
+                    h77Var.l(1);
                 }
-                n57Var.g(optString3);
-                n57Var.h(optLong);
-                n57Var.i(1);
-                n57Var.j(optString);
-                n57Var.k(optString2);
-                he5.c(new g(this, n57Var), new h(this, optLong));
+                h77Var.g(optString3);
+                h77Var.h(optLong);
+                h77Var.i(1);
+                h77Var.j(optString);
+                h77Var.k(optString2);
+                gf5.c(new g(this, h77Var), new h(this, optLong));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

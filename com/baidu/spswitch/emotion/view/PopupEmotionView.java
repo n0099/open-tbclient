@@ -70,11 +70,11 @@ public class PopupEmotionView extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             this.mCtx = context;
             setLayoutParams(new ViewGroup.LayoutParams((int) UIUtils.dp2px(this.mCtx, 75.0f), (int) UIUtils.dp2px(this.mCtx, 85.0f)));
-            setBackground(this.mCtx.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0804bf));
+            setBackground(this.mCtx.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0804c1));
             setPadding(0, 0, 0, 0);
-            LayoutInflater.from(this.mCtx).inflate(R.layout.obfuscated_res_0x7f0d0264, (ViewGroup) this, true);
-            this.mIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f090dbb);
-            this.mText = (TextView) findViewById(R.id.obfuscated_res_0x7f091fae);
+            LayoutInflater.from(this.mCtx).inflate(R.layout.obfuscated_res_0x7f0d0266, (ViewGroup) this, true);
+            this.mIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e05);
+            this.mText = (TextView) findViewById(R.id.obfuscated_res_0x7f0920a9);
         }
     }
 
@@ -85,7 +85,7 @@ public class PopupEmotionView extends FrameLayout {
             return;
         }
         textView.setText(filter(str));
-        this.mText.setTextColor(this.mCtx.getResources().getColor(R.color.obfuscated_res_0x7f060230));
+        this.mText.setTextColor(this.mCtx.getResources().getColor(R.color.obfuscated_res_0x7f06023f));
         this.mIcon.setImageBitmap(bitmap);
     }
 

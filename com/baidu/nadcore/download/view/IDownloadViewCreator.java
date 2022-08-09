@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kj0;
+import com.repackage.hj0;
 /* loaded from: classes2.dex */
 public interface IDownloadViewCreator {
     public static final ServiceReference a = new ServiceReference("nad.core", "downloadview");
@@ -101,7 +101,7 @@ public interface IDownloadViewCreator {
         }
 
         @Override // com.baidu.nadcore.download.view.IDownloadViewCreator
-        public kj0<?> a(@NonNull ViewGroup viewGroup, ViewType viewType) {
+        public hj0<?> a(@NonNull ViewGroup viewGroup, ViewType viewType) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, viewGroup, viewType)) == null) {
@@ -118,7 +118,7 @@ public interface IDownloadViewCreator {
                     return null;
                 }
             }
-            return (kj0) invokeLL.objValue;
+            return (hj0) invokeLL.objValue;
         }
     }
 
@@ -162,5 +162,5 @@ public interface IDownloadViewCreator {
         }
     }
 
-    kj0<?> a(@NonNull ViewGroup viewGroup, ViewType viewType);
+    hj0<?> a(@NonNull ViewGroup viewGroup, ViewType viewType);
 }

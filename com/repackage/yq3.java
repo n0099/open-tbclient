@@ -1,7 +1,10 @@
 package com.repackage;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
+import com.baidu.down.manage.Download;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,30 +12,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public class yq3 {
-    public static /* synthetic */ Interceptable $ic;
+public class yq3 implements gy3 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String b = "hasDownloadApk";
     public transient /* synthetic */ FieldHolder $fh;
-    public DownloadState a;
-    public String b;
-    public String c;
-    public int d;
-    public String e;
+    public String a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755133194, "Lcom/repackage/yq3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755133194, "Lcom/repackage/yq3;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755133194, "Lcom/repackage/yq3;")) == null) {
+            return;
         }
-        boolean z = sg1.a;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755133194, "Lcom/repackage/yq3;");
+        }
     }
 
     public yq3() {
@@ -48,32 +49,46 @@ public class yq3 {
                 return;
             }
         }
-        this.a = DownloadState.NOT_START;
-        this.d = Integer.parseInt("0");
+        this.a = "com.baidu.gamenow";
     }
 
-    public static yq3 a(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.gy3
+    public boolean a(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            yq3 yq3Var = new yq3();
-            yq3Var.b = str;
-            yq3Var.c = str2;
-            return yq3Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj instanceof Download) {
+                Download download = (Download) obj;
+                if (TextUtils.equals(cr3.a, download.getKeyByUser())) {
+                    return true;
+                }
+                return TextUtils.isEmpty(zd3.d(download.getFromParam()).optString("apk_id"));
+            }
+            return false;
         }
-        return (yq3) invokeLL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.gy3
+    public void b(Object obj) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (String) invokeV.objValue;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && (obj instanceof Download)) {
+            gr3 gr3Var = new gr3((Download) obj);
+            ur3.n().f("reallyDownloaded", new tr3(), gr3Var.m(), gr3Var.j(), gr3Var.l());
+        }
     }
 
-    public void c(String str) {
+    @Override // com.repackage.gy3
+    public void c(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.e = str;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) && (obj instanceof Download)) {
+            Download download = (Download) obj;
+            gr3 gr3Var = new gr3(download);
+            ur3.n().f("statusInstalled", new tr3(), download.getKeyByUser(), gr3Var.j(), gr3Var.l());
+            if (TextUtils.equals(gr3Var.m(), this.a)) {
+                n93.a().putBoolean(b, true);
+                ur3.n().p(13, gr3Var.m(), gr3Var.h(), gr3Var.l());
+            }
         }
     }
 }

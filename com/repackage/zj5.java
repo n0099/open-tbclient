@@ -1,183 +1,25 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubs.analytics.SampleResult;
-import com.repackage.m39;
-import java.util.ArrayList;
-import java.util.Iterator;
+import android.view.View;
 /* loaded from: classes7.dex */
-public class zj5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
+public interface zj5 extends fk5<hk5> {
 
-    public zj5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = false;
-        i();
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(hk5 hk5Var, View view2);
+
+        void b(hk5 hk5Var, View view2);
     }
 
-    public final int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i == 1) {
-                return d(i);
-            }
-            int i2 = this.a;
-            if (i2 == 1) {
-                return c(i);
-            }
-            if (i2 == 0) {
-                return d(i);
-            }
-            return 0;
-        }
-        return invokeI.intValue;
-    }
+    void a(int i);
 
-    public void b(ArrayList<Integer> arrayList, yj5 yj5Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList, yj5Var) == null) || arrayList == null || yj5Var == null) {
-            return;
-        }
-        Iterator<Integer> it = arrayList.iterator();
-        while (it.hasNext()) {
-            int intValue = it.next().intValue();
-            yj5Var.b(intValue, a(intValue));
-        }
-    }
+    void c(Object obj);
 
-    public final int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            String e = e(i);
-            if (oi.isEmpty(e)) {
-                return 0;
-            }
-            SampleResult a = l39.a(e);
-            return (a == SampleResult.T1 || a == SampleResult.T2 || a == SampleResult.T3 || a == SampleResult.T4 || a == SampleResult.T5) ? 1 : 0;
-        }
-        return invokeI.intValue;
-    }
+    View getView();
 
-    public final int d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            String f = f(i);
-            return (!oi.isEmpty(f) && yt4.k().l(f, 0) == 1) ? 1 : 0;
-        }
-        return invokeI.intValue;
-    }
+    void h(a aVar);
 
-    public final String e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (i == 2) {
-                return "46";
-            }
-            return null;
-        }
-        return (String) invokeI.objValue;
-    }
+    void j();
 
-    public final String f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            if (i == 1) {
-                return "key_card_show_type";
-            }
-            if (i == 2) {
-                return "key_card_abstract_switch";
-            }
-            return null;
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-                try {
-                    m39.a aVar = new m39.a();
-                    aVar.e(TbadkCoreApplication.getInst());
-                    aVar.j(false);
-                    aVar.n(30L);
-                    aVar.m(1);
-                    aVar.l(false);
-                    aVar.o(15L);
-                    aVar.k(1000);
-                    l39.b(aVar.c());
-                    return true;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return false;
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.a = yt4.k().l("key_abtest_channel", 0);
-            j();
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !this.b && this.a == 1) {
-            boolean h = h();
-            this.b = h;
-            if (h) {
-                return;
-            }
-            this.a = 0;
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            if (i == 1 || i == 0) {
-                this.a = i;
-                yt4.k().w("key_abtest_channel", this.a);
-                j();
-            }
-        }
-    }
+    void l(int i);
 }

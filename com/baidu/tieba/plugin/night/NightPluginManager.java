@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NightPluginManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PLUGIN_IMPL_CLASS = "com.baidu.tieba.plugin.night.NightPluginImpl";
@@ -24,7 +24,7 @@ public class NightPluginManager {
     public transient /* synthetic */ FieldHolder $fh;
     public INightPlugin mINightPlugin;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements IInvokeCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +69,7 @@ public class NightPluginManager {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements IInstallCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +109,7 @@ public class NightPluginManager {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public static final NightPluginManager a;

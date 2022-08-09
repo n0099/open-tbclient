@@ -1,43 +1,54 @@
 package com.repackage;
 
 import android.content.Context;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.service.ToastService;
+import com.baidu.searchbox.live.interfaces.toast.ToastClickListener;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
-import com.baidu.tieba.memberCenter.tail.edit.color.TailEditColorToolHost;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ek7 extends v15 {
+public class ek7 implements ToastService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ek7(TbPageContext<?> tbPageContext, int i, String str) {
-        super(tbPageContext.getPageActivity(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f132a), 17, i);
+    public ek7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = R.drawable.tail_edit_tool_color_selector;
-        this.h = R.drawable.icon_pure_post_more_bubble64;
-        this.m = new TailEditColorToolHost(tbPageContext, str);
-        this.o = true;
-        this.n = 6;
-        this.p = new int[]{1};
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
+    public void showClickableToast(Context context, String str, String str2, int i, ToastClickListener toastClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Integer.valueOf(i), toastClickListener}) == null) {
+            qi.O(TbadkCoreApplication.getInst(), str);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
+    public void showNormal(Context context, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, i) == null) {
+            qi.O(TbadkCoreApplication.getInst(), str);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
+    public void showToastBottom(Context context, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, str, i) == null) {
+            qi.O(TbadkCoreApplication.getInst(), str);
+        }
     }
 }

@@ -1,54 +1,64 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
+import android.view.View;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class xt3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public int c;
-    public long d;
 
-    public xt3() {
+    public static boolean a(View view2, fr2 fr2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, fr2Var)) == null) {
+            qi1 W = mm2.U().W();
+            return W != null && W.c(view2, fr2Var);
         }
+        return invokeLL.booleanValue;
     }
 
-    public static xt3 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            xt3 xt3Var = new xt3();
-            xt3Var.a = jSONObject.optInt("state");
-            xt3Var.b = jSONObject.optString("msg");
-            xt3Var.c = jSONObject.optInt("switch_open");
-            xt3Var.d = jSONObject.optLong("heartbeat_time");
-            return xt3Var;
-        }
-        return (xt3) invokeL.objValue;
-    }
-
-    public String toString() {
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "UpUseTimeModel{state=" + this.a + ", limit='" + this.b + "', open=" + this.c + ", interval=" + this.d + '}';
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            qi1 W = mm2.U().W();
+            return (W == null || !W.b() || W.h()) ? false : true;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public static boolean c(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            qi1 W = mm2.U().W();
+            return W != null && W.d(view2);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public static boolean d(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
+            qi1 W = mm2.U().W();
+            if (W == null) {
+                return false;
+            }
+            if (W.h()) {
+                SwanAppActivity activity = mm2.U().getActivity();
+                if (activity != null) {
+                    activity.setRequestedOrientation(0);
+                }
+                W.g(false);
+            }
+            return W.removeView(view2);
+        }
+        return invokeL.booleanValue;
     }
 }

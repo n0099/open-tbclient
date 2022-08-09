@@ -1,99 +1,27 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import tbclient.CommonReq;
-import tbclient.VoiceRoomListPage.DataReq;
-import tbclient.VoiceRoomListPage.VoiceRoomListPageReqIdl;
 /* loaded from: classes7.dex */
-public class tq6 implements u75 {
+public class tq6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final long b;
 
-    public tq6(long j, long j2) {
+    public static PackageInfo a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = j;
-        this.b = j2;
-    }
-
-    public final double a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density : invokeV.doubleValue;
-    }
-
-    @Override // com.repackage.w75
-    public Object h(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
             try {
-                DataReq.Builder builder = new DataReq.Builder();
-                builder.call_from = Long.valueOf(this.a);
-                builder.fid = Long.valueOf(this.b);
-                CommonReq.Builder builder2 = new CommonReq.Builder();
-                builder2.q_type = Integer.valueOf(an4.c().e());
-                builder2.scr_dip = Double.valueOf(a());
-                builder2.scr_h = Integer.valueOf(pi.i(TbadkCoreApplication.getInst().getApp()));
-                builder2.scr_w = Integer.valueOf(pi.k(TbadkCoreApplication.getInst().getApp()));
-                VoiceRoomListPageReqIdl.Builder builder3 = new VoiceRoomListPageReqIdl.Builder();
-                builder3.data = builder.build(false);
-                return builder3.build(false);
-            } catch (Exception unused) {
-                BdLog.d("data convert error");
+                return TbadkApplication.getInst().getPackageManager().getPackageInfo(str, 0);
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
                 return null;
             }
         }
-        return invokeZ.objValue;
-    }
-
-    @Override // com.repackage.t75
-    public HashMap<String, Object> w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put(IntentConfig.CALL_FROM, Long.valueOf(this.a));
-            hashMap.put("fid", Long.valueOf(this.b));
-            hashMap.put("q_type", Integer.valueOf(an4.c().e()));
-            hashMap.put("scr_dip", Double.valueOf(a()));
-            hashMap.put("scr_h", Integer.valueOf(pi.i(TbadkCoreApplication.getInst().getApp())));
-            hashMap.put("scr_w", Integer.valueOf(pi.k(TbadkCoreApplication.getInst().getApp())));
-            return hashMap;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    @Override // com.repackage.t75
-    public HashMap<String, String> y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (HashMap) invokeV.objValue;
+        return (PackageInfo) invokeL.objValue;
     }
 }

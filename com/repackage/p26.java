@@ -1,43 +1,54 @@
 package com.repackage;
 
+import androidx.annotation.CallSuper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes6.dex */
-public interface p26 {
+/* loaded from: classes7.dex */
+public abstract class p26 extends q0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final m26 d;
 
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static float a(p26 p26Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, p26Var)) == null) {
-                Intrinsics.checkNotNullParameter(p26Var, "this");
-                return 1 / (p26Var.b() - 0.6f);
+    public p26(m26 danmakuContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {danmakuContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return invokeL.floatValue;
+        }
+        Intrinsics.checkNotNullParameter(danmakuContext, "danmakuContext");
+        this.d = danmakuContext;
+    }
+
+    @Override // com.repackage.q0
+    @CallSuper
+    public void g(n0 engine) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, engine) == null) {
+            Intrinsics.checkNotNullParameter(engine, "engine");
+            super.g(engine);
+            j();
         }
     }
 
-    int a();
+    public final m26 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (m26) invokeV.objValue;
+    }
 
-    float b();
-
-    int c();
-
-    float d();
-
-    float e();
-
-    int getHeight();
-
-    int getWidth();
-
-    void setHeight(int i);
-
-    void setWidth(int i);
+    public abstract void j();
 }

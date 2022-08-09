@@ -2,19 +2,12 @@ package com.repackage;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class v04 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public JSONObject d;
-    public w04 e;
 
     public v04() {
         Interceptable interceptable = $ic;
@@ -28,14 +21,5 @@ public class v04 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "{ videoPath=" + this.a + " , query=" + this.b + " , title=" + this.c + ", extra=" + this.d + ", videoEditorParams=" + this.e + " }";
-        }
-        return (String) invokeV.objValue;
     }
 }
