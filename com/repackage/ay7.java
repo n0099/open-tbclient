@@ -71,7 +71,7 @@ public class ay7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0906bd);
-            EMTextView eMTextView = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f092377);
+            EMTextView eMTextView = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f092378);
             this.c = eMTextView;
             ms4 d = ms4.d(eMTextView);
             d.w(R.dimen.M_H_X003);

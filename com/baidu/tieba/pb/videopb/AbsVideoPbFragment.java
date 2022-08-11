@@ -5194,7 +5194,7 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ji5, Vo
                                                 this.a.e4(true);
                                                 return;
                                             } else if (view2.getId() != R.id.obfuscated_res_0x7f0917c0 && view2.getId() != R.id.obfuscated_res_0x7f09213e) {
-                                                if (view2.getId() == R.id.obfuscated_res_0x7f092378) {
+                                                if (view2.getId() == R.id.obfuscated_res_0x7f092379) {
                                                     if (this.a.R0 >= 0) {
                                                         if (this.a.K() != null) {
                                                             this.a.K().i3();
@@ -8331,8 +8331,8 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ji5, Vo
     public final void m4() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048700, this) == null) {
-            this.c0 = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0924e3);
-            this.d0 = this.c.findViewById(R.id.obfuscated_res_0x7f092543);
+            this.c0 = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0924e4);
+            this.d0 = this.c.findViewById(R.id.obfuscated_res_0x7f092544);
             this.e0 = this.c.findViewById(R.id.obfuscated_res_0x7f0917bf);
             qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds120);
             qi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070284);
@@ -9033,7 +9033,7 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ji5, Vo
     public final void r4() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048730, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0924e6);
+            NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0924e7);
             this.m = navigationBar;
             navigationBar.setOnClickListener(new x0(this));
             this.m.hideBottomLine();
@@ -9055,7 +9055,7 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ji5, Vo
             }
             View addSystemImageButton = this.m.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.D1);
             this.p = addSystemImageButton;
-            this.q = (ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f092614);
+            this.q = (ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f092615);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.q, R.drawable.obfuscated_res_0x7f080612, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             View addCustomView = this.m.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0615, this.D1);
             this.r = addCustomView;
@@ -9353,7 +9353,7 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements ji5, Vo
             this.e.setAdapter(videoPbFragmentAdapter);
             this.d.setViewPager(this.e);
             this.d.setOnPageChangeListener(new q0(this));
-            this.M = this.c.findViewById(R.id.obfuscated_res_0x7f092579);
+            this.M = this.c.findViewById(R.id.obfuscated_res_0x7f09257a);
             this.K = (FallingView) this.c.findViewById(R.id.obfuscated_res_0x7f09097e);
             j5();
             this.K.setAnimationListener(new s0(this));

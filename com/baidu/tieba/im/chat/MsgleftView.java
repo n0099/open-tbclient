@@ -180,7 +180,7 @@ public class MsgleftView extends a67 {
         this.E.setDrawerType(1);
         this.E.setRadius(qi.d(this.K.getContext(), 4.0f));
         this.E.setPlaceHolder(1);
-        this.H = (UserIconBox) j(R.id.obfuscated_res_0x7f092471);
+        this.H = (UserIconBox) j(R.id.obfuscated_res_0x7f092472);
         this.E.setLongClickable(true);
         this.E.setOnLongClickListener(this.M);
         this.E.setOnTouchListener(new a(this));

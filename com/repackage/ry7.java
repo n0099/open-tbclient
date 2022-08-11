@@ -178,7 +178,7 @@ public class ry7 {
                     statisticItem3.param("obj_locate", ((PbCommentFloatActivity) this.a.a).x1());
                     TiebaStatic.log(statisticItem3);
                 }
-                if ((view2.getId() == R.id.obfuscated_res_0x7f09256b || view2.getId() == R.id.obfuscated_res_0x7f0916c3 || view2.getId() == R.id.obfuscated_res_0x7f09188b) && (view2.getTag(R.id.obfuscated_res_0x7f092002) instanceof Boolean)) {
+                if ((view2.getId() == R.id.obfuscated_res_0x7f09256c || view2.getId() == R.id.obfuscated_res_0x7f0916c3 || view2.getId() == R.id.obfuscated_res_0x7f09188b) && (view2.getTag(R.id.obfuscated_res_0x7f092002) instanceof Boolean)) {
                     i08.o(1);
                 }
             }

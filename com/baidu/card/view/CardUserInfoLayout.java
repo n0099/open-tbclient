@@ -667,7 +667,7 @@ public class CardUserInfoLayout extends LinearLayout implements ix {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) findViewById(R.id.obfuscated_res_0x7f092421);
+            HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) findViewById(R.id.obfuscated_res_0x7f092422);
             this.c = headPendantClickableView;
             headPendantClickableView.setHasPendantStyle();
             this.c.getHeadView().setIsRound(true);
@@ -675,16 +675,16 @@ public class CardUserInfoLayout extends LinearLayout implements ix {
             this.c.getHeadView().setDefaultResource(17170445);
             this.c.getHeadView().setPlaceHolder(1);
             this.c.setAfterClickListener(new f(this));
-            this.D = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f092427);
-            HeadCustomImageView headCustomImageView = (HeadCustomImageView) findViewById(R.id.obfuscated_res_0x7f092423);
+            this.D = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f092428);
+            HeadCustomImageView headCustomImageView = (HeadCustomImageView) findViewById(R.id.obfuscated_res_0x7f092424);
             this.E = headCustomImageView;
             headCustomImageView.setOnClickListener(this.N);
-            this.d = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f09244d);
+            this.d = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f09244e);
             this.C = (ImageView) findViewById(R.id.obfuscated_res_0x7f090edd);
-            UserIconBox userIconBox = (UserIconBox) findViewById(R.id.obfuscated_res_0x7f092470);
+            UserIconBox userIconBox = (UserIconBox) findViewById(R.id.obfuscated_res_0x7f092471);
             this.i = userIconBox;
             userIconBox.setOnClickListener(this.K);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09244f);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092450);
             this.e = textView;
             textView.setOnClickListener(this.L);
             this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090e4a);
@@ -700,15 +700,15 @@ public class CardUserInfoLayout extends LinearLayout implements ix {
             this.k = (LocationExtendLayout) findViewById(R.id.obfuscated_res_0x7f0905e5);
             this.l = (ImageView) findViewById(R.id.obfuscated_res_0x7f090202);
             this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f090201);
-            this.z = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f092451);
+            this.z = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f092452);
             this.A = findViewById(R.id.obfuscated_res_0x7f09053d);
             this.o = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091f5d);
             this.p = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b33);
             this.q = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091dd3);
-            VirtualImageStatusTip virtualImageStatusTip = (VirtualImageStatusTip) findViewById(R.id.obfuscated_res_0x7f09259e);
+            VirtualImageStatusTip virtualImageStatusTip = (VirtualImageStatusTip) findViewById(R.id.obfuscated_res_0x7f09259f);
             this.r = virtualImageStatusTip;
             virtualImageStatusTip.setOnClickListener(this.N);
-            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09242c);
+            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09242d);
         }
     }
 

@@ -384,10 +384,10 @@ public class NewStyleStampDialogView extends LinearLayout {
             this.c = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0639, this);
             setOrientation(1);
             this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090eec);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0923a2);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0923a5);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0923a3);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0923a4);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0923a3);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0923a6);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0923a4);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0923a5);
             this.i = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f09027a);
             this.j = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f09027b);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090eeb);

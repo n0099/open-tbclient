@@ -154,7 +154,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         c.Y(new b(this));
         this.m = c.r();
         c.loadUrl(this.n);
-        c.i((FrameLayout) findViewById(R.id.obfuscated_res_0x7f0925f1), this.m.covertToView());
+        c.i((FrameLayout) findViewById(R.id.obfuscated_res_0x7f0925f2), this.m.covertToView());
     }
 
     public void C(Intent intent) {

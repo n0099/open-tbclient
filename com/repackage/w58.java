@@ -94,7 +94,7 @@ public class w58 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
                 return;
             }
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f09244f || id == R.id.obfuscated_res_0x7f092421) {
+            if (id == R.id.obfuscated_res_0x7f092450 || id == R.id.obfuscated_res_0x7f092422) {
                 z48.a(view2, fo4Var, 1);
             }
         }

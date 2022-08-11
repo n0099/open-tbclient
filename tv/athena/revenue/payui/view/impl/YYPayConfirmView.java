@@ -142,7 +142,7 @@ public class YYPayConfirmView extends LinearLayout implements x2a {
             this.d.setVisibility(b() ? 0 : 8);
             this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092327);
             this.f = findViewById(R.id.obfuscated_res_0x7f091c07);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b3);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b4);
         }
     }
 

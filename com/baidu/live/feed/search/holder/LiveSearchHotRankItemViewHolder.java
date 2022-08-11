@@ -48,10 +48,10 @@ public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
             }
         }
         this.a = view2;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092393);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092394);
         this.c = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f091433);
         this.d = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090fd9);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09236f);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092370);
         this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09234a);
         this.e.setTextColor(ab0.f().a(view2.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
         this.f.setTextColor(ab0.f().a(view2.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_858585"));

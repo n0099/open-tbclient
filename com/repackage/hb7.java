@@ -57,7 +57,7 @@ public class hb7 {
         invatateAnswerSettingActivity.setContentView(R.layout.obfuscated_res_0x7f0d067e);
         View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f09194e);
         this.c = findViewById;
-        NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.obfuscated_res_0x7f09255b);
+        NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.obfuscated_res_0x7f09255c);
         this.b = navigationBar;
         navigationBar.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f136d));
         this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
@@ -66,7 +66,7 @@ public class hb7 {
         personalTalkSettingViewSettingView.a.setVisibility(0);
         c(ru4.k().h("key_question_msg_no_remind", false));
         this.n.b.setVisibility(8);
-        this.l = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092447);
+        this.l = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092448);
         TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f091f13);
         this.j = tbSettingTextTipView;
         tbSettingTextTipView.setVisibility(8);
@@ -86,8 +86,8 @@ public class hb7 {
         ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090e51);
         this.h = imageView;
         imageView.setVisibility(8);
-        this.f = (UserIconBox) this.a.findViewById(R.id.obfuscated_res_0x7f092440);
-        TextView textView2 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092429);
+        this.f = (UserIconBox) this.a.findViewById(R.id.obfuscated_res_0x7f092441);
+        TextView textView2 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09242a);
         this.g = textView2;
         textView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0cd4));
         this.m = this.a.findViewById(R.id.obfuscated_res_0x7f09080b);

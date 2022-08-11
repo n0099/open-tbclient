@@ -173,9 +173,9 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925b5);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0925b7);
-            this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0925b6);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925b6);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0925b8);
+            this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0925b7);
         }
     }
 
@@ -244,7 +244,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                     return;
                 }
             }
-            this.a = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f0925c2);
+            this.a = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f0925c3);
             this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ec0);
             this.c = new g(writeVoteViewAdapter, this);
             this.a.setOnEditorActionListener(writeVoteViewAdapter.e);

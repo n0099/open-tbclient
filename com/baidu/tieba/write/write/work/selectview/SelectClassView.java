@@ -111,7 +111,7 @@ public class SelectClassView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08d1, (ViewGroup) this, true);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f092638);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f092639);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.work_publish_class_sign)");
             setMClassTitleSign((ImageView) findViewById);
             View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0912ba);

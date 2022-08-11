@@ -1595,11 +1595,11 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.k = (ManualObservableScrollView) findViewById(R.id.obfuscated_res_0x7f0918d9);
             this.w = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09194d);
             this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f091e22);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255b);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255c);
             this.c = navigationBar;
             View addCustomView = navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d0902, this.G0);
             this.T = addCustomView;
-            ImageView imageView = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f092614);
+            ImageView imageView = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f092615);
             this.V = imageView;
             imageView.setContentDescription(getPageContext().getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f03f3));
             this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090a2c);
@@ -1645,9 +1645,9 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f091687);
             this.S = imageView2;
             imageView2.setOnClickListener(this);
-            this.q0 = (TextView) findViewById(R.id.obfuscated_res_0x7f092453);
+            this.q0 = (TextView) findViewById(R.id.obfuscated_res_0x7f092454);
             this.P = findViewById(R.id.obfuscated_res_0x7f091945);
-            this.Q = findViewById(R.id.obfuscated_res_0x7f092452);
+            this.Q = findViewById(R.id.obfuscated_res_0x7f092453);
             this.P.setOnClickListener(this);
             this.z = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090f5d);
             this.t = (TextView) findViewById(R.id.obfuscated_res_0x7f090f60);

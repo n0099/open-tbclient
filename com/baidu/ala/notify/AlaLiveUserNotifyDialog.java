@@ -117,7 +117,7 @@ public class AlaLiveUserNotifyDialog extends Dialog {
             this.alaNotifyDescription = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090208);
             this.btnKnow = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090412);
             this.portraitLayout = (FrameLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0919f4);
-            this.userPortrait = (HeadImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09245c);
+            this.userPortrait = (HeadImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09245d);
             this.ivHeadWrapper = (ImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090fee);
             this.overUserPortraitBg = this.mRootView.findViewById(R.id.obfuscated_res_0x7f091746);
             this.userPortrait.setDefaultResource(R.drawable.icon_default_avatar100_bg);

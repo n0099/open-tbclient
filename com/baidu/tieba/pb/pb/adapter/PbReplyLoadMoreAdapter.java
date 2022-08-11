@@ -48,7 +48,7 @@ public class PbReplyLoadMoreAdapter extends bw7<PostData, ReplyLoadMoreViewHolde
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092378);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092379);
         }
 
         public void a() {
@@ -104,7 +104,7 @@ public class PbReplyLoadMoreAdapter extends bw7<PostData, ReplyLoadMoreViewHolde
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06cd, viewGroup, false);
-            inflate.findViewById(R.id.obfuscated_res_0x7f092378).setOnClickListener(this.g);
+            inflate.findViewById(R.id.obfuscated_res_0x7f092379).setOnClickListener(this.g);
             ReplyLoadMoreViewHolder replyLoadMoreViewHolder = new ReplyLoadMoreViewHolder(inflate);
             replyLoadMoreViewHolder.a();
             return replyLoadMoreViewHolder;

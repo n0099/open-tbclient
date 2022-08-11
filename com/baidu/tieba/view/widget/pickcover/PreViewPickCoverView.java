@@ -538,9 +538,9 @@ public class PreViewPickCoverView extends FrameLayout implements View.OnClickLis
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.d = (PickCoverLayout) findViewById(R.id.obfuscated_res_0x7f09248b);
+            this.d = (PickCoverLayout) findViewById(R.id.obfuscated_res_0x7f09248c);
             this.i = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09198d);
-            this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0924ed);
+            this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0924ee);
             this.h = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090e8b);
             p();
             TextEditToolView textEditToolView = new TextEditToolView(getContext());

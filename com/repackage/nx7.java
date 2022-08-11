@@ -2529,7 +2529,7 @@ public class nx7 {
         this.e = this.d.findViewById(R.id.obfuscated_res_0x7f091f2b);
         this.O1 = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f091bf2);
         this.D = (ObservedChangeRelativeLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0921ee);
-        this.m = (NoNetworkView) this.d.findViewById(R.id.obfuscated_res_0x7f09255d);
+        this.m = (NoNetworkView) this.d.findViewById(R.id.obfuscated_res_0x7f09255e);
         this.l = (PbLandscapeListView) this.d.findViewById(R.id.obfuscated_res_0x7f09165c);
         this.U0 = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f091c24);
         this.V0 = new TextView(this.c.getActivity());
@@ -2561,7 +2561,7 @@ public class nx7 {
         }
         this.V0.setLayoutParams(layoutParams);
         this.h.p().setOnTouchListener(new fu7(new t0(this)));
-        this.s0 = this.d.findViewById(R.id.obfuscated_res_0x7f092543);
+        this.s0 = this.d.findViewById(R.id.obfuscated_res_0x7f092544);
         this.t0 = this.d.findViewById(R.id.obfuscated_res_0x7f0917bf);
         qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds120);
         this.K0 = qi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070284);
@@ -2665,7 +2665,7 @@ public class nx7 {
         this.K.z();
         this.K.o(R.drawable.pb_foot_more_trans_selector);
         this.K.p(R.drawable.pb_foot_more_trans_selector);
-        this.O = this.d.findViewById(R.id.obfuscated_res_0x7f092579);
+        this.O = this.d.findViewById(R.id.obfuscated_res_0x7f09257a);
         this.c.registerListener(this.W1);
         this.i1 = new PbFakeFloorModel(this.c.getPageContext());
         PbModel K = this.c.K();
@@ -5248,7 +5248,7 @@ public class nx7 {
             rightFloatLayerView.o();
         }
         SkinManager.setBackgroundColor(this.X0, R.color.CAM_X0207);
-        SkinManager.setViewTextColor(this.X0.findViewById(R.id.obfuscated_res_0x7f0923b3), (int) R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.X0.findViewById(R.id.obfuscated_res_0x7f0923b4), (int) R.color.CAM_X0105);
     }
 
     public void f3(av4.g gVar) {

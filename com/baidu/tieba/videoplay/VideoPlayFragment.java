@@ -4206,7 +4206,7 @@ public class VideoPlayFragment extends BaseFragment implements oj5.b, hw8, OnSta
                 }
                 this.l.setLayoutParams(this.v0);
                 if (this.h != null && (tbVideoViewContainer2 = this.i) != null) {
-                    tbVideoViewContainer2.setId(R.id.obfuscated_res_0x7f0924af);
+                    tbVideoViewContainer2.setId(R.id.obfuscated_res_0x7f0924b0);
                     if (c4() && UbsABTestHelper.isShowVideoPlayDanmuABTest()) {
                         this.v0.addRule(15);
                     }
@@ -4222,7 +4222,7 @@ public class VideoPlayFragment extends BaseFragment implements oj5.b, hw8, OnSta
                     eMTextView.setText(getString(R.string.obfuscated_res_0x7f0f150f));
                     eMTextView.setGravity(17);
                     RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
-                    layoutParams2.addRule(3, R.id.obfuscated_res_0x7f0924af);
+                    layoutParams2.addRule(3, R.id.obfuscated_res_0x7f0924b0);
                     layoutParams2.addRule(14, -1);
                     layoutParams2.topMargin = getResources().getDimensionPixelSize(R.dimen.M_H_X004);
                     this.h.addView(this.g, layoutParams2);
@@ -5718,7 +5718,7 @@ public class VideoPlayFragment extends BaseFragment implements oj5.b, hw8, OnSta
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048652, this, view2) == null) {
             super.onClick(view2);
-            if (view2.getId() != R.id.obfuscated_res_0x7f0924f1 || (hv8Var = this.k) == null) {
+            if (view2.getId() != R.id.obfuscated_res_0x7f0924f2 || (hv8Var = this.k) == null) {
                 return;
             }
             hv8Var.i();
@@ -5805,7 +5805,7 @@ public class VideoPlayFragment extends BaseFragment implements oj5.b, hw8, OnSta
             this.h1 = true;
             VideoItemData videoItemData2 = this.b0;
             if (videoItemData2 != null && StringUtils.isNull(videoItemData2.video_url) && !StringUtils.isNull(this.b0.thread_id)) {
-                VideoDanmuController videoDanmuController = new VideoDanmuController(getPageContext(), getUniqueId(), this.f, R.id.obfuscated_res_0x7f0924b2, this.b0, this.a);
+                VideoDanmuController videoDanmuController = new VideoDanmuController(getPageContext(), getUniqueId(), this.f, R.id.obfuscated_res_0x7f0924b3, this.b0, this.a);
                 this.j = videoDanmuController;
                 videoDanmuController.X(this.R1);
                 this.j.M();
@@ -5816,14 +5816,14 @@ public class VideoPlayFragment extends BaseFragment implements oj5.b, hw8, OnSta
             this.i = tbVideoViewContainer2;
             tbVideoViewContainer2.getControl().setStageType("2005");
             this.i.getControl().getMediaProgressObserver().j(this.E1);
-            TbImageView tbImageView = (TbImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0924b0);
+            TbImageView tbImageView = (TbImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0924b1);
             this.l = tbImageView;
             tbImageView.setDefaultBgResource(R.color.transparent);
             this.B = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0919aa);
-            this.C = (RelativeLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0924d7);
-            this.D = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0924d6);
+            this.C = (RelativeLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0924d8);
+            this.D = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0924d7);
             this.l.setEvent(this.F1);
-            this.h = (RelativeLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0924f5);
+            this.h = (RelativeLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0924f6);
             E4();
             this.m = this.f.findViewById(R.id.obfuscated_res_0x7f092239);
             int statusBarHeight = UtilHelper.getStatusBarHeight();
@@ -5865,7 +5865,7 @@ public class VideoPlayFragment extends BaseFragment implements oj5.b, hw8, OnSta
             this.q.setDrawBorder(true);
             this.q.setUseNightOrDarkMask(false);
             C4();
-            this.r = (TBLottieAnimationView) this.f.findViewById(R.id.obfuscated_res_0x7f09244d);
+            this.r = (TBLottieAnimationView) this.f.findViewById(R.id.obfuscated_res_0x7f09244e);
             this.s = (TBLottieAnimationView) this.f.findViewById(R.id.obfuscated_res_0x7f0902d6);
             this.X = (RelativeLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0902ec);
             this.u = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0903d5);
@@ -5880,22 +5880,22 @@ public class VideoPlayFragment extends BaseFragment implements oj5.b, hw8, OnSta
             this.V.setConfig(ov4Var);
             this.V.setText(getString(R.string.obfuscated_res_0x7f0f02ab));
             this.j0 = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f090154);
-            this.L = (ExpandableTextView) this.f.findViewById(R.id.obfuscated_res_0x7f092521);
+            this.L = (ExpandableTextView) this.f.findViewById(R.id.obfuscated_res_0x7f092522);
             this.M = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0921ce);
             this.N = this.f.findViewById(R.id.obfuscated_res_0x7f0921cd);
             this.O = this.f.findViewById(R.id.obfuscated_res_0x7f0921df);
-            this.P = this.f.findViewById(R.id.obfuscated_res_0x7f092524);
+            this.P = this.f.findViewById(R.id.obfuscated_res_0x7f092525);
             this.e0 = (VideoMiddleNiaiControllerView) this.f.findViewById(R.id.obfuscated_res_0x7f0914af);
-            this.W = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092493);
+            this.W = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092494);
             this.y = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090669);
             this.Q = (EMTextView) this.f.findViewById(R.id.obfuscated_res_0x7f090675);
             this.q0 = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f090673);
             this.x = (RelativeLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090153);
             this.v = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0913d3);
             this.w = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f091e2b);
-            this.c1 = (RelativeLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0924a6);
-            this.i1 = this.f.findViewById(R.id.obfuscated_res_0x7f092525);
-            this.j1 = this.f.findViewById(R.id.obfuscated_res_0x7f0924a8);
+            this.c1 = (RelativeLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0924a7);
+            this.i1 = this.f.findViewById(R.id.obfuscated_res_0x7f092526);
+            this.j1 = this.f.findViewById(R.id.obfuscated_res_0x7f0924a9);
             if (UbsABTestHelper.isFeedVideoImmersionTransition() && !d4() && this.h0 != null) {
                 y4(8);
                 TbImageView tbImageView2 = this.l;
@@ -5934,10 +5934,10 @@ public class VideoPlayFragment extends BaseFragment implements oj5.b, hw8, OnSta
             this.z = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091e34);
             this.A = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091e35);
             t4();
-            this.Y = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f092492);
-            this.Z = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f092495);
-            this.a0 = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0924f9);
-            this.s0 = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0924a3);
+            this.Y = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f092493);
+            this.Z = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f092496);
+            this.a0 = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0924fa);
+            this.s0 = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0924a4);
             this.t0 = this.f.findViewById(R.id.obfuscated_res_0x7f091af3);
             if (UbsABTestHelper.isShowVideoPlayDanmuABTest()) {
                 this.t0.setVisibility(0);
@@ -6010,13 +6010,13 @@ public class VideoPlayFragment extends BaseFragment implements oj5.b, hw8, OnSta
             if (videoItemData3 != null && (!StringUtils.isNull(videoItemData3.video_url) || !StringUtils.isNull(this.b0.thread_id))) {
                 H4(this.b0.video_url);
                 if (UbsABTestHelper.isShowVideoPlayDanmuABTest()) {
-                    VideoDanmuController videoDanmuController2 = new VideoDanmuController(getPageContext(), getUniqueId(), this.f, R.id.obfuscated_res_0x7f0924b2, this.b0, this.a);
+                    VideoDanmuController videoDanmuController2 = new VideoDanmuController(getPageContext(), getUniqueId(), this.f, R.id.obfuscated_res_0x7f0924b3, this.b0, this.a);
                     this.j = videoDanmuController2;
                     videoDanmuController2.P(this.B1);
                 }
             }
             if (UbsABTestHelper.isShowVideoPlayDanmuABTest()) {
-                hv8 hv8Var = new hv8(this.f, R.id.obfuscated_res_0x7f0924f1);
+                hv8 hv8Var = new hv8(this.f, R.id.obfuscated_res_0x7f0924f2);
                 this.k = hv8Var;
                 hv8Var.g(this);
                 this.k.h(this.P1);

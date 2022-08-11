@@ -96,7 +96,7 @@ public class k48 extends bz5<d48> {
         this.i = 3;
         this.m = new a(this);
         View h = h();
-        this.j = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f092570);
+        this.j = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f092571);
         AutoBannerView autoBannerView = (AutoBannerView) h.findViewById(R.id.obfuscated_res_0x7f0918a6);
         this.k = autoBannerView;
         autoBannerView.setMarqueenTime(3000L);

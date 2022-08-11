@@ -215,17 +215,17 @@ public class im5 {
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.c.setContentView(R.layout.obfuscated_res_0x7f0d013c);
             this.a = this.c.findViewById(R.id.obfuscated_res_0x7f091c31);
-            this.d = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f09255b);
+            this.d = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f09255c);
             w("");
-            this.j = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0925f1);
-            this.p = (ApkDownloadBannerView) this.c.findViewById(R.id.obfuscated_res_0x7f0925eb);
+            this.j = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0925f2);
+            this.p = (ApkDownloadBannerView) this.c.findViewById(R.id.obfuscated_res_0x7f0925ec);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
-            layoutParams.addRule(3, R.id.obfuscated_res_0x7f09255b);
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f09255c);
             this.j.setLayoutParams(layoutParams);
-            this.k = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0925f3);
+            this.k = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0925f4);
             View addCustomView = this.d.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d08ff, new a(this));
             this.f = addCustomView;
-            ImageView imageView = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f092614);
+            ImageView imageView = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f092615);
             this.g = imageView;
             imageView.setContentDescription(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f02c9));
             h();
@@ -322,7 +322,7 @@ public class im5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
-            layoutParams.addRule(3, R.id.obfuscated_res_0x7f09255b);
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f09255c);
             this.j.setLayoutParams(layoutParams);
             this.g.setBackgroundDrawable(null);
             this.h.setBackgroundDrawable(null);

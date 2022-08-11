@@ -166,7 +166,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements sw4 {
             this.b = headPendantView;
             headPendantView.getHeadView().setIsRound(true);
             this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090432);
-            this.c = findViewById(R.id.obfuscated_res_0x7f09253b);
+            this.c = findViewById(R.id.obfuscated_res_0x7f09253c);
             this.d = findViewById(R.id.obfuscated_res_0x7f091beb);
         }
     }

@@ -143,7 +143,7 @@ public class ey7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, tbPageContext) == null) {
             this.b = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0906bd);
-            this.c = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f0923b3);
+            this.c = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f0923b4);
             this.d = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f092320);
             ms4 d = ms4.d(this.c);
             d.v(R.color.CAM_X0109);

@@ -239,11 +239,11 @@ public class j48 extends bz5<u38> {
                 } else {
                     view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d0897, (ViewGroup) null);
                     c0509b = new C0509b(this, null);
-                    c0509b.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092432);
-                    c0509b.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092434);
-                    c0509b.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092435);
-                    c0509b.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092431);
-                    c0509b.f = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f092430);
+                    c0509b.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092433);
+                    c0509b.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092435);
+                    c0509b.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092436);
+                    c0509b.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092432);
+                    c0509b.f = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f092431);
                     view2.setTag(c0509b);
                 }
                 c0509b.b.K(item.e(), 10, false);
@@ -333,31 +333,31 @@ public class j48 extends bz5<u38> {
         View findViewById3 = h.findViewById(R.id.obfuscated_res_0x7f0903d5);
         this.o = findViewById3;
         findViewById3.setOnClickListener(this);
-        View findViewById4 = h.findViewById(R.id.obfuscated_res_0x7f09242e);
+        View findViewById4 = h.findViewById(R.id.obfuscated_res_0x7f09242f);
         this.p = findViewById4;
         findViewById4.setOnClickListener(this);
-        this.q = h.findViewById(R.id.obfuscated_res_0x7f09242d);
+        this.q = h.findViewById(R.id.obfuscated_res_0x7f09242e);
         this.t = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0921ba);
         this.u = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0920cf);
         this.v = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090ce7);
-        this.w = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0923d4);
+        this.w = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0923d5);
         this.x = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092209);
-        this.y = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0923dd);
-        this.z = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0923de);
-        this.A = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092436);
+        this.y = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0923de);
+        this.z = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0923df);
+        this.A = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092437);
         this.r = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f090eac);
-        this.s = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f092437);
-        this.C = (BdListView) h.findViewById(R.id.obfuscated_res_0x7f092433);
+        this.s = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f092438);
+        this.C = (BdListView) h.findViewById(R.id.obfuscated_res_0x7f092434);
         b bVar = new b(this, this.i);
         this.D = bVar;
         this.C.setAdapter((ListAdapter) bVar);
-        TbImageView tbImageView = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f09242b);
+        TbImageView tbImageView = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f09242c);
         this.B = tbImageView;
         tbImageView.setAutoChangeStyle(true);
         this.B.setDrawCorner(true);
         this.B.setRadiusById(R.string.J_X14);
         this.B.setConrers(3);
-        RadiusProgressView radiusProgressView = (RadiusProgressView) h.findViewById(R.id.obfuscated_res_0x7f09242f);
+        RadiusProgressView radiusProgressView = (RadiusProgressView) h.findViewById(R.id.obfuscated_res_0x7f092430);
         this.E = radiusProgressView;
         radiusProgressView.setOnClickListener(this);
         j(g(), TbadkCoreApplication.getInst().getSkinType());
@@ -417,10 +417,10 @@ public class j48 extends bz5<u38> {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f09242e) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f09242f) {
                 UrlManager.getInstance().dealOneLink(this.i, new String[]{TbConfig.USER_GROWTH_TASK_CENTER_MAIN_URL});
                 p48.a("2");
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092239 || view2.getId() == R.id.obfuscated_res_0x7f09150a || view2.getId() == R.id.obfuscated_res_0x7f09242f || view2.getId() == R.id.obfuscated_res_0x7f0903d5) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092239 || view2.getId() == R.id.obfuscated_res_0x7f09150a || view2.getId() == R.id.obfuscated_res_0x7f092430 || view2.getId() == R.id.obfuscated_res_0x7f0903d5) {
                 UrlManager.getInstance().dealOneLink(this.i, new String[]{TbConfig.USER_GROWTH_TASK_CENTER_MAIN_URL});
                 p48.a("1");
             }

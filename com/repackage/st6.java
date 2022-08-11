@@ -256,7 +256,7 @@ public class st6 extends BaseAdapter {
                 headImageView.setRadius(qi.d(this.c.getBaseContext(), 50.0f));
                 bVar.c.setOnClickListener(this.h);
                 bVar.c.setPlaceHolder(1);
-                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09244f);
+                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092450);
                 bVar.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c9c);
                 bVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090caa);
                 bVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c9b);

@@ -119,7 +119,7 @@ public class qy8 extends BaseAdapter implements View.OnClickListener {
             aVar.a.setBorderWidth(qi.f(viewGroup.getContext(), R.dimen.obfuscated_res_0x7f070224));
             aVar.a.setConrers(15);
             aVar.a.setBorderColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0302));
-            aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092369);
+            aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09236a);
         }
     }
 

@@ -219,10 +219,10 @@ public class MultiLinkCardView extends RelativeLayout {
         this.i.setPlaceHolder(1);
         this.i.setConrers(15);
         this.i.setRadius(qi.f(getContext(), R.dimen.tbds10));
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092366);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092367);
         this.j = textView;
         ms4.d(textView).y(R.array.S_O_X001);
-        this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f092365);
+        this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f092366);
         this.l = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ffa);
         this.o = new ArrayList();
         this.n = new ArrayList();

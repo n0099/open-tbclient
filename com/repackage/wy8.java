@@ -100,17 +100,17 @@ public class wy8 {
         int childCount = this.b.getListView().getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = this.b.getListView().getChildAt(i);
-            if (childAt != null && (childAt.getTag(R.id.obfuscated_res_0x7f0925a0) instanceof vy8)) {
-                ((vy8) childAt.getTag(R.id.obfuscated_res_0x7f0925a0)).b();
+            if (childAt != null && (childAt.getTag(R.id.obfuscated_res_0x7f0925a1) instanceof vy8)) {
+                ((vy8) childAt.getTag(R.id.obfuscated_res_0x7f0925a1)).b();
             }
         }
     }
 
     public void f(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && (view2.getTag(R.id.obfuscated_res_0x7f0925a0) instanceof vy8)) {
-            ((vy8) view2.getTag(R.id.obfuscated_res_0x7f0925a0)).b();
-            view2.setTag(R.id.obfuscated_res_0x7f0925a0, null);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && (view2.getTag(R.id.obfuscated_res_0x7f0925a1) instanceof vy8)) {
+            ((vy8) view2.getTag(R.id.obfuscated_res_0x7f0925a1)).b();
+            view2.setTag(R.id.obfuscated_res_0x7f0925a1, null);
         }
     }
 
@@ -123,8 +123,8 @@ public class wy8 {
         int childCount = this.b.getListView().getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = this.b.getListView().getChildAt(i);
-            if (childAt != null && (childAt.getTag(R.id.obfuscated_res_0x7f0925a0) instanceof vy8)) {
-                vy8 vy8Var = (vy8) childAt.getTag(R.id.obfuscated_res_0x7f0925a0);
+            if (childAt != null && (childAt.getTag(R.id.obfuscated_res_0x7f0925a1) instanceof vy8)) {
+                vy8 vy8Var = (vy8) childAt.getTag(R.id.obfuscated_res_0x7f0925a1);
                 if (b(a(childAt))) {
                     vy8Var.play();
                 }

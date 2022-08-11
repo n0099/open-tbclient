@@ -324,10 +324,10 @@ public class il7 {
             this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091a5a);
             this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091c43);
             this.i = (GridView) this.b.findViewById(R.id.obfuscated_res_0x7f091a50);
-            this.l = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f09255d);
+            this.l = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f09255e);
             this.k = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0914cf);
             this.n = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0914d0);
-            this.m = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09235e);
+            this.m = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09235f);
             this.w = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0909ae);
             this.x = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091dcb);
             this.y = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092110);

@@ -130,10 +130,10 @@ public class n45 {
             Context context = TbadkCoreApplication.getInst().getContext();
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(TbadkApplication.getInst().getCurrentActivity());
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06d5, (ViewGroup) null);
-            ms4 d = ms4.d(inflate.findViewById(R.id.obfuscated_res_0x7f09259b));
+            ms4 d = ms4.d(inflate.findViewById(R.id.obfuscated_res_0x7f09259c));
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0201);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09258d);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09258e);
             ms4 d2 = ms4.d(textView);
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X07);
@@ -143,7 +143,7 @@ public class n45 {
             d2.k(R.color.CAM_X0105);
             d2.j(R.string.A_X07);
             textView.setOnClickListener(new a(cVar, tBAlertBuilder));
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09258c);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09258d);
             ms4 d3 = ms4.d(textView2);
             d3.A(R.string.F_X01);
             d3.z(R.dimen.T_X07);

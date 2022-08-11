@@ -73,7 +73,7 @@ public class ej6 extends ue6<ir4, ThreadCardViewHolder<ThreadData>> implements z
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) || view2 == null || threadData == null) {
                 return;
             }
-            if (view2.getId() != R.id.obfuscated_res_0x7f09244f && view2.getId() != R.id.obfuscated_res_0x7f092421) {
+            if (view2.getId() != R.id.obfuscated_res_0x7f092450 && view2.getId() != R.id.obfuscated_res_0x7f092422) {
                 if (view2.getId() == R.id.obfuscated_res_0x7f09213e) {
                     wp6.e(threadData, 5, this.b.mPageId, this.b.p, this.b.t());
                     ir6.g(threadData, this.b.b, 1);
@@ -102,7 +102,7 @@ public class ej6 extends ue6<ir4, ThreadCardViewHolder<ThreadData>> implements z
             } else {
                 wp6.e(threadData, 2, this.b.mPageId, this.b.p, this.b.t());
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f09244f || view2.getId() == R.id.obfuscated_res_0x7f092421) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f092450 || view2.getId() == R.id.obfuscated_res_0x7f092422) {
                 yp6.k().h(this.b.p, threadData, 2);
             } else if (view2.getId() != R.id.obfuscated_res_0x7f09053c) {
                 yp6.k().h(this.b.p, threadData, 7);
@@ -192,9 +192,9 @@ public class ej6 extends ue6<ir4, ThreadCardViewHolder<ThreadData>> implements z
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, fo4Var, view2) == null) || fo4Var == null) {
                 return;
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f09244f) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f092450) {
                 fo4Var.objType = 3;
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092421) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092422) {
                 fo4Var.objType = 4;
             } else {
                 fo4Var.objType = 1;

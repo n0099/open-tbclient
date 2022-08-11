@@ -178,12 +178,12 @@ public class rq8 {
         this.b = inflate;
         this.a.setContentView(inflate);
         this.c = this.b.findViewById(R.id.obfuscated_res_0x7f0903ac);
-        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f09255b);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f09255c);
         this.d = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.d.showBottomLine(false);
         this.f = (BdExpandListView) this.a.findViewById(R.id.obfuscated_res_0x7f091972);
-        this.h = (SkinProgressView) this.b.findViewById(R.id.obfuscated_res_0x7f09253e);
+        this.h = (SkinProgressView) this.b.findViewById(R.id.obfuscated_res_0x7f09253f);
         lq8 lq8Var = new lq8(backgroundPreviewActivity.getPageContext(), this.a.getUniqueId());
         this.j = lq8Var;
         lq8Var.c(this.a.A1());

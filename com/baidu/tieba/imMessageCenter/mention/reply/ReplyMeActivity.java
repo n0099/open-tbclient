@@ -200,7 +200,7 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
             }
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d004c);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255b);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255c);
             this.b = navigationBar;
             navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0fdd));
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);

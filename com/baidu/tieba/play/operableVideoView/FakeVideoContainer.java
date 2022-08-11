@@ -53,9 +53,9 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0285, this);
-            this.a = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09251f);
+            this.a = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092520);
             this.b = findViewById(R.id.obfuscated_res_0x7f090398);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0924ee);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0924ef);
             this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09097a);
             this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
             ms4 d = ms4.d(this.d);

@@ -3922,19 +3922,19 @@ public class PbFragment extends BaseFragment implements ji5, VoiceManager.j, Use
                                                                                                     this.a.y6();
                                                                                                 } else if (id == R.id.obfuscated_res_0x7f09147d) {
                                                                                                     this.a.v6();
-                                                                                                } else if (id == R.id.obfuscated_res_0x7f092683) {
+                                                                                                } else if (id == R.id.obfuscated_res_0x7f092684) {
                                                                                                     if (this.a.y0 != null && this.a.y0.Q1() != null && this.a.y0.Q1().A() != null) {
                                                                                                         ft7 Q13 = this.a.y0.Q1();
                                                                                                         TiebaStatic.log(new StatisticItem("c11679").param("fid", Q13.m()));
                                                                                                         UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{Q13.A().b()});
                                                                                                     }
-                                                                                                } else if (id == R.id.obfuscated_res_0x7f092680) {
+                                                                                                } else if (id == R.id.obfuscated_res_0x7f092681) {
                                                                                                     if (this.a.y0 != null && this.a.y0.Q1() != null && this.a.y0.Q1().A() != null) {
                                                                                                         ft7 Q14 = this.a.y0.Q1();
                                                                                                         TiebaStatic.log(new StatisticItem("c11678").param("fid", Q14.m()));
                                                                                                         UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{Q14.A().b()});
                                                                                                     }
-                                                                                                } else if (id == R.id.obfuscated_res_0x7f092378) {
+                                                                                                } else if (id == R.id.obfuscated_res_0x7f092379) {
                                                                                                     if (this.a.r1 >= 0) {
                                                                                                         if (this.a.y0 != null) {
                                                                                                             this.a.y0.i3();
@@ -4177,7 +4177,7 @@ public class PbFragment extends BaseFragment implements ji5, VoiceManager.j, Use
                                                                                                         PbFragment pbFragment5 = this.a;
                                                                                                         pbFragment5.b = false;
                                                                                                         pbFragment5.j5(view2);
-                                                                                                    } else if (id == R.id.obfuscated_res_0x7f092396) {
+                                                                                                    } else if (id == R.id.obfuscated_res_0x7f092397) {
                                                                                                         if (view2.getTag(R.id.obfuscated_res_0x7f092002) instanceof Boolean) {
                                                                                                             i08.o(5);
                                                                                                         }

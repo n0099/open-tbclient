@@ -1144,7 +1144,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements s
     public final void A1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f09255b);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f09255c);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.view_navigation_bar)");
             setNavigationBar((NavigationBar) findViewById);
             n1().showBottomLine();
@@ -1279,10 +1279,10 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements s
             View findViewById = findViewById(16908290);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(android.R.id.content)");
             j2((ViewGroup) findViewById);
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f092490);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f092491);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "findViewById(R.id.videoViewLayout)");
             g2((ViewGroup) findViewById2);
-            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f09248f);
+            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f092490);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "findViewById(R.id.videoView)");
             f2((WorkPublishMixVideoView) findViewById3);
             WorkPublishMixVideoView i1 = i1();
@@ -1290,7 +1290,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements s
             Intrinsics.checkNotNullExpressionValue(pageContext, "pageContext");
             i1.setPageContext(pageContext);
             i1().setIWorkVideoMixListener(this);
-            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f09263a);
+            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f09263b);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.work_publish_edtTitle)");
             e2((SpanGroupEditText) findViewById4);
             f1().setTransLink(false);
@@ -1298,10 +1298,10 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements s
             View findViewById5 = findViewById(R.id.obfuscated_res_0x7f090857);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.edit_content)");
             d2((RelativeLayout) findViewById5);
-            View findViewById6 = findViewById(R.id.obfuscated_res_0x7f092637);
+            View findViewById6 = findViewById(R.id.obfuscated_res_0x7f092638);
             Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.work_publish_bg)");
             p2((ViewGroup) findViewById6);
-            View findViewById7 = findViewById(R.id.obfuscated_res_0x7f092639);
+            View findViewById7 = findViewById(R.id.obfuscated_res_0x7f09263a);
             Intrinsics.checkNotNullExpressionValue(findViewById7, "findViewById(R.id.work_publish_container)");
             q2((ViewGroup) findViewById7);
             View findViewById8 = findViewById(R.id.obfuscated_res_0x7f091de6);
@@ -1336,7 +1336,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements s
             View findViewById12 = findViewById(R.id.obfuscated_res_0x7f091e0c);
             Intrinsics.checkNotNullExpressionValue(findViewById12, "findViewById(R.id.sep_line_content)");
             setContentBottomLine(findViewById12);
-            View findViewById13 = findViewById(R.id.obfuscated_res_0x7f09263c);
+            View findViewById13 = findViewById(R.id.obfuscated_res_0x7f09263d);
             Intrinsics.checkNotNullExpressionValue(findViewById13, "findViewById(R.id.work_publish_title_counter)");
             c2((TextView) findViewById13);
             View findViewById14 = findViewById(R.id.obfuscated_res_0x7f091e01);

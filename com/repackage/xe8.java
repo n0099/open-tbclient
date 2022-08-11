@@ -146,7 +146,7 @@ public class xe8 extends b9<SystemHelpSettingActivity> {
         new b(this, 2001303);
         this.a = systemHelpSettingActivity;
         systemHelpSettingActivity.setContentView(R.layout.obfuscated_res_0x7f0d0825);
-        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f09255b);
+        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f09255c);
         this.p = navigationBar;
         navigationBar.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f133f));
         this.p.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);

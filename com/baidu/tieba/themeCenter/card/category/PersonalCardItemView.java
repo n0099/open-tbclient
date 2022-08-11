@@ -151,8 +151,8 @@ public class PersonalCardItemView extends LinearLayout {
             tbImageView2.setDefaultResource(R.drawable.obfuscated_res_0x7f08120f);
             this.f.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08120f);
             this.g = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09060d);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923d2);
-            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092542);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923d3);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092543);
             this.i = this.b.findViewById(R.id.obfuscated_res_0x7f09039a);
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.c.getLayoutParams();
             layoutParams.height = this.m;

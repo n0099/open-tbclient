@@ -105,14 +105,14 @@ public class CandidateInfoLayout extends CardBasicLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            BazhuHeadView bazhuHeadView = (BazhuHeadView) findViewById(R.id.obfuscated_res_0x7f092421);
+            BazhuHeadView bazhuHeadView = (BazhuHeadView) findViewById(R.id.obfuscated_res_0x7f092422);
             this.e = bazhuHeadView;
             if (bazhuHeadView.getHeadView() != null) {
                 this.e.getHeadView().setIsRound(true);
             }
-            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092450);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09244f);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0925c0);
+            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092451);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092450);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0925c1);
             this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09015d);
             this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ccb);
         }

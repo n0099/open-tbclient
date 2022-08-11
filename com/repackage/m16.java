@@ -54,7 +54,7 @@ public class m16 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 int id = view2.getId();
-                if (id == R.id.obfuscated_res_0x7f091a4f || id == R.id.obfuscated_res_0x7f09266d) {
+                if (id == R.id.obfuscated_res_0x7f091a4f || id == R.id.obfuscated_res_0x7f09266e) {
                     if (this.a.b != null && this.a.b.isShowing()) {
                         this.a.b.dismiss();
                         SmartLaunchStats.onConfirmPrivacy();

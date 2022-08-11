@@ -61,9 +61,9 @@ public class rw6 extends bn<n06, ThreadCardViewHolder<n06>> {
                 int id = view2.getId();
                 if (id == R.id.obfuscated_res_0x7f09212a || id == R.id.obfuscated_res_0x7f09213e) {
                     yw6.e(n06Var, this.b.d);
-                } else if (id == R.id.obfuscated_res_0x7f092421) {
+                } else if (id == R.id.obfuscated_res_0x7f092422) {
                     yw6.f(n06Var, this.b.d);
-                } else if (id == R.id.obfuscated_res_0x7f09244f) {
+                } else if (id == R.id.obfuscated_res_0x7f092450) {
                     yw6.f(n06Var, this.b.d);
                 }
             }

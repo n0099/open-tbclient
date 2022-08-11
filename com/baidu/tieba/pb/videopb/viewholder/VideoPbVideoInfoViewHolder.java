@@ -164,22 +164,22 @@ public class VideoPbVideoInfoViewHolder extends TypeAdapter.ViewHolder {
         this.d.getHeadView().setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
         this.d.getHeadView().setPlaceHolder(1);
         this.d.setBigVDimenSize(R.dimen.tbds36);
-        this.e = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f09244d);
-        this.f = (UserIconBox) view2.findViewById(R.id.obfuscated_res_0x7f092585);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092455);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092441);
-        this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09242a);
-        this.j = (UserIconBox) view2.findViewById(R.id.obfuscated_res_0x7f092477);
+        this.e = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f09244e);
+        this.f = (UserIconBox) view2.findViewById(R.id.obfuscated_res_0x7f092586);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092456);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092442);
+        this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09242b);
+        this.j = (UserIconBox) view2.findViewById(R.id.obfuscated_res_0x7f092478);
         this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09038b);
         this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090980);
         this.m = (PbFirstFloorUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f0906ae);
         this.n = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f0916ca);
-        this.o = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0924ce);
+        this.o = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0924cf);
         this.p = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f0921eb);
         this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921d6);
-        this.y = view2.findViewById(R.id.obfuscated_res_0x7f0924d0);
-        this.t = view2.findViewById(R.id.obfuscated_res_0x7f092522);
-        this.u = view2.findViewById(R.id.obfuscated_res_0x7f0924cf);
+        this.y = view2.findViewById(R.id.obfuscated_res_0x7f0924d1);
+        this.t = view2.findViewById(R.id.obfuscated_res_0x7f092523);
+        this.u = view2.findViewById(R.id.obfuscated_res_0x7f0924d0);
         this.p.setLayoutStrategy(new sv7(this.p.getLayoutStrategy()));
         this.p.setTextSize(TbConfig.getContentSize());
         this.p.setTextBold();
@@ -198,7 +198,7 @@ public class VideoPbVideoInfoViewHolder extends TypeAdapter.ViewHolder {
         this.E = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091aa0);
         this.F = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a9d);
         this.z = (VoteView) view2.findViewById(R.id.obfuscated_res_0x7f09186e);
-        TbRichTextView tbRichTextView = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f092491);
+        TbRichTextView tbRichTextView = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f092492);
         this.A = tbRichTextView;
         tbRichTextView.setIsShowOrderOrDownloadBtn(true);
         this.A.setIsNeedResizeEmotion(true);
@@ -207,7 +207,7 @@ public class VideoPbVideoInfoViewHolder extends TypeAdapter.ViewHolder {
         sv7Var.v(TbConfig.getContentSize());
         sv7Var.n(0.9f);
         this.A.setLayoutStrategy(sv7Var);
-        FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923f7);
+        FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923f8);
         this.H = frameLayout;
         ey7 ey7Var = new ey7(absVideoPbFragment, frameLayout);
         this.I = ey7Var;
@@ -215,7 +215,7 @@ public class VideoPbVideoInfoViewHolder extends TypeAdapter.ViewHolder {
         FrameLayout frameLayout2 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f01);
         this.J = frameLayout2;
         this.K = new ay7(frameLayout2);
-        this.G = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923c6);
+        this.G = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923c7);
     }
 
     public void a(int i) {

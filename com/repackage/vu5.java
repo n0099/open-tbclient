@@ -517,7 +517,7 @@ public class vu5 {
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00f6, (ViewGroup) null);
             this.f = inflate;
             if (this.q) {
-                NavigationBar navigationBar = (NavigationBar) inflate.findViewById(R.id.obfuscated_res_0x7f09255b);
+                NavigationBar navigationBar = (NavigationBar) inflate.findViewById(R.id.obfuscated_res_0x7f09255c);
                 this.D = navigationBar;
                 navigationBar.setVisibility(0);
                 this.D.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
@@ -531,7 +531,7 @@ public class vu5 {
             BdTypeMultiColumnListView bdTypeMultiColumnListView = (BdTypeMultiColumnListView) this.f.findViewById(R.id.obfuscated_res_0x7f09130a);
             this.j = bdTypeMultiColumnListView;
             bdTypeMultiColumnListView.setColumnDiv((int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f0701be));
-            this.t = (NoNetworkView) this.f.findViewById(R.id.obfuscated_res_0x7f09247b);
+            this.t = (NoNetworkView) this.f.findViewById(R.id.obfuscated_res_0x7f09247c);
             bv4 bv4Var = new bv4(this.a);
             this.r = bv4Var;
             bv4Var.b0(this.e);

@@ -26,9 +26,9 @@ public class j66 {
         int id = view2.getId();
         if (view2.getId() == R.id.obfuscated_res_0x7f09212a || id == R.id.obfuscated_res_0x7f09213e) {
             TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadTitleStatisticLog(threadData, str));
-        } else if (id == R.id.obfuscated_res_0x7f092421) {
+        } else if (id == R.id.obfuscated_res_0x7f092422) {
             TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadPotraitStatisticLog(threadData, str));
-        } else if (id == R.id.obfuscated_res_0x7f09244f) {
+        } else if (id == R.id.obfuscated_res_0x7f092450) {
             TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadPotraitStatisticLog(threadData, str));
         } else if (id == R.id.obfuscated_res_0x7f090a74) {
             TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadEnterForumStatisticLog(threadData, str));

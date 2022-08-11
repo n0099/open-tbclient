@@ -778,7 +778,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             imageView.setOnClickListener(new e(this));
             this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f0922f0);
             this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f0922fe);
-            this.A = (VipAdFreeGuideLayout) findViewById(R.id.obfuscated_res_0x7f09257e);
+            this.A = (VipAdFreeGuideLayout) findViewById(R.id.obfuscated_res_0x7f09257f);
             this.o = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090f08);
             this.p = (IndicatorView) findViewById(R.id.obfuscated_res_0x7f0914d6);
             FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091fc1);
@@ -801,7 +801,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
                 this.o.setVisibility(8);
                 this.A.setCloseClickListener(new f(this));
                 RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
-                layoutParams2.addRule(3, R.id.obfuscated_res_0x7f09257e);
+                layoutParams2.addRule(3, R.id.obfuscated_res_0x7f09257f);
                 this.q.setLayoutParams(layoutParams2);
             }
             this.D = findViewById(R.id.obfuscated_res_0x7f0914bf);

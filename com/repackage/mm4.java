@@ -151,7 +151,7 @@ public class mm4 {
             View view3 = this.c;
             if (view3 != null) {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view3.getLayoutParams();
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f09255b);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f09255c);
                 this.c.setLayoutParams(layoutParams);
             }
             b(true);

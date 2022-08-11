@@ -160,7 +160,7 @@ public class TailFrameView extends KSFrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
                 super.E(context);
-                this.xi = this.wU.findViewById(R.id.obfuscated_res_0x7f0924b0);
+                this.xi = this.wU.findViewById(R.id.obfuscated_res_0x7f0924b1);
             }
         }
 

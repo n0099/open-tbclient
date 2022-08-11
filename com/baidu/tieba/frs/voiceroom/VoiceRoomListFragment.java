@@ -93,7 +93,7 @@ public final class VoiceRoomListFragment extends BaseFragment {
                     Intrinsics.checkNotNullExpressionValue(findViewById, "root.findViewById(R.id.nav_bar)");
                     View findViewById2 = root.findViewById(R.id.obfuscated_res_0x7f091b7b);
                     Intrinsics.checkNotNullExpressionValue(findViewById2, "root.findViewById(R.id.refresh_layout)");
-                    View findViewById3 = root.findViewById(R.id.obfuscated_res_0x7f0925a8);
+                    View findViewById3 = root.findViewById(R.id.obfuscated_res_0x7f0925a9);
                     Intrinsics.checkNotNullExpressionValue(findViewById3, "root.findViewById(R.id.voice_room_list)");
                     return new a(root, (NavigationBar) findViewById, (BdSwipeRefreshLayout) findViewById2, (RecyclerView) findViewById3);
                 }

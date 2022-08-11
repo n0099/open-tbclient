@@ -854,8 +854,8 @@ public class f47 {
             View inflate = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08c1, (ViewGroup) null);
             this.c = inflate;
             inflate.setPadding(0, 0, 0, TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-            this.m = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09250a);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.c.findViewById(R.id.obfuscated_res_0x7f09250d);
+            this.m = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09250b);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.c.findViewById(R.id.obfuscated_res_0x7f09250e);
             this.d = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.b.getPageActivity()));
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
@@ -869,7 +869,7 @@ public class f47 {
             this.n = p88Var;
             p88Var.v(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.n.u(this.v);
-            this.e = (BigdaySwipeRefreshLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09250e);
+            this.e = (BigdaySwipeRefreshLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09250f);
             e07 e07Var = new e07(this.b);
             this.f = e07Var;
             this.e.setProgressView(e07Var);
@@ -893,7 +893,7 @@ public class f47 {
             this.g = v07Var;
             v07Var.a(this.v);
             this.k.i(this.g);
-            this.l = this.c.findViewById(R.id.obfuscated_res_0x7f092507);
+            this.l = this.c.findViewById(R.id.obfuscated_res_0x7f092508);
             n();
         }
     }

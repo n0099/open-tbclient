@@ -118,7 +118,7 @@ public class HotTopicRankLayout extends LinearLayout implements ix, hx<o27>, Vie
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d037f, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b3);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b4);
             this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ff2);
             this.e = findViewById(R.id.obfuscated_res_0x7f091274);
             this.g = findViewById(R.id.obfuscated_res_0x7f090801);

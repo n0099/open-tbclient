@@ -65,7 +65,7 @@ public class mu7 extends ju7<CustomDialogData> implements View.OnClickListener {
             this.e = (TbImageView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f0907ae);
             this.f = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f0907bc);
             this.g = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f09079b);
-            this.h = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f09266c);
+            this.h = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f09266d);
             this.i = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f09168f);
             this.j = getViewGroup().findViewById(R.id.obfuscated_res_0x7f090353);
             this.k = getViewGroup().findViewById(R.id.obfuscated_res_0x7f09080f);

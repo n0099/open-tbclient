@@ -234,7 +234,7 @@ public class mc7 extends bz5<jc7> {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             View h = h();
             this.i = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f09197d);
-            this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09244f);
+            this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092450);
             this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090985);
             this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0919ff);
             this.m = h.findViewById(R.id.obfuscated_res_0x7f0907eb);

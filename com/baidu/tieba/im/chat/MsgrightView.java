@@ -199,7 +199,7 @@ public class MsgrightView extends a67 {
         this.E = (ProgressBar) j(R.id.obfuscated_res_0x7f091a78);
         this.F = (ImageView) j(R.id.obfuscated_res_0x7f09043b);
         this.H = (HeadImageView) j(R.id.obfuscated_res_0x7f090ed7);
-        this.L = (CenterTextView) j(R.id.obfuscated_res_0x7f092364);
+        this.L = (CenterTextView) j(R.id.obfuscated_res_0x7f092365);
         this.M = (RelativeLayout) j(R.id.obfuscated_res_0x7f091c0a);
         this.I = (FrameLayout) j(R.id.obfuscated_res_0x7f091502);
         ms4 d = ms4.d(this.M);

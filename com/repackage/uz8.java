@@ -240,7 +240,7 @@ public class uz8 extends BaseAdapter {
                         return;
                     }
                     this.c.j.a(this.b, this.a);
-                } else if (view2.getId() != R.id.obfuscated_res_0x7f09251e || this.c.j == null || this.a == null) {
+                } else if (view2.getId() != R.id.obfuscated_res_0x7f09251f || this.c.j == null || this.a == null) {
                 } else {
                     this.c.j.a(this.b, this.a);
                 }
@@ -491,13 +491,13 @@ public class uz8 extends BaseAdapter {
                     f fVar2 = new f(this, null);
                     View inflate = this.c.inflate(R.layout.obfuscated_res_0x7f0d0117, viewGroup, false);
                     fVar2.a = inflate;
-                    TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09251e);
+                    TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09251f);
                     fVar2.b = tbImageView;
                     tbImageView.setDefaultResource(0);
                     fVar2.b.setTagPaddingDis(8, 8);
                     fVar2.b.setGifIconSupport(false);
                     fVar2.b.setLongIconSupport(false);
-                    fVar2.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924f4);
+                    fVar2.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924f5);
                     inflate.setTag(fVar2);
                     fVar = fVar2;
                     view2 = inflate;

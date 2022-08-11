@@ -133,7 +133,7 @@ public class ConcernTabLiveItemView extends bz5<ft5> {
             Drawable drawable = SkinManager.getDrawable(concernTabLiveItemView.c.getResources(), (int) R.drawable.icon_living_seeding);
             drawable.setBounds(0, 0, concernTabLiveItemView.c.getResources().getDimensionPixelOffset(R.dimen.tbds8), concernTabLiveItemView.c.getResources().getDimensionPixelOffset(R.dimen.tbds8));
             this.e.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09244f);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092450);
             this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090a10);
             this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090a1b);
             this.g.setOnClickListener(this.j);

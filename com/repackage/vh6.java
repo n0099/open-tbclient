@@ -416,8 +416,8 @@ public class vh6 extends bz5<ai6> implements wh6 {
         this.N = z;
         View h = h();
         this.z = tbPageContext;
-        this.i = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f0924a1);
-        FrameLayout frameLayout = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f0924ad);
+        this.i = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f0924a2);
+        FrameLayout frameLayout = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f0924ae);
         this.j = frameLayout;
         h88 h88Var = new h88(tbPageContext, frameLayout, false);
         this.y = h88Var;
@@ -427,8 +427,8 @@ public class vh6 extends bz5<ai6> implements wh6 {
         this.m = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f091519);
         this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09151b);
         this.o = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09151a);
-        this.p = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f09243f);
-        this.q = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09244f);
+        this.p = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f092440);
+        this.q = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092450);
         this.r = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0902cc);
         this.w = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f09213e);
         this.x = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f090160);

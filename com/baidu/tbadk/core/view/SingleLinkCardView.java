@@ -201,7 +201,7 @@ public class SingleLinkCardView extends RelativeLayout {
         this.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
         this.a.setRadius(qi.f(context, R.dimen.tbds10));
         this.a.setPlaceHolder(2);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0923a0);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0923a1);
         this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090cca);
         b();
     }

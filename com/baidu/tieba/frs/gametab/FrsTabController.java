@@ -1989,7 +1989,7 @@ public class FrsTabController implements gk5, VoiceManager.j, FrsCommonImageLayo
             return;
         }
         View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d091b, null);
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09265d);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09265e);
         TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f091e33);
         if (TextUtils.isEmpty(this.h)) {
             textView.setText("吧主您好，本吧考核新制度上线啦");

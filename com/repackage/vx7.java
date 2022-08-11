@@ -197,10 +197,10 @@ public class vx7 extends bw7<at7, b> {
             }
             this.f = view2.findViewById(R.id.obfuscated_res_0x7f090377);
             this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ea9);
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923cc);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923cd);
             this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090419);
             this.d = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091a7a);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923d0);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923d1);
             this.b.setRadius(qi.f(getView().getContext(), R.dimen.tbds20));
             this.b.setConrers(5);
             this.b.setDefaultBgResource(R.color.cp_atp_a);

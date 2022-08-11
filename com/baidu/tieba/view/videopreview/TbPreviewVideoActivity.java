@@ -174,7 +174,7 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091a30);
             this.a = navigationBar;
-            ((ImageView) navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.f).findViewById(R.id.obfuscated_res_0x7f092614)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a02));
+            ((ImageView) navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.f).findViewById(R.id.obfuscated_res_0x7f092615)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a02));
             this.b = (CustomVideoView) findViewById(R.id.obfuscated_res_0x7f091a32);
             if (!StringUtils.isNull(this.c.getVideoPath())) {
                 this.b.setVideoPath(this.c.getVideoPath());

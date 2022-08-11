@@ -55,7 +55,7 @@ public class wm5 extends b9<NewFriendsActivity> {
         }
         this.a = newFriendsActivity;
         this.b = newFriendsActivity.findViewById(R.id.obfuscated_res_0x7f091652);
-        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f09255b);
+        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f09255c);
         this.c = navigationBar;
         navigationBar.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c41));
         this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);

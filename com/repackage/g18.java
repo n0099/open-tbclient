@@ -98,7 +98,7 @@ public class g18 extends bn<PostData, VideoTabPbFloatUserInfoViewHolder> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f09251d) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f09251e) {
                     if (ViewHelper.checkUpIsLogin(TbadkCoreApplication.getInst())) {
                         String str = view2.getTag() != null ? (String) view2.getTag() : null;
                         if (str != null) {
@@ -106,12 +106,12 @@ public class g18 extends bn<PostData, VideoTabPbFloatUserInfoViewHolder> {
                         }
                         TiebaStatic.eventStat(this.a.a.getPageContext().getPageActivity(), "consume_2", "click", 1, new Object[0]);
                     }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f092518) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f092519) {
                     if (view2.getTag(R.id.obfuscated_res_0x7f09203d) instanceof String) {
                         jm4.s(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14e3), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + ((String) view2.getTag(R.id.obfuscated_res_0x7f09203d)) + "&opacity=0", true, true, true);
                         TiebaStatic.log(new StatisticItem(CommonStatisticKey.USER_ICON_VISIT).param("obj_type", 2));
                     }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f09250b) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f09250c) {
                     HeadImageView headView = ((HeadPendantClickableView) view2).getHeadView();
                     String userId = headView.getUserId();
                     String userName = headView.getUserName();
@@ -151,7 +151,7 @@ public class g18 extends bn<PostData, VideoTabPbFloatUserInfoViewHolder> {
                     if (userId != null) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.mContext, userId, userName, fName, AddFriendActivityConfig.TYPE_PB_HEAD)));
                     }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f092517) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f092518) {
                     TiebaStatic.log(new StatisticItem("c11923").param("obj_id", 2));
                     String str2 = view2.getTag(R.id.obfuscated_res_0x7f09203d) instanceof String ? (String) view2.getTag(R.id.obfuscated_res_0x7f09203d) : null;
                     String str3 = view2.getTag(R.id.obfuscated_res_0x7f092045) instanceof String ? (String) view2.getTag(R.id.obfuscated_res_0x7f092045) : null;
@@ -167,7 +167,7 @@ public class g18 extends bn<PostData, VideoTabPbFloatUserInfoViewHolder> {
                     if (str2 != null) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.mContext, str2, str3, name, AddFriendActivityConfig.TYPE_PB_HEAD)));
                     }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f092506 && (this.a.a instanceof VideoPbCommentFloatFragment)) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f092507 && (this.a.a instanceof VideoPbCommentFloatFragment)) {
                     StatisticItem statisticItem4 = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_TAB_COMMENT_FLOAT_CLICK);
                     statisticItem4.param("fid", this.a.b.m());
                     statisticItem4.param("tid", this.a.b.Q());

@@ -537,7 +537,7 @@ public class NavigationBar extends RelativeLayout {
     private void initUnloginView() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65546, this) == null) && this.mUnloginView == null) {
-            View inflate = ((ViewStub) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09240a)).inflate();
+            View inflate = ((ViewStub) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09240b)).inflate();
             this.mUnloginView = inflate;
             this.mRegisterView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09224e);
             TextView textView = (TextView) this.mUnloginView.findViewById(R.id.obfuscated_res_0x7f09224d);
@@ -1173,7 +1173,7 @@ public class NavigationBar extends RelativeLayout {
                 LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09161c);
                 if (linearLayout == null) {
                     LinearLayout linearLayout2 = (LinearLayout) getViewFromLayoutFile(R.layout.obfuscated_res_0x7f0d08ff);
-                    ImageView imageView = (ImageView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f092614);
+                    ImageView imageView = (ImageView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f092615);
                     this.mBackImageView = imageView;
                     imageView.setContentDescription("返回");
                     onBackBtnOnChangeSkin();

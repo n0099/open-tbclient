@@ -73,8 +73,8 @@ public class jx extends ly {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d019c, (ViewGroup) null, true);
             this.f = inflate;
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092501);
-            this.A = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092500);
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092502);
+            this.A = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092501);
             this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090ab9);
             this.y = (InterviewLiveLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090ab5);
             e98 q = q();

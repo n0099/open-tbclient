@@ -68,7 +68,7 @@ public class rj6 extends ue6<ThreadData, AutoVideoCardViewHolder<ThreadData>> im
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) || view2 == null || threadData == null) {
                 return;
             }
-            if (view2.getId() != R.id.obfuscated_res_0x7f09244f && view2.getId() != R.id.obfuscated_res_0x7f092421) {
+            if (view2.getId() != R.id.obfuscated_res_0x7f092450 && view2.getId() != R.id.obfuscated_res_0x7f092422) {
                 if (view2.getId() == R.id.obfuscated_res_0x7f09213e) {
                     wp6.e(threadData, 5, this.b.mPageId, this.b.n, this.b.t());
                 } else if (view2.getId() == R.id.obfuscated_res_0x7f090ecc) {
@@ -87,7 +87,7 @@ public class rj6 extends ue6<ThreadData, AutoVideoCardViewHolder<ThreadData>> im
             } else {
                 wp6.e(threadData, 2, this.b.mPageId, this.b.n, this.b.t());
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f09244f || view2.getId() == R.id.obfuscated_res_0x7f092421) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f092450 || view2.getId() == R.id.obfuscated_res_0x7f092422) {
                 yp6.k().h(this.b.n, threadData, 2);
             } else if (view2.getId() == R.id.obfuscated_res_0x7f09212a) {
                 if (threadData.getTaskInfoStatus() == 2 && threadData.getTaskInfoData() != null) {

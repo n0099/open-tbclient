@@ -1099,7 +1099,7 @@ public class fy7 {
             HeadCustomImageView headCustomImageView = (HeadCustomImageView) this.f.findViewById(R.id.obfuscated_res_0x7f09073c);
             this.t = headCustomImageView;
             headCustomImageView.setBigWidthAndHeight(UtilHelper.getDimenPixelSize(R.dimen.tbds94), UtilHelper.getDimenPixelSize(R.dimen.tbds120));
-            this.u = (VirtualImageStatusTip) this.f.findViewById(R.id.obfuscated_res_0x7f09259e);
+            this.u = (VirtualImageStatusTip) this.f.findViewById(R.id.obfuscated_res_0x7f09259f);
             HeadPendantView headPendantView = (HeadPendantView) this.i.findViewById(R.id.obfuscated_res_0x7f09182a);
             this.o = headPendantView;
             headPendantView.setHasPendantStyle();

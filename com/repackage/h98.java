@@ -728,7 +728,7 @@ public class h98 implements e98 {
                     } else {
                         h98Var.o0(h98Var.h);
                     }
-                    this.a.t0(R.id.obfuscated_res_0x7f0924e1);
+                    this.a.t0(R.id.obfuscated_res_0x7f0924e2);
                     return true;
                 }
                 h98 h98Var2 = this.a;
@@ -740,7 +740,7 @@ public class h98 implements e98 {
                         h98 h98Var3 = this.a;
                         h98Var3.o0(h98Var3.d);
                         this.a.t.getControl().P(this.a.L0);
-                        this.a.t0(R.id.obfuscated_res_0x7f0924ee);
+                        this.a.t0(R.id.obfuscated_res_0x7f0924ef);
                         return true;
                     }
                     return true;
@@ -749,7 +749,7 @@ public class h98 implements e98 {
                 h98Var4.o0(h98Var4.f);
                 this.a.S();
                 this.a.t.getControl().P(this.a.L0);
-                this.a.t0(R.id.obfuscated_res_0x7f0924ee);
+                this.a.t0(R.id.obfuscated_res_0x7f0924ef);
                 return true;
             }
             return invokeL.booleanValue;
@@ -1436,24 +1436,24 @@ public class h98 implements e98 {
             ((ViewGroup) view2).addView(viewGroup);
         }
         this.N = new WeakReference<>(TbadkCoreApplication.getInst());
-        this.u = (TbImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f09251f);
+        this.u = (TbImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f092520);
         this.v = this.Q.findViewById(R.id.obfuscated_res_0x7f090398);
-        this.w = (TBLottieAnimationView) this.Q.findViewById(R.id.obfuscated_res_0x7f0924d5);
-        this.x = (ImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f0924ee);
-        this.z = (PercentSizeView) this.Q.findViewById(R.id.obfuscated_res_0x7f0924da);
-        this.y = (ImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f0924e1);
-        this.A = (TextView) this.Q.findViewById(R.id.obfuscated_res_0x7f0924f0);
-        this.B = (TextView) this.Q.findViewById(R.id.obfuscated_res_0x7f0924f2);
-        this.C = (TextView) this.Q.findViewById(R.id.obfuscated_res_0x7f0924b5);
-        this.D = (SwitchImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f0924dc);
-        this.E = (SwitchImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f0924ba);
-        this.F = (OperableVideoMediaControllerView) this.Q.findViewById(R.id.obfuscated_res_0x7f0924d9);
-        this.G = (OperableVideoNetworkStateTipView) this.Q.findViewById(R.id.obfuscated_res_0x7f0924de);
-        this.H = (OperableVideoShareView) this.Q.findViewById(R.id.obfuscated_res_0x7f092503);
-        this.J = this.Q.findViewById(R.id.obfuscated_res_0x7f0924a5);
-        this.I = (ImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f0924bb);
-        this.K = (VideoGestureView) this.Q.findViewById(R.id.obfuscated_res_0x7f0924bd);
-        this.M = (OperableVideoErrorView) this.Q.findViewById(R.id.obfuscated_res_0x7f0924b7);
+        this.w = (TBLottieAnimationView) this.Q.findViewById(R.id.obfuscated_res_0x7f0924d6);
+        this.x = (ImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f0924ef);
+        this.z = (PercentSizeView) this.Q.findViewById(R.id.obfuscated_res_0x7f0924db);
+        this.y = (ImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f0924e2);
+        this.A = (TextView) this.Q.findViewById(R.id.obfuscated_res_0x7f0924f1);
+        this.B = (TextView) this.Q.findViewById(R.id.obfuscated_res_0x7f0924f3);
+        this.C = (TextView) this.Q.findViewById(R.id.obfuscated_res_0x7f0924b6);
+        this.D = (SwitchImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f0924dd);
+        this.E = (SwitchImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f0924bb);
+        this.F = (OperableVideoMediaControllerView) this.Q.findViewById(R.id.obfuscated_res_0x7f0924da);
+        this.G = (OperableVideoNetworkStateTipView) this.Q.findViewById(R.id.obfuscated_res_0x7f0924df);
+        this.H = (OperableVideoShareView) this.Q.findViewById(R.id.obfuscated_res_0x7f092504);
+        this.J = this.Q.findViewById(R.id.obfuscated_res_0x7f0924a6);
+        this.I = (ImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f0924bc);
+        this.K = (VideoGestureView) this.Q.findViewById(R.id.obfuscated_res_0x7f0924be);
+        this.M = (OperableVideoErrorView) this.Q.findViewById(R.id.obfuscated_res_0x7f0924b8);
         this.H.setVideoContainer(this);
         this.w.addAnimatorListener(new e(this));
         this.w.setAnimation(R.raw.obfuscated_res_0x7f11001b);
@@ -1711,19 +1711,19 @@ public class h98 implements e98 {
         }
         int id = view2.getId();
         t0(id);
-        if (id == R.id.obfuscated_res_0x7f0924dc) {
+        if (id == R.id.obfuscated_res_0x7f0924dd) {
             W();
-        } else if (id == R.id.obfuscated_res_0x7f0924ba || id == R.id.obfuscated_res_0x7f0924bb) {
+        } else if (id == R.id.obfuscated_res_0x7f0924bb || id == R.id.obfuscated_res_0x7f0924bc) {
             T();
         } else {
-            if (id == R.id.obfuscated_res_0x7f0924fd) {
+            if (id == R.id.obfuscated_res_0x7f0924fe) {
                 o0(this.b);
                 startPlay();
                 if (this.c0) {
                     TiebaStatic.log(new StatisticItem("c13345").param("tid", this.V).param("fid", this.W).param("obj_type", this.T ? 1 : 2).param("obj_locate", this.Y ? 1 : 2));
                 }
                 l0();
-            } else if (id == R.id.obfuscated_res_0x7f0924ee) {
+            } else if (id == R.id.obfuscated_res_0x7f0924ef) {
                 int i2 = this.p;
                 if (i2 != this.b && i2 != this.c && i2 != this.o) {
                     o0(this.f);
@@ -1736,7 +1736,7 @@ public class h98 implements e98 {
                     TiebaStatic.log(new StatisticItem("c13344").param("tid", this.V).param("fid", this.W).param("obj_type", this.T ? 1 : 2).param("obj_source", this.Y ? 1 : 2).param("obj_locate", 1));
                 }
                 l0();
-            } else if (id == R.id.obfuscated_res_0x7f0924e1) {
+            } else if (id == R.id.obfuscated_res_0x7f0924e2) {
                 o0(this.g);
                 k0();
                 this.t.getControl().pause();

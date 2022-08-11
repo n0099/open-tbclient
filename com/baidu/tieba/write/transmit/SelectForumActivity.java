@@ -479,7 +479,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.g = findViewById(R.id.obfuscated_res_0x7f091c31);
             this.h = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0922d1);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255b);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255c);
             this.b = navigationBar;
             TextView addTextButton = navigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getString(R.string.obfuscated_res_0x7f0f0370));
             this.c = addTextButton;
@@ -497,7 +497,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092100);
             this.l = textView;
             textView.setOnClickListener(this.E);
-            this.i = findViewById(R.id.obfuscated_res_0x7f092548);
+            this.i = findViewById(R.id.obfuscated_res_0x7f092549);
             BdListView bdListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f0922d4);
             this.a = bdListView;
             bdListView.setOnItemClickListener(this.F);

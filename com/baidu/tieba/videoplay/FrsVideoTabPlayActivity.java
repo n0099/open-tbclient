@@ -320,7 +320,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
             this.o = videoVerticalPageFragment;
             videoVerticalPageFragment.setArguments(getIntent().getExtras());
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-            beginTransaction.add(R.id.obfuscated_res_0x7f09252a, this.o);
+            beginTransaction.add(R.id.obfuscated_res_0x7f09252b, this.o);
             beginTransaction.commitAllowingStateLoss();
             getSupportFragmentManager().executePendingTransactions();
             this.p = new NavigationBar(this);

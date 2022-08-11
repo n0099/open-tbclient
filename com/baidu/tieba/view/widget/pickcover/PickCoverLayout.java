@@ -444,9 +444,9 @@ public class PickCoverLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d088d, (ViewGroup) null);
-            this.a = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f0923fc);
-            this.e = (SlideBarView) inflate.findViewById(R.id.obfuscated_res_0x7f0923fa);
-            this.g = inflate.findViewById(R.id.obfuscated_res_0x7f0923f9);
+            this.a = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f0923fd);
+            this.e = (SlideBarView) inflate.findViewById(R.id.obfuscated_res_0x7f0923fb);
+            this.g = inflate.findViewById(R.id.obfuscated_res_0x7f0923fa);
             EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0905db);
             this.h = eMTextView;
             ms4.d(eMTextView).y(R.array.S_O_X001);

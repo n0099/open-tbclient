@@ -272,9 +272,9 @@ public class nz6 extends hu6<n06, ThreadCardViewHolder<n06>> implements pl5 {
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, fo4Var, view2) == null) || fo4Var == null) {
                 return;
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f09244f) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f092450) {
                 fo4Var.objType = 3;
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092421) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092422) {
                 fo4Var.objType = 4;
             } else {
                 fo4Var.objType = 1;
@@ -408,11 +408,11 @@ public class nz6 extends hu6<n06, ThreadCardViewHolder<n06>> implements pl5 {
                     TiebaStatic.log(n06Var.T());
                     nl5.c().i("page_recommend", "clk_", n06Var.T());
                 } else {
-                    if (id == R.id.obfuscated_res_0x7f092421) {
+                    if (id == R.id.obfuscated_res_0x7f092422) {
                         TiebaStatic.log(n06Var.S());
                         nl5.c().i("page_recommend", "clk_", n06Var.S());
                         c17.c(n06Var.a, n06Var.r(), n06Var.n(), 4);
-                    } else if (id == R.id.obfuscated_res_0x7f09244f) {
+                    } else if (id == R.id.obfuscated_res_0x7f092450) {
                         TiebaStatic.log(n06Var.S());
                         nl5.c().i("page_recommend", "clk_", n06Var.S());
                         c17.c(n06Var.a, n06Var.r(), n06Var.n(), 4);

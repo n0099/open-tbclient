@@ -614,7 +614,7 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements yf6 {
             if (this.h == null) {
                 View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0354, (ViewGroup) null);
                 this.h = inflate;
-                this.i = (NestedScrollWebView) inflate.findViewById(R.id.obfuscated_res_0x7f0925ef);
+                this.i = (NestedScrollWebView) inflate.findViewById(R.id.obfuscated_res_0x7f0925f0);
                 this.j = (FrameLayout) this.h.findViewById(R.id.obfuscated_res_0x7f0913eb);
                 X1();
             }

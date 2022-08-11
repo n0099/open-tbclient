@@ -56,7 +56,7 @@ public class hq7 implements Object<List<EmotionPackageData>> {
         this.a = tbPageContext;
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02e1, (ViewGroup) null, false);
         this.e = inflate;
-        NoNetworkView noNetworkView = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f09255d);
+        NoNetworkView noNetworkView = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f09255e);
         this.j = noNetworkView;
         noNetworkView.a(this);
         this.g = (FrameLayout) this.e.findViewById(R.id.obfuscated_res_0x7f091eaa);

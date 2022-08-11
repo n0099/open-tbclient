@@ -135,10 +135,10 @@ public class sd7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.a.setContentView(R.layout.obfuscated_res_0x7f0d003e);
-            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f092565);
+            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f092566);
             this.c = this.a.findViewById(R.id.obfuscated_res_0x7f091f2b);
             this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091ead);
-            this.e = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f09255d);
+            this.e = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f09255e);
             this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091f44);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 this.c.getLayoutParams().height = UtilHelper.getStatusBarHeight();

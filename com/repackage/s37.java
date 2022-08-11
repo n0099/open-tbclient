@@ -104,7 +104,7 @@ public class s37 extends bz5<p37> {
         this.t = (ThreadGodReplyLayout) h.findViewById(R.id.obfuscated_res_0x7f0905b6);
         this.u = h.findViewById(R.id.obfuscated_res_0x7f0905b9);
         this.i = h.findViewById(R.id.obfuscated_res_0x7f0905b4);
-        HeadImageView headImageView = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f092421);
+        HeadImageView headImageView = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f092422);
         this.w = headImageView;
         headImageView.setIsRound(true);
         this.w.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -225,7 +225,7 @@ public class s37 extends bz5<p37> {
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.m.getLayoutParams();
             int f2 = qi.f(getContext(), R.dimen.tbds30);
             int f3 = qi.f(getContext(), R.dimen.tbds16);
-            layoutParams2.addRule(1, R.id.obfuscated_res_0x7f092421);
+            layoutParams2.addRule(1, R.id.obfuscated_res_0x7f092422);
             layoutParams2.setMargins(f2, 0, f3, 0);
             this.m.setTextSize(0, qi.f(this.c, R.dimen.tbds40));
             ms4 d = ms4.d(this.m);

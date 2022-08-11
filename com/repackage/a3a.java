@@ -120,10 +120,10 @@ public class a3a extends BaseAdapter {
             if (view2 == null) {
                 view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0690, viewGroup, false);
                 aVar = new a(this);
-                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925e9);
+                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925ea);
                 aVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ee9);
                 aVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b35);
-                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b2);
+                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b3);
                 view2.setTag(aVar);
             } else {
                 aVar = (a) view2.getTag();

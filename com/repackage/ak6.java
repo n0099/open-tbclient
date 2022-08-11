@@ -1040,7 +1040,7 @@ public class ak6 extends bz5<ThreadData> implements zz5, Object {
         this.u = h2.findViewById(R.id.obfuscated_res_0x7f0907f6);
         this.x = (RelativeLayout) h2.findViewById(R.id.obfuscated_res_0x7f091287);
         this.R = (TbImageView) h2.findViewById(R.id.obfuscated_res_0x7f090bac);
-        this.y = (LinearLayout) h2.findViewById(R.id.obfuscated_res_0x7f0924a9);
+        this.y = (LinearLayout) h2.findViewById(R.id.obfuscated_res_0x7f0924aa);
         this.x.setOnClickListener(this);
         HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) this.x.findViewById(R.id.obfuscated_res_0x7f090543);
         this.m = headPendantClickableView;
@@ -1120,7 +1120,7 @@ public class ak6 extends bz5<ThreadData> implements zz5, Object {
         this.H = h2.findViewById(R.id.obfuscated_res_0x7f0902f7);
         this.D = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f0902f9);
         this.E = h2.findViewById(R.id.obfuscated_res_0x7f0902f8);
-        this.q = (LinearLayout) h2.findViewById(R.id.obfuscated_res_0x7f0924a9);
+        this.q = (LinearLayout) h2.findViewById(R.id.obfuscated_res_0x7f0924aa);
         this.r = (ThreadSkinView) h2.findViewById(R.id.obfuscated_res_0x7f090bf2);
         Animation loadAnimation = AnimationUtils.loadAnimation(this.w.getPageActivity(), R.anim.obfuscated_res_0x7f01006a);
         this.P = loadAnimation;

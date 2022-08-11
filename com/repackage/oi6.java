@@ -75,7 +75,7 @@ public class oi6 extends ue6<ThreadData, ThreadCardViewHolder<ThreadData>> imple
                 if (view2.getId() == R.id.obfuscated_res_0x7f09212a) {
                     yp6.k().h(zp6.p0, threadData, 13);
                 }
-                if (view2.getId() != R.id.obfuscated_res_0x7f09244f && view2.getId() != R.id.obfuscated_res_0x7f092421) {
+                if (view2.getId() != R.id.obfuscated_res_0x7f092450 && view2.getId() != R.id.obfuscated_res_0x7f092422) {
                     if (view2 instanceof ThreadGodReplyLayout) {
                         wp6.e(threadData, 15, this.b.mPageId, zp6.p0, this.b.t());
                         if (this.b.b == null || this.b.b.getForum() == null) {

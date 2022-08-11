@@ -189,7 +189,7 @@ public class v09 extends BaseAdapter {
             headImageView.setIsRound(true);
             UtilHelper.showHeadImageViewBigV(bVar.c, metaData);
             bVar.b = (LinearLayout) bVar.a.findViewById(R.id.obfuscated_res_0x7f09197e);
-            bVar.d = (TextView) bVar.a.findViewById(R.id.obfuscated_res_0x7f0923df);
+            bVar.d = (TextView) bVar.a.findViewById(R.id.obfuscated_res_0x7f0923e0);
             TextView textView = (TextView) bVar.a.findViewById(R.id.obfuscated_res_0x7f091232);
             bVar.f = textView;
             ms4 d = ms4.d(textView);

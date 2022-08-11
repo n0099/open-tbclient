@@ -43,19 +43,19 @@ public class rr7 extends mr7 {
                 return;
             }
         }
-        ViewStub viewStub = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f09257a);
+        ViewStub viewStub = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f09257b);
         this.o = viewStub;
         viewStub.inflate();
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.o.getLayoutParams();
         layoutParams.topMargin = qi.i(tbPageContext.getPageActivity()) / 2;
         this.o.setLayoutParams(layoutParams);
-        this.p = view2.findViewById(R.id.obfuscated_res_0x7f092446);
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092421);
+        this.p = view2.findViewById(R.id.obfuscated_res_0x7f092447);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092422);
         this.q = tbImageView;
         tbImageView.setIsRound(true);
         this.q.setDefaultBgResource(R.drawable.icon_default_avatar100_bg);
-        this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09244f);
-        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09246a);
+        this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092450);
+        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09246b);
     }
 
     @Override // com.repackage.mr7

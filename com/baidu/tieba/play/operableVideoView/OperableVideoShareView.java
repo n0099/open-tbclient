@@ -206,7 +206,7 @@ public class OperableVideoShareView extends LinearLayout {
             this.f = findViewById(R.id.obfuscated_res_0x7f091e47);
             this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e48);
             this.h = findViewById(R.id.obfuscated_res_0x7f0907f6);
-            this.i = findViewById(R.id.obfuscated_res_0x7f0924fd);
+            this.i = findViewById(R.id.obfuscated_res_0x7f0924fe);
             this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f091b90);
             this.b.setOnClickListener(this.m);
             this.d.setOnClickListener(this.m);

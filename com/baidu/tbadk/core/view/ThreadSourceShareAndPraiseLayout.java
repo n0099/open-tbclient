@@ -99,7 +99,7 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
         }
         this.d = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0866, (ViewGroup) this, true);
-        this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09254f);
+        this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092550);
         this.b = (ThreadCommentAndPraiseInfoLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091289);
         this.a.setOnClickListener(new a(this));
     }

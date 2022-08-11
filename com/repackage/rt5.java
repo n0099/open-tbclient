@@ -372,16 +372,16 @@ public class rt5 extends mt5 {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.f = LayoutInflater.from(this.c.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07c4, (ViewGroup) null);
             this.f.setLayoutParams(new FrameLayout.LayoutParams(this.a, this.b));
-            TbVideoViewContainer tbVideoViewContainer = (TbVideoViewContainer) this.f.findViewById(R.id.obfuscated_res_0x7f09252b);
+            TbVideoViewContainer tbVideoViewContainer = (TbVideoViewContainer) this.f.findViewById(R.id.obfuscated_res_0x7f09252c);
             this.g = tbVideoViewContainer;
             tbVideoViewContainer.getControl().setOperableVideoContainer(this.p);
             this.g.getControl().setStageType(null);
-            this.h = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0924ef);
-            TbImageView tbImageView = (TbImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0924b1);
+            this.h = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0924f0);
+            TbImageView tbImageView = (TbImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0924b2);
             this.i = tbImageView;
             tbImageView.setDefaultBgResource(R.drawable.pic_bg_video_frs);
             this.i.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.j = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092521);
+            this.j = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092522);
             this.f.setOnClickListener(new b(this));
             i(TbadkCoreApplication.getInst().getSkinType());
         }

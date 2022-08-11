@@ -169,7 +169,7 @@ public class ni5 extends Dialog {
             this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09029b);
             this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09081c);
             this.k = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f090819);
-            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f092631);
+            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f092632);
             this.c.setPlaceHolder(2);
             this.c.setConrers(15);
             e();

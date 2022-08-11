@@ -174,21 +174,21 @@ public class hp6 extends ep6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.c.findViewById(R.id.obfuscated_res_0x7f090b40).setVisibility(8);
-            this.c.findViewById(R.id.obfuscated_res_0x7f092612).setVisibility(8);
+            this.c.findViewById(R.id.obfuscated_res_0x7f092613).setVisibility(8);
         }
     }
 
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f09235a);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f09235b);
             this.d = tBSpecificationBtn;
             tBSpecificationBtn.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f02ab));
             this.d.setTextSize(R.dimen.T_X08);
             pv4 pv4Var = new pv4();
             pv4Var.p(R.color.CAM_X0901, R.color.CAM_X0105);
             this.d.setConfig(pv4Var);
-            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f09239d);
+            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f09239e);
             this.e = tBSpecificationBtn2;
             tBSpecificationBtn2.setTextSize(R.dimen.T_X08);
             pv4 pv4Var2 = new pv4();

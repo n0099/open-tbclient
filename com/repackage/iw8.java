@@ -463,7 +463,7 @@ public class iw8 extends h98 {
                 operableVideoMediaControllerView.setVisibility((i5 > 0 || (i & 128) > 0) ? 0 : 8);
                 ((VideoMediaController) this.F).setBottomBarShow(i5 > 0);
             }
-            if (UbsABTestHelper.isShowVideoPlayDanmuABTest() && (findViewById = this.Q.findViewById(R.id.obfuscated_res_0x7f0924b3)) != null) {
+            if (UbsABTestHelper.isShowVideoPlayDanmuABTest() && (findViewById = this.Q.findViewById(R.id.obfuscated_res_0x7f0924b4)) != null) {
                 findViewById.setVisibility((i & 64) > 0 ? 0 : 8);
             }
             if (!this.Y && !this.X0 && (this.O instanceof Activity)) {
@@ -500,7 +500,7 @@ public class iw8 extends h98 {
         int id = view2.getId();
         if (id == R.id.obfuscated_res_0x7f0919a8) {
             TbSingleton.getInstance().setHasAgreeToPlay(true);
-        } else if (id == R.id.obfuscated_res_0x7f0924b3 && (hv8Var = this.d1) != null) {
+        } else if (id == R.id.obfuscated_res_0x7f0924b4 && (hv8Var = this.d1) != null) {
             hv8Var.i();
             VideoItemData videoItemData = this.T0;
             if (videoItemData != null) {
@@ -577,12 +577,12 @@ public class iw8 extends h98 {
             threadData.getAuthor().setIsLike(threadData.getAuthor().hadConcerned());
         }
         if (!TextUtils.isEmpty(this.U) && UbsABTestHelper.isShowVideoPlayDanmuABTest()) {
-            VideoDanmuController videoDanmuController = new VideoDanmuController(this.R0, this.S0, this.Q, R.id.obfuscated_res_0x7f0924b4, this.T0, this.U0);
+            VideoDanmuController videoDanmuController = new VideoDanmuController(this.R0, this.S0, this.Q, R.id.obfuscated_res_0x7f0924b5, this.T0, this.U0);
             this.c1 = videoDanmuController;
             videoDanmuController.W(UtilHelper.getDimenPixelSize(R.dimen.T_X05));
         }
-        View findViewById = this.Q.findViewById(R.id.obfuscated_res_0x7f0924ba);
-        View findViewById2 = this.Q.findViewById(R.id.obfuscated_res_0x7f0924d9);
+        View findViewById = this.Q.findViewById(R.id.obfuscated_res_0x7f0924bb);
+        View findViewById2 = this.Q.findViewById(R.id.obfuscated_res_0x7f0924da);
         ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
         ViewGroup.LayoutParams layoutParams2 = findViewById2.getLayoutParams();
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds44);
@@ -592,7 +592,7 @@ public class iw8 extends h98 {
                 hv8Var.f();
                 this.d1 = null;
             }
-            hv8 hv8Var2 = new hv8(this.Q, R.id.obfuscated_res_0x7f0924b3);
+            hv8 hv8Var2 = new hv8(this.Q, R.id.obfuscated_res_0x7f0924b4);
             this.d1 = hv8Var2;
             hv8Var2.g(this);
             this.d1.h(new c(this));

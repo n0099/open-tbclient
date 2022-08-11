@@ -164,8 +164,8 @@ public class vf8 extends uf8 {
             this.Y = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091f1a);
             this.V = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f19);
             this.W = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f18);
-            this.Z = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923a7);
-            this.a0 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923a6);
+            this.Z = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923a8);
+            this.a0 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923a7);
             this.b0 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090eed);
             A0();
             this.T.setRoundLayoutRadius(ks4.y(R.string.J_X06));

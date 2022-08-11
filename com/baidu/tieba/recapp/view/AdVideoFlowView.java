@@ -161,13 +161,13 @@ public class AdVideoFlowView extends RelativeLayout implements ob8, View.OnClick
         this.i = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0912e0);
         this.k = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091e2b);
         this.j = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090669);
-        this.n = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09243a);
-        this.o = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09244f);
+        this.n = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09243b);
+        this.o = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092450);
         this.p = (AdTagTextView) this.a.findViewById(R.id.obfuscated_res_0x7f09009a);
         this.q = (FrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0908e3);
         this.r = (FrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0908e4);
         this.H = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f092059);
-        TbVideoViewContainer tbVideoViewContainer = (TbVideoViewContainer) this.a.findViewById(R.id.obfuscated_res_0x7f09252b);
+        TbVideoViewContainer tbVideoViewContainer = (TbVideoViewContainer) this.a.findViewById(R.id.obfuscated_res_0x7f09252c);
         this.l = tbVideoViewContainer;
         tbVideoViewContainer.getControl().setStageType("23");
         this.l.getControl().setContinuePlayEnable(true);
@@ -496,9 +496,9 @@ public class AdVideoFlowView extends RelativeLayout implements ob8, View.OnClick
                     return;
                 }
                 this.z.getPageActivity().finish();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09252b) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09252c) {
                 v();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0908e3 || view2.getId() == R.id.obfuscated_res_0x7f09009a || view2.getId() == R.id.obfuscated_res_0x7f09243a || view2.getId() == R.id.obfuscated_res_0x7f09244f) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0908e3 || view2.getId() == R.id.obfuscated_res_0x7f09009a || view2.getId() == R.id.obfuscated_res_0x7f09243b || view2.getId() == R.id.obfuscated_res_0x7f092450) {
                 r();
             }
         }

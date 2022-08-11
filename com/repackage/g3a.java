@@ -334,7 +334,7 @@ public final class g3a {
             window.setAttributes(attributes);
             window.setWindowAnimations(R.style.obfuscated_res_0x7f100150);
             window.setContentView(R.layout.obfuscated_res_0x7f0d0687);
-            View findViewById = window.findViewById(R.id.obfuscated_res_0x7f0923b3);
+            View findViewById = window.findViewById(R.id.obfuscated_res_0x7f0923b4);
             Intrinsics.checkExpressionValueIsNotNull(findViewById, "window.findViewById<TextView>(R.id.tv_title)");
             ((TextView) findViewById).setText(str);
             window.findViewById(R.id.obfuscated_res_0x7f091c17).setOnClickListener(new a(payDialogType, dialog, iViewEventListener, h3aVar));
@@ -351,7 +351,7 @@ public final class g3a {
                 RLog.info(a, "showDialog ActivityInvalid....");
                 return null;
             }
-            k3a k3aVar = new k3a(context, R.style.obfuscated_res_0x7f100153, payFlowType);
+            k3a k3aVar = new k3a(context, R.style.obfuscated_res_0x7f100153, payFlowType, null);
             k3aVar.setCancelable(true);
             k3aVar.setCanceledOnTouchOutside(false);
             k3aVar.show();

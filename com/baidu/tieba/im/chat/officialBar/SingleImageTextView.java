@@ -459,8 +459,8 @@ public class SingleImageTextView extends RelativeLayout {
             this.e = findViewById(R.id.obfuscated_res_0x7f091ea9);
             this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091e79);
             this.k = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091283);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f092391);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f092392);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f092392);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f092393);
             setOnLongClickListener(new a(this));
             int dimension = (int) this.a.getResources().getDimension(R.dimen.tbds38);
             int dimension2 = (int) this.a.getResources().getDimension(R.dimen.tbds10);

@@ -2129,7 +2129,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
     public final void r2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255b);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255c);
             this.d = navigationBar;
             View addCustomView = navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d07de, (View.OnClickListener) null);
             this.h = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091d8e);

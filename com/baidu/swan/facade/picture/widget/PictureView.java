@@ -201,7 +201,7 @@ public class PictureView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07fb, this);
-            this.d = (ZoomImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092699);
+            this.d = (ZoomImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09269a);
             this.e = inflate.findViewById(R.id.obfuscated_res_0x7f091990);
             this.f = inflate.findViewById(R.id.obfuscated_res_0x7f091b85);
             this.g = inflate.findViewById(R.id.obfuscated_res_0x7f091991);

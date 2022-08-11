@@ -187,7 +187,7 @@ public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickLis
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ImageView imageView = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f09257d);
+            ImageView imageView = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f09257e);
             this.f = imageView;
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) imageView.getLayoutParams();
             if (layoutParams == null) {
@@ -217,7 +217,7 @@ public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickLis
             setClipToPadding(false);
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08e1, (ViewGroup) null);
             this.d = linearLayout;
-            this.e = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09257c);
+            this.e = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09257d);
             b();
             if (this.g) {
                 this.c = t;

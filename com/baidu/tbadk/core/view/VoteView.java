@@ -439,12 +439,12 @@ public class VoteView extends LinearLayout {
                 }
             }
             this.g = voteView;
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925c2);
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0925c3);
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f0925c4);
-            this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0925c5);
-            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0925bc);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925cc);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925c3);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0925c4);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f0925c5);
+            this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0925c6);
+            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0925bd);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925cd);
         }
     }
 
@@ -562,12 +562,12 @@ public class VoteView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08dd, (ViewGroup) this, true);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0925d8);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0925d1);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0925e3);
-            this.f = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0925c6);
-            this.g = findViewById(R.id.obfuscated_res_0x7f0925ca);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0925e2);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0925d9);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0925d2);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0925e4);
+            this.f = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0925c7);
+            this.g = findViewById(R.id.obfuscated_res_0x7f0925cb);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0925e3);
             this.e.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080801, WebPManager.ResourceStateType.NORMAL));
             this.h.setOnClickListener(this.w);
             this.f.setLayoutManager(new d(this, this.a, 1, false));

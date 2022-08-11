@@ -1607,7 +1607,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             View addSystemImageButton = this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.n = addSystemImageButton;
             addSystemImageButton.setOnClickListener(new u(this));
-            this.j = (ImageView) this.n.findViewById(R.id.obfuscated_res_0x7f092614);
+            this.j = (ImageView) this.n.findViewById(R.id.obfuscated_res_0x7f092615);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j, R.drawable.obfuscated_res_0x7f080612, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             this.n.setVisibility(0);
         }
@@ -1893,7 +1893,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             MultiImageView multiImageView = this.h;
             if (multiImageView == null) {
-                this.h = (MultiImageView) findViewById(R.id.obfuscated_res_0x7f092570);
+                this.h = (MultiImageView) findViewById(R.id.obfuscated_res_0x7f092571);
             } else {
                 multiImageView.q();
             }

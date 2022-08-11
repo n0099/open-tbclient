@@ -474,7 +474,7 @@ public class nu6 {
             View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d038e, (ViewGroup) null);
             this.c = inflate;
             this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091c2b);
-            this.g = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0923ea);
+            this.g = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0923eb);
             this.f = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0913c7);
             this.d = this.c.findViewById(R.id.obfuscated_res_0x7f0914a0);
             this.h = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0903d0);

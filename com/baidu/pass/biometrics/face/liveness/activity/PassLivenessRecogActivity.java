@@ -850,7 +850,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
             this.f.setOnChangeListener(new h(this));
             this.h = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091281);
             this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f091006);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f092386);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f092387);
             this.k = (CameraSurfaceView) findViewById(R.id.obfuscated_res_0x7f091766);
             this.l = (CircleImageView) findViewById(R.id.obfuscated_res_0x7f091768);
             this.m = (CircleImageView) findViewById(R.id.obfuscated_res_0x7f091767);

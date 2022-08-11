@@ -79,7 +79,7 @@ public class mj6 extends ue6<ir4, ThreadCardViewHolder<ThreadData>> implements z
             if ("c13010".equals(this.b.o)) {
                 TiebaStatic.log(new StatisticItem("c13010").param("obj_type", 3).param("fid", threadData.getFid()).param("tid", threadData.getTid()));
             }
-            if (view2.getId() != R.id.obfuscated_res_0x7f09244f && view2.getId() != R.id.obfuscated_res_0x7f092421) {
+            if (view2.getId() != R.id.obfuscated_res_0x7f092450 && view2.getId() != R.id.obfuscated_res_0x7f092422) {
                 if (view2.getId() == R.id.obfuscated_res_0x7f09213e) {
                     wp6.e(threadData, 5, this.b.mPageId, this.b.r, this.b.t());
                     if (this.b.b != null && this.b.b.getForum() != null) {
@@ -104,14 +104,14 @@ public class mj6 extends ue6<ir4, ThreadCardViewHolder<ThreadData>> implements z
             } else {
                 wp6.e(threadData, 2, this.b.mPageId, this.b.r, this.b.t());
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f09244f || view2.getId() == R.id.obfuscated_res_0x7f092421) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f092450 || view2.getId() == R.id.obfuscated_res_0x7f092422) {
                 yp6.k().h(this.b.r, threadData, 2);
             } else if (view2.getId() != R.id.obfuscated_res_0x7f09053c) {
                 yp6.k().h(this.b.r, threadData, 1);
             } else {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.USER_ICON_VISIT).param("obj_type", 3));
             }
-            if (view2.getId() != R.id.obfuscated_res_0x7f09244f && view2.getId() != R.id.obfuscated_res_0x7f092421) {
+            if (view2.getId() != R.id.obfuscated_res_0x7f092450 && view2.getId() != R.id.obfuscated_res_0x7f092422) {
                 if (view2 instanceof OriginalThreadCardView) {
                     StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_FRS_TRANSMIT_THREAD);
                     statisticItem.param("obj_type", "3");
@@ -208,9 +208,9 @@ public class mj6 extends ue6<ir4, ThreadCardViewHolder<ThreadData>> implements z
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, fo4Var, view2) == null) || fo4Var == null) {
                 return;
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f09244f) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f092450) {
                 fo4Var.objType = 3;
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092421) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092422) {
                 fo4Var.objType = 4;
             } else {
                 fo4Var.objType = 1;

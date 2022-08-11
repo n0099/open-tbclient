@@ -172,7 +172,7 @@ public class zw extends rw<fo4> {
             if (this.f == null) {
                 View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01bf, (ViewGroup) null, true);
                 this.f = inflate;
-                this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092501);
+                this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092502);
                 this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090ab9);
                 FakeVideoContainer fakeVideoContainer = new FakeVideoContainer(this.b);
                 this.j = fakeVideoContainer;

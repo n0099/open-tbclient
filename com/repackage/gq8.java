@@ -68,8 +68,8 @@ public class gq8 extends b9<AvatarPendantActivity> {
         this.j = avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f091c31);
         this.f = qi.f(avatarPendantActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07029e);
         this.b = (BdListView) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f090306);
-        this.c = (NoNetworkView) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f09255d);
-        NavigationBar navigationBar = (NavigationBar) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f09255b);
+        this.c = (NoNetworkView) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f09255e);
+        NavigationBar navigationBar = (NavigationBar) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f09255c);
         this.e = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.e.setTitleText(R.string.obfuscated_res_0x7f0f02c4);

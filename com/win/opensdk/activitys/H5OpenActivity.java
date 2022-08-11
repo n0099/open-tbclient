@@ -142,8 +142,8 @@ public class H5OpenActivity extends Activity implements B2 {
             } catch (JSONException unused) {
             }
             a.a();
-            this.c = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f092625);
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f092624);
+            this.c = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f092626);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f092625);
             this.a = frameLayout;
             frameLayout.removeAllViews();
             try {

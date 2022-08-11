@@ -47,10 +47,10 @@ public class b28 {
         this.e = null;
         View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0922, (ViewGroup) null);
         this.a = inflate;
-        this.b = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09268e);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092690);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092691);
-        ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09268f);
+        this.b = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09268f);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092691);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092692);
+        ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092690);
         this.e = imageView;
         imageView.setVisibility(0);
         this.a.setTag(this);

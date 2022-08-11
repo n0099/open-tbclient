@@ -71,9 +71,9 @@ public abstract class mr7 {
         layoutParams2.topMargin = (qi.i(tbPageContext.getPageActivity()) / 2) + qi.f(tbPageContext.getPageActivity(), R.dimen.tbds239);
         this.g.setLayoutParams(layoutParams2);
         this.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091add);
-        this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092602);
-        this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092605);
-        this.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092688);
+        this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092603);
+        this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092606);
+        this.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092689);
         this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09153a);
     }
 

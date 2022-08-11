@@ -98,8 +98,8 @@ public class HotVideoViewHolder extends RecyclerView.ViewHolder {
         this.a = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0922b3);
         this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092276);
         this.c = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092264);
-        this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092527);
-        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092526);
+        this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092528);
+        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092527);
         this.f = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f7a);
     }
 

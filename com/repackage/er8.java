@@ -283,11 +283,11 @@ public class er8 {
         View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0238, (ViewGroup) null);
         this.b = inflate;
         this.a.setContentView(inflate);
-        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f09255b);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f09255c);
         this.d = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.d.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f051d));
-        this.e = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f09255d);
+        this.e = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f09255e);
         this.c = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f090845);
         this.f = (CoverFlowView) this.b.findViewById(R.id.obfuscated_res_0x7f090846);
         j();

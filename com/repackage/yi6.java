@@ -83,7 +83,7 @@ public class yi6 extends ue6<ir4, ThreadCardViewHolder<ThreadData>> implements z
             if ("c13010".equals(this.b.m)) {
                 TiebaStatic.log(new StatisticItem("c13010").param("obj_type", 1).param("fid", threadData.getFid()).param("tid", threadData.getTid()));
             }
-            if (view2.getId() != R.id.obfuscated_res_0x7f09244f && view2.getId() != R.id.obfuscated_res_0x7f092421) {
+            if (view2.getId() != R.id.obfuscated_res_0x7f092450 && view2.getId() != R.id.obfuscated_res_0x7f092422) {
                 if (view2.getId() == R.id.obfuscated_res_0x7f09213e) {
                     wp6.e(threadData, 5, this.b.mPageId, zp6.p0, this.b.t());
                     ir6.g(threadData, this.b.b, 1);
@@ -114,7 +114,7 @@ public class yi6 extends ue6<ir4, ThreadCardViewHolder<ThreadData>> implements z
             }
             if (view2.getId() == R.id.obfuscated_res_0x7f09212a && threadData.isVideoThreadType()) {
                 this.b.a0(threadData);
-            } else if (view2.getId() != R.id.obfuscated_res_0x7f09244f && view2.getId() != R.id.obfuscated_res_0x7f092421) {
+            } else if (view2.getId() != R.id.obfuscated_res_0x7f092450 && view2.getId() != R.id.obfuscated_res_0x7f092422) {
                 if (view2.getId() == R.id.obfuscated_res_0x7f0904f3) {
                     ir6.a(zp6.p0, threadData.getRecomReason());
                 } else if (view2 instanceof TbImageView) {

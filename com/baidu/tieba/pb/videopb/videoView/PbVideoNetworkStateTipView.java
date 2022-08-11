@@ -49,7 +49,7 @@ public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0924dd);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0924de);
         }
     }
 

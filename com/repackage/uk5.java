@@ -477,7 +477,7 @@ public class uk5 {
                 if (!pi.isEmpty(G)) {
                     this.s.setText(G);
                 }
-                this.t = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f092406);
+                this.t = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f092407);
                 pv4 pv4Var = new pv4();
                 this.u = pv4Var;
                 pv4Var.r(R.color.CAM_X0304);

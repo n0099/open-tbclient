@@ -150,7 +150,7 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         this.f.setDisplayImage(z, false);
         this.f.setVoiceViewRes(R.layout.obfuscated_res_0x7f0d08e5);
         this.g = view2.findViewById(R.id.obfuscated_res_0x7f0907ee);
-        this.h = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09243c);
+        this.h = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09243d);
         this.j = (ThreadSkinView) view2.findViewById(R.id.obfuscated_res_0x7f0917fe);
         this.l = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091803);
         this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917fd);
@@ -170,10 +170,10 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         this.x = new lz7(tbPageContext);
         this.w = (PbBusinessPromotionContainer) view2.findViewById(R.id.obfuscated_res_0x7f0917a9);
         this.t = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f09172d);
-        VoteView voteView = (VoteView) view2.findViewById(R.id.obfuscated_res_0x7f0925e1);
+        VoteView voteView = (VoteView) view2.findViewById(R.id.obfuscated_res_0x7f0925e2);
         this.y = voteView;
         voteView.setPageContext(tbPageContext);
-        this.z = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923c6);
+        this.z = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923c7);
         PbFirstFloorQuestionThreadView pbFirstFloorQuestionThreadView = (PbFirstFloorQuestionThreadView) view2.findViewById(R.id.obfuscated_res_0x7f0917a3);
         this.A = pbFirstFloorQuestionThreadView;
         pbFirstFloorQuestionThreadView.setPageContext(tbPageContext);

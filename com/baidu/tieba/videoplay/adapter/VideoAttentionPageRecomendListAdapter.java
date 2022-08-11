@@ -89,8 +89,8 @@ public class VideoAttentionPageRecomendListAdapter extends RecyclerView.Adapter<
             this.f.getHeadView().setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
             this.f.getHeadView().setPlaceHolder(1);
             this.f.setBigVDimenSize(R.dimen.tbds36);
-            this.a = (UserIconBox) view2.findViewById(R.id.obfuscated_res_0x7f092585);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092455);
+            this.a = (UserIconBox) view2.findViewById(R.id.obfuscated_res_0x7f092586);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092456);
             this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09038b);
             this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090980);
             this.e = (UserLikeInAttentionButton) view2.findViewById(R.id.obfuscated_res_0x7f0906ae);
@@ -147,7 +147,7 @@ public class VideoAttentionPageRecomendListAdapter extends RecyclerView.Adapter<
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f090d23 || view2.getId() == R.id.obfuscated_res_0x7f092585 || view2.getId() == R.id.obfuscated_res_0x7f092455 || view2.getId() == R.id.obfuscated_res_0x7f09038b || view2.getId() == R.id.obfuscated_res_0x7f090980) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f090d23 || view2.getId() == R.id.obfuscated_res_0x7f092586 || view2.getId() == R.id.obfuscated_res_0x7f092456 || view2.getId() == R.id.obfuscated_res_0x7f09038b || view2.getId() == R.id.obfuscated_res_0x7f090980) {
                     PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(this.b.b, this.a.getUserData().getUserId(), this.a.getUserData().getName_show());
                     personInfoActivityConfig.setIsVideoThread(true);
                     if (this.b.a != 3 && this.b.a != 4) {
@@ -277,7 +277,7 @@ public class VideoAttentionPageRecomendListAdapter extends RecyclerView.Adapter<
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) {
             View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d08a8, viewGroup, false);
             this.d = inflate;
-            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f092530);
+            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f092531);
             return new RecomendViewHolder(this.b, this.d);
         }
         return (RecomendViewHolder) invokeLI.objValue;

@@ -66,12 +66,12 @@ public class PermissionRequestDialog extends ur4 {
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d0229, (ViewGroup) null);
             this.mRootView = viewGroup;
-            this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092382);
-            this.mDetailView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092381);
-            TextView textView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09237f);
+            this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092383);
+            this.mDetailView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092382);
+            TextView textView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092380);
             this.mCloseView = textView;
             textView.setText(R.string.obfuscated_res_0x7f0f03f3);
-            TextView textView2 = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092380);
+            TextView textView2 = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092381);
             this.mContinueView = textView2;
             textView2.setText(R.string.obfuscated_res_0x7f0f07ce);
             onChangeSkinType();

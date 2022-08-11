@@ -331,7 +331,7 @@ public class vk6 extends b9<ForumRulesShowActivity> implements View.OnClickListe
         if (interceptable == null || interceptable.invokeL(1048595, this, navigationBar) == null) {
             View addSystemImageButton = this.e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this);
             this.f = addSystemImageButton;
-            this.g = (ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f092614);
+            this.g = (ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f092615);
             this.e.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06b4));
             View addCustomView = navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0615, this);
             this.h = addCustomView;

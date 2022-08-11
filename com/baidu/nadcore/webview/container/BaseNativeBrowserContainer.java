@@ -1162,7 +1162,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
     public void u0(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048634, this, str) == null) || (textView = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0923b3)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048634, this, str) == null) || (textView = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0923b4)) == null) {
             return;
         }
         textView.setText(str);
@@ -1183,7 +1183,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         if (interceptable == null || interceptable.invokeL(1048636, this, view2) == null) {
             super.x(view2);
             this.e = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c32);
-            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0925f1);
+            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0925f2);
         }
     }
 

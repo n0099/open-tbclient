@@ -131,7 +131,7 @@ public class s98 extends BaseAdapter {
                 int id = view2.getId();
                 if (id == R.id.obfuscated_res_0x7f0919f2) {
                     ((BaseFragmentActivity) this.a.f.getOrignalPage()).finish();
-                } else if (id == R.id.obfuscated_res_0x7f092479) {
+                } else if (id == R.id.obfuscated_res_0x7f09247a) {
                     ((BaseFragmentActivity) this.a.f.getOrignalPage()).finish();
                 } else if ((id == R.id.obfuscated_res_0x7f090f8e || id == R.id.obfuscated_res_0x7f091728 || id == R.id.obfuscated_res_0x7f090f84 || id == R.id.obfuscated_res_0x7f091ba4) && (strArr = (String[]) view2.getTag()) != null) {
                     if (!"0".equals(strArr[2]) && strArr[1] != null) {

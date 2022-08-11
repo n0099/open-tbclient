@@ -905,7 +905,7 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
         this.k = (VideoClipLayout) findViewById(R.id.obfuscated_res_0x7f091578);
         this.l = (VideoClipLayout) findViewById(R.id.obfuscated_res_0x7f091ea6);
         this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09232e);
-        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09239a);
+        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09239b);
         this.i = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f090e8f);
         ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090eb8);
         this.e = imageView;

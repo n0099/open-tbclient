@@ -275,7 +275,7 @@ public class zb7 extends b9 implements NoNetworkView.b {
         p();
         n();
         m();
-        NoNetworkView noNetworkView = (NoNetworkView) this.f.findViewById(R.id.obfuscated_res_0x7f09255d);
+        NoNetworkView noNetworkView = (NoNetworkView) this.f.findViewById(R.id.obfuscated_res_0x7f09255e);
         this.j = noNetworkView;
         noNetworkView.a(this);
     }

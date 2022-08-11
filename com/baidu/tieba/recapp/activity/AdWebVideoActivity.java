@@ -159,10 +159,10 @@ public class AdWebVideoActivity extends AdWebViewActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(getActivity()).inflate(R.layout.obfuscated_res_0x7f0d061f, (ViewGroup) null, false);
-            this.E = (WebViewContainer) frameLayout.findViewById(R.id.obfuscated_res_0x7f0925ec);
-            this.t = (TBAdWebView) frameLayout.findViewById(R.id.obfuscated_res_0x7f0925ee);
+            this.E = (WebViewContainer) frameLayout.findViewById(R.id.obfuscated_res_0x7f0925ed);
+            this.t = (TBAdWebView) frameLayout.findViewById(R.id.obfuscated_res_0x7f0925ef);
             N1();
-            this.D = (DistributeVideoView) frameLayout.findViewById(R.id.obfuscated_res_0x7f0925ed);
+            this.D = (DistributeVideoView) frameLayout.findViewById(R.id.obfuscated_res_0x7f0925ee);
             if (!TextUtils.isEmpty(this.F) && !TextUtils.isEmpty(this.G)) {
                 VideoInfo.Builder builder = new VideoInfo.Builder();
                 builder.video_url = this.F;

@@ -880,7 +880,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
                 View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
                 this.e = addSystemImageButton;
                 addSystemImageButton.setOnClickListener(this);
-                this.f = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f092614);
+                this.f = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f092615);
             }
             this.g = (ImageView) this.d.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d087a, this);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.obfuscated_res_0x7f080a08, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);

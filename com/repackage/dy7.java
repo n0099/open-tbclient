@@ -164,7 +164,7 @@ public class dy7 {
             Matrix matrix = new Matrix();
             matrix.postTranslate(0.0f, -lx7.j());
             this.e.setImageMatrix(matrix);
-            TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092379);
+            TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09237a);
             this.d = textView;
             ms4 d = ms4.d(textView);
             d.z(R.dimen.T_X03);

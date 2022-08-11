@@ -463,7 +463,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements qp7.c, BarInf
             this.b.setCloseListener(new a(this));
             this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.b, (View.OnClickListener) null);
             SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
-            this.c = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f09255d);
+            this.c = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f09255e);
             if (N1()) {
                 this.b.setTitle(this.p.getText(R.string.obfuscated_res_0x7f0f05ed).toString());
             } else {
@@ -483,8 +483,8 @@ public class FaceGroupMakeActivity extends BaseActivity implements qp7.c, BarInf
             this.e.setAdapter((ListAdapter) this.m);
             this.h.setListener(new c(this));
             this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090338);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f092390);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09238f);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f092391);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092390);
             this.k = textView;
             textView.setOnClickListener(this);
             this.i.setVisibility(8);

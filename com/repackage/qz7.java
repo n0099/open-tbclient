@@ -735,7 +735,7 @@ public class qz7 implements KeyboardEventLayout.a {
         this.Y = imageView;
         imageView.setOnClickListener(this.L);
         this.X.setOnClickListener(this.L);
-        this.g = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f09255d);
+        this.g = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f09255e);
         P();
         N();
         this.j = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091f46);
@@ -765,7 +765,7 @@ public class qz7 implements KeyboardEventLayout.a {
         this.e.H(TbadkCoreApplication.getInst().getSkinType());
         this.O = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f091a78);
         this.l0 = (MaskView) this.a.findViewById(R.id.obfuscated_res_0x7f0914a0);
-        this.b0 = this.a.findViewById(R.id.obfuscated_res_0x7f092543);
+        this.b0 = this.a.findViewById(R.id.obfuscated_res_0x7f092544);
         this.Z = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0917ba);
         ImageView imageView2 = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090872);
         this.a0 = imageView2;
@@ -1107,8 +1107,8 @@ public class qz7 implements KeyboardEventLayout.a {
             this.p = headImageView;
             headImageView.setRadius(qi.f(this.f.getActivity(), R.dimen.tbds45));
             this.p.setClickable(false);
-            this.q = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09244f);
-            ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09245e);
+            this.q = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092450);
+            ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09245f);
             this.s = imageView;
             imageView.setVisibility(8);
             this.t = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0909f3);
@@ -1123,7 +1123,7 @@ public class qz7 implements KeyboardEventLayout.a {
             this.w = tbImageView;
             tbImageView.setOnClickListener(this.L);
             this.y = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090144);
-            this.x = (PlayVoiceBntNew) this.c.findViewById(R.id.obfuscated_res_0x7f0925a5);
+            this.x = (PlayVoiceBntNew) this.c.findViewById(R.id.obfuscated_res_0x7f0925a6);
             this.c.setOnTouchListener(this.o0);
             this.c.setOnClickListener(this.L);
         }
@@ -1142,7 +1142,7 @@ public class qz7 implements KeyboardEventLayout.a {
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             int f2 = qi.f(this.f.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070306);
             int f3 = qi.f(this.f.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701d4);
-            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f09255b);
+            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f09255c);
             this.k = navigationBar;
             this.m = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new e(this));
             ImageView backImageView = this.k.getBackImageView();

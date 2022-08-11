@@ -190,9 +190,9 @@ public class uv5 extends az5<ThreadData> implements zz5, ol5 {
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) relativeLayout.getLayoutParams();
         layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
         layoutParams.bottomMargin = 0;
-        this.y = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f0924a9);
+        this.y = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f0924aa);
         this.A.setOnClickListener(this);
-        TbImageView tbImageView = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f0924ab);
+        TbImageView tbImageView = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f0924ac);
         this.C = tbImageView;
         tbImageView.setDefaultResource(R.drawable.pic_frs_studio_photo);
         this.C.setDefaultBgResource(R.color.transparent);
@@ -473,7 +473,7 @@ public class uv5 extends az5<ThreadData> implements zz5, ol5 {
                     layoutParams3.addRule(3, R.id.obfuscated_res_0x7f090a53);
                 } else {
                     this.L.setVisibility(8);
-                    layoutParams3.addRule(3, R.id.obfuscated_res_0x7f0924a9);
+                    layoutParams3.addRule(3, R.id.obfuscated_res_0x7f0924aa);
                 }
                 this.K.setLayoutParams(layoutParams3);
                 X(O(1));
@@ -613,7 +613,7 @@ public class uv5 extends az5<ThreadData> implements zz5, ol5 {
             return;
         }
         if (view2 != this.A && view2 != this.l.getCommentContainer() && view2 != this.y && view2 != this.w.b.getCommentContainer() && view2 != this.m.getCommentContainer() && view2 != this.L) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f0924ad) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0924ae) {
                 if (e() != null) {
                     e().a(view2, this.k);
                 }

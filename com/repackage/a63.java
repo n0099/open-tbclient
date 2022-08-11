@@ -493,8 +493,8 @@ public class a63 implements al1 {
         if (!(interceptable == null || interceptable.invokeLLL(1048576, this, context, view2, jSONObject) == null) || context == null || view2 == null || jSONObject == null) {
             return;
         }
-        SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) view2.findViewById(R.id.obfuscated_res_0x7f09243f);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09244f);
+        SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) view2.findViewById(R.id.obfuscated_res_0x7f092440);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092450);
         Pair<String, String> o = o(jSONObject);
         if (o != null) {
             wd3.e((String) o.second, new g(this, context, swanAppRoundedImageView));
@@ -892,7 +892,7 @@ public class a63 implements al1 {
         if (!(interceptable == null || interceptable.invokeLL(1048592, this, view2, z53Var) == null) || view2 == null || z53Var == null) {
             return;
         }
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092458);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092459);
         StringBuilder sb = new StringBuilder();
         for (String str : z53Var.i) {
             sb.append(str);

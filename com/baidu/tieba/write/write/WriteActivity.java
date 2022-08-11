@@ -2968,7 +2968,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
     public final void E5() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && this.s1) {
-            LocalChannelTopicSelectView localChannelTopicSelectView = (LocalChannelTopicSelectView) findViewById(R.id.obfuscated_res_0x7f09264e);
+            LocalChannelTopicSelectView localChannelTopicSelectView = (LocalChannelTopicSelectView) findViewById(R.id.obfuscated_res_0x7f09264f);
             this.G1 = localChannelTopicSelectView;
             localChannelTopicSelectView.setVisibility(0);
             this.G1.setLocalChannelTopic(this.t1);
@@ -3833,13 +3833,13 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048645, this) == null) {
             if ("main_tab".equals(this.f) && !this.V1 && !this.h1) {
-                ForumSelectedView forumSelectedView = (ForumSelectedView) findViewById(R.id.obfuscated_res_0x7f092656);
+                ForumSelectedView forumSelectedView = (ForumSelectedView) findViewById(R.id.obfuscated_res_0x7f092657);
                 this.H1 = forumSelectedView;
                 forumSelectedView.setVisibility(0);
             } else if (this.h1) {
             } else {
                 if (this.f1 || Z5() || b6()) {
-                    ForumSelectedView forumSelectedView2 = (ForumSelectedView) findViewById(R.id.obfuscated_res_0x7f092656);
+                    ForumSelectedView forumSelectedView2 = (ForumSelectedView) findViewById(R.id.obfuscated_res_0x7f092657);
                     this.H1 = forumSelectedView2;
                     forumSelectedView2.setVisibility(0);
                     this.H1.setSelectedForum(this.r.getForumName());
@@ -3926,7 +3926,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
     public final void S5() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048653, this) == null) {
-            this.P1 = (RelativeLayout) this.C.findViewById(R.id.obfuscated_res_0x7f0925c8);
+            this.P1 = (RelativeLayout) this.C.findViewById(R.id.obfuscated_res_0x7f0925c9);
             this.O1 = new s19(getPageContext(), this.P1);
             W6();
         }
@@ -4125,7 +4125,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048663, this) == null) && this.R1) {
             this.K1 = (TextView) findViewById(R.id.obfuscated_res_0x7f0919fe);
-            WriteEvaluationHeaderView writeEvaluationHeaderView = (WriteEvaluationHeaderView) findViewById(R.id.obfuscated_res_0x7f092648);
+            WriteEvaluationHeaderView writeEvaluationHeaderView = (WriteEvaluationHeaderView) findViewById(R.id.obfuscated_res_0x7f092649);
             this.J1 = writeEvaluationHeaderView;
             writeEvaluationHeaderView.setStarChangeListener(new n(this));
             this.J1.setItemCloseListener(new o(this));
@@ -4138,25 +4138,25 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             return;
         }
         ru4.k().u("key_virtual_image_setting_guide_has_show", true);
-        ((ViewStub) findViewById(R.id.obfuscated_res_0x7f09259d)).inflate();
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f09259c);
+        ((ViewStub) findViewById(R.id.obfuscated_res_0x7f09259e)).inflate();
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f09259d);
         this.L0 = findViewById;
         findViewById.setVisibility(0);
         this.L0.setOnClickListener(new o0(this));
         ms4 d2 = ms4.d(this.L0);
         d2.e(R.string.A_X05);
         d2.f(R.color.CAM_X0611);
-        ms4 d3 = ms4.d(this.L0.findViewById(R.id.obfuscated_res_0x7f092599));
+        ms4 d3 = ms4.d(this.L0.findViewById(R.id.obfuscated_res_0x7f09259a));
         d3.n(R.string.J_X06);
         d3.f(R.color.CAM_X0201);
-        ((GifView) this.L0.findViewById(R.id.obfuscated_res_0x7f092598)).setGifRaw(R.raw.obfuscated_res_0x7f110071);
-        ms4 d4 = ms4.d(this.L0.findViewById(R.id.obfuscated_res_0x7f092596));
+        ((GifView) this.L0.findViewById(R.id.obfuscated_res_0x7f092599)).setGifRaw(R.raw.obfuscated_res_0x7f110071);
+        ms4 d4 = ms4.d(this.L0.findViewById(R.id.obfuscated_res_0x7f092597));
         d4.n(R.string.J_X07);
         d4.f(R.color.CAM_X0205);
         l28 a2 = l28.a();
-        ms4.d((TextView) this.L0.findViewById(R.id.obfuscated_res_0x7f09259a)).v(R.color.CAM_X0105);
-        ms4.d((TextView) this.L0.findViewById(R.id.obfuscated_res_0x7f092597)).v(R.color.CAM_X0105);
-        TextView textView = (TextView) this.L0.findViewById(R.id.obfuscated_res_0x7f092594);
+        ms4.d((TextView) this.L0.findViewById(R.id.obfuscated_res_0x7f09259b)).v(R.color.CAM_X0105);
+        ms4.d((TextView) this.L0.findViewById(R.id.obfuscated_res_0x7f092598)).v(R.color.CAM_X0105);
+        TextView textView = (TextView) this.L0.findViewById(R.id.obfuscated_res_0x7f092595);
         if (a2 != null && a2.b() == 1) {
             textView.setVisibility(8);
         } else {
@@ -4198,18 +4198,18 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048668, this) == null) {
             if (this.j2 == null) {
-                ((ViewStub) findViewById(R.id.obfuscated_res_0x7f092591)).inflate();
-                this.j2 = findViewById(R.id.obfuscated_res_0x7f092590);
+                ((ViewStub) findViewById(R.id.obfuscated_res_0x7f092592)).inflate();
+                this.j2 = findViewById(R.id.obfuscated_res_0x7f092591);
             }
             this.j2.setOnClickListener(new s0(this));
             this.j2.setVisibility(0);
             ms4 d2 = ms4.d(this.j2);
             d2.e(R.string.A_X05);
             d2.f(R.color.CAM_X0611);
-            ms4 d3 = ms4.d(this.j2.findViewById(R.id.obfuscated_res_0x7f09258f));
+            ms4 d3 = ms4.d(this.j2.findViewById(R.id.obfuscated_res_0x7f092590));
             d3.n(R.string.J_X06);
             d3.f(R.color.CAM_X0201);
-            TextView textView = (TextView) this.j2.findViewById(R.id.obfuscated_res_0x7f09258d);
+            TextView textView = (TextView) this.j2.findViewById(R.id.obfuscated_res_0x7f09258e);
             ms4 d4 = ms4.d(textView);
             d4.A(R.string.F_X01);
             d4.z(R.dimen.T_X07);
@@ -4219,7 +4219,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             d4.k(R.color.CAM_X0105);
             d4.j(R.string.A_X07);
             textView.setOnClickListener(new t0(this));
-            TextView textView2 = (TextView) this.j2.findViewById(R.id.obfuscated_res_0x7f09258c);
+            TextView textView2 = (TextView) this.j2.findViewById(R.id.obfuscated_res_0x7f09258d);
             ms4 d5 = ms4.d(textView2);
             d5.A(R.string.F_X01);
             d5.z(R.dimen.T_X07);
@@ -5407,7 +5407,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
             }
             this.H0 = (FeedBackTopListView) findViewById(R.id.obfuscated_res_0x7f0909a0);
             this.I0 = findViewById(R.id.obfuscated_res_0x7f09099e);
-            this.p2 = (WriteImageGridView) findViewById(R.id.obfuscated_res_0x7f092649);
+            this.p2 = (WriteImageGridView) findViewById(R.id.obfuscated_res_0x7f09264a);
             this.G0 = findViewById(R.id.obfuscated_res_0x7f0921ed);
             this.d1 = new d19(getPageContext(), this.C);
             if (WriteActivityConfig.FROM_FORUM_SHARE.equals(this.f)) {
@@ -6108,7 +6108,7 @@ public class WriteActivity extends AbsBaseWriteActivity<WriteActivity> implement
     public void q2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048748, this) == null) {
-            HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f09243d);
+            HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f09243e);
             this.F0 = headImageView;
             headImageView.setIsRound(true);
             this.F0.setDrawBorder(false);

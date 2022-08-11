@@ -277,7 +277,7 @@ public class NewVoiceRecordButton extends LinearLayout implements fj, t25 {
             this.c.setColumnColor(R.color.CAM_X0111);
             this.c.setColumnWidth(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224));
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09232d);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b1);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b2);
             this.a.setOnTouchListener(new a(this));
             sm8 recorderManager = getRecorderManager();
             if (recorderManager != null) {

@@ -197,7 +197,7 @@ public class PersonalFollowTipLayout extends RelativeLayout {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04b2, this);
             this.a = findViewById(R.id.obfuscated_res_0x7f091900);
             this.b = findViewById(R.id.obfuscated_res_0x7f091902);
-            this.c = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f09243d);
+            this.c = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f09243e);
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0918ff);
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090a11);
             this.e = imageView;

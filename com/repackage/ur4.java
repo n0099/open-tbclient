@@ -508,7 +508,7 @@ public class ur4 {
             boolean z2 = true;
             this.mDialogCreated = true;
             LinearLayout linearLayout = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0907a5);
-            this.yesButton = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09266c);
+            this.yesButton = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09266d);
             this.noButton = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09168f);
             this.dividerWithButton = this.mRootView.findViewById(R.id.obfuscated_res_0x7f09080f);
             this.bdDialog_divider_line = this.mRootView.findViewById(R.id.obfuscated_res_0x7f090353);

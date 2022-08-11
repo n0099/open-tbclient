@@ -91,8 +91,8 @@ public class zr7 extends b9<PayVcodeActivity> {
             this.e = textView;
             SkinManager.setBackgroundResource(textView, R.drawable.s_navbar_button_bg);
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
-            this.f = (BaseWebView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f092484);
-            this.g = (TextView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0925f6);
+            this.f = (BaseWebView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f092485);
+            this.g = (TextView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0925f7);
             this.c = payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091796);
             this.d = (ViewGroup) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091797);
             this.h = (ProgressBar) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091799);

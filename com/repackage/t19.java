@@ -438,8 +438,8 @@ public class t19 implements hb5, View.OnClickListener {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08db, (ViewGroup) null);
             this.f = linearLayout;
-            this.h = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0925c7);
-            this.i = (EditText) this.f.findViewById(R.id.obfuscated_res_0x7f0925d8);
+            this.h = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0925c8);
+            this.i = (EditText) this.f.findViewById(R.id.obfuscated_res_0x7f0925d9);
         }
     }
 
@@ -585,22 +585,22 @@ public class t19 implements hb5, View.OnClickListener {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f0925da) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0925db) {
                 this.w = 0;
                 H();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0925d9) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0925da) {
                 this.w = 1;
                 H();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0925d6) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0925d7) {
                 this.x = -1;
                 G();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0925d3) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0925d4) {
                 this.x = 1;
                 G();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0925d5) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0925d6) {
                 this.x = 7;
                 G();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0925d4) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0925d5) {
                 this.x = 30;
                 G();
             }
@@ -687,14 +687,14 @@ public class t19 implements hb5, View.OnClickListener {
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08da, (ViewGroup) null);
             this.g = linearLayout;
-            this.n = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092668);
-            this.o = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0925da);
-            this.p = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0925d9);
-            this.q = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092667);
-            this.r = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0925d6);
-            this.s = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0925d3);
-            this.t = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0925d5);
-            this.u = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0925d4);
+            this.n = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092669);
+            this.o = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0925db);
+            this.p = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0925da);
+            this.q = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092668);
+            this.r = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0925d7);
+            this.s = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0925d4);
+            this.t = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0925d6);
+            this.u = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0925d5);
         }
     }
 }

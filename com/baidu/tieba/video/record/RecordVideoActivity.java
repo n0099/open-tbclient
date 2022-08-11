@@ -1224,7 +1224,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             ImageView imageView4 = (ImageView) findViewById(R.id.obfuscated_res_0x7f0906f1);
             this.h = imageView4;
             imageView4.setOnClickListener(this);
-            this.j = (PreviewViewContainer) findViewById(R.id.obfuscated_res_0x7f092504);
+            this.j = (PreviewViewContainer) findViewById(R.id.obfuscated_res_0x7f092505);
             mu8 mu8Var = new mu8(this);
             this.k = mu8Var;
             mu8Var.I(this);
@@ -1246,7 +1246,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             }
             View findViewById = findViewById(R.id.obfuscated_res_0x7f091a81);
             this.p = findViewById;
-            this.q = (RoundProgressBar) findViewById.findViewById(R.id.obfuscated_res_0x7f0924fa);
+            this.q = (RoundProgressBar) findViewById.findViewById(R.id.obfuscated_res_0x7f0924fb);
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09150d);
             this.r = textView;
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) textView.getLayoutParams();

@@ -504,7 +504,7 @@ public class qq5 {
         int i3 = (int) ((i2 / 4.0d) * 3.0d);
         this.l = i3;
         this.p = (int) ((i / 3.0d) - (i3 / 2.0d));
-        this.c = (AlaSquareLiveVideoMask) this.b.findViewById(R.id.obfuscated_res_0x7f0924d8);
+        this.c = (AlaSquareLiveVideoMask) this.b.findViewById(R.id.obfuscated_res_0x7f0924d9);
         this.b.setOnClickListener(this.s);
         o();
     }

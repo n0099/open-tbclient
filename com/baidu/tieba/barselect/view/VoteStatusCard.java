@@ -193,24 +193,24 @@ public class VoteStatusCard extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090336);
-            this.f = (VoteStatusView) findViewById(R.id.obfuscated_res_0x7f0925d0);
+            this.f = (VoteStatusView) findViewById(R.id.obfuscated_res_0x7f0925d1);
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0902b0);
             this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0902ab);
             this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0902af);
             this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0902ac);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0925d8);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0925ce);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0925d9);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0925cf);
             this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091a98);
             this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f091a97);
-            this.p = findViewById(R.id.obfuscated_res_0x7f0925bd);
-            this.o = (NewVoteCountDownView) findViewById(R.id.obfuscated_res_0x7f0925be);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0925db);
+            this.p = findViewById(R.id.obfuscated_res_0x7f0925be);
+            this.o = (NewVoteCountDownView) findViewById(R.id.obfuscated_res_0x7f0925bf);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0925dc);
             this.q = findViewById;
             if (findViewById != null) {
                 findViewById.setOnClickListener(new b(this));
             }
-            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f0925dd);
-            this.s = (TextView) findViewById(R.id.obfuscated_res_0x7f0925dc);
+            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f0925de);
+            this.s = (TextView) findViewById(R.id.obfuscated_res_0x7f0925dd);
         }
     }
 

@@ -178,9 +178,9 @@ public class HotTopicTabThreadItem extends RelativeLayout {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03af, (ViewGroup) this, true);
             this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0906ff);
             this.c = findViewById(R.id.obfuscated_res_0x7f0906fe);
-            this.d = findViewById(R.id.obfuscated_res_0x7f09248e);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09248c);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09248d);
+            this.d = findViewById(R.id.obfuscated_res_0x7f09248f);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09248d);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09248e);
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090f06);
             this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0921c0);
             this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091fdf);

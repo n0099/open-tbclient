@@ -789,7 +789,7 @@ public class qm4 {
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             this.a.setContentView(R.layout.obfuscated_res_0x7f0d013f);
             this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091c31);
-            this.c = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f09255b);
+            this.c = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f09255c);
             this.z = this.a.findViewById(R.id.obfuscated_res_0x7f09168d);
             this.c.showBottomLine();
             E("");
@@ -798,23 +798,23 @@ public class qm4 {
                 this.b.setOnClickListener(this.a);
                 this.c.setVisibility(8);
             }
-            LinearLayout linearLayout = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0925f1);
+            LinearLayout linearLayout = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0925f2);
             this.l = linearLayout;
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) linearLayout.getLayoutParams();
-            layoutParams.addRule(3, R.id.obfuscated_res_0x7f09255b);
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f09255c);
             this.l.setLayoutParams(layoutParams);
-            this.m = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0925f3);
-            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) this.a.findViewById(R.id.obfuscated_res_0x7f0925fe);
+            this.m = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0925f4);
+            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) this.a.findViewById(R.id.obfuscated_res_0x7f0925ff);
             this.n = continuousAnimationView;
             SkinManager.setLottieAnimation(continuousAnimationView, R.raw.lottie_full_screen_refresh);
             View addCustomView = this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d08ff, new b(this));
             this.f = addCustomView;
-            ImageView imageView = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f092614);
+            ImageView imageView = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f092615);
             this.g = imageView;
             imageView.setContentDescription(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f02c9));
             View addCustomView2 = this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d0902, new c(this));
             this.h = addCustomView2;
-            ImageView imageView2 = (ImageView) addCustomView2.findViewById(R.id.obfuscated_res_0x7f092614);
+            ImageView imageView2 = (ImageView) addCustomView2.findViewById(R.id.obfuscated_res_0x7f092615);
             this.i = imageView2;
             imageView2.setContentDescription(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f03f3));
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.i.getLayoutParams();
@@ -822,8 +822,8 @@ public class qm4 {
             this.i.setLayoutParams(layoutParams2);
             View addCustomView3 = this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0903, new d(this));
             this.q = addCustomView3;
-            this.j = (ImageView) addCustomView3.findViewById(R.id.obfuscated_res_0x7f092615);
-            this.k = (ImageView) this.q.findViewById(R.id.obfuscated_res_0x7f092616);
+            this.j = (ImageView) addCustomView3.findViewById(R.id.obfuscated_res_0x7f092616);
+            this.k = (ImageView) this.q.findViewById(R.id.obfuscated_res_0x7f092617);
             mm4 mm4Var = new mm4(this.c, this.l);
             this.A = mm4Var;
             mm4Var.a(new lm4(this.g, R.drawable.obfuscated_res_0x7f080612), new lm4(this.i, R.drawable.obfuscated_res_0x7f0809f3), new lm4(this.j, R.drawable.icon_pure_topbar_more44_svg), new lm4(this.k, R.drawable.obfuscated_res_0x7f080a08), new lm4(this.c.getCenterText(), 0));
@@ -923,7 +923,7 @@ public class qm4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.l.getLayoutParams();
-            layoutParams.addRule(3, R.id.obfuscated_res_0x7f09255b);
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f09255c);
             this.l.setLayoutParams(layoutParams);
             ImageView imageView = this.g;
             if (imageView != null) {

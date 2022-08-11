@@ -135,7 +135,7 @@ public class i48 extends bz5<a48> {
         View h = h();
         this.q = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f09144b);
         this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091eb8);
-        this.k = (BdBaseViewPager) h.findViewById(R.id.obfuscated_res_0x7f0925e5);
+        this.k = (BdBaseViewPager) h.findViewById(R.id.obfuscated_res_0x7f0925e6);
         this.o = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f091eb9);
         this.l = h.findViewById(R.id.obfuscated_res_0x7f09039f);
         ArrayList arrayList = new ArrayList();

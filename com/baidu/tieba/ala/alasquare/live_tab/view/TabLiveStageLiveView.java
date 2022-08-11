@@ -205,7 +205,7 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0830, this);
             float f = l;
             setRoundLayoutRadius(new float[]{f, f, f, f, f, f, f, f});
-            TabLiveStageLiveZanLottieView tabLiveStageLiveZanLottieView = (TabLiveStageLiveZanLottieView) findViewById(R.id.obfuscated_res_0x7f092697);
+            TabLiveStageLiveZanLottieView tabLiveStageLiveZanLottieView = (TabLiveStageLiveZanLottieView) findViewById(R.id.obfuscated_res_0x7f092698);
             this.h = tabLiveStageLiveZanLottieView;
             tabLiveStageLiveZanLottieView.setForbidAutoUpdateState(true);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0906fd);
@@ -221,7 +221,7 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
             this.b.setBorderWidth(qi.f(getContext(), R.dimen.tbds1));
             this.c = findViewById(R.id.obfuscated_res_0x7f090d18);
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0921ba);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09244f);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092450);
             this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0902dd);
             this.g = findViewById(R.id.obfuscated_res_0x7f0903de);
             GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, this.k);

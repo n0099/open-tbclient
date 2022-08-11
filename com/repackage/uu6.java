@@ -209,7 +209,7 @@ public class uu6 extends bn<i06, ThreadCardViewHolder<i06>> implements pl5 {
             int id = view2.getId();
             if (id == R.id.obfuscated_res_0x7f09212a) {
                 ou6.b(view2, i06Var, 2);
-            } else if (id == R.id.obfuscated_res_0x7f092421 || id == R.id.obfuscated_res_0x7f09244f) {
+            } else if (id == R.id.obfuscated_res_0x7f092422 || id == R.id.obfuscated_res_0x7f092450) {
                 ou6.b(view2, i06Var, 1);
             } else if (id == R.id.obfuscated_res_0x7f090702 || id == R.id.obfuscated_res_0x7f0903e4) {
                 ou6.b(view2, i06Var, 3);

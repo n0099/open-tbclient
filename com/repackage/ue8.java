@@ -299,7 +299,7 @@ public class ue8 extends b9<MoreActivity> {
             this.u = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09175b);
             this.v = this.a.findViewById(R.id.obfuscated_res_0x7f091d77);
             this.a.findViewById(R.id.obfuscated_res_0x7f090d21).getLayoutParams().height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f09255b);
+            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f09255c);
             this.c = navigationBar;
             this.w = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.c.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1121));
@@ -314,7 +314,7 @@ public class ue8 extends b9<MoreActivity> {
             SettingTextRedDotView settingTextRedDotView = (SettingTextRedDotView) this.a.findViewById(R.id.obfuscated_res_0x7f091ddf);
             this.p = settingTextRedDotView;
             settingTextRedDotView.i();
-            this.q = (SettingTextVersionView) this.a.findViewById(R.id.obfuscated_res_0x7f092485);
+            this.q = (SettingTextVersionView) this.a.findViewById(R.id.obfuscated_res_0x7f092486);
             this.r = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09098f);
             this.s = (TbSettingTextNewDotView) this.a.findViewById(R.id.obfuscated_res_0x7f091fb2);
             this.t = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091afc);

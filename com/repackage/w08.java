@@ -257,7 +257,7 @@ public class w08 {
         ViewGroup viewGroup = (ViewGroup) fragmentActivity.getWindow().getDecorView();
         this.b = viewGroup;
         this.i = viewGroup.findViewById(R.id.obfuscated_res_0x7f0902a3);
-        this.d = (ViewGroup) this.b.findViewById(R.id.obfuscated_res_0x7f0924e9);
+        this.d = (ViewGroup) this.b.findViewById(R.id.obfuscated_res_0x7f0924ea);
     }
 
     public final void j() {
@@ -267,10 +267,10 @@ public class w08 {
             this.p = viewArr;
             viewArr[0] = this.b.findViewById(R.id.obfuscated_res_0x7f09186d);
             this.p[1] = this.b.findViewById(R.id.obfuscated_res_0x7f09186b);
-            this.p[2] = this.b.findViewById(R.id.obfuscated_res_0x7f0924e3);
+            this.p[2] = this.b.findViewById(R.id.obfuscated_res_0x7f0924e4);
             this.b.findViewById(16908290).setBackgroundResource(R.color.transparent);
             this.b.findViewById(R.id.obfuscated_res_0x7f0906bd).setBackgroundResource(R.color.transparent);
-            this.b.findViewById(R.id.obfuscated_res_0x7f0924e9).setBackgroundResource(R.color.transparent);
+            this.b.findViewById(R.id.obfuscated_res_0x7f0924ea).setBackgroundResource(R.color.transparent);
             this.b.findViewById(R.id.obfuscated_res_0x7f091866).setBackgroundResource(R.color.transparent);
             this.b.findViewById(R.id.obfuscated_res_0x7f0902a3).setBackgroundResource(R.color.transparent);
             this.b.findViewById(R.id.obfuscated_res_0x7f091d7b).setBackgroundResource(R.color.transparent);

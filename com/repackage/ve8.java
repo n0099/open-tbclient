@@ -267,7 +267,7 @@ public class ve8 extends b9<MsgRemindActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, msgRemindActivity) == null) {
             this.j = msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f09175b);
-            NavigationBar navigationBar = (NavigationBar) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f09255b);
+            NavigationBar navigationBar = (NavigationBar) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f09255c);
             this.k = navigationBar;
             navigationBar.setCenterTextTitle(msgRemindActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0f4d));
             this.k.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
@@ -275,7 +275,7 @@ public class ve8 extends b9<MsgRemindActivity> {
             MsgSettingItemView msgSettingItemView = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091ba1);
             this.a = msgSettingItemView;
             msgSettingItemView.setText(R.string.obfuscated_res_0x7f0f0fdd);
-            MsgSettingItemView msgSettingItemView2 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f092689);
+            MsgSettingItemView msgSettingItemView2 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f09268a);
             this.b = msgSettingItemView2;
             msgSettingItemView2.setVisibility(0);
             this.b.setText(R.string.obfuscated_res_0x7f0f0089);
@@ -296,7 +296,7 @@ public class ve8 extends b9<MsgRemindActivity> {
             msgSettingItemView6.setText(R.string.obfuscated_res_0x7f0f0c58);
             this.i.setTipText(R.string.obfuscated_res_0x7f0f0c59);
             this.s = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f09234d);
-            this.t = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f09239e);
+            this.t = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f09239f);
             this.u = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f092323);
             MsgSettingItemView msgSettingItemView7 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f09159d);
             this.q = msgSettingItemView7;

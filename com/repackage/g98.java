@@ -100,7 +100,7 @@ public class g98 extends h98 {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || view2 == null) {
             return;
         }
-        if (view2.getId() == R.id.obfuscated_res_0x7f0924dc) {
+        if (view2.getId() == R.id.obfuscated_res_0x7f0924dd) {
             W();
         } else if (!oi.z()) {
             qi.N(this.O, R.string.obfuscated_res_0x7f0f0c75);

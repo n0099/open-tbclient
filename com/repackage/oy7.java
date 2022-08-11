@@ -270,7 +270,7 @@ public class oy7 extends BaseAdapter {
                 emotionView.k0();
                 dVar.a.setController(this.c);
                 dVar.a.setOnClickListener(new a(this));
-                TextView textView = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f092361);
+                TextView textView = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f092362);
                 dVar.b = textView;
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0109);
                 dVar.b.setOnClickListener(new b(this));

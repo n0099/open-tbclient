@@ -122,7 +122,7 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
                 HeadImageView headImageView = (HeadImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f090d16);
                 headImageView.setIsRound(true);
                 headImageView.K(it6Var.b(), 10, false);
-                ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f092604)).K(it6Var.b(), 10, false);
+                ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f092605)).K(it6Var.b(), 10, false);
             } else {
                 roundAngleRelativeLayout = (RoundAngleRelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d036f, (ViewGroup) null);
                 roundAngleRelativeLayout.setRadius(4.0f);
@@ -130,9 +130,9 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
                 headImageView2.setIsRound(true);
                 headImageView2.K(it6Var.f(), 10, false);
                 ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f0916bc)).K(it6Var.f(), 10, false);
-                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f09244f)).setText(it6Var.e());
+                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f092450)).setText(it6Var.e());
                 ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f091b0d)).setText(it6Var.g());
-                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f09245e)).setText(getContext().getString(R.string.obfuscated_res_0x7f0f07a2, it6Var.d()));
+                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f09245f)).setText(getContext().getString(R.string.obfuscated_res_0x7f0f07a2, it6Var.d()));
                 ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f091b06)).setText(it6Var.a());
             }
             if (roundAngleRelativeLayout != null) {

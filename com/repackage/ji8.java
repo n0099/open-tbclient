@@ -200,6 +200,6 @@ public class ji8 extends b9<Object> {
         bv4 bv4Var = new bv4(tbPageContext);
         this.e = bv4Var;
         this.c.setPullRefresh(bv4Var);
-        this.d = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f09255d);
+        this.d = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f09255e);
     }
 }

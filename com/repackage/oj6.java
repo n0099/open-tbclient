@@ -81,7 +81,7 @@ public class oj6 extends ue6<ir4, AutoVideoCardViewHolder<ThreadData>> implement
                 this.b.d0(threadData);
             } else if (view2.getId() == R.id.obfuscated_res_0x7f09053c) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.USER_ICON_VISIT).param("obj_type", 3));
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09244f || view2.getId() == R.id.obfuscated_res_0x7f092421) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092450 || view2.getId() == R.id.obfuscated_res_0x7f092422) {
                 yp6.k().h(this.b.p, threadData, 2);
             } else if (view2.getId() == R.id.obfuscated_res_0x7f090d2e) {
                 ir6.a(this.b.p, threadData.getRecomReason());
@@ -94,10 +94,10 @@ public class oj6 extends ue6<ir4, AutoVideoCardViewHolder<ThreadData>> implement
             if (view2.getId() == R.id.obfuscated_res_0x7f09170f) {
                 wp6.e(threadData, 4, this.b.mPageId, this.b.p, this.b.t());
                 ir6.g(threadData, this.b.b, 2);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0924ee) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0924ef) {
                 wp6.e(threadData, 4, this.b.mPageId, this.b.p, this.b.t());
                 ir6.g(threadData, this.b.b, 1);
-            } else if (view2.getId() != R.id.obfuscated_res_0x7f09244f && view2.getId() != R.id.obfuscated_res_0x7f092421) {
+            } else if (view2.getId() != R.id.obfuscated_res_0x7f092450 && view2.getId() != R.id.obfuscated_res_0x7f092422) {
                 if (view2.getId() == R.id.obfuscated_res_0x7f09213e) {
                     wp6.e(threadData, 5, this.b.mPageId, this.b.p, this.b.t());
                     ir6.g(threadData, this.b.b, 1);

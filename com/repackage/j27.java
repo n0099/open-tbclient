@@ -99,9 +99,9 @@ public class j27 extends bn<ir4, ThreadCardViewHolder<ir4>> {
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, fo4Var, view2) == null) || fo4Var == null) {
                 return;
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f09244f) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f092450) {
                 fo4Var.objType = 3;
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092421) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092422) {
                 fo4Var.objType = 4;
             } else {
                 fo4Var.objType = 1;

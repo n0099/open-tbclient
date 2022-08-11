@@ -377,10 +377,10 @@ public class e19 {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.e = (BdBaseViewPager) this.k.findViewById(R.id.obfuscated_res_0x7f092650);
+            this.e = (BdBaseViewPager) this.k.findViewById(R.id.obfuscated_res_0x7f092651);
             this.f = (StickerLayout) this.k.findViewById(R.id.obfuscated_res_0x7f091f37);
             Resources resources = this.i.getResources() == null ? TbadkCoreApplication.getInst().getResources() : this.i.getResources();
-            NavigationBar navigationBar = (NavigationBar) this.k.findViewById(R.id.obfuscated_res_0x7f09264f);
+            NavigationBar navigationBar = (NavigationBar) this.k.findViewById(R.id.obfuscated_res_0x7f092650);
             this.o = navigationBar;
             navigationBar.setCenterTextTitle(resources.getString(R.string.obfuscated_res_0x7f0f0e77));
             this.o.showBottomLine();

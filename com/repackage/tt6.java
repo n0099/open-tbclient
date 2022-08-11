@@ -343,11 +343,11 @@ public class tt6 extends b9<MyGiftListActivity> {
             View inflate2 = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d05b9, (ViewGroup) null, false);
             this.g = inflate2;
             inflate2.setVisibility(8);
-            this.r = (LinearLayout) this.g.findViewById(R.id.obfuscated_res_0x7f092556);
+            this.r = (LinearLayout) this.g.findViewById(R.id.obfuscated_res_0x7f092557);
             this.m = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0920fb);
             this.n = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092101);
             this.p = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092102);
-            this.o = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092551);
+            this.o = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092552);
             if (CurrencySwitchUtil.isYyIsConvert()) {
                 this.p.setText(R.string.obfuscated_res_0x7f0f0b58);
                 this.o.setText(R.string.obfuscated_res_0x7f0f07b8);

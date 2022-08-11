@@ -478,9 +478,9 @@ public class rt8 extends b9 {
     public void B(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09252d);
-            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09252c);
-            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09252e);
+            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09252e);
+            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09252d);
+            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09252f);
             this.f.setVisibility(8);
             this.f.setOnClickListener(new h(this));
             Q(this.i);

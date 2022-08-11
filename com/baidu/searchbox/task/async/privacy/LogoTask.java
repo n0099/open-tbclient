@@ -72,7 +72,6 @@ public class LogoTask extends LaunchTask {
             if (MessageManager.getInstance().findTask(2001345) != null) {
                 MessageManager.getInstance().sendMessageFromBackground(new CustomMessage(2001345, new IntentConfig(TbadkCoreApplication.getInst())));
             }
-            MessageManager.getInstance().sendMessageFromBackground(new CustomMessage(2921438, TbadkCoreApplication.getInst().getApp()));
             if (this.mIsFirstUse) {
                 TbadkSettings.getInst().saveBoolean("first_sync_image_quality", true);
                 TbadkCoreApplication.getInst().setIsAbstractOn(0);

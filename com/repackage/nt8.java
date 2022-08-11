@@ -489,7 +489,7 @@ public class nt8 extends b9 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.b = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f091624);
-            MaskVideoView maskVideoView = (MaskVideoView) this.a.findViewById(R.id.obfuscated_res_0x7f09252b);
+            MaskVideoView maskVideoView = (MaskVideoView) this.a.findViewById(R.id.obfuscated_res_0x7f09252c);
             this.c = maskVideoView;
             maskVideoView.setPreserveEGLContextOnPause(true);
             this.c.setZOrderMediaOverlay(true);

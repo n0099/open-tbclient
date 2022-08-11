@@ -100,12 +100,56 @@ public final class j3a {
     }
 
     /* loaded from: classes6.dex */
-    public static final class b implements DialogInterface.OnDismissListener {
+    public static final class b implements l3a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+
+        public b(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = view2;
+        }
+
+        @Override // com.repackage.l3a
+        public final void a(Dialog dialog, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(1048576, this, dialog, z) == null) {
+                RLog.info("InputDialogManager", "onWindowFocusChanged dialog:" + dialog + ", hasFocus:" + z);
+                StringBuilder sb = new StringBuilder();
+                sb.append("onWindowFocusChanged btn_pay:");
+                View view2 = this.a;
+                sb.append(view2 != null ? view2.findViewById(R.id.obfuscated_res_0x7f090440) : null);
+                RLog.info("InputDialogManager", sb.toString());
+                View view3 = this.a;
+                if ((view3 != null ? view3.findViewById(R.id.obfuscated_res_0x7f090440) : null) != null) {
+                    View view4 = this.a;
+                    View findViewById = view4 != null ? view4.findViewById(R.id.obfuscated_res_0x7f090440) : null;
+                    findViewById.setLayoutParams(findViewById.getLayoutParams());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class c implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ i3a a;
 
-        public b(i3a i3aVar) {
+        public c(i3a i3aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -135,12 +179,12 @@ public final class j3a {
     }
 
     /* loaded from: classes6.dex */
-    public static final class c implements DialogInterface.OnCancelListener {
+    public static final class d implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ i3a a;
 
-        public c(i3a i3aVar) {
+        public d(i3a i3aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -170,7 +214,7 @@ public final class j3a {
     }
 
     /* loaded from: classes6.dex */
-    public static final class d implements View.OnClickListener {
+    public static final class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PayDialogType a;
@@ -178,7 +222,7 @@ public final class j3a {
         public final /* synthetic */ IViewEventListener c;
         public final /* synthetic */ i3a d;
 
-        public d(PayDialogType payDialogType, e3a e3aVar, IViewEventListener iViewEventListener, i3a i3aVar) {
+        public e(PayDialogType payDialogType, e3a e3aVar, IViewEventListener iViewEventListener, i3a i3aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -220,7 +264,7 @@ public final class j3a {
     }
 
     /* loaded from: classes6.dex */
-    public static final class e implements TextView.OnEditorActionListener {
+    public static final class f implements TextView.OnEditorActionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EditText a;
@@ -229,7 +273,7 @@ public final class j3a {
         public final /* synthetic */ e3a d;
         public final /* synthetic */ TextView e;
 
-        public e(EditText editText, i3a i3aVar, Activity activity, e3a e3aVar, TextView textView) {
+        public f(EditText editText, i3a i3aVar, Activity activity, e3a e3aVar, TextView textView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -284,7 +328,7 @@ public final class j3a {
     }
 
     /* loaded from: classes6.dex */
-    public static final class f implements TextWatcher {
+    public static final class g implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TextView a;
@@ -293,7 +337,7 @@ public final class j3a {
         public final /* synthetic */ TextView d;
         public final /* synthetic */ Activity e;
 
-        public f(TextView textView, TextView textView2, EditText editText, TextView textView3, Activity activity) {
+        public g(TextView textView, TextView textView2, EditText editText, TextView textView3, Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -370,13 +414,13 @@ public final class j3a {
     }
 
     /* loaded from: classes6.dex */
-    public static final class g implements Runnable {
+    public static final class h implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EditText a;
         public final /* synthetic */ Activity b;
 
-        public g(EditText editText, Activity activity) {
+        public h(EditText editText, Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -410,7 +454,7 @@ public final class j3a {
     }
 
     /* loaded from: classes6.dex */
-    public static final class h implements View.OnClickListener {
+    public static final class i implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PayDialogType a;
@@ -418,7 +462,7 @@ public final class j3a {
         public final /* synthetic */ IViewEventListener c;
         public final /* synthetic */ i3a d;
 
-        public h(PayDialogType payDialogType, e3a e3aVar, IViewEventListener iViewEventListener, i3a i3aVar) {
+        public i(PayDialogType payDialogType, e3a e3aVar, IViewEventListener iViewEventListener, i3a i3aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -460,7 +504,7 @@ public final class j3a {
     }
 
     /* loaded from: classes6.dex */
-    public static final class i implements View.OnClickListener {
+    public static final class j implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ i3a a;
@@ -468,7 +512,7 @@ public final class j3a {
         public final /* synthetic */ Activity c;
         public final /* synthetic */ e3a d;
 
-        public i(i3a i3aVar, EditText editText, Activity activity, e3a e3aVar) {
+        public j(i3a i3aVar, EditText editText, Activity activity, e3a e3aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -606,14 +650,15 @@ public final class j3a {
                 RLog.error("InputDialogManager", "showSimpleNumberInputDialog ActivityInvalid....", new Object[0]);
                 return null;
             }
+            View inflate = LayoutInflater.from(new ContextThemeWrapper(activity, s2a.a.a(payUIKitConfig))).inflate(R.layout.obfuscated_res_0x7f0d0689, (ViewGroup) null, false);
             e3a e3aVar = new e3a(activity, R.style.obfuscated_res_0x7f100152, payFlowType);
+            e3aVar.b(new b(inflate));
             e3aVar.setCancelable(true);
             e3aVar.setCanceledOnTouchOutside(true);
             e3aVar.show();
-            e3aVar.setOnDismissListener(new b(i3aVar));
-            e3aVar.setOnCancelListener(new c(i3aVar));
+            e3aVar.setOnDismissListener(new c(i3aVar));
+            e3aVar.setOnCancelListener(new d(i3aVar));
             Window window = e3aVar.getWindow();
-            View inflate = LayoutInflater.from(new ContextThemeWrapper(activity, s2a.a.a(payUIKitConfig))).inflate(R.layout.obfuscated_res_0x7f0d0689, (ViewGroup) null, false);
             if (window == null) {
                 Intrinsics.throwNpe();
             }
@@ -626,7 +671,7 @@ public final class j3a {
             attributes.width = -1;
             attributes.height = -2;
             window.setAttributes(attributes);
-            window.findViewById(R.id.obfuscated_res_0x7f091c17).setOnClickListener(new d(payDialogType, e3aVar, iViewEventListener, i3aVar));
+            window.findViewById(R.id.obfuscated_res_0x7f091c17).setOnClickListener(new e(payDialogType, e3aVar, iViewEventListener, i3aVar));
             TextView textView = (TextView) window.findViewById(R.id.obfuscated_res_0x7f092305);
             TextView textView2 = (TextView) window.findViewById(R.id.obfuscated_res_0x7f09234e);
             EditText etInput = (EditText) window.findViewById(R.id.obfuscated_res_0x7f09091d);
@@ -639,11 +684,11 @@ public final class j3a {
             Intrinsics.checkExpressionValueIsNotNull(etInput, "etInput");
             etInput.setHint(string);
             etInput.setFilters(new InputFilter[]{new InputFilter.LengthFilter(8), d(2)});
-            etInput.setOnEditorActionListener(new e(etInput, i3aVar, activity, e3aVar, textView));
-            etInput.addTextChangedListener(new f(textView2, btnOk, etInput, textView, activity));
-            etInput.postDelayed(new g(etInput, activity), 100L);
-            button.setOnClickListener(new h(payDialogType, e3aVar, iViewEventListener, i3aVar));
-            btnOk.setOnClickListener(new i(i3aVar, etInput, activity, e3aVar));
+            etInput.setOnEditorActionListener(new f(etInput, i3aVar, activity, e3aVar, textView));
+            etInput.addTextChangedListener(new g(textView2, btnOk, etInput, textView, activity));
+            etInput.postDelayed(new h(etInput, activity), 100L);
+            button.setOnClickListener(new i(payDialogType, e3aVar, iViewEventListener, i3aVar));
+            btnOk.setOnClickListener(new j(i3aVar, etInput, activity, e3aVar));
             return e3aVar;
         }
         return (Dialog) invokeCommon.objValue;

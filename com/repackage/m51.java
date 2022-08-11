@@ -209,7 +209,7 @@ public class m51 extends Dialog {
             findViewById.setBackgroundColor(inflate.getContext().getResources().getColor(R.color.obfuscated_res_0x7f0602bc));
             LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09126a);
             LayoutInflater from = LayoutInflater.from(inflate.getContext());
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923c5);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923c6);
             if (adBaseModel != null && (tm0Var = adBaseModel.g) != null && !TextUtils.isEmpty(tm0Var.c)) {
                 if (!TextUtils.isEmpty(adBaseModel.g.a)) {
                     textView2.setText(adBaseModel.g.a);

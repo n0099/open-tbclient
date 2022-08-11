@@ -160,7 +160,7 @@ public class nl6 {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.c = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f09255b);
+            this.c = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f09255c);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(0, 0, qi.f(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701e8), 0);
             ImageView imageView = (ImageView) this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d08f8, (View.OnClickListener) null);
@@ -168,7 +168,7 @@ public class nl6 {
             imageView.setLayoutParams(layoutParams);
             this.f.setOnClickListener(new a(this));
             this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new b(this));
-            this.d = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f09255d);
+            this.d = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f09255e);
             ScrollLabelTabHost scrollLabelTabHost = (ScrollLabelTabHost) this.b.findViewById(R.id.obfuscated_res_0x7f090b1b);
             this.e = scrollLabelTabHost;
             scrollLabelTabHost.setPageId(this.a.getBaseFragmentActivity().getUniqueId());

@@ -62,9 +62,9 @@ public class b47 extends bn<n06, ThreadCardViewHolder<n06>> {
             int id = view2.getId();
             if (id == R.id.obfuscated_res_0x7f09212a || id == R.id.obfuscated_res_0x7f09213e) {
                 e47.f(n06Var);
-            } else if (id == R.id.obfuscated_res_0x7f092421) {
+            } else if (id == R.id.obfuscated_res_0x7f092422) {
                 e47.e(n06Var);
-            } else if (id == R.id.obfuscated_res_0x7f09244f) {
+            } else if (id == R.id.obfuscated_res_0x7f092450) {
                 e47.e(n06Var);
             }
         }

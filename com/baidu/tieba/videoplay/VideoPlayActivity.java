@@ -133,7 +133,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             this.d.setArguments(getIntent().getExtras());
             this.d.U1(this.c);
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-            beginTransaction.add(R.id.obfuscated_res_0x7f09252a, this.d);
+            beginTransaction.add(R.id.obfuscated_res_0x7f09252b, this.d);
             beginTransaction.commitAllowingStateLoss();
             getSupportFragmentManager().executePendingTransactions();
         }

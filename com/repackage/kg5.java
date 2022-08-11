@@ -316,7 +316,7 @@ public class kg5 implements gb5 {
         this.b = linearLayout;
         this.c = floatWebLayout;
         View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0491, (ViewGroup) linearLayout, true);
-        this.d = (NestedScrollWebView) inflate.findViewById(R.id.obfuscated_res_0x7f0925ea);
+        this.d = (NestedScrollWebView) inflate.findViewById(R.id.obfuscated_res_0x7f0925eb);
         this.e = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0913eb);
         ol8 ol8Var = new ol8();
         this.m = ol8Var;

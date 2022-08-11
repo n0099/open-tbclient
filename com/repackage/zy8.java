@@ -386,8 +386,8 @@ public abstract class zy8 {
                     return;
                 }
             }
-            this.e = this.a.findViewById(R.id.obfuscated_res_0x7f09253b);
-            this.f = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0923ea);
+            this.e = this.a.findViewById(R.id.obfuscated_res_0x7f09253c);
+            this.f = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0923eb);
             this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09215f);
             this.m = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092160);
             this.s = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092161);
@@ -919,15 +919,15 @@ public abstract class zy8 {
             this.D = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090d92);
             this.E = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d93);
             this.F = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090d94);
-            this.G = (OvalActionButton) this.a.findViewById(R.id.obfuscated_res_0x7f092647);
+            this.G = (OvalActionButton) this.a.findViewById(R.id.obfuscated_res_0x7f092648);
             fz8 fz8Var2 = this.c;
             if (fz8Var2 != null && "frs".equals(fz8Var2.i())) {
                 this.G.setIsCircle(true);
                 this.G.setHasShadow(false);
             }
-            this.f = this.a.findViewById(R.id.obfuscated_res_0x7f09253d);
-            this.e = this.a.findViewById(R.id.obfuscated_res_0x7f09253c);
-            GridLayout gridLayout = (GridLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0923ea);
+            this.f = this.a.findViewById(R.id.obfuscated_res_0x7f09253e);
+            this.e = this.a.findViewById(R.id.obfuscated_res_0x7f09253d);
+            GridLayout gridLayout = (GridLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0923eb);
             this.H = gridLayout;
             gridLayout.setMeasureAllChild(true);
             this.H.setVerNum(2);
@@ -1064,8 +1064,8 @@ public abstract class zy8 {
         public final void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.s = (FrsAnomalyImg) this.a.findViewById(R.id.obfuscated_res_0x7f092660);
-                this.t = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0923c0);
+                this.s = (FrsAnomalyImg) this.a.findViewById(R.id.obfuscated_res_0x7f092661);
+                this.t = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0923c1);
                 FrsAnomalyImg.b bVar = new FrsAnomalyImg.b();
                 bVar.a(40);
                 bVar.b(640);

@@ -245,7 +245,7 @@ public class ea8 extends BaseAdapter {
                 bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921e5);
                 bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906db);
                 bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091230);
-                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09244f);
+                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092450);
                 bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092193);
                 view2.setTag(bVar);
             }
