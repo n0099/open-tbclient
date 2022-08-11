@@ -188,7 +188,7 @@ public class ob6 implements View.OnClickListener, nb6 {
         linearLayout.setClickable(false);
         this.q.setOnClickListener(this);
         this.q.setVisibility(8);
-        this.r = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f09241c);
+        this.r = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f09241d);
         this.s = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09010b);
         t();
     }

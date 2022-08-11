@@ -165,7 +165,7 @@ public class fq7 implements Object<List<EmotionPackageData>> {
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02d8, (ViewGroup) null, false);
         this.c = inflate;
         this.g = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091599);
-        this.k = (NoNetworkView) this.c.findViewById(R.id.obfuscated_res_0x7f09255d);
+        this.k = (NoNetworkView) this.c.findViewById(R.id.obfuscated_res_0x7f09255e);
         this.e = new dq7(this.c.findViewById(R.id.obfuscated_res_0x7f0908b2), tbPageContext.getString(R.string.obfuscated_res_0x7f0f0555));
         SimpleDragSortListView simpleDragSortListView = (SimpleDragSortListView) this.c.findViewById(R.id.obfuscated_res_0x7f091598);
         this.b = simpleDragSortListView;

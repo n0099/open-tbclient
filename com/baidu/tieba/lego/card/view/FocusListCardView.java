@@ -227,13 +227,13 @@ public class FocusListCardView extends BaseCardView<FocusListCard> {
             this.r = (LinearLayout) l(this.m, R.id.obfuscated_res_0x7f0906bd);
             this.s = new ArrayList();
             this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f0916ff));
-            this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f0923c8));
+            this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f0923c9));
             this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f092177));
             this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f090aac));
             this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f0909c8));
             this.t = new ArrayList();
             this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f091700));
-            this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f0923ca));
+            this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f0923cb));
             this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f092178));
             this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f090aad));
             this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f0909c9));

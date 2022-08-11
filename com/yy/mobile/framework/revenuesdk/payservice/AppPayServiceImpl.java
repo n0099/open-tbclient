@@ -103,7 +103,7 @@ public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, I
         this.mPayServiceStatistics = payServiceStatisticsImpl;
         this.mPayRespDispatcher = new PayRespDispatcher(payServiceStatisticsImpl, this);
         this.mPayOrderResultPoller = new PayOrderResultPoller(this, this, this.mPayEventStatistics);
-        RLog.info("AppPayServiceImpl", "create AppPayServiceImpl versionName:4.3.29-bdpay appId:" + i + " usedChannel:" + i2);
+        RLog.info("AppPayServiceImpl", "create AppPayServiceImpl versionName:4.3.30-bdpay-fix.2-SNAPSHOT appId:" + i + " usedChannel:" + i2);
     }
 
     private boolean checkNotNull(RequestParams requestParams, IResult iResult) {

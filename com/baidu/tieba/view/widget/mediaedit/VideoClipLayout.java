@@ -779,8 +779,8 @@ public class VideoClipLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d088c, (ViewGroup) null);
-            this.b = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f0923fc);
-            this.c = (RangeSlider) inflate.findViewById(R.id.obfuscated_res_0x7f0923fb);
+            this.b = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f0923fd);
+            this.c = (RangeSlider) inflate.findViewById(R.id.obfuscated_res_0x7f0923fc);
             addView(inflate);
             CustomLinearLayoutManager customLinearLayoutManager = new CustomLinearLayoutManager(getContext(), 0, false);
             this.e = customLinearLayoutManager;

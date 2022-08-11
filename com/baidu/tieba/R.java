@@ -22282,6 +22282,7 @@ public final class R {
         public static final int obfuscated_res_0x7f092698 = 0x7f092698;
         public static final int obfuscated_res_0x7f092699 = 0x7f092699;
         public static final int obfuscated_res_0x7f09269a = 0x7f09269a;
+        public static final int obfuscated_res_0x7f09269b = 0x7f09269b;
     }
 
     public static final class integer {

@@ -413,7 +413,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             if (this.J == null) {
-                NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f09255b);
+                NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f09255c);
                 this.J = navigationBar;
                 navigationBar.getBarBgView().setAlpha(0.0f);
             }
@@ -432,7 +432,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
                 View addSystemImageButton = this.J.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
                 this.M = addSystemImageButton;
                 addSystemImageButton.setOnClickListener(this.a0);
-                this.N = (ImageView) this.M.findViewById(R.id.obfuscated_res_0x7f092614);
+                this.N = (ImageView) this.M.findViewById(R.id.obfuscated_res_0x7f092615);
             }
             if (this.O == null) {
                 this.O = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091604);

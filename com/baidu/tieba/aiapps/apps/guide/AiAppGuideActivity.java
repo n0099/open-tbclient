@@ -90,7 +90,7 @@ public class AiAppGuideActivity extends BaseActivity {
             setSwipeBackEnabled(false);
             setActivityBgTransparent();
             setContentView(R.layout.obfuscated_res_0x7f0d0029);
-            GifView gifView = (GifView) findViewById(R.id.obfuscated_res_0x7f092552);
+            GifView gifView = (GifView) findViewById(R.id.obfuscated_res_0x7f092553);
             this.a = gifView;
             gifView.setGifFile(fm.b("aiapp_guide.gif"));
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ebc);

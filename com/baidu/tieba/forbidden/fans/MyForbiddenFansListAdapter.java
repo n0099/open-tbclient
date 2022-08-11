@@ -59,13 +59,13 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
                 }
             }
             this.a = view2.findViewById(R.id.obfuscated_res_0x7f0906c3);
-            ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f09254c);
+            ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f09254d);
             this.b = clickableHeaderImageView;
             clickableHeaderImageView.setRadius(qi.f(view2.getContext(), R.dimen.obfuscated_res_0x7f070308));
             this.b.setAutoChangeStyle(true);
             this.b.setClickable(false);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09254b);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09254d);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09254c);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09254e);
             this.e = view2.findViewById(R.id.obfuscated_res_0x7f0912f1);
         }
     }

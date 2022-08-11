@@ -221,7 +221,7 @@ public class cq7 implements View.OnClickListener, nb6 {
         findViewById2.setClickable(false);
         this.d.setOnClickListener(this);
         this.d.setVisibility(8);
-        this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09241c);
+        this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09241d);
         this.f = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090e09);
         this.g = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090109);
         this.h = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090108);

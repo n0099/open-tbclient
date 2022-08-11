@@ -83,8 +83,8 @@ public class FaceGroupMakeTitleBar extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d027e, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b3);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092399);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b4);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09239a);
             this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fdb);
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.b, (int) R.color.common_color_10140);

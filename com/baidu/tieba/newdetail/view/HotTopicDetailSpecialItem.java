@@ -117,9 +117,9 @@ public class HotTopicDetailSpecialItem extends RelativeLayout implements View.On
             viewGroup.setOnClickListener(this);
             this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0906ff);
             this.d = findViewById(R.id.obfuscated_res_0x7f0906fe);
-            this.e = findViewById(R.id.obfuscated_res_0x7f09248e);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f09248c);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09248d);
+            this.e = findViewById(R.id.obfuscated_res_0x7f09248f);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f09248d);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09248e);
             this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f090782);
             this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091fdf);
             this.c.setPlaceHolder(2);

@@ -57,7 +57,7 @@ public class VideoRecordButton extends FrameLayout {
             this.a = findViewById(R.id.obfuscated_res_0x7f091b68);
             this.b = findViewById(R.id.obfuscated_res_0x7f091b69);
             this.c = findViewById(R.id.obfuscated_res_0x7f091b6a);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b1);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b2);
             this.c.setScaleX(0.766f);
             this.c.setScaleY(0.766f);
         }

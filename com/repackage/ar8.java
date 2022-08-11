@@ -63,11 +63,11 @@ public class ar8 {
         this.c = inflate;
         this.b.setContentView(inflate);
         this.i = this.c.findViewById(R.id.obfuscated_res_0x7f0903ac);
-        NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f09255b);
+        NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f09255c);
         this.d = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.d.setTitleText(R.string.obfuscated_res_0x7f0f0e6f);
-        this.e = (NoNetworkView) this.c.findViewById(R.id.obfuscated_res_0x7f09255d);
+        this.e = (NoNetworkView) this.c.findViewById(R.id.obfuscated_res_0x7f09255e);
         MemberRecommendView memberRecommendView = (MemberRecommendView) this.c.findViewById(R.id.obfuscated_res_0x7f09059d);
         this.f = memberRecommendView;
         memberRecommendView.setFromType(9);

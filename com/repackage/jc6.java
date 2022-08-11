@@ -135,7 +135,7 @@ public class jc6 {
         this.e = inflate;
         this.a.setContentView(inflate);
         this.h = this.e.findViewById(R.id.obfuscated_res_0x7f091c1d);
-        NavigationBar navigationBar = (NavigationBar) this.e.findViewById(R.id.obfuscated_res_0x7f09255b);
+        NavigationBar navigationBar = (NavigationBar) this.e.findViewById(R.id.obfuscated_res_0x7f09255c);
         this.d = navigationBar;
         navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f02f9));
         this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
@@ -148,7 +148,7 @@ public class jc6 {
         this.k.setOnClickListener(new a(this, j, bawuTeamInfoActivity));
         this.d.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_RIGHT).addView(this.k);
         this.d.showBottomLine();
-        this.f = (NoNetworkView) this.e.findViewById(R.id.obfuscated_res_0x7f09255d);
+        this.f = (NoNetworkView) this.e.findViewById(R.id.obfuscated_res_0x7f09255e);
         this.b = (BdListView) this.e.findViewById(R.id.obfuscated_res_0x7f091314);
         kc6 kc6Var = new kc6(this.a.getPageContext());
         this.c = kc6Var;

@@ -99,18 +99,18 @@ public class FrsVoiceRoomListLayout extends LinearLayout implements ix, hx<dz4> 
                 }
                 this.k = horizontalAdapter;
                 this.a = 3;
-                this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0925ab);
-                this.c = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f0925ac);
-                this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925af);
-                this.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0925b0);
-                this.g = (ImageOverlayView) view2.findViewById(R.id.obfuscated_res_0x7f0925ae);
+                this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0925ac);
+                this.c = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f0925ad);
+                this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925b0);
+                this.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0925b1);
+                this.g = (ImageOverlayView) view2.findViewById(R.id.obfuscated_res_0x7f0925af);
                 int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds58);
                 this.g.a(3, dimensionPixelOffset, dimensionPixelOffset, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds2), R.color.CAM_X0402, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds28));
                 this.g.setStrokeStyle(1);
                 this.g.setLoadImageType(12);
-                this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925ad);
-                this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925aa);
-                this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925a7);
+                this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925ae);
+                this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925ab);
+                this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925a8);
                 this.itemView.setOnClickListener(this);
             }
 

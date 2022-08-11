@@ -1182,7 +1182,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09175b);
-            this.l = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255b);
+            this.l = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255c);
             this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f090f09);
             this.l.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.n);
             TextView addTextButton = this.l.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.obfuscated_res_0x7f0f1100), this.o);
@@ -1191,7 +1191,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
             layoutParams.rightMargin = qi.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be);
             this.b.setLayoutParams(layoutParams);
             this.d = (EditText) findViewById(R.id.obfuscated_res_0x7f090f12);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f092483);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f092484);
             this.c = imageView;
             imageView.setImageDrawable(null);
             this.c.setOnClickListener(new d(this));

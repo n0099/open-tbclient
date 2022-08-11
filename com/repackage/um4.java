@@ -84,7 +84,7 @@ public class um4 {
             this.f.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
             this.h.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             this.g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0924cd);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0924ce);
             this.d = tbImageView;
             tbImageView.setDefaultBgResource(R.color.transparent);
             this.d.setScaleType(ImageView.ScaleType.CENTER_CROP);

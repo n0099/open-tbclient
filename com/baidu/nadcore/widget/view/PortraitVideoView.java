@@ -288,7 +288,7 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f0915f0 || view2.getId() == R.id.obfuscated_res_0x7f0924e2) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0915f0 || view2.getId() == R.id.obfuscated_res_0x7f0924e3) {
                 Log.d("PortraitVideoView", "onclick area： cover");
                 if (this.i.isPlaying()) {
                     this.i.pause();
@@ -349,7 +349,7 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
             NadVideoAdOverContainer nadVideoAdOverContainer = (NadVideoAdOverContainer) findViewById(R.id.obfuscated_res_0x7f0915f0);
             this.j = nadVideoAdOverContainer;
             nadVideoAdOverContainer.setOnClickListener(this);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0924e2);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0924e3);
             this.k = imageView;
             imageView.setOnClickListener(this);
             this.l = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0915db);

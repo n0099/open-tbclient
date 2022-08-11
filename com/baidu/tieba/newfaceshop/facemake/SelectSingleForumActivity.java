@@ -195,7 +195,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0794);
             this.h = findViewById(R.id.obfuscated_res_0x7f091c31);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255b);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255c);
             this.c = navigationBar;
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.d = addSystemImageButton;
@@ -206,7 +206,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
             }
             this.e = this.c.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f055b));
             this.d.setOnClickListener(this.k);
-            this.i = findViewById(R.id.obfuscated_res_0x7f092548);
+            this.i = findViewById(R.id.obfuscated_res_0x7f092549);
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0922d0);
             this.a = textView;
             textView.setOnClickListener(this.k);

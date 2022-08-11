@@ -266,9 +266,9 @@ public class pd8 extends sd8 {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.b.setOnClickListener(new a(this));
             this.h = (RelativeLayout) a(R.id.obfuscated_res_0x7f090099);
-            this.i = (RoundTbImageView) a(R.id.obfuscated_res_0x7f092438);
-            this.j = (TextView) a(R.id.obfuscated_res_0x7f09244f);
-            this.k = (TextView) a(R.id.obfuscated_res_0x7f092428);
+            this.i = (RoundTbImageView) a(R.id.obfuscated_res_0x7f092439);
+            this.j = (TextView) a(R.id.obfuscated_res_0x7f092450);
+            this.k = (TextView) a(R.id.obfuscated_res_0x7f092429);
             this.l = (ApkDownloadView) a(R.id.obfuscated_res_0x7f090819);
             this.m = (TextView) a(R.id.obfuscated_res_0x7f091b8f);
             this.n = (CountDownTextView) a(R.id.obfuscated_res_0x7f0906f2);

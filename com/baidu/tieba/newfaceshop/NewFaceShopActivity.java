@@ -1032,7 +1032,7 @@ public class NewFaceShopActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.d = findViewById(R.id.obfuscated_res_0x7f091c29);
-            this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0925f1);
+            this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0925f2);
             BaseWebView baseWebView = new BaseWebView(getPageContext().getPageActivity());
             this.b = baseWebView;
             baseWebView.setWebViewClient(new r(this, null));

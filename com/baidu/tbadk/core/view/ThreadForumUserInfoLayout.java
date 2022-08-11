@@ -109,7 +109,7 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
             TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a73);
             this.b = textView;
             textView.setOnClickListener(this.h);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092451);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092452);
             this.d = (ForumLikeBotton) inflate.findViewById(R.id.obfuscated_res_0x7f0912df);
             if (context instanceof TbPageContextSupport) {
                 this.e = new uv4(((TbPageContextSupport) context).getPageContext(), this.d);

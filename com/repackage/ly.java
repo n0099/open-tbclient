@@ -360,7 +360,7 @@ public abstract class ly extends rw<fo4> implements j88 {
                 } else {
                     this.f = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01bf, (ViewGroup) null, true);
                 }
-                this.g = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092501);
+                this.g = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092502);
                 this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090ab9);
                 e98 q = q();
                 this.j = q;

@@ -551,9 +551,9 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.s = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090ab7);
-            this.z = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092558);
+            this.z = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092559);
             this.A = (AutoChangeLineView) findViewById(R.id.obfuscated_res_0x7f09229c);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092537);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092538);
             this.B = textView;
             textView.setText(String.format("(%d/%d)", Integer.valueOf(this.r.size()), Integer.valueOf(this.C)));
             this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f0922b0);
@@ -721,8 +721,8 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
             this.mSkinType = i2;
             ms4.d(this.y).x(R.color.CAM_X0302);
             ms4.d(this.B).v(R.color.CAM_X0107);
-            ms4.d(findViewById(R.id.obfuscated_res_0x7f092536)).v(R.color.CAM_X0105);
-            ms4.d(findViewById(R.id.obfuscated_res_0x7f092559)).v(R.color.CAM_X0105);
+            ms4.d(findViewById(R.id.obfuscated_res_0x7f092537)).v(R.color.CAM_X0105);
+            ms4.d(findViewById(R.id.obfuscated_res_0x7f09255a)).v(R.color.CAM_X0105);
             ms4 d2 = ms4.d(this.z);
             d2.n(R.string.J_X07);
             d2.f(R.color.CAM_X0209);

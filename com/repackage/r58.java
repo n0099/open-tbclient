@@ -215,7 +215,7 @@ public class r58 extends bn<i06, ThreadCardViewHolder<i06>> implements pl5 {
             return;
         }
         int id = view2.getId();
-        if (id == R.id.obfuscated_res_0x7f09244f || id == R.id.obfuscated_res_0x7f092421) {
+        if (id == R.id.obfuscated_res_0x7f092450 || id == R.id.obfuscated_res_0x7f092422) {
             z48.a(view2, fo4Var, 1);
         } else if (id == R.id.obfuscated_res_0x7f090702 || id == R.id.obfuscated_res_0x7f0903e4) {
             z48.a(view2, fo4Var, 3);

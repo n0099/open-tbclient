@@ -114,8 +114,8 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         this.o = 3;
         this.p = new a(this);
         this.a = tbPageContext;
-        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923ed);
-        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923ec);
+        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923ee);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923ed);
         TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092238);
         this.d = tbImageView;
         tbImageView.setPageId(bdUniqueId);
@@ -123,7 +123,7 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092235);
         this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092231);
         this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092237);
-        this.i = view2.findViewById(R.id.obfuscated_res_0x7f0923ee);
+        this.i = view2.findViewById(R.id.obfuscated_res_0x7f0923ef);
         ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091677);
         this.m = imageView;
         imageView.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.icon_frs_news));

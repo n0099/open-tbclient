@@ -952,16 +952,16 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
             this.j = findViewById2;
             findViewById2.setOnClickListener(this);
             this.g.setOnClickListener(this);
-            this.w = (DuVipGuideView) findViewById(R.id.obfuscated_res_0x7f092581);
-            this.x = findViewById(R.id.obfuscated_res_0x7f092549);
+            this.w = (DuVipGuideView) findViewById(R.id.obfuscated_res_0x7f092582);
+            this.x = findViewById(R.id.obfuscated_res_0x7f09254a);
             this.y = (HostMarketView) findViewById(R.id.obfuscated_res_0x7f090dab);
             CouponEntranceView couponEntranceView = (CouponEntranceView) findViewById(R.id.obfuscated_res_0x7f0906f4);
             this.D = couponEntranceView;
             couponEntranceView.setOnClickListener(this);
             this.z = (TextView) findViewById(R.id.obfuscated_res_0x7f09151e);
             this.A = (TextView) findViewById(R.id.obfuscated_res_0x7f090749);
-            this.B = findViewById(R.id.obfuscated_res_0x7f09256a);
-            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f092372);
+            this.B = findViewById(R.id.obfuscated_res_0x7f09256b);
+            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f092373);
             this.C = findViewById3;
             findViewById3.setOnClickListener(this);
         }
@@ -1367,7 +1367,7 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
                 }
             } else if (view2.getId() == R.id.obfuscated_res_0x7f0906f4) {
                 a0();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092372) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092373) {
                 this.b0 = true;
                 h0();
             } else if (view2.getId() == R.id.obfuscated_res_0x7f0919d1) {

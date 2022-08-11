@@ -395,7 +395,7 @@ public class vk5 {
                 ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d061b, (ViewGroup) null);
                 this.d = viewGroup;
                 this.m = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090d1b);
-                this.n = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f092406);
+                this.n = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f092407);
                 pv4 pv4Var = new pv4();
                 this.o = pv4Var;
                 pv4Var.r(R.color.CAM_X0304);

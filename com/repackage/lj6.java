@@ -76,7 +76,7 @@ public class lj6 extends ue6<ir4, ThreadCardViewHolder<ThreadData>> implements z
             if (view2.getId() == R.id.obfuscated_res_0x7f09212a && threadData.isVideoThreadType()) {
                 this.b.P(threadData);
             }
-            if (!(view2 instanceof ThreadSmartAppLayout) && view2.getId() != R.id.obfuscated_res_0x7f09100f && view2.getId() != R.id.obfuscated_res_0x7f0923af && view2.getId() != R.id.obfuscated_res_0x7f0923ae) {
+            if (!(view2 instanceof ThreadSmartAppLayout) && view2.getId() != R.id.obfuscated_res_0x7f09100f && view2.getId() != R.id.obfuscated_res_0x7f0923b0 && view2.getId() != R.id.obfuscated_res_0x7f0923af) {
                 yp6.k().h(zp6.p0, threadData, 1);
                 return;
             }

@@ -228,7 +228,7 @@ public class cz6 extends hu6<i06, ThreadCardViewHolder<i06>> implements pl5 {
         int id = view2.getId();
         if (id == R.id.obfuscated_res_0x7f09212a) {
             TiebaStatic.log(i06Var.A());
-        } else if (id == R.id.obfuscated_res_0x7f092421 || id == R.id.obfuscated_res_0x7f09244f) {
+        } else if (id == R.id.obfuscated_res_0x7f092422 || id == R.id.obfuscated_res_0x7f092450) {
             i = 2;
             if (i == 0) {
                 c17.d(i06Var.a, this.b, i06Var.n(), i);

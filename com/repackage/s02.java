@@ -923,7 +923,7 @@ public class s02 {
                 return false;
             }
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d00b0, (ViewGroup) null);
-            EditText editText = (EditText) inflate.findViewById(R.id.obfuscated_res_0x7f092481);
+            EditText editText = (EditText) inflate.findViewById(R.id.obfuscated_res_0x7f092482);
             editText.setText(str3);
             ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914ee)).setText(str2);
             d03.a aVar = new d03.a(this.a);

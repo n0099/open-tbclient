@@ -105,8 +105,8 @@ public class lb6 extends PopupWindow implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0248, (ViewGroup) null);
             this.d = inflate;
-            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09239f);
-            this.b = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092367);
+            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923a0);
+            this.b = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092368);
             this.c = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092314);
             this.g = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f090e32);
             this.e = this.d.findViewById(R.id.obfuscated_res_0x7f0912e8);

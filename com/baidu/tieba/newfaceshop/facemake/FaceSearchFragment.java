@@ -341,12 +341,12 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
             FaceImageLayout faceImageLayout = (FaceImageLayout) view2.findViewById(R.id.obfuscated_res_0x7f091264);
             this.d = faceImageLayout;
             faceImageLayout.setListener(new a(this));
-            this.f = view2.findViewById(R.id.obfuscated_res_0x7f092555);
+            this.f = view2.findViewById(R.id.obfuscated_res_0x7f092556);
             SearchEditView searchEditView = (SearchEditView) view2.findViewById(R.id.obfuscated_res_0x7f09086c);
             this.a = searchEditView;
             searchEditView.setCallback(this);
             this.g = (AutoLineWrapLayout) view2.findViewById(R.id.obfuscated_res_0x7f091271);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b2);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b3);
             SkinManager.setBackgroundResource(this.c, R.color.CAM_X0201);
             SkinManager.setBackgroundColor(this.f, R.color.CAM_X0204);
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0109);

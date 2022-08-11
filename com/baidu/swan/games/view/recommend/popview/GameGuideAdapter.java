@@ -58,7 +58,7 @@ public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.On
                 }
             }
             this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09084d);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092369);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09236a);
         }
     }
 

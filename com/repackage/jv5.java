@@ -59,7 +59,7 @@ public class jv5 extends ue6<ThreadData, FrsPageAlaVideoHolder> implements zz5, 
                 if (view2.getId() == R.id.obfuscated_res_0x7f091287) {
                     customMessage = new CustomMessage(2921018);
                 } else if (view2.getId() != R.id.obfuscated_res_0x7f09053f && view2.getId() != R.id.obfuscated_res_0x7f09053b) {
-                    customMessage = view2.getId() == R.id.obfuscated_res_0x7f0924ad ? new CustomMessage(2921019) : null;
+                    customMessage = view2.getId() == R.id.obfuscated_res_0x7f0924ae ? new CustomMessage(2921019) : null;
                 } else {
                     customMessage = new CustomMessage(2921016);
                 }

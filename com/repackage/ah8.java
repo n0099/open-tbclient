@@ -107,7 +107,7 @@ public class ah8 extends b9<SignAllForumActivity> {
         this.a = signAllForumActivity;
         signAllForumActivity.setContentView(R.layout.obfuscated_res_0x7f0d07b0);
         this.c = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091e7d);
-        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f09255b);
+        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f09255c);
         this.b = navigationBar;
         navigationBar.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1189));
         this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));

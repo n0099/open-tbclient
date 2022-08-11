@@ -1077,7 +1077,7 @@ public class YYPayAmountView extends LinearLayout implements IYYPayAmountView {
         if (interceptable == null || interceptable.invokeL(1048606, this, activity) == null) {
             LayoutInflater.from(new ContextThemeWrapper(activity, s2a.a.a(this.n))).inflate(R.layout.obfuscated_res_0x7f0d0693, (ViewGroup) this, true);
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092304);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0923c7);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0923c8);
             PayAmountAdapter payAmountAdapter = new PayAmountAdapter(this.a, this.B, this.o, this.n);
             this.m = payAmountAdapter;
             payAmountAdapter.i(this.v);

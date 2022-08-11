@@ -276,7 +276,7 @@ public class qe8 extends b9<AboutActivity> {
             this.a.setContentView(R.layout.obfuscated_res_0x7f0d001c);
             this.d = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09175b);
             this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090e86);
-            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f09255b);
+            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f09255c);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f14fc));

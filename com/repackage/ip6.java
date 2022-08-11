@@ -173,7 +173,7 @@ public abstract class ip6 implements kp6 {
             this.b = view2.getContext();
             this.c = view2;
             this.d = onClickListener;
-            NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f09255b);
+            NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f09255c);
             this.e = navigationBar;
             navigationBar.getBarBgView().setAlpha(1.0f);
             i();
@@ -187,7 +187,7 @@ public abstract class ip6 implements kp6 {
             View addSystemImageButton = this.e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.f = addSystemImageButton;
             addSystemImageButton.setOnClickListener(this.d);
-            this.g = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f092614);
+            this.g = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f092615);
         }
     }
 

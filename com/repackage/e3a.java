@@ -23,6 +23,7 @@ public class e3a extends Dialog {
     public AbsPayMessageReceiver b;
     public PayFlowType c;
     public Context d;
+    public l3a e;
 
     /* loaded from: classes6.dex */
     public class a extends AbsPayMessageReceiver {
@@ -104,10 +105,17 @@ public class e3a extends Dialog {
         this.c = payFlowType;
     }
 
+    public void b(l3a l3aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, l3aVar) == null) {
+            this.e = l3aVar;
+        }
+    }
+
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View currentFocus = getCurrentFocus();
             if (currentFocus instanceof EditText) {
                 ((InputMethodManager) getContext().getSystemService("input_method")).hideSoftInputFromWindow(currentFocus.getWindowToken(), 0);
@@ -121,7 +129,7 @@ public class e3a extends Dialog {
     @Override // android.app.Dialog
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             RLog.info(this.a, "onCreate");
             this.b = new a(this, this.c);
@@ -132,12 +140,25 @@ public class e3a extends Dialog {
     @Override // android.app.Dialog
     public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onStop();
             RLog.info(this.a, MissionEvent.MESSAGE_STOP);
             if (this.b != null) {
                 o2a.e(getContext(), this.b);
                 this.b = null;
+            }
+            this.e = null;
+        }
+    }
+
+    @Override // android.app.Dialog, android.view.Window.Callback
+    public void onWindowFocusChanged(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            super.onWindowFocusChanged(z);
+            l3a l3aVar = this.e;
+            if (l3aVar != null) {
+                l3aVar.a(this, z);
             }
         }
     }

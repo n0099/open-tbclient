@@ -146,7 +146,7 @@ public class FrsRedpackRunView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.c = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d032f, this);
-            this.a = (AutoScrollTextView) findViewById(R.id.obfuscated_res_0x7f092395);
+            this.a = (AutoScrollTextView) findViewById(R.id.obfuscated_res_0x7f092396);
             this.b = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090bf1);
         }
     }

@@ -5,7 +5,7 @@ import com.baidu.searchbox.http.cookie.CookieManager;
 import com.baidu.searchbox.http.request.HttpRequestBuilder;
 import java.util.List;
 import okhttp3.Interceptor;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface o74 {
     CookieManager f();
 

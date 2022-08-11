@@ -276,9 +276,9 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f09244e) {
+            if (id == R.id.obfuscated_res_0x7f09244f) {
                 F1();
-            } else if (id == R.id.obfuscated_res_0x7f09245d) {
+            } else if (id == R.id.obfuscated_res_0x7f09245e) {
                 G1();
             } else if (id == R.id.obfuscated_res_0x7f090643) {
                 z1(true);
@@ -319,10 +319,10 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
             this.j = (BdBaseImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090643);
             this.k = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0921ba);
             this.m = (CheckBox) this.d.findViewById(R.id.obfuscated_res_0x7f09197c);
-            this.l = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092458);
-            this.n = (Button) this.d.findViewById(R.id.obfuscated_res_0x7f09245d);
-            this.o = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09244e);
-            this.p = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092467);
+            this.l = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092459);
+            this.n = (Button) this.d.findViewById(R.id.obfuscated_res_0x7f09245e);
+            this.o = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09244f);
+            this.p = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092468);
             I1();
             H1();
             QuickLoginInfo quickLoginInfo = this.f;

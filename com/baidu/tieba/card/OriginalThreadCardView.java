@@ -435,7 +435,7 @@ public class OriginalThreadCardView extends RelativeLayout {
         textView.setMaxWidth(qi.q(context)[0] / 2);
         this.h = (RankStarView) findViewById(R.id.obfuscated_res_0x7f090fb8);
         this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090fb4);
-        VoteView voteView = (VoteView) findViewById(R.id.obfuscated_res_0x7f0925e1);
+        VoteView voteView = (VoteView) findViewById(R.id.obfuscated_res_0x7f0925e2);
         this.j = voteView;
         voteView.setBgColor(R.color.CAM_X0207);
         setOnClickListener(new a(this));

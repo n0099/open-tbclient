@@ -612,7 +612,7 @@ public class e78 {
             this.M.setOnClickListener(this.H);
             this.D = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091909);
             this.E = (TBLottieAnimationView) this.c.findViewById(R.id.obfuscated_res_0x7f0913b8);
-            this.B = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f092478);
+            this.B = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f092479);
             H(TbadkCoreApplication.getInst().getSkinType());
         }
     }

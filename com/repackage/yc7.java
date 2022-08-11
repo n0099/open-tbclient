@@ -139,15 +139,15 @@ public class yc7 {
                 this.e = imageView2;
                 imageView2.setImageDrawable(this.a.getDrawable(R.drawable.obfuscated_res_0x7f080817));
                 this.e.setOnClickListener(this);
-                ImageView imageView3 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092601);
+                ImageView imageView3 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092602);
                 this.f = imageView3;
                 imageView3.setImageDrawable(this.a.getDrawable(R.drawable.obfuscated_res_0x7f080819));
                 this.f.setOnClickListener(this);
-                ImageView imageView4 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092603);
+                ImageView imageView4 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092604);
                 this.g = imageView4;
                 imageView4.setImageDrawable(this.a.getDrawable(R.drawable.obfuscated_res_0x7f080815));
                 this.g.setOnClickListener(this);
-                ImageView imageView5 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092600);
+                ImageView imageView5 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092601);
                 this.h = imageView5;
                 imageView5.setImageDrawable(this.a.getDrawable(R.drawable.obfuscated_res_0x7f080a69));
                 this.h.setOnClickListener(this);

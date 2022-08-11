@@ -1059,7 +1059,7 @@ public class ev7 {
         this.v = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f090a05);
         this.w = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f090a08);
         this.x = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f090a07);
-        this.c = (NoNetworkView) this.e.findViewById(R.id.obfuscated_res_0x7f09255d);
+        this.c = (NoNetworkView) this.e.findViewById(R.id.obfuscated_res_0x7f09255e);
         G();
         this.n = (RelativeLayout) this.e.findViewById(R.id.obfuscated_res_0x7f090a02);
         this.o = (BdTypeListView) this.e.findViewById(R.id.obfuscated_res_0x7f090a09);
@@ -1078,7 +1078,7 @@ public class ev7 {
         this.o.setNextPage(this.p);
         this.q = (ProgressBar) this.e.findViewById(R.id.obfuscated_res_0x7f091a78);
         this.u = (MaskView) this.e.findViewById(R.id.obfuscated_res_0x7f0914a0);
-        this.B = this.e.findViewById(R.id.obfuscated_res_0x7f092543);
+        this.B = this.e.findViewById(R.id.obfuscated_res_0x7f092544);
         LinearLayout linearLayout = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f090a03);
         this.z = linearLayout;
         linearLayout.setOnClickListener(new o(this));
@@ -1188,7 +1188,7 @@ public class ev7 {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             int f2 = qi.f(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070306);
             int f3 = qi.f(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701d4);
-            NavigationBar navigationBar = (NavigationBar) this.e.findViewById(R.id.obfuscated_res_0x7f09255b);
+            NavigationBar navigationBar = (NavigationBar) this.e.findViewById(R.id.obfuscated_res_0x7f09255c);
             this.g = navigationBar;
             navigationBar.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0641));
             this.i = this.g.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new s(this));

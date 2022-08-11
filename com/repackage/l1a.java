@@ -476,7 +476,7 @@ public class l1a implements l0a, m0a {
                 iYYPayWayView.setViewState(payViewState);
             }
             if (z) {
-                f3a.b.e(dialog);
+                f3a.b.f(dialog);
             } else {
                 f3a.b.b(dialog);
             }
@@ -912,7 +912,7 @@ public class l1a implements l0a, m0a {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048610, this, activity, iYYPayWayView, absViewEventHandler)) == null) {
             RLog.info(this.a, "createPayWayDialog");
             h(absViewEventHandler, PayDialogType.PAY_WAY_DIALOG);
-            return f3a.b.d(activity, activity.getString(R.string.obfuscated_res_0x7f0f0d72), iYYPayWayView.getContentView(), new f1a(this.i, this.j, activity, iYYPayWayView, absViewEventHandler, this), absViewEventHandler, PayDialogType.PAY_WAY_DIALOG, this.k);
+            return f3a.b.e(activity, activity.getString(R.string.obfuscated_res_0x7f0f0d72), iYYPayWayView.getContentView(), new f1a(this.i, this.j, activity, iYYPayWayView, absViewEventHandler, this), absViewEventHandler, PayDialogType.PAY_WAY_DIALOG, this.k, iYYPayWayView);
         }
         return (Dialog) invokeLLL.objValue;
     }

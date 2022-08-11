@@ -224,7 +224,7 @@ public class oc7 extends bz5<jc7> {
             View h = h();
             this.x = h;
             this.i = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f09197d);
-            this.j = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f09244f);
+            this.j = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f092450);
             this.k = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f090985);
             this.l = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f0919ff);
             this.m = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f09218f);

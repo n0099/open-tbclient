@@ -68,8 +68,8 @@ public class cy7 {
             this.d = headImageView;
             headImageView.setIsRound(true);
             this.d.setPlaceHolder(1);
-            this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09237c);
-            this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09237b);
+            this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09237d);
+            this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09237c);
             this.g = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091000);
             this.c.setOnClickListener(this.b);
         }

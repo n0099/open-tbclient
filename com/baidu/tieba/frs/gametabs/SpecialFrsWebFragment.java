@@ -1258,16 +1258,16 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements bg6 {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048605, this, layoutInflater, viewGroup, bundle)) == null) {
             View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07c0, (ViewGroup) null);
             this.i = inflate;
-            this.j = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f09255d);
-            this.k = (FrameLayout) this.i.findViewById(R.id.obfuscated_res_0x7f0925f2);
+            this.j = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f09255e);
+            this.k = (FrameLayout) this.i.findViewById(R.id.obfuscated_res_0x7f0925f3);
             this.l = (FrameLayout) this.i.findViewById(R.id.obfuscated_res_0x7f091693);
             if (this.d == null) {
                 this.d = new km6(getPageContext());
             }
-            this.d.k((NavigationBar) this.i.findViewById(R.id.obfuscated_res_0x7f09255b), this);
+            this.d.k((NavigationBar) this.i.findViewById(R.id.obfuscated_res_0x7f09255c), this);
             Z1();
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.k.getLayoutParams();
-            layoutParams.addRule(3, R.id.obfuscated_res_0x7f09255b);
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f09255c);
             this.k.setLayoutParams(layoutParams);
             ScrollBridgeWebview scrollBridgeWebview = this.h;
             if (scrollBridgeWebview != null && (parent = scrollBridgeWebview.getParent()) != null && (parent instanceof ViewGroup)) {

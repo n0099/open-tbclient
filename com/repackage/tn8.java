@@ -136,7 +136,7 @@ public class tn8 {
         this.e = new b(this);
         this.a = baseFragmentActivity;
         this.c = view2;
-        SeekBar seekBar = (SeekBar) baseFragmentActivity.findViewById(R.id.obfuscated_res_0x7f0924ff);
+        SeekBar seekBar = (SeekBar) baseFragmentActivity.findViewById(R.id.obfuscated_res_0x7f092500);
         this.b = seekBar;
         seekBar.setOnSeekBarChangeListener(new a(this));
         view2.getViewTreeObserver().addOnGlobalLayoutListener(this.e);

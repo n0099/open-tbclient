@@ -988,7 +988,7 @@ public class h31 {
                 return false;
             } else {
                 View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d05dd, null);
-                EditText editText = (EditText) inflate.findViewById(R.id.obfuscated_res_0x7f092481);
+                EditText editText = (EditText) inflate.findViewById(R.id.obfuscated_res_0x7f092482);
                 editText.setText(str3);
                 ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914ee)).setText(str2);
                 c51.a aVar = new c51.a(this.a);

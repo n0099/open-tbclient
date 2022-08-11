@@ -123,7 +123,7 @@ public class GridIconLayout extends FrameLayout implements ix, hx<rp4> {
                 tbImageView.setPlaceHolder(1);
                 tbImageView.K(so4Var.d(), 10, false);
                 tbImageView.setUseNightOrDarkMask(false);
-                TextView textView = (TextView) gg5Var.b(R.id.obfuscated_res_0x7f0923b3);
+                TextView textView = (TextView) gg5Var.b(R.id.obfuscated_res_0x7f0923b4);
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
                 textView.setText(so4Var.e());
                 if (this.g.b != null) {

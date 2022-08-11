@@ -86,7 +86,7 @@ public class ij6 extends ue6<ir4, ThreadCardViewHolder<ir4>> implements zz5, zp6
             if ("c13010".equals(this.b.o)) {
                 TiebaStatic.log(new StatisticItem("c13010").param("obj_type", 1).param("fid", ir4Var.t.getFid()).param("tid", ir4Var.t.getTid()));
             }
-            if (view2.getId() != R.id.obfuscated_res_0x7f09244f && view2.getId() != R.id.obfuscated_res_0x7f092421) {
+            if (view2.getId() != R.id.obfuscated_res_0x7f092450 && view2.getId() != R.id.obfuscated_res_0x7f092422) {
                 if (view2.getId() == R.id.obfuscated_res_0x7f09213e) {
                     wp6.e(ir4Var.t, 5, this.b.mPageId, this.b.r, this.b.t());
                     ir6.g(ir4Var.t, this.b.b, 1);
@@ -115,7 +115,7 @@ public class ij6 extends ue6<ir4, ThreadCardViewHolder<ir4>> implements zz5, zp6
             } else {
                 wp6.e(ir4Var.t, 2, this.b.mPageId, this.b.r, this.b.t());
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f09244f || view2.getId() == R.id.obfuscated_res_0x7f092421) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f092450 || view2.getId() == R.id.obfuscated_res_0x7f092422) {
                 yp6.k().h(this.b.r, ir4Var.t, 2);
             } else if (view2.getId() == R.id.obfuscated_res_0x7f0904f3) {
                 ir6.a(this.b.r, ir4Var.getRecomReason());
@@ -384,9 +384,9 @@ public class ij6 extends ue6<ir4, ThreadCardViewHolder<ir4>> implements zz5, zp6
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, fo4Var, view2) == null) || fo4Var == null) {
                 return;
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f09244f) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f092450) {
                 fo4Var.objType = 3;
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092421) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092422) {
                 fo4Var.objType = 4;
             } else {
                 fo4Var.objType = 1;

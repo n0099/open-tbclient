@@ -630,7 +630,7 @@ public class bl5 {
             if (this.p == null) {
                 ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d088b, (ViewGroup) null);
                 this.p = viewGroup;
-                EMTextView eMTextView = (EMTextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0923f6);
+                EMTextView eMTextView = (EMTextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0923f7);
                 this.s = eMTextView;
                 if (this.H) {
                     eMTextView.setText(R.string.obfuscated_res_0x7f0f1175);
@@ -640,13 +640,13 @@ public class bl5 {
                 ms4 d2 = ms4.d(this.s);
                 d2.A(R.string.F_X02);
                 d2.v(R.color.CAM_X0105);
-                EMTextView eMTextView2 = (EMTextView) this.p.findViewById(R.id.obfuscated_res_0x7f0923f1);
+                EMTextView eMTextView2 = (EMTextView) this.p.findViewById(R.id.obfuscated_res_0x7f0923f2);
                 this.t = eMTextView2;
                 ms4.d(eMTextView2).z(R.dimen.T_X08);
-                EMTextView eMTextView3 = (EMTextView) this.p.findViewById(R.id.obfuscated_res_0x7f0923ef);
+                EMTextView eMTextView3 = (EMTextView) this.p.findViewById(R.id.obfuscated_res_0x7f0923f0);
                 this.q = eMTextView3;
                 eMTextView3.setOnClickListener(new d(this));
-                EMTextView eMTextView4 = (EMTextView) this.p.findViewById(R.id.obfuscated_res_0x7f0923f0);
+                EMTextView eMTextView4 = (EMTextView) this.p.findViewById(R.id.obfuscated_res_0x7f0923f1);
                 this.r = eMTextView4;
                 if (this.H) {
                     eMTextView4.setText(R.string.obfuscated_res_0x7f0f1172);
@@ -655,14 +655,14 @@ public class bl5 {
                 }
                 this.r.setOnClickListener(new e(this));
             }
-            this.v = (LinearLayout) this.p.findViewById(R.id.obfuscated_res_0x7f0923f3);
+            this.v = (LinearLayout) this.p.findViewById(R.id.obfuscated_res_0x7f0923f4);
             View g2 = this.l.g();
             if (g2 != null && g2.getParent() == null) {
                 int f2 = qi.f(this.a, R.dimen.M_W_X009);
                 g2.setPadding(f2, 0, f2, 0);
                 this.v.addView(g2);
             }
-            EMTextView eMTextView5 = (EMTextView) this.p.findViewById(R.id.obfuscated_res_0x7f0923f5);
+            EMTextView eMTextView5 = (EMTextView) this.p.findViewById(R.id.obfuscated_res_0x7f0923f6);
             this.u = eMTextView5;
             eMTextView5.setHighlightColor(SelectorHelper.getResources().getColor(17170445));
             if (this.E) {

@@ -158,7 +158,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setContentView(R.layout.obfuscated_res_0x7f0d07ab);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255b);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255c);
             this.f = navigationBar;
             navigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f1189));
             this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e8e);

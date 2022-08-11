@@ -217,7 +217,7 @@ public class q16 {
                 this.g = textView;
                 textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f043b));
                 SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1);
-                TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.f.findViewById(R.id.obfuscated_res_0x7f092406);
+                TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.f.findViewById(R.id.obfuscated_res_0x7f092407);
                 this.h = tBSpecificationBtn;
                 tBSpecificationBtn.setText(this.a.getString(R.string.obfuscated_res_0x7f0f043c));
                 this.h.setTextSize(R.dimen.T_X08);

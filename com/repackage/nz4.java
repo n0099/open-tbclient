@@ -307,10 +307,10 @@ public class nz4 implements iz4 {
                 SkinManager.setBackgroundResource(findViewById3, R.drawable.pic_frs_popup_sign);
                 SkinManager.setViewTextColor(textView, (int) R.color.select_topbar_icon_white_color_tint);
                 SkinManager.setImageResource(imageView, R.drawable.selector_topbar_close_white);
-                SkinManager.setViewTextColor((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b3), (int) R.color.CAM_X0101);
+                SkinManager.setViewTextColor((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b4), (int) R.color.CAM_X0101);
                 View findViewById4 = view2.findViewById(R.id.obfuscated_res_0x7f091264);
                 SkinManager.setBackgroundColor(findViewById4, R.color.CAM_X0211);
-                SkinManager.setViewTextColor((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b1), (int) R.color.CAM_X0105);
+                SkinManager.setViewTextColor((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b2), (int) R.color.CAM_X0105);
                 SkinManager.setViewTextColor((TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e85), (int) R.color.CAM_X0105);
                 SkinManager.setBackgroundColor((LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092194), R.color.CAM_X0211);
                 a aVar = new a(this);

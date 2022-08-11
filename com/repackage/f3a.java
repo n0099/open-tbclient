@@ -407,7 +407,7 @@ public final class f3a {
             window.setAttributes(attributes);
             window.setWindowAnimations(R.style.obfuscated_res_0x7f10014f);
             window.setContentView(R.layout.obfuscated_res_0x7f0d0686);
-            View findViewById = window.findViewById(R.id.obfuscated_res_0x7f0923b3);
+            View findViewById = window.findViewById(R.id.obfuscated_res_0x7f0923b4);
             Intrinsics.checkExpressionValueIsNotNull(findViewById, "window.findViewById<TextView>(R.id.tv_title)");
             ((TextView) findViewById).setText(str);
             window.findViewById(R.id.obfuscated_res_0x7f091c17).setOnClickListener(new a(payDialogType, h3aVar, dialog, iViewEventListener));
@@ -419,12 +419,18 @@ public final class f3a {
     public final Dialog d(Context context, String str, View view2, h3a h3aVar, IViewEventListener iViewEventListener, PayDialogType payDialogType, PayFlowType payFlowType) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, str, view2, h3aVar, iViewEventListener, payDialogType, payFlowType})) == null) {
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, str, view2, h3aVar, iViewEventListener, payDialogType, payFlowType})) == null) ? e(context, str, view2, h3aVar, iViewEventListener, payDialogType, payFlowType, null) : (Dialog) invokeCommon.objValue;
+    }
+
+    public final Dialog e(Context context, String str, View view2, h3a h3aVar, IViewEventListener iViewEventListener, PayDialogType payDialogType, PayFlowType payFlowType, l3a l3aVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{context, str, view2, h3aVar, iViewEventListener, payDialogType, payFlowType, l3aVar})) == null) {
             if (!u2a.a.a(context)) {
                 RLog.info(a, "showSimpleNumberInputDialog ActivityInvalid....");
                 return null;
             }
-            k3a k3aVar = new k3a(context, R.style.obfuscated_res_0x7f100153, payFlowType);
+            k3a k3aVar = new k3a(context, R.style.obfuscated_res_0x7f100153, payFlowType, l3aVar);
             k3aVar.setCancelable(true);
             k3aVar.setCanceledOnTouchOutside(true);
             k3aVar.show();
@@ -437,9 +443,9 @@ public final class f3a {
         return (Dialog) invokeCommon.objValue;
     }
 
-    public final void e(Dialog dialog) {
+    public final void f(Dialog dialog) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, dialog) == null) || dialog == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, dialog) == null) || dialog == null) {
             return;
         }
         Window window = dialog.getWindow();

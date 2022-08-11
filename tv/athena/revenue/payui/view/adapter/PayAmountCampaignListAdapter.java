@@ -98,10 +98,10 @@ public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092369);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092370);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09236a);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092371);
             this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ea0);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b9);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923ba);
         }
     }
 

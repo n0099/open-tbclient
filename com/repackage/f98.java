@@ -99,7 +99,7 @@ public class f98 extends h98 {
             return;
         }
         int id = view2.getId();
-        if (id == R.id.obfuscated_res_0x7f0924dc) {
+        if (id == R.id.obfuscated_res_0x7f0924dd) {
             W();
         } else if (id == R.id.obfuscated_res_0x7f091bbf) {
             o0(this.b);

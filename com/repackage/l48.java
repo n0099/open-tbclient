@@ -129,9 +129,9 @@ public class l48 extends bz5<v38> {
         PersonCreatorCenterFunView personCreatorCenterFunView3 = (PersonCreatorCenterFunView) h.findViewById(R.id.obfuscated_res_0x7f0918f5);
         this.r = personCreatorCenterFunView3;
         personCreatorCenterFunView3.a(R.drawable.obfuscated_res_0x7f080829, "视频数据");
-        this.s = (PersonCreatorCenterDataView) h.findViewById(R.id.obfuscated_res_0x7f092674);
-        this.t = (PersonCreatorCenterDataView) h.findViewById(R.id.obfuscated_res_0x7f092673);
-        this.u = (PersonCreatorCenterDataView) h.findViewById(R.id.obfuscated_res_0x7f092671);
+        this.s = (PersonCreatorCenterDataView) h.findViewById(R.id.obfuscated_res_0x7f092675);
+        this.t = (PersonCreatorCenterDataView) h.findViewById(R.id.obfuscated_res_0x7f092674);
+        this.u = (PersonCreatorCenterDataView) h.findViewById(R.id.obfuscated_res_0x7f092672);
         this.k = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f0918fb);
         this.v = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f0918cf);
         PersonCreatorCenterFunView personCreatorCenterFunView4 = (PersonCreatorCenterFunView) h.findViewById(R.id.obfuscated_res_0x7f0918f4);
@@ -140,9 +140,9 @@ public class l48 extends bz5<v38> {
         PersonCreatorCenterFunView personCreatorCenterFunView5 = (PersonCreatorCenterFunView) h.findViewById(R.id.obfuscated_res_0x7f0918f8);
         this.x = personCreatorCenterFunView5;
         personCreatorCenterFunView5.a(R.drawable.obfuscated_res_0x7f080829, "贴子数据");
-        this.y = (PersonCreatorCenterDataView) h.findViewById(R.id.obfuscated_res_0x7f092676);
-        this.z = (PersonCreatorCenterDataView) h.findViewById(R.id.obfuscated_res_0x7f092675);
-        this.A = (PersonCreatorCenterDataView) h.findViewById(R.id.obfuscated_res_0x7f092672);
+        this.y = (PersonCreatorCenterDataView) h.findViewById(R.id.obfuscated_res_0x7f092677);
+        this.z = (PersonCreatorCenterDataView) h.findViewById(R.id.obfuscated_res_0x7f092676);
+        this.A = (PersonCreatorCenterDataView) h.findViewById(R.id.obfuscated_res_0x7f092673);
         PersonCreatorCenterFunView personCreatorCenterFunView6 = (PersonCreatorCenterFunView) h.findViewById(R.id.obfuscated_res_0x7f0918fc);
         this.L = personCreatorCenterFunView6;
         personCreatorCenterFunView6.a(R.drawable.obfuscated_res_0x7f080860, "全新发布体验");

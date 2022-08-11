@@ -412,7 +412,7 @@ public class gd8 extends fd8 {
         this.k = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0900ed);
         this.o = (RelativeLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0900b3);
         this.p = (RelativeLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0903d5);
-        ImageView imageView = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f09249a);
+        ImageView imageView = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f09249b);
         this.q = imageView;
         imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), null));
         this.r = (FrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0900d2);

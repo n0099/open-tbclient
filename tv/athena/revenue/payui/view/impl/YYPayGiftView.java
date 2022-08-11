@@ -122,7 +122,7 @@ public class YYPayGiftView extends LinearLayout implements y2a {
             Button button = (Button) findViewById(R.id.obfuscated_res_0x7f09042e);
             this.c = button;
             button.setOnClickListener(new a(this));
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b3);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b4);
             this.e = findViewById(R.id.obfuscated_res_0x7f091c07);
             this.d = (GridView) findViewById(R.id.obfuscated_res_0x7f090cd9);
             z2a z2aVar = new z2a(context, this.j, this.i);

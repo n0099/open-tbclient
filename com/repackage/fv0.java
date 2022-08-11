@@ -52,7 +52,7 @@ public class fv0 extends pu0 implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d05e9, (ViewGroup) null);
             this.e = viewGroup;
-            this.f = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0924e2);
+            this.f = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0924e3);
             this.h = (LineLoadingView) this.e.findViewById(R.id.obfuscated_res_0x7f0912f3);
         }
     }

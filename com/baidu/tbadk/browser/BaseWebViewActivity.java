@@ -972,7 +972,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                 if (isTranslucent()) {
                     finish();
                 }
-            } else if (id == R.id.obfuscated_res_0x7f092616) {
+            } else if (id == R.id.obfuscated_res_0x7f092617) {
                 if (this.mView.y) {
                     loadUrl("javascript:window.local_obj.getSource(document.getElementsByTagName('html')[0].innerHTML);");
                     rg.a().post(this.mShareRunnable);

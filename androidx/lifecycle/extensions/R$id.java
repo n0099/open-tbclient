@@ -75,7 +75,7 @@ public final class R$id {
     public static final int text2 = 2131304618;
     public static final int time = 2131304847;
     public static final int title = 2131304890;
-    public static final int visible_removing_fragment_view_tag = 2131305891;
+    public static final int visible_removing_fragment_view_tag = 2131305892;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$id() {

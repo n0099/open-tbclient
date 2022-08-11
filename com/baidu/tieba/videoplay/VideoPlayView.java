@@ -308,7 +308,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         this.n = str;
         this.m = (TBLottieAnimationView) baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f090cef);
         this.c = baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f091c29);
-        VerticalViewPager verticalViewPager = (VerticalViewPager) baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f0924f6);
+        VerticalViewPager verticalViewPager = (VerticalViewPager) baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f0924f7);
         this.f = verticalViewPager;
         verticalViewPager.setStrictSlide(false);
         this.t = new iv8(this.m, this.f);

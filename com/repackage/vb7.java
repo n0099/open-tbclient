@@ -1543,7 +1543,7 @@ public class vb7 extends b9<ChatAggregationFragment> implements av4.g, View.OnCl
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, view2) == null) {
             this.n = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0905f4);
-            ShutDownValidateTipView shutDownValidateTipView = (ShutDownValidateTipView) view2.findViewById(R.id.obfuscated_res_0x7f09255f);
+            ShutDownValidateTipView shutDownValidateTipView = (ShutDownValidateTipView) view2.findViewById(R.id.obfuscated_res_0x7f092560);
             this.i = shutDownValidateTipView;
             shutDownValidateTipView.setVisibility(8);
             this.i.setShutDownClickListener(new u(this));

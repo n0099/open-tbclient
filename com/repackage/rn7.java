@@ -152,7 +152,7 @@ public class rn7 {
         fragmentTabHost.setup(this.g.getSupportFragmentManager());
         this.b.setOnPageChangeListener(this.j);
         this.e = (NavigationBar) this.g.findViewById(R.id.obfuscated_res_0x7f091624);
-        this.f = (NoNetworkView) this.g.findViewById(R.id.obfuscated_res_0x7f09255d);
+        this.f = (NoNetworkView) this.g.findViewById(R.id.obfuscated_res_0x7f09255e);
         this.e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
         this.e.setCenterTextTitle(this.g.getPageContext().getString(R.string.obfuscated_res_0x7f0f0b4e));
         TextView textView = (TextView) this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0612, this.g).findViewById(R.id.obfuscated_res_0x7f091bf8);

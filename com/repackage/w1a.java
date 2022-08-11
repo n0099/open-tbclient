@@ -50,7 +50,7 @@ public class w1a {
             sb.append("&usedChannel=" + payUIKitConfig.revenueConfig.getUseChannel());
             sb.append("&authType=" + payUIKitConfig.revenueConfig.getAuthType());
             sb.append("&clientVersion=" + payUIKitConfig.revenueConfig.getVersion());
-            sb.append("&sdkVersion=4.3.29-bdpay");
+            sb.append("&sdkVersion=4.3.30-bdpay-fix.2-SNAPSHOT");
             int i = 0;
             ThemeColorConfig themeColorConfig = payUIKitConfig.themeColorConfig;
             if (themeColorConfig != null && themeColorConfig.getThemeResId().intValue() == R.style.obfuscated_res_0x7f100154) {

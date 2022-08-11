@@ -1321,7 +1321,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
                 setBackgroundColor(COLOR_EMOTION_BAG);
             }
             LayoutInflater.from(this.mCtx).inflate(R.layout.obfuscated_res_0x7f0d0269, this);
-            this.mViewPager = (ViewPager) findViewById(R.id.obfuscated_res_0x7f092561);
+            this.mViewPager = (ViewPager) findViewById(R.id.obfuscated_res_0x7f092562);
             this.mIndicator = (CircleIndicator) findViewById(R.id.obfuscated_res_0x7f090f07);
             ArrayList arrayList = new ArrayList();
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mCtx).inflate(R.layout.obfuscated_res_0x7f0d0268, (ViewGroup) this, false);

@@ -182,7 +182,7 @@ public class ForumEnterLayout extends RelativeLayout {
             this.b.setAfterClickListener(this.m);
             this.c.setAfterClickListener(this.m);
             this.d.setOnClickListener(this.m);
-            this.e = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923ba);
+            this.e = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923bb);
         }
     }
 

@@ -65,14 +65,14 @@ public class ob7 {
         personalTalkSettingActivity.setContentView(R.layout.obfuscated_res_0x7f0d067e);
         View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f09194e);
         this.c = findViewById;
-        NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.obfuscated_res_0x7f09255b);
+        NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.obfuscated_res_0x7f09255c);
         this.b = navigationBar;
         navigationBar.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f136a));
         this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         PersonalTalkSettingViewSettingView personalTalkSettingViewSettingView = (PersonalTalkSettingViewSettingView) this.a.findViewById(R.id.obfuscated_res_0x7f091e18);
         this.n = personalTalkSettingViewSettingView;
         personalTalkSettingViewSettingView.b.setSwitchStateChangeListener(this.a);
-        this.l = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092447);
+        this.l = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092448);
         this.i = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f091f12);
         this.j = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f091f13);
         this.k = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090121);
@@ -86,8 +86,8 @@ public class ob7 {
         this.d.setGodIconWidth(R.dimen.tbds47);
         this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090e53);
         this.h = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090e51);
-        this.f = (UserIconBox) this.a.findViewById(R.id.obfuscated_res_0x7f092440);
-        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092429);
+        this.f = (UserIconBox) this.a.findViewById(R.id.obfuscated_res_0x7f092441);
+        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09242a);
         this.m = this.a.findViewById(R.id.obfuscated_res_0x7f09080b);
     }
 

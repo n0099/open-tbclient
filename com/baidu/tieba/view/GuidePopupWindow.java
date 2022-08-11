@@ -576,7 +576,7 @@ public class GuidePopupWindow extends Dialog {
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
             alphaAnimation.setDuration(1000L);
             this.b.startAnimation(alphaAnimation);
-            HeadPendantView headPendantView = (HeadPendantView) this.b.findViewById(R.id.obfuscated_res_0x7f092438);
+            HeadPendantView headPendantView = (HeadPendantView) this.b.findViewById(R.id.obfuscated_res_0x7f092439);
             this.c = headPendantView;
             headPendantView.setHasPendantStyle();
             this.c.setDefalutResid(R.drawable.obfuscated_res_0x7f080477);
@@ -584,10 +584,10 @@ public class GuidePopupWindow extends Dialog {
             this.c.getHeadView().setDrawBorder(true);
             this.c.getHeadView().setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
             this.c.setShowSimpleIcon(true);
-            this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09244b);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09244f);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09246c);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09246b);
+            this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09244c);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092450);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09246d);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09246c);
             this.h = this.b.findViewById(R.id.obfuscated_res_0x7f090ced);
             this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090c39);
             this.r = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091962);

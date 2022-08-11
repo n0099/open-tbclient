@@ -66,7 +66,7 @@ public class m98 implements View.OnClickListener {
         this.o = tbPageContext;
         this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09224a);
         this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0919f2);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092479);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09247a);
         this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091bb3);
         this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a73);
         this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ba4);

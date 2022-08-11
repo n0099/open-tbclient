@@ -49,9 +49,9 @@ public class FrsMemberHeaderViewHolder extends TypeAdapter.ViewHolder {
         this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0912de);
         this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0912d2);
         this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d33);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09244c);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09244d);
         this.e = view2.findViewById(R.id.obfuscated_res_0x7f090d2f);
-        this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09254a);
+        this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09254b);
         this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921a5);
         this.h = (NoPressedLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c26);
         this.i = view2.findViewById(R.id.obfuscated_res_0x7f090d30);

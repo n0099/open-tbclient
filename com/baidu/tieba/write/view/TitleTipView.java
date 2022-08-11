@@ -136,7 +136,7 @@ public class TitleTipView extends RelativeLayout {
             this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09219f);
             this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ecb);
             this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ebc);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b1);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b2);
             this.f = findViewById(R.id.obfuscated_res_0x7f092357);
             this.e.setText(R.string.obfuscated_res_0x7f0f00d3);
             this.d.setOnClickListener(this.g);

@@ -840,7 +840,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements ew7.c, V
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             R1();
-            this.b = findViewById(R.id.obfuscated_res_0x7f092555);
+            this.b = findViewById(R.id.obfuscated_res_0x7f092556);
             EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.obfuscated_res_0x7f091d81);
             this.f = editorScrollView;
             editorScrollView.setListener(new a(this));

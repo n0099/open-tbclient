@@ -58,8 +58,8 @@ public class kv5 extends ue6<ir4, FrsPageAlaVideoHolder> implements zz5, pl5 {
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
                 if (view2.getId() == R.id.obfuscated_res_0x7f091287) {
                     customMessage = new CustomMessage(2921018);
-                } else if (view2.getId() != R.id.obfuscated_res_0x7f09053f && view2.getId() != R.id.obfuscated_res_0x7f09053b && view2.getId() != R.id.obfuscated_res_0x7f092421) {
-                    customMessage = view2.getId() == R.id.obfuscated_res_0x7f0924ad ? new CustomMessage(2921019) : null;
+                } else if (view2.getId() != R.id.obfuscated_res_0x7f09053f && view2.getId() != R.id.obfuscated_res_0x7f09053b && view2.getId() != R.id.obfuscated_res_0x7f092422) {
+                    customMessage = view2.getId() == R.id.obfuscated_res_0x7f0924ae ? new CustomMessage(2921019) : null;
                 } else {
                     customMessage = new CustomMessage(2921016);
                 }

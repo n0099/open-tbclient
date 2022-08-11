@@ -150,11 +150,11 @@ public class cu6 {
         this.b = inflate;
         this.a.setContentView(inflate);
         this.c = this.b.findViewById(R.id.obfuscated_res_0x7f0903ac);
-        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f09255b);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f09255c);
         this.f = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.f.setTitleText(R.string.obfuscated_res_0x7f0f0469);
-        this.d = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f09255d);
+        this.d = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f09255e);
         this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920c6);
         this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920c5);
         this.k = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091f33);

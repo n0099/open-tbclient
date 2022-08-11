@@ -117,8 +117,8 @@ public class z2a extends BaseAdapter {
                 aVar = new a(this);
                 aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092343);
                 aVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ec9);
-                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092370);
-                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b9);
+                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092371);
+                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923ba);
                 view2.setTag(aVar);
             } else {
                 aVar = (a) view2.getTag();

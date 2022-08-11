@@ -117,9 +117,9 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03c3, (ViewGroup) this, true);
-            this.d = findViewById(R.id.obfuscated_res_0x7f092403);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092404);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f092402);
+            this.d = findViewById(R.id.obfuscated_res_0x7f092404);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092405);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f092403);
             this.d.setVisibility(8);
             WebPManager.setMaskDrawable(this.c, R.drawable.obfuscated_res_0x7f080820, null);
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090e95);

@@ -69,7 +69,7 @@ public class mv6 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
                 ou6.b(view2, n06Var, 2);
             } else if (id == R.id.obfuscated_res_0x7f09212c) {
                 ou6.b(view2, n06Var, 6);
-            } else if (id == R.id.obfuscated_res_0x7f092421 || id == R.id.obfuscated_res_0x7f09244f) {
+            } else if (id == R.id.obfuscated_res_0x7f092422 || id == R.id.obfuscated_res_0x7f092450) {
                 ou6.b(view2, n06Var, 1);
             } else if (id == R.id.obfuscated_res_0x7f090cbe) {
                 StatisticItem statisticItem = new StatisticItem("c13423");
@@ -163,9 +163,9 @@ public class mv6 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, fo4Var, view2) == null) || fo4Var == null) {
                 return;
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f09244f) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f092450) {
                 fo4Var.objType = 3;
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092421) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092422) {
                 fo4Var.objType = 4;
             } else {
                 fo4Var.objType = 1;

@@ -101,7 +101,7 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setLayoutParams(new RelativeLayout.LayoutParams(-2, a(50.0f)));
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f092421);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f092422);
             this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0902e0);
             this.c = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0909e3);
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09064a);

@@ -72,22 +72,22 @@ public class j17 implements e98 {
         if (inflate != null) {
             inflate.setOnClickListener(this);
         }
-        ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0924ee);
+        ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0924ef);
         if (imageView != null) {
             imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
             imageView.setOnClickListener(this);
         }
-        TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0924b5);
+        TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0924b6);
         this.f = textView;
         if (textView != null) {
             ms4.d(textView).y(R.array.S_O_X001);
         }
-        TextView textView2 = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0924f0);
+        TextView textView2 = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0924f1);
         this.e = textView2;
         if (textView2 != null) {
             ms4.d(textView2).y(R.array.S_O_X001);
         }
-        TbImageView tbImageView = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09251f);
+        TbImageView tbImageView = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092520);
         this.d = tbImageView;
         if (tbImageView != null) {
             tbImageView.s();

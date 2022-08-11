@@ -20,6 +20,7 @@ public class k3a extends Dialog {
     public AbsPayMessageReceiver b;
     public PayFlowType c;
     public Context d;
+    public l3a e;
 
     /* loaded from: classes6.dex */
     public class a extends AbsPayMessageReceiver {
@@ -77,13 +78,13 @@ public class k3a extends Dialog {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k3a(Context context, int i, PayFlowType payFlowType) {
+    public k3a(Context context, int i, PayFlowType payFlowType, l3a l3aVar) {
         super(context, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), payFlowType};
+            Object[] objArr = {context, Integer.valueOf(i), payFlowType, l3aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -99,6 +100,7 @@ public class k3a extends Dialog {
         this.a += "@" + hashCode();
         this.d = context;
         this.c = payFlowType;
+        this.e = l3aVar;
     }
 
     public final void b() {
@@ -118,10 +120,21 @@ public class k3a extends Dialog {
         }
     }
 
+    @Override // android.app.Dialog, android.view.Window.Callback
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.onAttachedToWindow();
+            int height = getWindow().getDecorView().getHeight();
+            String str = this.a;
+            RLog.info(str, "onAttachedToWindow height:" + height);
+        }
+    }
+
     @Override // android.app.Dialog
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             RLog.info(this.a, "onCreate");
             b();
@@ -129,14 +142,37 @@ public class k3a extends Dialog {
     }
 
     @Override // android.app.Dialog
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onStart();
+            int height = getWindow().getDecorView().getHeight();
+            String str = this.a;
+            RLog.info(str, "onStart height:" + height);
+        }
+    }
+
+    @Override // android.app.Dialog
     public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onStop();
             RLog.info(this.a, MissionEvent.MESSAGE_STOP);
             if (this.b != null) {
                 o2a.e(getContext(), this.b);
                 this.b = null;
+            }
+        }
+    }
+
+    @Override // android.app.Dialog, android.view.Window.Callback
+    public void onWindowFocusChanged(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            super.onWindowFocusChanged(z);
+            l3a l3aVar = this.e;
+            if (l3aVar != null) {
+                l3aVar.a(this, z);
             }
         }
     }

@@ -187,8 +187,8 @@ public abstract class NadDialogActivity extends BaseActivity {
     public final void w1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f092368);
-            this.u = (TextView) findViewById(R.id.obfuscated_res_0x7f092387);
+            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f092369);
+            this.u = (TextView) findViewById(R.id.obfuscated_res_0x7f092388);
             this.w = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900a2);
             this.x = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913d1);
             this.y = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913d0);

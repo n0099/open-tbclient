@@ -117,7 +117,7 @@ public class sv5 extends az5<ThreadData> implements zz5, ol5 {
         RelativeLayout relativeLayout = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f091287);
         this.w = relativeLayout;
         relativeLayout.setOnClickListener(this);
-        LinearLayout linearLayout = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f0924a9);
+        LinearLayout linearLayout = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f0924aa);
         this.v = linearLayout;
         linearLayout.setOnClickListener(this);
         RelativeLayout relativeLayout2 = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f090229);
@@ -429,7 +429,7 @@ public class sv5 extends az5<ThreadData> implements zz5, ol5 {
         }
         int i = 1;
         if (view2 != this.w && view2 != this.l.getCommentContainer() && this.v != view2 && view2 != this.F.b.getCommentContainer() && view2 != this.m.getCommentContainer()) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f0924ad) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0924ae) {
                 if (e() != null) {
                     e().a(view2, this.k);
                 }

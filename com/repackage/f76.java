@@ -476,7 +476,7 @@ public class f76 extends b9 implements NoNetworkView.b {
         F(bundle);
         D(bundle);
         C(bundle);
-        NoNetworkView noNetworkView = (NoNetworkView) this.h.findViewById(R.id.obfuscated_res_0x7f09255d);
+        NoNetworkView noNetworkView = (NoNetworkView) this.h.findViewById(R.id.obfuscated_res_0x7f09255e);
         this.r = noNetworkView;
         noNetworkView.a(this);
     }

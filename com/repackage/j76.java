@@ -101,7 +101,7 @@ public class j76 {
         this.h = new a(this);
         this.a = tbPageContext;
         this.b = view2;
-        RankListViewController.RankListViewHolder rankListViewHolder = new RankListViewController.RankListViewHolder(view2.findViewById(R.id.obfuscated_res_0x7f092473));
+        RankListViewController.RankListViewHolder rankListViewHolder = new RankListViewController.RankListViewHolder(view2.findViewById(R.id.obfuscated_res_0x7f092474));
         this.c = rankListViewHolder;
         rankListViewHolder.i(1);
         this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c80);

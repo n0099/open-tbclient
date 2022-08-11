@@ -71,11 +71,11 @@ public class jl7 extends BaseAdapter {
             }
             this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c1a);
             this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906bd);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09238a);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09238c);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092389);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09238b);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092360);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09238b);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09238d);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09238a);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09238c);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092361);
             this.h = (RoundRelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091a36);
             this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091c6f);
             this.h.setRoundLayoutRadius(new float[]{jl7Var.g, jl7Var.g, jl7Var.g, jl7Var.g, jl7Var.g, jl7Var.g, 0.0f, jl7Var.g});

@@ -317,16 +317,16 @@ public final class R$id {
 
     /* renamed from: triangle */
     public static final int obfuscated = 2131305177;
-    public static final int unchecked = 2131305472;
-    public static final int uniform = 2131305477;
-    public static final int up = 2131305485;
+    public static final int unchecked = 2131305473;
+    public static final int uniform = 2131305478;
+    public static final int up = 2131305486;
 
     /* renamed from: visible */
-    public static final int obfuscated = 2131305890;
+    public static final int obfuscated = 2131305891;
 
     /* renamed from: wrap */
-    public static final int obfuscated = 2131306046;
-    public static final int wrap_content = 2131306047;
+    public static final int obfuscated = 2131306047;
+    public static final int wrap_content = 2131306048;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$id() {

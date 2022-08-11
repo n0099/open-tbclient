@@ -12,8 +12,8 @@ public final class BuildConfig {
     public static final boolean DEBUG = false;
     public static final String FLAVOR = "";
     public static final boolean USE_BD_DOMAIN = false;
-    public static final int VERSION_CODE = 257;
-    public static final String VERSION_NAME = "4.3.29-bdpay";
+    public static final int VERSION_CODE = 276;
+    public static final String VERSION_NAME = "4.3.30-bdpay-fix.2-SNAPSHOT";
     public transient /* synthetic */ FieldHolder $fh;
 
     public BuildConfig() {

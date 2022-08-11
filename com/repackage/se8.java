@@ -570,7 +570,7 @@ public class se8 extends b9<BrowseSettingActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             this.a.setContentView(R.layout.obfuscated_res_0x7f0d015f);
-            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f09255b);
+            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f09255c);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0344));
@@ -578,7 +578,7 @@ public class se8 extends b9<BrowseSettingActivity> {
             this.d = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090eb3);
             this.e = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090116);
             this.f = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090a1c);
-            this.g = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0924a4);
+            this.g = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0924a5);
             if (RichTextGifViewSwitch.isOn()) {
                 this.g.setText(R.string.obfuscated_res_0x7f0f1510);
             } else {

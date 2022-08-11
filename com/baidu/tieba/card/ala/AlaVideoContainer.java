@@ -578,10 +578,10 @@ public class AlaVideoContainer extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d010e, (ViewGroup) this, true);
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0924ad);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0924ae);
             this.a = findViewById;
             findViewById.setOnClickListener(this.v);
-            TbVideoViewContainer tbVideoViewContainer = (TbVideoViewContainer) inflate.findViewById(R.id.obfuscated_res_0x7f09252b);
+            TbVideoViewContainer tbVideoViewContainer = (TbVideoViewContainer) inflate.findViewById(R.id.obfuscated_res_0x7f09252c);
             this.c = tbVideoViewContainer;
             TbVideoView control = tbVideoViewContainer.getControl();
             this.d = control;
@@ -604,7 +604,7 @@ public class AlaVideoContainer extends LinearLayout {
             this.e.setBorderSurroundContent(true);
             this.e.setDrawBorder(true);
             this.f = inflate.findViewById(R.id.obfuscated_res_0x7f09128d);
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923b3);
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923b4);
             TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f090ede);
             this.h = tBLottieAnimationView;
             tBLottieAnimationView.loop(true);
@@ -615,9 +615,9 @@ public class AlaVideoContainer extends LinearLayout {
             audioAnimationView.setCertainColumnCount(4);
             this.l.setColumnColor(R.color.CAM_X0302);
             this.m = inflate.findViewById(R.id.obfuscated_res_0x7f09126b);
-            this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924b8);
+            this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924b9);
             this.o = inflate.findViewById(R.id.obfuscated_res_0x7f091278);
-            this.p = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924d4);
+            this.p = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924d5);
             this.r = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0913bf);
             this.s = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922ee);
             this.b = new d06(this);

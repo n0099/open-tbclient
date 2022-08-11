@@ -72,8 +72,8 @@ public class NearbyForumFriendCardView extends LinearLayout implements ix, hx<eo
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0617, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09236b);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09236a);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09236c);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09236b);
             this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ffd);
             this.d = findViewById(R.id.obfuscated_res_0x7f09163c);
             this.g = findViewById(R.id.obfuscated_res_0x7f09163a);

@@ -179,8 +179,8 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
         this.a = headImageView;
         headImageView.setIsRound(true);
         this.a.setPlaceHolder(1);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0923af);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ae);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b0);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0923af);
         setOnClickListener(this);
         d();
     }

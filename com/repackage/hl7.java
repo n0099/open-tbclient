@@ -55,8 +55,8 @@ public class hl7 {
         this.i = memberTaskCenterActivity;
         memberTaskCenterActivity.setContentView(R.layout.obfuscated_res_0x7f0d0569);
         this.d = memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f091c31);
-        this.a = (NoNetworkView) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f09255d);
-        NavigationBar navigationBar = (NavigationBar) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f09255b);
+        this.a = (NoNetworkView) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f09255e);
+        NavigationBar navigationBar = (NavigationBar) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f09255c);
         this.b = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.b.setTitleText(R.string.obfuscated_res_0x7f0f0ac2);

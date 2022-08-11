@@ -378,22 +378,22 @@ public final class r29 {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            View findViewById = this.b.findViewById(R.id.obfuscated_res_0x7f092419);
+            View findViewById = this.b.findViewById(R.id.obfuscated_res_0x7f09241a);
             Intrinsics.checkNotNullExpressionValue(findViewById, "mRootView.findViewById(R.id.upgrade_main)");
             u((RelativeLayout) findViewById);
-            View findViewById2 = this.b.findViewById(R.id.obfuscated_res_0x7f09241b);
+            View findViewById2 = this.b.findViewById(R.id.obfuscated_res_0x7f09241c);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "mRootView.findViewById(R.id.upgrade_top)");
             v((LinearLayout) findViewById2);
-            View findViewById3 = this.b.findViewById(R.id.obfuscated_res_0x7f092416);
+            View findViewById3 = this.b.findViewById(R.id.obfuscated_res_0x7f092417);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "mRootView.findViewById(R.id.upgrade_icon)");
             B((ImageView) findViewById3);
-            View findViewById4 = this.b.findViewById(R.id.obfuscated_res_0x7f092417);
+            View findViewById4 = this.b.findViewById(R.id.obfuscated_res_0x7f092418);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "mRootView.findViewById(R.id.upgrade_icon_title)");
             E((ImageView) findViewById4);
-            View findViewById5 = this.b.findViewById(R.id.obfuscated_res_0x7f09241a);
+            View findViewById5 = this.b.findViewById(R.id.obfuscated_res_0x7f09241b);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "mRootView.findViewById(R.id.upgrade_tip)");
             D((EMTextView) findViewById5);
-            View findViewById6 = this.b.findViewById(R.id.obfuscated_res_0x7f092415);
+            View findViewById6 = this.b.findViewById(R.id.obfuscated_res_0x7f092416);
             Intrinsics.checkNotNullExpressionValue(findViewById6, "mRootView.findViewById(R.id.upgrade_has_open)");
             A((EMTextView) findViewById6);
             View findViewById7 = this.b.findViewById(R.id.obfuscated_res_0x7f091dfa);
@@ -402,16 +402,16 @@ public final class r29 {
             View findViewById8 = this.b.findViewById(R.id.obfuscated_res_0x7f091dfb);
             Intrinsics.checkNotNullExpressionValue(findViewById8, "mRootView.findViewById(R.id.select_office_number)");
             x((EMTextView) findViewById8);
-            View findViewById9 = this.b.findViewById(R.id.obfuscated_res_0x7f092413);
+            View findViewById9 = this.b.findViewById(R.id.obfuscated_res_0x7f092414);
             Intrinsics.checkNotNullExpressionValue(findViewById9, "mRootView.findViewById(R.id.upgrade_bottom_tip)");
             z((EMTextView) findViewById9);
             View findViewById10 = this.b.findViewById(R.id.obfuscated_res_0x7f090452);
             Intrinsics.checkNotNullExpressionValue(findViewById10, "mRootView.findViewById(R.id.btn_upgrade_open)");
             C((EMTextView) findViewById10);
-            View findViewById11 = this.b.findViewById(R.id.obfuscated_res_0x7f092414);
+            View findViewById11 = this.b.findViewById(R.id.obfuscated_res_0x7f092415);
             Intrinsics.checkNotNullExpressionValue(findViewById11, "mRootView.findViewById(R.id.upgrade_content)");
             s((RelativeLayout) findViewById11);
-            View findViewById12 = this.b.findViewById(R.id.obfuscated_res_0x7f092418);
+            View findViewById12 = this.b.findViewById(R.id.obfuscated_res_0x7f092419);
             Intrinsics.checkNotNullExpressionValue(findViewById12, "mRootView.findViewById(R.id.upgrade_item)");
             t((LinearLayout) findViewById12);
             View findViewById13 = this.b.findViewById(R.id.obfuscated_res_0x7f0912fa);

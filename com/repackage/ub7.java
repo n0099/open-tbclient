@@ -677,7 +677,7 @@ public class ub7 extends b9 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, baseCardInfo) == null) && view2 != null && (baseCardInfo instanceof jc7)) {
                 jc7 jc7Var = (jc7) baseCardInfo;
-                if (jc7Var.F() && view2.getId() != R.id.obfuscated_res_0x7f09197d && view2.getId() != R.id.obfuscated_res_0x7f09244f) {
+                if (jc7Var.F() && view2.getId() != R.id.obfuscated_res_0x7f09197d && view2.getId() != R.id.obfuscated_res_0x7f092450) {
                     jc7Var.K(false);
                     this.b.W();
                 }

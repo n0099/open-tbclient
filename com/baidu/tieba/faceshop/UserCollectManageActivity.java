@@ -401,7 +401,7 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
     public final void L1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255b);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255c);
             this.a = navigationBar;
             navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f03fb));
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
@@ -419,7 +419,7 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
             TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091d61);
             this.g = textView2;
             textView2.setOnClickListener(this.q);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f092487);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f092488);
             this.j = findViewById;
             SkinManager.setBackgroundColor(findViewById, R.color.CAM_X0204);
             TextView textView3 = (TextView) findViewById(R.id.obfuscated_res_0x7f090774);

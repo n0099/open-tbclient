@@ -21,6 +21,7 @@ import com.google.zxing.Result;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitArray;
 import com.google.zxing.maxicode.decoder.DecodedBitStreamParser;
+import com.yy.mobile.framework.revenuesdk.paybaseapi.BuildConfig;
 import java.util.Arrays;
 import java.util.Map;
 import org.apache.http.HttpStatus;
@@ -49,7 +50,7 @@ public final class Code93Reader extends OneDReader {
             }
         }
         ALPHABET = ALPHABET_STRING.toCharArray();
-        int[] iArr = {276, 328, 324, 322, 296, 292, 290, 336, 274, 266, HttpStatus.SC_FAILED_DEPENDENCY, HttpStatus.SC_METHOD_FAILURE, TTAdConstant.DEEPLINK_FALL_BACK_CODE, 404, 402, 394, 360, 356, VideoInfoConstants.VIDEO_PREFERRED_CLARITY_RANK, 308, 282, 344, 332, 326, 300, 278, 436, 434, 428, HttpStatus.SC_UNPROCESSABLE_ENTITY, 406, 410, 364, 358, 310, 314, 302, 468, 466, 458, 366, 374, 430, 294, 474, FloatingActionButton.AUTO_MINI_LARGEST_SCREEN_WIDTH, 306, 350};
+        int[] iArr = {BuildConfig.VERSION_CODE, 328, 324, 322, 296, 292, 290, 336, 274, 266, HttpStatus.SC_FAILED_DEPENDENCY, HttpStatus.SC_METHOD_FAILURE, TTAdConstant.DEEPLINK_FALL_BACK_CODE, 404, 402, 394, 360, 356, VideoInfoConstants.VIDEO_PREFERRED_CLARITY_RANK, 308, 282, 344, 332, 326, 300, 278, 436, 434, 428, HttpStatus.SC_UNPROCESSABLE_ENTITY, 406, 410, 364, 358, 310, 314, 302, 468, 466, 458, 366, 374, 430, 294, 474, FloatingActionButton.AUTO_MINI_LARGEST_SCREEN_WIDTH, 306, 350};
         CHARACTER_ENCODINGS = iArr;
         ASTERISK_ENCODING = iArr[47];
     }

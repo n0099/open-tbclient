@@ -435,8 +435,8 @@ public class fx5 extends Dialog {
             this.p = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09148d);
             this.n = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091490);
             this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f091491);
-            this.q = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09246d);
-            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f09246e);
+            this.q = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09246e);
+            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f09246f);
         }
     }
 

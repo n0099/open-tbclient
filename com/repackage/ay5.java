@@ -353,7 +353,7 @@ public class ay5 {
         View findViewById = this.j.findViewById(R.id.obfuscated_res_0x7f091601);
         this.q = findViewById;
         findViewById.setAlpha(0.0f);
-        NavigationBar navigationBar = (NavigationBar) this.j.findViewById(R.id.obfuscated_res_0x7f0925cb);
+        NavigationBar navigationBar = (NavigationBar) this.j.findViewById(R.id.obfuscated_res_0x7f0925cc);
         this.p = navigationBar;
         navigationBar.setCenterTextTitle(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f02e6));
         if (this.p.getBarBgView() != null) {
@@ -365,7 +365,7 @@ public class ay5 {
         this.r = textView;
         textView.setText(R.string.obfuscated_res_0x7f0f02dd);
         this.r.setOnClickListener(this.b);
-        this.s = (BdRecyclerView) this.j.findViewById(R.id.obfuscated_res_0x7f0925c9);
+        this.s = (BdRecyclerView) this.j.findViewById(R.id.obfuscated_res_0x7f0925ca);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.b);
         this.i = linearLayoutManager;
         this.s.setLayoutManager(linearLayoutManager);
@@ -385,7 +385,7 @@ public class ay5 {
         view2.setLayoutParams(new AbsListView.LayoutParams(-1, this.C));
         this.n.setVisibility(4);
         this.s.r(this.n);
-        VoteStatusCard voteStatusCard = (VoteStatusCard) this.l.findViewById(R.id.obfuscated_res_0x7f0925cf);
+        VoteStatusCard voteStatusCard = (VoteStatusCard) this.l.findViewById(R.id.obfuscated_res_0x7f0925d0);
         this.t = voteStatusCard;
         voteStatusCard.setOnRefreshListener(this.L);
         this.v = this.l.findViewById(R.id.obfuscated_res_0x7f09033b);
@@ -393,12 +393,12 @@ public class ay5 {
         SelectRuleView selectRuleView = (SelectRuleView) this.l.findViewById(R.id.obfuscated_res_0x7f09033c);
         this.x = selectRuleView;
         selectRuleView.setType(1);
-        this.u = (VoteCandidateCard) this.l.findViewById(R.id.obfuscated_res_0x7f0925bf);
-        SearchView searchView = (SearchView) this.l.findViewById(R.id.obfuscated_res_0x7f0925cd);
+        this.u = (VoteCandidateCard) this.l.findViewById(R.id.obfuscated_res_0x7f0925c0);
+        SearchView searchView = (SearchView) this.l.findViewById(R.id.obfuscated_res_0x7f0925ce);
         this.y = searchView;
         searchView.a(new e(this));
         this.A = (FloatMyRecordCard) this.j.findViewById(R.id.obfuscated_res_0x7f0909e4);
-        this.B = (TextView) this.l.findViewById(R.id.obfuscated_res_0x7f0925d7);
+        this.B = (TextView) this.l.findViewById(R.id.obfuscated_res_0x7f0925d8);
         PbListView pbListView = new PbListView(this.b);
         this.D = pbListView;
         pbListView.b();

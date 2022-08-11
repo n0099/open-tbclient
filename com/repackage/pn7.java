@@ -387,7 +387,7 @@ public class pn7 extends nn7 {
                     dVar.c.setGodIconWidth(R.dimen.tbds36);
                     dVar.c.setOnClickListener(this.o);
                     dVar.c.setTag(Integer.valueOf(i));
-                    TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f09244d);
+                    TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f09244e);
                     dVar.b = tBLottieAnimationView;
                     SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.card_live_header_bg);
                     j((UserData) ListUtils.getItem(this.a, i), dVar, i);

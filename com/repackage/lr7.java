@@ -346,11 +346,11 @@ public abstract class lr7 {
                 this.b.finish();
             } else if (view2.getId() == R.id.obfuscated_res_0x7f091add) {
                 g();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092602) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092603) {
                 o();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092605) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092606) {
                 p();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092688) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092689) {
                 q();
             } else if (view2.getId() == R.id.obfuscated_res_0x7f09153a) {
                 d();

@@ -99,7 +99,7 @@ public class sw7 extends bw7<nt7, PbLoadPreReplyViewHolder> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06bd, viewGroup, false);
-            inflate.findViewById(R.id.obfuscated_res_0x7f092359).setOnClickListener(new a(this, inflate));
+            inflate.findViewById(R.id.obfuscated_res_0x7f09235a).setOnClickListener(new a(this, inflate));
             return new PbLoadPreReplyViewHolder(this.mContext, inflate);
         }
         return (PbLoadPreReplyViewHolder) invokeL.objValue;

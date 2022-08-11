@@ -291,7 +291,7 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
         LayoutInflater.from(new ContextThemeWrapper(activity, s2a.a.a(payUIKitConfig))).inflate(R.layout.obfuscated_res_0x7f0d0695, (ViewGroup) this, true);
         this.a = activity;
         this.n = cVar;
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092398);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092399);
         Button button = (Button) findViewById(R.id.obfuscated_res_0x7f090424);
         this.b = i;
         this.c = i2;

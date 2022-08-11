@@ -166,7 +166,7 @@ public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View
         SkinManager.setLottieAnimation(this.f, R.raw.ala_live2);
         this.f.addOnAttachStateChangeListener(new a(this));
         this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090782);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09241f);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092420);
         this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0902dc);
         this.k = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091276);
         this.l = view2.findViewById(R.id.obfuscated_res_0x7f0901e7);

@@ -994,7 +994,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
         tbVideoViewContainer.getControl().setStageType("23");
         this.l.getControl().setNoBussinessStats();
         this.l.getControl().setLooping(false);
-        this.m = (TBLottieAnimationView) this.d.findViewById(R.id.obfuscated_res_0x7f0924ee);
+        this.m = (TBLottieAnimationView) this.d.findViewById(R.id.obfuscated_res_0x7f0924ef);
         this.n = (ForeDrawableImageView) this.d.findViewById(R.id.obfuscated_res_0x7f0907d5);
         this.o = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0907cf);
         this.p = this.d.findViewById(R.id.obfuscated_res_0x7f090399);
@@ -1012,7 +1012,7 @@ public class DistributeVideoView extends RelativeLayout implements IHomeAdVideoV
         TbImageView tbImageView = (TbImageView) this.d.findViewById(R.id.obfuscated_res_0x7f0903e8);
         this.x = tbImageView;
         tbImageView.setVisibility(8);
-        this.y = (RelativeLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0924ad);
+        this.y = (RelativeLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0924ae);
         this.m.setAnimation(R.raw.obfuscated_res_0x7f11001b);
         this.m.setMinFrame(0);
         this.m.setFrame(0);

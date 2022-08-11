@@ -1110,8 +1110,8 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
             View findViewById3 = findViewById(R.id.obfuscated_res_0x7f091755);
             this.s = findViewById3;
             findViewById3.setOnClickListener(this);
-            this.x = (ImageView) findViewById(R.id.obfuscated_res_0x7f0925c1);
-            this.y = (TextView) findViewById(R.id.obfuscated_res_0x7f0925d2);
+            this.x = (ImageView) findViewById(R.id.obfuscated_res_0x7f0925c2);
+            this.y = (TextView) findViewById(R.id.obfuscated_res_0x7f0925d3);
             this.L = new yb6(this);
         }
     }

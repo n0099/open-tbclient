@@ -44,14 +44,14 @@ public class pr7 extends mr7 {
                 return;
             }
         }
-        ViewStub viewStub = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f09257b);
+        ViewStub viewStub = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f09257c);
         this.o = viewStub;
         viewStub.inflate();
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.o.getLayoutParams();
         layoutParams.topMargin = ((qi.i(tbPageContext.getPageActivity()) / 2) + qi.f(tbPageContext.getPageActivity(), R.dimen.tbds239)) - qi.f(tbPageContext.getPageActivity(), R.dimen.tbds140);
         this.o.setLayoutParams(layoutParams);
-        this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092456);
-        ViewStub viewStub2 = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f092578);
+        this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092457);
+        ViewStub viewStub2 = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f092579);
         this.p = viewStub2;
         viewStub2.inflate();
         this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09219a);

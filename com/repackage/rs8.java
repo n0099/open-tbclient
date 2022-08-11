@@ -206,8 +206,8 @@ public class rs8 {
         View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0798, (ViewGroup) null);
         this.a = inflate;
         this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f5c);
-        this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092494);
-        this.h = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092502);
+        this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092495);
+        this.h = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092503);
         ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-1, qi.f(context, R.dimen.obfuscated_res_0x7f0701aa));
         if (this.a.getParent() == null) {
             viewGroup.addView(this.a, layoutParams);

@@ -145,10 +145,10 @@ public final class R$id {
     public static final int titleDividerNoCustom = 2131304892;
     public static final int title_template = 2131304932;
     public static final int topPanel = 2131305002;
-    public static final int unchecked = 2131305472;
-    public static final int uniform = 2131305477;
-    public static final int up = 2131305485;
-    public static final int wrap_content = 2131306047;
+    public static final int unchecked = 2131305473;
+    public static final int uniform = 2131305478;
+    public static final int up = 2131305486;
+    public static final int wrap_content = 2131306048;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$id() {

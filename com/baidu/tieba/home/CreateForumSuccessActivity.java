@@ -148,11 +148,11 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c31);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255b);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255c);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.c.setTitleText(R.string.obfuscated_res_0x7f0f0469);
-            this.d = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f09255d);
+            this.d = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f09255e);
             int f = qi.f(getActivity(), R.dimen.obfuscated_res_0x7f07019a);
             NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090898), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, f), null, null);
             this.e = a2;

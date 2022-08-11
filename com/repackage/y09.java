@@ -358,7 +358,7 @@ public class y09 extends BaseAdapter {
                 if (view2 == null) {
                     view4 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0919, (ViewGroup) null);
                     c cVar2 = new c(this, null);
-                    cVar2.a = (TbMountCardLinkLayout) view4.findViewById(R.id.obfuscated_res_0x7f09264d);
+                    cVar2.a = (TbMountCardLinkLayout) view4.findViewById(R.id.obfuscated_res_0x7f09264e);
                     view4.setTag(cVar2);
                     cVar = cVar2;
                 } else {

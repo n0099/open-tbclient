@@ -93,7 +93,7 @@ public class CurrentProcessWebviewActivity extends Activity implements View.OnCl
             if (this.a) {
                 setTheme(R.style.obfuscated_res_0x7f10017c);
             }
-            this.e = (WebView) findViewById(R.id.obfuscated_res_0x7f0925ef);
+            this.e = (WebView) findViewById(R.id.obfuscated_res_0x7f0925f0);
             this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f0921ba);
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0921c5);
             this.mLeftBtnIv = imageView;

@@ -376,7 +376,7 @@ public class HotUserRankView {
         tbTabLayout.setTabTextSize(qi.f(baseFragmentActivity, R.dimen.tbds46));
         this.e = this.b.findViewById(R.id.obfuscated_res_0x7f091fbb);
         this.f = this.b.findViewById(R.id.obfuscated_res_0x7f091fbc);
-        CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f092570);
+        CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f092571);
         this.g = customViewPager;
         customViewPager.addOnPageChangeListener(this.t);
         this.g.setViewPagerScroll(0);
@@ -386,8 +386,8 @@ public class HotUserRankView {
         this.d.setupWithViewPager(this.g);
         this.j = new j76(this.a.getPageContext(), this.b.findViewById(R.id.obfuscated_res_0x7f0903f7));
         this.a.registerListener(this.u);
-        this.n = this.b.findViewById(R.id.obfuscated_res_0x7f092410);
-        this.o = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092411);
+        this.n = this.b.findViewById(R.id.obfuscated_res_0x7f092411);
+        this.o = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092412);
         this.p = this.b.findViewById(R.id.obfuscated_res_0x7f0903f8);
     }
 

@@ -1009,7 +1009,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
             SkinManager.setViewTextColor(textView, R.color.CAM_X0101, 1);
             this.L = (TextView) findViewById(R.id.obfuscated_res_0x7f0921b1);
             this.M = (TextView) findViewById(R.id.obfuscated_res_0x7f0921b5);
-            this.N = (VoiceButton) findViewById(R.id.obfuscated_res_0x7f0925a4);
+            this.N = (VoiceButton) findViewById(R.id.obfuscated_res_0x7f0925a5);
             this.J = (TextView) findViewById(R.id.obfuscated_res_0x7f091bbc);
             this.O = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919b3);
             TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0919b6);

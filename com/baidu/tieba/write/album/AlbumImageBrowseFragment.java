@@ -399,7 +399,7 @@ public class AlbumImageBrowseFragment extends BaseFragment {
             this.e = inflate;
             this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090ead);
             this.g = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f090eba);
-            this.l = (ViewPager) this.e.findViewById(R.id.obfuscated_res_0x7f092533);
+            this.l = (ViewPager) this.e.findViewById(R.id.obfuscated_res_0x7f092534);
             this.k = this.e.findViewById(R.id.obfuscated_res_0x7f09024d);
             this.j = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091729);
             this.h = this.e.findViewById(R.id.obfuscated_res_0x7f091258);

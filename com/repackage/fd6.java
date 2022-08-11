@@ -81,12 +81,12 @@ public class fd6 {
         this.a = baseActivity;
         baseActivity.setContentView(R.layout.obfuscated_res_0x7f0d02b4);
         this.b = this.a.findViewById(R.id.obfuscated_res_0x7f09007a);
-        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f09255b);
+        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f09255c);
         this.d = navigationBar;
         navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f06ca)).setOnClickListener(new a(this));
         this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.a.setNetRefreshViewTopMargin(BdListViewHelper.a);
-        this.g = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f09255d);
+        this.g = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f09255e);
         this.e = (BdTypeListView) this.a.findViewById(R.id.obfuscated_res_0x7f090a71);
         bv4 bv4Var = new bv4(this.a.getPageContext());
         this.f = bv4Var;

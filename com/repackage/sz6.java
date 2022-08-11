@@ -319,10 +319,10 @@ public class sz6 extends bn<n06, ThreadCardViewHolder<n06>> implements pl5 {
             TiebaStatic.log(n06Var.T());
             nl5.c().i("page_recommend", "clk_", n06Var.T());
         } else {
-            if (id == R.id.obfuscated_res_0x7f092421) {
+            if (id == R.id.obfuscated_res_0x7f092422) {
                 TiebaStatic.log(n06Var.S());
                 nl5.c().i("page_recommend", "clk_", n06Var.S());
-            } else if (id != R.id.obfuscated_res_0x7f09244f) {
+            } else if (id != R.id.obfuscated_res_0x7f092450) {
                 if (id == R.id.obfuscated_res_0x7f090a74) {
                     TiebaStatic.log(n06Var.j());
                     nl5.c().i("page_recommend", "clk_", n06Var.j());

@@ -273,7 +273,7 @@ public class wr6 {
                 }
                 this.b.X(io4Var, (ViewGroup) this.a.getActivity().getWindow().getDecorView());
                 this.b.setAdvancedAdStyle(true);
-                this.b.setNavigationBar((NavigationBar) this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f09255b));
+                this.b.setNavigationBar((NavigationBar) this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f09255c));
                 return;
             }
             this.b.setAdvancedAdStyle(false);
@@ -368,9 +368,9 @@ public class wr6 {
             View findViewById = this.a.C3().findViewById(R.id.obfuscated_res_0x7f090d1d);
             TbImageView tbImageView = (TbImageView) this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f090d1c);
             tbImageView.setPlaceHolder(2);
-            TbVideoView tbVideoView = (TbVideoView) this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f0924cc);
-            TbImageView tbImageView2 = (TbImageView) this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f0924c6);
-            View findViewById2 = this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f0924cb);
+            TbVideoView tbVideoView = (TbVideoView) this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f0924cd);
+            TbImageView tbImageView2 = (TbImageView) this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f0924c7);
+            View findViewById2 = this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f0924cc);
             View findViewById3 = this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f090d36);
             if (findViewById == null) {
                 return;

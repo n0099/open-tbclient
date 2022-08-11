@@ -409,7 +409,7 @@ public class gi8 extends BaseAdapter {
                 hVar2.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0912e4);
                 hVar2.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09214d);
                 hVar2.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0905a1);
-                hVar2.h = inflate.findViewById(R.id.obfuscated_res_0x7f092488);
+                hVar2.h = inflate.findViewById(R.id.obfuscated_res_0x7f092489);
                 hVar2.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0908e8);
                 hVar2.l = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0908eb);
                 inflate.setTag(hVar2);

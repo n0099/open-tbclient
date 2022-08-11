@@ -192,7 +192,7 @@ public class lv5 implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
             if (view2 != this.b && view2 != this.e.getCommentContainer()) {
-                if (view2.getId() != R.id.obfuscated_res_0x7f0924ad || (pv5Var = this.k) == null) {
+                if (view2.getId() != R.id.obfuscated_res_0x7f0924ae || (pv5Var = this.k) == null) {
                     return;
                 }
                 pv5Var.a(view2, this.i);

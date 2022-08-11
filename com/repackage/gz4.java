@@ -498,7 +498,7 @@ public class gz4 {
             this.k = (TextView) this.t.findViewById(R.id.obfuscated_res_0x7f090b2e);
             this.l = (TextView) this.t.findViewById(R.id.obfuscated_res_0x7f090b30);
             this.m = (HeadImageView) this.t.findViewById(R.id.obfuscated_res_0x7f090b26);
-            this.B = (TBLottieAnimationView) this.t.findViewById(R.id.obfuscated_res_0x7f09244d);
+            this.B = (TBLottieAnimationView) this.t.findViewById(R.id.obfuscated_res_0x7f09244e);
             this.o = (TBSpecificationBtn) this.t.findViewById(R.id.obfuscated_res_0x7f090b29);
             this.l.setText(this.i);
             this.k.setText(this.j);

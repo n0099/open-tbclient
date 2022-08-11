@@ -163,24 +163,24 @@ public class yj4 {
             TiebaStatic.log(statisticItem);
             Activity pageActivity = c.getPageActivity();
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(c.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01f5, (ViewGroup) null, false);
-            TextView textView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09260c);
+            TextView textView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09260d);
             textView.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13ec), mVar.a()));
             textView.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0108));
             View findViewById = viewGroup.findViewById(R.id.obfuscated_res_0x7f0912ad);
             View findViewById2 = viewGroup.findViewById(R.id.obfuscated_res_0x7f091bee);
             findViewById.setBackgroundColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0108));
             findViewById2.setBackgroundColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0108));
-            HeadImageView headImageView = (HeadImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092424);
+            HeadImageView headImageView = (HeadImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092425);
             headImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f08120f);
             headImageView.setGodIconWidth(R.dimen.tbds68);
             headImageView.setAutoChangeStyle(false);
             UtilHelper.showHeadImageViewBigV(headImageView, userData);
             headImageView.setIsRound(true);
             headImageView.K(userData.getAvater(), 25, false);
-            TextView textView2 = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09244f);
+            TextView textView2 = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092450);
             textView2.setText(userData.getName_show());
             textView2.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0105));
-            TextView textView3 = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09246f);
+            TextView textView3 = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092470);
             textView3.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13eb), mVar.b()));
             textView3.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0109));
             LinearLayout linearLayout = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0906be);
@@ -231,7 +231,7 @@ public class yj4 {
                 }
                 z2 = false;
             }
-            TextView textView6 = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092469);
+            TextView textView6 = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09246a);
             String intro = userData.getIntro();
             if (TextUtils.isEmpty(userData.getIntro()) && z2) {
                 intro = StringHelper.getBaAgeAutoYearAndMonth(userData.getTb_age());

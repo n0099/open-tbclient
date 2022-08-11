@@ -1009,10 +1009,10 @@ public class if7 {
         if (view2 instanceof FrameLayout) {
             ((FrameLayout) view2).addView(e0);
         }
-        TbVideoViewContainer tbVideoViewContainer = (TbVideoViewContainer) this.d.findViewById(R.id.obfuscated_res_0x7f09248f);
+        TbVideoViewContainer tbVideoViewContainer = (TbVideoViewContainer) this.d.findViewById(R.id.obfuscated_res_0x7f092490);
         this.f = tbVideoViewContainer;
         tbVideoViewContainer.getControl().setStageType("23");
-        this.g = this.d.findViewById(R.id.obfuscated_res_0x7f0924d3);
+        this.g = this.d.findViewById(R.id.obfuscated_res_0x7f0924d4);
         VideoListMediaControllerView videoListMediaControllerView = (VideoListMediaControllerView) this.d.findViewById(R.id.obfuscated_res_0x7f0914af);
         this.h = videoListMediaControllerView;
         videoListMediaControllerView.setPlayer(this.f.getControl());
@@ -1037,7 +1037,7 @@ public class if7 {
         ImageView imageView4 = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090ede);
         this.t = imageView4;
         imageView4.setOnClickListener(this.i0);
-        TbImageView tbImageView = (TbImageView) this.d.findViewById(R.id.obfuscated_res_0x7f09251f);
+        TbImageView tbImageView = (TbImageView) this.d.findViewById(R.id.obfuscated_res_0x7f092520);
         this.v = tbImageView;
         tbImageView.setDefaultBgResource(R.drawable.pic_bg_video_frs);
         this.W = qi.k(this.a.getPageActivity());
@@ -1045,7 +1045,7 @@ public class if7 {
         ImageView imageView5 = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090ec3);
         this.y = imageView5;
         imageView5.setOnClickListener(this.i0);
-        this.z = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092521);
+        this.z = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092522);
         View findViewById2 = this.d.findViewById(R.id.obfuscated_res_0x7f09128d);
         this.A = findViewById2;
         findViewById2.setVisibility(8);

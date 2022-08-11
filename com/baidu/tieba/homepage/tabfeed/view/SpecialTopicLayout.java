@@ -104,7 +104,7 @@ public class SpecialTopicLayout extends LinearLayout implements ix, hx<SpecialCo
                 }
                 this.i = horizontalAdapter;
                 this.a = 3;
-                this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0924f3);
+                this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0924f4);
                 this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920e1);
                 this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092320);
                 TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ff1);
@@ -347,7 +347,7 @@ public class SpecialTopicLayout extends LinearLayout implements ix, hx<SpecialCo
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0921d3);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b3);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b4);
             this.c = (PullLeftRefreshLayout) findViewById(R.id.obfuscated_res_0x7f091b7b);
             this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091b74);
             this.h = findViewById(R.id.obfuscated_res_0x7f090801);

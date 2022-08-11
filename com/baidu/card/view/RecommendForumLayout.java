@@ -125,7 +125,7 @@ public class RecommendForumLayout extends LinearLayout implements ix {
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             this.e = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0921ec);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b3);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b4);
             this.f = textView;
             ms4.d(textView).z(R.dimen.T_X07);
             this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090eac);

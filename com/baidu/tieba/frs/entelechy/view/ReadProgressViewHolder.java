@@ -65,7 +65,7 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = view2;
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092550);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092551);
         this.b = textView;
         int i3 = e;
         textView.setPadding(0, i3, 0, i3 - d);

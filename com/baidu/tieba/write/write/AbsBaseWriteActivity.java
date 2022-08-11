@@ -2085,7 +2085,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
             View inflate = LayoutInflater.from(getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0916, (ViewGroup) null);
             this.C = inflate;
             setContentView(inflate);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255b);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09255c);
             this.D = navigationBar;
             navigationBar.showBottomLine();
             this.E = this.D.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
@@ -2093,7 +2093,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
             this.G = centerTextTitle;
             SkinManager.setViewTextColor(centerTextTitle, (int) R.color.CAM_X0105);
             L2();
-            ScrollView scrollView = (ScrollView) findViewById(R.id.obfuscated_res_0x7f092655);
+            ScrollView scrollView = (ScrollView) findViewById(R.id.obfuscated_res_0x7f092656);
             this.Z = scrollView;
             scrollView.setOnTouchListener(new d(this));
             addGlobalLayoutListener();

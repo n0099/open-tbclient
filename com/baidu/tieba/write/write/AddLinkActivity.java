@@ -594,7 +594,7 @@ public class AddLinkActivity extends BaseActivity {
             this.a = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090118);
             this.b = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090119);
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092315);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b4);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0923b5);
             this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09231c);
             this.f = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09011a);
             this.g = (EditText) findViewById(R.id.obfuscated_res_0x7f09091b);

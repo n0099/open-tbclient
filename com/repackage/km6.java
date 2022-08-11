@@ -191,7 +191,7 @@ public class km6 {
             navigationBar.showBottomLine();
             this.b.getBarBgView().setAlpha(1.0f);
             this.b.setCenterTextTitle(i());
-            ImageView imageView = (ImageView) this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).findViewById(R.id.obfuscated_res_0x7f092614);
+            ImageView imageView = (ImageView) this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).findViewById(R.id.obfuscated_res_0x7f092615);
             this.e = imageView;
             imageView.setOnClickListener(this.h);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);

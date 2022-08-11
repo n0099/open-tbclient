@@ -159,14 +159,14 @@ public class FrsUserRecommendAdapter extends ue6<gf6, FrsUserRecommendViewHolder
             this.h = new b(this);
             this.e = z;
             this.f = str;
-            this.b = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f092465);
-            UserRecommendLayout userRecommendLayout = (UserRecommendLayout) view2.findViewById(R.id.obfuscated_res_0x7f09245f);
+            this.b = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f092466);
+            UserRecommendLayout userRecommendLayout = (UserRecommendLayout) view2.findViewById(R.id.obfuscated_res_0x7f092460);
             this.c = userRecommendLayout;
             userRecommendLayout.setItemSpace(qi.f(view2.getContext(), R.dimen.obfuscated_res_0x7f0701be));
             this.c.setAfterLikeBtnClickListener(this.g);
             this.c.setAfterHeaderLickListener(this.h);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092460);
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092464);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092461);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092465);
         }
 
         public final void d(String str, int i) {

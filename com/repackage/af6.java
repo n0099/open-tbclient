@@ -1408,7 +1408,7 @@ public class af6 {
         if (interceptable == null || interceptable.invokeL(1048601, this, qr4Var) == null) {
             if (this.m == null) {
                 View C3 = this.a.C3();
-                ViewStub viewStub = (ViewStub) C3.findViewById(R.id.obfuscated_res_0x7f09267f);
+                ViewStub viewStub = (ViewStub) C3.findViewById(R.id.obfuscated_res_0x7f092680);
                 this.m = viewStub;
                 viewStub.setVisibility(0);
                 this.n = (FrameLayout) C3.findViewById(R.id.obfuscated_res_0x7f090c43);

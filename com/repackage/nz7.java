@@ -368,7 +368,7 @@ public class nz7 {
             this.w = f3 - f2;
         }
         this.x = (k - (this.w * 2)) - qi.f(TbadkCoreApplication.getInst(), R.dimen.tbds89);
-        NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f09255b);
+        NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f09255c);
         this.a = navigationBar;
         navigationBar.setOnClickListener(new a(this));
         this.a.hideBottomLine();
@@ -382,7 +382,7 @@ public class nz7 {
         this.g.setVisibility(8);
         this.c.setOnClickListener(pbFragment.k2);
         this.g.setOnClickListener(pbFragment.k2);
-        this.r = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f092614);
+        this.r = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f092615);
         if (this.i == null) {
             s();
         }

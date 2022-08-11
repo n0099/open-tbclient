@@ -118,12 +118,12 @@ public class od8 extends sd8 {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            HeadImageView headImageView = (HeadImageView) a(R.id.obfuscated_res_0x7f09245c);
+            HeadImageView headImageView = (HeadImageView) a(R.id.obfuscated_res_0x7f09245d);
             this.h = headImageView;
             headImageView.setDefaultResource(R.drawable.icon_default_avatar100);
             this.h.setDefaultBgResource(R.color.CAM_X0205);
             this.h.setIsRound(true);
-            this.i = (TextView) a(R.id.obfuscated_res_0x7f09244f);
+            this.i = (TextView) a(R.id.obfuscated_res_0x7f092450);
             this.j = (TextView) a(R.id.obfuscated_res_0x7f090059);
         }
     }

@@ -582,14 +582,14 @@ public class wx7 {
             textView.setOnClickListener(new g(this));
             ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09041a);
             imageView.setOnClickListener(new h(this));
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923cd);
-            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923cf);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923ce);
+            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923d0);
             textView3.setText(this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0db4, new Object[]{bt7Var.c}));
             textView2.setText(this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0db3, new Object[]{bt7Var.f}));
             SkinManager.setImageResource(imageView, R.drawable.icon_use_close_n);
             SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0107);
             SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923ce), (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923cf), (int) R.color.CAM_X0107);
             SkinManager.setBackgroundResource(textView, R.drawable.btn_pb_ad_card_gift_get);
             SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0112);
             this.e.setOnDismissListener(new i(this));

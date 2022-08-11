@@ -550,13 +550,13 @@ public class sz5 extends bz5<CardPersonDynamicThreadData> {
         View h2 = h();
         this.k = h2;
         this.n = tbPageContext;
-        this.o = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f09266b);
+        this.o = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f09266c);
         this.p = (LinearLayout) this.k.findViewById(R.id.obfuscated_res_0x7f0912b9);
         this.q = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f091526);
         this.r = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f090758);
         this.s = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f091ec9);
-        this.M = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f092528);
-        this.t = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f09238e);
+        this.M = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f092529);
+        this.t = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f09238f);
         this.u = (ImageView) this.k.findViewById(R.id.obfuscated_res_0x7f090ff8);
         this.w = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f092163);
         PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) this.k.findViewById(R.id.obfuscated_res_0x7f0904f4);
@@ -576,8 +576,8 @@ public class sz5 extends bz5<CardPersonDynamicThreadData> {
         this.C = (ImageView) this.k.findViewById(R.id.obfuscated_res_0x7f09213b);
         this.j = (ThreadViewAndCommentInfoLayout) this.k.findViewById(R.id.obfuscated_res_0x7f0904f6);
         this.G = (LinearLayout) this.k.findViewById(R.id.obfuscated_res_0x7f09084b);
-        this.H = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f0924b5);
-        this.I = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f0924f0);
+        this.H = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f0924b6);
+        this.I = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f0924f1);
         this.J = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f0902dd);
         TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.k.findViewById(R.id.obfuscated_res_0x7f090221);
         this.K = tBLottieAnimationView;
@@ -615,7 +615,7 @@ public class sz5 extends bz5<CardPersonDynamicThreadData> {
         this.Q.setShareReportFrom(6);
         this.Q.setStType("person_page");
         this.Q.setForumAfterClickListener(new b(this));
-        this.T = (EMTextView) this.k.findViewById(R.id.obfuscated_res_0x7f0923bb);
+        this.T = (EMTextView) this.k.findViewById(R.id.obfuscated_res_0x7f0923bc);
     }
 
     public final void G(CardPersonDynamicThreadData cardPersonDynamicThreadData) {

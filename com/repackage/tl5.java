@@ -60,7 +60,7 @@ public class tl5 {
             this.c = linearLayout;
             this.d = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f0906d3);
             this.e = (TbSettingTextTipView) this.c.findViewById(R.id.obfuscated_res_0x7f09033a);
-            this.g = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0923b3);
+            this.g = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0923b4);
             this.f = (TbSettingTextTipView) this.c.findViewById(R.id.obfuscated_res_0x7f090057);
             this.e.a();
             this.f.a();

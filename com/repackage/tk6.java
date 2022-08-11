@@ -664,7 +664,7 @@ public class tk6 implements View.OnClickListener {
             this.o = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090a3b);
             this.h = view2.findViewById(R.id.obfuscated_res_0x7f090aa1);
             this.u = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f09091a);
-            this.p = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0923bd);
+            this.p = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0923be);
             this.q = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0921d9);
             this.i = view2.findViewById(R.id.obfuscated_res_0x7f090a9f);
             this.r = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091a23);

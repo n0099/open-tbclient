@@ -62,7 +62,7 @@ public class w18 {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d074e, (ViewGroup) null);
             this.a = linearLayout;
-            this.b = (EMTextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0923b3);
+            this.b = (EMTextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0923b4);
             BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f09183d);
             this.c = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context));

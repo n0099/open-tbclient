@@ -103,7 +103,7 @@ public class UserTropicGiftBagActivity extends BaseActivity {
             this.a = roundRelativeLayout;
             roundRelativeLayout.setAllCornerRound(qi.f(this, R.dimen.tbds32));
             this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0922dc);
-            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092586);
+            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092587);
             this.g = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0912f7);
             this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0912f8);
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091e1d);

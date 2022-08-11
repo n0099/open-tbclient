@@ -88,7 +88,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
             this.d.getHeadView().setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
             this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906ac);
             this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906aa);
-            this.e = (DynamicUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f092463);
+            this.e = (DynamicUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f092464);
             this.f = new tw4(concernRecommendListAdapter.b, this.e);
         }
 

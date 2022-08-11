@@ -182,7 +182,7 @@ public class nu8 {
         }
         ImageView imageView = (ImageView) recordVideoActivity.findViewById(R.id.obfuscated_res_0x7f090486);
         ImageView imageView2 = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0909d1);
-        ProgressView progressView = (ProgressView) this.c.findViewById(R.id.obfuscated_res_0x7f0924fb);
+        ProgressView progressView = (ProgressView) this.c.findViewById(R.id.obfuscated_res_0x7f0924fc);
         this.d = progressView;
         progressView.setListener(new a(this));
         if (!gu8.f(true)) {

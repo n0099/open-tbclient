@@ -131,7 +131,7 @@ public final class el5 {
             eMTextView3.setText(i2);
             ms4.d(eMTextView3).z(R.dimen.T_X08);
             eMTextView3.setOnClickListener(listener);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f09266d);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f09266e);
             tBSpecificationBtn.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f10cf));
             tBSpecificationBtn.setTextSize(R.dimen.T_X07);
             pv4 pv4Var = new pv4();

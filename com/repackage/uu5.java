@@ -344,7 +344,7 @@ public class uu5 {
             this.i = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f090b0c);
             this.j = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f090b12);
             this.k = (BdTypeListView) this.g.findViewById(R.id.obfuscated_res_0x7f09130a);
-            this.s = (NoNetworkView) this.g.findViewById(R.id.obfuscated_res_0x7f09247b);
+            this.s = (NoNetworkView) this.g.findViewById(R.id.obfuscated_res_0x7f09247c);
             bv4 bv4Var = new bv4(this.a);
             this.q = bv4Var;
             bv4Var.b0(this.f);

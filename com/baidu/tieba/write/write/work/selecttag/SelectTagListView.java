@@ -805,8 +805,8 @@ public class SelectTagListView extends LinearLayout implements hb5, View.OnClick
     public final void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.f = (EMTextView) this.e.findViewById(R.id.obfuscated_res_0x7f092568);
-            EMTextView eMTextView = (EMTextView) this.e.findViewById(R.id.obfuscated_res_0x7f092566);
+            this.f = (EMTextView) this.e.findViewById(R.id.obfuscated_res_0x7f092569);
+            EMTextView eMTextView = (EMTextView) this.e.findViewById(R.id.obfuscated_res_0x7f092567);
             this.g = eMTextView;
             ms4 d2 = ms4.d(eMTextView);
             d2.A(R.string.F_X02);

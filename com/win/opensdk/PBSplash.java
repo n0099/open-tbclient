@@ -337,7 +337,7 @@ public class PBSplash implements A {
             } else if (this.b.b().equals("image")) {
                 viewGroup.removeAllViews();
                 View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d090f, viewGroup);
-                ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09262b);
+                ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09262c);
                 a(inflate);
                 imageView.setVisibility(0);
                 b(inflate);
@@ -348,7 +348,7 @@ public class PBSplash implements A {
                 viewGroup.removeAllViews();
                 View inflate2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d090f, viewGroup);
                 a(inflate2);
-                GifImageView gifImageView = (GifImageView) inflate2.findViewById(R.id.obfuscated_res_0x7f092623);
+                GifImageView gifImageView = (GifImageView) inflate2.findViewById(R.id.obfuscated_res_0x7f092624);
                 gifImageView.setVisibility(0);
                 byte[] bArr = this.m;
                 if (bArr != null) {
@@ -377,12 +377,12 @@ public class PBSplash implements A {
             return;
         }
         try {
-            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09262c);
+            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09262d);
             relativeLayout.removeAllViews();
             if (this.s != null) {
                 relativeLayout.addView(this.s);
             }
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09262f);
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f092630);
             float a = M.a(this.a, this.t);
             float c = M.c(this.a) / 2.0f;
             if (a < c) {
@@ -404,7 +404,7 @@ public class PBSplash implements A {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             F1 f1 = this.b.a;
             long countdown = (f1 == null || !f1.b()) ? 0L : f1.c.getCountdown();
-            CircleProgressbar circleProgressbar = (CircleProgressbar) view2.findViewById(R.id.obfuscated_res_0x7f09262e);
+            CircleProgressbar circleProgressbar = (CircleProgressbar) view2.findViewById(R.id.obfuscated_res_0x7f09262f);
             this.d = circleProgressbar;
             circleProgressbar.setOutLineColor(0);
             this.d.setInCircleColor(Color.parseColor(this.a.getString(R.string.obfuscated_res_0x7f0f15a0)));

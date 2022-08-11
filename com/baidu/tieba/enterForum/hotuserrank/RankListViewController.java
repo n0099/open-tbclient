@@ -161,10 +161,10 @@ public class RankListViewController {
             this.b.setPlaceHolder(1);
             this.b.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.c = (UserHeadCoverView) view2.findViewById(R.id.obfuscated_res_0x7f090d10);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09244f);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092449);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092450);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09244a);
             this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ccb);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092443);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092444);
             this.h = (HotUserRankLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f0912df);
         }
 

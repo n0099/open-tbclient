@@ -168,9 +168,9 @@ public class nz5 implements hx<p06>, ix {
     public final void g(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f0925ab);
-            this.d = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f0925ac);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925af);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f0925ac);
+            this.d = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f0925ad);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925b0);
             this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090591);
             TbImageSwitch tbImageSwitch = (TbImageSwitch) view2.findViewById(R.id.obfuscated_res_0x7f090590);
             this.g = tbImageSwitch;

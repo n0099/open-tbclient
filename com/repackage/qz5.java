@@ -78,7 +78,7 @@ public class qz5 implements View.OnClickListener {
             this.c = findViewById;
             findViewById.setOnClickListener(this);
             this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090ef0);
-            this.e = this.b.findViewById(R.id.obfuscated_res_0x7f092562);
+            this.e = this.b.findViewById(R.id.obfuscated_res_0x7f092563);
             this.f = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921ca);
             ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090643);
             this.g = imageView;

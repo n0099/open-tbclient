@@ -224,14 +224,14 @@ public class NoDataView extends LinearLayout {
             tbImageView.setDefaultBgResource(0);
             this.c.setDefaultResource(0);
             this.d = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0921c9);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923ad);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923a8);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923b3);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923ae);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923a9);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923b4);
             this.h = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f090429);
             ov4 ov4Var = new ov4();
             this.h.setTextSize(R.dimen.T_X05);
             this.h.setConfig(ov4Var);
-            this.l = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0923c9);
+            this.l = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0923ca);
             this.o = R.color.CAM_X0107;
             this.p = R.color.CAM_X0109;
             h();

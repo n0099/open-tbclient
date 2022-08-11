@@ -234,7 +234,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements sp7 {
             this.c = new FaceGroupMakeTitleBar(getPageContext().getPageActivity());
             this.c.setLayoutParams(new RelativeLayout.LayoutParams(qi.k(getPageContext().getPageActivity()), -1));
             this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.c, (View.OnClickListener) null);
-            this.d = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f09255d);
+            this.d = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f09255e);
             this.c.setRightListener(new a(this));
             SkinManager.setBackgroundColor(this.c, R.color.CAM_X0201);
             N0(0);

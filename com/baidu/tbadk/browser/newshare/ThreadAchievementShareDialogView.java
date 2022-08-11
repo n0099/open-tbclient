@@ -556,7 +556,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
             this.u = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f091a1b);
             this.l = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090058);
             this.v = (HeadImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090d19);
-            TextView textView = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09244f);
+            TextView textView = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092450);
             this.k = textView;
             SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0101);

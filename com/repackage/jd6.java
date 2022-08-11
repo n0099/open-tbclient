@@ -266,20 +266,20 @@ public class jd6 extends b9<TbTitleActivity> {
             RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d084f, (ViewGroup) null);
             this.b = relativeLayout;
             this.a.setContentView(relativeLayout);
-            this.m = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092589);
+            this.m = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09258a);
             this.n = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091b03);
             this.o = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090949);
             this.p = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091973);
             this.q = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921b7);
-            this.r = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0925e6);
-            this.s = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092580);
+            this.r = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0925e7);
+            this.s = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092581);
             this.l = this.b.findViewById(R.id.obfuscated_res_0x7f092258);
             if (!oi.A()) {
                 this.l.getLayoutParams().height = UtilHelper.getLightStatusBarHeight() + qi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07025a);
             } else {
                 this.l.getLayoutParams().height = UtilHelper.getLightStatusBarHeight() + qi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f070306);
             }
-            NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f09255b);
+            NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f09255c);
             this.d = navigationBar;
             navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f13a7));
             this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
@@ -288,10 +288,10 @@ public class jd6 extends b9<TbTitleActivity> {
             this.k = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0909b6);
             this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092097);
             this.f = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091fda);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09244c);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09244d);
             this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090d33);
             this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092099);
-            this.c = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f09255d);
+            this.c = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f09255e);
             o();
             s();
         }
